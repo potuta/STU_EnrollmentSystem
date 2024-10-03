@@ -32,6 +32,8 @@ namespace STUEnrollmentSystem
 
         private void Student_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sTU_DBDataSet.Sections' table. You can move, or remove it, as needed.
+            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
             this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
             searchPanel.Visible = false;
         }
@@ -123,6 +125,23 @@ namespace STUEnrollmentSystem
                 }
             }
             catch (FormatException fe)
+            {
+                STU_DB_Connection.Close();
+                viewFrm137Button.Visible = false;
+                deleteFrm137Button.Visible = false;
+                uploadFrm137Button.Visible = false;
+                viewGoodMoralButton.Visible = false;
+                deleteGoodMoralButton.Visible = false;
+                uploadGoodMoralButton.Visible = false;
+                viewBirthCertButton.Visible = false;
+                deleteBirthCertButton.Visible = false;
+                uploadBirthCertButton.Visible = false;
+                viewTransferCertButton.Visible = false;
+                deleteTransferCertButton.Visible = false;
+                uploadTransferCertButton.Visible = false;
+                return;
+            }
+            catch(NullReferenceException nfe)
             {
                 STU_DB_Connection.Close();
                 viewFrm137Button.Visible = false;

@@ -52,9 +52,11 @@
             System.Windows.Forms.Label fatherLastNameLabel;
             System.Windows.Forms.Label fatherOccupationLabel;
             System.Windows.Forms.Label lRNLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
             System.Windows.Forms.Label sectionLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
@@ -80,42 +82,46 @@
             this.lRNTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.deleteFrm137Button = new System.Windows.Forms.Button();
-            this.viewFrm137Button = new System.Windows.Forms.Button();
+            this.genStudNumTextBox = new System.Windows.Forms.TextBox();
             this.uploadBirthCertButton = new System.Windows.Forms.Button();
-            this.viewGoodMoralButton = new System.Windows.Forms.Button();
             this.uploadTransferCertButton = new System.Windows.Forms.Button();
-            this.studForm137TextBox = new System.Windows.Forms.TextBox();
-            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
-            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.birthDateTextBox = new System.Windows.Forms.TextBox();
-            this.genStudNumTextBox = new System.Windows.Forms.TextBox();
+            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
+            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
             this.uploadFrm137Button = new System.Windows.Forms.Button();
+            this.viewFrm137Button = new System.Windows.Forms.Button();
+            this.studForm137TextBox = new System.Windows.Forms.TextBox();
             this.viewBirthCertButton = new System.Windows.Forms.Button();
+            this.viewGoodMoralButton = new System.Windows.Forms.Button();
+            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
             this.uploadGoodMoralButton = new System.Windows.Forms.Button();
             this.viewTransferCertButton = new System.Windows.Forms.Button();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
-            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentsTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.studentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.studentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.studentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
+            this.sectionComboBox = new System.Windows.Forms.ComboBox();
+            this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,6 +129,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,15 +142,11 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.sectionTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -169,19 +172,237 @@
             lRNLabel = new System.Windows.Forms.Label();
             sectionLabel = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
-            this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
+            this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingNavigator)).BeginInit();
             this.studentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // studentNumberLabel
+            // 
+            studentNumberLabel.AutoSize = true;
+            studentNumberLabel.Location = new System.Drawing.Point(13, 67);
+            studentNumberLabel.Name = "studentNumberLabel";
+            studentNumberLabel.Size = new System.Drawing.Size(87, 13);
+            studentNumberLabel.TabIndex = 63;
+            studentNumberLabel.Text = "Student Number:";
+            // 
+            // transferCertificateLabel
+            // 
+            transferCertificateLabel.AutoSize = true;
+            transferCertificateLabel.Location = new System.Drawing.Point(777, 171);
+            transferCertificateLabel.Name = "transferCertificateLabel";
+            transferCertificateLabel.Size = new System.Drawing.Size(99, 13);
+            transferCertificateLabel.TabIndex = 46;
+            transferCertificateLabel.Text = "Transfer Certificate:";
+            // 
+            // goodMoralLabel
+            // 
+            goodMoralLabel.AutoSize = true;
+            goodMoralLabel.Location = new System.Drawing.Point(777, 145);
+            goodMoralLabel.Name = "goodMoralLabel";
+            goodMoralLabel.Size = new System.Drawing.Size(65, 13);
+            goodMoralLabel.TabIndex = 45;
+            goodMoralLabel.Text = "Good Moral:";
+            // 
+            // birthCertificateLabel
+            // 
+            birthCertificateLabel.AutoSize = true;
+            birthCertificateLabel.Location = new System.Drawing.Point(777, 119);
+            birthCertificateLabel.Name = "birthCertificateLabel";
+            birthCertificateLabel.Size = new System.Drawing.Size(81, 13);
+            birthCertificateLabel.TabIndex = 44;
+            birthCertificateLabel.Text = "Birth Certificate:";
+            // 
+            // studForm137Label
+            // 
+            studForm137Label.AutoSize = true;
+            studForm137Label.Location = new System.Drawing.Point(777, 93);
+            studForm137Label.Name = "studForm137Label";
+            studForm137Label.Size = new System.Drawing.Size(76, 13);
+            studForm137Label.TabIndex = 43;
+            studForm137Label.Text = "Stud Form137:";
+            // 
+            // enrollmentStatusLabel
+            // 
+            enrollmentStatusLabel.AutoSize = true;
+            enrollmentStatusLabel.Location = new System.Drawing.Point(13, 92);
+            enrollmentStatusLabel.Name = "enrollmentStatusLabel";
+            enrollmentStatusLabel.Size = new System.Drawing.Size(92, 13);
+            enrollmentStatusLabel.TabIndex = 3;
+            enrollmentStatusLabel.Text = "Enrollment Status:";
+            // 
+            // studFirstNameLabel
+            // 
+            studFirstNameLabel.AutoSize = true;
+            studFirstNameLabel.Location = new System.Drawing.Point(13, 118);
+            studFirstNameLabel.Name = "studFirstNameLabel";
+            studFirstNameLabel.Size = new System.Drawing.Size(85, 13);
+            studFirstNameLabel.TabIndex = 5;
+            studFirstNameLabel.Text = "Stud First Name:";
+            // 
+            // studMidNameLabel
+            // 
+            studMidNameLabel.AutoSize = true;
+            studMidNameLabel.Location = new System.Drawing.Point(13, 144);
+            studMidNameLabel.Name = "studMidNameLabel";
+            studMidNameLabel.Size = new System.Drawing.Size(83, 13);
+            studMidNameLabel.TabIndex = 7;
+            studMidNameLabel.Text = "Stud Mid Name:";
+            // 
+            // studLastNameLabel
+            // 
+            studLastNameLabel.AutoSize = true;
+            studLastNameLabel.Location = new System.Drawing.Point(13, 170);
+            studLastNameLabel.Name = "studLastNameLabel";
+            studLastNameLabel.Size = new System.Drawing.Size(86, 13);
+            studLastNameLabel.TabIndex = 9;
+            studLastNameLabel.Text = "Stud Last Name:";
+            // 
+            // genderLabel
+            // 
+            genderLabel.AutoSize = true;
+            genderLabel.Location = new System.Drawing.Point(13, 196);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new System.Drawing.Size(45, 13);
+            genderLabel.TabIndex = 11;
+            genderLabel.Text = "Gender:";
+            // 
+            // birthDateLabel
+            // 
+            birthDateLabel.AutoSize = true;
+            birthDateLabel.Location = new System.Drawing.Point(268, 67);
+            birthDateLabel.Name = "birthDateLabel";
+            birthDateLabel.Size = new System.Drawing.Size(57, 13);
+            birthDateLabel.TabIndex = 13;
+            birthDateLabel.Text = "Birth Date:";
+            // 
+            // civilStatusLabel
+            // 
+            civilStatusLabel.AutoSize = true;
+            civilStatusLabel.Location = new System.Drawing.Point(268, 93);
+            civilStatusLabel.Name = "civilStatusLabel";
+            civilStatusLabel.Size = new System.Drawing.Size(62, 13);
+            civilStatusLabel.TabIndex = 15;
+            civilStatusLabel.Text = "Civil Status:";
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.Location = new System.Drawing.Point(268, 119);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new System.Drawing.Size(48, 13);
+            addressLabel.TabIndex = 17;
+            addressLabel.Text = "Address:";
+            // 
+            // contactNumLabel
+            // 
+            contactNumLabel.AutoSize = true;
+            contactNumLabel.Location = new System.Drawing.Point(268, 145);
+            contactNumLabel.Name = "contactNumLabel";
+            contactNumLabel.Size = new System.Drawing.Size(72, 13);
+            contactNumLabel.TabIndex = 19;
+            contactNumLabel.Text = "Contact Num:";
+            // 
+            // enrollmentTypeLabel
+            // 
+            enrollmentTypeLabel.AutoSize = true;
+            enrollmentTypeLabel.Location = new System.Drawing.Point(268, 171);
+            enrollmentTypeLabel.Name = "enrollmentTypeLabel";
+            enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
+            enrollmentTypeLabel.TabIndex = 21;
+            enrollmentTypeLabel.Text = "Enrollment Type:";
+            // 
+            // installmentTypeLabel
+            // 
+            installmentTypeLabel.AutoSize = true;
+            installmentTypeLabel.Location = new System.Drawing.Point(268, 197);
+            installmentTypeLabel.Name = "installmentTypeLabel";
+            installmentTypeLabel.Size = new System.Drawing.Size(87, 13);
+            installmentTypeLabel.TabIndex = 23;
+            installmentTypeLabel.Text = "Installment Type:";
+            // 
+            // motherFirstNameLabel
+            // 
+            motherFirstNameLabel.AutoSize = true;
+            motherFirstNameLabel.Location = new System.Drawing.Point(521, 67);
+            motherFirstNameLabel.Name = "motherFirstNameLabel";
+            motherFirstNameLabel.Size = new System.Drawing.Size(96, 13);
+            motherFirstNameLabel.TabIndex = 25;
+            motherFirstNameLabel.Text = "Mother First Name:";
+            // 
+            // motherLastNameLabel
+            // 
+            motherLastNameLabel.AutoSize = true;
+            motherLastNameLabel.Location = new System.Drawing.Point(521, 93);
+            motherLastNameLabel.Name = "motherLastNameLabel";
+            motherLastNameLabel.Size = new System.Drawing.Size(97, 13);
+            motherLastNameLabel.TabIndex = 27;
+            motherLastNameLabel.Text = "Mother Last Name:";
+            // 
+            // motherOccupationLabel
+            // 
+            motherOccupationLabel.AutoSize = true;
+            motherOccupationLabel.Location = new System.Drawing.Point(521, 119);
+            motherOccupationLabel.Name = "motherOccupationLabel";
+            motherOccupationLabel.Size = new System.Drawing.Size(101, 13);
+            motherOccupationLabel.TabIndex = 29;
+            motherOccupationLabel.Text = "Mother Occupation:";
+            // 
+            // fatherFirstNameLabel
+            // 
+            fatherFirstNameLabel.AutoSize = true;
+            fatherFirstNameLabel.Location = new System.Drawing.Point(521, 145);
+            fatherFirstNameLabel.Name = "fatherFirstNameLabel";
+            fatherFirstNameLabel.Size = new System.Drawing.Size(93, 13);
+            fatherFirstNameLabel.TabIndex = 31;
+            fatherFirstNameLabel.Text = "Father First Name:";
+            // 
+            // fatherLastNameLabel
+            // 
+            fatherLastNameLabel.AutoSize = true;
+            fatherLastNameLabel.Location = new System.Drawing.Point(521, 171);
+            fatherLastNameLabel.Name = "fatherLastNameLabel";
+            fatherLastNameLabel.Size = new System.Drawing.Size(94, 13);
+            fatherLastNameLabel.TabIndex = 33;
+            fatherLastNameLabel.Text = "Father Last Name:";
+            // 
+            // fatherOccupationLabel
+            // 
+            fatherOccupationLabel.AutoSize = true;
+            fatherOccupationLabel.Location = new System.Drawing.Point(521, 197);
+            fatherOccupationLabel.Name = "fatherOccupationLabel";
+            fatherOccupationLabel.Size = new System.Drawing.Size(98, 13);
+            fatherOccupationLabel.TabIndex = 35;
+            fatherOccupationLabel.Text = "Father Occupation:";
+            // 
+            // lRNLabel
+            // 
+            lRNLabel.AutoSize = true;
+            lRNLabel.Location = new System.Drawing.Point(777, 67);
+            lRNLabel.Name = "lRNLabel";
+            lRNLabel.Size = new System.Drawing.Size(32, 13);
+            lRNLabel.TabIndex = 37;
+            lRNLabel.Text = "LRN:";
+            // 
+            // sectionLabel
+            // 
+            sectionLabel.AutoSize = true;
+            sectionLabel.Location = new System.Drawing.Point(13, 223);
+            sectionLabel.Name = "sectionLabel";
+            sectionLabel.Size = new System.Drawing.Size(46, 13);
+            sectionLabel.TabIndex = 66;
+            sectionLabel.Text = "Section:";
             // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.sectionComboBox);
             this.detailsPanel.Controls.Add(sectionLabel);
-            this.detailsPanel.Controls.Add(this.sectionTextBox);
             this.detailsPanel.Controls.Add(studentNumberLabel);
             this.detailsPanel.Controls.Add(this.studentNumberTextBox);
             this.detailsPanel.Controls.Add(this.civilStatusComboBox);
@@ -248,17 +469,18 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1247, 267);
+            this.detailsPanel.Size = new System.Drawing.Size(1247, 283);
             this.detailsPanel.TabIndex = 9;
             // 
-            // studentNumberLabel
+            // studentsBindingSource
             // 
-            studentNumberLabel.AutoSize = true;
-            studentNumberLabel.Location = new System.Drawing.Point(13, 67);
-            studentNumberLabel.Name = "studentNumberLabel";
-            studentNumberLabel.Size = new System.Drawing.Size(87, 13);
-            studentNumberLabel.TabIndex = 63;
-            studentNumberLabel.Text = "Student Number:";
+            this.studentsBindingSource.DataMember = "Students";
+            this.studentsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // studentNumberTextBox
             // 
@@ -333,42 +555,6 @@
             this.label3.TabIndex = 48;
             this.label3.Text = "Parent\'s Information";
             // 
-            // transferCertificateLabel
-            // 
-            transferCertificateLabel.AutoSize = true;
-            transferCertificateLabel.Location = new System.Drawing.Point(777, 171);
-            transferCertificateLabel.Name = "transferCertificateLabel";
-            transferCertificateLabel.Size = new System.Drawing.Size(99, 13);
-            transferCertificateLabel.TabIndex = 46;
-            transferCertificateLabel.Text = "Transfer Certificate:";
-            // 
-            // goodMoralLabel
-            // 
-            goodMoralLabel.AutoSize = true;
-            goodMoralLabel.Location = new System.Drawing.Point(777, 145);
-            goodMoralLabel.Name = "goodMoralLabel";
-            goodMoralLabel.Size = new System.Drawing.Size(65, 13);
-            goodMoralLabel.TabIndex = 45;
-            goodMoralLabel.Text = "Good Moral:";
-            // 
-            // birthCertificateLabel
-            // 
-            birthCertificateLabel.AutoSize = true;
-            birthCertificateLabel.Location = new System.Drawing.Point(777, 119);
-            birthCertificateLabel.Name = "birthCertificateLabel";
-            birthCertificateLabel.Size = new System.Drawing.Size(81, 13);
-            birthCertificateLabel.TabIndex = 44;
-            birthCertificateLabel.Text = "Birth Certificate:";
-            // 
-            // studForm137Label
-            // 
-            studForm137Label.AutoSize = true;
-            studForm137Label.Location = new System.Drawing.Point(777, 93);
-            studForm137Label.Name = "studForm137Label";
-            studForm137Label.Size = new System.Drawing.Size(76, 13);
-            studForm137Label.TabIndex = 43;
-            studForm137Label.Text = "Stud Form137:";
-            // 
             // installmentTypeComboBox
             // 
             this.installmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "InstallmentType", true));
@@ -420,24 +606,6 @@
             this.enrollmentStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentStatusComboBox.TabIndex = 40;
             // 
-            // enrollmentStatusLabel
-            // 
-            enrollmentStatusLabel.AutoSize = true;
-            enrollmentStatusLabel.Location = new System.Drawing.Point(13, 92);
-            enrollmentStatusLabel.Name = "enrollmentStatusLabel";
-            enrollmentStatusLabel.Size = new System.Drawing.Size(92, 13);
-            enrollmentStatusLabel.TabIndex = 3;
-            enrollmentStatusLabel.Text = "Enrollment Status:";
-            // 
-            // studFirstNameLabel
-            // 
-            studFirstNameLabel.AutoSize = true;
-            studFirstNameLabel.Location = new System.Drawing.Point(13, 118);
-            studFirstNameLabel.Name = "studFirstNameLabel";
-            studFirstNameLabel.Size = new System.Drawing.Size(85, 13);
-            studFirstNameLabel.TabIndex = 5;
-            studFirstNameLabel.Text = "Stud First Name:";
-            // 
             // studFirstNameTextBox
             // 
             this.studFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudFirstName", true));
@@ -445,15 +613,6 @@
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studFirstNameTextBox.TabIndex = 6;
-            // 
-            // studMidNameLabel
-            // 
-            studMidNameLabel.AutoSize = true;
-            studMidNameLabel.Location = new System.Drawing.Point(13, 144);
-            studMidNameLabel.Name = "studMidNameLabel";
-            studMidNameLabel.Size = new System.Drawing.Size(83, 13);
-            studMidNameLabel.TabIndex = 7;
-            studMidNameLabel.Text = "Stud Mid Name:";
             // 
             // studMidNameTextBox
             // 
@@ -463,15 +622,6 @@
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studMidNameTextBox.TabIndex = 8;
             // 
-            // studLastNameLabel
-            // 
-            studLastNameLabel.AutoSize = true;
-            studLastNameLabel.Location = new System.Drawing.Point(13, 170);
-            studLastNameLabel.Name = "studLastNameLabel";
-            studLastNameLabel.Size = new System.Drawing.Size(86, 13);
-            studLastNameLabel.TabIndex = 9;
-            studLastNameLabel.Text = "Stud Last Name:";
-            // 
             // studLastNameTextBox
             // 
             this.studLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudLastName", true));
@@ -479,42 +629,6 @@
             this.studLastNameTextBox.Name = "studLastNameTextBox";
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studLastNameTextBox.TabIndex = 10;
-            // 
-            // genderLabel
-            // 
-            genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(13, 196);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(45, 13);
-            genderLabel.TabIndex = 11;
-            genderLabel.Text = "Gender:";
-            // 
-            // birthDateLabel
-            // 
-            birthDateLabel.AutoSize = true;
-            birthDateLabel.Location = new System.Drawing.Point(268, 67);
-            birthDateLabel.Name = "birthDateLabel";
-            birthDateLabel.Size = new System.Drawing.Size(57, 13);
-            birthDateLabel.TabIndex = 13;
-            birthDateLabel.Text = "Birth Date:";
-            // 
-            // civilStatusLabel
-            // 
-            civilStatusLabel.AutoSize = true;
-            civilStatusLabel.Location = new System.Drawing.Point(268, 93);
-            civilStatusLabel.Name = "civilStatusLabel";
-            civilStatusLabel.Size = new System.Drawing.Size(62, 13);
-            civilStatusLabel.TabIndex = 15;
-            civilStatusLabel.Text = "Civil Status:";
-            // 
-            // addressLabel
-            // 
-            addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(268, 119);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(48, 13);
-            addressLabel.TabIndex = 17;
-            addressLabel.Text = "Address:";
             // 
             // addressTextBox
             // 
@@ -524,15 +638,6 @@
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 18;
             // 
-            // contactNumLabel
-            // 
-            contactNumLabel.AutoSize = true;
-            contactNumLabel.Location = new System.Drawing.Point(268, 145);
-            contactNumLabel.Name = "contactNumLabel";
-            contactNumLabel.Size = new System.Drawing.Size(72, 13);
-            contactNumLabel.TabIndex = 19;
-            contactNumLabel.Text = "Contact Num:";
-            // 
             // contactNumTextBox
             // 
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "ContactNum", true));
@@ -540,33 +645,6 @@
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
-            // 
-            // enrollmentTypeLabel
-            // 
-            enrollmentTypeLabel.AutoSize = true;
-            enrollmentTypeLabel.Location = new System.Drawing.Point(268, 171);
-            enrollmentTypeLabel.Name = "enrollmentTypeLabel";
-            enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
-            enrollmentTypeLabel.TabIndex = 21;
-            enrollmentTypeLabel.Text = "Enrollment Type:";
-            // 
-            // installmentTypeLabel
-            // 
-            installmentTypeLabel.AutoSize = true;
-            installmentTypeLabel.Location = new System.Drawing.Point(268, 197);
-            installmentTypeLabel.Name = "installmentTypeLabel";
-            installmentTypeLabel.Size = new System.Drawing.Size(87, 13);
-            installmentTypeLabel.TabIndex = 23;
-            installmentTypeLabel.Text = "Installment Type:";
-            // 
-            // motherFirstNameLabel
-            // 
-            motherFirstNameLabel.AutoSize = true;
-            motherFirstNameLabel.Location = new System.Drawing.Point(521, 67);
-            motherFirstNameLabel.Name = "motherFirstNameLabel";
-            motherFirstNameLabel.Size = new System.Drawing.Size(96, 13);
-            motherFirstNameLabel.TabIndex = 25;
-            motherFirstNameLabel.Text = "Mother First Name:";
             // 
             // motherFirstNameTextBox
             // 
@@ -576,15 +654,6 @@
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherFirstNameTextBox.TabIndex = 26;
             // 
-            // motherLastNameLabel
-            // 
-            motherLastNameLabel.AutoSize = true;
-            motherLastNameLabel.Location = new System.Drawing.Point(521, 93);
-            motherLastNameLabel.Name = "motherLastNameLabel";
-            motherLastNameLabel.Size = new System.Drawing.Size(97, 13);
-            motherLastNameLabel.TabIndex = 27;
-            motherLastNameLabel.Text = "Mother Last Name:";
-            // 
             // motherLastNameTextBox
             // 
             this.motherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "MotherLastName", true));
@@ -592,15 +661,6 @@
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherLastNameTextBox.TabIndex = 28;
-            // 
-            // motherOccupationLabel
-            // 
-            motherOccupationLabel.AutoSize = true;
-            motherOccupationLabel.Location = new System.Drawing.Point(521, 119);
-            motherOccupationLabel.Name = "motherOccupationLabel";
-            motherOccupationLabel.Size = new System.Drawing.Size(101, 13);
-            motherOccupationLabel.TabIndex = 29;
-            motherOccupationLabel.Text = "Mother Occupation:";
             // 
             // motherOccupationTextBox
             // 
@@ -610,15 +670,6 @@
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherOccupationTextBox.TabIndex = 30;
             // 
-            // fatherFirstNameLabel
-            // 
-            fatherFirstNameLabel.AutoSize = true;
-            fatherFirstNameLabel.Location = new System.Drawing.Point(521, 145);
-            fatherFirstNameLabel.Name = "fatherFirstNameLabel";
-            fatherFirstNameLabel.Size = new System.Drawing.Size(93, 13);
-            fatherFirstNameLabel.TabIndex = 31;
-            fatherFirstNameLabel.Text = "Father First Name:";
-            // 
             // fatherFirstNameTextBox
             // 
             this.fatherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "FatherFirstName", true));
@@ -626,15 +677,6 @@
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherFirstNameTextBox.TabIndex = 32;
-            // 
-            // fatherLastNameLabel
-            // 
-            fatherLastNameLabel.AutoSize = true;
-            fatherLastNameLabel.Location = new System.Drawing.Point(521, 171);
-            fatherLastNameLabel.Name = "fatherLastNameLabel";
-            fatherLastNameLabel.Size = new System.Drawing.Size(94, 13);
-            fatherLastNameLabel.TabIndex = 33;
-            fatherLastNameLabel.Text = "Father Last Name:";
             // 
             // fatherLastNameTextBox
             // 
@@ -644,15 +686,6 @@
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherLastNameTextBox.TabIndex = 34;
             // 
-            // fatherOccupationLabel
-            // 
-            fatherOccupationLabel.AutoSize = true;
-            fatherOccupationLabel.Location = new System.Drawing.Point(521, 197);
-            fatherOccupationLabel.Name = "fatherOccupationLabel";
-            fatherOccupationLabel.Size = new System.Drawing.Size(98, 13);
-            fatherOccupationLabel.TabIndex = 35;
-            fatherOccupationLabel.Text = "Father Occupation:";
-            // 
             // fatherOccupationTextBox
             // 
             this.fatherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "FatherOccupation", true));
@@ -660,15 +693,6 @@
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherOccupationTextBox.TabIndex = 36;
-            // 
-            // lRNLabel
-            // 
-            lRNLabel.AutoSize = true;
-            lRNLabel.Location = new System.Drawing.Point(777, 67);
-            lRNLabel.Name = "lRNLabel";
-            lRNLabel.Size = new System.Drawing.Size(32, 13);
-            lRNLabel.TabIndex = 37;
-            lRNLabel.Text = "LRN:";
             // 
             // lRNTextBox
             // 
@@ -698,15 +722,12 @@
             this.deleteFrm137Button.UseVisualStyleBackColor = true;
             this.deleteFrm137Button.Click += new System.EventHandler(this.deleteFrm137Button_Click);
             // 
-            // viewFrm137Button
+            // genStudNumTextBox
             // 
-            this.viewFrm137Button.Location = new System.Drawing.Point(884, 88);
-            this.viewFrm137Button.Name = "viewFrm137Button";
-            this.viewFrm137Button.Size = new System.Drawing.Size(100, 23);
-            this.viewFrm137Button.TabIndex = 51;
-            this.viewFrm137Button.Text = "View File";
-            this.viewFrm137Button.UseVisualStyleBackColor = true;
-            this.viewFrm137Button.Click += new System.EventHandler(this.viewFrm137Button_Click);
+            this.genStudNumTextBox.Location = new System.Drawing.Point(120, 64);
+            this.genStudNumTextBox.Name = "genStudNumTextBox";
+            this.genStudNumTextBox.Size = new System.Drawing.Size(100, 20);
+            this.genStudNumTextBox.TabIndex = 66;
             // 
             // uploadBirthCertButton
             // 
@@ -718,16 +739,6 @@
             this.uploadBirthCertButton.UseVisualStyleBackColor = true;
             this.uploadBirthCertButton.Click += new System.EventHandler(this.uploadBirthCertButton_Click);
             // 
-            // viewGoodMoralButton
-            // 
-            this.viewGoodMoralButton.Location = new System.Drawing.Point(884, 142);
-            this.viewGoodMoralButton.Name = "viewGoodMoralButton";
-            this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
-            this.viewGoodMoralButton.TabIndex = 57;
-            this.viewGoodMoralButton.Text = "View File";
-            this.viewGoodMoralButton.UseVisualStyleBackColor = true;
-            this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
-            // 
             // uploadTransferCertButton
             // 
             this.uploadTransferCertButton.Location = new System.Drawing.Point(884, 166);
@@ -737,42 +748,6 @@
             this.uploadTransferCertButton.Text = "Upload File";
             this.uploadTransferCertButton.UseVisualStyleBackColor = true;
             this.uploadTransferCertButton.Click += new System.EventHandler(this.uploadTransferCertButton_Click);
-            // 
-            // studForm137TextBox
-            // 
-            this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudForm137", true));
-            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
-            this.studForm137TextBox.Name = "studForm137TextBox";
-            this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
-            this.studForm137TextBox.TabIndex = 44;
-            this.studForm137TextBox.Visible = false;
-            // 
-            // birthCertificateTextBox
-            // 
-            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthCertificate", true));
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
-            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
-            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.birthCertificateTextBox.TabIndex = 45;
-            this.birthCertificateTextBox.Visible = false;
-            // 
-            // goodMoralTextBox
-            // 
-            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "GoodMoral", true));
-            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
-            this.goodMoralTextBox.Name = "goodMoralTextBox";
-            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
-            this.goodMoralTextBox.TabIndex = 46;
-            this.goodMoralTextBox.Visible = false;
-            // 
-            // transferCertificateTextBox
-            // 
-            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "TransferCertificate", true));
-            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
-            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
-            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.transferCertificateTextBox.TabIndex = 47;
-            this.transferCertificateTextBox.Visible = false;
             // 
             // birthDateTimePicker
             // 
@@ -790,12 +765,23 @@
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
             // 
-            // genStudNumTextBox
+            // birthCertificateTextBox
             // 
-            this.genStudNumTextBox.Location = new System.Drawing.Point(120, 64);
-            this.genStudNumTextBox.Name = "genStudNumTextBox";
-            this.genStudNumTextBox.Size = new System.Drawing.Size(100, 20);
-            this.genStudNumTextBox.TabIndex = 66;
+            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthCertificate", true));
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
+            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
+            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.birthCertificateTextBox.TabIndex = 45;
+            this.birthCertificateTextBox.Visible = false;
+            // 
+            // transferCertificateTextBox
+            // 
+            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "TransferCertificate", true));
+            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
+            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
+            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.transferCertificateTextBox.TabIndex = 47;
+            this.transferCertificateTextBox.Visible = false;
             // 
             // uploadFrm137Button
             // 
@@ -807,6 +793,25 @@
             this.uploadFrm137Button.UseVisualStyleBackColor = true;
             this.uploadFrm137Button.Click += new System.EventHandler(this.uploadFrm137Button_Click);
             // 
+            // viewFrm137Button
+            // 
+            this.viewFrm137Button.Location = new System.Drawing.Point(884, 88);
+            this.viewFrm137Button.Name = "viewFrm137Button";
+            this.viewFrm137Button.Size = new System.Drawing.Size(100, 23);
+            this.viewFrm137Button.TabIndex = 51;
+            this.viewFrm137Button.Text = "View File";
+            this.viewFrm137Button.UseVisualStyleBackColor = true;
+            this.viewFrm137Button.Click += new System.EventHandler(this.viewFrm137Button_Click);
+            // 
+            // studForm137TextBox
+            // 
+            this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudForm137", true));
+            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
+            this.studForm137TextBox.Name = "studForm137TextBox";
+            this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
+            this.studForm137TextBox.TabIndex = 44;
+            this.studForm137TextBox.Visible = false;
+            // 
             // viewBirthCertButton
             // 
             this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
@@ -816,6 +821,25 @@
             this.viewBirthCertButton.Text = "View File";
             this.viewBirthCertButton.UseVisualStyleBackColor = true;
             this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
+            // 
+            // viewGoodMoralButton
+            // 
+            this.viewGoodMoralButton.Location = new System.Drawing.Point(884, 142);
+            this.viewGoodMoralButton.Name = "viewGoodMoralButton";
+            this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
+            this.viewGoodMoralButton.TabIndex = 57;
+            this.viewGoodMoralButton.Text = "View File";
+            this.viewGoodMoralButton.UseVisualStyleBackColor = true;
+            this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
+            // 
+            // goodMoralTextBox
+            // 
+            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "GoodMoral", true));
+            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
+            this.goodMoralTextBox.Name = "goodMoralTextBox";
+            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
+            this.goodMoralTextBox.TabIndex = 46;
+            this.goodMoralTextBox.Visible = false;
             // 
             // uploadGoodMoralButton
             // 
@@ -871,16 +895,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Search:";
             // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsBindingSource
-            // 
-            this.studentsBindingSource.DataMember = "Students";
-            this.studentsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
             // studentsTableAdapter
             // 
             this.studentsTableAdapter.ClearBeforeFill = true;
@@ -918,7 +932,7 @@
             this.bindingNavigatorDeleteItem,
             this.studentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 411);
+            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 427);
             this.studentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.studentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -928,6 +942,31 @@
             this.studentsBindingNavigator.Size = new System.Drawing.Size(1247, 25);
             this.studentsBindingNavigator.TabIndex = 10;
             this.studentsBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -962,16 +1001,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -994,26 +1026,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // studentsBindingNavigatorSaveItem
             // 
@@ -1023,6 +1037,16 @@
             this.studentsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.studentsBindingNavigatorSaveItem.Text = "Save Data";
             this.studentsBindingNavigatorSaveItem.Click += new System.EventHandler(this.studentsBindingNavigatorSaveItem_Click);
+            // 
+            // bindingNavigatorRefreshItem
+            // 
+            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Text = "Refresh Data";
+            this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
             // studentsDataGridView
             // 
@@ -1036,6 +1060,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
+            this.Section,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
@@ -1052,15 +1077,45 @@
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewImageColumn2,
             this.dataGridViewImageColumn3,
-            this.dataGridViewImageColumn4,
-            this.dataGridViewTextBoxColumn21});
+            this.dataGridViewImageColumn4});
             this.studentsDataGridView.DataSource = this.studentsBindingSource;
             this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.studentsDataGridView.Location = new System.Drawing.Point(0, 436);
+            this.studentsDataGridView.Location = new System.Drawing.Point(0, 452);
             this.studentsDataGridView.Name = "studentsDataGridView";
             this.studentsDataGridView.Size = new System.Drawing.Size(1247, 286);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sectionsTableAdapter
+            // 
+            this.sectionsTableAdapter.ClearBeforeFill = true;
+            // 
+            // sectionComboBox
+            // 
+            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
+            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sectionsBindingSource, "SectionCode", true));
+            this.sectionComboBox.DataSource = this.sectionsBindingSource1;
+            this.sectionComboBox.DisplayMember = "SectionTitle";
+            this.sectionComboBox.FormattingEnabled = true;
+            this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
+            this.sectionComboBox.Name = "sectionComboBox";
+            this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
+            this.sectionComboBox.TabIndex = 68;
+            this.sectionComboBox.ValueMember = "GradeCode";
+            // 
+            // sectionsBindingSource1
+            // 
+            this.sectionsBindingSource1.DataMember = "Sections";
+            this.sectionsBindingSource1.DataSource = this.sTU_DBDataSet;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1103,6 +1158,14 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "BirthDate";
             this.dataGridViewTextBoxColumn7.HeaderText = "BirthDate";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // Section
+            // 
+            this.Section.DataPropertyName = "Section";
+            this.Section.HeaderText = "Section";
+            this.Section.Name = "Section";
+            this.Section.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Section.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1181,6 +1244,8 @@
             this.dataGridViewImageColumn1.DataPropertyName = "StudForm137";
             this.dataGridViewImageColumn1.HeaderText = "StudForm137";
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -1193,55 +1258,24 @@
             this.dataGridViewImageColumn2.DataPropertyName = "BirthCertificate";
             this.dataGridViewImageColumn2.HeaderText = "BirthCertificate";
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewImageColumn3
             // 
             this.dataGridViewImageColumn3.DataPropertyName = "GoodMoral";
             this.dataGridViewImageColumn3.HeaderText = "GoodMoral";
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewImageColumn4
             // 
             this.dataGridViewImageColumn4.DataPropertyName = "TransferCertificate";
             this.dataGridViewImageColumn4.HeaderText = "TransferCertificate";
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Section";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Section";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            // 
-            // bindingNavigatorRefreshItem
-            // 
-            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
-            this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
-            this.bindingNavigatorRefreshItem.Text = "Refresh Data";
-            this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // sectionLabel
-            // 
-            sectionLabel.AutoSize = true;
-            sectionLabel.Location = new System.Drawing.Point(13, 223);
-            sectionLabel.Name = "sectionLabel";
-            sectionLabel.Size = new System.Drawing.Size(46, 13);
-            sectionLabel.TabIndex = 66;
-            sectionLabel.Text = "Section:";
-            // 
-            // sectionTextBox
-            // 
-            this.sectionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
-            this.sectionTextBox.Location = new System.Drawing.Point(120, 220);
-            this.sectionTextBox.Name = "sectionTextBox";
-            this.sectionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.sectionTextBox.TabIndex = 67;
+            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Student
             // 
@@ -1259,14 +1293,16 @@
             this.Load += new System.EventHandler(this.Student_Load);
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingNavigator)).EndInit();
             this.studentsBindingNavigator.ResumeLayout(false);
             this.studentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1336,6 +1372,12 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton studentsBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView studentsDataGridView;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorRefreshItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.BindingSource sectionsBindingSource;
+        private STU_DBDataSetTableAdapters.SectionsTableAdapter sectionsTableAdapter;
+        private System.Windows.Forms.ComboBox sectionComboBox;
+        private System.Windows.Forms.BindingSource sectionsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1343,6 +1385,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Section;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
@@ -1355,14 +1398,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorRefreshItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox sectionTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
     }
 }
