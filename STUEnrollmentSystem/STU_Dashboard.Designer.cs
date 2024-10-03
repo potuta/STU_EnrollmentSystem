@@ -46,6 +46,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.installmentsButton = new System.Windows.Forms.Button();
+            this.chargesButton = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
             this.adminSubPanel.SuspendLayout();
             this.cashierSubPanel.SuspendLayout();
@@ -77,9 +79,9 @@
             this.adminSubPanel.Controls.Add(this.sectionButton);
             this.adminSubPanel.Controls.Add(this.teacherButton);
             this.adminSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.adminSubPanel.Location = new System.Drawing.Point(0, 538);
+            this.adminSubPanel.Location = new System.Drawing.Point(0, 648);
             this.adminSubPanel.Name = "adminSubPanel";
-            this.adminSubPanel.Size = new System.Drawing.Size(215, 405);
+            this.adminSubPanel.Size = new System.Drawing.Size(215, 276);
             this.adminSubPanel.TabIndex = 2;
             // 
             // subjectButton
@@ -175,7 +177,7 @@
             this.adminButton.FlatAppearance.BorderSize = 2;
             this.adminButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.adminButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminButton.Location = new System.Drawing.Point(0, 483);
+            this.adminButton.Location = new System.Drawing.Point(0, 593);
             this.adminButton.Name = "adminButton";
             this.adminButton.Size = new System.Drawing.Size(215, 55);
             this.adminButton.TabIndex = 2;
@@ -186,12 +188,14 @@
             // 
             // cashierSubPanel
             // 
+            this.cashierSubPanel.Controls.Add(this.chargesButton);
+            this.cashierSubPanel.Controls.Add(this.installmentsButton);
             this.cashierSubPanel.Controls.Add(this.pendingButton);
             this.cashierSubPanel.Controls.Add(this.managePaymentButton);
             this.cashierSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.cashierSubPanel.Location = new System.Drawing.Point(0, 373);
             this.cashierSubPanel.Name = "cashierSubPanel";
-            this.cashierSubPanel.Size = new System.Drawing.Size(215, 110);
+            this.cashierSubPanel.Size = new System.Drawing.Size(215, 220);
             this.cashierSubPanel.TabIndex = 1;
             // 
             // pendingButton
@@ -325,6 +329,40 @@
             this.panel_main.Size = new System.Drawing.Size(1032, 681);
             this.panel_main.TabIndex = 1;
             // 
+            // installmentsButton
+            // 
+            this.installmentsButton.BackColor = System.Drawing.Color.Silver;
+            this.installmentsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.installmentsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.installmentsButton.FlatAppearance.BorderSize = 2;
+            this.installmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.installmentsButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.installmentsButton.Location = new System.Drawing.Point(0, 110);
+            this.installmentsButton.Name = "installmentsButton";
+            this.installmentsButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.installmentsButton.Size = new System.Drawing.Size(215, 55);
+            this.installmentsButton.TabIndex = 3;
+            this.installmentsButton.Text = "↪ Installments";
+            this.installmentsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.installmentsButton.UseVisualStyleBackColor = false;
+            // 
+            // chargesButton
+            // 
+            this.chargesButton.BackColor = System.Drawing.Color.Silver;
+            this.chargesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chargesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.chargesButton.FlatAppearance.BorderSize = 2;
+            this.chargesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chargesButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chargesButton.Location = new System.Drawing.Point(0, 165);
+            this.chargesButton.Name = "chargesButton";
+            this.chargesButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.chargesButton.Size = new System.Drawing.Size(215, 55);
+            this.chargesButton.TabIndex = 4;
+            this.chargesButton.Text = "↪ Charges";
+            this.chargesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chargesButton.UseVisualStyleBackColor = false;
+            // 
             // STU_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +402,8 @@
         private System.Windows.Forms.Button subjectButton;
         private System.Windows.Forms.Button courseButton;
         private System.Windows.Forms.Button scheduleButton;
+        private System.Windows.Forms.Button chargesButton;
+        private System.Windows.Forms.Button installmentsButton;
     }
 }
 
