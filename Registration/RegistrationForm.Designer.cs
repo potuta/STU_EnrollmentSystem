@@ -68,7 +68,7 @@
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.enrollmentTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.installmentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.paymentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.register_Button = new System.Windows.Forms.Button();
@@ -190,9 +190,9 @@
             installmentTypeLabel.AutoSize = true;
             installmentTypeLabel.Location = new System.Drawing.Point(41, 322);
             installmentTypeLabel.Name = "installmentTypeLabel";
-            installmentTypeLabel.Size = new System.Drawing.Size(87, 13);
+            installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
-            installmentTypeLabel.Text = "Installment Type:";
+            installmentTypeLabel.Text = "Payment Type:";
             // 
             // motherFirstNameLabel
             // 
@@ -437,17 +437,17 @@
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 43;
             // 
-            // installmentTypeComboBox
+            // paymentTypeComboBox
             // 
-            this.installmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "InstallmentType", true));
-            this.installmentTypeComboBox.FormattingEnabled = true;
-            this.installmentTypeComboBox.Items.AddRange(new object[] {
+            this.paymentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "InstallmentType", true));
+            this.paymentTypeComboBox.FormattingEnabled = true;
+            this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.installmentTypeComboBox.Location = new System.Drawing.Point(148, 319);
-            this.installmentTypeComboBox.Name = "installmentTypeComboBox";
-            this.installmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
-            this.installmentTypeComboBox.TabIndex = 44;
+            this.paymentTypeComboBox.Location = new System.Drawing.Point(148, 319);
+            this.paymentTypeComboBox.Name = "paymentTypeComboBox";
+            this.paymentTypeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.paymentTypeComboBox.TabIndex = 44;
             // 
             // civilStatusComboBox
             // 
@@ -493,7 +493,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(label2);
             this.Controls.Add(this.civilStatusComboBox);
-            this.Controls.Add(this.installmentTypeComboBox);
+            this.Controls.Add(this.paymentTypeComboBox);
             this.Controls.Add(this.enrollmentTypeComboBox);
             this.Controls.Add(this.birthDateTimePicker);
             this.Controls.Add(this.genderComboBox);
@@ -561,7 +561,7 @@
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.DateTimePicker birthDateTimePicker;
         private System.Windows.Forms.ComboBox enrollmentTypeComboBox;
-        private System.Windows.Forms.ComboBox installmentTypeComboBox;
+        private System.Windows.Forms.ComboBox paymentTypeComboBox;
         private System.Windows.Forms.ComboBox civilStatusComboBox;
         private System.Windows.Forms.Button register_Button;
         private System.Windows.Forms.Label label3;

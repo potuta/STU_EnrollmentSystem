@@ -251,8 +251,8 @@ namespace STUEnrollmentSystem
             SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            STU_Command = new SqlCommand("INSERT INTO Students(RegisterID, StudentNumber, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, InstallmentType, " +
-                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate) VALUES (@RegisterID, @StudentNumber, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @InstallmentType, " +
+            STU_Command = new SqlCommand("INSERT INTO Students(RegisterID, StudentNumber, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
+                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate) VALUES (@RegisterID, @StudentNumber, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
                                                          "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation, @StudForm137, @LRN, @BirthCertificate, @GoodMoral, @TransferCertificate)",
                                                                         STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@RegisterID", Convert.ToInt32(registerIDTextBox.Text));
@@ -267,7 +267,7 @@ namespace STUEnrollmentSystem
             STU_Command.Parameters.AddWithValue("@ContactNum", Convert.ToInt32(contactNumTextBox.Text));
             STU_Command.Parameters.AddWithValue("@EnrollmentStatus", enrollmentStatusComboBox.SelectedItem);
             STU_Command.Parameters.AddWithValue("@EnrollmentType", enrollmentTypeComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@InstallmentType", installmentTypeComboBox.SelectedItem);
+            STU_Command.Parameters.AddWithValue("@PaymentType", paymentTypeComboBox.SelectedItem);
             STU_Command.Parameters.AddWithValue("@MotherFirstName", motherFirstNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@MotherLastName", motherLastNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@MotherOccupation", motherOccupationTextBox.Text);

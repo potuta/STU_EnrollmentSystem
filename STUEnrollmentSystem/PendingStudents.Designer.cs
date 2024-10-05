@@ -64,7 +64,7 @@
             this.deleteBirthCertButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.installmentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.paymentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.enrollmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.enrollmentStatusComboBox = new System.Windows.Forms.ComboBox();
@@ -120,6 +120,7 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,7 +133,7 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,7 +146,6 @@
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -319,9 +319,9 @@
             installmentTypeLabel.AutoSize = true;
             installmentTypeLabel.Location = new System.Drawing.Point(268, 197);
             installmentTypeLabel.Name = "installmentTypeLabel";
-            installmentTypeLabel.Size = new System.Drawing.Size(87, 13);
+            installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
-            installmentTypeLabel.Text = "Installment Type:";
+            installmentTypeLabel.Text = "Payment Type:";
             // 
             // motherFirstNameLabel
             // 
@@ -410,7 +410,7 @@
             this.detailsPanel.Controls.Add(goodMoralLabel);
             this.detailsPanel.Controls.Add(birthCertificateLabel);
             this.detailsPanel.Controls.Add(studForm137Label);
-            this.detailsPanel.Controls.Add(this.installmentTypeComboBox);
+            this.detailsPanel.Controls.Add(this.paymentTypeComboBox);
             this.detailsPanel.Controls.Add(this.enrollmentTypeComboBox);
             this.detailsPanel.Controls.Add(this.genderComboBox);
             this.detailsPanel.Controls.Add(this.enrollmentStatusComboBox);
@@ -553,17 +553,17 @@
             this.label3.TabIndex = 48;
             this.label3.Text = "Parent\'s Information";
             // 
-            // installmentTypeComboBox
+            // paymentTypeComboBox
             // 
-            this.installmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "InstallmentType", true));
-            this.installmentTypeComboBox.FormattingEnabled = true;
-            this.installmentTypeComboBox.Items.AddRange(new object[] {
+            this.paymentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PaymentType", true));
+            this.paymentTypeComboBox.FormattingEnabled = true;
+            this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.installmentTypeComboBox.Location = new System.Drawing.Point(375, 194);
-            this.installmentTypeComboBox.Name = "installmentTypeComboBox";
-            this.installmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
-            this.installmentTypeComboBox.TabIndex = 43;
+            this.paymentTypeComboBox.Location = new System.Drawing.Point(375, 194);
+            this.paymentTypeComboBox.Name = "paymentTypeComboBox";
+            this.paymentTypeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.paymentTypeComboBox.TabIndex = 43;
             // 
             // enrollmentTypeComboBox
             // 
@@ -1097,7 +1097,7 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
+            this.PaymentType,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
@@ -1117,6 +1117,10 @@
             this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 315);
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1216,16 +1220,14 @@
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // dataGridViewTextBoxColumn13
+            // PaymentType
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "InstallmentType";
-            this.dataGridViewTextBoxColumn13.HeaderText = "InstallmentType";
-            this.dataGridViewTextBoxColumn13.Items.AddRange(new object[] {
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.PaymentType.Name = "PaymentType";
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -1307,10 +1309,6 @@
             this.dataGridViewTextBoxColumn21.HeaderText = "Section";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // PendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1351,7 +1349,7 @@
         private System.Windows.Forms.DateTimePicker birthDateTimePicker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox installmentTypeComboBox;
+        private System.Windows.Forms.ComboBox paymentTypeComboBox;
         private System.Windows.Forms.ComboBox enrollmentTypeComboBox;
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.ComboBox enrollmentStatusComboBox;
@@ -1410,6 +1408,7 @@
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.Button generateStudNumButton;
         private System.Windows.Forms.TextBox genStudNumTextBox;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1422,7 +1421,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;

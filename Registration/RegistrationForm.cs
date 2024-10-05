@@ -39,8 +39,8 @@ namespace Registration
             STU_DB_Connection.Open();
             SqlCommand id = new SqlCommand("SELECT MAX(RegisterID) FROM PendingStudents", STU_DB_Connection);
             int RegisterID = id.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(id.ExecuteScalar()) + 1;
-            STU_Command = new SqlCommand("INSERT INTO Registration(RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, InstallmentType, " +
-                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @InstallmentType, " +
+            STU_Command = new SqlCommand("INSERT INTO Registration(RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
+                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
                                                          "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
                                                                         STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@RegisterID", RegisterID);
@@ -54,7 +54,7 @@ namespace Registration
             STU_Command.Parameters.AddWithValue("@Address", addressTextBox.Text);
             STU_Command.Parameters.AddWithValue("@ContactNum", Convert.ToInt32(contactNumTextBox.Text));
             STU_Command.Parameters.AddWithValue("@EnrollmentType", enrollmentTypeComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@InstallmentType", installmentTypeComboBox.SelectedItem);
+            STU_Command.Parameters.AddWithValue("@PaymentType", paymentTypeComboBox.SelectedItem);
             STU_Command.Parameters.AddWithValue("@MotherFirstName", motherFirstNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@MotherLastName", motherLastNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@MotherOccupation", motherOccupationTextBox.Text);

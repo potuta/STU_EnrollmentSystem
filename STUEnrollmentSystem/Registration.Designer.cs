@@ -53,10 +53,6 @@
             System.Windows.Forms.Label goodMoralLabel;
             System.Windows.Forms.Label transferCertificateLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration));
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
-            this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.registrationTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RegistrationTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.registrationBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -77,14 +73,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.deleteTransferCertButton = new System.Windows.Forms.Button();
+            this.deleteGoodMoralButton = new System.Windows.Forms.Button();
+            this.deleteBirthCertButton = new System.Windows.Forms.Button();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
-            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.studForm137TextBox = new System.Windows.Forms.TextBox();
-            this.installmentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.paymentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.enrollmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.enrollmentStatusComboBox = new System.Windows.Forms.ComboBox();
@@ -103,20 +99,25 @@
             this.fatherOccupationTextBox = new System.Windows.Forms.TextBox();
             this.lRNTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.viewFrm137Button = new System.Windows.Forms.Button();
             this.deleteFrm137Button = new System.Windows.Forms.Button();
+            this.viewBirthCertButton = new System.Windows.Forms.Button();
+            this.viewFrm137Button = new System.Windows.Forms.Button();
+            this.studForm137TextBox = new System.Windows.Forms.TextBox();
             this.uploadFrm137Button = new System.Windows.Forms.Button();
             this.uploadBirthCertButton = new System.Windows.Forms.Button();
-            this.viewBirthCertButton = new System.Windows.Forms.Button();
-            this.deleteBirthCertButton = new System.Windows.Forms.Button();
-            this.deleteGoodMoralButton = new System.Windows.Forms.Button();
+            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
             this.viewGoodMoralButton = new System.Windows.Forms.Button();
+            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
             this.uploadGoodMoralButton = new System.Windows.Forms.Button();
-            this.uploadTransferCertButton = new System.Windows.Forms.Button();
-            this.deleteTransferCertButton = new System.Windows.Forms.Button();
             this.viewTransferCertButton = new System.Windows.Forms.Button();
+            this.uploadTransferCertButton = new System.Windows.Forms.Button();
+            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.StudForm137 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GoodMoral = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransferCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,7 +129,6 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,10 +136,10 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudForm137 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GoodMoral = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransferCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.registrationTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RegistrationTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             registerIDLabel = new System.Windows.Forms.Label();
             enrollmentStatusLabel = new System.Windows.Forms.Label();
             studFirstNameLabel = new System.Windows.Forms.Label();
@@ -163,13 +163,13 @@
             birthCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingNavigator)).BeginInit();
             this.registrationBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.registrationDataGridView)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.detailsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // registerIDLabel
@@ -276,9 +276,9 @@
             installmentTypeLabel.AutoSize = true;
             installmentTypeLabel.Location = new System.Drawing.Point(262, 197);
             installmentTypeLabel.Name = "installmentTypeLabel";
-            installmentTypeLabel.Size = new System.Drawing.Size(87, 13);
+            installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
-            installmentTypeLabel.Text = "Installment Type:";
+            installmentTypeLabel.Text = "Payment Type:";
             // 
             // motherFirstNameLabel
             // 
@@ -378,33 +378,6 @@
             transferCertificateLabel.Size = new System.Drawing.Size(99, 13);
             transferCertificateLabel.TabIndex = 46;
             transferCertificateLabel.Text = "Transfer Certificate:";
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registrationBindingSource
-            // 
-            this.registrationBindingSource.DataMember = "Registration";
-            this.registrationBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // registrationTableAdapter
-            // 
-            this.registrationTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // registrationBindingNavigator
             // 
@@ -569,7 +542,7 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
+            this.PaymentType,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
@@ -637,7 +610,7 @@
             this.detailsPanel.Controls.Add(goodMoralLabel);
             this.detailsPanel.Controls.Add(birthCertificateLabel);
             this.detailsPanel.Controls.Add(studForm137Label);
-            this.detailsPanel.Controls.Add(this.installmentTypeComboBox);
+            this.detailsPanel.Controls.Add(this.paymentTypeComboBox);
             this.detailsPanel.Controls.Add(this.enrollmentTypeComboBox);
             this.detailsPanel.Controls.Add(this.genderComboBox);
             this.detailsPanel.Controls.Add(this.enrollmentStatusComboBox);
@@ -694,6 +667,51 @@
             this.detailsPanel.Size = new System.Drawing.Size(1264, 247);
             this.detailsPanel.TabIndex = 3;
             // 
+            // civilStatusComboBox
+            // 
+            this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "CivilStatus", true));
+            this.civilStatusComboBox.FormattingEnabled = true;
+            this.civilStatusComboBox.Items.AddRange(new object[] {
+            "Single",
+            "Married",
+            "Separated",
+            "Divorced",
+            "Widowed"});
+            this.civilStatusComboBox.Location = new System.Drawing.Point(369, 90);
+            this.civilStatusComboBox.Name = "civilStatusComboBox";
+            this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
+            this.civilStatusComboBox.TabIndex = 63;
+            // 
+            // deleteTransferCertButton
+            // 
+            this.deleteTransferCertButton.Location = new System.Drawing.Point(985, 165);
+            this.deleteTransferCertButton.Name = "deleteTransferCertButton";
+            this.deleteTransferCertButton.Size = new System.Drawing.Size(33, 23);
+            this.deleteTransferCertButton.TabIndex = 60;
+            this.deleteTransferCertButton.Text = "Del";
+            this.deleteTransferCertButton.UseVisualStyleBackColor = true;
+            this.deleteTransferCertButton.Click += new System.EventHandler(this.deleteTransferCertButton_Click);
+            // 
+            // deleteGoodMoralButton
+            // 
+            this.deleteGoodMoralButton.Location = new System.Drawing.Point(985, 141);
+            this.deleteGoodMoralButton.Name = "deleteGoodMoralButton";
+            this.deleteGoodMoralButton.Size = new System.Drawing.Size(33, 23);
+            this.deleteGoodMoralButton.TabIndex = 58;
+            this.deleteGoodMoralButton.Text = "Del";
+            this.deleteGoodMoralButton.UseVisualStyleBackColor = true;
+            this.deleteGoodMoralButton.Click += new System.EventHandler(this.deleteGoodMoralButton_Click);
+            // 
+            // deleteBirthCertButton
+            // 
+            this.deleteBirthCertButton.Location = new System.Drawing.Point(985, 115);
+            this.deleteBirthCertButton.Name = "deleteBirthCertButton";
+            this.deleteBirthCertButton.Size = new System.Drawing.Size(33, 23);
+            this.deleteBirthCertButton.TabIndex = 56;
+            this.deleteBirthCertButton.Text = "Del";
+            this.deleteBirthCertButton.UseVisualStyleBackColor = true;
+            this.deleteBirthCertButton.Click += new System.EventHandler(this.deleteBirthCertButton_Click);
+            // 
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -722,53 +740,17 @@
             this.label3.TabIndex = 48;
             this.label3.Text = "Parent\'s Information";
             // 
-            // transferCertificateTextBox
+            // paymentTypeComboBox
             // 
-            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "TransferCertificate", true));
-            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
-            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
-            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.transferCertificateTextBox.TabIndex = 47;
-            this.transferCertificateTextBox.Visible = false;
-            // 
-            // goodMoralTextBox
-            // 
-            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "GoodMoral", true));
-            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
-            this.goodMoralTextBox.Name = "goodMoralTextBox";
-            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
-            this.goodMoralTextBox.TabIndex = 46;
-            this.goodMoralTextBox.Visible = false;
-            // 
-            // birthCertificateTextBox
-            // 
-            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "BirthCertificate", true));
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
-            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
-            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.birthCertificateTextBox.TabIndex = 45;
-            this.birthCertificateTextBox.Visible = false;
-            // 
-            // studForm137TextBox
-            // 
-            this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "StudForm137", true));
-            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
-            this.studForm137TextBox.Name = "studForm137TextBox";
-            this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
-            this.studForm137TextBox.TabIndex = 44;
-            this.studForm137TextBox.Visible = false;
-            // 
-            // installmentTypeComboBox
-            // 
-            this.installmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "InstallmentType", true));
-            this.installmentTypeComboBox.FormattingEnabled = true;
-            this.installmentTypeComboBox.Items.AddRange(new object[] {
+            this.paymentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "PaymentType", true));
+            this.paymentTypeComboBox.FormattingEnabled = true;
+            this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.installmentTypeComboBox.Location = new System.Drawing.Point(369, 194);
-            this.installmentTypeComboBox.Name = "installmentTypeComboBox";
-            this.installmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
-            this.installmentTypeComboBox.TabIndex = 43;
+            this.paymentTypeComboBox.Location = new System.Drawing.Point(369, 194);
+            this.paymentTypeComboBox.Name = "paymentTypeComboBox";
+            this.paymentTypeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.paymentTypeComboBox.TabIndex = 43;
             // 
             // enrollmentTypeComboBox
             // 
@@ -931,6 +913,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Student\'s Information";
             // 
+            // deleteFrm137Button
+            // 
+            this.deleteFrm137Button.Location = new System.Drawing.Point(985, 88);
+            this.deleteFrm137Button.Name = "deleteFrm137Button";
+            this.deleteFrm137Button.Size = new System.Drawing.Size(33, 23);
+            this.deleteFrm137Button.TabIndex = 52;
+            this.deleteFrm137Button.Text = "Del";
+            this.deleteFrm137Button.UseVisualStyleBackColor = true;
+            this.deleteFrm137Button.Click += new System.EventHandler(this.deleteFrm137Button_Click);
+            // 
+            // viewBirthCertButton
+            // 
+            this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
+            this.viewBirthCertButton.Name = "viewBirthCertButton";
+            this.viewBirthCertButton.Size = new System.Drawing.Size(100, 23);
+            this.viewBirthCertButton.TabIndex = 55;
+            this.viewBirthCertButton.Text = "View File";
+            this.viewBirthCertButton.UseVisualStyleBackColor = true;
+            this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
+            // 
             // viewFrm137Button
             // 
             this.viewFrm137Button.Location = new System.Drawing.Point(884, 88);
@@ -941,15 +943,14 @@
             this.viewFrm137Button.UseVisualStyleBackColor = true;
             this.viewFrm137Button.Click += new System.EventHandler(this.viewFrm137Button_Click);
             // 
-            // deleteFrm137Button
+            // studForm137TextBox
             // 
-            this.deleteFrm137Button.Location = new System.Drawing.Point(985, 88);
-            this.deleteFrm137Button.Name = "deleteFrm137Button";
-            this.deleteFrm137Button.Size = new System.Drawing.Size(33, 23);
-            this.deleteFrm137Button.TabIndex = 52;
-            this.deleteFrm137Button.Text = "Del";
-            this.deleteFrm137Button.UseVisualStyleBackColor = true;
-            this.deleteFrm137Button.Click += new System.EventHandler(this.deleteFrm137Button_Click);
+            this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "StudForm137", true));
+            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
+            this.studForm137TextBox.Name = "studForm137TextBox";
+            this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
+            this.studForm137TextBox.TabIndex = 44;
+            this.studForm137TextBox.Visible = false;
             // 
             // uploadFrm137Button
             // 
@@ -971,35 +972,14 @@
             this.uploadBirthCertButton.UseVisualStyleBackColor = true;
             this.uploadBirthCertButton.Click += new System.EventHandler(this.uploadBirthCertButton_Click);
             // 
-            // viewBirthCertButton
+            // birthCertificateTextBox
             // 
-            this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
-            this.viewBirthCertButton.Name = "viewBirthCertButton";
-            this.viewBirthCertButton.Size = new System.Drawing.Size(100, 23);
-            this.viewBirthCertButton.TabIndex = 55;
-            this.viewBirthCertButton.Text = "View File";
-            this.viewBirthCertButton.UseVisualStyleBackColor = true;
-            this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
-            // 
-            // deleteBirthCertButton
-            // 
-            this.deleteBirthCertButton.Location = new System.Drawing.Point(985, 115);
-            this.deleteBirthCertButton.Name = "deleteBirthCertButton";
-            this.deleteBirthCertButton.Size = new System.Drawing.Size(33, 23);
-            this.deleteBirthCertButton.TabIndex = 56;
-            this.deleteBirthCertButton.Text = "Del";
-            this.deleteBirthCertButton.UseVisualStyleBackColor = true;
-            this.deleteBirthCertButton.Click += new System.EventHandler(this.deleteBirthCertButton_Click);
-            // 
-            // deleteGoodMoralButton
-            // 
-            this.deleteGoodMoralButton.Location = new System.Drawing.Point(985, 141);
-            this.deleteGoodMoralButton.Name = "deleteGoodMoralButton";
-            this.deleteGoodMoralButton.Size = new System.Drawing.Size(33, 23);
-            this.deleteGoodMoralButton.TabIndex = 58;
-            this.deleteGoodMoralButton.Text = "Del";
-            this.deleteGoodMoralButton.UseVisualStyleBackColor = true;
-            this.deleteGoodMoralButton.Click += new System.EventHandler(this.deleteGoodMoralButton_Click);
+            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "BirthCertificate", true));
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
+            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
+            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.birthCertificateTextBox.TabIndex = 45;
+            this.birthCertificateTextBox.Visible = false;
             // 
             // viewGoodMoralButton
             // 
@@ -1011,6 +991,15 @@
             this.viewGoodMoralButton.UseVisualStyleBackColor = true;
             this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
             // 
+            // goodMoralTextBox
+            // 
+            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "GoodMoral", true));
+            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
+            this.goodMoralTextBox.Name = "goodMoralTextBox";
+            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
+            this.goodMoralTextBox.TabIndex = 46;
+            this.goodMoralTextBox.Visible = false;
+            // 
             // uploadGoodMoralButton
             // 
             this.uploadGoodMoralButton.Location = new System.Drawing.Point(884, 142);
@@ -1020,26 +1009,6 @@
             this.uploadGoodMoralButton.Text = "Upload File";
             this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
             this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
-            // 
-            // uploadTransferCertButton
-            // 
-            this.uploadTransferCertButton.Location = new System.Drawing.Point(884, 166);
-            this.uploadTransferCertButton.Name = "uploadTransferCertButton";
-            this.uploadTransferCertButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadTransferCertButton.TabIndex = 61;
-            this.uploadTransferCertButton.Text = "Upload File";
-            this.uploadTransferCertButton.UseVisualStyleBackColor = true;
-            this.uploadTransferCertButton.Click += new System.EventHandler(this.uploadTransferCertButton_Click);
-            // 
-            // deleteTransferCertButton
-            // 
-            this.deleteTransferCertButton.Location = new System.Drawing.Point(985, 165);
-            this.deleteTransferCertButton.Name = "deleteTransferCertButton";
-            this.deleteTransferCertButton.Size = new System.Drawing.Size(33, 23);
-            this.deleteTransferCertButton.TabIndex = 60;
-            this.deleteTransferCertButton.Text = "Del";
-            this.deleteTransferCertButton.UseVisualStyleBackColor = true;
-            this.deleteTransferCertButton.Click += new System.EventHandler(this.deleteTransferCertButton_Click);
             // 
             // viewTransferCertButton
             // 
@@ -1051,24 +1020,63 @@
             this.viewTransferCertButton.UseVisualStyleBackColor = true;
             this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
             // 
+            // uploadTransferCertButton
+            // 
+            this.uploadTransferCertButton.Location = new System.Drawing.Point(884, 166);
+            this.uploadTransferCertButton.Name = "uploadTransferCertButton";
+            this.uploadTransferCertButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadTransferCertButton.TabIndex = 61;
+            this.uploadTransferCertButton.Text = "Upload File";
+            this.uploadTransferCertButton.UseVisualStyleBackColor = true;
+            this.uploadTransferCertButton.Click += new System.EventHandler(this.uploadTransferCertButton_Click);
+            // 
+            // transferCertificateTextBox
+            // 
+            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "TransferCertificate", true));
+            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
+            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
+            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.transferCertificateTextBox.TabIndex = 47;
+            this.transferCertificateTextBox.Visible = false;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // civilStatusComboBox
+            // PaymentType
             // 
-            this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "CivilStatus", true));
-            this.civilStatusComboBox.FormattingEnabled = true;
-            this.civilStatusComboBox.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
-            this.civilStatusComboBox.Location = new System.Drawing.Point(369, 90);
-            this.civilStatusComboBox.Name = "civilStatusComboBox";
-            this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
-            this.civilStatusComboBox.TabIndex = 63;
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            this.PaymentType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaymentType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // StudForm137
+            // 
+            this.StudForm137.DataPropertyName = "StudForm137";
+            this.StudForm137.HeaderText = "StudForm137";
+            this.StudForm137.Name = "StudForm137";
+            // 
+            // BirthCertificate
+            // 
+            this.BirthCertificate.DataPropertyName = "BirthCertificate";
+            this.BirthCertificate.HeaderText = "BirthCertificate";
+            this.BirthCertificate.Name = "BirthCertificate";
+            // 
+            // GoodMoral
+            // 
+            this.GoodMoral.DataPropertyName = "GoodMoral";
+            this.GoodMoral.HeaderText = "GoodMoral";
+            this.GoodMoral.Name = "GoodMoral";
+            // 
+            // TransferCertificate
+            // 
+            this.TransferCertificate.DataPropertyName = "TransferCertificate";
+            this.TransferCertificate.HeaderText = "TransferCertificate";
+            this.TransferCertificate.Name = "TransferCertificate";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1162,17 +1170,6 @@
             this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "InstallmentType";
-            this.dataGridViewTextBoxColumn12.HeaderText = "InstallmentType";
-            this.dataGridViewTextBoxColumn12.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "MotherFirstName";
@@ -1215,29 +1212,32 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "LRN";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
-            // StudForm137
+            // registrationBindingSource
             // 
-            this.StudForm137.DataPropertyName = "StudForm137";
-            this.StudForm137.HeaderText = "StudForm137";
-            this.StudForm137.Name = "StudForm137";
+            this.registrationBindingSource.DataMember = "Registration";
+            this.registrationBindingSource.DataSource = this.sTU_DBDataSet;
             // 
-            // BirthCertificate
+            // sTU_DBDataSet
             // 
-            this.BirthCertificate.DataPropertyName = "BirthCertificate";
-            this.BirthCertificate.HeaderText = "BirthCertificate";
-            this.BirthCertificate.Name = "BirthCertificate";
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // GoodMoral
+            // registrationTableAdapter
             // 
-            this.GoodMoral.DataPropertyName = "GoodMoral";
-            this.GoodMoral.HeaderText = "GoodMoral";
-            this.GoodMoral.Name = "GoodMoral";
+            this.registrationTableAdapter.ClearBeforeFill = true;
             // 
-            // TransferCertificate
+            // tableAdapterManager
             // 
-            this.TransferCertificate.DataPropertyName = "TransferCertificate";
-            this.TransferCertificate.HeaderText = "TransferCertificate";
-            this.TransferCertificate.Name = "TransferCertificate";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // Registration
             // 
@@ -1253,8 +1253,6 @@
             this.Name = "Registration";
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.Registration_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingNavigator)).EndInit();
             this.registrationBindingNavigator.ResumeLayout(false);
             this.registrationBindingNavigator.PerformLayout();
@@ -1263,6 +1261,8 @@
             this.searchPanel.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1309,7 +1309,7 @@
         private System.Windows.Forms.TextBox lRNTextBox;
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.ComboBox enrollmentStatusComboBox;
-        private System.Windows.Forms.ComboBox installmentTypeComboBox;
+        private System.Windows.Forms.ComboBox paymentTypeComboBox;
         private System.Windows.Forms.ComboBox enrollmentTypeComboBox;
         private System.Windows.Forms.TextBox studForm137TextBox;
         private System.Windows.Forms.TextBox birthCertificateTextBox;
@@ -1334,6 +1334,7 @@
         private System.Windows.Forms.Button deleteTransferCertButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox civilStatusComboBox;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1345,7 +1346,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
