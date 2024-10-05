@@ -56,8 +56,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
-            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
             this.deleteGoodMoralButton = new System.Windows.Forms.Button();
@@ -102,8 +100,6 @@
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.pendingStudentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -120,6 +116,7 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,7 +130,6 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,6 +142,10 @@
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -171,12 +171,12 @@
             lRNLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingNavigator)).BeginInit();
             this.pendingStudentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // transferCertificateLabel
@@ -448,13 +448,9 @@
             this.detailsPanel.Controls.Add(this.lRNTextBox);
             this.detailsPanel.Controls.Add(this.label1);
             this.detailsPanel.Controls.Add(this.deleteFrm137Button);
-            this.detailsPanel.Controls.Add(this.viewFrm137Button);
             this.detailsPanel.Controls.Add(this.uploadBirthCertButton);
-            this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
             this.detailsPanel.Controls.Add(this.uploadTransferCertButton);
-            this.detailsPanel.Controls.Add(this.studForm137TextBox);
             this.detailsPanel.Controls.Add(this.birthCertificateTextBox);
-            this.detailsPanel.Controls.Add(this.goodMoralTextBox);
             this.detailsPanel.Controls.Add(this.transferCertificateTextBox);
             this.detailsPanel.Controls.Add(this.birthDateTimePicker);
             this.detailsPanel.Controls.Add(this.birthDateTextBox);
@@ -462,8 +458,12 @@
             this.detailsPanel.Controls.Add(this.genStudNumTextBox);
             this.detailsPanel.Controls.Add(this.uploadFrm137Button);
             this.detailsPanel.Controls.Add(this.viewBirthCertButton);
-            this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
             this.detailsPanel.Controls.Add(this.viewTransferCertButton);
+            this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.goodMoralTextBox);
+            this.detailsPanel.Controls.Add(this.viewFrm137Button);
+            this.detailsPanel.Controls.Add(this.studForm137TextBox);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
@@ -477,16 +477,6 @@
             this.studentNumberTextBox.Name = "studentNumberTextBox";
             this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.studentNumberTextBox.TabIndex = 64;
-            // 
-            // pendingStudentsBindingSource
-            // 
-            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
-            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // civilStatusComboBox
             // 
@@ -916,23 +906,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Search:";
             // 
-            // pendingStudentsTableAdapter
-            // 
-            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // pendingStudentsBindingNavigator
             // 
             this.pendingStudentsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -1118,6 +1091,15 @@
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -1220,15 +1202,6 @@
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // PaymentType
-            // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.PaymentType.Name = "PaymentType";
-            // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherFirstName";
@@ -1309,6 +1282,33 @@
             this.dataGridViewTextBoxColumn21.HeaderText = "Section";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
+            // pendingStudentsBindingSource
+            // 
+            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
+            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pendingStudentsTableAdapter
+            // 
+            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // PendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1326,14 +1326,14 @@
             this.Load += new System.EventHandler(this.PendingStudents_Load);
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingNavigator)).EndInit();
             this.pendingStudentsBindingNavigator.ResumeLayout(false);
             this.pendingStudentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

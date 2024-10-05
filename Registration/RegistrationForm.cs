@@ -23,27 +23,26 @@ namespace Registration
             STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
         }
 
-        private void registrationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.registrationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
-        }
-
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
-            this.registrationTableAdapter.Fill(this.sTU_DBDataSet.Registration);
+
         }
         private void register_Button_Click(object sender, EventArgs e)
         {
             STU_DB_Connection.Open();
-            SqlCommand id = new SqlCommand("SELECT MAX(RegisterID) FROM PendingStudents", STU_DB_Connection);
-            int RegisterID = id.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(id.ExecuteScalar()) + 1;
+            SqlCommand regId = new SqlCommand("SELECT MAX(RegisterID) FROM Registration", STU_DB_Connection);
+            SqlCommand pendingStudId = new SqlCommand("SELECT MAX(RegisterID) FROM PendingStudents", STU_DB_Connection);
+            SqlCommand studentsId = new SqlCommand("SELECT MAX(RegisterID) FROM Students", STU_DB_Connection);
+            int RegisterID = regId.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(regId.ExecuteScalar()) + 1;
+            int PendingID = pendingStudId.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(pendingStudId.ExecuteScalar()) + 1;
+            int StudentsID = studentsId.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(studentsId.ExecuteScalar()) + 1;
+            int finalID = Math.Max(Math.Max(RegisterID, PendingID), StudentsID);
+
             STU_Command = new SqlCommand("INSERT INTO Registration(RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
                                                          "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
                                                          "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
                                                                         STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegisterID", RegisterID);
+            STU_Command.Parameters.AddWithValue("@RegisterID", finalID);
             STU_Command.Parameters.AddWithValue("@EnrollmentStatus", enrollmentStatusComboBox.SelectedItem);
             STU_Command.Parameters.AddWithValue("@StudFirstName", studFirstNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@StudMidName", studMidNameTextBox.Text);

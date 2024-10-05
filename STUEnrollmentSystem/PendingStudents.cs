@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -247,13 +248,9 @@ namespace STUEnrollmentSystem
         {
             STU_DB_Connection.Open();
             SqlCommand deleteRowFromPendingStudents = new SqlCommand("DELETE FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             STU_Command = new SqlCommand("INSERT INTO Students(RegisterID, StudentNumber, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
-                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate) VALUES (@RegisterID, @StudentNumber, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
-                                                         "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation, @StudForm137, @LRN, @BirthCertificate, @GoodMoral, @TransferCertificate)",
+                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @StudentNumber, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
+                                                         "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
                                                                         STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@RegisterID", Convert.ToInt32(registerIDTextBox.Text));
             STU_Command.Parameters.AddWithValue("@StudentNumber", studentNumberTextBox.Text);
@@ -274,21 +271,63 @@ namespace STUEnrollmentSystem
             STU_Command.Parameters.AddWithValue("@FatherFirstName", fatherFirstNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@FatherLastName", fatherLastNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@FatherOccupation", fatherOccupationTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@StudForm137", frm137Data.ExecuteScalar());
-            STU_Command.Parameters.AddWithValue("@LRN", Convert.ToInt32(lRNTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@BirthCertificate", birthCertData.ExecuteScalar());
-            STU_Command.Parameters.AddWithValue("@GoodMoral", goodMoralData.ExecuteScalar());
-            STU_Command.Parameters.AddWithValue("@TransferCertificate", transferCertData.ExecuteScalar());
             STU_Command.ExecuteNonQuery();
-            deleteRowFromPendingStudents.ExecuteNonQuery();
             STU_DB_Connection.Close();
 
+            checkIsNullRequirements();
+
+            STU_DB_Connection.Open();
+            deleteRowFromPendingStudents.ExecuteNonQuery();
+            STU_DB_Connection.Close();
             bindingNavigatorRefreshItem_Click(sender, e);
+        }
+
+        private void updateRequirements(string Table, string Column, SqlCommand Command)
+        {
+            STU_Command = new SqlCommand("UPDATE " + Table + " SET " + Column + " = @Param WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            STU_Command.Parameters.AddWithValue("@Param", Command.ExecuteScalar());
+            STU_Command.ExecuteNonQuery();
+        }
+
+        private void checkIsNullRequirements()
+        {
+            STU_DB_Connection.Open();
+            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            if (!frm137Data.ExecuteScalar().Equals(DBNull.Value))
+            {
+                updateRequirements("Students", "StudForm137", frm137Data);
+            }
+
+            if (lRNTextBox.Text.Length > 0)
+            {
+                STU_Command = new SqlCommand("UPDATE Students SET LRN = @LRN WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+                STU_Command.Parameters.AddWithValue("@LRN", Convert.ToInt32(lRNTextBox.Text));
+                STU_Command.ExecuteNonQuery();
+            }
+
+            if (!birthCertData.ExecuteScalar().Equals(DBNull.Value))
+            {
+                updateRequirements("Students", "BirthCertificate", birthCertData);
+            }
+
+            if (!goodMoralData.ExecuteScalar().Equals(DBNull.Value))
+            {
+                updateRequirements("Students", "GoodMoral", goodMoralData);
+            }
+
+            if (!transferCertData.ExecuteScalar().Equals(DBNull.Value))
+            {
+                updateRequirements("Students", "TransferCertificate", transferCertData);
+            }
+            STU_DB_Connection.Close();
         }
 
         private void generateStudNumButton_Click(object sender, EventArgs e)
         {
-            SqlCommand studNumData = new SqlCommand("SELECT MAX(RegisterID) FROM Students", STU_DB_Connection);
+            SqlCommand studNumData = new SqlCommand("SELECT COUNT(*) FROM Students", STU_DB_Connection);
             STU_DB_Connection.Open();
             int generateStudNum = studNumData.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(studNumData.ExecuteScalar()) + 1;
             STU_DB_Connection.Close();
@@ -314,6 +353,5 @@ namespace STUEnrollmentSystem
             genStudNumTextBox.Text = studNum;
             studentNumberTextBox.Text = genStudNumTextBox.Text;
         }
-        
     }
 }

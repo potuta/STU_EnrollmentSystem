@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label enrollmentStatusLabel;
             System.Windows.Forms.Label studFirstNameLabel;
             System.Windows.Forms.Label studMidNameLabel;
@@ -48,10 +47,6 @@
             System.Windows.Forms.Label fatherOccupationLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
-            this.sTU_DBDataSet = new Registration.STU_DBDataSet();
-            this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.registrationTableAdapter = new Registration.STU_DBDataSetTableAdapters.RegistrationTableAdapter();
-            this.tableAdapterManager = new Registration.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.studFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.studMidNameTextBox = new System.Windows.Forms.TextBox();
             this.studLastNameTextBox = new System.Windows.Forms.TextBox();
@@ -91,8 +86,6 @@
             fatherOccupationLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // enrollmentStatusLabel
@@ -267,36 +260,8 @@
             label2.TabIndex = 46;
             label2.Text = "Requirements (to be passed at registrar office):";
             // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registrationBindingSource
-            // 
-            this.registrationBindingSource.DataMember = "Registration";
-            this.registrationBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // registrationTableAdapter
-            // 
-            this.registrationTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Registration.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // studFirstNameTextBox
             // 
-            this.studFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "StudFirstName", true));
             this.studFirstNameTextBox.Location = new System.Drawing.Point(148, 85);
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -304,7 +269,6 @@
             // 
             // studMidNameTextBox
             // 
-            this.studMidNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "StudMidName", true));
             this.studMidNameTextBox.Location = new System.Drawing.Point(148, 111);
             this.studMidNameTextBox.Name = "studMidNameTextBox";
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -312,7 +276,6 @@
             // 
             // studLastNameTextBox
             // 
-            this.studLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "StudLastName", true));
             this.studLastNameTextBox.Location = new System.Drawing.Point(148, 137);
             this.studLastNameTextBox.Name = "studLastNameTextBox";
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -320,7 +283,6 @@
             // 
             // birthDateTextBox
             // 
-            this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "BirthDate", true));
             this.birthDateTextBox.Location = new System.Drawing.Point(148, 189);
             this.birthDateTextBox.Name = "birthDateTextBox";
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
@@ -328,7 +290,6 @@
             // 
             // addressTextBox
             // 
-            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "Address", true));
             this.addressTextBox.Location = new System.Drawing.Point(148, 241);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
@@ -336,7 +297,6 @@
             // 
             // contactNumTextBox
             // 
-            this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "ContactNum", true));
             this.contactNumTextBox.Location = new System.Drawing.Point(148, 267);
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
@@ -344,7 +304,6 @@
             // 
             // motherFirstNameTextBox
             // 
-            this.motherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "MotherFirstName", true));
             this.motherFirstNameTextBox.Location = new System.Drawing.Point(148, 345);
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -352,7 +311,6 @@
             // 
             // motherLastNameTextBox
             // 
-            this.motherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "MotherLastName", true));
             this.motherLastNameTextBox.Location = new System.Drawing.Point(148, 371);
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -360,7 +318,6 @@
             // 
             // motherOccupationTextBox
             // 
-            this.motherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "MotherOccupation", true));
             this.motherOccupationTextBox.Location = new System.Drawing.Point(148, 397);
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
@@ -368,7 +325,6 @@
             // 
             // fatherFirstNameTextBox
             // 
-            this.fatherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "FatherFirstName", true));
             this.fatherFirstNameTextBox.Location = new System.Drawing.Point(148, 423);
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -376,7 +332,6 @@
             // 
             // fatherLastNameTextBox
             // 
-            this.fatherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "FatherLastName", true));
             this.fatherLastNameTextBox.Location = new System.Drawing.Point(148, 449);
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -384,7 +339,6 @@
             // 
             // fatherOccupationTextBox
             // 
-            this.fatherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "FatherOccupation", true));
             this.fatherOccupationTextBox.Location = new System.Drawing.Point(148, 475);
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
@@ -392,7 +346,6 @@
             // 
             // enrollmentStatusComboBox
             // 
-            this.enrollmentStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "EnrollmentStatus", true));
             this.enrollmentStatusComboBox.FormattingEnabled = true;
             this.enrollmentStatusComboBox.Items.AddRange(new object[] {
             "NEW",
@@ -405,7 +358,6 @@
             // 
             // genderComboBox
             // 
-            this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "Gender", true));
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
@@ -425,7 +377,6 @@
             // 
             // enrollmentTypeComboBox
             // 
-            this.enrollmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "EnrollmentType", true));
             this.enrollmentTypeComboBox.FormattingEnabled = true;
             this.enrollmentTypeComboBox.Items.AddRange(new object[] {
             "Grade 7",
@@ -439,7 +390,6 @@
             // 
             // paymentTypeComboBox
             // 
-            this.paymentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "InstallmentType", true));
             this.paymentTypeComboBox.FormattingEnabled = true;
             this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
@@ -451,7 +401,6 @@
             // 
             // civilStatusComboBox
             // 
-            this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "CivilStatus", true));
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
             "Single",
@@ -528,23 +477,17 @@
             this.Controls.Add(this.fatherLastNameTextBox);
             this.Controls.Add(fatherOccupationLabel);
             this.Controls.Add(this.fatherOccupationTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU Registration Form";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private STU_DBDataSet sTU_DBDataSet;
-        private System.Windows.Forms.BindingSource registrationBindingSource;
-        private STU_DBDataSetTableAdapters.RegistrationTableAdapter registrationTableAdapter;
-        private STU_DBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox studFirstNameTextBox;
         private System.Windows.Forms.TextBox studMidNameTextBox;
         private System.Windows.Forms.TextBox studLastNameTextBox;

@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class Student : Form
+    public partial class PendingRequirements : Form
     {
         private SqlConnection STU_DB_Connection;
         private SqlCommand STU_Command;
 
-        public Student()
+        public PendingRequirements()
         {
             InitializeComponent();
             STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
@@ -31,10 +31,10 @@ namespace STUEnrollmentSystem
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
         }
 
-        private void Student_Load(object sender, EventArgs e)
+        private void PendingRequirements_Load(object sender, EventArgs e)
         {
             this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
-            this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
+            this.studentsTableAdapter.FillBy(this.sTU_DBDataSet.Students);
             searchPanel.Visible = false;
         }
 
@@ -55,7 +55,7 @@ namespace STUEnrollmentSystem
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
             this.studentsTableAdapter.Update(sTU_DBDataSet);
-            this.studentsTableAdapter.Fill(sTU_DBDataSet.Students);
+            this.studentsTableAdapter.FillBy(sTU_DBDataSet.Students);
         }
 
         private void studentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -141,7 +141,7 @@ namespace STUEnrollmentSystem
                 uploadTransferCertButton.Visible = false;
                 return;
             }
-            catch(NullReferenceException nfe)
+            catch (NullReferenceException nfe)
             {
                 STU_DB_Connection.Close();
                 viewFrm137Button.Visible = false;
@@ -258,6 +258,12 @@ namespace STUEnrollmentSystem
             STU_DB_Connection.Open();
             STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();
+        }
+
+        private void bindingNavigatorUpdateRequirementsItem_Click(object sender, EventArgs e)
+        {
+            studentsBindingNavigatorSaveItem_Click(sender, e);
+            bindingNavigatorRefreshItem_Click(sender, e);
         }
     }
 }
