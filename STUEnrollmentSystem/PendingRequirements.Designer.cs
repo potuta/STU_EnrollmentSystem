@@ -129,24 +129,24 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorUpdateRequirementsItem = new System.Windows.Forms.ToolStripButton();
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
+            this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.birthDateTextBox = new System.Windows.Forms.TextBox();
             this.uploadFrm137Button = new System.Windows.Forms.Button();
             this.viewFrm137Button = new System.Windows.Forms.Button();
             this.studForm137TextBox = new System.Windows.Forms.TextBox();
+            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
             this.viewBirthCertButton = new System.Windows.Forms.Button();
             this.uploadGoodMoralButton = new System.Windows.Forms.Button();
-            this.viewTransferCertButton = new System.Windows.Forms.Button();
             this.viewGoodMoralButton = new System.Windows.Forms.Button();
             this.goodMoralTextBox = new System.Windows.Forms.TextBox();
-            this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.birthDateTextBox = new System.Windows.Forms.TextBox();
+            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
+            this.viewTransferCertButton = new System.Windows.Forms.Button();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.bindingNavigatorUpdateRequirementsItem = new System.Windows.Forms.ToolStripButton();
             sectionLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
@@ -435,12 +435,15 @@
             // sectionComboBox
             // 
             this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
+            this.sectionComboBox.DataSource = this.sectionsBindingSource;
+            this.sectionComboBox.DisplayMember = "SectionTitle";
             this.sectionComboBox.Enabled = false;
             this.sectionComboBox.FormattingEnabled = true;
             this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
             this.sectionComboBox.Name = "sectionComboBox";
             this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
             this.sectionComboBox.TabIndex = 68;
+            this.sectionComboBox.ValueMember = "SectionCode";
             // 
             // studentsBindingSource
             // 
@@ -1081,6 +1084,16 @@
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
+            // bindingNavigatorUpdateRequirementsItem
+            // 
+            this.bindingNavigatorUpdateRequirementsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bindingNavigatorUpdateRequirementsItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorUpdateRequirementsItem.Image")));
+            this.bindingNavigatorUpdateRequirementsItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorUpdateRequirementsItem.Name = "bindingNavigatorUpdateRequirementsItem";
+            this.bindingNavigatorUpdateRequirementsItem.Size = new System.Drawing.Size(169, 22);
+            this.bindingNavigatorUpdateRequirementsItem.Text = "Update Student Requirements";
+            this.bindingNavigatorUpdateRequirementsItem.Click += new System.EventHandler(this.bindingNavigatorUpdateRequirementsItem_Click);
+            // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
@@ -1155,23 +1168,22 @@
             this.detailsPanel.Size = new System.Drawing.Size(1298, 282);
             this.detailsPanel.TabIndex = 13;
             // 
-            // birthCertificateTextBox
+            // birthDateTimePicker
             // 
-            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthCertificate", true));
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
-            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
-            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.birthCertificateTextBox.TabIndex = 45;
-            this.birthCertificateTextBox.Visible = false;
+            this.birthDateTimePicker.Enabled = false;
+            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.birthDateTimePicker.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTimePicker.Name = "birthDateTimePicker";
+            this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
+            this.birthDateTimePicker.TabIndex = 50;
             // 
-            // transferCertificateTextBox
+            // birthDateTextBox
             // 
-            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "TransferCertificate", true));
-            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
-            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
-            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.transferCertificateTextBox.TabIndex = 47;
-            this.transferCertificateTextBox.Visible = false;
+            this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthDate", true));
+            this.birthDateTextBox.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTextBox.Name = "birthDateTextBox";
+            this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.birthDateTextBox.TabIndex = 14;
             // 
             // uploadFrm137Button
             // 
@@ -1202,6 +1214,15 @@
             this.studForm137TextBox.TabIndex = 44;
             this.studForm137TextBox.Visible = false;
             // 
+            // birthCertificateTextBox
+            // 
+            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthCertificate", true));
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
+            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
+            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.birthCertificateTextBox.TabIndex = 45;
+            this.birthCertificateTextBox.Visible = false;
+            // 
             // viewBirthCertButton
             // 
             this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
@@ -1222,16 +1243,6 @@
             this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
             this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
             // 
-            // viewTransferCertButton
-            // 
-            this.viewTransferCertButton.Location = new System.Drawing.Point(884, 166);
-            this.viewTransferCertButton.Name = "viewTransferCertButton";
-            this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
-            this.viewTransferCertButton.TabIndex = 62;
-            this.viewTransferCertButton.Text = "View File";
-            this.viewTransferCertButton.UseVisualStyleBackColor = true;
-            this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
-            // 
             // viewGoodMoralButton
             // 
             this.viewGoodMoralButton.Location = new System.Drawing.Point(884, 142);
@@ -1251,22 +1262,24 @@
             this.goodMoralTextBox.TabIndex = 46;
             this.goodMoralTextBox.Visible = false;
             // 
-            // birthDateTimePicker
+            // transferCertificateTextBox
             // 
-            this.birthDateTimePicker.Enabled = false;
-            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(375, 64);
-            this.birthDateTimePicker.Name = "birthDateTimePicker";
-            this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
-            this.birthDateTimePicker.TabIndex = 50;
+            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "TransferCertificate", true));
+            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
+            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
+            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.transferCertificateTextBox.TabIndex = 47;
+            this.transferCertificateTextBox.Visible = false;
             // 
-            // birthDateTextBox
+            // viewTransferCertButton
             // 
-            this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthDate", true));
-            this.birthDateTextBox.Location = new System.Drawing.Point(375, 64);
-            this.birthDateTextBox.Name = "birthDateTextBox";
-            this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.birthDateTextBox.TabIndex = 14;
+            this.viewTransferCertButton.Location = new System.Drawing.Point(884, 166);
+            this.viewTransferCertButton.Name = "viewTransferCertButton";
+            this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
+            this.viewTransferCertButton.TabIndex = 62;
+            this.viewTransferCertButton.Text = "View File";
+            this.viewTransferCertButton.UseVisualStyleBackColor = true;
+            this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
             // 
             // showSearchButton
             // 
@@ -1315,20 +1328,11 @@
             this.tableAdapterManager.TeachersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bindingNavigatorUpdateRequirementsItem
-            // 
-            this.bindingNavigatorUpdateRequirementsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorUpdateRequirementsItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorUpdateRequirementsItem.Image")));
-            this.bindingNavigatorUpdateRequirementsItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bindingNavigatorUpdateRequirementsItem.Name = "bindingNavigatorUpdateRequirementsItem";
-            this.bindingNavigatorUpdateRequirementsItem.Size = new System.Drawing.Size(169, 22);
-            this.bindingNavigatorUpdateRequirementsItem.Text = "Update Student Requirements";
-            this.bindingNavigatorUpdateRequirementsItem.Click += new System.EventHandler(this.bindingNavigatorUpdateRequirementsItem_Click);
-            // 
             // PendingRequirements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1298, 829);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.studentsBindingNavigator);

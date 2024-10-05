@@ -55,10 +55,9 @@
             System.Windows.Forms.Label sectionLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.sectionComboBox = new System.Windows.Forms.ComboBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
-            this.sectionComboBox = new System.Windows.Forms.ComboBox();
-            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
@@ -99,6 +98,7 @@
             this.goodMoralTextBox = new System.Windows.Forms.TextBox();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.birthDateTextBox = new System.Windows.Forms.TextBox();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -471,6 +471,18 @@
             this.detailsPanel.Size = new System.Drawing.Size(1315, 282);
             this.detailsPanel.TabIndex = 9;
             // 
+            // sectionComboBox
+            // 
+            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
+            this.sectionComboBox.DataSource = this.sectionsBindingSource;
+            this.sectionComboBox.DisplayMember = "SectionTitle";
+            this.sectionComboBox.FormattingEnabled = true;
+            this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
+            this.sectionComboBox.Name = "sectionComboBox";
+            this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
+            this.sectionComboBox.TabIndex = 68;
+            this.sectionComboBox.ValueMember = "SectionCode";
+            // 
             // studentsBindingSource
             // 
             this.studentsBindingSource.DataMember = "Students";
@@ -480,20 +492,6 @@
             // 
             this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
             this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sectionComboBox
-            // 
-            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
-            this.sectionComboBox.FormattingEnabled = true;
-            this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
-            this.sectionComboBox.Name = "sectionComboBox";
-            this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
-            this.sectionComboBox.TabIndex = 68;
-            // 
-            // sectionsBindingSource
-            // 
-            this.sectionsBindingSource.DataMember = "Sections";
-            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
             // 
             // studentNumberTextBox
             // 
@@ -873,6 +871,11 @@
             this.birthDateTextBox.Name = "birthDateTextBox";
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
+            // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
             // 
             // sectionsBindingSource1
             // 
