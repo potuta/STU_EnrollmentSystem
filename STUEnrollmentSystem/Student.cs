@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Syncfusion.XPS;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,6 +35,8 @@ namespace STUEnrollmentSystem
 
         private void Student_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sTU_DBDataSet.GradeLevel' table. You can move, or remove it, as needed.
+            this.gradeLevelTableAdapter.Fill(this.sTU_DBDataSet.GradeLevel);
             this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
             this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
             searchPanel.Visible = false;
@@ -64,6 +68,23 @@ namespace STUEnrollmentSystem
             try
             {
                 birthDateTimePicker.Text = birthDateTextBox.Text;
+
+                SqlCommand sectionData = new SqlCommand("SELECT SectionTitle FROM Sections WHERE GradeCode = " + enrollmentTypeComboBox.ValueMember + " AND StudCount < Capacity", STU_DB_Connection);
+                List<string> sectionList = new List<string>();
+                using (SqlDataReader reader = sectionData.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        sectionList.Add(reader[0].ToString());
+                    }
+                }
+
+                sectionComboBox.Items.Clear();
+                foreach (string items in sectionList)
+                {
+                    sectionComboBox.Items.Add(items);
+                }
+
                 SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
                 SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
                 SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);

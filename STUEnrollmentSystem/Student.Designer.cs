@@ -58,6 +58,7 @@
             this.sectionComboBox = new System.Windows.Forms.ComboBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
@@ -98,7 +99,6 @@
             this.goodMoralTextBox = new System.Windows.Forms.TextBox();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.birthDateTextBox = new System.Windows.Forms.TextBox();
-            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -120,6 +120,10 @@
             this.studentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.studentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
+            this.gradeLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -144,8 +148,6 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -179,6 +181,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingNavigator)).BeginInit();
             this.studentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeLevelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // studentNumberLabel
@@ -474,14 +477,11 @@
             // sectionComboBox
             // 
             this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
-            this.sectionComboBox.DataSource = this.sectionsBindingSource;
-            this.sectionComboBox.DisplayMember = "SectionTitle";
             this.sectionComboBox.FormattingEnabled = true;
             this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
             this.sectionComboBox.Name = "sectionComboBox";
             this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
             this.sectionComboBox.TabIndex = 68;
-            this.sectionComboBox.ValueMember = "SectionCode";
             // 
             // studentsBindingSource
             // 
@@ -492,6 +492,11 @@
             // 
             this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
             this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
             // 
             // studentNumberTextBox
             // 
@@ -581,16 +586,14 @@
             // enrollmentTypeComboBox
             // 
             this.enrollmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "EnrollmentType", true));
+            this.enrollmentTypeComboBox.DataSource = this.gradeLevelBindingSource;
+            this.enrollmentTypeComboBox.DisplayMember = "GradeLevel";
             this.enrollmentTypeComboBox.FormattingEnabled = true;
-            this.enrollmentTypeComboBox.Items.AddRange(new object[] {
-            "Grade 7",
-            "Grade 8",
-            "Grade 9",
-            "Grade 10"});
             this.enrollmentTypeComboBox.Location = new System.Drawing.Point(375, 167);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 42;
+            this.enrollmentTypeComboBox.ValueMember = "GradeCode";
             // 
             // genderComboBox
             // 
@@ -872,11 +875,6 @@
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
             // 
-            // sectionsBindingSource
-            // 
-            this.sectionsBindingSource.DataMember = "Sections";
-            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
             // sectionsBindingSource1
             // 
             this.sectionsBindingSource1.DataMember = "Sections";
@@ -925,13 +923,17 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
+            this.tableAdapterManager.PricesTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
             this.tableAdapterManager.ScheduleTableAdapter = null;
             this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = null;
             this.tableAdapterManager.StudentsTableAdapter = this.studentsTableAdapter;
             this.tableAdapterManager.SubjectsTableAdapter = null;
             this.tableAdapterManager.TeachersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
             // 
             // studentsBindingNavigator
             // 
@@ -1105,6 +1107,23 @@
             this.studentsDataGridView.Size = new System.Drawing.Size(1315, 362);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // sectionsTableAdapter
+            // 
+            this.sectionsTableAdapter.ClearBeforeFill = true;
+            // 
+            // gradeLevelBindingSource
+            // 
+            this.gradeLevelBindingSource.DataMember = "GradeLevel";
+            this.gradeLevelBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // gradeLevelTableAdapter
+            // 
+            this.gradeLevelTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -1289,14 +1308,6 @@
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // sectionsTableAdapter
-            // 
-            this.sectionsTableAdapter.ClearBeforeFill = true;
-            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1323,6 +1334,7 @@
             this.studentsBindingNavigator.ResumeLayout(false);
             this.studentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeLevelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1399,6 +1411,8 @@
         private System.Windows.Forms.ComboBox sectionComboBox;
         private System.Windows.Forms.BindingSource sectionsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.BindingSource gradeLevelBindingSource;
+        private STU_DBDataSetTableAdapters.GradeLevelTableAdapter gradeLevelTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
