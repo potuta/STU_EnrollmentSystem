@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Syncfusion.XPS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Drawing;
@@ -69,10 +71,12 @@ namespace STUEnrollmentSystem
                 SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
                 SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
                 SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+                SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
                 bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+                bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 if (isFrm137Data == false)
                 {
                     viewFrm137Button.Visible = true;
@@ -124,6 +128,24 @@ namespace STUEnrollmentSystem
                     deleteTransferCertButton.Visible = false;
                     viewTransferCertButton.Visible = false;
                 }
+
+                while(paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+                {
+                    if (isProofOfPaymentData == false)
+                    {
+                        viewProofOfPaymentButton.Visible = true;
+                        deleteProofOfPaymentButton.Visible = true;
+                        uploadProofOfPaymentButton.Visible = false;
+                    }
+                    else
+                    {
+                        uploadProofOfPaymentButton.Visible = true;
+                        deleteProofOfPaymentButton.Visible = false;
+                        viewProofOfPaymentButton.Visible = false;
+                    }
+                    break;
+                }
+               
             }
             catch (FormatException fe)
             {
@@ -140,6 +162,9 @@ namespace STUEnrollmentSystem
                 viewTransferCertButton.Visible = false;
                 deleteTransferCertButton.Visible = false;
                 uploadTransferCertButton.Visible = false;
+                viewProofOfPaymentButton.Visible = false;
+                deleteProofOfPaymentButton.Visible = false;
+                uploadProofOfPaymentButton.Visible = false;
                 return;
             }
             STU_DB_Connection.Close();
@@ -217,6 +242,31 @@ namespace STUEnrollmentSystem
             deleteFile("TransferCertificate");
         }
 
+        private void viewProofOfPaymentButton_Click(object sender, EventArgs e)
+        {
+            viewImageFile("ProofOfPayment");
+        }
+
+        private void uploadProofOfPaymentButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                uploadFile("ProofOfPayment");
+            }
+        }
+
+        private void deleteProofOfPaymentButton_Click(object sender, EventArgs e)
+        {
+            deleteFile("ProofOfPayment");
+        }
+
+        private void viewImageFile(string Column)
+        {
+            string command = "SELECT " + Column + " FROM PendingStudents WHERE RegisterID = " + registerIDTextBox.Text;
+            ImageViewer imageViewer = new ImageViewer(Column, command);
+            imageViewer.Show();
+        }
+
         private void viewFile(string Column)
         {
             string command = "SELECT " + Column + " FROM PendingStudents WHERE RegisterID = " + registerIDTextBox.Text;
@@ -247,7 +297,9 @@ namespace STUEnrollmentSystem
         private void bindingNavigatorEnrollStudentItem_Click(object sender, EventArgs e)
         {
             STU_DB_Connection.Open();
+
             SqlCommand deleteRowFromPendingStudents = new SqlCommand("DELETE FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+
             STU_Command = new SqlCommand("INSERT INTO Students(RegisterID, StudentNumber, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
                                                          "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @StudentNumber, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
                                                          "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
@@ -274,6 +326,7 @@ namespace STUEnrollmentSystem
             STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();
 
+            insertStudentPayment();
             checkIsNullRequirements();
 
             STU_DB_Connection.Open();
@@ -296,6 +349,7 @@ namespace STUEnrollmentSystem
             SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             if (!frm137Data.ExecuteScalar().Equals(DBNull.Value))
             {
                 updateRequirements("Students", "StudForm137", frm137Data);
@@ -322,6 +376,62 @@ namespace STUEnrollmentSystem
             {
                 updateRequirements("Students", "TransferCertificate", transferCertData);
             }
+
+            if (!proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value))
+            {
+                STU_Command = new SqlCommand("UPDATE StudentPayment SET ProofOfPayment = @Param WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+                STU_Command.Parameters.AddWithValue("@Param", proofOfPaymentData.ExecuteScalar());
+                STU_Command.ExecuteNonQuery();
+            }
+
+            STU_DB_Connection.Close();
+        }
+
+        private void insertStudentPayment()
+        {
+            STU_DB_Connection.Open();
+
+            string paymentCode = string.Empty;
+            if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
+            {
+                paymentCode = "MG7";
+            }
+            else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
+            {
+                paymentCode = "FG7";
+            }
+
+            if (paymentTypeComboBox.SelectedItem.Equals("Monthly"))
+            {
+                STU_Command = new SqlCommand("INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
+                                             "VALUES (@PaymentCode1, @PaymentMethod1, @StudentNumber1, @MonthOfPayment1, @PaymentStatus1)," +
+                                                    "(@PaymentCode2, @PaymentMethod2, @StudentNumber2, @MonthOfPayment2, @PaymentStatus2)," +
+                                                    "(@PaymentCode3, @PaymentMethod3, @StudentNumber3, @MonthOfPayment3, @PaymentStatus3)," +
+                                                    "(@PaymentCode4, @PaymentMethod4, @StudentNumber4, @MonthOfPayment4, @PaymentStatus4)," +
+                                                    "(@PaymentCode5, @PaymentMethod5, @StudentNumber5, @MonthOfPayment5, @PaymentStatus5)," +
+                                                    "(@PaymentCode6, @PaymentMethod6, @StudentNumber6, @MonthOfPayment6, @PaymentStatus6)," +
+                                                    "(@PaymentCode7, @PaymentMethod7, @StudentNumber7, @MonthOfPayment7, @PaymentStatus7)," +
+                                                    "(@PaymentCode8, @PaymentMethod8, @StudentNumber8, @MonthOfPayment8, @PaymentStatus8)," +
+                                                    "(@PaymentCode9, @PaymentMethod9, @StudentNumber9, @MonthOfPayment9, @PaymentStatus9)," +
+                                                    "(@PaymentCode10, @PaymentMethod10, @StudentNumber10, @MonthOfPayment10, @PaymentStatus10),", STU_DB_Connection);
+                STU_Command.Parameters.AddWithValue("@PaymentCode1", paymentCode);
+                STU_Command.Parameters.AddWithValue("@PaymentMethod1", paymentMethodComboBox.SelectedItem);
+                STU_Command.Parameters.AddWithValue("@StudentNumber1", studentNumberTextBox.Text);
+                STU_Command.Parameters.AddWithValue("@MonthOfPayment1", "August");
+                STU_Command.Parameters.AddWithValue("@PaymentStatus1", "Paid");
+            }
+            else if (paymentTypeComboBox.SelectedItem.Equals("Full"))
+            {
+                STU_Command = new SqlCommand("INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
+                                             "VALUES (@PaymentCode1, @PaymentMethod1, @StudentNumber1, @MonthOfPayment1, @PaymentStatus1)", STU_DB_Connection);
+                STU_Command.Parameters.AddWithValue("@PaymentCode1", paymentCode);
+                STU_Command.Parameters.AddWithValue("@PaymentMethod1", paymentMethodComboBox.SelectedItem);
+                STU_Command.Parameters.AddWithValue("@StudentNumber1", studentNumberTextBox.Text);
+                STU_Command.Parameters.AddWithValue("@MonthOfPayment1", "August");
+                STU_Command.Parameters.AddWithValue("@PaymentStatus1", "Paid");
+            }
+
+            STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();
         }
 
@@ -352,6 +462,30 @@ namespace STUEnrollmentSystem
 
             genStudNumTextBox.Text = studNum;
             studentNumberTextBox.Text = genStudNumTextBox.Text;
+        }
+
+        private void paymentMethodComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER"))
+            {
+                proofOfPaymentLabel.Visible = true;
+            }
+            else
+            {
+                proofOfPaymentLabel.Visible = false;
+            }
+        }
+
+        private void paymentTypeComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
+            {
+                amountToPayLabel.Text = "5700.00";
+            }
+            else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
+            {
+                amountToPayLabel.Text = "57000.00";
+            }
         }
     }
 }

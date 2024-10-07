@@ -54,6 +54,8 @@
             System.Windows.Forms.Label lRNLabel;
             System.Windows.Forms.Label studentNumberLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingStudents));
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label paymentMethodLabel1;
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -118,6 +120,17 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.label5 = new System.Windows.Forms.Label();
+            this.amountToPayLabel = new System.Windows.Forms.Label();
+            this.paymentMethodComboBox = new System.Windows.Forms.ComboBox();
+            this.proofOfPaymentLabel = new System.Windows.Forms.Label();
+            this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
+            this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
+            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
+            this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -142,10 +155,9 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -170,6 +182,8 @@
             fatherOccupationLabel = new System.Windows.Forms.Label();
             lRNLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            paymentMethodLabel1 = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
@@ -182,7 +196,7 @@
             // transferCertificateLabel
             // 
             transferCertificateLabel.AutoSize = true;
-            transferCertificateLabel.Location = new System.Drawing.Point(777, 171);
+            transferCertificateLabel.Location = new System.Drawing.Point(497, 171);
             transferCertificateLabel.Name = "transferCertificateLabel";
             transferCertificateLabel.Size = new System.Drawing.Size(99, 13);
             transferCertificateLabel.TabIndex = 46;
@@ -191,7 +205,7 @@
             // goodMoralLabel
             // 
             goodMoralLabel.AutoSize = true;
-            goodMoralLabel.Location = new System.Drawing.Point(777, 145);
+            goodMoralLabel.Location = new System.Drawing.Point(497, 145);
             goodMoralLabel.Name = "goodMoralLabel";
             goodMoralLabel.Size = new System.Drawing.Size(65, 13);
             goodMoralLabel.TabIndex = 45;
@@ -200,7 +214,7 @@
             // birthCertificateLabel
             // 
             birthCertificateLabel.AutoSize = true;
-            birthCertificateLabel.Location = new System.Drawing.Point(777, 119);
+            birthCertificateLabel.Location = new System.Drawing.Point(497, 119);
             birthCertificateLabel.Name = "birthCertificateLabel";
             birthCertificateLabel.Size = new System.Drawing.Size(81, 13);
             birthCertificateLabel.TabIndex = 44;
@@ -209,7 +223,7 @@
             // studForm137Label
             // 
             studForm137Label.AutoSize = true;
-            studForm137Label.Location = new System.Drawing.Point(777, 93);
+            studForm137Label.Location = new System.Drawing.Point(497, 93);
             studForm137Label.Name = "studForm137Label";
             studForm137Label.Size = new System.Drawing.Size(76, 13);
             studForm137Label.TabIndex = 43;
@@ -272,7 +286,7 @@
             // birthDateLabel
             // 
             birthDateLabel.AutoSize = true;
-            birthDateLabel.Location = new System.Drawing.Point(268, 67);
+            birthDateLabel.Location = new System.Drawing.Point(15, 247);
             birthDateLabel.Name = "birthDateLabel";
             birthDateLabel.Size = new System.Drawing.Size(57, 13);
             birthDateLabel.TabIndex = 13;
@@ -281,7 +295,7 @@
             // civilStatusLabel
             // 
             civilStatusLabel.AutoSize = true;
-            civilStatusLabel.Location = new System.Drawing.Point(268, 93);
+            civilStatusLabel.Location = new System.Drawing.Point(15, 273);
             civilStatusLabel.Name = "civilStatusLabel";
             civilStatusLabel.Size = new System.Drawing.Size(62, 13);
             civilStatusLabel.TabIndex = 15;
@@ -290,7 +304,7 @@
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(268, 119);
+            addressLabel.Location = new System.Drawing.Point(15, 299);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(48, 13);
             addressLabel.TabIndex = 17;
@@ -299,7 +313,7 @@
             // contactNumLabel
             // 
             contactNumLabel.AutoSize = true;
-            contactNumLabel.Location = new System.Drawing.Point(268, 145);
+            contactNumLabel.Location = new System.Drawing.Point(15, 325);
             contactNumLabel.Name = "contactNumLabel";
             contactNumLabel.Size = new System.Drawing.Size(72, 13);
             contactNumLabel.TabIndex = 19;
@@ -308,7 +322,7 @@
             // enrollmentTypeLabel
             // 
             enrollmentTypeLabel.AutoSize = true;
-            enrollmentTypeLabel.Location = new System.Drawing.Point(268, 171);
+            enrollmentTypeLabel.Location = new System.Drawing.Point(15, 351);
             enrollmentTypeLabel.Name = "enrollmentTypeLabel";
             enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
             enrollmentTypeLabel.TabIndex = 21;
@@ -317,7 +331,7 @@
             // installmentTypeLabel
             // 
             installmentTypeLabel.AutoSize = true;
-            installmentTypeLabel.Location = new System.Drawing.Point(268, 197);
+            installmentTypeLabel.Location = new System.Drawing.Point(771, 64);
             installmentTypeLabel.Name = "installmentTypeLabel";
             installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
@@ -326,7 +340,7 @@
             // motherFirstNameLabel
             // 
             motherFirstNameLabel.AutoSize = true;
-            motherFirstNameLabel.Location = new System.Drawing.Point(521, 67);
+            motherFirstNameLabel.Location = new System.Drawing.Point(261, 67);
             motherFirstNameLabel.Name = "motherFirstNameLabel";
             motherFirstNameLabel.Size = new System.Drawing.Size(96, 13);
             motherFirstNameLabel.TabIndex = 25;
@@ -335,7 +349,7 @@
             // motherLastNameLabel
             // 
             motherLastNameLabel.AutoSize = true;
-            motherLastNameLabel.Location = new System.Drawing.Point(521, 93);
+            motherLastNameLabel.Location = new System.Drawing.Point(261, 93);
             motherLastNameLabel.Name = "motherLastNameLabel";
             motherLastNameLabel.Size = new System.Drawing.Size(97, 13);
             motherLastNameLabel.TabIndex = 27;
@@ -344,7 +358,7 @@
             // motherOccupationLabel
             // 
             motherOccupationLabel.AutoSize = true;
-            motherOccupationLabel.Location = new System.Drawing.Point(521, 119);
+            motherOccupationLabel.Location = new System.Drawing.Point(261, 119);
             motherOccupationLabel.Name = "motherOccupationLabel";
             motherOccupationLabel.Size = new System.Drawing.Size(101, 13);
             motherOccupationLabel.TabIndex = 29;
@@ -353,7 +367,7 @@
             // fatherFirstNameLabel
             // 
             fatherFirstNameLabel.AutoSize = true;
-            fatherFirstNameLabel.Location = new System.Drawing.Point(521, 145);
+            fatherFirstNameLabel.Location = new System.Drawing.Point(261, 145);
             fatherFirstNameLabel.Name = "fatherFirstNameLabel";
             fatherFirstNameLabel.Size = new System.Drawing.Size(93, 13);
             fatherFirstNameLabel.TabIndex = 31;
@@ -362,7 +376,7 @@
             // fatherLastNameLabel
             // 
             fatherLastNameLabel.AutoSize = true;
-            fatherLastNameLabel.Location = new System.Drawing.Point(521, 171);
+            fatherLastNameLabel.Location = new System.Drawing.Point(261, 171);
             fatherLastNameLabel.Name = "fatherLastNameLabel";
             fatherLastNameLabel.Size = new System.Drawing.Size(94, 13);
             fatherLastNameLabel.TabIndex = 33;
@@ -371,7 +385,7 @@
             // fatherOccupationLabel
             // 
             fatherOccupationLabel.AutoSize = true;
-            fatherOccupationLabel.Location = new System.Drawing.Point(521, 197);
+            fatherOccupationLabel.Location = new System.Drawing.Point(261, 197);
             fatherOccupationLabel.Name = "fatherOccupationLabel";
             fatherOccupationLabel.Size = new System.Drawing.Size(98, 13);
             fatherOccupationLabel.TabIndex = 35;
@@ -380,7 +394,7 @@
             // lRNLabel
             // 
             lRNLabel.AutoSize = true;
-            lRNLabel.Location = new System.Drawing.Point(777, 67);
+            lRNLabel.Location = new System.Drawing.Point(497, 67);
             lRNLabel.Name = "lRNLabel";
             lRNLabel.Size = new System.Drawing.Size(32, 13);
             lRNLabel.TabIndex = 37;
@@ -398,6 +412,13 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.deleteProofOfPaymentButton);
+            this.detailsPanel.Controls.Add(this.proofOfPaymentLabel);
+            this.detailsPanel.Controls.Add(paymentMethodLabel1);
+            this.detailsPanel.Controls.Add(this.paymentMethodComboBox);
+            this.detailsPanel.Controls.Add(this.amountToPayLabel);
+            this.detailsPanel.Controls.Add(label6);
+            this.detailsPanel.Controls.Add(this.label5);
             this.detailsPanel.Controls.Add(studentNumberLabel);
             this.detailsPanel.Controls.Add(this.studentNumberTextBox);
             this.detailsPanel.Controls.Add(this.civilStatusComboBox);
@@ -449,25 +470,28 @@
             this.detailsPanel.Controls.Add(this.label1);
             this.detailsPanel.Controls.Add(this.deleteFrm137Button);
             this.detailsPanel.Controls.Add(this.uploadBirthCertButton);
-            this.detailsPanel.Controls.Add(this.uploadTransferCertButton);
             this.detailsPanel.Controls.Add(this.birthCertificateTextBox);
-            this.detailsPanel.Controls.Add(this.transferCertificateTextBox);
             this.detailsPanel.Controls.Add(this.birthDateTimePicker);
             this.detailsPanel.Controls.Add(this.birthDateTextBox);
             this.detailsPanel.Controls.Add(this.generateStudNumButton);
             this.detailsPanel.Controls.Add(this.genStudNumTextBox);
             this.detailsPanel.Controls.Add(this.uploadFrm137Button);
             this.detailsPanel.Controls.Add(this.viewBirthCertButton);
-            this.detailsPanel.Controls.Add(this.viewTransferCertButton);
             this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
             this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
             this.detailsPanel.Controls.Add(this.goodMoralTextBox);
             this.detailsPanel.Controls.Add(this.viewFrm137Button);
             this.detailsPanel.Controls.Add(this.studForm137TextBox);
+            this.detailsPanel.Controls.Add(this.uploadTransferCertButton);
+            this.detailsPanel.Controls.Add(this.transferCertificateTextBox);
+            this.detailsPanel.Controls.Add(this.viewTransferCertButton);
+            this.detailsPanel.Controls.Add(this.uploadProofOfPaymentButton);
+            this.detailsPanel.Controls.Add(this.proofOfPaymentTextBox);
+            this.detailsPanel.Controls.Add(this.viewProofOfPaymentButton);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1264, 271);
+            this.detailsPanel.Size = new System.Drawing.Size(1264, 272);
             this.detailsPanel.TabIndex = 6;
             // 
             // studentNumberTextBox
@@ -498,14 +522,14 @@
             "Separated",
             "Divorced",
             "Widowed"});
-            this.civilStatusComboBox.Location = new System.Drawing.Point(375, 90);
+            this.civilStatusComboBox.Location = new System.Drawing.Point(122, 270);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.civilStatusComboBox.TabIndex = 63;
             // 
             // deleteTransferCertButton
             // 
-            this.deleteTransferCertButton.Location = new System.Drawing.Point(985, 165);
+            this.deleteTransferCertButton.Location = new System.Drawing.Point(710, 165);
             this.deleteTransferCertButton.Name = "deleteTransferCertButton";
             this.deleteTransferCertButton.Size = new System.Drawing.Size(33, 23);
             this.deleteTransferCertButton.TabIndex = 60;
@@ -515,7 +539,7 @@
             // 
             // deleteGoodMoralButton
             // 
-            this.deleteGoodMoralButton.Location = new System.Drawing.Point(985, 141);
+            this.deleteGoodMoralButton.Location = new System.Drawing.Point(710, 141);
             this.deleteGoodMoralButton.Name = "deleteGoodMoralButton";
             this.deleteGoodMoralButton.Size = new System.Drawing.Size(33, 23);
             this.deleteGoodMoralButton.TabIndex = 58;
@@ -525,7 +549,7 @@
             // 
             // deleteBirthCertButton
             // 
-            this.deleteBirthCertButton.Location = new System.Drawing.Point(985, 115);
+            this.deleteBirthCertButton.Location = new System.Drawing.Point(710, 115);
             this.deleteBirthCertButton.Name = "deleteBirthCertButton";
             this.deleteBirthCertButton.Size = new System.Drawing.Size(33, 23);
             this.deleteBirthCertButton.TabIndex = 56;
@@ -537,7 +561,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(777, 27);
+            this.label4.Location = new System.Drawing.Point(497, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 18);
             this.label4.TabIndex = 49;
@@ -547,7 +571,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(521, 27);
+            this.label3.Location = new System.Drawing.Point(261, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 18);
             this.label3.TabIndex = 48;
@@ -560,10 +584,11 @@
             this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.paymentTypeComboBox.Location = new System.Drawing.Point(375, 194);
+            this.paymentTypeComboBox.Location = new System.Drawing.Point(878, 61);
             this.paymentTypeComboBox.Name = "paymentTypeComboBox";
             this.paymentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentTypeComboBox.TabIndex = 43;
+            this.paymentTypeComboBox.TextChanged += new System.EventHandler(this.paymentTypeComboBox_TextChanged);
             // 
             // enrollmentTypeComboBox
             // 
@@ -574,7 +599,7 @@
             "Grade 8",
             "Grade 9",
             "Grade 10"});
-            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(375, 167);
+            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(122, 347);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 42;
@@ -639,7 +664,7 @@
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(375, 116);
+            this.addressTextBox.Location = new System.Drawing.Point(122, 296);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 18;
@@ -647,7 +672,7 @@
             // contactNumTextBox
             // 
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ContactNum", true));
-            this.contactNumTextBox.Location = new System.Drawing.Point(375, 142);
+            this.contactNumTextBox.Location = new System.Drawing.Point(122, 322);
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
@@ -655,7 +680,7 @@
             // motherFirstNameTextBox
             // 
             this.motherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherFirstName", true));
-            this.motherFirstNameTextBox.Location = new System.Drawing.Point(628, 64);
+            this.motherFirstNameTextBox.Location = new System.Drawing.Point(368, 64);
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherFirstNameTextBox.TabIndex = 26;
@@ -663,7 +688,7 @@
             // motherLastNameTextBox
             // 
             this.motherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherLastName", true));
-            this.motherLastNameTextBox.Location = new System.Drawing.Point(628, 90);
+            this.motherLastNameTextBox.Location = new System.Drawing.Point(368, 90);
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherLastNameTextBox.TabIndex = 28;
@@ -671,7 +696,7 @@
             // motherOccupationTextBox
             // 
             this.motherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherOccupation", true));
-            this.motherOccupationTextBox.Location = new System.Drawing.Point(628, 116);
+            this.motherOccupationTextBox.Location = new System.Drawing.Point(368, 116);
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherOccupationTextBox.TabIndex = 30;
@@ -679,7 +704,7 @@
             // fatherFirstNameTextBox
             // 
             this.fatherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherFirstName", true));
-            this.fatherFirstNameTextBox.Location = new System.Drawing.Point(628, 142);
+            this.fatherFirstNameTextBox.Location = new System.Drawing.Point(368, 142);
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherFirstNameTextBox.TabIndex = 32;
@@ -687,7 +712,7 @@
             // fatherLastNameTextBox
             // 
             this.fatherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherLastName", true));
-            this.fatherLastNameTextBox.Location = new System.Drawing.Point(628, 168);
+            this.fatherLastNameTextBox.Location = new System.Drawing.Point(368, 168);
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherLastNameTextBox.TabIndex = 34;
@@ -695,7 +720,7 @@
             // fatherOccupationTextBox
             // 
             this.fatherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherOccupation", true));
-            this.fatherOccupationTextBox.Location = new System.Drawing.Point(628, 194);
+            this.fatherOccupationTextBox.Location = new System.Drawing.Point(368, 194);
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherOccupationTextBox.TabIndex = 36;
@@ -703,7 +728,7 @@
             // lRNTextBox
             // 
             this.lRNTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "LRN", true));
-            this.lRNTextBox.Location = new System.Drawing.Point(884, 64);
+            this.lRNTextBox.Location = new System.Drawing.Point(604, 64);
             this.lRNTextBox.Name = "lRNTextBox";
             this.lRNTextBox.Size = new System.Drawing.Size(100, 20);
             this.lRNTextBox.TabIndex = 38;
@@ -720,7 +745,7 @@
             // 
             // deleteFrm137Button
             // 
-            this.deleteFrm137Button.Location = new System.Drawing.Point(985, 88);
+            this.deleteFrm137Button.Location = new System.Drawing.Point(710, 88);
             this.deleteFrm137Button.Name = "deleteFrm137Button";
             this.deleteFrm137Button.Size = new System.Drawing.Size(33, 23);
             this.deleteFrm137Button.TabIndex = 52;
@@ -730,7 +755,7 @@
             // 
             // uploadBirthCertButton
             // 
-            this.uploadBirthCertButton.Location = new System.Drawing.Point(884, 116);
+            this.uploadBirthCertButton.Location = new System.Drawing.Point(604, 116);
             this.uploadBirthCertButton.Name = "uploadBirthCertButton";
             this.uploadBirthCertButton.Size = new System.Drawing.Size(100, 23);
             this.uploadBirthCertButton.TabIndex = 54;
@@ -740,7 +765,7 @@
             // 
             // uploadTransferCertButton
             // 
-            this.uploadTransferCertButton.Location = new System.Drawing.Point(884, 166);
+            this.uploadTransferCertButton.Location = new System.Drawing.Point(604, 166);
             this.uploadTransferCertButton.Name = "uploadTransferCertButton";
             this.uploadTransferCertButton.Size = new System.Drawing.Size(100, 23);
             this.uploadTransferCertButton.TabIndex = 61;
@@ -751,7 +776,7 @@
             // birthCertificateTextBox
             // 
             this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "BirthCertificate", true));
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(604, 116);
             this.birthCertificateTextBox.Name = "birthCertificateTextBox";
             this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthCertificateTextBox.TabIndex = 45;
@@ -760,7 +785,7 @@
             // transferCertificateTextBox
             // 
             this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "TransferCertificate", true));
-            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
+            this.transferCertificateTextBox.Location = new System.Drawing.Point(604, 167);
             this.transferCertificateTextBox.Name = "transferCertificateTextBox";
             this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.transferCertificateTextBox.TabIndex = 47;
@@ -769,7 +794,7 @@
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTimePicker.Location = new System.Drawing.Point(122, 244);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
             this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.birthDateTimePicker.TabIndex = 50;
@@ -777,7 +802,7 @@
             // birthDateTextBox
             // 
             this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "BirthDate", true));
-            this.birthDateTextBox.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTextBox.Location = new System.Drawing.Point(122, 244);
             this.birthDateTextBox.Name = "birthDateTextBox";
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
@@ -806,7 +831,7 @@
             // 
             // uploadFrm137Button
             // 
-            this.uploadFrm137Button.Location = new System.Drawing.Point(884, 88);
+            this.uploadFrm137Button.Location = new System.Drawing.Point(604, 88);
             this.uploadFrm137Button.Name = "uploadFrm137Button";
             this.uploadFrm137Button.Size = new System.Drawing.Size(100, 23);
             this.uploadFrm137Button.TabIndex = 53;
@@ -816,7 +841,7 @@
             // 
             // viewBirthCertButton
             // 
-            this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
+            this.viewBirthCertButton.Location = new System.Drawing.Point(604, 116);
             this.viewBirthCertButton.Name = "viewBirthCertButton";
             this.viewBirthCertButton.Size = new System.Drawing.Size(100, 23);
             this.viewBirthCertButton.TabIndex = 55;
@@ -826,7 +851,7 @@
             // 
             // viewTransferCertButton
             // 
-            this.viewTransferCertButton.Location = new System.Drawing.Point(884, 166);
+            this.viewTransferCertButton.Location = new System.Drawing.Point(604, 166);
             this.viewTransferCertButton.Name = "viewTransferCertButton";
             this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
             this.viewTransferCertButton.TabIndex = 62;
@@ -836,7 +861,7 @@
             // 
             // uploadGoodMoralButton
             // 
-            this.uploadGoodMoralButton.Location = new System.Drawing.Point(884, 142);
+            this.uploadGoodMoralButton.Location = new System.Drawing.Point(604, 142);
             this.uploadGoodMoralButton.Name = "uploadGoodMoralButton";
             this.uploadGoodMoralButton.Size = new System.Drawing.Size(100, 23);
             this.uploadGoodMoralButton.TabIndex = 59;
@@ -846,7 +871,7 @@
             // 
             // viewGoodMoralButton
             // 
-            this.viewGoodMoralButton.Location = new System.Drawing.Point(884, 142);
+            this.viewGoodMoralButton.Location = new System.Drawing.Point(604, 142);
             this.viewGoodMoralButton.Name = "viewGoodMoralButton";
             this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
             this.viewGoodMoralButton.TabIndex = 57;
@@ -857,7 +882,7 @@
             // goodMoralTextBox
             // 
             this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GoodMoral", true));
-            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
+            this.goodMoralTextBox.Location = new System.Drawing.Point(604, 142);
             this.goodMoralTextBox.Name = "goodMoralTextBox";
             this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
             this.goodMoralTextBox.TabIndex = 46;
@@ -865,7 +890,7 @@
             // 
             // viewFrm137Button
             // 
-            this.viewFrm137Button.Location = new System.Drawing.Point(884, 88);
+            this.viewFrm137Button.Location = new System.Drawing.Point(604, 88);
             this.viewFrm137Button.Name = "viewFrm137Button";
             this.viewFrm137Button.Size = new System.Drawing.Size(100, 23);
             this.viewFrm137Button.TabIndex = 51;
@@ -876,7 +901,7 @@
             // studForm137TextBox
             // 
             this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudForm137", true));
-            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
+            this.studForm137TextBox.Location = new System.Drawing.Point(604, 90);
             this.studForm137TextBox.Name = "studForm137TextBox";
             this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
             this.studForm137TextBox.TabIndex = 44;
@@ -937,7 +962,7 @@
             this.pendingStudentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorEnrollStudentItem});
-            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 415);
+            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 416);
             this.pendingStudentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pendingStudentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pendingStudentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -1092,14 +1117,143 @@
             this.dataGridViewImageColumn2,
             this.dataGridViewImageColumn3,
             this.dataGridViewImageColumn4,
+            this.PaymentMethod,
+            this.ProofOfPayment,
             this.dataGridViewTextBoxColumn21});
             this.pendingStudentsDataGridView.DataSource = this.pendingStudentsBindingSource;
             this.pendingStudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 440);
+            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 441);
             this.pendingStudentsDataGridView.Name = "pendingStudentsDataGridView";
-            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 315);
+            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 423);
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pendingStudentsTableAdapter
+            // 
+            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
+            this.tableAdapterManager.PricesTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(771, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 18);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Payment:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(771, 90);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(78, 13);
+            label6.TabIndex = 69;
+            label6.Text = "Amount to pay:";
+            // 
+            // amountToPayLabel
+            // 
+            this.amountToPayLabel.AutoSize = true;
+            this.amountToPayLabel.Location = new System.Drawing.Point(875, 90);
+            this.amountToPayLabel.Name = "amountToPayLabel";
+            this.amountToPayLabel.Size = new System.Drawing.Size(0, 13);
+            this.amountToPayLabel.TabIndex = 70;
+            // 
+            // paymentMethodLabel1
+            // 
+            paymentMethodLabel1.AutoSize = true;
+            paymentMethodLabel1.Location = new System.Drawing.Point(771, 115);
+            paymentMethodLabel1.Name = "paymentMethodLabel1";
+            paymentMethodLabel1.Size = new System.Drawing.Size(90, 13);
+            paymentMethodLabel1.TabIndex = 71;
+            paymentMethodLabel1.Text = "Payment Method:";
+            // 
+            // paymentMethodComboBox
+            // 
+            this.paymentMethodComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PaymentMethod", true));
+            this.paymentMethodComboBox.FormattingEnabled = true;
+            this.paymentMethodComboBox.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.paymentMethodComboBox.Location = new System.Drawing.Point(878, 110);
+            this.paymentMethodComboBox.Name = "paymentMethodComboBox";
+            this.paymentMethodComboBox.Size = new System.Drawing.Size(100, 21);
+            this.paymentMethodComboBox.TabIndex = 72;
+            this.paymentMethodComboBox.TextChanged += new System.EventHandler(this.paymentMethodComboBox_TextChanged);
+            // 
+            // proofOfPaymentLabel
+            // 
+            this.proofOfPaymentLabel.AutoSize = true;
+            this.proofOfPaymentLabel.Location = new System.Drawing.Point(771, 141);
+            this.proofOfPaymentLabel.Name = "proofOfPaymentLabel";
+            this.proofOfPaymentLabel.Size = new System.Drawing.Size(93, 13);
+            this.proofOfPaymentLabel.TabIndex = 72;
+            this.proofOfPaymentLabel.Text = "Proof Of Payment:";
+            this.proofOfPaymentLabel.Visible = false;
+            // 
+            // proofOfPaymentTextBox
+            // 
+            this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ProofOfPayment", true));
+            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(878, 137);
+            this.proofOfPaymentTextBox.Name = "proofOfPaymentTextBox";
+            this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
+            this.proofOfPaymentTextBox.TabIndex = 73;
+            this.proofOfPaymentTextBox.Visible = false;
+            // 
+            // deleteProofOfPaymentButton
+            // 
+            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(982, 137);
+            this.deleteProofOfPaymentButton.Name = "deleteProofOfPaymentButton";
+            this.deleteProofOfPaymentButton.Size = new System.Drawing.Size(33, 23);
+            this.deleteProofOfPaymentButton.TabIndex = 74;
+            this.deleteProofOfPaymentButton.Text = "Del";
+            this.deleteProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.deleteProofOfPaymentButton.Visible = false;
+            this.deleteProofOfPaymentButton.Click += new System.EventHandler(this.deleteProofOfPaymentButton_Click);
+            // 
+            // uploadProofOfPaymentButton
+            // 
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
+            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadProofOfPaymentButton.TabIndex = 75;
+            this.uploadProofOfPaymentButton.Text = "Upload File";
+            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.uploadProofOfPaymentButton.Visible = false;
+            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
+            // 
+            // viewProofOfPaymentButton
+            // 
+            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.viewProofOfPaymentButton.Name = "viewProofOfPaymentButton";
+            this.viewProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
+            this.viewProofOfPaymentButton.TabIndex = 76;
+            this.viewProofOfPaymentButton.Text = "View File";
+            this.viewProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.viewProofOfPaymentButton.Visible = false;
+            this.viewProofOfPaymentButton.Click += new System.EventHandler(this.viewProofOfPaymentButton_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1282,43 +1436,34 @@
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // PaymentMethod
+            // 
+            this.PaymentMethod.DataPropertyName = "PaymentMethod";
+            this.PaymentMethod.HeaderText = "PaymentMethod";
+            this.PaymentMethod.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.PaymentMethod.Name = "PaymentMethod";
+            // 
+            // ProofOfPayment
+            // 
+            this.ProofOfPayment.DataPropertyName = "ProofOfPayment";
+            this.ProofOfPayment.HeaderText = "ProofOfPayment";
+            this.ProofOfPayment.Name = "ProofOfPayment";
+            // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Section";
             this.dataGridViewTextBoxColumn21.HeaderText = "Section";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // pendingStudentsTableAdapter
-            // 
-            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
-            // 
             // PendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1264, 756);
+            this.ClientSize = new System.Drawing.Size(1264, 881);
             this.Controls.Add(this.pendingStudentsDataGridView);
             this.Controls.Add(this.pendingStudentsBindingNavigator);
             this.Controls.Add(this.detailsPanel);
@@ -1413,6 +1558,13 @@
         private System.Windows.Forms.Button generateStudNumButton;
         private System.Windows.Forms.TextBox genStudNumTextBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox paymentMethodComboBox;
+        private System.Windows.Forms.TextBox proofOfPaymentTextBox;
+        private System.Windows.Forms.Label proofOfPaymentLabel;
+        private System.Windows.Forms.Button viewProofOfPaymentButton;
+        private System.Windows.Forms.Button deleteProofOfPaymentButton;
+        private System.Windows.Forms.Button uploadProofOfPaymentButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1437,6 +1589,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn PaymentMethod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProofOfPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.Label amountToPayLabel;
     }
 }

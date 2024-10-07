@@ -43,12 +43,12 @@
             this.managePaymentButton = new System.Windows.Forms.Button();
             this.cashierButton = new System.Windows.Forms.Button();
             this.studentSubPanel = new System.Windows.Forms.Panel();
+            this.pendingRequirementsButton = new System.Windows.Forms.Button();
             this.manageStudentButton = new System.Windows.Forms.Button();
             this.registrationButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.pendingRequirementsButton = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
             this.adminSubPanel.SuspendLayout();
             this.cashierSubPanel.SuspendLayout();
@@ -267,6 +267,7 @@
             this.managePaymentButton.Text = "↪ Manage Payments";
             this.managePaymentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.managePaymentButton.UseVisualStyleBackColor = false;
+            this.managePaymentButton.Click += new System.EventHandler(this.managePaymentButton_Click);
             // 
             // cashierButton
             // 
@@ -295,6 +296,24 @@
             this.studentSubPanel.Name = "studentSubPanel";
             this.studentSubPanel.Size = new System.Drawing.Size(263, 166);
             this.studentSubPanel.TabIndex = 0;
+            // 
+            // pendingRequirementsButton
+            // 
+            this.pendingRequirementsButton.BackColor = System.Drawing.Color.Silver;
+            this.pendingRequirementsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pendingRequirementsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.pendingRequirementsButton.FlatAppearance.BorderSize = 2;
+            this.pendingRequirementsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pendingRequirementsButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingRequirementsButton.Location = new System.Drawing.Point(0, 110);
+            this.pendingRequirementsButton.Name = "pendingRequirementsButton";
+            this.pendingRequirementsButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.pendingRequirementsButton.Size = new System.Drawing.Size(263, 55);
+            this.pendingRequirementsButton.TabIndex = 3;
+            this.pendingRequirementsButton.Text = "↪ Pending Requirements";
+            this.pendingRequirementsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pendingRequirementsButton.UseVisualStyleBackColor = false;
+            this.pendingRequirementsButton.Click += new System.EventHandler(this.pendingRequirementsButton_Click);
             // 
             // manageStudentButton
             // 
@@ -364,24 +383,6 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(1084, 681);
             this.panel_main.TabIndex = 1;
-            // 
-            // pendingRequirementsButton
-            // 
-            this.pendingRequirementsButton.BackColor = System.Drawing.Color.Silver;
-            this.pendingRequirementsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pendingRequirementsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.pendingRequirementsButton.FlatAppearance.BorderSize = 2;
-            this.pendingRequirementsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pendingRequirementsButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingRequirementsButton.Location = new System.Drawing.Point(0, 110);
-            this.pendingRequirementsButton.Name = "pendingRequirementsButton";
-            this.pendingRequirementsButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.pendingRequirementsButton.Size = new System.Drawing.Size(263, 55);
-            this.pendingRequirementsButton.TabIndex = 3;
-            this.pendingRequirementsButton.Text = "↪ Pending Requirements";
-            this.pendingRequirementsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pendingRequirementsButton.UseVisualStyleBackColor = false;
-            this.pendingRequirementsButton.Click += new System.EventHandler(this.pendingRequirementsButton_Click);
             // 
             // STU_Dashboard
             // 

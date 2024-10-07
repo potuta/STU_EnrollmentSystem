@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageViewer.Designer.cs">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="PDFViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     <Compile Include="Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentPayment.Designer.cs">
+      <DependentUpon>StudentPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="STU_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +124,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STU_DBDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ImageViewer.resx">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PDFViewer.resx">
       <DependentUpon>PDFViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentPayment.resx">
+      <DependentUpon>StudentPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STU_Dashboard.resx">
       <DependentUpon>STU_Dashboard.cs</DependentUpon>
