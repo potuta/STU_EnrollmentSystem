@@ -62,7 +62,7 @@ namespace STUEnrollmentSystem
             STU_DB_Connection.Open();
             try
             {
-                SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+                SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'", STU_DB_Connection);
                 bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 
                 while (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
@@ -122,14 +122,14 @@ namespace STUEnrollmentSystem
 
         private void viewImageFile(string Column)
         {
-            string command = "SELECT " + Column + " FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "'";
+            string command = "SELECT " + Column + " FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'";
             ImageViewer imageViewer = new ImageViewer(Column, command);
             imageViewer.Show();
         }
 
         private void viewFile(string Column)
         {
-            string command = "SELECT " + Column + " FROM StudentPayment WHERE StudentNumber = " + studentNumberTextBox.Text;
+            string command = "SELECT " + Column + " FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'";
             PDFViewer pdfViewer = new PDFViewer(Column, command);
             pdfViewer.Show();
         }
@@ -137,8 +137,9 @@ namespace STUEnrollmentSystem
         private void uploadFile(string Column)
         {
             byte[] data = File.ReadAllBytes(openFileDialog1.FileName);
-            STU_Command = new SqlCommand("UPDATE StudentPayment SET " + Column + " = @Data WHERE StudentNumber = @StudNum", STU_DB_Connection);
+            STU_Command = new SqlCommand("UPDATE StudentPayment SET " + Column + " = @Data WHERE StudentNumber = @StudNum AND MonthOfPayment = @Month", STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@StudNum", studentNumberTextBox.Text);
+            STU_Command.Parameters.AddWithValue("@Month", monthOfPaymentComboBox.SelectedItem.ToString());
             STU_Command.Parameters.AddWithValue("@Data", data);
             STU_DB_Connection.Open();
             STU_Command.ExecuteNonQuery();
@@ -147,8 +148,9 @@ namespace STUEnrollmentSystem
 
         private void deleteFile(string Column)
         {
-            STU_Command = new SqlCommand("UPDATE StudentPayment SET " + Column + " = NULL WHERE StudentNumber = @StudNum", STU_DB_Connection);
+            STU_Command = new SqlCommand("UPDATE StudentPayment SET " + Column + " = NULL WHERE StudentNumber = @StudNum AND MonthOfPayment = @Month", STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@StudNum", studentNumberTextBox.Text);
+            STU_Command.Parameters.AddWithValue("@Month", monthOfPaymentComboBox.SelectedItem.ToString());
             STU_DB_Connection.Open();
             STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();

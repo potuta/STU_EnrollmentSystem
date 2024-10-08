@@ -1,4 +1,5 @@
-﻿using Syncfusion.XPS;
+﻿using Syncfusion.Styles;
+using Syncfusion.XPS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -389,7 +391,6 @@ namespace STUEnrollmentSystem
 
         private void insertStudentPayment()
         {
-            STU_DB_Connection.Open();
 
             string paymentCode = string.Empty;
             if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
@@ -403,34 +404,39 @@ namespace STUEnrollmentSystem
 
             if (paymentTypeComboBox.SelectedItem.Equals("Monthly"))
             {
-                STU_Command = new SqlCommand("INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
-                                             "VALUES (@PaymentCode1, @PaymentMethod1, @StudentNumber1, @MonthOfPayment1, @PaymentStatus1)," +
-                                                    "(@PaymentCode2, @PaymentMethod2, @StudentNumber2, @MonthOfPayment2, @PaymentStatus2)," +
-                                                    "(@PaymentCode3, @PaymentMethod3, @StudentNumber3, @MonthOfPayment3, @PaymentStatus3)," +
-                                                    "(@PaymentCode4, @PaymentMethod4, @StudentNumber4, @MonthOfPayment4, @PaymentStatus4)," +
-                                                    "(@PaymentCode5, @PaymentMethod5, @StudentNumber5, @MonthOfPayment5, @PaymentStatus5)," +
-                                                    "(@PaymentCode6, @PaymentMethod6, @StudentNumber6, @MonthOfPayment6, @PaymentStatus6)," +
-                                                    "(@PaymentCode7, @PaymentMethod7, @StudentNumber7, @MonthOfPayment7, @PaymentStatus7)," +
-                                                    "(@PaymentCode8, @PaymentMethod8, @StudentNumber8, @MonthOfPayment8, @PaymentStatus8)," +
-                                                    "(@PaymentCode9, @PaymentMethod9, @StudentNumber9, @MonthOfPayment9, @PaymentStatus9)," +
-                                                    "(@PaymentCode10, @PaymentMethod10, @StudentNumber10, @MonthOfPayment10, @PaymentStatus10),", STU_DB_Connection);
-                STU_Command.Parameters.AddWithValue("@PaymentCode1", paymentCode);
-                STU_Command.Parameters.AddWithValue("@PaymentMethod1", paymentMethodComboBox.SelectedItem);
-                STU_Command.Parameters.AddWithValue("@StudentNumber1", studentNumberTextBox.Text);
-                STU_Command.Parameters.AddWithValue("@MonthOfPayment1", "August");
-                STU_Command.Parameters.AddWithValue("@PaymentStatus1", "Paid");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "August", "Paid");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "September", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "October", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "November", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "December", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "January", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "February", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "March", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "April", "Pending");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "May", "Pending");
             }
             else if (paymentTypeComboBox.SelectedItem.Equals("Full"))
             {
-                STU_Command = new SqlCommand("INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
-                                             "VALUES (@PaymentCode1, @PaymentMethod1, @StudentNumber1, @MonthOfPayment1, @PaymentStatus1)", STU_DB_Connection);
-                STU_Command.Parameters.AddWithValue("@PaymentCode1", paymentCode);
-                STU_Command.Parameters.AddWithValue("@PaymentMethod1", paymentMethodComboBox.SelectedItem);
-                STU_Command.Parameters.AddWithValue("@StudentNumber1", studentNumberTextBox.Text);
-                STU_Command.Parameters.AddWithValue("@MonthOfPayment1", "August");
-                STU_Command.Parameters.AddWithValue("@PaymentStatus1", "Paid");
+                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "August", "Paid");
+            }
+        }
+
+        private void addPaymentType(string paymentCode, string paymentMethod, string studentNumber, string month, string status)
+        {
+            if (STU_DB_Connection.State == ConnectionState.Open)
+            {
+                STU_DB_Connection.Close();
             }
 
+            STU_Command = new SqlCommand("INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
+                                             "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus)", STU_DB_Connection);
+            STU_Command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+            STU_Command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
+            STU_Command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+            STU_Command.Parameters.AddWithValue("@MonthOfPayment", month);
+            STU_Command.Parameters.AddWithValue("@PaymentStatus", status);
+
+            STU_DB_Connection.Open();
             STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();
         }
