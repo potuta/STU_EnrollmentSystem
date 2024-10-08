@@ -167,5 +167,55 @@ namespace STUEnrollmentSystem
                 proofOfPaymentLabel.Visible = false;
             }
         }
+
+        private void searchToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void paymentCodeToolStripTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void studentNumberToolStripTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void monthOfPaymentToolStripTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

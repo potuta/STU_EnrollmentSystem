@@ -381,7 +381,7 @@ namespace STUEnrollmentSystem
 
             if (!proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value))
             {
-                STU_Command = new SqlCommand("UPDATE StudentPayment SET ProofOfPayment = @Param WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+                STU_Command = new SqlCommand("UPDATE StudentPayment SET ProofOfPayment = @Param WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = 'August'", STU_DB_Connection);
                 STU_Command.Parameters.AddWithValue("@Param", proofOfPaymentData.ExecuteScalar());
                 STU_Command.ExecuteNonQuery();
             }
