@@ -25,7 +25,8 @@ namespace STUEnrollmentSystem
         public PendingStudents()
         {
             InitializeComponent();
-            STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
+            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
+            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void pendingStudentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -131,7 +132,8 @@ namespace STUEnrollmentSystem
                     viewTransferCertButton.Visible = false;
                 }
 
-                while(paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+
+                if(paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
                 {
                     if (isProofOfPaymentData == false)
                     {
@@ -145,7 +147,6 @@ namespace STUEnrollmentSystem
                         deleteProofOfPaymentButton.Visible = false;
                         viewProofOfPaymentButton.Visible = false;
                     }
-                    break;
                 }
                
             }

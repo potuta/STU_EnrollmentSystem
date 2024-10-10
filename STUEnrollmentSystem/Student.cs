@@ -22,7 +22,8 @@ namespace STUEnrollmentSystem
         public Student()
         {
             InitializeComponent();
-            STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
+            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
+            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void studentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -69,7 +70,25 @@ namespace STUEnrollmentSystem
             {
                 birthDateTimePicker.Text = birthDateTextBox.Text;
 
-                SqlCommand sectionData = new SqlCommand("SELECT SectionTitle FROM Sections WHERE GradeCode = " + enrollmentTypeComboBox.ValueMember + " AND StudCount < Capacity", STU_DB_Connection);
+                string gradeCode = string.Empty;
+                if (enrollmentTypeComboBox.Text.Equals("Grade 7"))
+                {
+                    gradeCode = "G7";
+                }
+                else if (enrollmentTypeComboBox.Text.Equals("Grade 8"))
+                {
+                    gradeCode = "G8";
+                }
+                else if (enrollmentTypeComboBox.Text.Equals("Grade 9"))
+                {
+                    gradeCode = "G9";
+                }
+                else if (enrollmentTypeComboBox.Text.Equals("Grade 10"))
+                {
+                    gradeCode = "G10";
+                }
+
+                SqlCommand sectionData = new SqlCommand("SELECT SectionTitle FROM Sections WHERE GradeCode = '" + gradeCode + "' AND StudCount < Capacity", STU_DB_Connection);
                 List<string> sectionList = new List<string>();
                 using (SqlDataReader reader = sectionData.ExecuteReader())
                 {
@@ -279,6 +298,57 @@ namespace STUEnrollmentSystem
             STU_DB_Connection.Open();
             STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();
+        }
+       
+        private void bindingNavigatorTotalStudentsItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Visible == true)
+            {
+                dataGridView1.Visible = false;
+                studentsDataGridView.Visible = true;
+
+                bindingNavigatorDeleteItem.Enabled = true;
+                bindingNavigatorAddNewItem.Enabled = true;
+                studentsBindingNavigatorSaveItem.Enabled = true;
+                bindingNavigatorRefreshItem.Enabled = true;
+            }
+            else
+            {
+                string query = 
+                    "SELECT " +
+                    "[Grade 7] AS 'Grade 7', " +
+                    "[Grade 8] AS 'Grade 8', " +
+                    "[Grade 9] AS 'Grade 9', " +
+                    "[Grade 10] AS 'Grade 10', " +
+                    "(SELECT COUNT(*) FROM Students) as 'Total Enrolled Students' " +
+                    "FROM " +
+                    "(" +
+                    "SELECT StudentNumber, EnrollmentType " +
+                    "FROM Students " +
+                    ") AS SourceTable " +
+                    "PIVOT " +
+                    "( " +
+                    "COUNT(StudentNumber) " +
+                    "FOR EnrollmentType IN ([Grade 7], [Grade 8], [Grade 9], [Grade 10]) " +
+                    ") AS PivotTable";
+
+                DataTable dt = new DataTable();
+                SqlCommand c = new SqlCommand(query, STU_DB_Connection);
+                SqlDataAdapter da = new SqlDataAdapter(c);
+                da.Update(dt);
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+                dataGridView1.ReadOnly = true;
+
+                dataGridView1.Visible = true;
+                studentsDataGridView.Visible = false;
+
+                bindingNavigatorDeleteItem.Enabled = false;
+                bindingNavigatorAddNewItem.Enabled = false;
+                studentsBindingNavigatorSaveItem.Enabled = false;
+                bindingNavigatorRefreshItem.Enabled = false;
+            }
         }
     }
 }
