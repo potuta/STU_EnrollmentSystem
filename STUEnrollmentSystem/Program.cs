@@ -16,7 +16,7 @@ namespace STUEnrollmentSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new STU_Dashboard());
+            Application.Run(new Login());
         }
     }
 }
