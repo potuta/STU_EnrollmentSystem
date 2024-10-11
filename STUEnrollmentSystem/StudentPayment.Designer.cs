@@ -38,6 +38,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentPayment));
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.paymentCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.paymentCodeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.monthOfPaymentToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.monthOfPaymentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
@@ -79,14 +86,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
-            this.paymentCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.paymentCodeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.studentNumberToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.monthOfPaymentToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.monthOfPaymentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -94,19 +94,19 @@
             paymentStatusLabel1 = new System.Windows.Forms.Label();
             paymentReceiptLabel = new System.Windows.Forms.Label();
             this.searchPanel.SuspendLayout();
+            this.searchToolStrip.SuspendLayout();
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingNavigator)).BeginInit();
             this.studentPaymentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentDataGridView)).BeginInit();
-            this.searchToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // paymentCodeLabel
             // 
             paymentCodeLabel.AutoSize = true;
-            paymentCodeLabel.Location = new System.Drawing.Point(533, 70);
+            paymentCodeLabel.Location = new System.Drawing.Point(78, 84);
             paymentCodeLabel.Name = "paymentCodeLabel";
             paymentCodeLabel.Size = new System.Drawing.Size(79, 13);
             paymentCodeLabel.TabIndex = 49;
@@ -115,7 +115,7 @@
             // paymentMethodLabel
             // 
             paymentMethodLabel.AutoSize = true;
-            paymentMethodLabel.Location = new System.Drawing.Point(533, 96);
+            paymentMethodLabel.Location = new System.Drawing.Point(78, 110);
             paymentMethodLabel.Name = "paymentMethodLabel";
             paymentMethodLabel.Size = new System.Drawing.Size(90, 13);
             paymentMethodLabel.TabIndex = 51;
@@ -124,7 +124,7 @@
             // studentNumberLabel
             // 
             studentNumberLabel.AutoSize = true;
-            studentNumberLabel.Location = new System.Drawing.Point(533, 122);
+            studentNumberLabel.Location = new System.Drawing.Point(78, 136);
             studentNumberLabel.Name = "studentNumberLabel";
             studentNumberLabel.Size = new System.Drawing.Size(87, 13);
             studentNumberLabel.TabIndex = 53;
@@ -133,7 +133,7 @@
             // monthOfPaymentLabel
             // 
             monthOfPaymentLabel.AutoSize = true;
-            monthOfPaymentLabel.Location = new System.Drawing.Point(533, 148);
+            monthOfPaymentLabel.Location = new System.Drawing.Point(78, 162);
             monthOfPaymentLabel.Name = "monthOfPaymentLabel";
             monthOfPaymentLabel.Size = new System.Drawing.Size(98, 13);
             monthOfPaymentLabel.TabIndex = 55;
@@ -142,7 +142,7 @@
             // paymentStatusLabel1
             // 
             paymentStatusLabel1.AutoSize = true;
-            paymentStatusLabel1.Location = new System.Drawing.Point(533, 174);
+            paymentStatusLabel1.Location = new System.Drawing.Point(78, 188);
             paymentStatusLabel1.Name = "paymentStatusLabel1";
             paymentStatusLabel1.Size = new System.Drawing.Size(84, 13);
             paymentStatusLabel1.TabIndex = 58;
@@ -151,7 +151,7 @@
             // paymentReceiptLabel
             // 
             paymentReceiptLabel.AutoSize = true;
-            paymentReceiptLabel.Location = new System.Drawing.Point(533, 201);
+            paymentReceiptLabel.Location = new System.Drawing.Point(78, 215);
             paymentReceiptLabel.Name = "paymentReceiptLabel";
             paymentReceiptLabel.Size = new System.Drawing.Size(91, 13);
             paymentReceiptLabel.TabIndex = 63;
@@ -181,6 +181,71 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1264, 117);
             this.searchPanel.TabIndex = 6;
+            // 
+            // searchToolStrip
+            // 
+            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paymentCodeToolStripLabel,
+            this.paymentCodeToolStripTextBox,
+            this.studentNumberToolStripLabel,
+            this.studentNumberToolStripComboBox,
+            this.monthOfPaymentToolStripLabel,
+            this.monthOfPaymentToolStripTextBox,
+            this.searchToolStripButton});
+            this.searchToolStrip.Location = new System.Drawing.Point(52, 50);
+            this.searchToolStrip.Name = "searchToolStrip";
+            this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.searchToolStrip.Size = new System.Drawing.Size(774, 25);
+            this.searchToolStrip.TabIndex = 16;
+            this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // paymentCodeToolStripLabel
+            // 
+            this.paymentCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.paymentCodeToolStripLabel.Name = "paymentCodeToolStripLabel";
+            this.paymentCodeToolStripLabel.Size = new System.Drawing.Size(88, 22);
+            this.paymentCodeToolStripLabel.Text = "Payment Code:";
+            // 
+            // paymentCodeToolStripTextBox
+            // 
+            this.paymentCodeToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paymentCodeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.paymentCodeToolStripTextBox.Name = "paymentCodeToolStripTextBox";
+            this.paymentCodeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.paymentCodeToolStripTextBox.TextChanged += new System.EventHandler(this.paymentCodeToolStripTextBox_TextChanged);
+            // 
+            // studentNumberToolStripLabel
+            // 
+            this.studentNumberToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.studentNumberToolStripLabel.Name = "studentNumberToolStripLabel";
+            this.studentNumberToolStripLabel.Size = new System.Drawing.Size(128, 22);
+            this.studentNumberToolStripLabel.Text = "          Student Number:";
+            // 
+            // monthOfPaymentToolStripLabel
+            // 
+            this.monthOfPaymentToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.monthOfPaymentToolStripLabel.Name = "monthOfPaymentToolStripLabel";
+            this.monthOfPaymentToolStripLabel.Size = new System.Drawing.Size(142, 22);
+            this.monthOfPaymentToolStripLabel.Text = "          Month Of Payment:";
+            // 
+            // monthOfPaymentToolStripTextBox
+            // 
+            this.monthOfPaymentToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.monthOfPaymentToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.monthOfPaymentToolStripTextBox.Name = "monthOfPaymentToolStripTextBox";
+            this.monthOfPaymentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.monthOfPaymentToolStripTextBox.TextChanged += new System.EventHandler(this.monthOfPaymentToolStripTextBox_TextChanged);
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(76, 22);
+            this.searchToolStripButton.Text = "          Search";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // label2
             // 
@@ -213,15 +278,15 @@
             this.detailsPanel.Controls.Add(this.viewProofOfPaymentButton);
             this.detailsPanel.Controls.Add(this.proofOfPaymentTextBox);
             this.detailsPanel.Controls.Add(this.uploadProofOfPaymentButton);
-            this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1264, 278);
+            this.detailsPanel.Size = new System.Drawing.Size(361, 615);
             this.detailsPanel.TabIndex = 14;
             // 
             // deleteProofOfPaymentButton
             // 
-            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(741, 224);
+            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(286, 238);
             this.deleteProofOfPaymentButton.Name = "deleteProofOfPaymentButton";
             this.deleteProofOfPaymentButton.Size = new System.Drawing.Size(33, 23);
             this.deleteProofOfPaymentButton.TabIndex = 78;
@@ -233,7 +298,7 @@
             // paymentReceiptTextBox
             // 
             this.paymentReceiptTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "PaymentReceipt", true));
-            this.paymentReceiptTextBox.Location = new System.Drawing.Point(637, 198);
+            this.paymentReceiptTextBox.Location = new System.Drawing.Point(182, 212);
             this.paymentReceiptTextBox.Name = "paymentReceiptTextBox";
             this.paymentReceiptTextBox.Size = new System.Drawing.Size(100, 20);
             this.paymentReceiptTextBox.TabIndex = 64;
@@ -252,7 +317,7 @@
             // proofOfPaymentLabel
             // 
             this.proofOfPaymentLabel.AutoSize = true;
-            this.proofOfPaymentLabel.Location = new System.Drawing.Point(533, 229);
+            this.proofOfPaymentLabel.Location = new System.Drawing.Point(78, 243);
             this.proofOfPaymentLabel.Name = "proofOfPaymentLabel";
             this.proofOfPaymentLabel.Size = new System.Drawing.Size(93, 13);
             this.proofOfPaymentLabel.TabIndex = 62;
@@ -265,7 +330,7 @@
             this.paymentCodeComboBox.Items.AddRange(new object[] {
             "MG7",
             "FG7"});
-            this.paymentCodeComboBox.Location = new System.Drawing.Point(637, 66);
+            this.paymentCodeComboBox.Location = new System.Drawing.Point(182, 80);
             this.paymentCodeComboBox.Name = "paymentCodeComboBox";
             this.paymentCodeComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentCodeComboBox.TabIndex = 62;
@@ -278,7 +343,7 @@
             "CASH",
             "GCASH",
             "BANK TRANSFER"});
-            this.paymentMethodComboBox.Location = new System.Drawing.Point(637, 93);
+            this.paymentMethodComboBox.Location = new System.Drawing.Point(182, 107);
             this.paymentMethodComboBox.Name = "paymentMethodComboBox";
             this.paymentMethodComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentMethodComboBox.TabIndex = 61;
@@ -299,7 +364,7 @@
             "March",
             "April",
             "May"});
-            this.monthOfPaymentComboBox.Location = new System.Drawing.Point(637, 144);
+            this.monthOfPaymentComboBox.Location = new System.Drawing.Point(182, 158);
             this.monthOfPaymentComboBox.Name = "monthOfPaymentComboBox";
             this.monthOfPaymentComboBox.Size = new System.Drawing.Size(100, 21);
             this.monthOfPaymentComboBox.TabIndex = 60;
@@ -311,7 +376,7 @@
             this.paymentStatusComboBox.Items.AddRange(new object[] {
             "Paid",
             "Pending"});
-            this.paymentStatusComboBox.Location = new System.Drawing.Point(637, 171);
+            this.paymentStatusComboBox.Location = new System.Drawing.Point(182, 185);
             this.paymentStatusComboBox.Name = "paymentStatusComboBox";
             this.paymentStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentStatusComboBox.TabIndex = 59;
@@ -319,7 +384,7 @@
             // studentNumberTextBox
             // 
             this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "StudentNumber", true));
-            this.studentNumberTextBox.Location = new System.Drawing.Point(637, 119);
+            this.studentNumberTextBox.Location = new System.Drawing.Point(182, 133);
             this.studentNumberTextBox.Name = "studentNumberTextBox";
             this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.studentNumberTextBox.TabIndex = 54;
@@ -328,7 +393,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(549, 28);
+            this.label1.Location = new System.Drawing.Point(94, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 18);
             this.label1.TabIndex = 0;
@@ -336,7 +401,7 @@
             // 
             // viewProofOfPaymentButton
             // 
-            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(637, 224);
+            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(182, 238);
             this.viewProofOfPaymentButton.Name = "viewProofOfPaymentButton";
             this.viewProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
             this.viewProofOfPaymentButton.TabIndex = 80;
@@ -348,7 +413,7 @@
             // proofOfPaymentTextBox
             // 
             this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "ProofOfPayment", true));
-            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(637, 226);
+            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(182, 240);
             this.proofOfPaymentTextBox.Name = "proofOfPaymentTextBox";
             this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
             this.proofOfPaymentTextBox.TabIndex = 63;
@@ -356,7 +421,7 @@
             // 
             // uploadProofOfPaymentButton
             // 
-            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(637, 224);
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(182, 238);
             this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
             this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
             this.uploadProofOfPaymentButton.TabIndex = 79;
@@ -406,14 +471,14 @@
             this.bindingNavigatorDeleteItem,
             this.studentPaymentBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.studentPaymentBindingNavigator.Location = new System.Drawing.Point(0, 422);
+            this.studentPaymentBindingNavigator.Location = new System.Drawing.Point(361, 144);
             this.studentPaymentBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentPaymentBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.studentPaymentBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.studentPaymentBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.studentPaymentBindingNavigator.Name = "studentPaymentBindingNavigator";
             this.studentPaymentBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.studentPaymentBindingNavigator.Size = new System.Drawing.Size(1264, 25);
+            this.studentPaymentBindingNavigator.Size = new System.Drawing.Size(903, 25);
             this.studentPaymentBindingNavigator.TabIndex = 15;
             this.studentPaymentBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -525,6 +590,7 @@
             // studentPaymentDataGridView
             // 
             this.studentPaymentDataGridView.AutoGenerateColumns = false;
+            this.studentPaymentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.studentPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentPaymentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -536,9 +602,9 @@
             this.dataGridViewImageColumn2});
             this.studentPaymentDataGridView.DataSource = this.studentPaymentBindingSource;
             this.studentPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.studentPaymentDataGridView.Location = new System.Drawing.Point(0, 447);
+            this.studentPaymentDataGridView.Location = new System.Drawing.Point(361, 169);
             this.studentPaymentDataGridView.Name = "studentPaymentDataGridView";
-            this.studentPaymentDataGridView.Size = new System.Drawing.Size(1264, 313);
+            this.studentPaymentDataGridView.Size = new System.Drawing.Size(903, 590);
             this.studentPaymentDataGridView.TabIndex = 15;
             this.studentPaymentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentPaymentDataGridView_CellClick);
             // 
@@ -590,84 +656,19 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // searchToolStrip
+            // studentNumberToolStripComboBox
             // 
-            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.paymentCodeToolStripLabel,
-            this.paymentCodeToolStripTextBox,
-            this.studentNumberToolStripLabel,
-            this.studentNumberToolStripTextBox,
-            this.monthOfPaymentToolStripLabel,
-            this.monthOfPaymentToolStripTextBox,
-            this.searchToolStripButton});
-            this.searchToolStrip.Location = new System.Drawing.Point(65, 47);
-            this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(672, 25);
-            this.searchToolStrip.TabIndex = 16;
-            this.searchToolStrip.Text = "searchToolStrip";
-            // 
-            // paymentCodeToolStripLabel
-            // 
-            this.paymentCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.paymentCodeToolStripLabel.Name = "paymentCodeToolStripLabel";
-            this.paymentCodeToolStripLabel.Size = new System.Drawing.Size(85, 22);
-            this.paymentCodeToolStripLabel.Text = "PaymentCode:";
-            // 
-            // paymentCodeToolStripTextBox
-            // 
-            this.paymentCodeToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paymentCodeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.paymentCodeToolStripTextBox.Name = "paymentCodeToolStripTextBox";
-            this.paymentCodeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.paymentCodeToolStripTextBox.TextChanged += new System.EventHandler(this.paymentCodeToolStripTextBox_TextChanged);
-            // 
-            // studentNumberToolStripLabel
-            // 
-            this.studentNumberToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.studentNumberToolStripLabel.Name = "studentNumberToolStripLabel";
-            this.studentNumberToolStripLabel.Size = new System.Drawing.Size(95, 22);
-            this.studentNumberToolStripLabel.Text = "StudentNumber:";
-            // 
-            // studentNumberToolStripTextBox
-            // 
-            this.studentNumberToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.studentNumberToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.studentNumberToolStripTextBox.Name = "studentNumberToolStripTextBox";
-            this.studentNumberToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.studentNumberToolStripTextBox.TextChanged += new System.EventHandler(this.studentNumberToolStripTextBox_TextChanged);
-            // 
-            // monthOfPaymentToolStripLabel
-            // 
-            this.monthOfPaymentToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.monthOfPaymentToolStripLabel.Name = "monthOfPaymentToolStripLabel";
-            this.monthOfPaymentToolStripLabel.Size = new System.Drawing.Size(106, 22);
-            this.monthOfPaymentToolStripLabel.Text = "MonthOfPayment:";
-            // 
-            // monthOfPaymentToolStripTextBox
-            // 
-            this.monthOfPaymentToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.monthOfPaymentToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.monthOfPaymentToolStripTextBox.Name = "monthOfPaymentToolStripTextBox";
-            this.monthOfPaymentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.monthOfPaymentToolStripTextBox.TextChanged += new System.EventHandler(this.monthOfPaymentToolStripTextBox_TextChanged);
-            // 
-            // searchToolStripButton
-            // 
-            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchToolStripButton.Name = "searchToolStripButton";
-            this.searchToolStripButton.Size = new System.Drawing.Size(46, 22);
-            this.searchToolStripButton.Text = "Search";
-            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
+            this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
+            this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.studentNumberToolStripComboBox_TextChanged);
             // 
             // StudentPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1264, 776);
+            this.ClientSize = new System.Drawing.Size(1264, 759);
             this.Controls.Add(this.studentPaymentDataGridView);
             this.Controls.Add(this.studentPaymentBindingNavigator);
             this.Controls.Add(this.detailsPanel);
@@ -679,6 +680,8 @@
             this.Load += new System.EventHandler(this.StudentPayment_Load);
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchToolStrip.ResumeLayout(false);
+            this.searchToolStrip.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).EndInit();
@@ -687,8 +690,6 @@
             this.studentPaymentBindingNavigator.ResumeLayout(false);
             this.studentPaymentBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentDataGridView)).EndInit();
-            this.searchToolStrip.ResumeLayout(false);
-            this.searchToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -743,9 +744,9 @@
         private System.Windows.Forms.ToolStripLabel paymentCodeToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox paymentCodeToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox studentNumberToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel monthOfPaymentToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox monthOfPaymentToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
     }
 }

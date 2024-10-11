@@ -152,6 +152,7 @@
             this.sectionButton.Text = "↪ Section";
             this.sectionButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sectionButton.UseVisualStyleBackColor = false;
+            this.sectionButton.Click += new System.EventHandler(this.sectionButton_Click);
             // 
             // teacherButton
             // 

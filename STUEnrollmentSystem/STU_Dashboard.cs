@@ -105,5 +105,10 @@ namespace STUEnrollmentSystem
         {
             openChildForm(new StudentPayment());
         }
+
+        private void sectionButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Section());
+        }
     }
 }

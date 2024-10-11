@@ -29,13 +29,29 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.studentPaymentBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
-
         }
 
         private void StudentPayment_Load(object sender, EventArgs e)
         {
             this.studentPaymentTableAdapter.Fill(this.sTU_DBDataSet.StudentPayment);
             searchPanel.Visible = false;
+
+            SqlCommand studentNumData = new SqlCommand("SELECT StudentNumber FROM StudentPayment WHERE MonthOfPayment = 'August'", STU_DB_Connection);
+            List<string> studentNumList = new List<string>();
+            STU_DB_Connection.Open();
+            using (SqlDataReader reader = studentNumData.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    studentNumList.Add(reader[0].ToString());
+                }
+            }
+            STU_DB_Connection.Close();
+            studentNumberToolStripComboBox.Items.Clear();
+            foreach (string items in studentNumList)
+            {
+                studentNumberToolStripComboBox.Items.Add(items);
+            }
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -82,6 +98,7 @@ namespace STUEnrollmentSystem
                     }
                     break;
                 }
+
             }
             catch (FormatException fe)
             {
@@ -173,7 +190,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -186,7 +203,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -194,11 +211,11 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void studentNumberToolStripTextBox_TextChanged(object sender, EventArgs e)
+        private void studentNumberToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -210,7 +227,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripTextBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
