@@ -22,7 +22,6 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.sectionsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
-
         }
 
         private void Section_Load(object sender, EventArgs e)

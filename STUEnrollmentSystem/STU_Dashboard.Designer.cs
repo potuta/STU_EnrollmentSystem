@@ -446,16 +446,16 @@
             this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.userInfoPanel.Location = new System.Drawing.Point(0, 1076);
             this.userInfoPanel.Name = "userInfoPanel";
-            this.userInfoPanel.Size = new System.Drawing.Size(263, 170);
+            this.userInfoPanel.Size = new System.Drawing.Size(263, 128);
             this.userInfoPanel.TabIndex = 1;
             // 
             // userLabel
             // 
             this.userLabel.AutoSize = true;
-            this.userLabel.Font = new System.Drawing.Font("Subway", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLabel.Location = new System.Drawing.Point(13, 77);
+            this.userLabel.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.Location = new System.Drawing.Point(13, 59);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(118, 18);
+            this.userLabel.Size = new System.Drawing.Size(113, 17);
             this.userLabel.TabIndex = 1;
             this.userLabel.Text = "User: ----------";
             // 
@@ -466,9 +466,9 @@
             this.logoutButton.FlatAppearance.BorderSize = 2;
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(160, 100);
+            this.logoutButton.Location = new System.Drawing.Point(177, 82);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(89, 26);
+            this.logoutButton.Size = new System.Drawing.Size(71, 25);
             this.logoutButton.TabIndex = 7;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -477,20 +477,20 @@
             // roleLabel
             // 
             this.roleLabel.AutoSize = true;
-            this.roleLabel.Font = new System.Drawing.Font("Subway", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleLabel.Location = new System.Drawing.Point(13, 108);
+            this.roleLabel.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleLabel.Location = new System.Drawing.Point(13, 90);
             this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(118, 18);
+            this.roleLabel.Size = new System.Drawing.Size(113, 17);
             this.roleLabel.TabIndex = 8;
             this.roleLabel.Text = "Role: ----------";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 38);
+            this.label3.Font = new System.Drawing.Font("Subway", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 23);
+            this.label3.Size = new System.Drawing.Size(84, 21);
             this.label3.TabIndex = 9;
             this.label3.Text = "Profile:";
             // 

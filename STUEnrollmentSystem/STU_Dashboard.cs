@@ -27,10 +27,11 @@ namespace STUEnrollmentSystem
             InitializeComponent();
             STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
             userLoginInfo = new List<string>();
-            welcomeUserLogin(userID, username, password);
+            getUserLogin(userID, username, password);
             InitializeUserRole(userLoginInfo[4]);
             userLabel.Text = "User: " + userLoginInfo[1];
             roleLabel.Text = "Role: " + userLoginInfo[4];
+            MessageBox.Show("Welcome " + userLoginInfo[4] + ": " + userLoginInfo[1]);
         }
 
         private void STU_Dashboard_Load(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace STUEnrollmentSystem
             childForm.Show();
         }
 
-        private void welcomeUserLogin(string userID, string username, string password)
+        private void getUserLogin(string userID, string username, string password)
         {
             STU_Command = new SqlCommand("SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password", STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@UserID", userID);
@@ -101,32 +102,34 @@ namespace STUEnrollmentSystem
                 }
             }
             STU_DB_Connection.Close();
-
-            MessageBox.Show("Welcome " + userLoginInfo[4] + ": " + userLoginInfo[1]);
         }
 
         private void InitializeUserRole(string role)
         {
             if (role.Equals("Admin"))
             {
+                userLoginInfo[4] = "Admin";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = true;
             }
             else if (role.Equals("A"))
             {
+                userLoginInfo[4] = "Admission";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("C"))
             {
+                userLoginInfo[4] = "Cashier";
                 studentButton.Enabled = false;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("R")) 
             {
+                userLoginInfo[4] = "Registrar";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
