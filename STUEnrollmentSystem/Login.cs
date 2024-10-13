@@ -14,6 +14,12 @@ namespace STUEnrollmentSystem
 {
     public partial class Login : Form
     {
+        public static string UserID {  get; set; }
+        public static string Username { get; set; }
+        public static string Password { get; set; }
+        public static string Role { get; set; }
+        public static List<string> userLoginInfo;
+        private bool isUserVerified;
         private SqlConnection STU_DB_Connection;
         private SqlCommand STU_Command;
 
@@ -21,6 +27,7 @@ namespace STUEnrollmentSystem
         {
             InitializeComponent();
             STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            userLoginInfo = new List<string>();
         }
 
         private void confirmUserLogin(string userID, string username, string password)
@@ -33,12 +40,30 @@ namespace STUEnrollmentSystem
                 STU_Command.Parameters.AddWithValue("@Password", password);
 
                 STU_DB_Connection.Open();
-                bool isUserVerified = STU_Command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                isUserVerified = STU_Command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
                 STU_DB_Connection.Close();
 
                 if (isUserVerified == true)
                 {
-                    STU_Dashboard STU = new STU_Dashboard(userID, username, password);
+                    STU_DB_Connection.Open();
+                    using (SqlDataReader reader = STU_Command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            for (int column = 0; column < reader.FieldCount; column++)
+                            {
+                                userLoginInfo.Add(reader.GetString(column));
+                            }
+                        }
+                    }
+                    STU_DB_Connection.Close();
+
+                    UserID = userIDTextBox.Text;
+                    Username = usernameTextBox.Text;
+                    Password = passwordTextBox.Text;
+                    Role = userLoginInfo[4];
+
+                    STU_Dashboard STU = new STU_Dashboard();
                     STU.Show();
                     this.Hide();
                 }

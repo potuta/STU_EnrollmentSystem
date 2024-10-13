@@ -13,25 +13,13 @@ namespace STUEnrollmentSystem
 {
     public partial class STU_Dashboard : Form
     {
-        private SqlConnection STU_DB_Connection;
-        private SqlCommand STU_Command;
-        private List<string> userLoginInfo;
-
         public STU_Dashboard()
         {
             InitializeComponent();
-        }
-
-        public STU_Dashboard(string userID, string username, string password)
-        {
-            InitializeComponent();
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
-            userLoginInfo = new List<string>();
-            getUserLogin(userID, username, password);
-            InitializeUserRole(userLoginInfo[4]);
-            userLabel.Text = "User: " + userLoginInfo[1];
-            roleLabel.Text = "Role: " + userLoginInfo[4];
-            MessageBox.Show("Welcome " + userLoginInfo[4] + ": " + userLoginInfo[1]);
+            InitializeUserRole(Login.userLoginInfo[4]);
+            userLabel.Text = "User: " + Login.Username;
+            roleLabel.Text = "Role: " + Login.Role;
+            MessageBox.Show("Welcome " + Login.Role + ": " + Login.Username);
         }
 
         private void STU_Dashboard_Load(object sender, EventArgs e)
@@ -82,54 +70,34 @@ namespace STUEnrollmentSystem
             childForm.BringToFront();
             childForm.Show();
         }
-
-        private void getUserLogin(string userID, string username, string password)
-        {
-            STU_Command = new SqlCommand("SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@UserID", userID);
-            STU_Command.Parameters.AddWithValue("@Username", username);
-            STU_Command.Parameters.AddWithValue("@Password", password);
-
-            STU_DB_Connection.Open();
-            using(SqlDataReader reader = STU_Command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    for (int column = 0; column < reader.FieldCount; column++)
-                    {
-                        userLoginInfo.Add(reader.GetString(column));
-                    }
-                }
-            }
-            STU_DB_Connection.Close();
-        }
+        
 
         private void InitializeUserRole(string role)
         {
             if (role.Equals("Admin"))
             {
-                userLoginInfo[4] = "Admin";
+                Login.userLoginInfo[4] = "Admin";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = true;
             }
             else if (role.Equals("A"))
             {
-                userLoginInfo[4] = "Admission";
+                Login.userLoginInfo[4] = "Admission";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("C"))
             {
-                userLoginInfo[4] = "Cashier";
+                Login.userLoginInfo[4] = "Cashier";
                 studentButton.Enabled = false;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("R")) 
             {
-                userLoginInfo[4] = "Registrar";
+                Login.userLoginInfo[4] = "Registrar";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;

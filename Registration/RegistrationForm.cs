@@ -20,13 +20,15 @@ namespace Registration
         public RegistrationForm()
         {
             InitializeComponent();
-            STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
+            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
+            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
 
         }
+
         private void register_Button_Click(object sender, EventArgs e)
         {
             STU_DB_Connection.Open();

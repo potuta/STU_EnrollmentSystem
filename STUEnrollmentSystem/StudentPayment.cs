@@ -82,7 +82,7 @@ namespace STUEnrollmentSystem
                 SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'", STU_DB_Connection);
                 bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 
-                while (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+                if (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
                 {
                     if (isProofOfPaymentData == false)
                     {
@@ -96,7 +96,6 @@ namespace STUEnrollmentSystem
                         deleteProofOfPaymentButton.Visible = false;
                         viewProofOfPaymentButton.Visible = false;
                     }
-                    break;
                 }
 
             }
@@ -179,10 +178,16 @@ namespace STUEnrollmentSystem
             if (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER"))
             {
                 proofOfPaymentLabel.Visible = true;
+                viewProofOfPaymentButton.Visible = true;
+                deleteProofOfPaymentButton.Visible = true;
+                uploadProofOfPaymentButton.Visible = true;
             }
             else
             {
                 proofOfPaymentLabel.Visible = false;
+                viewProofOfPaymentButton.Visible = false;
+                deleteProofOfPaymentButton.Visible = false;
+                uploadProofOfPaymentButton.Visible = false;
             }
         }
 
