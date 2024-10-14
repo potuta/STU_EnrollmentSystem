@@ -26,21 +26,20 @@ namespace STUEnrollmentSystem
             STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
         }
 
+        private void Student_Load(object sender, EventArgs e)
+        {
+            this.gradeLevelTableAdapter.Fill(this.sTU_DBDataSet.GradeLevel);
+            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
+            this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
+            searchPanel.Visible = false;
+        }
+
         private void studentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             birthDateTextBox.Text = birthDateTimePicker.Value.Date.ToShortDateString();
             this.Validate();
             this.studentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
-        }
-
-        private void Student_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'sTU_DBDataSet.GradeLevel' table. You can move, or remove it, as needed.
-            this.gradeLevelTableAdapter.Fill(this.sTU_DBDataSet.GradeLevel);
-            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
-            this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
-            searchPanel.Visible = false;
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -65,140 +64,150 @@ namespace STUEnrollmentSystem
 
         private void studentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            STU_DB_Connection.Open();
             try
             {
                 birthDateTimePicker.Text = birthDateTextBox.Text;
-
-                string gradeCode = string.Empty;
-                if (enrollmentTypeComboBox.Text.Equals("Grade 7"))
-                {
-                    gradeCode = "G7";
-                }
-                else if (enrollmentTypeComboBox.Text.Equals("Grade 8"))
-                {
-                    gradeCode = "G8";
-                }
-                else if (enrollmentTypeComboBox.Text.Equals("Grade 9"))
-                {
-                    gradeCode = "G9";
-                }
-                else if (enrollmentTypeComboBox.Text.Equals("Grade 10"))
-                {
-                    gradeCode = "G10";
-                }
-
-                SqlCommand sectionData = new SqlCommand("SELECT SectionTitle FROM Sections WHERE GradeCode = '" + gradeCode + "' AND StudCount < Capacity", STU_DB_Connection);
-                List<string> sectionList = new List<string>();
-                using (SqlDataReader reader = sectionData.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        sectionList.Add(reader[0].ToString());
-                    }
-                }
-
-                sectionComboBox.Items.Clear();
-                foreach (string items in sectionList)
-                {
-                    sectionComboBox.Items.Add(items);
-                }
-
-                SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
-                SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
-                SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
-                SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
-                bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                if (isFrm137Data == false)
-                {
-                    viewFrm137Button.Visible = true;
-                    deleteFrm137Button.Visible = true;
-                    uploadFrm137Button.Visible = false;
-                }
-                else
-                {
-                    uploadFrm137Button.Visible = true;
-                    deleteFrm137Button.Visible = false;
-                    viewFrm137Button.Visible = false;
-                }
-
-                if (isGoodMoralData == false)
-                {
-                    viewGoodMoralButton.Visible = true;
-                    deleteGoodMoralButton.Visible = true;
-                    uploadGoodMoralButton.Visible = false;
-                }
-                else
-                {
-                    uploadGoodMoralButton.Visible = true;
-                    deleteGoodMoralButton.Visible = false;
-                    viewGoodMoralButton.Visible = false;
-                }
-
-                if (isBirthCertData == false)
-                {
-                    viewBirthCertButton.Visible = true;
-                    deleteBirthCertButton.Visible = true;
-                    uploadBirthCertButton.Visible = false;
-                }
-                else
-                {
-                    uploadBirthCertButton.Visible = true;
-                    deleteBirthCertButton.Visible = false;
-                    viewBirthCertButton.Visible = false;
-                }
-
-                if (isTransferCertData == false)
-                {
-                    viewTransferCertButton.Visible = true;
-                    deleteTransferCertButton.Visible = true;
-                    uploadTransferCertButton.Visible = false;
-                }
-                else
-                {
-                    uploadTransferCertButton.Visible = true;
-                    deleteTransferCertButton.Visible = false;
-                    viewTransferCertButton.Visible = false;
-                }
+                InitializeSectionCB();
+                checkForRequirements();
             }
             catch (FormatException fe)
             {
                 STU_DB_Connection.Close();
-                viewFrm137Button.Visible = false;
-                deleteFrm137Button.Visible = false;
-                uploadFrm137Button.Visible = false;
-                viewGoodMoralButton.Visible = false;
-                deleteGoodMoralButton.Visible = false;
-                uploadGoodMoralButton.Visible = false;
-                viewBirthCertButton.Visible = false;
-                deleteBirthCertButton.Visible = false;
-                uploadBirthCertButton.Visible = false;
-                viewTransferCertButton.Visible = false;
-                deleteTransferCertButton.Visible = false;
-                uploadTransferCertButton.Visible = false;
+                hideRequirementButtons();
                 return;
             }
             catch(NullReferenceException nfe)
             {
                 STU_DB_Connection.Close();
-                viewFrm137Button.Visible = false;
-                deleteFrm137Button.Visible = false;
-                uploadFrm137Button.Visible = false;
-                viewGoodMoralButton.Visible = false;
-                deleteGoodMoralButton.Visible = false;
-                uploadGoodMoralButton.Visible = false;
-                viewBirthCertButton.Visible = false;
-                deleteBirthCertButton.Visible = false;
-                uploadBirthCertButton.Visible = false;
-                viewTransferCertButton.Visible = false;
-                deleteTransferCertButton.Visible = false;
-                uploadTransferCertButton.Visible = false;
+                hideRequirementButtons();
                 return;
             }
+        }
+
+        private string getGradeCode(string enrollmentType)
+        {
+            string gradeCode = string.Empty;
+            if (enrollmentType.Equals("Grade 7"))
+            {
+                gradeCode = "G7";
+            }
+            else if (enrollmentType.Equals("Grade 8"))
+            {
+                gradeCode = "G8";
+            }
+            else if (enrollmentType.Equals("Grade 9"))
+            {
+                gradeCode = "G9";
+            }
+            else if (enrollmentType.Equals("Grade 10"))
+            {
+                gradeCode = "G10";
+            }
+            return gradeCode;
+        }
+
+        private void InitializeSectionCB()
+        {
+            string gradeCode = getGradeCode(enrollmentTypeComboBox.Text);
+            SqlCommand sectionData = new SqlCommand("SELECT SectionTitle FROM Sections WHERE GradeCode = '" + gradeCode + "' AND StudCount < Capacity", STU_DB_Connection);
+            List<string> sectionList = new List<string>();
+            STU_DB_Connection.Open();
+            using (SqlDataReader reader = sectionData.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    sectionList.Add(reader[0].ToString());
+                }
+            }
             STU_DB_Connection.Close();
+            sectionComboBox.Items.Clear();
+            foreach (string items in sectionList)
+            {
+                sectionComboBox.Items.Add(items);
+            }
+        }
+
+        private void checkForRequirements()
+        {
+            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Students WHERE StudentNumber = '" + studentNumberTextBox.Text + "'", STU_DB_Connection);
+
+            STU_DB_Connection.Open();
+            bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            STU_DB_Connection.Close();
+
+            if (isFrm137Data == false)
+            {
+                viewFrm137Button.Visible = true;
+                deleteFrm137Button.Visible = true;
+                uploadFrm137Button.Visible = false;
+            }
+            else
+            {
+                uploadFrm137Button.Visible = true;
+                deleteFrm137Button.Visible = false;
+                viewFrm137Button.Visible = false;
+            }
+
+            if (isGoodMoralData == false)
+            {
+                viewGoodMoralButton.Visible = true;
+                deleteGoodMoralButton.Visible = true;
+                uploadGoodMoralButton.Visible = false;
+            }
+            else
+            {
+                uploadGoodMoralButton.Visible = true;
+                deleteGoodMoralButton.Visible = false;
+                viewGoodMoralButton.Visible = false;
+            }
+
+            if (isBirthCertData == false)
+            {
+                viewBirthCertButton.Visible = true;
+                deleteBirthCertButton.Visible = true;
+                uploadBirthCertButton.Visible = false;
+            }
+            else
+            {
+                uploadBirthCertButton.Visible = true;
+                deleteBirthCertButton.Visible = false;
+                viewBirthCertButton.Visible = false;
+            }
+
+            if (isTransferCertData == false)
+            {
+                viewTransferCertButton.Visible = true;
+                deleteTransferCertButton.Visible = true;
+                uploadTransferCertButton.Visible = false;
+            }
+            else
+            {
+                uploadTransferCertButton.Visible = true;
+                deleteTransferCertButton.Visible = false;
+                viewTransferCertButton.Visible = false;
+            }
+        }
+
+        private void hideRequirementButtons()
+        {
+            viewFrm137Button.Visible = false;
+            deleteFrm137Button.Visible = false;
+            uploadFrm137Button.Visible = false;
+            viewGoodMoralButton.Visible = false;
+            deleteGoodMoralButton.Visible = false;
+            uploadGoodMoralButton.Visible = false;
+            viewBirthCertButton.Visible = false;
+            deleteBirthCertButton.Visible = false;
+            uploadBirthCertButton.Visible = false;
+            viewTransferCertButton.Visible = false;
+            deleteTransferCertButton.Visible = false;
+            uploadTransferCertButton.Visible = false;
         }
 
         private void viewFrm137Button_Click(object sender, EventArgs e)

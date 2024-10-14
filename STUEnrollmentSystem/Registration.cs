@@ -61,88 +61,100 @@ namespace STUEnrollmentSystem
 
         private void registrationDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            STU_DB_Connection.Open();
             try
             {
                 birthDateTimePicker.Text = birthDateTextBox.Text;
-                SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-                SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-                SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-                SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-                bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                if (isFrm137Data == false)
-                {
-                    viewFrm137Button.Visible = true;
-                    deleteFrm137Button.Visible = true;
-                    uploadFrm137Button.Visible = false;
-                }
-                else
-                {
-                    uploadFrm137Button.Visible = true;
-                    deleteFrm137Button.Visible = false;
-                    viewFrm137Button.Visible = false;
-                }
-
-                if (isGoodMoralData == false)
-                {
-                    viewGoodMoralButton.Visible = true;
-                    deleteGoodMoralButton.Visible = true;
-                    uploadGoodMoralButton.Visible = false;
-                }
-                else
-                {
-                    uploadGoodMoralButton.Visible = true;
-                    deleteGoodMoralButton.Visible = false;
-                    viewGoodMoralButton.Visible = false;
-                }
-
-                if (isBirthCertData == false)
-                {
-                    viewBirthCertButton.Visible = true;
-                    deleteBirthCertButton.Visible = true;
-                    uploadBirthCertButton.Visible = false;
-                }
-                else
-                {
-                    uploadBirthCertButton.Visible = true;
-                    deleteBirthCertButton.Visible = false;
-                    viewBirthCertButton.Visible = false;
-                }
-
-                if (isTransferCertData == false)
-                {
-                    viewTransferCertButton.Visible = true;
-                    deleteTransferCertButton.Visible = true;
-                    uploadTransferCertButton.Visible = false;
-                }
-                else
-                {
-                    uploadTransferCertButton.Visible = true;
-                    deleteTransferCertButton.Visible = false;
-                    viewTransferCertButton.Visible = false;
-                }
+                checkForRequirements();
             }
             catch (FormatException fe)
             {
                 STU_DB_Connection.Close();
-                viewFrm137Button.Visible = false;
-                deleteFrm137Button.Visible = false;
-                uploadFrm137Button.Visible = false;
-                viewGoodMoralButton.Visible = false;
-                deleteGoodMoralButton.Visible = false;
-                uploadGoodMoralButton.Visible = false;
-                viewBirthCertButton.Visible = false;
-                deleteBirthCertButton.Visible = false;
-                uploadBirthCertButton.Visible = false;
-                viewTransferCertButton.Visible = false;
-                deleteTransferCertButton.Visible = false;
-                uploadTransferCertButton.Visible = false;
+                hideRequirementButtons();
                 return;
             }
+        }
+
+        private void checkForRequirements()
+        {
+            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+
+            STU_DB_Connection.Open();
+            bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
             STU_DB_Connection.Close();
+
+            if (isFrm137Data == false)
+            {
+                viewFrm137Button.Visible = true;
+                deleteFrm137Button.Visible = true;
+                uploadFrm137Button.Visible = false;
+            }
+            else
+            {
+                uploadFrm137Button.Visible = true;
+                deleteFrm137Button.Visible = false;
+                viewFrm137Button.Visible = false;
+            }
+
+            if (isGoodMoralData == false)
+            {
+                viewGoodMoralButton.Visible = true;
+                deleteGoodMoralButton.Visible = true;
+                uploadGoodMoralButton.Visible = false;
+            }
+            else
+            {
+                uploadGoodMoralButton.Visible = true;
+                deleteGoodMoralButton.Visible = false;
+                viewGoodMoralButton.Visible = false;
+            }
+
+            if (isBirthCertData == false)
+            {
+                viewBirthCertButton.Visible = true;
+                deleteBirthCertButton.Visible = true;
+                uploadBirthCertButton.Visible = false;
+            }
+            else
+            {
+                uploadBirthCertButton.Visible = true;
+                deleteBirthCertButton.Visible = false;
+                viewBirthCertButton.Visible = false;
+            }
+
+            if (isTransferCertData == false)
+            {
+                viewTransferCertButton.Visible = true;
+                deleteTransferCertButton.Visible = true;
+                uploadTransferCertButton.Visible = false;
+            }
+            else
+            {
+                uploadTransferCertButton.Visible = true;
+                deleteTransferCertButton.Visible = false;
+                viewTransferCertButton.Visible = false;
+            }
+        }
+
+        private void hideRequirementButtons()
+        {
+            viewFrm137Button.Visible = false;
+            deleteFrm137Button.Visible = false;
+            uploadFrm137Button.Visible = false;
+            viewGoodMoralButton.Visible = false;
+            deleteGoodMoralButton.Visible = false;
+            uploadGoodMoralButton.Visible = false;
+            viewBirthCertButton.Visible = false;
+            deleteBirthCertButton.Visible = false;
+            uploadBirthCertButton.Visible = false;
+            viewTransferCertButton.Visible = false;
+            deleteTransferCertButton.Visible = false;
+            uploadTransferCertButton.Visible = false;
         }
 
         private void viewFrm137Button_Click(object sender, EventArgs e)
@@ -246,8 +258,19 @@ namespace STUEnrollmentSystem
 
         private void registrationBindingNavigatorMoveToCashierItem_Click(object sender, EventArgs e)
         {
-            STU_DB_Connection.Open();
+            insertPendingStudents();
+            checkIsNullRequirements();
+
             SqlCommand deleteRowFromRegistration = new SqlCommand("DELETE FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            STU_DB_Connection.Open();
+            deleteRowFromRegistration.ExecuteNonQuery();
+            STU_DB_Connection.Close();
+
+            registrationBindingNavigatorRefreshItem_Click(sender, e);
+        }
+
+        private void insertPendingStudents()
+        {
             STU_Command = new SqlCommand("INSERT INTO PendingStudents(RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
                                                             "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
                                                             "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
@@ -270,24 +293,16 @@ namespace STUEnrollmentSystem
             STU_Command.Parameters.AddWithValue("@FatherFirstName", fatherFirstNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@FatherLastName", fatherLastNameTextBox.Text);
             STU_Command.Parameters.AddWithValue("@FatherOccupation", fatherOccupationTextBox.Text);
+            STU_DB_Connection.Open();
             STU_Command.ExecuteNonQuery();
             STU_DB_Connection.Close();
-
-            checkIsNullRequirements();
-
-            STU_DB_Connection.Open();
-            deleteRowFromRegistration.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-            registrationBindingNavigatorRefreshItem_Click(sender, e);
         }
 
         private void updateRequirements(string Table, string Column, SqlCommand Command)
         {
-            STU_DB_Connection.Open();
             STU_Command = new SqlCommand("UPDATE " + Table + " SET " + Column + " = @Param WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             STU_Command.Parameters.AddWithValue("@Param", Command.ExecuteScalar());
             STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
         }
 
         private void checkIsNullRequirements()
@@ -297,9 +312,9 @@ namespace STUEnrollmentSystem
             SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
             SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+
             if (!frm137Data.ExecuteScalar().Equals(DBNull.Value))
             {
-                STU_DB_Connection.Close();
                 updateRequirements("PendingStudents", "StudForm137", frm137Data);
             }
 
@@ -308,24 +323,20 @@ namespace STUEnrollmentSystem
                 STU_Command = new SqlCommand("UPDATE PendingStudents SET LRN = @LRN WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
                 STU_Command.Parameters.AddWithValue("@LRN", Convert.ToInt32(lRNTextBox.Text));
                 STU_Command.ExecuteNonQuery();
-                STU_DB_Connection.Close();
             }
 
             if (!birthCertData.ExecuteScalar().Equals(DBNull.Value))
             {
-                STU_DB_Connection.Close();
                 updateRequirements("PendingStudents", "BirthCertificate", birthCertData);
             }
 
             if (!goodMoralData.ExecuteScalar().Equals(DBNull.Value))
             {
-                STU_DB_Connection.Close();
                 updateRequirements("PendingStudents", "GoodMoral", goodMoralData);
             }
 
             if (!transferCertData.ExecuteScalar().Equals(DBNull.Value))
             {
-                STU_DB_Connection.Close();
                 updateRequirements("PendingStudents", "TransferCertificate", transferCertData);
             }
             STU_DB_Connection.Close();
