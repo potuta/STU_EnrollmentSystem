@@ -40,6 +40,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Section));
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.sectionTitleToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.sectionTitleToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.sectionCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.sectionCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.roomToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.roomToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.gradeCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.teacherCodeComboBox = new System.Windows.Forms.ComboBox();
@@ -80,16 +89,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
-            this.sectionTitleToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.sectionTitleToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.sectionCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.sectionCodeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.roomToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.roomToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.gradeCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.gradeCodeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.gradeCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             sectionTitleLabel = new System.Windows.Forms.Label();
             sectionCodeLabel = new System.Windows.Forms.Label();
             roomLabel = new System.Windows.Forms.Label();
@@ -99,6 +99,7 @@
             capacityLabel = new System.Windows.Forms.Label();
             studCountLabel = new System.Windows.Forms.Label();
             this.searchPanel.SuspendLayout();
+            this.searchToolStrip.SuspendLayout();
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
@@ -106,7 +107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingNavigator)).BeginInit();
             this.sectionsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsDataGridView)).BeginInit();
-            this.searchToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // sectionTitleLabel
@@ -205,6 +205,85 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1264, 117);
             this.searchPanel.TabIndex = 8;
+            // 
+            // searchToolStrip
+            // 
+            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sectionTitleToolStripLabel,
+            this.sectionTitleToolStripComboBox,
+            this.sectionCodeToolStripLabel,
+            this.sectionCodeToolStripComboBox,
+            this.roomToolStripLabel,
+            this.roomToolStripComboBox,
+            this.gradeCodeToolStripLabel,
+            this.gradeCodeToolStripComboBox,
+            this.searchToolStripButton});
+            this.searchToolStrip.Location = new System.Drawing.Point(67, 50);
+            this.searchToolStrip.Name = "searchToolStrip";
+            this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.searchToolStrip.Size = new System.Drawing.Size(876, 25);
+            this.searchToolStrip.TabIndex = 17;
+            this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // sectionTitleToolStripLabel
+            // 
+            this.sectionTitleToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sectionTitleToolStripLabel.Name = "sectionTitleToolStripLabel";
+            this.sectionTitleToolStripLabel.Size = new System.Drawing.Size(74, 22);
+            this.sectionTitleToolStripLabel.Text = "Section Title:";
+            // 
+            // sectionTitleToolStripComboBox
+            // 
+            this.sectionTitleToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.sectionTitleToolStripComboBox.Name = "sectionTitleToolStripComboBox";
+            this.sectionTitleToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.sectionTitleToolStripComboBox.TextChanged += new System.EventHandler(this.sectionTitleToolStripComboBox_TextChanged);
+            // 
+            // sectionCodeToolStripLabel
+            // 
+            this.sectionCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sectionCodeToolStripLabel.Name = "sectionCodeToolStripLabel";
+            this.sectionCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
+            this.sectionCodeToolStripLabel.Text = "          Section Code:";
+            // 
+            // sectionCodeToolStripComboBox
+            // 
+            this.sectionCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.sectionCodeToolStripComboBox.Name = "sectionCodeToolStripComboBox";
+            this.sectionCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripComboBox_TextChanged);
+            // 
+            // roomToolStripLabel
+            // 
+            this.roomToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.roomToolStripLabel.Name = "roomToolStripLabel";
+            this.roomToolStripLabel.Size = new System.Drawing.Size(72, 22);
+            this.roomToolStripLabel.Text = "          Room:";
+            // 
+            // roomToolStripComboBox
+            // 
+            this.roomToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.roomToolStripComboBox.Name = "roomToolStripComboBox";
+            this.roomToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.roomToolStripComboBox.TextChanged += new System.EventHandler(this.roomToolStripComboBox_TextChanged);
+            // 
+            // gradeCodeToolStripLabel
+            // 
+            this.gradeCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.gradeCodeToolStripLabel.Name = "gradeCodeToolStripLabel";
+            this.gradeCodeToolStripLabel.Size = new System.Drawing.Size(102, 22);
+            this.gradeCodeToolStripLabel.Text = "          Grade Code:";
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(76, 22);
+            this.searchToolStripButton.Text = "          Search";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // label2
             // 
@@ -565,95 +644,12 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "StudCount";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // searchToolStrip
+            // gradeCodeToolStripComboBox
             // 
-            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sectionTitleToolStripLabel,
-            this.sectionTitleToolStripTextBox,
-            this.sectionCodeToolStripLabel,
-            this.sectionCodeToolStripTextBox,
-            this.roomToolStripLabel,
-            this.roomToolStripTextBox,
-            this.gradeCodeToolStripLabel,
-            this.gradeCodeToolStripTextBox,
-            this.searchToolStripButton});
-            this.searchToolStrip.Location = new System.Drawing.Point(67, 50);
-            this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(876, 25);
-            this.searchToolStrip.TabIndex = 17;
-            this.searchToolStrip.Text = "searchToolStrip";
-            // 
-            // sectionTitleToolStripLabel
-            // 
-            this.sectionTitleToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sectionTitleToolStripLabel.Name = "sectionTitleToolStripLabel";
-            this.sectionTitleToolStripLabel.Size = new System.Drawing.Size(74, 22);
-            this.sectionTitleToolStripLabel.Text = "Section Title:";
-            // 
-            // sectionTitleToolStripTextBox
-            // 
-            this.sectionTitleToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sectionTitleToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.sectionTitleToolStripTextBox.Name = "sectionTitleToolStripTextBox";
-            this.sectionTitleToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.sectionTitleToolStripTextBox.TextChanged += new System.EventHandler(this.sectionTitleToolStripTextBox_TextChanged);
-            // 
-            // sectionCodeToolStripLabel
-            // 
-            this.sectionCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sectionCodeToolStripLabel.Name = "sectionCodeToolStripLabel";
-            this.sectionCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
-            this.sectionCodeToolStripLabel.Text = "          Section Code:";
-            // 
-            // sectionCodeToolStripTextBox
-            // 
-            this.sectionCodeToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sectionCodeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.sectionCodeToolStripTextBox.Name = "sectionCodeToolStripTextBox";
-            this.sectionCodeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.sectionCodeToolStripTextBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripTextBox_TextChanged);
-            // 
-            // roomToolStripLabel
-            // 
-            this.roomToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.roomToolStripLabel.Name = "roomToolStripLabel";
-            this.roomToolStripLabel.Size = new System.Drawing.Size(72, 22);
-            this.roomToolStripLabel.Text = "          Room:";
-            // 
-            // roomToolStripTextBox
-            // 
-            this.roomToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roomToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.roomToolStripTextBox.Name = "roomToolStripTextBox";
-            this.roomToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.roomToolStripTextBox.TextChanged += new System.EventHandler(this.roomToolStripTextBox_TextChanged);
-            // 
-            // gradeCodeToolStripLabel
-            // 
-            this.gradeCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.gradeCodeToolStripLabel.Name = "gradeCodeToolStripLabel";
-            this.gradeCodeToolStripLabel.Size = new System.Drawing.Size(102, 22);
-            this.gradeCodeToolStripLabel.Text = "          Grade Code:";
-            // 
-            // gradeCodeToolStripTextBox
-            // 
-            this.gradeCodeToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gradeCodeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gradeCodeToolStripTextBox.Name = "gradeCodeToolStripTextBox";
-            this.gradeCodeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.gradeCodeToolStripTextBox.TextChanged += new System.EventHandler(this.gradeCodeToolStripTextBox_TextChanged);
-            // 
-            // searchToolStripButton
-            // 
-            this.searchToolStripButton.BackColor = System.Drawing.Color.Transparent;
-            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchToolStripButton.Name = "searchToolStripButton";
-            this.searchToolStripButton.Size = new System.Drawing.Size(76, 22);
-            this.searchToolStripButton.Text = "          Search";
-            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
+            this.gradeCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.gradeCodeToolStripComboBox.Name = "gradeCodeToolStripComboBox";
+            this.gradeCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.gradeCodeToolStripComboBox.TextChanged += new System.EventHandler(this.gradeCodeToolStripComboBox_TextChanged);
             // 
             // Section
             // 
@@ -671,6 +667,8 @@
             this.Load += new System.EventHandler(this.Section_Load);
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchToolStrip.ResumeLayout(false);
+            this.searchToolStrip.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
@@ -680,8 +678,6 @@
             this.sectionsBindingNavigator.ResumeLayout(false);
             this.sectionsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsDataGridView)).EndInit();
-            this.searchToolStrip.ResumeLayout(false);
-            this.searchToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,13 +729,13 @@
         private System.Windows.Forms.BindingSource teachersBindingSource;
         private System.Windows.Forms.ToolStrip searchToolStrip;
         private System.Windows.Forms.ToolStripLabel sectionTitleToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox sectionTitleToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel sectionCodeToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox sectionCodeToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel roomToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox roomToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel gradeCodeToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox gradeCodeToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox sectionTitleToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox sectionCodeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox roomToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox gradeCodeToolStripComboBox;
     }
 }

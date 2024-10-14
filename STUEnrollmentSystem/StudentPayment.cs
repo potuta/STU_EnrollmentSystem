@@ -35,7 +35,12 @@ namespace STUEnrollmentSystem
         {
             this.studentPaymentTableAdapter.Fill(this.sTU_DBDataSet.StudentPayment);
             searchPanel.Visible = false;
+            InitializeSearchStudentNumCB();
+            InitializeSearchPaymentCodeCB();
+        }
 
+        private void InitializeSearchStudentNumCB()
+        {
             SqlCommand studentNumData = new SqlCommand("SELECT StudentNumber FROM StudentPayment WHERE MonthOfPayment = 'August'", STU_DB_Connection);
             List<string> studentNumList = new List<string>();
             STU_DB_Connection.Open();
@@ -51,6 +56,29 @@ namespace STUEnrollmentSystem
             foreach (string items in studentNumList)
             {
                 studentNumberToolStripComboBox.Items.Add(items);
+            }
+        }
+
+        private void InitializeSearchPaymentCodeCB()
+        {
+            SqlCommand paymentCodeData = new SqlCommand("SELECT PaymentCode FROM StudentPayment WHERE MonthOfPayment = 'August'", STU_DB_Connection);
+            List<string> paymentCodeList = new List<string>();
+            STU_DB_Connection.Open();
+            using(SqlDataReader reader = paymentCodeData.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    paymentCodeList.Add(reader[0].ToString());
+                }
+            }
+            STU_DB_Connection.Close();
+            paymentCodeToolStripComboBox.Items.Clear();
+            foreach(string items in paymentCodeList)
+            {
+                if (!paymentCodeToolStripComboBox.Items.Contains(items))
+                {
+                    paymentCodeToolStripComboBox.Items.Add(items);
+                }
             }
         }
 
@@ -76,48 +104,54 @@ namespace STUEnrollmentSystem
 
         private void studentPaymentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            STU_DB_Connection.Open();
             try
             {
-                SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'", STU_DB_Connection);
-                bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                
-                if (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
-                {
-                    if (isProofOfPaymentData == false)
-                    {
-                        viewProofOfPaymentButton.Visible = true;
-                        deleteProofOfPaymentButton.Visible = true;
-                        uploadProofOfPaymentButton.Visible = false;
-                    }
-                    else
-                    {
-                        uploadProofOfPaymentButton.Visible = true;
-                        deleteProofOfPaymentButton.Visible = false;
-                        viewProofOfPaymentButton.Visible = false;
-                    }
-                }
-
+                checkForRequirements();
             }
             catch (FormatException fe)
             {
                 STU_DB_Connection.Close();
-                viewProofOfPaymentButton.Visible = false;
-                deleteProofOfPaymentButton.Visible = false;
-                uploadProofOfPaymentButton.Visible = false;
+                hideRequirementButtons();
                 return;
             }
             catch(NullReferenceException nfe)
             {
                 STU_DB_Connection.Close();
-                viewProofOfPaymentButton.Visible = false;
-                deleteProofOfPaymentButton.Visible = false;
-                uploadProofOfPaymentButton.Visible = false;
+                hideRequirementButtons();
                 return;
             }
-            STU_DB_Connection.Close();
         }
 
+        private void checkForRequirements()
+        {
+            SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'", STU_DB_Connection);
+            STU_DB_Connection.Open();
+            bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
+            STU_DB_Connection.Close();
+
+            if (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+            {
+                if (isProofOfPaymentData == false)
+                {
+                    viewProofOfPaymentButton.Visible = true;
+                    deleteProofOfPaymentButton.Visible = true;
+                    uploadProofOfPaymentButton.Visible = false;
+                }
+                else
+                {
+                    uploadProofOfPaymentButton.Visible = true;
+                    deleteProofOfPaymentButton.Visible = false;
+                    viewProofOfPaymentButton.Visible = false;
+                }
+            }
+        }
+
+        private void hideRequirementButtons()
+        {
+            viewProofOfPaymentButton.Visible = false;
+            deleteProofOfPaymentButton.Visible = false;
+            uploadProofOfPaymentButton.Visible = false;
+        }
 
         private void viewProofOfPaymentButton_Click(object sender, EventArgs e)
         {
@@ -195,7 +229,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -204,11 +238,11 @@ namespace STUEnrollmentSystem
 
         }
 
-        private void paymentCodeToolStripTextBox_TextChanged(object sender, EventArgs e)
+        private void paymentCodeToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -220,7 +254,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -232,7 +266,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripTextBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {

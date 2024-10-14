@@ -40,8 +40,8 @@
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();
             this.paymentCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.paymentCodeToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.monthOfPaymentToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.monthOfPaymentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -86,7 +86,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.paymentCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -188,7 +188,7 @@
             this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.paymentCodeToolStripLabel,
-            this.paymentCodeToolStripTextBox,
+            this.paymentCodeToolStripComboBox,
             this.studentNumberToolStripLabel,
             this.studentNumberToolStripComboBox,
             this.monthOfPaymentToolStripLabel,
@@ -208,20 +208,19 @@
             this.paymentCodeToolStripLabel.Size = new System.Drawing.Size(88, 22);
             this.paymentCodeToolStripLabel.Text = "Payment Code:";
             // 
-            // paymentCodeToolStripTextBox
-            // 
-            this.paymentCodeToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paymentCodeToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.paymentCodeToolStripTextBox.Name = "paymentCodeToolStripTextBox";
-            this.paymentCodeToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.paymentCodeToolStripTextBox.TextChanged += new System.EventHandler(this.paymentCodeToolStripTextBox_TextChanged);
-            // 
             // studentNumberToolStripLabel
             // 
             this.studentNumberToolStripLabel.BackColor = System.Drawing.Color.Transparent;
             this.studentNumberToolStripLabel.Name = "studentNumberToolStripLabel";
             this.studentNumberToolStripLabel.Size = new System.Drawing.Size(128, 22);
             this.studentNumberToolStripLabel.Text = "          Student Number:";
+            // 
+            // studentNumberToolStripComboBox
+            // 
+            this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
+            this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.studentNumberToolStripComboBox_TextChanged);
             // 
             // monthOfPaymentToolStripLabel
             // 
@@ -656,12 +655,12 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // studentNumberToolStripComboBox
+            // paymentCodeToolStripComboBox
             // 
-            this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
-            this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.studentNumberToolStripComboBox_TextChanged);
+            this.paymentCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.paymentCodeToolStripComboBox.Name = "paymentCodeToolStripComboBox";
+            this.paymentCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.paymentCodeToolStripComboBox.TextChanged += new System.EventHandler(this.paymentCodeToolStripComboBox_TextChanged);
             // 
             // StudentPayment
             // 
@@ -742,11 +741,11 @@
         private System.Windows.Forms.Label proofOfPaymentLabel;
         private System.Windows.Forms.ToolStrip searchToolStrip;
         private System.Windows.Forms.ToolStripLabel paymentCodeToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox paymentCodeToolStripTextBox;
         private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
         private System.Windows.Forms.ToolStripLabel monthOfPaymentToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox monthOfPaymentToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchToolStripButton;
         private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox paymentCodeToolStripComboBox;
     }
 }

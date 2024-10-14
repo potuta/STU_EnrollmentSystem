@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,13 @@ namespace STUEnrollmentSystem
 {
     public partial class Section : Form
     {
+        private SqlConnection STU_DB_Connection;
+        private SqlCommand STU_Command;
+
         public Section()
         {
             InitializeComponent();
+            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void sectionsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -30,6 +35,30 @@ namespace STUEnrollmentSystem
             this.teachersTableAdapter.Fill(this.sTU_DBDataSet.Teachers);
             this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
             searchPanel.Visible = false;
+            InitializeSearchSectionTitleCB();
+        }
+
+        private void InitializeSearchSectionTitleCB()
+        {
+            SqlCommand sectionTitleData = new SqlCommand("SELECT SectionTitle FROM Sections", STU_DB_Connection);
+            List<string> sectionTitleList = new List<string>();
+            STU_DB_Connection.Open();
+            using (SqlDataReader reader = sectionTitleData.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    sectionTitleList.Add(reader[0].ToString());
+                }
+            }
+            STU_DB_Connection.Close();
+            sectionTitleToolStripComboBox.Items.Clear();
+            foreach (string items in sectionTitleList)
+            {
+                if (!sectionTitleToolStripComboBox.Items.Contains(items))
+                {
+                    sectionTitleToolStripComboBox.Items.Add(items);
+                }
+            }
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -56,7 +85,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripTextBox.Text, sectionCodeToolStripTextBox.Text, roomToolStripTextBox.Text, gradeCodeToolStripTextBox.Text);
+                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -65,11 +94,11 @@ namespace STUEnrollmentSystem
 
         }
 
-        private void sectionTitleToolStripTextBox_TextChanged(object sender, EventArgs e)
+        private void sectionTitleToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripTextBox.Text, sectionCodeToolStripTextBox.Text, roomToolStripTextBox.Text, gradeCodeToolStripTextBox.Text);
+                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -77,11 +106,11 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void sectionCodeToolStripTextBox_TextChanged(object sender, EventArgs e)
+        private void sectionCodeToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripTextBox.Text, sectionCodeToolStripTextBox.Text, roomToolStripTextBox.Text, gradeCodeToolStripTextBox.Text);
+                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -89,11 +118,11 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void roomToolStripTextBox_TextChanged(object sender, EventArgs e)
+        private void roomToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripTextBox.Text, sectionCodeToolStripTextBox.Text, roomToolStripTextBox.Text, gradeCodeToolStripTextBox.Text);
+                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -101,16 +130,17 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void gradeCodeToolStripTextBox_TextChanged(object sender, EventArgs e)
+        private void gradeCodeToolStripComboBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripTextBox.Text, sectionCodeToolStripTextBox.Text, roomToolStripTextBox.Text, gradeCodeToolStripTextBox.Text);
+                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
     }
 }
