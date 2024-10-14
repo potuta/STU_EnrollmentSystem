@@ -70,7 +70,6 @@ namespace STUEnrollmentSystem
             childForm.BringToFront();
             childForm.Show();
         }
-        
 
         private void InitializeUserRole(string role)
         {

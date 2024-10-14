@@ -34,35 +34,10 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                STU_Command = new SqlCommand("SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password", STU_DB_Connection);
-                STU_Command.Parameters.AddWithValue("@UserID", userID);
-                STU_Command.Parameters.AddWithValue("@Username", username);
-                STU_Command.Parameters.AddWithValue("@Password", password);
-
-                STU_DB_Connection.Open();
-                isUserVerified = STU_Command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
-                STU_DB_Connection.Close();
-
+                verifyUserLogin(userID, username, password);
                 if (isUserVerified == true)
                 {
-                    STU_DB_Connection.Open();
-                    using (SqlDataReader reader = STU_Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            for (int column = 0; column < reader.FieldCount; column++)
-                            {
-                                userLoginInfo.Add(reader.GetString(column));
-                            }
-                        }
-                    }
-                    STU_DB_Connection.Close();
-
-                    UserID = userIDTextBox.Text;
-                    Username = usernameTextBox.Text;
-                    Password = passwordTextBox.Text;
-                    Role = userLoginInfo[4];
-
+                    InitializeUserLoginInfo();
                     STU_Dashboard STU = new STU_Dashboard();
                     STU.Show();
                     this.Hide();
@@ -78,6 +53,39 @@ namespace STUEnrollmentSystem
                 MessageBox.Show("User not found");
                 return;
             }
+        }
+
+        private void verifyUserLogin(string userID, string username, string password)
+        {
+            STU_Command = new SqlCommand("SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password", STU_DB_Connection);
+            STU_Command.Parameters.AddWithValue("@UserID", userID);
+            STU_Command.Parameters.AddWithValue("@Username", username);
+            STU_Command.Parameters.AddWithValue("@Password", password);
+
+            STU_DB_Connection.Open();
+            isUserVerified = STU_Command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+            STU_DB_Connection.Close();
+        }
+
+        private void InitializeUserLoginInfo()
+        {
+            STU_DB_Connection.Open();
+            using (SqlDataReader reader = STU_Command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    for (int column = 0; column < reader.FieldCount; column++)
+                    {
+                        userLoginInfo.Add(reader.GetString(column));
+                    }
+                }
+            }
+            STU_DB_Connection.Close();
+
+            UserID = userIDTextBox.Text;
+            Username = usernameTextBox.Text;
+            Password = passwordTextBox.Text;
+            Role = userLoginInfo[4];
         }
 
         private void loginButton_Click(object sender, EventArgs e)
