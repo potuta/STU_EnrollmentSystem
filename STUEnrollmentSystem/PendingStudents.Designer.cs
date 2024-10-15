@@ -53,13 +53,18 @@
             System.Windows.Forms.Label fatherOccupationLabel;
             System.Windows.Forms.Label lRNLabel;
             System.Windows.Forms.Label studentNumberLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingStudents));
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label paymentMethodLabel1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
+            this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
+            this.proofOfPaymentLabel = new System.Windows.Forms.Label();
+            this.paymentMethodComboBox = new System.Windows.Forms.ComboBox();
             this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.amountToPayLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
             this.deleteGoodMoralButton = new System.Windows.Forms.Button();
@@ -86,21 +91,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.deleteFrm137Button = new System.Windows.Forms.Button();
             this.uploadBirthCertButton = new System.Windows.Forms.Button();
-            this.uploadTransferCertButton = new System.Windows.Forms.Button();
             this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
             this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.birthDateTextBox = new System.Windows.Forms.TextBox();
             this.generateStudNumButton = new System.Windows.Forms.Button();
-            this.genStudNumTextBox = new System.Windows.Forms.TextBox();
             this.uploadFrm137Button = new System.Windows.Forms.Button();
             this.viewBirthCertButton = new System.Windows.Forms.Button();
-            this.viewTransferCertButton = new System.Windows.Forms.Button();
             this.uploadGoodMoralButton = new System.Windows.Forms.Button();
             this.viewGoodMoralButton = new System.Windows.Forms.Button();
             this.goodMoralTextBox = new System.Windows.Forms.TextBox();
             this.viewFrm137Button = new System.Windows.Forms.Button();
             this.studForm137TextBox = new System.Windows.Forms.TextBox();
+            this.uploadTransferCertButton = new System.Windows.Forms.Button();
+            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
+            this.viewTransferCertButton = new System.Windows.Forms.Button();
+            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
+            this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
+            this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -120,17 +127,6 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.label5 = new System.Windows.Forms.Label();
-            this.amountToPayLabel = new System.Windows.Forms.Label();
-            this.paymentMethodComboBox = new System.Windows.Forms.ComboBox();
-            this.proofOfPaymentLabel = new System.Windows.Forms.Label();
-            this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
-            this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
-            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
-            this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -158,6 +154,9 @@
             this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -409,6 +408,24 @@
             studentNumberLabel.TabIndex = 63;
             studentNumberLabel.Text = "Student Number:";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(771, 90);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(78, 13);
+            label6.TabIndex = 69;
+            label6.Text = "Amount to pay:";
+            // 
+            // paymentMethodLabel1
+            // 
+            paymentMethodLabel1.AutoSize = true;
+            paymentMethodLabel1.Location = new System.Drawing.Point(771, 115);
+            paymentMethodLabel1.Name = "paymentMethodLabel1";
+            paymentMethodLabel1.Size = new System.Drawing.Size(90, 13);
+            paymentMethodLabel1.TabIndex = 71;
+            paymentMethodLabel1.Text = "Payment Method:";
+            // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
@@ -420,7 +437,6 @@
             this.detailsPanel.Controls.Add(label6);
             this.detailsPanel.Controls.Add(this.label5);
             this.detailsPanel.Controls.Add(studentNumberLabel);
-            this.detailsPanel.Controls.Add(this.studentNumberTextBox);
             this.detailsPanel.Controls.Add(this.civilStatusComboBox);
             this.detailsPanel.Controls.Add(this.deleteTransferCertButton);
             this.detailsPanel.Controls.Add(this.deleteGoodMoralButton);
@@ -474,12 +490,8 @@
             this.detailsPanel.Controls.Add(this.birthDateTimePicker);
             this.detailsPanel.Controls.Add(this.birthDateTextBox);
             this.detailsPanel.Controls.Add(this.generateStudNumButton);
-            this.detailsPanel.Controls.Add(this.genStudNumTextBox);
             this.detailsPanel.Controls.Add(this.uploadFrm137Button);
             this.detailsPanel.Controls.Add(this.viewBirthCertButton);
-            this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
-            this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
-            this.detailsPanel.Controls.Add(this.goodMoralTextBox);
             this.detailsPanel.Controls.Add(this.viewFrm137Button);
             this.detailsPanel.Controls.Add(this.studForm137TextBox);
             this.detailsPanel.Controls.Add(this.uploadTransferCertButton);
@@ -488,19 +500,50 @@
             this.detailsPanel.Controls.Add(this.uploadProofOfPaymentButton);
             this.detailsPanel.Controls.Add(this.proofOfPaymentTextBox);
             this.detailsPanel.Controls.Add(this.viewProofOfPaymentButton);
+            this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.goodMoralTextBox);
+            this.detailsPanel.Controls.Add(this.studentNumberTextBox);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1264, 272);
             this.detailsPanel.TabIndex = 6;
             // 
-            // studentNumberTextBox
+            // deleteProofOfPaymentButton
             // 
-            this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudentNumber", true));
-            this.studentNumberTextBox.Location = new System.Drawing.Point(122, 88);
-            this.studentNumberTextBox.Name = "studentNumberTextBox";
-            this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.studentNumberTextBox.TabIndex = 64;
+            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(982, 137);
+            this.deleteProofOfPaymentButton.Name = "deleteProofOfPaymentButton";
+            this.deleteProofOfPaymentButton.Size = new System.Drawing.Size(33, 23);
+            this.deleteProofOfPaymentButton.TabIndex = 74;
+            this.deleteProofOfPaymentButton.Text = "Del";
+            this.deleteProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.deleteProofOfPaymentButton.Visible = false;
+            this.deleteProofOfPaymentButton.Click += new System.EventHandler(this.deleteProofOfPaymentButton_Click);
+            // 
+            // proofOfPaymentLabel
+            // 
+            this.proofOfPaymentLabel.AutoSize = true;
+            this.proofOfPaymentLabel.Location = new System.Drawing.Point(771, 141);
+            this.proofOfPaymentLabel.Name = "proofOfPaymentLabel";
+            this.proofOfPaymentLabel.Size = new System.Drawing.Size(93, 13);
+            this.proofOfPaymentLabel.TabIndex = 72;
+            this.proofOfPaymentLabel.Text = "Proof Of Payment:";
+            this.proofOfPaymentLabel.Visible = false;
+            // 
+            // paymentMethodComboBox
+            // 
+            this.paymentMethodComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PaymentMethod", true));
+            this.paymentMethodComboBox.FormattingEnabled = true;
+            this.paymentMethodComboBox.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.paymentMethodComboBox.Location = new System.Drawing.Point(878, 110);
+            this.paymentMethodComboBox.Name = "paymentMethodComboBox";
+            this.paymentMethodComboBox.Size = new System.Drawing.Size(100, 21);
+            this.paymentMethodComboBox.TabIndex = 72;
+            this.paymentMethodComboBox.TextChanged += new System.EventHandler(this.paymentMethodComboBox_TextChanged);
             // 
             // pendingStudentsBindingSource
             // 
@@ -511,6 +554,32 @@
             // 
             this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
             this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // amountToPayLabel
+            // 
+            this.amountToPayLabel.AutoSize = true;
+            this.amountToPayLabel.Location = new System.Drawing.Point(875, 90);
+            this.amountToPayLabel.Name = "amountToPayLabel";
+            this.amountToPayLabel.Size = new System.Drawing.Size(0, 13);
+            this.amountToPayLabel.TabIndex = 70;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(771, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 18);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Payment:";
+            // 
+            // studentNumberTextBox
+            // 
+            this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudentNumber", true));
+            this.studentNumberTextBox.Location = new System.Drawing.Point(122, 88);
+            this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.studentNumberTextBox.TabIndex = 64;
             // 
             // civilStatusComboBox
             // 
@@ -763,16 +832,6 @@
             this.uploadBirthCertButton.UseVisualStyleBackColor = true;
             this.uploadBirthCertButton.Click += new System.EventHandler(this.uploadBirthCertButton_Click);
             // 
-            // uploadTransferCertButton
-            // 
-            this.uploadTransferCertButton.Location = new System.Drawing.Point(604, 166);
-            this.uploadTransferCertButton.Name = "uploadTransferCertButton";
-            this.uploadTransferCertButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadTransferCertButton.TabIndex = 61;
-            this.uploadTransferCertButton.Text = "Upload File";
-            this.uploadTransferCertButton.UseVisualStyleBackColor = true;
-            this.uploadTransferCertButton.Click += new System.EventHandler(this.uploadTransferCertButton_Click);
-            // 
             // birthCertificateTextBox
             // 
             this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "BirthCertificate", true));
@@ -781,15 +840,6 @@
             this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthCertificateTextBox.TabIndex = 45;
             this.birthCertificateTextBox.Visible = false;
-            // 
-            // transferCertificateTextBox
-            // 
-            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "TransferCertificate", true));
-            this.transferCertificateTextBox.Location = new System.Drawing.Point(604, 167);
-            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
-            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.transferCertificateTextBox.TabIndex = 47;
-            this.transferCertificateTextBox.Visible = false;
             // 
             // birthDateTimePicker
             // 
@@ -821,14 +871,6 @@
             this.generateStudNumButton.UseVisualStyleBackColor = false;
             this.generateStudNumButton.Click += new System.EventHandler(this.generateStudNumButton_Click);
             // 
-            // genStudNumTextBox
-            // 
-            this.genStudNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudentNumber", true));
-            this.genStudNumTextBox.Location = new System.Drawing.Point(122, 88);
-            this.genStudNumTextBox.Name = "genStudNumTextBox";
-            this.genStudNumTextBox.Size = new System.Drawing.Size(100, 20);
-            this.genStudNumTextBox.TabIndex = 66;
-            // 
             // uploadFrm137Button
             // 
             this.uploadFrm137Button.Location = new System.Drawing.Point(604, 88);
@@ -849,16 +891,6 @@
             this.viewBirthCertButton.UseVisualStyleBackColor = true;
             this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
             // 
-            // viewTransferCertButton
-            // 
-            this.viewTransferCertButton.Location = new System.Drawing.Point(604, 166);
-            this.viewTransferCertButton.Name = "viewTransferCertButton";
-            this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
-            this.viewTransferCertButton.TabIndex = 62;
-            this.viewTransferCertButton.Text = "View File";
-            this.viewTransferCertButton.UseVisualStyleBackColor = true;
-            this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
-            // 
             // uploadGoodMoralButton
             // 
             this.uploadGoodMoralButton.Location = new System.Drawing.Point(604, 142);
@@ -867,7 +899,7 @@
             this.uploadGoodMoralButton.TabIndex = 59;
             this.uploadGoodMoralButton.Text = "Upload File";
             this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
-            this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadBirthCertButton_Click);
+            this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
             // 
             // viewGoodMoralButton
             // 
@@ -906,6 +938,66 @@
             this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
             this.studForm137TextBox.TabIndex = 44;
             this.studForm137TextBox.Visible = false;
+            // 
+            // uploadTransferCertButton
+            // 
+            this.uploadTransferCertButton.Location = new System.Drawing.Point(604, 166);
+            this.uploadTransferCertButton.Name = "uploadTransferCertButton";
+            this.uploadTransferCertButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadTransferCertButton.TabIndex = 61;
+            this.uploadTransferCertButton.Text = "Upload File";
+            this.uploadTransferCertButton.UseVisualStyleBackColor = true;
+            this.uploadTransferCertButton.Click += new System.EventHandler(this.uploadTransferCertButton_Click);
+            // 
+            // transferCertificateTextBox
+            // 
+            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "TransferCertificate", true));
+            this.transferCertificateTextBox.Location = new System.Drawing.Point(604, 167);
+            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
+            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.transferCertificateTextBox.TabIndex = 47;
+            this.transferCertificateTextBox.Visible = false;
+            // 
+            // viewTransferCertButton
+            // 
+            this.viewTransferCertButton.Location = new System.Drawing.Point(604, 166);
+            this.viewTransferCertButton.Name = "viewTransferCertButton";
+            this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
+            this.viewTransferCertButton.TabIndex = 62;
+            this.viewTransferCertButton.Text = "View File";
+            this.viewTransferCertButton.UseVisualStyleBackColor = true;
+            this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
+            // 
+            // uploadProofOfPaymentButton
+            // 
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
+            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadProofOfPaymentButton.TabIndex = 75;
+            this.uploadProofOfPaymentButton.Text = "Upload File";
+            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.uploadProofOfPaymentButton.Visible = false;
+            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
+            // 
+            // proofOfPaymentTextBox
+            // 
+            this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ProofOfPayment", true));
+            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(878, 137);
+            this.proofOfPaymentTextBox.Name = "proofOfPaymentTextBox";
+            this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
+            this.proofOfPaymentTextBox.TabIndex = 73;
+            this.proofOfPaymentTextBox.Visible = false;
+            // 
+            // viewProofOfPaymentButton
+            // 
+            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.viewProofOfPaymentButton.Name = "viewProofOfPaymentButton";
+            this.viewProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
+            this.viewProofOfPaymentButton.TabIndex = 76;
+            this.viewProofOfPaymentButton.Text = "View File";
+            this.viewProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.viewProofOfPaymentButton.Visible = false;
+            this.viewProofOfPaymentButton.Click += new System.EventHandler(this.viewProofOfPaymentButton_Click);
             // 
             // showSearchButton
             // 
@@ -1128,133 +1220,6 @@
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // pendingStudentsTableAdapter
-            // 
-            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(771, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 18);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "Payment:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(771, 90);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(78, 13);
-            label6.TabIndex = 69;
-            label6.Text = "Amount to pay:";
-            // 
-            // amountToPayLabel
-            // 
-            this.amountToPayLabel.AutoSize = true;
-            this.amountToPayLabel.Location = new System.Drawing.Point(875, 90);
-            this.amountToPayLabel.Name = "amountToPayLabel";
-            this.amountToPayLabel.Size = new System.Drawing.Size(0, 13);
-            this.amountToPayLabel.TabIndex = 70;
-            // 
-            // paymentMethodLabel1
-            // 
-            paymentMethodLabel1.AutoSize = true;
-            paymentMethodLabel1.Location = new System.Drawing.Point(771, 115);
-            paymentMethodLabel1.Name = "paymentMethodLabel1";
-            paymentMethodLabel1.Size = new System.Drawing.Size(90, 13);
-            paymentMethodLabel1.TabIndex = 71;
-            paymentMethodLabel1.Text = "Payment Method:";
-            // 
-            // paymentMethodComboBox
-            // 
-            this.paymentMethodComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PaymentMethod", true));
-            this.paymentMethodComboBox.FormattingEnabled = true;
-            this.paymentMethodComboBox.Items.AddRange(new object[] {
-            "CASH",
-            "GCASH",
-            "BANK TRANSFER"});
-            this.paymentMethodComboBox.Location = new System.Drawing.Point(878, 110);
-            this.paymentMethodComboBox.Name = "paymentMethodComboBox";
-            this.paymentMethodComboBox.Size = new System.Drawing.Size(100, 21);
-            this.paymentMethodComboBox.TabIndex = 72;
-            this.paymentMethodComboBox.TextChanged += new System.EventHandler(this.paymentMethodComboBox_TextChanged);
-            // 
-            // proofOfPaymentLabel
-            // 
-            this.proofOfPaymentLabel.AutoSize = true;
-            this.proofOfPaymentLabel.Location = new System.Drawing.Point(771, 141);
-            this.proofOfPaymentLabel.Name = "proofOfPaymentLabel";
-            this.proofOfPaymentLabel.Size = new System.Drawing.Size(93, 13);
-            this.proofOfPaymentLabel.TabIndex = 72;
-            this.proofOfPaymentLabel.Text = "Proof Of Payment:";
-            this.proofOfPaymentLabel.Visible = false;
-            // 
-            // proofOfPaymentTextBox
-            // 
-            this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ProofOfPayment", true));
-            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(878, 137);
-            this.proofOfPaymentTextBox.Name = "proofOfPaymentTextBox";
-            this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
-            this.proofOfPaymentTextBox.TabIndex = 73;
-            this.proofOfPaymentTextBox.Visible = false;
-            // 
-            // deleteProofOfPaymentButton
-            // 
-            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(982, 137);
-            this.deleteProofOfPaymentButton.Name = "deleteProofOfPaymentButton";
-            this.deleteProofOfPaymentButton.Size = new System.Drawing.Size(33, 23);
-            this.deleteProofOfPaymentButton.TabIndex = 74;
-            this.deleteProofOfPaymentButton.Text = "Del";
-            this.deleteProofOfPaymentButton.UseVisualStyleBackColor = true;
-            this.deleteProofOfPaymentButton.Visible = false;
-            this.deleteProofOfPaymentButton.Click += new System.EventHandler(this.deleteProofOfPaymentButton_Click);
-            // 
-            // uploadProofOfPaymentButton
-            // 
-            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
-            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
-            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadProofOfPaymentButton.TabIndex = 75;
-            this.uploadProofOfPaymentButton.Text = "Upload File";
-            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
-            this.uploadProofOfPaymentButton.Visible = false;
-            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
-            // 
-            // viewProofOfPaymentButton
-            // 
-            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
-            this.viewProofOfPaymentButton.Name = "viewProofOfPaymentButton";
-            this.viewProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
-            this.viewProofOfPaymentButton.TabIndex = 76;
-            this.viewProofOfPaymentButton.Text = "View File";
-            this.viewProofOfPaymentButton.UseVisualStyleBackColor = true;
-            this.viewProofOfPaymentButton.Visible = false;
-            this.viewProofOfPaymentButton.Click += new System.EventHandler(this.viewProofOfPaymentButton_Click);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RegisterID";
@@ -1458,6 +1423,31 @@
             this.dataGridViewTextBoxColumn21.HeaderText = "Section";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pendingStudentsTableAdapter
+            // 
+            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
+            this.tableAdapterManager.PricesTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            // 
             // PendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1556,7 +1546,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.Button generateStudNumButton;
-        private System.Windows.Forms.TextBox genStudNumTextBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox paymentMethodComboBox;

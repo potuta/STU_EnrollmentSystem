@@ -19,19 +19,16 @@ namespace STUEnrollmentSystem
 {
     public partial class PendingStudents : Form
     {
-        private SqlConnection STU_DB_Connection;
-        private SqlCommand STU_Command;
+        private PendingStudentsRepository _pendingStudentsRepository;
 
         public PendingStudents()
         {
             InitializeComponent();
-            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            _pendingStudentsRepository = new PendingStudentsRepository(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void pendingStudentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            studentNumberTextBox.Text = genStudNumTextBox.Text;
             birthDateTextBox.Text = birthDateTimePicker.Value.Date.ToShortDateString();
             this.Validate();
             this.pendingStudentsBindingSource.EndEdit();
@@ -73,7 +70,13 @@ namespace STUEnrollmentSystem
             }
             catch (FormatException fe)
             {
-                STU_DB_Connection.Close();
+                _pendingStudentsRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
+            catch (NullReferenceException nre)
+            {
+                _pendingStudentsRepository.CloseConnection();
                 hideRequirementButtons();
                 return;
             }
@@ -81,86 +84,38 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
 
-            STU_DB_Connection.Open();
-            bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            STU_DB_Connection.Close();
+            SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
+            SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
+            SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
+            SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
 
-            if (isFrm137Data == false)
+            if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
             {
-                viewFrm137Button.Visible = true;
-                deleteFrm137Button.Visible = true;
-                uploadFrm137Button.Visible = false;
+                SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
             }
             else
             {
-                uploadFrm137Button.Visible = true;
-                deleteFrm137Button.Visible = false;
-                viewFrm137Button.Visible = false;
+                viewProofOfPaymentButton.Visible = false;
+                deleteProofOfPaymentButton.Visible = false;
+                uploadProofOfPaymentButton.Visible = false;
             }
+        }
 
-            if (isGoodMoralData == false)
+        private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
+        {
+            if (hasRequirement)
             {
-                viewGoodMoralButton.Visible = true;
-                deleteGoodMoralButton.Visible = true;
-                uploadGoodMoralButton.Visible = false;
+                viewButton.Visible = true;
+                deleteButton.Visible = true;
+                uploadButton.Visible = false;
             }
             else
             {
-                uploadGoodMoralButton.Visible = true;
-                deleteGoodMoralButton.Visible = false;
-                viewGoodMoralButton.Visible = false;
-            }
-
-            if (isBirthCertData == false)
-            {
-                viewBirthCertButton.Visible = true;
-                deleteBirthCertButton.Visible = true;
-                uploadBirthCertButton.Visible = false;
-            }
-            else
-            {
-                uploadBirthCertButton.Visible = true;
-                deleteBirthCertButton.Visible = false;
-                viewBirthCertButton.Visible = false;
-            }
-
-            if (isTransferCertData == false)
-            {
-                viewTransferCertButton.Visible = true;
-                deleteTransferCertButton.Visible = true;
-                uploadTransferCertButton.Visible = false;
-            }
-            else
-            {
-                uploadTransferCertButton.Visible = true;
-                deleteTransferCertButton.Visible = false;
-                viewTransferCertButton.Visible = false;
-            }
-
-            if (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
-            {
-                if (isProofOfPaymentData == false)
-                {
-                    viewProofOfPaymentButton.Visible = true;
-                    deleteProofOfPaymentButton.Visible = true;
-                    uploadProofOfPaymentButton.Visible = false;
-                }
-                else
-                {
-                    uploadProofOfPaymentButton.Visible = true;
-                    deleteProofOfPaymentButton.Visible = false;
-                    viewProofOfPaymentButton.Visible = false;
-                }
+                viewButton.Visible = false;
+                deleteButton.Visible = false;
+                uploadButton.Visible = true;
             }
         }
 
@@ -185,126 +140,97 @@ namespace STUEnrollmentSystem
 
         private void viewFrm137Button_Click(object sender, EventArgs e)
         {
-            viewFile("StudForm137");
+            _pendingStudentsRepository.ViewFile("StudForm137", registerIDTextBox.Text);
         }
 
         private void uploadFrm137Button_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("StudForm137");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _pendingStudentsRepository.UploadFile("StudForm137", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteFrm137Button_Click(object sender, EventArgs e)
         {
-            deleteFile("StudForm137");
+            _pendingStudentsRepository.DeleteFile("StudForm137", registerIDTextBox.Text);
         }
 
         private void viewGoodMoralButton_Click(object sender, EventArgs e)
         {
-            viewFile("GoodMoral");
+            _pendingStudentsRepository.ViewFile("GoodMoral", registerIDTextBox.Text);
         }
 
         private void uploadGoodMoralButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("GoodMoral");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _pendingStudentsRepository.UploadFile("GoodMoral", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteGoodMoralButton_Click(object sender, EventArgs e)
         {
-            deleteFile("GoodMoral");
+            _pendingStudentsRepository.DeleteFile("GoodMoral", registerIDTextBox.Text);
         }
 
         private void viewBirthCertButton_Click(object sender, EventArgs e)
         {
-            viewFile("BirthCertificate");
+            _pendingStudentsRepository.ViewFile("BirthCertificate", registerIDTextBox.Text);
         }
 
         private void uploadBirthCertButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("BirthCertificate");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _pendingStudentsRepository.UploadFile("BirthCertificate", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteBirthCertButton_Click(object sender, EventArgs e)
         {
-            deleteFile("BirthCertificate");
+            _pendingStudentsRepository.DeleteFile("BirthCertificate", registerIDTextBox.Text);
         }
 
         private void viewTransferCertButton_Click(object sender, EventArgs e)
         {
-            viewFile("TransferCertificate");
+            _pendingStudentsRepository.ViewFile("TransferCertificate", registerIDTextBox.Text);
         }
 
         private void uploadTransferCertButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("TransferCertificate");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _pendingStudentsRepository.UploadFile("TransferCertificate", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteTransferCertButton_Click(object sender, EventArgs e)
         {
-            deleteFile("TransferCertificate");
+            _pendingStudentsRepository.DeleteFile("TransferCertificate", registerIDTextBox.Text);
         }
 
         private void viewProofOfPaymentButton_Click(object sender, EventArgs e)
         {
-            viewImageFile("ProofOfPayment");
+            _pendingStudentsRepository.ViewImageFile("ProofOfPayment", registerIDTextBox.Text);
         }
 
         private void uploadProofOfPaymentButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("ProofOfPayment");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _pendingStudentsRepository.UploadFile("ProofOfPayment", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteProofOfPaymentButton_Click(object sender, EventArgs e)
         {
-            deleteFile("ProofOfPayment");
-        }
-
-        private void viewImageFile(string Column)
-        {
-            string command = "SELECT " + Column + " FROM PendingStudents WHERE RegisterID = " + registerIDTextBox.Text;
-            ImageViewer imageViewer = new ImageViewer(Column, command);
-            imageViewer.Show();
-        }
-
-        private void viewFile(string Column)
-        {
-            string command = "SELECT " + Column + " FROM PendingStudents WHERE RegisterID = " + registerIDTextBox.Text;
-            PDFViewer pdfViewer = new PDFViewer(Column, command);
-            pdfViewer.Show();
-        }
-
-        private void uploadFile(string Column)
-        {
-            byte[] data = File.ReadAllBytes(openFileDialog1.FileName);
-            STU_Command = new SqlCommand("UPDATE PendingStudents SET " + Column + " = @Data WHERE RegisterID = @RegID", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegID", Convert.ToInt32(registerIDTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@Data", data);
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-        }
-
-        private void deleteFile(string Column)
-        {
-            STU_Command = new SqlCommand("UPDATE PendingStudents SET " + Column + " = NULL WHERE RegisterID = @RegID", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegID", Convert.ToInt32(registerIDTextBox.Text));
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
+            _pendingStudentsRepository.DeleteFile("ProofOfPayment", registerIDTextBox.Text);
         }
 
         private void bindingNavigatorEnrollStudentItem_Click(object sender, EventArgs e)
@@ -312,64 +238,63 @@ namespace STUEnrollmentSystem
             insertStudents();
             insertStudentPayment();
             checkIsNullRequirements();
-
-            SqlCommand deleteRowFromPendingStudents = new SqlCommand("DELETE FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            STU_DB_Connection.Open();
-            deleteRowFromPendingStudents.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-
+            _pendingStudentsRepository.DeletePendingStudents(registerIDTextBox.Text);
             bindingNavigatorRefreshItem_Click(sender, e);
         }
 
         private void insertStudents()
         {
-            STU_Command = new SqlCommand("INSERT INTO Students(RegisterID, StudentNumber, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
-                                                         "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @StudentNumber, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
-                                                         "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
-                                                                        STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegisterID", Convert.ToInt32(registerIDTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@StudentNumber", studentNumberTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@StudFirstName", studFirstNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@StudMidName", studMidNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@StudLastName", studLastNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@Gender", genderComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@BirthDate", birthDateTimePicker.Value.Date.ToShortDateString());
-            STU_Command.Parameters.AddWithValue("@CivilStatus", civilStatusComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@Address", addressTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@ContactNum", Convert.ToInt32(contactNumTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@EnrollmentStatus", enrollmentStatusComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@EnrollmentType", enrollmentTypeComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@PaymentType", paymentTypeComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@MotherFirstName", motherFirstNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@MotherLastName", motherLastNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@MotherOccupation", motherOccupationTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@FatherFirstName", fatherFirstNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@FatherLastName", fatherLastNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@FatherOccupation", fatherOccupationTextBox.Text);
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
+            var studentData = new Dictionary<string, object>
+            {
+                {"RegisterID", Convert.ToInt32(registerIDTextBox.Text)},
+                {"StudentNumber", studentNumberTextBox.Text},
+                {"StudFirstName", studFirstNameTextBox.Text},
+                {"StudMidName", studMidNameTextBox.Text},
+                {"StudLastName", studLastNameTextBox.Text},
+                {"Gender", genderComboBox.SelectedItem},
+                {"BirthDate", birthDateTimePicker.Value.Date.ToShortDateString()},
+                {"CivilStatus", civilStatusComboBox.SelectedItem},
+                {"Address", addressTextBox.Text},
+                {"ContactNum", Convert.ToInt32(contactNumTextBox.Text)},
+                {"EnrollmentStatus", enrollmentStatusComboBox.SelectedItem},
+                {"EnrollmentType", enrollmentTypeComboBox.SelectedItem},
+                {"PaymentType", paymentTypeComboBox.SelectedItem},
+                {"MotherFirstName", motherFirstNameTextBox.Text},
+                {"MotherLastName", motherLastNameTextBox.Text},
+                {"MotherOccupation", motherOccupationTextBox.Text},
+                {"FatherFirstName", fatherFirstNameTextBox.Text},
+                {"FatherLastName", fatherLastNameTextBox.Text},
+                {"FatherOccupation", fatherOccupationTextBox.Text}
+            };
+            _pendingStudentsRepository.InsertStudents(studentData);
         }
 
         private void insertStudentPayment()
         {
             string paymentCode = getPaymentCode(paymentTypeComboBox.SelectedItem.ToString(), enrollmentTypeComboBox.SelectedItem.ToString());
+            var studentPaymentData = new Dictionary<string, object>
+            {
+                {"PaymentCode", paymentCode},
+                {"PaymentMethod", paymentMethodComboBox.SelectedItem.ToString()},
+                {"StudentNumber", studentNumberTextBox.Text}
+            };
+
             if (paymentTypeComboBox.SelectedItem.Equals("Monthly"))
             {
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "August", "Paid");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "September", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "October", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "November", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "December", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "January", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "February", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "March", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "April", "Pending");
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "May", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "September", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "October", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "November", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "December", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "January", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "February", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "March", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "April", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "May", "Pending");
             }
             else if (paymentTypeComboBox.SelectedItem.Equals("Full"))
             {
-                addPaymentType(paymentCode, paymentMethodComboBox.SelectedItem.ToString(), studentNumberTextBox.Text, "August", "Paid");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid");
             }
         }
 
@@ -387,105 +312,61 @@ namespace STUEnrollmentSystem
             return paymentCode;
         }
 
-        private void addPaymentType(string paymentCode, string paymentMethod, string studentNumber, string month, string status)
-        {
-            if (STU_DB_Connection.State == ConnectionState.Open)
-            {
-                STU_DB_Connection.Close();
-            }
-
-            STU_Command = new SqlCommand("INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
-                                             "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus)", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@PaymentCode", paymentCode);
-            STU_Command.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
-            STU_Command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-            STU_Command.Parameters.AddWithValue("@MonthOfPayment", month);
-            STU_Command.Parameters.AddWithValue("@PaymentStatus", status);
-
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-        }
-
-        private void updateRequirements(string Table, string Column, SqlCommand Command)
-        {
-            STU_Command = new SqlCommand("UPDATE " + Table + " SET " + Column + " = @Param WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@Param", Command.ExecuteScalar());
-            STU_Command.ExecuteNonQuery();
-        }
-
         private void checkIsNullRequirements()
         {
-            STU_DB_Connection.Open();
-            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM PendingStudents WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            if (!frm137Data.ExecuteScalar().Equals(DBNull.Value))
+            var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
+
+            if (requirements["StudForm137"] == true)
             {
-                updateRequirements("Students", "StudForm137", frm137Data);
+                _pendingStudentsRepository.UpdateRequirements("Students", "StudForm137", registerIDTextBox.Text);
             }
 
-            if (lRNTextBox.Text.Length > 0)
+            if (requirements["LRN"] == true)
             {
-                STU_Command = new SqlCommand("UPDATE Students SET LRN = @LRN WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-                STU_Command.Parameters.AddWithValue("@LRN", Convert.ToInt32(lRNTextBox.Text));
-                STU_Command.ExecuteNonQuery();
+                _pendingStudentsRepository.UpdateRequirements("Students", "LRN", registerIDTextBox.Text);
             }
 
-            if (!birthCertData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["BirthCertificate"] == true)
             {
-                updateRequirements("Students", "BirthCertificate", birthCertData);
+                _pendingStudentsRepository.UpdateRequirements("Students", "BirthCertificate", registerIDTextBox.Text);
             }
 
-            if (!goodMoralData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["GoodMoral"] == true)
             {
-                updateRequirements("Students", "GoodMoral", goodMoralData);
+                _pendingStudentsRepository.UpdateRequirements("Students", "GoodMoral", registerIDTextBox.Text);
             }
 
-            if (!transferCertData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["TransferCertificate"] == true)
             {
-                updateRequirements("Students", "TransferCertificate", transferCertData);
+                _pendingStudentsRepository.UpdateRequirements("Students", "TransferCertificate", registerIDTextBox.Text);
             }
 
-            if (!proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["ProofOfPayment"] == true)
             {
-                STU_Command = new SqlCommand("UPDATE StudentPayment SET ProofOfPayment = @Param WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = 'August'", STU_DB_Connection);
-                STU_Command.Parameters.AddWithValue("@Param", proofOfPaymentData.ExecuteScalar());
-                STU_Command.ExecuteNonQuery();
+                _pendingStudentsRepository.UpdateProofOfPayment("StudentPayment", "ProofOfPayment", registerIDTextBox.Text, studentNumberTextBox.Text);
             }
-
-            STU_DB_Connection.Close();
         }
 
         private void generateStudNumButton_Click(object sender, EventArgs e)
         {
-            SqlCommand studNumData = new SqlCommand("SELECT COUNT(*) FROM Students", STU_DB_Connection);
-            STU_DB_Connection.Open();
-            int generateStudNum = studNumData.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(studNumData.ExecuteScalar()) + 1;
-            STU_DB_Connection.Close();
-            string studNum = string.Empty;
+            int studentNumber = _pendingStudentsRepository.GenerateStudentNumber();
 
-            if (generateStudNum < 10)
+            if (studentNumber < 10)
             {
-                studNum = "S000" + generateStudNum.ToString();
+                studentNumberTextBox.Text = "S000" + studentNumber.ToString();
             }
-            else if (generateStudNum >= 10 && generateStudNum < 100)
+            else if (studentNumber >= 10 && studentNumber < 100)
             {
-                studNum = "S00" + generateStudNum.ToString();
+                studentNumberTextBox.Text = "S00" + studentNumber.ToString();
             }
-            else if (generateStudNum >= 100 && generateStudNum < 1000)
+            else if (studentNumber >= 100 && studentNumber < 1000)
             {
-                studNum = "S0" + generateStudNum.ToString();
+                studentNumberTextBox.Text = "S0" + studentNumber.ToString();
             }
-            else if (generateStudNum >= 1000)
+            else if (studentNumber >= 1000)
             {
-                studNum = "S" + generateStudNum.ToString();
+                studentNumberTextBox.Text = "S" + studentNumber.ToString();
             }
-
-            genStudNumTextBox.Text = studNum;
-            studentNumberTextBox.Text = genStudNumTextBox.Text;
         }
 
         private void paymentMethodComboBox_TextChanged(object sender, EventArgs e)

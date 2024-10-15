@@ -15,14 +15,12 @@ namespace STUEnrollmentSystem
 {
     public partial class Registration : Form
     {
-        private SqlConnection STU_DB_Connection;
-        private SqlCommand STU_Command;
+        private RegistrationRepository _registrationRepository;
 
         public Registration()
         {
             InitializeComponent();
-            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            _registrationRepository = new RegistrationRepository(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void registrationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -68,7 +66,13 @@ namespace STUEnrollmentSystem
             }
             catch (FormatException fe)
             {
-                STU_DB_Connection.Close();
+                _registrationRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
+            catch (NullReferenceException nre)
+            {
+                _registrationRepository.CloseConnection();
                 hideRequirementButtons();
                 return;
             }
@@ -76,68 +80,27 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            var requirements = _registrationRepository.CheckRegistrationRequirements(registerIDTextBox.Text);
 
-            STU_DB_Connection.Open();
-            bool isFrm137Data = frm137Data.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isGoodMoralData = goodMoralData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isBirthCertData = birthCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            bool isTransferCertData = transferCertData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            STU_DB_Connection.Close();
+            SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
+            SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
+            SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
+            SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+        }
 
-            if (isFrm137Data == false)
+        private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
+        {
+            if (hasRequirement)
             {
-                viewFrm137Button.Visible = true;
-                deleteFrm137Button.Visible = true;
-                uploadFrm137Button.Visible = false;
+                viewButton.Visible = true;
+                deleteButton.Visible = true;
+                uploadButton.Visible = false;
             }
             else
             {
-                uploadFrm137Button.Visible = true;
-                deleteFrm137Button.Visible = false;
-                viewFrm137Button.Visible = false;
-            }
-
-            if (isGoodMoralData == false)
-            {
-                viewGoodMoralButton.Visible = true;
-                deleteGoodMoralButton.Visible = true;
-                uploadGoodMoralButton.Visible = false;
-            }
-            else
-            {
-                uploadGoodMoralButton.Visible = true;
-                deleteGoodMoralButton.Visible = false;
-                viewGoodMoralButton.Visible = false;
-            }
-
-            if (isBirthCertData == false)
-            {
-                viewBirthCertButton.Visible = true;
-                deleteBirthCertButton.Visible = true;
-                uploadBirthCertButton.Visible = false;
-            }
-            else
-            {
-                uploadBirthCertButton.Visible = true;
-                deleteBirthCertButton.Visible = false;
-                viewBirthCertButton.Visible = false;
-            }
-
-            if (isTransferCertData == false)
-            {
-                viewTransferCertButton.Visible = true;
-                deleteTransferCertButton.Visible = true;
-                uploadTransferCertButton.Visible = false;
-            }
-            else
-            {
-                uploadTransferCertButton.Visible = true;
-                deleteTransferCertButton.Visible = false;
-                viewTransferCertButton.Visible = false;
+                viewButton.Visible = false;
+                deleteButton.Visible = false;
+                uploadButton.Visible = true;
             }
         }
 
@@ -159,187 +122,142 @@ namespace STUEnrollmentSystem
 
         private void viewFrm137Button_Click(object sender, EventArgs e)
         {
-            viewFile("StudForm137");
+            _registrationRepository.ViewFile("StudForm137", registerIDTextBox.Text);
         }
 
         private void uploadFrm137Button_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("StudForm137");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _registrationRepository.UploadFile("StudForm137", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteFrm137Button_Click(object sender, EventArgs e)
         {
-            deleteFile("StudForm137");
+            _registrationRepository.DeleteFile("StudForm137", registerIDTextBox.Text);
         }
 
         private void viewGoodMoralButton_Click(object sender, EventArgs e)
         {
-            viewFile("GoodMoral");
+            _registrationRepository.ViewFile("GoodMoral", registerIDTextBox.Text);
         }
 
         private void uploadGoodMoralButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("GoodMoral");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _registrationRepository.UploadFile("GoodMoral", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteGoodMoralButton_Click(object sender, EventArgs e)
         {
-            deleteFile("GoodMoral");
+            _registrationRepository.DeleteFile("GoodMoral", registerIDTextBox.Text);
         }
 
         private void viewBirthCertButton_Click(object sender, EventArgs e)
         {
-            viewFile("BirthCertificate");
+            _registrationRepository.ViewFile("BirthCertificate", registerIDTextBox.Text);
         }
 
         private void uploadBirthCertButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("BirthCertificate");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _registrationRepository.UploadFile("BirthCertificate", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteBirthCertButton_Click(object sender, EventArgs e)
         {
-            deleteFile("BirthCertificate");
+            _registrationRepository.DeleteFile("BirthCertificate", registerIDTextBox.Text);
         }
 
         private void viewTransferCertButton_Click(object sender, EventArgs e)
         {
-            viewFile("TransferCertificate");
+            _registrationRepository.ViewFile("TransferCertificate", registerIDTextBox.Text);
         }
 
         private void uploadTransferCertButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                uploadFile("TransferCertificate");
+                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                _registrationRepository.UploadFile("TransferCertificate", registerIDTextBox.Text, fileData);
             }
         }
 
         private void deleteTransferCertButton_Click(object sender, EventArgs e)
         {
-            deleteFile("TransferCertificate");
-        }
-
-        private void viewFile(string Column)
-        {
-            string command = "SELECT " + Column + " FROM Registration WHERE RegisterID = " + registerIDTextBox.Text;
-            PDFViewer pdfViewer = new PDFViewer(Column, command);
-            pdfViewer.Show();
-        }
-
-        private void uploadFile(string Column)
-        {
-            byte[] data = File.ReadAllBytes(openFileDialog1.FileName);
-            STU_Command = new SqlCommand("UPDATE Registration SET " + Column + " = @Data WHERE RegisterID = @RegID", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegID", Convert.ToInt32(registerIDTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@Data", data);
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-        }
-
-        private void deleteFile(string Column)
-        {
-            STU_Command = new SqlCommand("UPDATE Registration SET " + Column + " = NULL WHERE RegisterID = @RegID", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegID", Convert.ToInt32(registerIDTextBox.Text));
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
+            _registrationRepository.DeleteFile("TransferCertificate", registerIDTextBox.Text);
         }
 
         private void registrationBindingNavigatorMoveToCashierItem_Click(object sender, EventArgs e)
         {
             insertPendingStudents();
             checkIsNullRequirements();
-
-            SqlCommand deleteRowFromRegistration = new SqlCommand("DELETE FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            STU_DB_Connection.Open();
-            deleteRowFromRegistration.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-
+            _registrationRepository.DeleteRegistration(registerIDTextBox.Text);
             registrationBindingNavigatorRefreshItem_Click(sender, e);
         }
 
         private void insertPendingStudents()
         {
-            STU_Command = new SqlCommand("INSERT INTO PendingStudents(RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, PaymentType, " +
-                                                            "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) VALUES (@RegisterID, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @PaymentType, " +
-                                                            "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)",
-                                                                        STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@RegisterID", Convert.ToInt32(registerIDTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@StudFirstName", studFirstNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@StudMidName", studMidNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@StudLastName", studLastNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@Gender", genderComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@BirthDate", birthDateTimePicker.Value.Date.ToShortDateString());
-            STU_Command.Parameters.AddWithValue("@CivilStatus", civilStatusComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@Address", addressTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@ContactNum", Convert.ToInt32(contactNumTextBox.Text));
-            STU_Command.Parameters.AddWithValue("@EnrollmentStatus", enrollmentStatusComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@EnrollmentType", enrollmentTypeComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@PaymentType", paymentTypeComboBox.SelectedItem);
-            STU_Command.Parameters.AddWithValue("@MotherFirstName", motherFirstNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@MotherLastName", motherLastNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@MotherOccupation", motherOccupationTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@FatherFirstName", fatherFirstNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@FatherLastName", fatherLastNameTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@FatherOccupation", fatherOccupationTextBox.Text);
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-        }
-
-        private void updateRequirements(string Table, string Column, SqlCommand Command)
-        {
-            STU_Command = new SqlCommand("UPDATE " + Table + " SET " + Column + " = @Param WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@Param", Command.ExecuteScalar());
-            STU_Command.ExecuteNonQuery();
+            var studentData = new Dictionary<string, object>
+            {
+                {"RegisterID", Convert.ToInt32(registerIDTextBox.Text)},
+                {"EnrollmentStatus", enrollmentStatusComboBox.SelectedItem},
+                {"StudFirstName", studFirstNameTextBox.Text},
+                {"StudMidName", studMidNameTextBox.Text},
+                {"StudLastName", studLastNameTextBox.Text},
+                {"Gender", genderComboBox.SelectedItem},
+                {"BirthDate", birthDateTimePicker.Value.Date.ToShortDateString()},
+                {"CivilStatus", civilStatusComboBox.SelectedItem},
+                {"Address", addressTextBox.Text},
+                {"ContactNum", Convert.ToInt32(contactNumTextBox.Text)},
+                {"EnrollmentType", enrollmentTypeComboBox.SelectedItem},
+                {"PaymentType", paymentTypeComboBox.SelectedItem},
+                {"MotherFirstName", motherFirstNameTextBox.Text},
+                {"MotherLastName", motherLastNameTextBox.Text},
+                {"MotherOccupation", motherOccupationTextBox.Text},
+                {"FatherFirstName", fatherFirstNameTextBox.Text},
+                {"FatherLastName", fatherLastNameTextBox.Text},
+                {"FatherOccupation", fatherOccupationTextBox.Text}
+            };
+            _registrationRepository.InsertPendingStudent(studentData);
         }
 
         private void checkIsNullRequirements()
         {
-            STU_DB_Connection.Open();
-            SqlCommand frm137Data = new SqlCommand("SELECT StudForm137 FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand goodMoralData = new SqlCommand("SELECT GoodMoral FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand birthCertData = new SqlCommand("SELECT BirthCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-            SqlCommand transferCertData = new SqlCommand("SELECT TransferCertificate FROM Registration WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
+            var requirements = _registrationRepository.CheckRegistrationRequirements(registerIDTextBox.Text);
 
-            if (!frm137Data.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["StudForm137"] == true)
             {
-                updateRequirements("PendingStudents", "StudForm137", frm137Data);
+                _registrationRepository.UpdateRequirements("PendingStudents", "StudForm137", registerIDTextBox.Text);
             }
 
-            if (lRNTextBox.Text.Length > 0)
+            if (requirements["LRN"] == true)
             {
-                STU_Command = new SqlCommand("UPDATE PendingStudents SET LRN = @LRN WHERE RegisterID = " + Convert.ToInt32(registerIDTextBox.Text), STU_DB_Connection);
-                STU_Command.Parameters.AddWithValue("@LRN", Convert.ToInt32(lRNTextBox.Text));
-                STU_Command.ExecuteNonQuery();
+                _registrationRepository.UpdateRequirements("PendingStudents", "LRN", registerIDTextBox.Text);
             }
 
-            if (!birthCertData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["BirthCertificate"] == true)
             {
-                updateRequirements("PendingStudents", "BirthCertificate", birthCertData);
+                _registrationRepository.UpdateRequirements("PendingStudents", "BirthCertificate", registerIDTextBox.Text);
             }
 
-            if (!goodMoralData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["GoodMoral"] == true)
             {
-                updateRequirements("PendingStudents", "GoodMoral", goodMoralData);
+                _registrationRepository.UpdateRequirements("PendingStudents", "GoodMoral", registerIDTextBox.Text);
             }
 
-            if (!transferCertData.ExecuteScalar().Equals(DBNull.Value))
+            if (requirements["TransferCertificate"] == true)
             {
-                updateRequirements("PendingStudents", "TransferCertificate", transferCertData);
+                _registrationRepository.UpdateRequirements("PendingStudents", "TransferCertificate", registerIDTextBox.Text);
             }
-            STU_DB_Connection.Close();
         }
     }
 }
