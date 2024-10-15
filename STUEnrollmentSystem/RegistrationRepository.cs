@@ -38,16 +38,16 @@ namespace STUEnrollmentSystem
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
             string[] columns = { "StudForm137", "LRN", "GoodMoral", "BirthCertificate", "TransferCertificate" };
 
+            _connection.Open();
             foreach (var column in columns)
             {
                 string query = $"SELECT {column} FROM Registration WHERE RegisterID = @RegisterID";
                 SqlCommand command = new SqlCommand(query, _connection);
                 command.Parameters.AddWithValue("@RegisterID", registerID);
-                _connection.Open();
                 bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                _connection.Close();
                 requirements[column] = !hasRequirement;
             }
+            _connection.Close();
 
             return requirements;
         }
@@ -82,7 +82,7 @@ namespace STUEnrollmentSystem
 
         public void ViewFile(string column, string registerID)
         {
-            string query = $"SELECT " + column + " FROM Registration WHERE RegisterID = " + registerID;
+            string query = $"SELECT {column} FROM Registration WHERE RegisterID = {registerID}";
             PDFViewer pdfViewer = new PDFViewer(column, query);
             pdfViewer.Show();
         }

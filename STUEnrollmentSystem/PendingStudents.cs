@@ -138,99 +138,43 @@ namespace STUEnrollmentSystem
             uploadProofOfPaymentButton.Visible = false;
         }
 
-        private void viewFrm137Button_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.ViewFile("StudForm137", registerIDTextBox.Text);
-        }
-
-        private void uploadFrm137Button_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _pendingStudentsRepository.UploadFile("StudForm137", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteFrm137Button_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.DeleteFile("StudForm137", registerIDTextBox.Text);
-        }
-
-        private void viewGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.ViewFile("GoodMoral", registerIDTextBox.Text);
-        }
-
-        private void uploadGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _pendingStudentsRepository.UploadFile("GoodMoral", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.DeleteFile("GoodMoral", registerIDTextBox.Text);
-        }
-
-        private void viewBirthCertButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.ViewFile("BirthCertificate", registerIDTextBox.Text);
-        }
-
-        private void uploadBirthCertButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _pendingStudentsRepository.UploadFile("BirthCertificate", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteBirthCertButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.DeleteFile("BirthCertificate", registerIDTextBox.Text);
-        }
-
-        private void viewTransferCertButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.ViewFile("TransferCertificate", registerIDTextBox.Text);
-        }
-
-        private void uploadTransferCertButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _pendingStudentsRepository.UploadFile("TransferCertificate", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteTransferCertButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.DeleteFile("TransferCertificate", registerIDTextBox.Text);
-        }
-
+        private void viewFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "view");
+        private void uploadFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "upload");
+        private void deleteFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "delete");
+        private void viewGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "view");
+        private void uploadGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "upload");
+        private void deleteGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "delete");
+        private void viewBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "view");
+        private void uploadBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "upload");
+        private void deleteBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "delete");
+        private void viewTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "view");
+        private void uploadTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "upload");
+        private void deleteTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "delete");
         private void viewProofOfPaymentButton_Click(object sender, EventArgs e)
         {
             _pendingStudentsRepository.ViewImageFile("ProofOfPayment", registerIDTextBox.Text);
         }
+        private void uploadProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "upload");
+        private void deleteProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "delete");
 
-        private void uploadProofOfPaymentButton_Click(object sender, EventArgs e)
+        private void HandleFileOperation(string fileType, string operation)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            switch (operation)
             {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _pendingStudentsRepository.UploadFile("ProofOfPayment", registerIDTextBox.Text, fileData);
+                case "view":
+                    _pendingStudentsRepository.ViewFile(fileType, registerIDTextBox.Text);
+                    break;
+                case "upload":
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                        _pendingStudentsRepository.UploadFile(fileType, registerIDTextBox.Text, fileData);
+                    }
+                    break;
+                case "delete":
+                    _pendingStudentsRepository.DeleteFile(fileType, registerIDTextBox.Text);
+                    break;
             }
-        }
-
-        private void deleteProofOfPaymentButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.DeleteFile("ProofOfPayment", registerIDTextBox.Text);
         }
 
         private void bindingNavigatorEnrollStudentItem_Click(object sender, EventArgs e)

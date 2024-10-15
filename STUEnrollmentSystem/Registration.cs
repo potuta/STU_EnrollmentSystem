@@ -120,80 +120,37 @@ namespace STUEnrollmentSystem
             uploadTransferCertButton.Visible = false;
         }
 
-        private void viewFrm137Button_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.ViewFile("StudForm137", registerIDTextBox.Text);
-        }
+        private void viewFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "view");
+        private void uploadFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "upload");
+        private void deleteFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "delete");
+        private void viewGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "view");
+        private void uploadGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "upload");
+        private void deleteGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "delete");
+        private void viewBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "view");
+        private void uploadBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "upload");
+        private void deleteBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "delete");
+        private void viewTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "view");
+        private void uploadTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "upload");
+        private void deleteTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "delete");
 
-        private void uploadFrm137Button_Click(object sender, EventArgs e)
+        private void HandleFileOperation(string fileType, string operation)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            switch (operation)
             {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _registrationRepository.UploadFile("StudForm137", registerIDTextBox.Text, fileData);
+                case "view":
+                    _registrationRepository.ViewFile(fileType, registerIDTextBox.Text);
+                    break;
+                case "upload":
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                        _registrationRepository.UploadFile(fileType, registerIDTextBox.Text, fileData);
+                    }
+                    break;
+                case "delete":
+                    _registrationRepository.DeleteFile(fileType, registerIDTextBox.Text);
+                    break;
             }
-        }
-
-        private void deleteFrm137Button_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.DeleteFile("StudForm137", registerIDTextBox.Text);
-        }
-
-        private void viewGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.ViewFile("GoodMoral", registerIDTextBox.Text);
-        }
-
-        private void uploadGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _registrationRepository.UploadFile("GoodMoral", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.DeleteFile("GoodMoral", registerIDTextBox.Text);
-        }
-
-        private void viewBirthCertButton_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.ViewFile("BirthCertificate", registerIDTextBox.Text);
-        }
-
-        private void uploadBirthCertButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _registrationRepository.UploadFile("BirthCertificate", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteBirthCertButton_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.DeleteFile("BirthCertificate", registerIDTextBox.Text);
-        }
-
-        private void viewTransferCertButton_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.ViewFile("TransferCertificate", registerIDTextBox.Text);
-        }
-
-        private void uploadTransferCertButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _registrationRepository.UploadFile("TransferCertificate", registerIDTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteTransferCertButton_Click(object sender, EventArgs e)
-        {
-            _registrationRepository.DeleteFile("TransferCertificate", registerIDTextBox.Text);
         }
 
         private void registrationBindingNavigatorMoveToCashierItem_Click(object sender, EventArgs e)

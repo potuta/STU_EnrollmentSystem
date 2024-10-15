@@ -122,6 +122,7 @@
     <Compile Include="StudentPayment.Designer.cs">
       <DependentUpon>StudentPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentPaymentRepository.cs" />
     <Compile Include="StudentRepository.cs" />
     <Compile Include="STU_Dashboard.cs">
       <SubType>Form</SubType>

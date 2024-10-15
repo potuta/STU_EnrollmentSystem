@@ -41,16 +41,16 @@ namespace STUEnrollmentSystem
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
             string[] columns = { "StudForm137", "LRN", "GoodMoral", "BirthCertificate", "TransferCertificate", "ProofOfPayment"};
 
+            _connection.Open();
             foreach (var column in columns)
             {
                 string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = @RegisterID";
                 SqlCommand command = new SqlCommand(query, _connection);
                 command.Parameters.AddWithValue("@RegisterID", registerID);
-                _connection.Open();
                 bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                _connection.Close();
                 requirements[column] = !hasRequirement;
             }
+            _connection.Close();
 
             return requirements;
         }
@@ -104,14 +104,14 @@ namespace STUEnrollmentSystem
 
         public void ViewFile(string column, string registerID)
         {
-            string query = $"SELECT " + column + " FROM PendingStudents WHERE RegisterID = " + registerID;
+            string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
             PDFViewer pdfViewer = new PDFViewer(column, query);
             pdfViewer.Show();
         }
 
         public void ViewImageFile(string column, string registerID)
         {
-            string query = $"SELECT " + column + " FROM PendingStudents WHERE RegisterID = " + registerID;
+            string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
             ImageViewer imageViewer = new ImageViewer(column, query);
             imageViewer.Show();
         }
@@ -163,7 +163,7 @@ namespace STUEnrollmentSystem
 
         public int GenerateStudentNumber()
         {
-            string query = "SELECT COUNT(*) FROM Students";
+            string query = "SELECT MAX(RegisterID) FROM Students";
             SqlCommand command = new SqlCommand(query, _connection);
             _connection.Open();
             int studentCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
