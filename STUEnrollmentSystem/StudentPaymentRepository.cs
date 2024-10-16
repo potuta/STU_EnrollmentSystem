@@ -90,38 +90,21 @@ namespace STUEnrollmentSystem
             _connection.Close();
         }
 
-        public List<string> GetStudentNumberFromStudentPayment()
+        public List<string> GetStudentPaymentData(string column)
         {
-            List<string> studentNumList = new List<string>();
-            string query = "SELECT StudentNumber FROM StudentPayment WHERE MonthOfPayment = 'August'";
+            List<string> studentDataList = new List<string>();
+            string query = $"SELECT {column} FROM StudentPayment WHERE MonthOfPayment = 'August'";
             SqlCommand command = new SqlCommand(query, _connection);
             _connection.Open();
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    studentNumList.Add(reader["StudentNumber"].ToString());
+                    studentDataList.Add(reader[column].ToString());
                 }
             }
             _connection.Close();
-            return studentNumList;
-        }
-
-        public List<string> GetPaymentCodeFromStudentPayment()
-        {
-            List<string> paymentCodeList = new List<string>();
-            string query = "SELECT PaymentCode FROM StudentPayment WHERE MonthOfPayment = 'August'";
-            SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    paymentCodeList.Add(reader["PaymentCode"].ToString());
-                }
-            }
-            _connection.Close();
-            return paymentCodeList;
+            return studentDataList;
         }
     }
 }

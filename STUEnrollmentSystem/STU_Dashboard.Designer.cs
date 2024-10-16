@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.userInfoPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.userLabel = new System.Windows.Forms.Label();
             this.adminSubPanel = new System.Windows.Forms.Panel();
+            this.usersButton = new System.Windows.Forms.Button();
             this.subjectButton = new System.Windows.Forms.Button();
             this.courseButton = new System.Windows.Forms.Button();
             this.scheduleButton = new System.Windows.Forms.Button();
@@ -37,7 +43,7 @@
             this.teacherButton = new System.Windows.Forms.Button();
             this.adminButton = new System.Windows.Forms.Button();
             this.cashierSubPanel = new System.Windows.Forms.Panel();
-            this.chargesButton = new System.Windows.Forms.Button();
+            this.pricesButton = new System.Windows.Forms.Button();
             this.installmentsButton = new System.Windows.Forms.Button();
             this.pendingButton = new System.Windows.Forms.Button();
             this.managePaymentButton = new System.Windows.Forms.Button();
@@ -48,21 +54,15 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.studentButton = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.panel_main = new System.Windows.Forms.Panel();
-            this.usersButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.userInfoPanel = new System.Windows.Forms.Panel();
-            this.userLabel = new System.Windows.Forms.Label();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.roleLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel_main = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
+            this.userInfoPanel.SuspendLayout();
             this.adminSubPanel.SuspendLayout();
             this.cashierSubPanel.SuspendLayout();
             this.studentSubPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
-            this.userInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -83,6 +83,63 @@
             this.sidePanel.Size = new System.Drawing.Size(280, 681);
             this.sidePanel.TabIndex = 0;
             // 
+            // userInfoPanel
+            // 
+            this.userInfoPanel.Controls.Add(this.label3);
+            this.userInfoPanel.Controls.Add(this.roleLabel);
+            this.userInfoPanel.Controls.Add(this.logoutButton);
+            this.userInfoPanel.Controls.Add(this.userLabel);
+            this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userInfoPanel.Location = new System.Drawing.Point(0, 1076);
+            this.userInfoPanel.Name = "userInfoPanel";
+            this.userInfoPanel.Size = new System.Drawing.Size(263, 128);
+            this.userInfoPanel.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Subway", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 21);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Profile:";
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleLabel.Location = new System.Drawing.Point(13, 90);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(113, 17);
+            this.roleLabel.TabIndex = 8;
+            this.roleLabel.Text = "Role: ----------";
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.logoutButton.FlatAppearance.BorderSize = 2;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.Location = new System.Drawing.Point(177, 82);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(71, 25);
+            this.logoutButton.TabIndex = 7;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.Location = new System.Drawing.Point(13, 59);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(113, 17);
+            this.userLabel.TabIndex = 1;
+            this.userLabel.Text = "User: ----------";
+            // 
             // adminSubPanel
             // 
             this.adminSubPanel.Controls.Add(this.usersButton);
@@ -96,6 +153,24 @@
             this.adminSubPanel.Name = "adminSubPanel";
             this.adminSubPanel.Size = new System.Drawing.Size(263, 331);
             this.adminSubPanel.TabIndex = 2;
+            // 
+            // usersButton
+            // 
+            this.usersButton.BackColor = System.Drawing.Color.Silver;
+            this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usersButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.usersButton.FlatAppearance.BorderSize = 2;
+            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersButton.Location = new System.Drawing.Point(0, 275);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.usersButton.Size = new System.Drawing.Size(263, 56);
+            this.usersButton.TabIndex = 6;
+            this.usersButton.Text = "↪ Users";
+            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // subjectButton
             // 
@@ -182,6 +257,7 @@
             this.teacherButton.Text = "↪ Teacher";
             this.teacherButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.teacherButton.UseVisualStyleBackColor = false;
+            this.teacherButton.Click += new System.EventHandler(this.teacherButton_Click);
             // 
             // adminButton
             // 
@@ -202,7 +278,7 @@
             // 
             // cashierSubPanel
             // 
-            this.cashierSubPanel.Controls.Add(this.chargesButton);
+            this.cashierSubPanel.Controls.Add(this.pricesButton);
             this.cashierSubPanel.Controls.Add(this.installmentsButton);
             this.cashierSubPanel.Controls.Add(this.pendingButton);
             this.cashierSubPanel.Controls.Add(this.managePaymentButton);
@@ -212,22 +288,22 @@
             this.cashierSubPanel.Size = new System.Drawing.Size(263, 220);
             this.cashierSubPanel.TabIndex = 1;
             // 
-            // chargesButton
+            // pricesButton
             // 
-            this.chargesButton.BackColor = System.Drawing.Color.Silver;
-            this.chargesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.chargesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.chargesButton.FlatAppearance.BorderSize = 2;
-            this.chargesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chargesButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chargesButton.Location = new System.Drawing.Point(0, 165);
-            this.chargesButton.Name = "chargesButton";
-            this.chargesButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.chargesButton.Size = new System.Drawing.Size(263, 55);
-            this.chargesButton.TabIndex = 4;
-            this.chargesButton.Text = "↪ Charges";
-            this.chargesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.chargesButton.UseVisualStyleBackColor = false;
+            this.pricesButton.BackColor = System.Drawing.Color.Silver;
+            this.pricesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pricesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.pricesButton.FlatAppearance.BorderSize = 2;
+            this.pricesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pricesButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pricesButton.Location = new System.Drawing.Point(0, 165);
+            this.pricesButton.Name = "pricesButton";
+            this.pricesButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.pricesButton.Size = new System.Drawing.Size(263, 55);
+            this.pricesButton.TabIndex = 4;
+            this.pricesButton.Text = "↪ Prices";
+            this.pricesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pricesButton.UseVisualStyleBackColor = false;
             // 
             // installmentsButton
             // 
@@ -391,31 +467,15 @@
             this.logoPanel.Size = new System.Drawing.Size(263, 194);
             this.logoPanel.TabIndex = 0;
             // 
-            // panel_main
+            // label2
             // 
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(280, 0);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1084, 681);
-            this.panel_main.TabIndex = 1;
-            // 
-            // usersButton
-            // 
-            this.usersButton.BackColor = System.Drawing.Color.Silver;
-            this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.usersButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.usersButton.FlatAppearance.BorderSize = 2;
-            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.Location = new System.Drawing.Point(0, 275);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.usersButton.Size = new System.Drawing.Size(263, 56);
-            this.usersButton.TabIndex = 6;
-            this.usersButton.Text = "↪ Users";
-            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Subway", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(21, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 21);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "- Enrollment System -";
             // 
             // label1
             // 
@@ -427,72 +487,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "STU";
             // 
-            // label2
+            // panel_main
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Subway", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "- Enrollment System -";
-            // 
-            // userInfoPanel
-            // 
-            this.userInfoPanel.Controls.Add(this.label3);
-            this.userInfoPanel.Controls.Add(this.roleLabel);
-            this.userInfoPanel.Controls.Add(this.logoutButton);
-            this.userInfoPanel.Controls.Add(this.userLabel);
-            this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userInfoPanel.Location = new System.Drawing.Point(0, 1076);
-            this.userInfoPanel.Name = "userInfoPanel";
-            this.userInfoPanel.Size = new System.Drawing.Size(263, 128);
-            this.userInfoPanel.TabIndex = 1;
-            // 
-            // userLabel
-            // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLabel.Location = new System.Drawing.Point(13, 59);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(113, 17);
-            this.userLabel.TabIndex = 1;
-            this.userLabel.Text = "User: ----------";
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.logoutButton.FlatAppearance.BorderSize = 2;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(177, 82);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(71, 25);
-            this.logoutButton.TabIndex = 7;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = false;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
-            // roleLabel
-            // 
-            this.roleLabel.AutoSize = true;
-            this.roleLabel.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleLabel.Location = new System.Drawing.Point(13, 90);
-            this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(113, 17);
-            this.roleLabel.TabIndex = 8;
-            this.roleLabel.Text = "Role: ----------";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Subway", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 21);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Profile:";
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(280, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(1084, 681);
+            this.panel_main.TabIndex = 1;
             // 
             // STU_Dashboard
             // 
@@ -506,13 +507,13 @@
             this.Text = "STU";
             this.Load += new System.EventHandler(this.STU_Dashboard_Load);
             this.sidePanel.ResumeLayout(false);
+            this.userInfoPanel.ResumeLayout(false);
+            this.userInfoPanel.PerformLayout();
             this.adminSubPanel.ResumeLayout(false);
             this.cashierSubPanel.ResumeLayout(false);
             this.studentSubPanel.ResumeLayout(false);
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
-            this.userInfoPanel.ResumeLayout(false);
-            this.userInfoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -537,7 +538,7 @@
         private System.Windows.Forms.Button subjectButton;
         private System.Windows.Forms.Button courseButton;
         private System.Windows.Forms.Button scheduleButton;
-        private System.Windows.Forms.Button chargesButton;
+        private System.Windows.Forms.Button pricesButton;
         private System.Windows.Forms.Button installmentsButton;
         private System.Windows.Forms.Button pendingRequirementsButton;
         private System.Windows.Forms.Button usersButton;

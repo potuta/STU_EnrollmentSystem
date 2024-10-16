@@ -13,13 +13,12 @@ namespace STUEnrollmentSystem
 {
     public partial class Section : Form
     {
-        private SqlConnection STU_DB_Connection;
-        private SqlCommand STU_Command;
+        private SectionRepository _sectionRepository;
 
         public Section()
         {
             InitializeComponent();
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            _sectionRepository = new SectionRepository(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void sectionsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -31,32 +30,57 @@ namespace STUEnrollmentSystem
 
         private void Section_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sTU_DBDataSet.Teachers' table. You can move, or remove it, as needed.
             this.teachersTableAdapter.Fill(this.sTU_DBDataSet.Teachers);
             this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
             searchPanel.Visible = false;
+            InitializeSearchComboBoxes();
+        }
+
+        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
+        {
+            this.sectionsTableAdapter.Update(sTU_DBDataSet);
+            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
+            InitializeSearchComboBoxes();
+        }
+
+        private void InitializeSearchComboBoxes()
+        {
             InitializeSearchSectionTitleCB();
+            InitializeSearchSectionCodeCB();
+            InitializeSearchRoomCB();
+            InitializeSearchGradeCodeCB();
         }
 
         private void InitializeSearchSectionTitleCB()
         {
-            SqlCommand sectionTitleData = new SqlCommand("SELECT SectionTitle FROM Sections", STU_DB_Connection);
-            List<string> sectionTitleList = new List<string>();
-            STU_DB_Connection.Open();
-            using (SqlDataReader reader = sectionTitleData.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    sectionTitleList.Add(reader[0].ToString());
-                }
-            }
-            STU_DB_Connection.Close();
+            List<string> sectionTitleList = _sectionRepository.GetSectionData("SectionTitle");
             sectionTitleToolStripComboBox.Items.Clear();
-            foreach (string items in sectionTitleList)
+            sectionTitleToolStripComboBox.Items.AddRange(sectionTitleList.ToArray());
+        }
+
+        private void InitializeSearchSectionCodeCB()
+        {
+            List<string> sectionCodeList = _sectionRepository.GetSectionData("SectionCode");
+            sectionCodeToolStripComboBox.Items.Clear();
+            sectionCodeToolStripComboBox.Items.AddRange(sectionCodeList.ToArray());
+        }
+
+        private void InitializeSearchRoomCB()
+        {
+            List<string> roomList = _sectionRepository.GetSectionData("Room");
+            roomToolStripComboBox.Items.Clear();
+            roomToolStripComboBox.Items.AddRange(roomList.ToArray());
+        }
+
+        private void InitializeSearchGradeCodeCB()
+        {
+            List<string> gradeCodeList = _sectionRepository.GetSectionData("GradeCode");
+            gradeCodeToolStripComboBox.Items.Clear();
+            foreach (string items in gradeCodeList)
             {
-                if (!sectionTitleToolStripComboBox.Items.Contains(items))
+                if (!gradeCodeToolStripComboBox.Items.Contains(items))
                 {
-                    sectionTitleToolStripComboBox.Items.Add(items);
+                    gradeCodeToolStripComboBox.Items.Add(items);
                 }
             }
         }
@@ -73,12 +97,6 @@ namespace STUEnrollmentSystem
                 showSearchButton.Text = "Search ▼";
                 searchPanel.Visible = false;
             }
-        }
-
-        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
-        {
-            this.sectionsTableAdapter.Update(sTU_DBDataSet);
-            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e)
@@ -141,6 +159,5 @@ namespace STUEnrollmentSystem
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

@@ -33,20 +33,19 @@ namespace STUEnrollmentSystem
         {
             this.studentPaymentTableAdapter.Fill(this.sTU_DBDataSet.StudentPayment);
             searchPanel.Visible = false;
-            InitializeSearchStudentNumCB();
-            InitializeSearchPaymentCodeCB();
+            InitializeSearchComboBoxes();
         }
 
         private void InitializeSearchStudentNumCB()
         {
-            List<string> studentNumList = _studentPaymentRepository.GetStudentNumberFromStudentPayment();
+            List<string> studentNumList = _studentPaymentRepository.GetStudentPaymentData("StudentNumber");
             studentNumberToolStripComboBox.Items.Clear();
             studentNumberToolStripComboBox.Items.AddRange(studentNumList.ToArray());
         }
 
         private void InitializeSearchPaymentCodeCB()
         {
-            List<string> paymentCodeList = _studentPaymentRepository.GetPaymentCodeFromStudentPayment();
+            List<string> paymentCodeList = _studentPaymentRepository.GetStudentPaymentData("PaymentCode");
             paymentCodeToolStripComboBox.Items.Clear();
             foreach (string items in paymentCodeList)
             {
@@ -55,6 +54,12 @@ namespace STUEnrollmentSystem
                     paymentCodeToolStripComboBox.Items.Add(items);
                 }
             }
+        }
+
+        private void InitializeSearchComboBoxes()
+        {
+            InitializeSearchStudentNumCB();
+            InitializeSearchPaymentCodeCB();
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -75,6 +80,7 @@ namespace STUEnrollmentSystem
         {
             this.studentPaymentTableAdapter.Update(sTU_DBDataSet);
             this.studentPaymentTableAdapter.Fill(sTU_DBDataSet.StudentPayment);
+            InitializeSearchComboBoxes();
         }
 
         private void studentPaymentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
