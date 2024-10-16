@@ -14,14 +14,12 @@ namespace STUEnrollmentSystem
 {
     public partial class StudentPayment : Form
     {
-        private SqlConnection STU_DB_Connection;
-        private SqlCommand STU_Command;
+        private StudentPaymentRepository _studentPaymentRepository;
 
         public StudentPayment()
         {
             InitializeComponent();
-            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            _studentPaymentRepository = new StudentPaymentRepository(Properties.Settings.Default.STU_DBConnectionString);
         }
 
         private void studentPaymentBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -41,39 +39,16 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchStudentNumCB()
         {
-            SqlCommand studentNumData = new SqlCommand("SELECT StudentNumber FROM StudentPayment WHERE MonthOfPayment = 'August'", STU_DB_Connection);
-            List<string> studentNumList = new List<string>();
-            STU_DB_Connection.Open();
-            using (SqlDataReader reader = studentNumData.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    studentNumList.Add(reader[0].ToString());
-                }
-            }
-            STU_DB_Connection.Close();
+            List<string> studentNumList = _studentPaymentRepository.GetStudentNumberFromStudentPayment();
             studentNumberToolStripComboBox.Items.Clear();
-            foreach (string items in studentNumList)
-            {
-                studentNumberToolStripComboBox.Items.Add(items);
-            }
+            studentNumberToolStripComboBox.Items.AddRange(studentNumList.ToArray());
         }
 
         private void InitializeSearchPaymentCodeCB()
         {
-            SqlCommand paymentCodeData = new SqlCommand("SELECT PaymentCode FROM StudentPayment WHERE MonthOfPayment = 'August'", STU_DB_Connection);
-            List<string> paymentCodeList = new List<string>();
-            STU_DB_Connection.Open();
-            using(SqlDataReader reader = paymentCodeData.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    paymentCodeList.Add(reader[0].ToString());
-                }
-            }
-            STU_DB_Connection.Close();
+            List<string> paymentCodeList = _studentPaymentRepository.GetPaymentCodeFromStudentPayment();
             paymentCodeToolStripComboBox.Items.Clear();
-            foreach(string items in paymentCodeList)
+            foreach (string items in paymentCodeList)
             {
                 if (!paymentCodeToolStripComboBox.Items.Contains(items))
                 {
@@ -110,13 +85,13 @@ namespace STUEnrollmentSystem
             }
             catch (FormatException fe)
             {
-                STU_DB_Connection.Close();
+                _studentPaymentRepository.CloseConnection();
                 hideRequirementButtons();
                 return;
             }
             catch(NullReferenceException nfe)
             {
-                STU_DB_Connection.Close();
+                _studentPaymentRepository.CloseConnection();
                 hideRequirementButtons();
                 return;
             }
@@ -124,25 +99,31 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            SqlCommand proofOfPaymentData = new SqlCommand("SELECT ProofOfPayment FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'", STU_DB_Connection);
-            STU_DB_Connection.Open();
-            bool isProofOfPaymentData = proofOfPaymentData.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-            STU_DB_Connection.Close();
+            var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
 
-            if (paymentMethodComboBox.Text.Length > 0 && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+            if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
             {
-                if (isProofOfPaymentData == false)
-                {
-                    viewProofOfPaymentButton.Visible = true;
-                    deleteProofOfPaymentButton.Visible = true;
-                    uploadProofOfPaymentButton.Visible = false;
-                }
-                else
-                {
-                    uploadProofOfPaymentButton.Visible = true;
-                    deleteProofOfPaymentButton.Visible = false;
-                    viewProofOfPaymentButton.Visible = false;
-                }
+                SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
+            }
+            else
+            {
+                hideRequirementButtons();
+            }
+        }
+
+        private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
+        {
+            if (hasRequirement)
+            {
+                viewButton.Visible = true;
+                deleteButton.Visible = true;
+                uploadButton.Visible = false;
+            }
+            else
+            {
+                viewButton.Visible = false;
+                deleteButton.Visible = false;
+                uploadButton.Visible = true;
             }
         }
 
@@ -153,58 +134,28 @@ namespace STUEnrollmentSystem
             uploadProofOfPaymentButton.Visible = false;
         }
 
-        private void viewProofOfPaymentButton_Click(object sender, EventArgs e)
-        {
-            viewImageFile("ProofOfPayment");
-        }
+        private void viewProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "view");
+        private void uploadProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "upload");
+        private void deleteProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "delete");
 
-        private void uploadProofOfPaymentButton_Click(object sender, EventArgs e)
+        private void HandleFileOperation(string fileType, string operation)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            switch (operation)
             {
-                uploadFile("ProofOfPayment");
+                case "view":
+                    _studentPaymentRepository.ViewImageFile(fileType, studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
+                    break;
+                case "upload":
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                        _studentPaymentRepository.UploadFile(fileType, studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString(), fileData);
+                    }
+                    break;
+                case "delete":
+                    _studentPaymentRepository.DeleteFile(fileType, studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
+                    break;
             }
-        }
-
-        private void deleteProofOfPaymentButton_Click(object sender, EventArgs e)
-        {
-            deleteFile("ProofOfPayment");
-        }
-
-        private void viewImageFile(string Column)
-        {
-            string command = "SELECT " + Column + " FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'";
-            ImageViewer imageViewer = new ImageViewer(Column, command);
-            imageViewer.Show();
-        }
-
-        private void viewFile(string Column)
-        {
-            string command = "SELECT " + Column + " FROM StudentPayment WHERE StudentNumber = '" + studentNumberTextBox.Text + "' AND MonthOfPayment = '" + monthOfPaymentComboBox.SelectedItem.ToString() + "'";
-            PDFViewer pdfViewer = new PDFViewer(Column, command);
-            pdfViewer.Show();
-        }
-
-        private void uploadFile(string Column)
-        {
-            byte[] data = File.ReadAllBytes(openFileDialog1.FileName);
-            STU_Command = new SqlCommand("UPDATE StudentPayment SET " + Column + " = @Data WHERE StudentNumber = @StudNum AND MonthOfPayment = @Month", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@StudNum", studentNumberTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@Month", monthOfPaymentComboBox.SelectedItem.ToString());
-            STU_Command.Parameters.AddWithValue("@Data", data);
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
-        }
-
-        private void deleteFile(string Column)
-        {
-            STU_Command = new SqlCommand("UPDATE StudentPayment SET " + Column + " = NULL WHERE StudentNumber = @StudNum AND MonthOfPayment = @Month", STU_DB_Connection);
-            STU_Command.Parameters.AddWithValue("@StudNum", studentNumberTextBox.Text);
-            STU_Command.Parameters.AddWithValue("@Month", monthOfPaymentComboBox.SelectedItem.ToString());
-            STU_DB_Connection.Open();
-            STU_Command.ExecuteNonQuery();
-            STU_DB_Connection.Close();
         }
 
         private void paymentMethodComboBox_TextChanged(object sender, EventArgs e)

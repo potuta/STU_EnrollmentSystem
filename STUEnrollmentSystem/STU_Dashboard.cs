@@ -16,9 +16,7 @@ namespace STUEnrollmentSystem
         public STU_Dashboard()
         {
             InitializeComponent();
-            InitializeUserRole(Login.userLoginInfo[4]);
-            userLabel.Text = "User: " + Login.Username;
-            roleLabel.Text = "Role: " + Login.Role;
+            InitializeUserLoginRole(Login.Role);
             MessageBox.Show("Welcome " + Login.Role + ": " + Login.Username);
         }
 
@@ -27,6 +25,8 @@ namespace STUEnrollmentSystem
             studentSubPanel.Visible = false;
             cashierSubPanel.Visible = false;
             adminSubPanel.Visible = false;
+            userLabel.Text = "User: " + Login.Username;
+            roleLabel.Text = "Role: " + Login.Role;
         }
 
         private void hideSubpanel()
@@ -71,32 +71,32 @@ namespace STUEnrollmentSystem
             childForm.Show();
         }
 
-        private void InitializeUserRole(string role)
+        private void InitializeUserLoginRole(string role)
         {
             if (role.Equals("Admin"))
             {
-                Login.userLoginInfo[4] = "Admin";
+                Login.Role = "Admin";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = true;
             }
             else if (role.Equals("A"))
             {
-                Login.userLoginInfo[4] = "Admission";
+                Login.Role = "Admission";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("C"))
             {
-                Login.userLoginInfo[4] = "Cashier";
+                Login.Role = "Cashier";
                 studentButton.Enabled = false;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("R")) 
             {
-                Login.userLoginInfo[4] = "Registrar";
+                Login.Role = "Registrar";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
