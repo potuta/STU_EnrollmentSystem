@@ -164,7 +164,7 @@ namespace STUEnrollmentSystem
 
         private void teacherButton_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new Teacher());
         }
     }
 }

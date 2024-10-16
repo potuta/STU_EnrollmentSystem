@@ -147,6 +147,7 @@
     <Compile Include="Teacher.Designer.cs">
       <DependentUpon>Teacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeacherRepository.cs" />
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
     </Compile>

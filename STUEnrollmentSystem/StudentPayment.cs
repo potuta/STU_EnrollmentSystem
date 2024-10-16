@@ -182,7 +182,12 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void searchToolStripButton_Click(object sender, EventArgs e)
+        private void searchToolStripButton_Click(object sender, EventArgs e) => searchStudentPayment();
+        private void paymentCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchStudentPayment();
+        private void studentNumberToolStripComboBox_TextChanged(object sender, EventArgs e) => searchStudentPayment();
+        private void monthOfPaymentToolStripTextBox_TextChanged(object sender, EventArgs e) => searchStudentPayment();
+
+        private void searchStudentPayment()
         {
             try
             {
@@ -192,44 +197,6 @@ namespace STUEnrollmentSystem
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-
-        }
-
-        private void paymentCodeToolStripComboBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void studentNumberToolStripComboBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void monthOfPaymentToolStripTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
     }
 }

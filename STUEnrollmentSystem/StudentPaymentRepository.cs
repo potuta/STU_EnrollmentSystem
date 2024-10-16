@@ -100,7 +100,10 @@ namespace STUEnrollmentSystem
             {
                 while (reader.Read())
                 {
-                    studentDataList.Add(reader[column].ToString());
+                    if (!reader[column].ToString().Equals(string.Empty))
+                    {
+                        studentDataList.Add(reader[column].ToString());
+                    }
                 }
             }
             _connection.Close();

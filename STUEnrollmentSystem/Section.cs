@@ -99,56 +99,13 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void searchToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+        private void searchToolStripButton_Click(object sender, EventArgs e) => searchSection();
+        private void sectionTitleToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
+        private void sectionCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
+        private void roomToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
+        private void gradeCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
 
-        }
-
-        private void sectionTitleToolStripComboBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void sectionCodeToolStripComboBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void roomToolStripComboBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.sectionsTableAdapter.Search(this.sTU_DBDataSet.Sections, sectionTitleToolStripComboBox.Text, sectionCodeToolStripComboBox.Text, roomToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void gradeCodeToolStripComboBox_TextChanged(object sender, EventArgs e)
+        private void searchSection()
         {
             try
             {

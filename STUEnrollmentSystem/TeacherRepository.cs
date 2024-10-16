@@ -1,20 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class SectionRepository
+    internal class TeacherRepository
     {
         private SqlConnection _connection;
 
-        public SectionRepository(string connectionString)
+        public TeacherRepository(string connectionString)
         {
             _connection = new SqlConnection(connectionString);
+        }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
         }
 
         public void OpenConnection()
@@ -33,25 +38,34 @@ namespace STUEnrollmentSystem
             }
         }
 
-        public List<string> GetSectionData(string column)
+        public int GenerateTeacherCode()
         {
-            List<string> sectionDataList = new List<string>();
-            string query = $"SELECT {column} FROM Sections";
+            string query = "SELECT COUNT(*) FROM Teachers";
             SqlCommand command = new SqlCommand(query, _connection);
-
             _connection.Open();
-            using (SqlDataReader reader = command.ExecuteReader())
+            int teacherCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+            _connection.Close();
+            return teacherCount;
+        }
+
+        public List<string> GetTeacherData(string column)
+        {
+            List<string> teacherDataList = new List<string>();
+            string query = $"SELECT {column} FROM Teachers";
+            SqlCommand command = new SqlCommand(query, _connection);
+            _connection.Open();
+            using(SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     if (!reader[column].ToString().Equals(string.Empty))
                     {
-                        sectionDataList.Add(reader[column].ToString());
+                        teacherDataList.Add(reader[column].ToString());
                     }
                 }
             }
             _connection.Close();
-            return sectionDataList;
+            return teacherDataList;
         }
     }
 }

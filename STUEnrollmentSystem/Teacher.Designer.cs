@@ -29,58 +29,112 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Teacher));
             System.Windows.Forms.Label teacherNameLabel;
             System.Windows.Forms.Label teacherCodeLabel;
             System.Windows.Forms.Label sectionCodeLabel;
             System.Windows.Forms.Label subjectCodeLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Teacher));
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.generateTeacherCodeButton = new System.Windows.Forms.Button();
+            this.subjectCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.subjectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sectionCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.teacherNameTextBox = new System.Windows.Forms.TextBox();
+            this.teacherCodeTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
-            this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teachersTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TeachersTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.teachersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.teachersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.teachersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherNameTextBox = new System.Windows.Forms.TextBox();
-            this.teacherCodeTextBox = new System.Windows.Forms.TextBox();
-            this.subjectCodeTextBox = new System.Windows.Forms.TextBox();
-            this.sectionCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.subjectsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SubjectsTableAdapter();
+            this.searchTeachersToolStrip = new System.Windows.Forms.ToolStrip();
+            this.teacherNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.teacherCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.sectionCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.subjectCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.searchTeachersToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.teacherNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.teacherCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.sectionCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.subjectCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             teacherNameLabel = new System.Windows.Forms.Label();
             teacherCodeLabel = new System.Windows.Forms.Label();
             sectionCodeLabel = new System.Windows.Forms.Label();
             subjectCodeLabel = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
-            this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectsBindingSource)).BeginInit();
+            this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingNavigator)).BeginInit();
             this.teachersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataGridView)).BeginInit();
+            this.searchTeachersToolStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // teacherNameLabel
+            // 
+            teacherNameLabel.AutoSize = true;
+            teacherNameLabel.Location = new System.Drawing.Point(46, 82);
+            teacherNameLabel.Name = "teacherNameLabel";
+            teacherNameLabel.Size = new System.Drawing.Size(81, 13);
+            teacherNameLabel.TabIndex = 1;
+            teacherNameLabel.Text = "Teacher Name:";
+            // 
+            // teacherCodeLabel
+            // 
+            teacherCodeLabel.AutoSize = true;
+            teacherCodeLabel.Location = new System.Drawing.Point(49, 108);
+            teacherCodeLabel.Name = "teacherCodeLabel";
+            teacherCodeLabel.Size = new System.Drawing.Size(78, 13);
+            teacherCodeLabel.TabIndex = 3;
+            teacherCodeLabel.Text = "Teacher Code:";
+            // 
+            // sectionCodeLabel
+            // 
+            sectionCodeLabel.AutoSize = true;
+            sectionCodeLabel.Location = new System.Drawing.Point(53, 134);
+            sectionCodeLabel.Name = "sectionCodeLabel";
+            sectionCodeLabel.Size = new System.Drawing.Size(74, 13);
+            sectionCodeLabel.TabIndex = 5;
+            sectionCodeLabel.Text = "Section Code:";
+            // 
+            // subjectCodeLabel
+            // 
+            subjectCodeLabel.AutoSize = true;
+            subjectCodeLabel.Location = new System.Drawing.Point(53, 160);
+            subjectCodeLabel.Name = "subjectCodeLabel";
+            subjectCodeLabel.Size = new System.Drawing.Size(74, 13);
+            subjectCodeLabel.TabIndex = 7;
+            subjectCodeLabel.Text = "Subject Code:";
             // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.generateTeacherCodeButton);
+            this.detailsPanel.Controls.Add(this.subjectCodeComboBox);
             this.detailsPanel.Controls.Add(this.sectionCodeComboBox);
             this.detailsPanel.Controls.Add(teacherNameLabel);
             this.detailsPanel.Controls.Add(this.teacherNameTextBox);
@@ -88,13 +142,78 @@
             this.detailsPanel.Controls.Add(this.teacherCodeTextBox);
             this.detailsPanel.Controls.Add(sectionCodeLabel);
             this.detailsPanel.Controls.Add(subjectCodeLabel);
-            this.detailsPanel.Controls.Add(this.subjectCodeTextBox);
             this.detailsPanel.Controls.Add(this.label1);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 116);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(296, 615);
+            this.detailsPanel.Size = new System.Drawing.Size(317, 643);
             this.detailsPanel.TabIndex = 21;
+            // 
+            // generateTeacherCodeButton
+            // 
+            this.generateTeacherCodeButton.BackColor = System.Drawing.Color.Transparent;
+            this.generateTeacherCodeButton.FlatAppearance.BorderSize = 0;
+            this.generateTeacherCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generateTeacherCodeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateTeacherCodeButton.Location = new System.Drawing.Point(237, 97);
+            this.generateTeacherCodeButton.Name = "generateTeacherCodeButton";
+            this.generateTeacherCodeButton.Size = new System.Drawing.Size(23, 29);
+            this.generateTeacherCodeButton.TabIndex = 66;
+            this.generateTeacherCodeButton.Text = "🗘";
+            this.generateTeacherCodeButton.UseVisualStyleBackColor = false;
+            this.generateTeacherCodeButton.Click += new System.EventHandler(this.generateTeacherCodeButton_Click);
+            // 
+            // subjectCodeComboBox
+            // 
+            this.subjectCodeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "SubjectCode", true));
+            this.subjectCodeComboBox.DataSource = this.subjectsBindingSource;
+            this.subjectCodeComboBox.DisplayMember = "SubjectCode";
+            this.subjectCodeComboBox.FormattingEnabled = true;
+            this.subjectCodeComboBox.Location = new System.Drawing.Point(136, 157);
+            this.subjectCodeComboBox.Name = "subjectCodeComboBox";
+            this.subjectCodeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.subjectCodeComboBox.TabIndex = 11;
+            this.subjectCodeComboBox.ValueMember = "SubjectCode";
+            // 
+            // teachersBindingSource
+            // 
+            this.teachersBindingSource.DataMember = "Teachers";
+            this.teachersBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // subjectsBindingSource
+            // 
+            this.subjectsBindingSource.DataMember = "Subjects";
+            this.subjectsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sectionCodeComboBox
+            // 
+            this.sectionCodeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "SectionCode", true));
+            this.sectionCodeComboBox.FormattingEnabled = true;
+            this.sectionCodeComboBox.Location = new System.Drawing.Point(136, 130);
+            this.sectionCodeComboBox.Name = "sectionCodeComboBox";
+            this.sectionCodeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.sectionCodeComboBox.TabIndex = 10;
+            // 
+            // teacherNameTextBox
+            // 
+            this.teacherNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "TeacherName", true));
+            this.teacherNameTextBox.Location = new System.Drawing.Point(136, 79);
+            this.teacherNameTextBox.Name = "teacherNameTextBox";
+            this.teacherNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.teacherNameTextBox.TabIndex = 2;
+            // 
+            // teacherCodeTextBox
+            // 
+            this.teacherCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "TeacherCode", true));
+            this.teacherCodeTextBox.Location = new System.Drawing.Point(136, 105);
+            this.teacherCodeTextBox.Name = "teacherCodeTextBox";
+            this.teacherCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.teacherCodeTextBox.TabIndex = 4;
             // 
             // label1
             // 
@@ -112,21 +231,23 @@
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Location = new System.Drawing.Point(0, 89);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
             this.showSearchButton.TabIndex = 20;
             this.showSearchButton.Text = "Search ▼";
             this.showSearchButton.UseVisualStyleBackColor = false;
+            this.showSearchButton.Click += new System.EventHandler(this.showSearchButton_Click);
             // 
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.searchTeachersToolStrip);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1264, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1264, 89);
             this.searchPanel.TabIndex = 19;
             // 
             // label2
@@ -138,16 +259,6 @@
             this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Search:";
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // teachersBindingSource
-            // 
-            this.teachersBindingSource.DataMember = "Teachers";
-            this.teachersBindingSource.DataSource = this.sTU_DBDataSet;
             // 
             // teachersTableAdapter
             // 
@@ -188,17 +299,43 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.teachersBindingNavigatorSaveItem});
-            this.teachersBindingNavigator.Location = new System.Drawing.Point(296, 144);
+            this.teachersBindingNavigatorSaveItem,
+            this.bindingNavigatorRefreshItem});
+            this.teachersBindingNavigator.Location = new System.Drawing.Point(317, 116);
             this.teachersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.teachersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.teachersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.teachersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.teachersBindingNavigator.Name = "teachersBindingNavigator";
             this.teachersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.teachersBindingNavigator.Size = new System.Drawing.Size(968, 25);
+            this.teachersBindingNavigator.Size = new System.Drawing.Size(947, 25);
             this.teachersBindingNavigator.TabIndex = 22;
             this.teachersBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -227,22 +364,16 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -250,7 +381,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -259,40 +390,32 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // teachersBindingNavigatorSaveItem
             // 
             this.teachersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.teachersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("teachersBindingNavigatorSaveItem.Image")));
             this.teachersBindingNavigatorSaveItem.Name = "teachersBindingNavigatorSaveItem";
-            this.teachersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.teachersBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.teachersBindingNavigatorSaveItem.Text = "Save Data";
             this.teachersBindingNavigatorSaveItem.Click += new System.EventHandler(this.teachersBindingNavigatorSaveItem_Click);
+            // 
+            // bindingNavigatorRefreshItem
+            // 
+            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Text = "Refresh Data";
+            this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
             // teachersDataGridView
             // 
@@ -305,10 +428,11 @@
             this.dataGridViewTextBoxColumn4});
             this.teachersDataGridView.DataSource = this.teachersBindingSource;
             this.teachersDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.teachersDataGridView.Location = new System.Drawing.Point(296, 169);
+            this.teachersDataGridView.Location = new System.Drawing.Point(317, 141);
             this.teachersDataGridView.Name = "teachersDataGridView";
-            this.teachersDataGridView.Size = new System.Drawing.Size(968, 587);
+            this.teachersDataGridView.Size = new System.Drawing.Size(947, 590);
             this.teachersDataGridView.TabIndex = 22;
+            this.teachersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teachersDataGridView_CellClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -334,74 +458,95 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "SubjectCode";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // teacherNameLabel
+            // subjectsTableAdapter
             // 
-            teacherNameLabel.AutoSize = true;
-            teacherNameLabel.Location = new System.Drawing.Point(46, 82);
-            teacherNameLabel.Name = "teacherNameLabel";
-            teacherNameLabel.Size = new System.Drawing.Size(81, 13);
-            teacherNameLabel.TabIndex = 1;
-            teacherNameLabel.Text = "Teacher Name:";
+            this.subjectsTableAdapter.ClearBeforeFill = true;
             // 
-            // teacherNameTextBox
+            // searchTeachersToolStrip
             // 
-            this.teacherNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "TeacherName", true));
-            this.teacherNameTextBox.Location = new System.Drawing.Point(136, 79);
-            this.teacherNameTextBox.Name = "teacherNameTextBox";
-            this.teacherNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.teacherNameTextBox.TabIndex = 2;
+            this.searchTeachersToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchTeachersToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchTeachersToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.teacherNameToolStripLabel,
+            this.teacherNameToolStripComboBox,
+            this.teacherCodeToolStripLabel,
+            this.teacherCodeToolStripComboBox,
+            this.sectionCodeToolStripLabel,
+            this.sectionCodeToolStripComboBox,
+            this.subjectCodeToolStripLabel,
+            this.subjectCodeToolStripComboBox,
+            this.searchTeachersToolStripButton});
+            this.searchTeachersToolStrip.Location = new System.Drawing.Point(61, 41);
+            this.searchTeachersToolStrip.Name = "searchTeachersToolStrip";
+            this.searchTeachersToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.searchTeachersToolStrip.Size = new System.Drawing.Size(934, 25);
+            this.searchTeachersToolStrip.TabIndex = 23;
+            this.searchTeachersToolStrip.Text = "searchTeachersToolStrip";
             // 
-            // teacherCodeLabel
+            // teacherNameToolStripLabel
             // 
-            teacherCodeLabel.AutoSize = true;
-            teacherCodeLabel.Location = new System.Drawing.Point(49, 108);
-            teacherCodeLabel.Name = "teacherCodeLabel";
-            teacherCodeLabel.Size = new System.Drawing.Size(78, 13);
-            teacherCodeLabel.TabIndex = 3;
-            teacherCodeLabel.Text = "Teacher Code:";
+            this.teacherNameToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.teacherNameToolStripLabel.Name = "teacherNameToolStripLabel";
+            this.teacherNameToolStripLabel.Size = new System.Drawing.Size(85, 22);
+            this.teacherNameToolStripLabel.Text = "Teacher Name:";
             // 
-            // teacherCodeTextBox
+            // teacherCodeToolStripLabel
             // 
-            this.teacherCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "TeacherCode", true));
-            this.teacherCodeTextBox.Location = new System.Drawing.Point(136, 105);
-            this.teacherCodeTextBox.Name = "teacherCodeTextBox";
-            this.teacherCodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.teacherCodeTextBox.TabIndex = 4;
+            this.teacherCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.teacherCodeToolStripLabel.Name = "teacherCodeToolStripLabel";
+            this.teacherCodeToolStripLabel.Size = new System.Drawing.Size(111, 22);
+            this.teacherCodeToolStripLabel.Text = "          Teacher Code:";
             // 
-            // sectionCodeLabel
+            // sectionCodeToolStripLabel
             // 
-            sectionCodeLabel.AutoSize = true;
-            sectionCodeLabel.Location = new System.Drawing.Point(53, 134);
-            sectionCodeLabel.Name = "sectionCodeLabel";
-            sectionCodeLabel.Size = new System.Drawing.Size(74, 13);
-            sectionCodeLabel.TabIndex = 5;
-            sectionCodeLabel.Text = "Section Code:";
+            this.sectionCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sectionCodeToolStripLabel.Name = "sectionCodeToolStripLabel";
+            this.sectionCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
+            this.sectionCodeToolStripLabel.Text = "          Section Code:";
             // 
-            // subjectCodeLabel
+            // subjectCodeToolStripLabel
             // 
-            subjectCodeLabel.AutoSize = true;
-            subjectCodeLabel.Location = new System.Drawing.Point(53, 160);
-            subjectCodeLabel.Name = "subjectCodeLabel";
-            subjectCodeLabel.Size = new System.Drawing.Size(74, 13);
-            subjectCodeLabel.TabIndex = 7;
-            subjectCodeLabel.Text = "Subject Code:";
+            this.subjectCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.subjectCodeToolStripLabel.Name = "subjectCodeToolStripLabel";
+            this.subjectCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
+            this.subjectCodeToolStripLabel.Text = "          Subject Code:";
             // 
-            // subjectCodeTextBox
+            // searchTeachersToolStripButton
             // 
-            this.subjectCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "SubjectCode", true));
-            this.subjectCodeTextBox.Location = new System.Drawing.Point(136, 157);
-            this.subjectCodeTextBox.Name = "subjectCodeTextBox";
-            this.subjectCodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.subjectCodeTextBox.TabIndex = 8;
+            this.searchTeachersToolStripButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchTeachersToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchTeachersToolStripButton.Name = "searchTeachersToolStripButton";
+            this.searchTeachersToolStripButton.Size = new System.Drawing.Size(76, 22);
+            this.searchTeachersToolStripButton.Text = "          Search";
+            this.searchTeachersToolStripButton.Click += new System.EventHandler(this.searchTeachersToolStripButton_Click);
             // 
-            // sectionCodeComboBox
+            // teacherNameToolStripComboBox
             // 
-            this.sectionCodeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teachersBindingSource, "SectionCode", true));
-            this.sectionCodeComboBox.FormattingEnabled = true;
-            this.sectionCodeComboBox.Location = new System.Drawing.Point(136, 130);
-            this.sectionCodeComboBox.Name = "sectionCodeComboBox";
-            this.sectionCodeComboBox.Size = new System.Drawing.Size(100, 21);
-            this.sectionCodeComboBox.TabIndex = 10;
+            this.teacherNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.teacherNameToolStripComboBox.Name = "teacherNameToolStripComboBox";
+            this.teacherNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.teacherNameToolStripComboBox.TextChanged += new System.EventHandler(this.teacherNameToolStripComboBox_TextChanged);
+            // 
+            // teacherCodeToolStripComboBox
+            // 
+            this.teacherCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.teacherCodeToolStripComboBox.Name = "teacherCodeToolStripComboBox";
+            this.teacherCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.teacherCodeToolStripComboBox.TextChanged += new System.EventHandler(this.teacherCodeToolStripComboBox_TextChanged);
+            // 
+            // sectionCodeToolStripComboBox
+            // 
+            this.sectionCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.sectionCodeToolStripComboBox.Name = "sectionCodeToolStripComboBox";
+            this.sectionCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripComboBox_TextChanged);
+            // 
+            // subjectCodeToolStripComboBox
+            // 
+            this.subjectCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.subjectCodeToolStripComboBox.Name = "subjectCodeToolStripComboBox";
+            this.subjectCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.subjectCodeToolStripComboBox.TextChanged += new System.EventHandler(this.subjectCodeToolStripComboBox_TextChanged);
             // 
             // Teacher
             // 
@@ -419,14 +564,17 @@
             this.Load += new System.EventHandler(this.Teacher_Load);
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectsBindingSource)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingNavigator)).EndInit();
             this.teachersBindingNavigator.ResumeLayout(false);
             this.teachersBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataGridView)).EndInit();
+            this.searchTeachersToolStrip.ResumeLayout(false);
+            this.searchTeachersToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,7 +611,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.TextBox teacherNameTextBox;
         private System.Windows.Forms.TextBox teacherCodeTextBox;
-        private System.Windows.Forms.TextBox subjectCodeTextBox;
         private System.Windows.Forms.ComboBox sectionCodeComboBox;
+        private System.Windows.Forms.ComboBox subjectCodeComboBox;
+        private System.Windows.Forms.BindingSource subjectsBindingSource;
+        private STU_DBDataSetTableAdapters.SubjectsTableAdapter subjectsTableAdapter;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorRefreshItem;
+        private System.Windows.Forms.Button generateTeacherCodeButton;
+        private System.Windows.Forms.ToolStrip searchTeachersToolStrip;
+        private System.Windows.Forms.ToolStripLabel teacherNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel teacherCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel sectionCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel subjectCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripButton searchTeachersToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox teacherNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox teacherCodeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox sectionCodeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox subjectCodeToolStripComboBox;
     }
 }
