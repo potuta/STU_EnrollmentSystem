@@ -78,6 +78,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="PDFReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDFReceipt.Designer.cs">
+      <DependentUpon>PDFReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="PDFViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDFReceipt.resx">
+      <DependentUpon>PDFReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PDFViewer.resx">
       <DependentUpon>PDFViewer.cs</DependentUpon>

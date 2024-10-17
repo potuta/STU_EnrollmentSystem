@@ -15,8 +15,6 @@ namespace STUEnrollmentSystem
 {
     public partial class PDFViewer : Form
     {
-        private SqlConnection STU_DB_Connection;
-
         public PDFViewer()
         {
             InitializeComponent();
@@ -25,10 +23,9 @@ namespace STUEnrollmentSystem
         public PDFViewer(string Column, string SQLCommand)
         {
             InitializeComponent();
-            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            SqlConnection _connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
             DataTable dt = new DataTable();
-            SqlCommand verDoc = new SqlCommand(SQLCommand, STU_DB_Connection);
+            SqlCommand verDoc = new SqlCommand(SQLCommand, _connection);
             SqlDataAdapter adapter = new SqlDataAdapter(verDoc);
             adapter.Fill(dt);
 
@@ -37,6 +34,7 @@ namespace STUEnrollmentSystem
                 byte[] ap = (byte[])dt.Rows[0][Column];
                 MemoryStream ms = new MemoryStream(ap);
                 pdfDocumentView1.Load(ms);
+                pdfViewerControl1.Load(ms);
             }
         }
     }

@@ -15,8 +15,6 @@ namespace STUEnrollmentSystem
 {
     public partial class ImageViewer : Form
     {
-        private SqlConnection STU_DB_Connection;
-
         public ImageViewer()
         {
             InitializeComponent();
@@ -25,10 +23,9 @@ namespace STUEnrollmentSystem
         public ImageViewer(string Column, string SQLCommand)
         {
             InitializeComponent();
-            //STU_DB_Connection = new SqlConnection("Data Source=112.204.105.87,16969;Initial Catalog=STU_DB;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertificate=True");
-            STU_DB_Connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
+            SqlConnection _connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
 
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(new SqlCommand(SQLCommand, STU_DB_Connection));
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(new SqlCommand(SQLCommand, _connection));
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
 
