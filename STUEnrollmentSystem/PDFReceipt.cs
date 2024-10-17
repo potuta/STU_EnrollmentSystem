@@ -1,6 +1,4 @@
-﻿using Syncfusion.Windows.Forms.PdfViewer;
-using Syncfusion.XPS;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +25,6 @@ namespace STUEnrollmentSystem
         {
             InitializeComponent();
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
-            Print(this.panel1);
         }
 
         public void GetPrintArea(Panel pnl)
@@ -56,7 +53,20 @@ namespace STUEnrollmentSystem
             Panel pannel = pnl;
             GetPrintArea(pnl);
             previewdlg.Document = printDocument1;
-            previewdlg.ShowDialog();
+            previewdlg.Show();
+            previewdlg.FormClosing += Previewdlg_FormClosing;
+        }
+
+        private void Previewdlg_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Close();
+            this.Hide();
+            this.Dispose();
+        }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            Print(this.panel1);
         }
     }
 }
