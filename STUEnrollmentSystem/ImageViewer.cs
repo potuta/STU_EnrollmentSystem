@@ -15,27 +15,10 @@ namespace STUEnrollmentSystem
 {
     public partial class ImageViewer : Form
     {
-        public ImageViewer()
+        public ImageViewer(MemoryStream ms)
         {
             InitializeComponent();
-        }
-
-        public ImageViewer(string Column, string SQLCommand)
-        {
-            InitializeComponent();
-            SqlConnection _connection = new SqlConnection(Properties.Settings.Default.STU_DBConnectionString);
-
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(new SqlCommand(SQLCommand, _connection));
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-
-            if (dataSet.Tables[0].Rows.Count == 1)
-            {
-                Byte[] data = new Byte[0];
-                data = (Byte[])(dataSet.Tables[0].Rows[0][Column]);
-                MemoryStream mem = new MemoryStream(data);
-                pictureBox1.Image = Image.FromStream(mem);
-            }
+            pictureBox1.Image = Image.FromStream(ms);
         }
     }
 }

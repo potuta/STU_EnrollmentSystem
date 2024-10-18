@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,7 +118,20 @@ namespace STUEnrollmentSystem
         public void ViewImageFile(string column, string registerID)
         {
             string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
-            ImageViewer imageViewer = new ImageViewer(column, query);
+            SqlCommand command = new SqlCommand(query, _connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
+            MemoryStream ms = new MemoryStream();
+            if (dataSet.Tables[0].Rows.Count == 1)
+            {
+                Byte[] data = new Byte[0];
+                data = (Byte[])(dataSet.Tables[0].Rows[0][column]);
+                ms = new MemoryStream(data);
+            }
+
+            ImageViewer imageViewer = new ImageViewer(ms);
             imageViewer.Show();
         }
 

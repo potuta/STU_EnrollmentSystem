@@ -12,11 +12,6 @@ namespace STUEnrollmentSystem
 {
     public partial class PDFViewer : Form
     {
-        public PDFViewer()
-        {
-            InitializeComponent();
-        }
-
         public PDFViewer(byte[] fileData)
         {
             InitializeComponent();

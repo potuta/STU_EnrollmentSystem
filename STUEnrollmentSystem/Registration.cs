@@ -135,6 +135,7 @@ namespace STUEnrollmentSystem
 
         private void HandleFileOperation(string fileType, string operation)
         {
+            openFileDialog1.Filter = "PDF Files|*.pdf";
             switch (operation)
             {
                 case "view":
