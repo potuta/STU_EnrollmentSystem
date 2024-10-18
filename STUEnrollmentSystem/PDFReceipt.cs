@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Spire.Pdf;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -17,7 +19,7 @@ namespace STUEnrollmentSystem
 {
     public partial class PDFReceipt : Form
     {
-        Bitmap MemoryImage;
+        private Bitmap MemoryImage;
         private PrintDocument printDocument1 = new PrintDocument();
         private PrintPreviewDialog previewdlg = new PrintPreviewDialog();
 
@@ -53,7 +55,7 @@ namespace STUEnrollmentSystem
             Panel pannel = pnl;
             GetPrintArea(pnl);
             previewdlg.Document = printDocument1;
-            previewdlg.Show();
+            previewdlg.ShowDialog();
             previewdlg.FormClosing += Previewdlg_FormClosing;
         }
 

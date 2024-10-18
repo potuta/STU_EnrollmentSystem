@@ -73,7 +73,12 @@ namespace STUEnrollmentSystem
         public void ViewFile(string column, string studentNumber)
         {
             string query = $"SELECT {column} FROM Students WHERE StudentNumber = '{studentNumber}'";
-            PDFViewer pdfViewer = new PDFViewer(column, query);
+            SqlCommand command = new SqlCommand(query, _connection);
+            _connection.Open();
+            byte[] fileData = (byte[])command.ExecuteScalar();
+            _connection.Close();
+
+            PDFViewer pdfViewer = new PDFViewer(fileData);
             pdfViewer.Show();
         }
 

@@ -1,6 +1,4 @@
-﻿using Syncfusion.Styles;
-using Syncfusion.XPS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
