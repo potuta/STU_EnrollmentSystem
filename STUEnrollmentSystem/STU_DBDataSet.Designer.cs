@@ -13643,8 +13643,12 @@ SELECT TeacherName, TeacherCode, SectionCode, SubjectCode FROM Teachers WHERE (T
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * FROM Teachers \r\nWHERE \r\nTeacherName = @TeacherName OR\r\nTeacherCode = @Te" +
-                "acherCode OR\r\nSectionCode = @SectionCode OR\r\nSubjectCode = @SubjectCode ";
+            this._commandCollection[1].CommandText = @"SELECT        TeacherName, TeacherCode, SectionCode, SubjectCode
+FROM            Teachers
+WHERE        (TeacherName = @TeacherName) OR
+                         (TeacherCode = @TeacherCode) OR
+                         (SectionCode = @SectionCode) OR
+                         (SubjectCode = @SubjectCode)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

@@ -148,10 +148,7 @@ namespace STUEnrollmentSystem
         private void viewTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "view");
         private void uploadTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "upload");
         private void deleteTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "delete");
-        private void viewProofOfPaymentButton_Click(object sender, EventArgs e)
-        {
-            _pendingStudentsRepository.ViewImageFile("ProofOfPayment", registerIDTextBox.Text);
-        }
+        private void viewProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "view");
         private void uploadProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "upload");
         private void deleteProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "delete");
 
@@ -169,7 +166,14 @@ namespace STUEnrollmentSystem
             switch (operation)
             {
                 case "view":
-                    _pendingStudentsRepository.ViewFile(fileType, registerIDTextBox.Text);
+                    if (fileType.Equals("ProofOfPayment"))
+                    {
+                        _pendingStudentsRepository.ViewImageFile(fileType, registerIDTextBox.Text);
+                    }
+                    else
+                    {
+                        _pendingStudentsRepository.ViewFile(fileType, registerIDTextBox.Text);
+                    }
                     break;
                 case "upload":
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)

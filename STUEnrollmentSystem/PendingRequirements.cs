@@ -57,6 +57,12 @@ namespace STUEnrollmentSystem
             this.studentsTableAdapter.FillBy(sTU_DBDataSet.Students);
         }
 
+        private void bindingNavigatorUpdateRequirementsItem_Click(object sender, EventArgs e)
+        {
+            studentsBindingNavigatorSaveItem_Click(sender, e);
+            bindingNavigatorRefreshItem_Click(sender, e);
+        }
+
         private void studentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -120,86 +126,38 @@ namespace STUEnrollmentSystem
             uploadTransferCertButton.Visible = false;
         }
 
-        private void viewFrm137Button_Click(object sender, EventArgs e)
-        {
-            _studentRepository.ViewFile("StudForm137", studentNumberTextBox.Text);
-        }
+        private void viewFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "view");
+        private void uploadFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "upload");
+        private void deleteFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "delete");
+        private void viewGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "view");
+        private void uploadGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "upload");
+        private void deleteGoodMoralButton_Click(object sender, EventArgs e) => HandleFileOperation("GoodMoral", "delete");
+        private void viewBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "view");
+        private void uploadBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "upload");
+        private void deleteBirthCertButton_Click(object sender, EventArgs e) => HandleFileOperation("BirthCertificate", "delete");
+        private void viewTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "view");
+        private void uploadTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "upload");
+        private void deleteTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "delete");
 
-        private void uploadFrm137Button_Click(object sender, EventArgs e)
+        private void HandleFileOperation(string fileType, string operation)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            openFileDialog1.Filter = "PDF Files|*.pdf";
+            switch (operation)
             {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _studentRepository.UploadFile("StudForm137", studentNumberTextBox.Text, fileData);
+                case "view":
+                    _studentRepository.ViewFile(fileType, studentNumberTextBox.Text);
+                    break;
+                case "upload":
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
+                        _studentRepository.UploadFile(fileType, studentNumberTextBox.Text, fileData);
+                    }
+                    break;
+                case "delete":
+                    _studentRepository.DeleteFile(fileType, studentNumberTextBox.Text);
+                    break;
             }
-        }
-
-        private void deleteFrm137Button_Click(object sender, EventArgs e)
-        {
-            _studentRepository.DeleteFile("StudForm137", studentNumberTextBox.Text);
-        }
-
-        private void viewGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            _studentRepository.ViewFile("GoodMoral", studentNumberTextBox.Text);
-        }
-
-        private void uploadGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _studentRepository.UploadFile("GoodMoral", studentNumberTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteGoodMoralButton_Click(object sender, EventArgs e)
-        {
-            _studentRepository.DeleteFile("GoodMoral", studentNumberTextBox.Text);
-        }
-
-        private void viewBirthCertButton_Click(object sender, EventArgs e)
-        {
-            _studentRepository.ViewFile("BirthCertificate", studentNumberTextBox.Text);
-        }
-
-        private void uploadBirthCertButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _studentRepository.UploadFile("BirthCertificate", studentNumberTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteBirthCertButton_Click(object sender, EventArgs e)
-        {
-            _studentRepository.DeleteFile("BirthCertificate", studentNumberTextBox.Text);
-        }
-
-        private void viewTransferCertButton_Click(object sender, EventArgs e)
-        {
-            _studentRepository.ViewFile("TransferCertificate", studentNumberTextBox.Text);
-        }
-
-        private void uploadTransferCertButton_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                _studentRepository.UploadFile("TransferCertificate", studentNumberTextBox.Text, fileData);
-            }
-        }
-
-        private void deleteTransferCertButton_Click(object sender, EventArgs e)
-        {
-            _studentRepository.DeleteFile("TransferCertificate", studentNumberTextBox.Text);
-        }
-
-        private void bindingNavigatorUpdateRequirementsItem_Click(object sender, EventArgs e)
-        {
-            studentsBindingNavigatorSaveItem_Click(sender, e);
-            bindingNavigatorRefreshItem_Click(sender, e);
         }
     }
 }

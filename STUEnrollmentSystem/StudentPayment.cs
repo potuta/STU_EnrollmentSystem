@@ -146,15 +146,7 @@ namespace STUEnrollmentSystem
 
         private void HandleFileOperation(string fileType, string operation)
         {
-            if (fileType.Equals("ProofOfPayment"))
-            {
-                openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
-            }
-            else
-            {
-                openFileDialog1.Filter = "PDF Files|*.pdf";
-            }
-
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
             switch (operation)
             {
                 case "view":

@@ -38,7 +38,6 @@ namespace STUEnrollmentSystem
             List<string> sectionDataList = new List<string>();
             string query = $"SELECT {column} FROM Sections";
             SqlCommand command = new SqlCommand(query, _connection);
-
             _connection.Open();
             using (SqlDataReader reader = command.ExecuteReader())
             {
