@@ -16,13 +16,13 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class PDFReceipt : Form
+    public partial class frmPDFReceipt : Form
     {
         private Bitmap MemoryImage;
         private PrintDocument printDocument1 = new PrintDocument();
         private PrintPreviewDialog previewdlg = new PrintPreviewDialog();
 
-        public PDFReceipt()
+        public frmPDFReceipt()
         {
             InitializeComponent();
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);

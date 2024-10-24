@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class Users
+    partial class frmUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             System.Windows.Forms.Label userIDLabel;
             System.Windows.Forms.Label usernameLabel;
             System.Windows.Forms.Label passwordLabel;

@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class PendingRequirements : Form
+    public partial class frmPendingRequirements : Form
     {
         private StudentRepository _studentRepository;
 
-        public PendingRequirements()
+        public frmPendingRequirements()
         {
             InitializeComponent();
             _studentRepository = new StudentRepository(Properties.Settings.Default.STU_DBConnectionString);

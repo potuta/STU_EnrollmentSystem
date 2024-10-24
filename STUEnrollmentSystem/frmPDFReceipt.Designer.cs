@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class PDFReceipt
+    partial class frmPDFReceipt
     {
         /// <summary>
         /// Required designer variable.

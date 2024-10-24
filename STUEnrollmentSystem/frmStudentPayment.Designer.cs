@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class StudentPayment
+    partial class frmStudentPayment
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             System.Windows.Forms.Label monthOfPaymentLabel;
             System.Windows.Forms.Label paymentStatusLabel1;
             System.Windows.Forms.Label paymentReceiptLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentPayment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentPayment));
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();

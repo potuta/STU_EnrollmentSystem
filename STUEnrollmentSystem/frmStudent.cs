@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class Student : Form
+    public partial class frmStudent : Form
     {
         private StudentRepository _studentRepository;
 
-        public Student()
+        public frmStudent()
         {
             InitializeComponent();
             _studentRepository = new StudentRepository(Properties.Settings.Default.STU_DBConnectionString);

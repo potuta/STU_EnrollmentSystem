@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class Teacher
+    partial class frmTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             System.Windows.Forms.Label teacherCodeLabel;
             System.Windows.Forms.Label sectionCodeLabel;
             System.Windows.Forms.Label subjectCodeLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Teacher));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeacher));
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.generateTeacherCodeButton = new System.Windows.Forms.Button();
             this.subjectCodeComboBox = new System.Windows.Forms.ComboBox();

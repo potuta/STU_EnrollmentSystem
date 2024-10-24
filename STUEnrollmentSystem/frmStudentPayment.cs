@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class StudentPayment : Form
+    public partial class frmStudentPayment : Form
     {
         private StudentPaymentRepository _studentPaymentRepository;
 
-        public StudentPayment()
+        public frmStudentPayment()
         {
             InitializeComponent();
             _studentPaymentRepository = new StudentPaymentRepository(Properties.Settings.Default.STU_DBConnectionString);

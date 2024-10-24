@@ -1,7 +1,10 @@
-﻿using Spire.Pdf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,13 +13,12 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class PDFViewer : Form
+    public partial class frmImageViewer : Form
     {
-        public PDFViewer(byte[] fileData)
+        public frmImageViewer(MemoryStream ms)
         {
             InitializeComponent();
-            MemoryStream ms = new MemoryStream(fileData);
-            pdfViewer1.LoadFromStream(ms);
+            pictureBox1.Image = Image.FromStream(ms);
         }
     }
 }

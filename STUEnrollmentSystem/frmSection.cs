@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class Section : Form
+    public partial class frmSection : Form
     {
         private SectionRepository _sectionRepository;
 
-        public Section()
+        public frmSection()
         {
             InitializeComponent();
             _sectionRepository = new SectionRepository(Properties.Settings.Default.STU_DBConnectionString);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class Users : Form
+    public partial class frmUsers : Form
     {
-        public Users()
+        public frmUsers()
         {
             InitializeComponent();
         }

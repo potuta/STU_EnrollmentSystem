@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class Student
+    partial class frmPendingRequirements
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label sectionLabel;
             System.Windows.Forms.Label studentNumberLabel;
             System.Windows.Forms.Label transferCertificateLabel;
             System.Windows.Forms.Label goodMoralLabel;
@@ -52,9 +53,12 @@
             System.Windows.Forms.Label fatherLastNameLabel;
             System.Windows.Forms.Label fatherOccupationLabel;
             System.Windows.Forms.Label lRNLabel;
-            System.Windows.Forms.Label sectionLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Student));
-            this.detailsPanel = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingRequirements));
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sectionComboBox = new System.Windows.Forms.ComboBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
@@ -67,14 +71,36 @@
             this.label3 = new System.Windows.Forms.Label();
             this.installmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.enrollmentTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.gradeLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.enrollmentStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.studMidNameTextBox = new System.Windows.Forms.TextBox();
             this.studLastNameTextBox = new System.Windows.Forms.TextBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.contactNumTextBox = new System.Windows.Forms.TextBox();
+            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentsTableAdapter();
+            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
             this.motherFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.motherLastNameTextBox = new System.Windows.Forms.TextBox();
             this.motherOccupationTextBox = new System.Windows.Forms.TextBox();
@@ -82,30 +108,13 @@
             this.fatherLastNameTextBox = new System.Windows.Forms.TextBox();
             this.fatherOccupationTextBox = new System.Windows.Forms.TextBox();
             this.lRNTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.deleteFrm137Button = new System.Windows.Forms.Button();
             this.genStudNumTextBox = new System.Windows.Forms.TextBox();
             this.uploadBirthCertButton = new System.Windows.Forms.Button();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.uploadTransferCertButton = new System.Windows.Forms.Button();
-            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.uploadFrm137Button = new System.Windows.Forms.Button();
-            this.viewFrm137Button = new System.Windows.Forms.Button();
-            this.studForm137TextBox = new System.Windows.Forms.TextBox();
-            this.viewBirthCertButton = new System.Windows.Forms.Button();
-            this.uploadGoodMoralButton = new System.Windows.Forms.Button();
-            this.viewTransferCertButton = new System.Windows.Forms.Button();
-            this.viewGoodMoralButton = new System.Windows.Forms.Button();
-            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
-            this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.birthDateTextBox = new System.Windows.Forms.TextBox();
-            this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sectionsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.showSearchButton = new System.Windows.Forms.Button();
-            this.searchPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.studentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentsTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.studentsDataGridView = new System.Windows.Forms.DataGridView();
             this.studentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -120,36 +129,25 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorTotalStudentsItem = new System.Windows.Forms.ToolStripButton();
-            this.studentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
-            this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingNavigatorUpdateRequirementsItem = new System.Windows.Forms.ToolStripButton();
+            this.detailsPanel = new System.Windows.Forms.Panel();
+            this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.birthDateTextBox = new System.Windows.Forms.TextBox();
+            this.uploadFrm137Button = new System.Windows.Forms.Button();
+            this.viewFrm137Button = new System.Windows.Forms.Button();
+            this.studForm137TextBox = new System.Windows.Forms.TextBox();
+            this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
+            this.viewBirthCertButton = new System.Windows.Forms.Button();
+            this.uploadGoodMoralButton = new System.Windows.Forms.Button();
+            this.viewGoodMoralButton = new System.Windows.Forms.Button();
+            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
+            this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
+            this.viewTransferCertButton = new System.Windows.Forms.Button();
+            this.showSearchButton = new System.Windows.Forms.Button();
+            this.searchPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            sectionLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -173,19 +171,25 @@
             fatherLastNameLabel = new System.Windows.Forms.Label();
             fatherOccupationLabel = new System.Windows.Forms.Label();
             lRNLabel = new System.Windows.Forms.Label();
-            sectionLabel = new System.Windows.Forms.Label();
-            this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gradeLevelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).BeginInit();
-            this.searchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingNavigator)).BeginInit();
             this.studentsBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.detailsPanel.SuspendLayout();
+            this.searchPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // sectionLabel
+            // 
+            sectionLabel.AutoSize = true;
+            sectionLabel.Location = new System.Drawing.Point(13, 223);
+            sectionLabel.Name = "sectionLabel";
+            sectionLabel.Size = new System.Drawing.Size(46, 13);
+            sectionLabel.TabIndex = 66;
+            sectionLabel.Text = "Section:";
             // 
             // studentNumberLabel
             // 
@@ -394,97 +398,52 @@
             lRNLabel.TabIndex = 37;
             lRNLabel.Text = "LRN:";
             // 
-            // sectionLabel
+            // dataGridViewImageColumn4
             // 
-            sectionLabel.AutoSize = true;
-            sectionLabel.Location = new System.Drawing.Point(13, 223);
-            sectionLabel.Name = "sectionLabel";
-            sectionLabel.Size = new System.Drawing.Size(46, 13);
-            sectionLabel.TabIndex = 66;
-            sectionLabel.Text = "Section:";
+            this.dataGridViewImageColumn4.DataPropertyName = "TransferCertificate";
+            this.dataGridViewImageColumn4.HeaderText = "TransferCertificate";
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // detailsPanel
+            // dataGridViewTextBoxColumn18
             // 
-            this.detailsPanel.AutoScroll = true;
-            this.detailsPanel.Controls.Add(this.sectionComboBox);
-            this.detailsPanel.Controls.Add(sectionLabel);
-            this.detailsPanel.Controls.Add(studentNumberLabel);
-            this.detailsPanel.Controls.Add(this.studentNumberTextBox);
-            this.detailsPanel.Controls.Add(this.civilStatusComboBox);
-            this.detailsPanel.Controls.Add(this.deleteTransferCertButton);
-            this.detailsPanel.Controls.Add(this.deleteGoodMoralButton);
-            this.detailsPanel.Controls.Add(this.deleteBirthCertButton);
-            this.detailsPanel.Controls.Add(this.label4);
-            this.detailsPanel.Controls.Add(this.label3);
-            this.detailsPanel.Controls.Add(transferCertificateLabel);
-            this.detailsPanel.Controls.Add(goodMoralLabel);
-            this.detailsPanel.Controls.Add(birthCertificateLabel);
-            this.detailsPanel.Controls.Add(studForm137Label);
-            this.detailsPanel.Controls.Add(this.installmentTypeComboBox);
-            this.detailsPanel.Controls.Add(this.enrollmentTypeComboBox);
-            this.detailsPanel.Controls.Add(this.genderComboBox);
-            this.detailsPanel.Controls.Add(this.enrollmentStatusComboBox);
-            this.detailsPanel.Controls.Add(enrollmentStatusLabel);
-            this.detailsPanel.Controls.Add(studFirstNameLabel);
-            this.detailsPanel.Controls.Add(this.studFirstNameTextBox);
-            this.detailsPanel.Controls.Add(studMidNameLabel);
-            this.detailsPanel.Controls.Add(this.studMidNameTextBox);
-            this.detailsPanel.Controls.Add(studLastNameLabel);
-            this.detailsPanel.Controls.Add(this.studLastNameTextBox);
-            this.detailsPanel.Controls.Add(genderLabel);
-            this.detailsPanel.Controls.Add(birthDateLabel);
-            this.detailsPanel.Controls.Add(civilStatusLabel);
-            this.detailsPanel.Controls.Add(addressLabel);
-            this.detailsPanel.Controls.Add(this.addressTextBox);
-            this.detailsPanel.Controls.Add(contactNumLabel);
-            this.detailsPanel.Controls.Add(this.contactNumTextBox);
-            this.detailsPanel.Controls.Add(enrollmentTypeLabel);
-            this.detailsPanel.Controls.Add(installmentTypeLabel);
-            this.detailsPanel.Controls.Add(motherFirstNameLabel);
-            this.detailsPanel.Controls.Add(this.motherFirstNameTextBox);
-            this.detailsPanel.Controls.Add(motherLastNameLabel);
-            this.detailsPanel.Controls.Add(this.motherLastNameTextBox);
-            this.detailsPanel.Controls.Add(motherOccupationLabel);
-            this.detailsPanel.Controls.Add(this.motherOccupationTextBox);
-            this.detailsPanel.Controls.Add(fatherFirstNameLabel);
-            this.detailsPanel.Controls.Add(this.fatherFirstNameTextBox);
-            this.detailsPanel.Controls.Add(fatherLastNameLabel);
-            this.detailsPanel.Controls.Add(this.fatherLastNameTextBox);
-            this.detailsPanel.Controls.Add(fatherOccupationLabel);
-            this.detailsPanel.Controls.Add(this.fatherOccupationTextBox);
-            this.detailsPanel.Controls.Add(lRNLabel);
-            this.detailsPanel.Controls.Add(this.lRNTextBox);
-            this.detailsPanel.Controls.Add(this.label1);
-            this.detailsPanel.Controls.Add(this.deleteFrm137Button);
-            this.detailsPanel.Controls.Add(this.genStudNumTextBox);
-            this.detailsPanel.Controls.Add(this.uploadBirthCertButton);
-            this.detailsPanel.Controls.Add(this.uploadTransferCertButton);
-            this.detailsPanel.Controls.Add(this.birthCertificateTextBox);
-            this.detailsPanel.Controls.Add(this.transferCertificateTextBox);
-            this.detailsPanel.Controls.Add(this.uploadFrm137Button);
-            this.detailsPanel.Controls.Add(this.viewFrm137Button);
-            this.detailsPanel.Controls.Add(this.studForm137TextBox);
-            this.detailsPanel.Controls.Add(this.viewBirthCertButton);
-            this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
-            this.detailsPanel.Controls.Add(this.viewTransferCertButton);
-            this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
-            this.detailsPanel.Controls.Add(this.goodMoralTextBox);
-            this.detailsPanel.Controls.Add(this.birthDateTimePicker);
-            this.detailsPanel.Controls.Add(this.birthDateTextBox);
-            this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
-            this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1434, 282);
-            this.detailsPanel.TabIndex = 9;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "FatherLastName";
+            this.dataGridViewTextBoxColumn18.HeaderText = "FatherLastName";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "FatherOccupation";
+            this.dataGridViewTextBoxColumn19.HeaderText = "FatherOccupation";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "StudForm137";
+            this.dataGridViewImageColumn1.HeaderText = "StudForm137";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "LRN";
+            this.dataGridViewTextBoxColumn20.HeaderText = "LRN";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             // 
             // sectionComboBox
             // 
             this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
+            this.sectionComboBox.DataSource = this.sectionsBindingSource;
+            this.sectionComboBox.DisplayMember = "SectionTitle";
+            this.sectionComboBox.Enabled = false;
             this.sectionComboBox.FormattingEnabled = true;
             this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
             this.sectionComboBox.Name = "sectionComboBox";
             this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
             this.sectionComboBox.TabIndex = 68;
+            this.sectionComboBox.ValueMember = "SectionCode";
             // 
             // studentsBindingSource
             // 
@@ -499,6 +458,7 @@
             // studentNumberTextBox
             // 
             this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudentNumber", true));
+            this.studentNumberTextBox.Enabled = false;
             this.studentNumberTextBox.Location = new System.Drawing.Point(120, 64);
             this.studentNumberTextBox.Name = "studentNumberTextBox";
             this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
@@ -507,6 +467,7 @@
             // civilStatusComboBox
             // 
             this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "CivilStatus", true));
+            this.civilStatusComboBox.Enabled = false;
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
             "Single",
@@ -572,6 +533,7 @@
             // installmentTypeComboBox
             // 
             this.installmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "PaymentType", true));
+            this.installmentTypeComboBox.Enabled = false;
             this.installmentTypeComboBox.FormattingEnabled = true;
             this.installmentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
@@ -584,23 +546,22 @@
             // enrollmentTypeComboBox
             // 
             this.enrollmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "EnrollmentType", true));
-            this.enrollmentTypeComboBox.DataSource = this.gradeLevelBindingSource;
-            this.enrollmentTypeComboBox.DisplayMember = "GradeLevel";
+            this.enrollmentTypeComboBox.Enabled = false;
             this.enrollmentTypeComboBox.FormattingEnabled = true;
+            this.enrollmentTypeComboBox.Items.AddRange(new object[] {
+            "Grade 7",
+            "Grade 8",
+            "Grade 9",
+            "Grade 10"});
             this.enrollmentTypeComboBox.Location = new System.Drawing.Point(375, 167);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 42;
-            this.enrollmentTypeComboBox.ValueMember = "GradeCode";
-            // 
-            // gradeLevelBindingSource
-            // 
-            this.gradeLevelBindingSource.DataMember = "GradeLevel";
-            this.gradeLevelBindingSource.DataSource = this.sTU_DBDataSet;
             // 
             // genderComboBox
             // 
             this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Gender", true));
+            this.genderComboBox.Enabled = false;
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
@@ -613,6 +574,7 @@
             // enrollmentStatusComboBox
             // 
             this.enrollmentStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "EnrollmentStatus", true));
+            this.enrollmentStatusComboBox.Enabled = false;
             this.enrollmentStatusComboBox.FormattingEnabled = true;
             this.enrollmentStatusComboBox.Items.AddRange(new object[] {
             "OLD",
@@ -623,9 +585,154 @@
             this.enrollmentStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentStatusComboBox.TabIndex = 40;
             // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.DataPropertyName = "BirthCertificate";
+            this.dataGridViewImageColumn2.HeaderText = "BirthCertificate";
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.DataPropertyName = "GoodMoral";
+            this.dataGridViewImageColumn3.HeaderText = "GoodMoral";
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "FatherFirstName";
+            this.dataGridViewTextBoxColumn17.HeaderText = "FatherFirstName";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "MotherOccupation";
+            this.dataGridViewTextBoxColumn16.HeaderText = "MotherOccupation";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // Section
+            // 
+            this.Section.DataPropertyName = "Section";
+            this.Section.HeaderText = "Section";
+            this.Section.Name = "Section";
+            this.Section.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Section.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentNumber";
+            this.dataGridViewTextBoxColumn2.HeaderText = "StudentNumber";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "StudFirstName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "StudFirstName";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "StudMidName";
+            this.dataGridViewTextBoxColumn4.HeaderText = "StudMidName";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "StudLastName";
+            this.dataGridViewTextBoxColumn5.HeaderText = "StudLastName";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Gender";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn6.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "BirthDate";
+            this.dataGridViewTextBoxColumn7.HeaderText = "BirthDate";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
+            this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
+            this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
+            "Single",
+            "Married",
+            "Separated",
+            "Divorced",
+            "Widowed"});
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ContactNum";
+            this.dataGridViewTextBoxColumn10.HeaderText = "ContactNum";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "EnrollmentStatus";
+            this.dataGridViewTextBoxColumn11.HeaderText = "EnrollmentStatus";
+            this.dataGridViewTextBoxColumn11.Items.AddRange(new object[] {
+            "OLD",
+            "NEW",
+            "TRANSFEREE"});
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "EnrollmentType";
+            this.dataGridViewTextBoxColumn12.HeaderText = "EnrollmentType";
+            this.dataGridViewTextBoxColumn12.Items.AddRange(new object[] {
+            "Grade 7",
+            "Grade 8",
+            "Grade 9",
+            "Grade 10"});
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "MotherLastName";
+            this.dataGridViewTextBoxColumn15.HeaderText = "MotherLastName";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherFirstName";
+            this.dataGridViewTextBoxColumn14.HeaderText = "MotherFirstName";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
             // studFirstNameTextBox
             // 
             this.studFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudFirstName", true));
+            this.studFirstNameTextBox.Enabled = false;
             this.studFirstNameTextBox.Location = new System.Drawing.Point(120, 115);
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -634,6 +741,7 @@
             // studMidNameTextBox
             // 
             this.studMidNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudMidName", true));
+            this.studMidNameTextBox.Enabled = false;
             this.studMidNameTextBox.Location = new System.Drawing.Point(120, 141);
             this.studMidNameTextBox.Name = "studMidNameTextBox";
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -642,6 +750,7 @@
             // studLastNameTextBox
             // 
             this.studLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudLastName", true));
+            this.studLastNameTextBox.Enabled = false;
             this.studLastNameTextBox.Location = new System.Drawing.Point(120, 167);
             this.studLastNameTextBox.Name = "studLastNameTextBox";
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -650,6 +759,7 @@
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Address", true));
+            this.addressTextBox.Enabled = false;
             this.addressTextBox.Location = new System.Drawing.Point(375, 116);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
@@ -658,14 +768,34 @@
             // contactNumTextBox
             // 
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "ContactNum", true));
+            this.contactNumTextBox.Enabled = false;
             this.contactNumTextBox.Location = new System.Drawing.Point(375, 142);
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
             // 
+            // sectionsBindingSource
+            // 
+            this.sectionsBindingSource.DataMember = "Sections";
+            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sectionsBindingSource1
+            // 
+            this.sectionsBindingSource1.DataMember = "Sections";
+            this.sectionsBindingSource1.DataSource = this.sTU_DBDataSet;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // sectionsTableAdapter
+            // 
+            this.sectionsTableAdapter.ClearBeforeFill = true;
+            // 
             // motherFirstNameTextBox
             // 
             this.motherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "MotherFirstName", true));
+            this.motherFirstNameTextBox.Enabled = false;
             this.motherFirstNameTextBox.Location = new System.Drawing.Point(628, 64);
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -674,6 +804,7 @@
             // motherLastNameTextBox
             // 
             this.motherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "MotherLastName", true));
+            this.motherLastNameTextBox.Enabled = false;
             this.motherLastNameTextBox.Location = new System.Drawing.Point(628, 90);
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -682,6 +813,7 @@
             // motherOccupationTextBox
             // 
             this.motherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "MotherOccupation", true));
+            this.motherOccupationTextBox.Enabled = false;
             this.motherOccupationTextBox.Location = new System.Drawing.Point(628, 116);
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
@@ -690,6 +822,7 @@
             // fatherFirstNameTextBox
             // 
             this.fatherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "FatherFirstName", true));
+            this.fatherFirstNameTextBox.Enabled = false;
             this.fatherFirstNameTextBox.Location = new System.Drawing.Point(628, 142);
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -698,6 +831,7 @@
             // fatherLastNameTextBox
             // 
             this.fatherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "FatherLastName", true));
+            this.fatherLastNameTextBox.Enabled = false;
             this.fatherLastNameTextBox.Location = new System.Drawing.Point(628, 168);
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -706,6 +840,7 @@
             // fatherOccupationTextBox
             // 
             this.fatherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "FatherOccupation", true));
+            this.fatherOccupationTextBox.Enabled = false;
             this.fatherOccupationTextBox.Location = new System.Drawing.Point(628, 194);
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
@@ -718,16 +853,6 @@
             this.lRNTextBox.Name = "lRNTextBox";
             this.lRNTextBox.Size = new System.Drawing.Size(100, 20);
             this.lRNTextBox.TabIndex = 38;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Student\'s Information";
             // 
             // deleteFrm137Button
             // 
@@ -756,6 +881,25 @@
             this.uploadBirthCertButton.UseVisualStyleBackColor = true;
             this.uploadBirthCertButton.Click += new System.EventHandler(this.uploadBirthCertButton_Click);
             // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Student\'s Information";
+            // 
             // uploadTransferCertButton
             // 
             this.uploadTransferCertButton.Location = new System.Drawing.Point(884, 166);
@@ -766,182 +910,42 @@
             this.uploadTransferCertButton.UseVisualStyleBackColor = true;
             this.uploadTransferCertButton.Click += new System.EventHandler(this.uploadTransferCertButton_Click);
             // 
-            // birthCertificateTextBox
+            // studentsDataGridView
             // 
-            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthCertificate", true));
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
-            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
-            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.birthCertificateTextBox.TabIndex = 45;
-            this.birthCertificateTextBox.Visible = false;
-            // 
-            // transferCertificateTextBox
-            // 
-            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "TransferCertificate", true));
-            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
-            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
-            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.transferCertificateTextBox.TabIndex = 47;
-            this.transferCertificateTextBox.Visible = false;
-            // 
-            // uploadFrm137Button
-            // 
-            this.uploadFrm137Button.Location = new System.Drawing.Point(884, 88);
-            this.uploadFrm137Button.Name = "uploadFrm137Button";
-            this.uploadFrm137Button.Size = new System.Drawing.Size(100, 23);
-            this.uploadFrm137Button.TabIndex = 53;
-            this.uploadFrm137Button.Text = "Upload File";
-            this.uploadFrm137Button.UseVisualStyleBackColor = true;
-            this.uploadFrm137Button.Click += new System.EventHandler(this.uploadFrm137Button_Click);
-            // 
-            // viewFrm137Button
-            // 
-            this.viewFrm137Button.Location = new System.Drawing.Point(884, 88);
-            this.viewFrm137Button.Name = "viewFrm137Button";
-            this.viewFrm137Button.Size = new System.Drawing.Size(100, 23);
-            this.viewFrm137Button.TabIndex = 51;
-            this.viewFrm137Button.Text = "View File";
-            this.viewFrm137Button.UseVisualStyleBackColor = true;
-            this.viewFrm137Button.Click += new System.EventHandler(this.viewFrm137Button_Click);
-            // 
-            // studForm137TextBox
-            // 
-            this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudForm137", true));
-            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
-            this.studForm137TextBox.Name = "studForm137TextBox";
-            this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
-            this.studForm137TextBox.TabIndex = 44;
-            this.studForm137TextBox.Visible = false;
-            // 
-            // viewBirthCertButton
-            // 
-            this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
-            this.viewBirthCertButton.Name = "viewBirthCertButton";
-            this.viewBirthCertButton.Size = new System.Drawing.Size(100, 23);
-            this.viewBirthCertButton.TabIndex = 55;
-            this.viewBirthCertButton.Text = "View File";
-            this.viewBirthCertButton.UseVisualStyleBackColor = true;
-            this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
-            // 
-            // uploadGoodMoralButton
-            // 
-            this.uploadGoodMoralButton.Location = new System.Drawing.Point(884, 142);
-            this.uploadGoodMoralButton.Name = "uploadGoodMoralButton";
-            this.uploadGoodMoralButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadGoodMoralButton.TabIndex = 59;
-            this.uploadGoodMoralButton.Text = "Upload File";
-            this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
-            this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
-            // 
-            // viewTransferCertButton
-            // 
-            this.viewTransferCertButton.Location = new System.Drawing.Point(884, 166);
-            this.viewTransferCertButton.Name = "viewTransferCertButton";
-            this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
-            this.viewTransferCertButton.TabIndex = 62;
-            this.viewTransferCertButton.Text = "View File";
-            this.viewTransferCertButton.UseVisualStyleBackColor = true;
-            this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
-            // 
-            // viewGoodMoralButton
-            // 
-            this.viewGoodMoralButton.Location = new System.Drawing.Point(884, 142);
-            this.viewGoodMoralButton.Name = "viewGoodMoralButton";
-            this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
-            this.viewGoodMoralButton.TabIndex = 57;
-            this.viewGoodMoralButton.Text = "View File";
-            this.viewGoodMoralButton.UseVisualStyleBackColor = true;
-            this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
-            // 
-            // goodMoralTextBox
-            // 
-            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "GoodMoral", true));
-            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
-            this.goodMoralTextBox.Name = "goodMoralTextBox";
-            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
-            this.goodMoralTextBox.TabIndex = 46;
-            this.goodMoralTextBox.Visible = false;
-            // 
-            // birthDateTimePicker
-            // 
-            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(375, 64);
-            this.birthDateTimePicker.Name = "birthDateTimePicker";
-            this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
-            this.birthDateTimePicker.TabIndex = 50;
-            // 
-            // birthDateTextBox
-            // 
-            this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthDate", true));
-            this.birthDateTextBox.Location = new System.Drawing.Point(375, 64);
-            this.birthDateTextBox.Name = "birthDateTextBox";
-            this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
-            this.birthDateTextBox.TabIndex = 14;
-            // 
-            // sectionsBindingSource
-            // 
-            this.sectionsBindingSource.DataMember = "Sections";
-            this.sectionsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sectionsBindingSource1
-            // 
-            this.sectionsBindingSource1.DataMember = "Sections";
-            this.sectionsBindingSource1.DataSource = this.sTU_DBDataSet;
-            // 
-            // showSearchButton
-            // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
-            this.showSearchButton.Name = "showSearchButton";
-            this.showSearchButton.Size = new System.Drawing.Size(1434, 27);
-            this.showSearchButton.TabIndex = 8;
-            this.showSearchButton.Text = "Search ▼";
-            this.showSearchButton.UseVisualStyleBackColor = false;
-            this.showSearchButton.Click += new System.EventHandler(this.showSearchButton_Click);
-            // 
-            // searchPanel
-            // 
-            this.searchPanel.AutoScroll = true;
-            this.searchPanel.Controls.Add(this.label2);
-            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchPanel.Location = new System.Drawing.Point(0, 0);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1434, 117);
-            this.searchPanel.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Search:";
-            // 
-            // studentsTableAdapter
-            // 
-            this.studentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = null;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = this.studentsTableAdapter;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
+            this.studentsDataGridView.AutoGenerateColumns = false;
+            this.studentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.Section,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.PaymentType,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewImageColumn1,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewImageColumn2,
+            this.dataGridViewImageColumn3,
+            this.dataGridViewImageColumn4});
+            this.studentsDataGridView.DataSource = this.studentsBindingSource;
+            this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studentsDataGridView.Location = new System.Drawing.Point(0, 451);
+            this.studentsDataGridView.Name = "studentsDataGridView";
+            this.studentsDataGridView.Size = new System.Drawing.Size(1298, 362);
+            this.studentsDataGridView.TabIndex = 14;
+            this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
             // studentsBindingNavigator
             // 
@@ -963,7 +967,7 @@
             this.bindingNavigatorDeleteItem,
             this.studentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
-            this.bindingNavigatorTotalStudentsItem});
+            this.bindingNavigatorUpdateRequirementsItem});
             this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 426);
             this.studentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -971,8 +975,8 @@
             this.studentsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.studentsBindingNavigator.Name = "studentsBindingNavigator";
             this.studentsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.studentsBindingNavigator.Size = new System.Drawing.Size(1434, 25);
-            this.studentsBindingNavigator.TabIndex = 10;
+            this.studentsBindingNavigator.Size = new System.Drawing.Size(1298, 25);
+            this.studentsBindingNavigator.TabIndex = 15;
             this.studentsBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
@@ -1027,6 +1031,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -1079,288 +1084,277 @@
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
-            // bindingNavigatorTotalStudentsItem
+            // bindingNavigatorUpdateRequirementsItem
             // 
-            this.bindingNavigatorTotalStudentsItem.CheckOnClick = true;
-            this.bindingNavigatorTotalStudentsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorTotalStudentsItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorTotalStudentsItem.Image")));
-            this.bindingNavigatorTotalStudentsItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bindingNavigatorTotalStudentsItem.Name = "bindingNavigatorTotalStudentsItem";
-            this.bindingNavigatorTotalStudentsItem.Size = new System.Drawing.Size(85, 22);
-            this.bindingNavigatorTotalStudentsItem.Text = "Total Students";
-            this.bindingNavigatorTotalStudentsItem.Click += new System.EventHandler(this.bindingNavigatorTotalStudentsItem_Click);
+            this.bindingNavigatorUpdateRequirementsItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bindingNavigatorUpdateRequirementsItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorUpdateRequirementsItem.Image")));
+            this.bindingNavigatorUpdateRequirementsItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorUpdateRequirementsItem.Name = "bindingNavigatorUpdateRequirementsItem";
+            this.bindingNavigatorUpdateRequirementsItem.Size = new System.Drawing.Size(169, 22);
+            this.bindingNavigatorUpdateRequirementsItem.Text = "Update Student Requirements";
+            this.bindingNavigatorUpdateRequirementsItem.Click += new System.EventHandler(this.bindingNavigatorUpdateRequirementsItem_Click);
             // 
-            // studentsDataGridView
+            // detailsPanel
             // 
-            this.studentsDataGridView.AutoGenerateColumns = false;
-            this.studentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.studentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.Section,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.PaymentType,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewImageColumn2,
-            this.dataGridViewImageColumn3,
-            this.dataGridViewImageColumn4});
-            this.studentsDataGridView.DataSource = this.studentsBindingSource;
-            this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.studentsDataGridView.Location = new System.Drawing.Point(0, 451);
-            this.studentsDataGridView.Name = "studentsDataGridView";
-            this.studentsDataGridView.Size = new System.Drawing.Size(1434, 362);
-            this.studentsDataGridView.TabIndex = 10;
-            this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
+            this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.sectionComboBox);
+            this.detailsPanel.Controls.Add(sectionLabel);
+            this.detailsPanel.Controls.Add(studentNumberLabel);
+            this.detailsPanel.Controls.Add(this.studentNumberTextBox);
+            this.detailsPanel.Controls.Add(this.civilStatusComboBox);
+            this.detailsPanel.Controls.Add(this.deleteTransferCertButton);
+            this.detailsPanel.Controls.Add(this.deleteGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.deleteBirthCertButton);
+            this.detailsPanel.Controls.Add(this.label4);
+            this.detailsPanel.Controls.Add(this.label3);
+            this.detailsPanel.Controls.Add(transferCertificateLabel);
+            this.detailsPanel.Controls.Add(goodMoralLabel);
+            this.detailsPanel.Controls.Add(birthCertificateLabel);
+            this.detailsPanel.Controls.Add(studForm137Label);
+            this.detailsPanel.Controls.Add(this.installmentTypeComboBox);
+            this.detailsPanel.Controls.Add(this.enrollmentTypeComboBox);
+            this.detailsPanel.Controls.Add(this.genderComboBox);
+            this.detailsPanel.Controls.Add(this.enrollmentStatusComboBox);
+            this.detailsPanel.Controls.Add(enrollmentStatusLabel);
+            this.detailsPanel.Controls.Add(studFirstNameLabel);
+            this.detailsPanel.Controls.Add(this.studFirstNameTextBox);
+            this.detailsPanel.Controls.Add(studMidNameLabel);
+            this.detailsPanel.Controls.Add(this.studMidNameTextBox);
+            this.detailsPanel.Controls.Add(studLastNameLabel);
+            this.detailsPanel.Controls.Add(this.studLastNameTextBox);
+            this.detailsPanel.Controls.Add(genderLabel);
+            this.detailsPanel.Controls.Add(birthDateLabel);
+            this.detailsPanel.Controls.Add(civilStatusLabel);
+            this.detailsPanel.Controls.Add(addressLabel);
+            this.detailsPanel.Controls.Add(this.addressTextBox);
+            this.detailsPanel.Controls.Add(contactNumLabel);
+            this.detailsPanel.Controls.Add(this.contactNumTextBox);
+            this.detailsPanel.Controls.Add(enrollmentTypeLabel);
+            this.detailsPanel.Controls.Add(installmentTypeLabel);
+            this.detailsPanel.Controls.Add(motherFirstNameLabel);
+            this.detailsPanel.Controls.Add(this.motherFirstNameTextBox);
+            this.detailsPanel.Controls.Add(motherLastNameLabel);
+            this.detailsPanel.Controls.Add(this.motherLastNameTextBox);
+            this.detailsPanel.Controls.Add(motherOccupationLabel);
+            this.detailsPanel.Controls.Add(this.motherOccupationTextBox);
+            this.detailsPanel.Controls.Add(fatherFirstNameLabel);
+            this.detailsPanel.Controls.Add(this.fatherFirstNameTextBox);
+            this.detailsPanel.Controls.Add(fatherLastNameLabel);
+            this.detailsPanel.Controls.Add(this.fatherLastNameTextBox);
+            this.detailsPanel.Controls.Add(fatherOccupationLabel);
+            this.detailsPanel.Controls.Add(this.fatherOccupationTextBox);
+            this.detailsPanel.Controls.Add(lRNLabel);
+            this.detailsPanel.Controls.Add(this.lRNTextBox);
+            this.detailsPanel.Controls.Add(this.label1);
+            this.detailsPanel.Controls.Add(this.deleteFrm137Button);
+            this.detailsPanel.Controls.Add(this.genStudNumTextBox);
+            this.detailsPanel.Controls.Add(this.birthDateTimePicker);
+            this.detailsPanel.Controls.Add(this.birthDateTextBox);
+            this.detailsPanel.Controls.Add(this.uploadFrm137Button);
+            this.detailsPanel.Controls.Add(this.viewFrm137Button);
+            this.detailsPanel.Controls.Add(this.studForm137TextBox);
+            this.detailsPanel.Controls.Add(this.uploadBirthCertButton);
+            this.detailsPanel.Controls.Add(this.birthCertificateTextBox);
+            this.detailsPanel.Controls.Add(this.viewBirthCertButton);
+            this.detailsPanel.Controls.Add(this.uploadGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.viewGoodMoralButton);
+            this.detailsPanel.Controls.Add(this.goodMoralTextBox);
+            this.detailsPanel.Controls.Add(this.uploadTransferCertButton);
+            this.detailsPanel.Controls.Add(this.transferCertificateTextBox);
+            this.detailsPanel.Controls.Add(this.viewTransferCertButton);
+            this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Name = "detailsPanel";
+            this.detailsPanel.Size = new System.Drawing.Size(1298, 282);
+            this.detailsPanel.TabIndex = 13;
             // 
-            // dataGridViewTextBoxColumn2
+            // birthDateTimePicker
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentNumber";
-            this.dataGridViewTextBoxColumn2.HeaderText = "StudentNumber";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.birthDateTimePicker.Enabled = false;
+            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.birthDateTimePicker.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTimePicker.Name = "birthDateTimePicker";
+            this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
+            this.birthDateTimePicker.TabIndex = 50;
             // 
-            // dataGridViewTextBoxColumn3
+            // birthDateTextBox
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "StudFirstName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "StudFirstName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthDate", true));
+            this.birthDateTextBox.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTextBox.Name = "birthDateTextBox";
+            this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.birthDateTextBox.TabIndex = 14;
             // 
-            // dataGridViewTextBoxColumn4
+            // uploadFrm137Button
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "StudMidName";
-            this.dataGridViewTextBoxColumn4.HeaderText = "StudMidName";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.uploadFrm137Button.Location = new System.Drawing.Point(884, 88);
+            this.uploadFrm137Button.Name = "uploadFrm137Button";
+            this.uploadFrm137Button.Size = new System.Drawing.Size(100, 23);
+            this.uploadFrm137Button.TabIndex = 53;
+            this.uploadFrm137Button.Text = "Upload File";
+            this.uploadFrm137Button.UseVisualStyleBackColor = true;
+            this.uploadFrm137Button.Click += new System.EventHandler(this.uploadFrm137Button_Click);
             // 
-            // dataGridViewTextBoxColumn5
+            // viewFrm137Button
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "StudLastName";
-            this.dataGridViewTextBoxColumn5.HeaderText = "StudLastName";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.viewFrm137Button.Location = new System.Drawing.Point(884, 88);
+            this.viewFrm137Button.Name = "viewFrm137Button";
+            this.viewFrm137Button.Size = new System.Drawing.Size(100, 23);
+            this.viewFrm137Button.TabIndex = 51;
+            this.viewFrm137Button.Text = "View File";
+            this.viewFrm137Button.UseVisualStyleBackColor = true;
+            this.viewFrm137Button.Click += new System.EventHandler(this.viewFrm137Button_Click);
             // 
-            // dataGridViewTextBoxColumn6
+            // studForm137TextBox
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Gender";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Gender";
-            this.dataGridViewTextBoxColumn6.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.studForm137TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudForm137", true));
+            this.studForm137TextBox.Location = new System.Drawing.Point(884, 90);
+            this.studForm137TextBox.Name = "studForm137TextBox";
+            this.studForm137TextBox.Size = new System.Drawing.Size(100, 20);
+            this.studForm137TextBox.TabIndex = 44;
+            this.studForm137TextBox.Visible = false;
             // 
-            // dataGridViewTextBoxColumn7
+            // birthCertificateTextBox
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "BirthDate";
-            this.dataGridViewTextBoxColumn7.HeaderText = "BirthDate";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.birthCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthCertificate", true));
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(884, 116);
+            this.birthCertificateTextBox.Name = "birthCertificateTextBox";
+            this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.birthCertificateTextBox.TabIndex = 45;
+            this.birthCertificateTextBox.Visible = false;
             // 
-            // Section
+            // viewBirthCertButton
             // 
-            this.Section.DataPropertyName = "Section";
-            this.Section.HeaderText = "Section";
-            this.Section.Name = "Section";
-            this.Section.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Section.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.viewBirthCertButton.Location = new System.Drawing.Point(884, 116);
+            this.viewBirthCertButton.Name = "viewBirthCertButton";
+            this.viewBirthCertButton.Size = new System.Drawing.Size(100, 23);
+            this.viewBirthCertButton.TabIndex = 55;
+            this.viewBirthCertButton.Text = "View File";
+            this.viewBirthCertButton.UseVisualStyleBackColor = true;
+            this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
             // 
-            // dataGridViewTextBoxColumn8
+            // uploadGoodMoralButton
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
-            this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
-            this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.uploadGoodMoralButton.Location = new System.Drawing.Point(884, 142);
+            this.uploadGoodMoralButton.Name = "uploadGoodMoralButton";
+            this.uploadGoodMoralButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadGoodMoralButton.TabIndex = 59;
+            this.uploadGoodMoralButton.Text = "Upload File";
+            this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
+            this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
             // 
-            // dataGridViewTextBoxColumn9
+            // viewGoodMoralButton
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.viewGoodMoralButton.Location = new System.Drawing.Point(884, 142);
+            this.viewGoodMoralButton.Name = "viewGoodMoralButton";
+            this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
+            this.viewGoodMoralButton.TabIndex = 57;
+            this.viewGoodMoralButton.Text = "View File";
+            this.viewGoodMoralButton.UseVisualStyleBackColor = true;
+            this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
             // 
-            // dataGridViewTextBoxColumn10
+            // goodMoralTextBox
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ContactNum";
-            this.dataGridViewTextBoxColumn10.HeaderText = "ContactNum";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "GoodMoral", true));
+            this.goodMoralTextBox.Location = new System.Drawing.Point(884, 142);
+            this.goodMoralTextBox.Name = "goodMoralTextBox";
+            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
+            this.goodMoralTextBox.TabIndex = 46;
+            this.goodMoralTextBox.Visible = false;
             // 
-            // dataGridViewTextBoxColumn11
+            // transferCertificateTextBox
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "EnrollmentStatus";
-            this.dataGridViewTextBoxColumn11.HeaderText = "EnrollmentStatus";
-            this.dataGridViewTextBoxColumn11.Items.AddRange(new object[] {
-            "OLD",
-            "NEW",
-            "TRANSFEREE"});
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.transferCertificateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "TransferCertificate", true));
+            this.transferCertificateTextBox.Location = new System.Drawing.Point(884, 167);
+            this.transferCertificateTextBox.Name = "transferCertificateTextBox";
+            this.transferCertificateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.transferCertificateTextBox.TabIndex = 47;
+            this.transferCertificateTextBox.Visible = false;
             // 
-            // dataGridViewTextBoxColumn12
+            // viewTransferCertButton
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "EnrollmentType";
-            this.dataGridViewTextBoxColumn12.HeaderText = "EnrollmentType";
-            this.dataGridViewTextBoxColumn12.Items.AddRange(new object[] {
-            "Grade 7",
-            "Grade 8",
-            "Grade 9",
-            "Grade 10"});
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.viewTransferCertButton.Location = new System.Drawing.Point(884, 166);
+            this.viewTransferCertButton.Name = "viewTransferCertButton";
+            this.viewTransferCertButton.Size = new System.Drawing.Size(100, 23);
+            this.viewTransferCertButton.TabIndex = 62;
+            this.viewTransferCertButton.Text = "View File";
+            this.viewTransferCertButton.UseVisualStyleBackColor = true;
+            this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
             // 
-            // PaymentType
+            // showSearchButton
             // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.PaymentType.Name = "PaymentType";
+            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Name = "showSearchButton";
+            this.showSearchButton.Size = new System.Drawing.Size(1298, 27);
+            this.showSearchButton.TabIndex = 12;
+            this.showSearchButton.Text = "Search ▼";
+            this.showSearchButton.UseVisualStyleBackColor = false;
+            this.showSearchButton.Click += new System.EventHandler(this.showSearchButton_Click);
             // 
-            // dataGridViewTextBoxColumn14
+            // searchPanel
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherFirstName";
-            this.dataGridViewTextBoxColumn14.HeaderText = "MotherFirstName";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.label2);
+            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchPanel.Location = new System.Drawing.Point(0, 0);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Size = new System.Drawing.Size(1298, 117);
+            this.searchPanel.TabIndex = 11;
             // 
-            // dataGridViewTextBoxColumn15
+            // label2
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "MotherLastName";
-            this.dataGridViewTextBoxColumn15.HeaderText = "MotherLastName";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 18);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Search:";
             // 
-            // dataGridViewTextBoxColumn16
+            // tableAdapterManager
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "MotherOccupation";
-            this.dataGridViewTextBoxColumn16.HeaderText = "MotherOccupation";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = this.studentsTableAdapter;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "FatherFirstName";
-            this.dataGridViewTextBoxColumn17.HeaderText = "FatherFirstName";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "FatherLastName";
-            this.dataGridViewTextBoxColumn18.HeaderText = "FatherLastName";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "FatherOccupation";
-            this.dataGridViewTextBoxColumn19.HeaderText = "FatherOccupation";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "StudForm137";
-            this.dataGridViewImageColumn1.HeaderText = "StudForm137";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "LRN";
-            this.dataGridViewTextBoxColumn20.HeaderText = "LRN";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.DataPropertyName = "BirthCertificate";
-            this.dataGridViewImageColumn2.HeaderText = "BirthCertificate";
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.DataPropertyName = "GoodMoral";
-            this.dataGridViewImageColumn3.HeaderText = "GoodMoral";
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.DataPropertyName = "TransferCertificate";
-            this.dataGridViewImageColumn4.HeaderText = "TransferCertificate";
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // sectionsTableAdapter
-            // 
-            this.sectionsTableAdapter.ClearBeforeFill = true;
-            // 
-            // gradeLevelTableAdapter
-            // 
-            this.gradeLevelTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 813);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1434, 362);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.Visible = false;
-            // 
-            // Student
+            // PendingRequirements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1451, 825);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1298, 829);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.studentsBindingNavigator);
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
             this.Controls.Add(this.searchPanel);
-            this.Name = "Student";
-            this.Text = "Student";
-            this.Load += new System.EventHandler(this.Student_Load);
-            this.detailsPanel.ResumeLayout(false);
-            this.detailsPanel.PerformLayout();
+            this.Name = "PendingRequirements";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PendingRequirements";
+            this.Load += new System.EventHandler(this.PendingRequirements_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gradeLevelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingSource1)).EndInit();
-            this.searchPanel.ResumeLayout(false);
-            this.searchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingNavigator)).EndInit();
             this.studentsBindingNavigator.ResumeLayout(false);
             this.studentsBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.detailsPanel.ResumeLayout(false);
+            this.detailsPanel.PerformLayout();
+            this.searchPanel.ResumeLayout(false);
+            this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1368,7 +1362,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel detailsPanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.ComboBox sectionComboBox;
+        private System.Windows.Forms.BindingSource studentsBindingSource;
+        private STU_DBDataSet sTU_DBDataSet;
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.ComboBox civilStatusComboBox;
         private System.Windows.Forms.Button deleteTransferCertButton;
@@ -1380,11 +1381,34 @@
         private System.Windows.Forms.ComboBox enrollmentTypeComboBox;
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.ComboBox enrollmentStatusComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Section;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.TextBox studFirstNameTextBox;
         private System.Windows.Forms.TextBox studMidNameTextBox;
         private System.Windows.Forms.TextBox studLastNameTextBox;
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TextBox contactNumTextBox;
+        private System.Windows.Forms.BindingSource sectionsBindingSource;
+        private System.Windows.Forms.BindingSource sectionsBindingSource1;
+        private STU_DBDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter;
+        private STU_DBDataSetTableAdapters.SectionsTableAdapter sectionsTableAdapter;
         private System.Windows.Forms.TextBox motherFirstNameTextBox;
         private System.Windows.Forms.TextBox motherLastNameTextBox;
         private System.Windows.Forms.TextBox motherOccupationTextBox;
@@ -1392,30 +1416,13 @@
         private System.Windows.Forms.TextBox fatherLastNameTextBox;
         private System.Windows.Forms.TextBox fatherOccupationTextBox;
         private System.Windows.Forms.TextBox lRNTextBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button deleteFrm137Button;
-        private System.Windows.Forms.Button viewFrm137Button;
-        private System.Windows.Forms.Button uploadBirthCertButton;
-        private System.Windows.Forms.Button viewGoodMoralButton;
-        private System.Windows.Forms.Button uploadTransferCertButton;
-        private System.Windows.Forms.TextBox studForm137TextBox;
-        private System.Windows.Forms.TextBox birthCertificateTextBox;
-        private System.Windows.Forms.TextBox goodMoralTextBox;
-        private System.Windows.Forms.TextBox transferCertificateTextBox;
-        private System.Windows.Forms.DateTimePicker birthDateTimePicker;
-        private System.Windows.Forms.TextBox birthDateTextBox;
         private System.Windows.Forms.TextBox genStudNumTextBox;
-        private System.Windows.Forms.Button uploadFrm137Button;
-        private System.Windows.Forms.Button viewBirthCertButton;
-        private System.Windows.Forms.Button uploadGoodMoralButton;
-        private System.Windows.Forms.Button viewTransferCertButton;
-        private System.Windows.Forms.Button showSearchButton;
-        private System.Windows.Forms.Panel searchPanel;
-        private System.Windows.Forms.Label label2;
-        private STU_DBDataSet sTU_DBDataSet;
-        private System.Windows.Forms.BindingSource studentsBindingSource;
-        private STU_DBDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter;
-        private STU_DBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Button uploadBirthCertButton;
+        private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button uploadTransferCertButton;
+        private System.Windows.Forms.DataGridView studentsDataGridView;
         private System.Windows.Forms.BindingNavigator studentsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -1429,41 +1436,24 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton studentsBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView studentsDataGridView;
         private System.Windows.Forms.ToolStripButton bindingNavigatorRefreshItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.BindingSource sectionsBindingSource;
-        private STU_DBDataSetTableAdapters.SectionsTableAdapter sectionsTableAdapter;
-        private System.Windows.Forms.ComboBox sectionComboBox;
-        private System.Windows.Forms.BindingSource sectionsBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.BindingSource gradeLevelBindingSource;
-        private STU_DBDataSetTableAdapters.GradeLevelTableAdapter gradeLevelTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Section;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorTotalStudentsItem;
+        private System.Windows.Forms.Panel detailsPanel;
+        private System.Windows.Forms.TextBox birthCertificateTextBox;
+        private System.Windows.Forms.TextBox transferCertificateTextBox;
+        private System.Windows.Forms.Button uploadFrm137Button;
+        private System.Windows.Forms.Button viewFrm137Button;
+        private System.Windows.Forms.TextBox studForm137TextBox;
+        private System.Windows.Forms.Button viewBirthCertButton;
+        private System.Windows.Forms.Button uploadGoodMoralButton;
+        private System.Windows.Forms.Button viewTransferCertButton;
+        private System.Windows.Forms.Button viewGoodMoralButton;
+        private System.Windows.Forms.TextBox goodMoralTextBox;
+        private System.Windows.Forms.DateTimePicker birthDateTimePicker;
+        private System.Windows.Forms.TextBox birthDateTextBox;
+        private System.Windows.Forms.Button showSearchButton;
+        private System.Windows.Forms.Panel searchPanel;
+        private System.Windows.Forms.Label label2;
+        private STU_DBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorUpdateRequirementsItem;
     }
 }

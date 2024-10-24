@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class Section
+    partial class frmSection
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             System.Windows.Forms.Label scheduleCodeLabel;
             System.Windows.Forms.Label capacityLabel;
             System.Windows.Forms.Label studCountLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Section));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSection));
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();

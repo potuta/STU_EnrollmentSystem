@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class Teacher : Form
+    public partial class frmTeacher : Form
     {
         private TeacherRepository _teacherRepository;
 
-        public Teacher()
+        public frmTeacher()
         {
             InitializeComponent();
             _teacherRepository = new TeacherRepository(Properties.Settings.Default.STU_DBConnectionString);

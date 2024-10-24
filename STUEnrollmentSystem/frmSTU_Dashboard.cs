@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class STU_Dashboard : Form
+    public partial class frmSTU_Dashboard : Form
     {
-        public STU_Dashboard()
+        public frmSTU_Dashboard()
         {
             InitializeComponent();
-            InitializeUserLoginRole(Login.Role);
-            MessageBox.Show("Welcome " + Login.Role + ": " + Login.Username);
+            InitializeUserLoginRole(frmLogin.Role);
+            MessageBox.Show("Welcome " + frmLogin.Role + ": " + frmLogin.Username);
         }
 
         private void STU_Dashboard_Load(object sender, EventArgs e)
@@ -25,8 +25,8 @@ namespace STUEnrollmentSystem
             studentSubPanel.Visible = false;
             cashierSubPanel.Visible = false;
             adminSubPanel.Visible = false;
-            userLabel.Text = "User: " + Login.Username;
-            roleLabel.Text = "Role: " + Login.Role;
+            userLabel.Text = "User: " + frmLogin.Username;
+            roleLabel.Text = "Role: " + frmLogin.Role;
         }
 
         private void hideSubpanel()
@@ -75,28 +75,28 @@ namespace STUEnrollmentSystem
         {
             if (role.Equals("Admin"))
             {
-                Login.Role = "Admin";
+                frmLogin.Role = "Admin";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = true;
             }
             else if (role.Equals("A"))
             {
-                Login.Role = "Admission";
+                frmLogin.Role = "Admission";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("C"))
             {
-                Login.Role = "Cashier";
+                frmLogin.Role = "Cashier";
                 studentButton.Enabled = false;
                 cashierButton.Enabled = true;
                 adminButton.Enabled = false;
             }
             else if (role.Equals("R")) 
             {
-                Login.Role = "Registrar";
+                frmLogin.Role = "Registrar";
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
@@ -105,7 +105,7 @@ namespace STUEnrollmentSystem
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
+            frmLogin login = new frmLogin();
             login.Show();
             this.Hide();
             this.Close();
@@ -129,42 +129,42 @@ namespace STUEnrollmentSystem
 
         private void registrationButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Registration());
+            openChildForm(new frmRegistration());
         }
 
         private void pendingButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new PendingStudents());
+            openChildForm(new frmPendingStudents());
         }
 
         private void manageStudentButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Student());
+            openChildForm(new frmStudent());
         }
 
         private void pendingRequirementsButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new PendingRequirements());
+            openChildForm(new frmPendingRequirements());
         }
 
         private void managePaymentButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new StudentPayment());
+            openChildForm(new frmStudentPayment());
         }
 
         private void sectionButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Section());
+            openChildForm(new frmSection());
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Users());
+            openChildForm(new frmUsers());
         }
 
         private void teacherButton_Click(object sender, EventArgs e)
         {
-            openChildForm(new Teacher());
+            openChildForm(new frmTeacher());
         }
     }
 }

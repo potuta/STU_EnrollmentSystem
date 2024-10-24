@@ -88,7 +88,7 @@ namespace STUEnrollmentSystem
             byte[] fileData = (byte[])command.ExecuteScalar();
             _connection.Close();
 
-            PDFViewer pdfViewer = new PDFViewer(fileData);
+            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
             pdfViewer.Show();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class STU_Dashboard
+    partial class frmSTU_Dashboard
     {
         /// <summary>
         /// Required designer variable.

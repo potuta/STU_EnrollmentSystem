@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class Registration
+    partial class frmRegistration
     {
         /// <summary>
         /// Required designer variable.
@@ -52,7 +52,7 @@
             System.Windows.Forms.Label birthCertificateLabel;
             System.Windows.Forms.Label goodMoralLabel;
             System.Windows.Forms.Label transferCertificateLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistration));
             this.registrationBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);

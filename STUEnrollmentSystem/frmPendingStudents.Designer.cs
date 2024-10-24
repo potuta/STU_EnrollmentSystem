@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class PendingStudents
+    partial class frmPendingStudents
     {
         /// <summary>
         /// Required designer variable.
@@ -55,7 +55,7 @@
             System.Windows.Forms.Label studentNumberLabel;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label paymentMethodLabel1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PendingStudents));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
             this.proofOfPaymentLabel = new System.Windows.Forms.Label();

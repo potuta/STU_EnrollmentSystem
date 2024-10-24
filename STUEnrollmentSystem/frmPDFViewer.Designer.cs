@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class PDFViewer
+    partial class frmPDFViewer
     {
         /// <summary>
         /// Required designer variable.

@@ -12,7 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace STUEnrollmentSystem
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
         public static string UserID {  get; set; }
         public static string Username { get; set; }
@@ -21,7 +21,7 @@ namespace STUEnrollmentSystem
         public static string Role { get; set; }
         private UsersRepository _usersRepository;
 
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
             _usersRepository = new UsersRepository(Properties.Settings.Default.STU_DBConnectionString);
@@ -35,7 +35,7 @@ namespace STUEnrollmentSystem
                 if (isUserVerified == true)
                 {
                     InitializeUserLoginInfo(userID, username, password);
-                    STU_Dashboard STU = new STU_Dashboard();
+                    frmSTU_Dashboard STU = new frmSTU_Dashboard();
                     STU.Show();
                     this.Hide();
                 }

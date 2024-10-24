@@ -1,6 +1,6 @@
 ﻿namespace STUEnrollmentSystem
 {
-    partial class ImageViewer
+    partial class frmImageViewer
     {
         /// <summary>
         /// Required designer variable.

@@ -15,11 +15,11 @@ using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
 {
-    public partial class PendingStudents : Form
+    public partial class frmPendingStudents : Form
     {
         private PendingStudentsRepository _pendingStudentsRepository;
 
-        public PendingStudents()
+        public frmPendingStudents()
         {
             InitializeComponent();
             _pendingStudentsRepository = new PendingStudentsRepository(Properties.Settings.Default.STU_DBConnectionString);

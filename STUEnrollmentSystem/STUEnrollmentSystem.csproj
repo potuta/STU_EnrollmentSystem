@@ -182,83 +182,77 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImageViewer.cs">
+    <Compile Include="frmImageViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImageViewer.Designer.cs">
-      <DependentUpon>ImageViewer.cs</DependentUpon>
+    <Compile Include="frmImageViewer.Designer.cs">
+      <DependentUpon>frmImageViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="PDFReceipt.cs">
+    <Compile Include="frmPDFReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDFReceipt.Designer.cs">
-      <DependentUpon>PDFReceipt.cs</DependentUpon>
+    <Compile Include="frmPDFReceipt.Designer.cs">
+      <DependentUpon>frmPDFReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="PDFViewer.cs">
+    <Compile Include="frmPDFViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PDFViewer.Designer.cs">
-      <DependentUpon>PDFViewer.cs</DependentUpon>
+    <Compile Include="frmPDFViewer.Designer.cs">
+      <DependentUpon>frmPDFViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="PendingRequirements.cs">
+    <Compile Include="frmPendingRequirements.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PendingRequirements.Designer.cs">
-      <DependentUpon>PendingRequirements.cs</DependentUpon>
+    <Compile Include="frmPendingRequirements.Designer.cs">
+      <DependentUpon>frmPendingRequirements.cs</DependentUpon>
     </Compile>
-    <Compile Include="PendingStudents.cs">
+    <Compile Include="frmPendingStudents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PendingStudents.Designer.cs">
-      <DependentUpon>PendingStudents.cs</DependentUpon>
+    <Compile Include="frmPendingStudents.Designer.cs">
+      <DependentUpon>frmPendingStudents.cs</DependentUpon>
     </Compile>
     <Compile Include="PendingStudentsRepository.cs" />
-    <Compile Include="Prices.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Prices.Designer.cs">
-      <DependentUpon>Prices.cs</DependentUpon>
-    </Compile>
     <Compile Include="PricesRepository.cs" />
-    <Compile Include="Registration.cs">
+    <Compile Include="frmRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <Compile Include="frmRegistration.Designer.cs">
+      <DependentUpon>frmRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrationRepository.cs" />
-    <Compile Include="Section.cs">
+    <Compile Include="frmSection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Section.Designer.cs">
-      <DependentUpon>Section.cs</DependentUpon>
+    <Compile Include="frmSection.Designer.cs">
+      <DependentUpon>frmSection.cs</DependentUpon>
     </Compile>
     <Compile Include="SectionRepository.cs" />
-    <Compile Include="Student.cs">
+    <Compile Include="frmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="frmStudent.Designer.cs">
+      <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentPayment.cs">
+    <Compile Include="frmStudentPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentPayment.Designer.cs">
-      <DependentUpon>StudentPayment.cs</DependentUpon>
+    <Compile Include="frmStudentPayment.Designer.cs">
+      <DependentUpon>frmStudentPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentPaymentRepository.cs" />
     <Compile Include="StudentRepository.cs" />
-    <Compile Include="STU_Dashboard.cs">
+    <Compile Include="frmSTU_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="STU_Dashboard.Designer.cs">
-      <DependentUpon>STU_Dashboard.cs</DependentUpon>
+    <Compile Include="frmSTU_Dashboard.Designer.cs">
+      <DependentUpon>frmSTU_Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,37 +264,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>STU_DBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Teacher.cs">
+    <Compile Include="frmTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Teacher.Designer.cs">
-      <DependentUpon>Teacher.cs</DependentUpon>
+    <Compile Include="frmTeacher.Designer.cs">
+      <DependentUpon>frmTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="TeacherRepository.cs" />
-    <Compile Include="Users.cs">
+    <Compile Include="frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Users.Designer.cs">
-      <DependentUpon>Users.cs</DependentUpon>
+    <Compile Include="frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersRepository.cs" />
-    <EmbeddedResource Include="ImageViewer.resx">
-      <DependentUpon>ImageViewer.cs</DependentUpon>
+    <EmbeddedResource Include="frmImageViewer.resx">
+      <DependentUpon>frmImageViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDFReceipt.resx">
-      <DependentUpon>PDFReceipt.cs</DependentUpon>
+    <EmbeddedResource Include="frmPDFReceipt.resx">
+      <DependentUpon>frmPDFReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PDFViewer.resx">
-      <DependentUpon>PDFViewer.cs</DependentUpon>
+    <EmbeddedResource Include="frmPDFViewer.resx">
+      <DependentUpon>frmPDFViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PendingRequirements.resx">
-      <DependentUpon>PendingRequirements.cs</DependentUpon>
+    <EmbeddedResource Include="frmPendingRequirements.resx">
+      <DependentUpon>frmPendingRequirements.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PendingStudents.resx">
-      <DependentUpon>PendingStudents.cs</DependentUpon>
+    <EmbeddedResource Include="frmPendingStudents.resx">
+      <DependentUpon>frmPendingStudents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -312,26 +306,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <EmbeddedResource Include="frmRegistration.resx">
+      <DependentUpon>frmRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Section.resx">
-      <DependentUpon>Section.cs</DependentUpon>
+    <EmbeddedResource Include="frmSection.resx">
+      <DependentUpon>frmSection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student.resx">
-      <DependentUpon>Student.cs</DependentUpon>
+    <EmbeddedResource Include="frmStudent.resx">
+      <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentPayment.resx">
-      <DependentUpon>StudentPayment.cs</DependentUpon>
+    <EmbeddedResource Include="frmStudentPayment.resx">
+      <DependentUpon>frmStudentPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="STU_Dashboard.resx">
-      <DependentUpon>STU_Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="frmSTU_Dashboard.resx">
+      <DependentUpon>frmSTU_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Teacher.resx">
-      <DependentUpon>Teacher.cs</DependentUpon>
+    <EmbeddedResource Include="frmTeacher.resx">
+      <DependentUpon>frmTeacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users.resx">
-      <DependentUpon>Users.cs</DependentUpon>
+    <EmbeddedResource Include="frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
