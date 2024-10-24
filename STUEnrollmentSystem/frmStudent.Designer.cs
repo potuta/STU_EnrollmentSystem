@@ -149,7 +149,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
             this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.totalEnrolledStudentsGridView = new System.Windows.Forms.DataGridView();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -184,7 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingNavigator)).BeginInit();
             this.studentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalEnrolledStudentsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // studentNumberLabel
@@ -1323,15 +1323,15 @@
             // 
             this.gradeLevelTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // totalEnrolledStudentsGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 813);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1434, 362);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.Visible = false;
+            this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 813);
+            this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
+            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1434, 362);
+            this.totalEnrolledStudentsGridView.TabIndex = 12;
+            this.totalEnrolledStudentsGridView.Visible = false;
             // 
             // frmStudent
             // 
@@ -1339,7 +1339,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1451, 825);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.totalEnrolledStudentsGridView);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.studentsBindingNavigator);
             this.Controls.Add(this.detailsPanel);
@@ -1361,7 +1361,7 @@
             this.studentsBindingNavigator.ResumeLayout(false);
             this.studentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalEnrolledStudentsGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1464,7 +1464,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView totalEnrolledStudentsGridView;
         private System.Windows.Forms.ToolStripButton bindingNavigatorTotalStudentsItem;
     }
 }

@@ -92,21 +92,20 @@ namespace STUEnrollmentSystem
         private string getGradeCode(string enrollmentType)
         {
             string gradeCode = string.Empty;
-            if (enrollmentType.Equals("Grade 7"))
+            switch (enrollmentType)
             {
-                gradeCode = "G7";
-            }
-            else if (enrollmentType.Equals("Grade 8"))
-            {
-                gradeCode = "G8";
-            }
-            else if (enrollmentType.Equals("Grade 9"))
-            {
-                gradeCode = "G9";
-            }
-            else if (enrollmentType.Equals("Grade 10"))
-            {
-                gradeCode = "G10";
+                case "Grade 7":
+                    gradeCode = "G7";
+                    break;
+                case "Grade 8":
+                    gradeCode = "G8";
+                    break;
+                case "Grade 9":
+                    gradeCode = "G9";
+                    break;
+                case "Grade 10":
+                    gradeCode = "G10";
+                    break;
             }
             return gradeCode;
         }
@@ -191,14 +190,14 @@ namespace STUEnrollmentSystem
         {
             ShowTotalStudentsDataGridView();
             DataTable dt = _studentRepository.GetTotalEnrolledStudentsByGrade();
-            dataGridView1.DataSource = dt;
+            totalEnrolledStudentsGridView.DataSource = dt;
         }
 
         private void ShowTotalStudentsDataGridView()
         {
-            if (dataGridView1.Visible == true)
+            if (totalEnrolledStudentsGridView.Visible == true)
             {
-                dataGridView1.Visible = false;
+                totalEnrolledStudentsGridView.Visible = false;
                 studentsDataGridView.Visible = true;
                 bindingNavigatorDeleteItem.Enabled = true;
                 bindingNavigatorAddNewItem.Enabled = true;
@@ -207,7 +206,7 @@ namespace STUEnrollmentSystem
             }
             else
             {
-                dataGridView1.Visible = true;
+                totalEnrolledStudentsGridView.Visible = true;
                 studentsDataGridView.Visible = false;
                 bindingNavigatorDeleteItem.Enabled = false;
                 bindingNavigatorAddNewItem.Enabled = false;
