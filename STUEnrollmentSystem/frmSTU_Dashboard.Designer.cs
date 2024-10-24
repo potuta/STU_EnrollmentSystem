@@ -170,7 +170,7 @@
             this.usersButton.Text = "↪ Users";
             this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
+            this.usersButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // subjectButton
             // 
@@ -239,7 +239,7 @@
             this.sectionButton.Text = "↪ Section";
             this.sectionButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sectionButton.UseVisualStyleBackColor = false;
-            this.sectionButton.Click += new System.EventHandler(this.sectionButton_Click);
+            this.sectionButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // teacherButton
             // 
@@ -257,7 +257,7 @@
             this.teacherButton.Text = "↪ Teacher";
             this.teacherButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.teacherButton.UseVisualStyleBackColor = false;
-            this.teacherButton.Click += new System.EventHandler(this.teacherButton_Click);
+            this.teacherButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // adminButton
             // 
@@ -304,7 +304,7 @@
             this.pricesButton.Text = "↪ Prices";
             this.pricesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pricesButton.UseVisualStyleBackColor = false;
-            this.pricesButton.Click += new System.EventHandler(this.pricesButton_Click);
+            this.pricesButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // installmentsButton
             // 
@@ -339,7 +339,7 @@
             this.pendingButton.Text = "↪ Pending New Students";
             this.pendingButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pendingButton.UseVisualStyleBackColor = false;
-            this.pendingButton.Click += new System.EventHandler(this.pendingButton_Click);
+            this.pendingButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // managePaymentButton
             // 
@@ -357,7 +357,7 @@
             this.managePaymentButton.Text = "↪ Manage Payments";
             this.managePaymentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.managePaymentButton.UseVisualStyleBackColor = false;
-            this.managePaymentButton.Click += new System.EventHandler(this.managePaymentButton_Click);
+            this.managePaymentButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // cashierButton
             // 
@@ -403,7 +403,7 @@
             this.pendingRequirementsButton.Text = "↪ Pending Requirements";
             this.pendingRequirementsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pendingRequirementsButton.UseVisualStyleBackColor = false;
-            this.pendingRequirementsButton.Click += new System.EventHandler(this.pendingRequirementsButton_Click);
+            this.pendingRequirementsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // manageStudentButton
             // 
@@ -421,7 +421,7 @@
             this.manageStudentButton.Text = "↪ Manage Students";
             this.manageStudentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.manageStudentButton.UseVisualStyleBackColor = false;
-            this.manageStudentButton.Click += new System.EventHandler(this.manageStudentButton_Click);
+            this.manageStudentButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // registrationButton
             // 
@@ -439,7 +439,7 @@
             this.registrationButton.Text = "↪ Registration";
             this.registrationButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.registrationButton.UseVisualStyleBackColor = false;
-            this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
+            this.registrationButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // studentButton
             // 

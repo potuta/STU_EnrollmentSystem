@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace STUEnrollmentSystem
 {
@@ -103,6 +102,7 @@ namespace STUEnrollmentSystem
             _connection.Close();
         }
 
+        private frmPDFViewer pdfViewer;
         public void ViewFile(string column, string registerID)
         {
             string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
@@ -110,11 +110,12 @@ namespace STUEnrollmentSystem
             _connection.Open();
             byte[] fileData = (byte[])command.ExecuteScalar();
             _connection.Close();
-
-            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
+            pdfViewer = new frmPDFViewer(fileData);
+            pdfViewer.FormClosed += PDFViewerForm_FormClosed;
             pdfViewer.Show();
         }
 
+        private frmImageViewer imageViewer;
         public void ViewImageFile(string column, string registerID)
         {
             string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
@@ -131,8 +132,19 @@ namespace STUEnrollmentSystem
                 ms = new MemoryStream(data);
             }
 
-            frmImageViewer imageViewer = new frmImageViewer(ms);
+            imageViewer = new frmImageViewer(ms);
+            imageViewer.FormClosed += ImageViewerForm_FormClosed;
             imageViewer.Show();
+        }
+
+        private void PDFViewerForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            pdfViewer.Dispose();
+        }
+
+        private void ImageViewerForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            imageViewer.Dispose();
         }
 
         public void UploadFile(string column, string registerID, byte[] fileData)

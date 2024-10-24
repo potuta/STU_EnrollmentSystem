@@ -59,17 +59,20 @@ namespace STUEnrollmentSystem
         {
             if (activeForm != null)
             {
+                panel_main.Controls.Remove(activeForm);
                 activeForm.Close();
-                activeForm.Dispose();
+                activeForm.Dispose(); 
+                activeForm = null;
             }
+
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panel_main.Controls.Add(childForm);
-            panel_main.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            panel_main.Controls.Add(activeForm);
+            panel_main.Tag = activeForm;
+            activeForm.BringToFront();
+            activeForm.Show();
         }
 
         private void InitializeUserLoginRole(string role)
@@ -106,11 +109,8 @@ namespace STUEnrollmentSystem
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            frmLogin login = new frmLogin();
-            login.Show();
             this.Hide();
             this.Close();
-            this.Dispose();
         }
 
         private void studentButton_Click(object sender, EventArgs e)
@@ -128,49 +128,44 @@ namespace STUEnrollmentSystem
             showSubPanel(adminSubPanel);
         }
 
-        private void registrationButton_Click(object sender, EventArgs e)
+        private void OnButtonClicked(object sender, EventArgs e)
         {
-            openChildForm(new frmRegistration());
-        }
-
-        private void pendingButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmPendingStudents());
-        }
-
-        private void manageStudentButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmStudent());
-        }
-
-        private void pendingRequirementsButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmPendingRequirements());
-        }
-
-        private void managePaymentButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmStudentPayment());
-        }
-
-        private void sectionButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmSection());
-        }
-
-        private void usersButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmUsers());
-        }
-
-        private void teacherButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmTeacher());
-        }
-
-        private void pricesButton_Click(object sender, EventArgs e)
-        {
-            openChildForm(new frmPrices());
+            if (sender == registrationButton)
+            {
+                openChildForm(new frmRegistration());
+            }
+            else if (sender == pendingButton)
+            {
+                openChildForm(new frmPendingStudents());
+            }
+            else if (sender == manageStudentButton)
+            {
+                openChildForm(new frmStudent());
+            }
+            else if (sender == pendingRequirementsButton)
+            {
+                openChildForm(new frmPendingRequirements());
+            }
+            else if (sender == managePaymentButton)
+            {
+                openChildForm(new frmStudentPayment());
+            }
+            else if (sender == sectionButton)
+            {
+                openChildForm(new frmSection());
+            }
+            else if (sender == usersButton)
+            {
+                openChildForm(new frmUsers());
+            }
+            else if (sender == teacherButton)
+            {
+                openChildForm(new frmTeacher());
+            }
+            else if (sender == pricesButton)
+            {
+                openChildForm(new frmPrices());
+            }
         }
     }
 }
