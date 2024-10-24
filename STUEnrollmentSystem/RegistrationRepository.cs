@@ -80,7 +80,6 @@ namespace STUEnrollmentSystem
             _connection.Close();
         }
 
-        private frmPDFViewer pdfViewer;
         public void ViewFile(string column, string registerID)
         {
             string query = $"SELECT {column} FROM Registration WHERE RegisterID = {registerID}";
@@ -89,14 +88,8 @@ namespace STUEnrollmentSystem
             byte[] fileData = (byte[])command.ExecuteScalar();
             _connection.Close();
 
-            pdfViewer = new frmPDFViewer(fileData);
-            pdfViewer.FormClosed += PDFViewerForm_FormClosed;
+            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
             pdfViewer.Show();
-        }
-
-        private void PDFViewerForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
-        {
-            pdfViewer.Dispose();
         }
 
         public void UploadFile(string column, string registerID, byte[] fileData)
