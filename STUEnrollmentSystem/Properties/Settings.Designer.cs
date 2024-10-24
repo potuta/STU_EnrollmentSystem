@@ -27,8 +27,8 @@ namespace STUEnrollmentSystem.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=112.204.102.205,16969;Initial Catalog=STU_DB;Integrated Security=Fals" +
-            "e;Persist Security Info=True;User ID=STU_DB_Login;Password=123;TrustServerCertif" +
-            "icate=True;Column Encryption Setting=Disabled")]
+            "e;Persist Security Info=True;User ID=STU_DB_Login;Password=;TrustServerCertifica" +
+            "te=True;Column Encryption Setting=Disabled")]
         public string STU_DBConnectionString {
             get {
                 return ((string)(this["STU_DBConnectionString"]));
