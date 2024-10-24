@@ -24,7 +24,7 @@ namespace STUEnrollmentSystem
 
         private void studentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            birthDateTextBox.Text = birthDateTimePicker.Value.Date.ToShortDateString();
+            //birthDateTextBox.Text = birthDateTimePicker.Value.Date.ToShortDateString();
             this.Validate();
             this.studentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
@@ -67,7 +67,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                birthDateTimePicker.Text = birthDateTextBox.Text;
+                //birthDateTimePicker.Text = birthDateTextBox.Text;
                 checkForRequirements();
             }
             catch (FormatException fe)

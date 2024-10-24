@@ -60,6 +60,7 @@ namespace STUEnrollmentSystem
             if (activeForm != null)
             {
                 activeForm.Close();
+                activeForm.Dispose();
             }
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -165,6 +166,11 @@ namespace STUEnrollmentSystem
         private void teacherButton_Click(object sender, EventArgs e)
         {
             openChildForm(new frmTeacher());
+        }
+
+        private void pricesButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmPrices());
         }
     }
 }

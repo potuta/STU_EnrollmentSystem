@@ -218,6 +218,12 @@
     <Compile Include="frmPendingStudents.Designer.cs">
       <DependentUpon>frmPendingStudents.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrices.Designer.cs">
+      <DependentUpon>frmPrices.cs</DependentUpon>
+    </Compile>
     <Compile Include="PendingStudentsRepository.cs" />
     <Compile Include="PricesRepository.cs" />
     <Compile Include="frmRegistration.cs">
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPendingStudents.resx">
       <DependentUpon>frmPendingStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrices.resx">
+      <DependentUpon>frmPrices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

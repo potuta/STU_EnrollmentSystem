@@ -304,6 +304,7 @@
             this.pricesButton.Text = "↪ Prices";
             this.pricesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pricesButton.UseVisualStyleBackColor = false;
+            this.pricesButton.Click += new System.EventHandler(this.pricesButton_Click);
             // 
             // installmentsButton
             // 
@@ -495,7 +496,7 @@
             this.panel_main.Size = new System.Drawing.Size(1084, 681);
             this.panel_main.TabIndex = 1;
             // 
-            // STU_Dashboard
+            // frmSTU_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -503,7 +504,7 @@
             this.ClientSize = new System.Drawing.Size(1364, 681);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.sidePanel);
-            this.Name = "STU_Dashboard";
+            this.Name = "frmSTU_Dashboard";
             this.Text = "STU";
             this.Load += new System.EventHandler(this.STU_Dashboard_Load);
             this.sidePanel.ResumeLayout(false);
