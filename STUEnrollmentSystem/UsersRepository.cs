@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class UsersRepository
+    internal class UsersRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
@@ -31,6 +31,11 @@ namespace STUEnrollmentSystem
             {
                 _connection.Close();
             }
+        }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
         }
 
         public bool VerifyUserLogin(string userID, string username, string password)

@@ -54,6 +54,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchSectionTitleCB()
         {
             List<string> sectionTitleList = _sectionRepository.GetSectionData("SectionTitle");
+            sectionTitleList.Sort();
             sectionTitleToolStripComboBox.Items.Clear();
             sectionTitleToolStripComboBox.Items.AddRange(sectionTitleList.ToArray());
         }
@@ -61,6 +62,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchSectionCodeCB()
         {
             List<string> sectionCodeList = _sectionRepository.GetSectionData("SectionCode");
+            sectionCodeList.Sort();
             sectionCodeToolStripComboBox.Items.Clear();
             sectionCodeToolStripComboBox.Items.AddRange(sectionCodeList.ToArray());
         }
@@ -68,6 +70,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchRoomCB()
         {
             List<string> roomList = _sectionRepository.GetSectionData("Room");
+            roomList.Sort();
             roomToolStripComboBox.Items.Clear();
             roomToolStripComboBox.Items.AddRange(roomList.ToArray());
         }
@@ -75,6 +78,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchGradeCodeCB()
         {
             List<string> gradeCodeList = _sectionRepository.GetSectionData("GradeCode");
+            gradeCodeList.Sort();
             gradeCodeToolStripComboBox.Items.Clear();
             foreach (string items in gradeCodeList)
             {

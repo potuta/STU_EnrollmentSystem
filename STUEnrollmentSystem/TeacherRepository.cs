@@ -8,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class TeacherRepository
+    internal class TeacherRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
         public TeacherRepository(string connectionString)
         {
             _connection = new SqlConnection(connectionString);
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
         }
 
         public void OpenConnection()
@@ -36,6 +31,11 @@ namespace STUEnrollmentSystem
             {
                 _connection.Close();
             }
+        }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
         }
 
         public int GenerateTeacherCode()

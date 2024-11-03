@@ -170,6 +170,10 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmPaymentType());
             }
+            else if (sender == scheduleButton)
+            {
+                openChildForm(new frmSchedule());
+            }
         }
     }
 }

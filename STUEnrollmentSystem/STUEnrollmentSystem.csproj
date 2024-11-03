@@ -230,6 +230,13 @@
     <Compile Include="frmPrices.Designer.cs">
       <DependentUpon>frmPrices.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSchedule.Designer.cs">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IConnectionRepository.cs" />
     <Compile Include="PaymentTypeRepository.cs" />
     <Compile Include="PendingStudentsRepository.cs" />
     <Compile Include="PricesRepository.cs" />
@@ -246,6 +253,7 @@
     <Compile Include="frmSection.Designer.cs">
       <DependentUpon>frmSection.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleRepository.cs" />
     <Compile Include="SectionRepository.cs" />
     <Compile Include="frmStudent.cs">
       <SubType>Form</SubType>
@@ -314,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrices.resx">
       <DependentUpon>frmPrices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSchedule.resx">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

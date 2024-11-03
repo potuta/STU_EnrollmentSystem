@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class RegistrationRepository
+    internal class RegistrationRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
@@ -32,6 +32,12 @@ namespace STUEnrollmentSystem
                 _connection.Close();
             }
         }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
+        }
+
 
         public Dictionary<string, bool> CheckRegistrationRequirements(string registerID)
         {

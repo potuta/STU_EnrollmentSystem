@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class SectionRepository
+    internal class SectionRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
@@ -31,6 +31,11 @@ namespace STUEnrollmentSystem
             {
                 _connection.Close();
             }
+        }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
         }
 
         public List<string> GetSectionData(string column)

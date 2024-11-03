@@ -39,6 +39,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchStudentNumCB()
         {
             List<string> studentNumList = _studentPaymentRepository.GetStudentPaymentData("StudentNumber");
+            studentNumList.Sort();
             studentNumberToolStripComboBox.Items.Clear();
             studentNumberToolStripComboBox.Items.AddRange(studentNumList.ToArray());
         }
@@ -46,6 +47,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchPaymentCodeCB()
         {
             List<string> paymentCodeList = _studentPaymentRepository.GetStudentPaymentData("PaymentCode");
+            paymentCodeList.Sort();
             paymentCodeToolStripComboBox.Items.Clear();
             foreach (string items in paymentCodeList)
             {

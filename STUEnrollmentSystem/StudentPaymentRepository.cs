@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class StudentPaymentRepository
+    internal class StudentPaymentRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
@@ -33,6 +33,11 @@ namespace STUEnrollmentSystem
             {
                 _connection.Close();
             }
+        }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
         }
 
         public Dictionary<string, bool> CheckStudentPaymentRequirements(string studentNumber, string monthOfPayment)

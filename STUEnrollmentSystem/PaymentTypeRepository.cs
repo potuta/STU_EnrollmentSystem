@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class PaymentTypeRepository
+    internal class PaymentTypeRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
@@ -32,7 +32,12 @@ namespace STUEnrollmentSystem
                 _connection.Close();
             }
         }
-        
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
+        }
+
         public List<string> GetPaymentTypeData(string column)
         {
             List<string> paymentTypeDataList = new List<string>();

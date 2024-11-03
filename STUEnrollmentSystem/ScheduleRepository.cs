@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    class PricesRepository : IConnectionRepository
+    internal class ScheduleRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
-        public PricesRepository(string connectionString)
+        public ScheduleRepository(string connectionString)
         {
             _connection = new SqlConnection(connectionString);
         }
@@ -37,11 +37,10 @@ namespace STUEnrollmentSystem
         {
             return _connection.ConnectionString;
         }
-
-        public List<string> GetPricesData(string column)
+        public List<string> GetScheduleData(string column)
         {
-            List<string> pricesDataList = new List<string>();
-            string query = $"SELECT {column} FROM Prices";
+            List<string> scheduleDataList = new List<string>();
+            string query = $"SELECT {column} FROM Schedule";
             SqlCommand command = new SqlCommand(query, _connection);
             _connection.Open();
             using (SqlDataReader reader = command.ExecuteReader())
@@ -50,12 +49,12 @@ namespace STUEnrollmentSystem
                 {
                     if (!reader[column].ToString().Equals(string.Empty))
                     {
-                        pricesDataList.Add(reader[column].ToString());
+                        scheduleDataList.Add(reader[column].ToString());
                     }
                 }
             }
             _connection.Close();
-            return pricesDataList;
+            return scheduleDataList;
         }
     }
 }

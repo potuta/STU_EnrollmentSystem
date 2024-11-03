@@ -222,6 +222,7 @@
             this.scheduleButton.Text = "↪ Schedule";
             this.scheduleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.scheduleButton.UseVisualStyleBackColor = false;
+            this.scheduleButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // sectionButton
             // 

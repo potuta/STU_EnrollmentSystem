@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class PendingStudentsRepository
+    internal class PendingStudentsRepository : IConnectionRepository
     {
         private SqlConnection _connection;
 
@@ -34,6 +34,11 @@ namespace STUEnrollmentSystem
             {
                 _connection.Close();
             }
+        }
+
+        public string GetConnectionString()
+        {
+            return _connection.ConnectionString;
         }
 
         public Dictionary<string, bool> CheckPendingStudentsRequirements(string registerID)

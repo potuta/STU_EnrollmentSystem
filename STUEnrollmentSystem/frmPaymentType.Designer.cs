@@ -37,9 +37,11 @@
             System.Windows.Forms.Label schoolYearLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPaymentType));
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.paymentTypeTextBox = new System.Windows.Forms.TextBox();
+            this.pricesCodeComboBox = new System.Windows.Forms.ComboBox();
             this.paymentTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.pricesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.paymentTypeTextBox = new System.Windows.Forms.TextBox();
             this.paymentCodeTextBox = new System.Windows.Forms.TextBox();
             this.paymentAmountTextBox = new System.Windows.Forms.TextBox();
             this.monthTextBox = new System.Windows.Forms.TextBox();
@@ -71,8 +73,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pricesCodeComboBox = new System.Windows.Forms.ComboBox();
-            this.pricesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pricesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PricesTableAdapter();
             paymentTypeLabel = new System.Windows.Forms.Label();
             paymentCodeLabel = new System.Windows.Forms.Label();
@@ -83,11 +83,11 @@
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).BeginInit();
             this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeBindingNavigator)).BeginInit();
             this.paymentTypeBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // paymentTypeLabel
@@ -166,13 +166,17 @@
             this.detailsPanel.Size = new System.Drawing.Size(306, 615);
             this.detailsPanel.TabIndex = 20;
             // 
-            // paymentTypeTextBox
+            // pricesCodeComboBox
             // 
-            this.paymentTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.paymentTypeBindingSource, "PaymentType", true));
-            this.paymentTypeTextBox.Location = new System.Drawing.Point(148, 95);
-            this.paymentTypeTextBox.Name = "paymentTypeTextBox";
-            this.paymentTypeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.paymentTypeTextBox.TabIndex = 2;
+            this.pricesCodeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.paymentTypeBindingSource, "PricesCode", true));
+            this.pricesCodeComboBox.DataSource = this.pricesBindingSource;
+            this.pricesCodeComboBox.DisplayMember = "PriceCode";
+            this.pricesCodeComboBox.FormattingEnabled = true;
+            this.pricesCodeComboBox.Location = new System.Drawing.Point(148, 147);
+            this.pricesCodeComboBox.Name = "pricesCodeComboBox";
+            this.pricesCodeComboBox.Size = new System.Drawing.Size(100, 21);
+            this.pricesCodeComboBox.TabIndex = 14;
+            this.pricesCodeComboBox.ValueMember = "PriceCode";
             // 
             // paymentTypeBindingSource
             // 
@@ -183,6 +187,19 @@
             // 
             this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
             this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pricesBindingSource
+            // 
+            this.pricesBindingSource.DataMember = "Prices";
+            this.pricesBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // paymentTypeTextBox
+            // 
+            this.paymentTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.paymentTypeBindingSource, "PaymentType", true));
+            this.paymentTypeTextBox.Location = new System.Drawing.Point(148, 95);
+            this.paymentTypeTextBox.Name = "paymentTypeTextBox";
+            this.paymentTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.paymentTypeTextBox.TabIndex = 2;
             // 
             // paymentCodeTextBox
             // 
@@ -365,6 +382,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -471,23 +489,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "SchoolYear";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // pricesCodeComboBox
-            // 
-            this.pricesCodeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.paymentTypeBindingSource, "PricesCode", true));
-            this.pricesCodeComboBox.DataSource = this.pricesBindingSource;
-            this.pricesCodeComboBox.DisplayMember = "PriceCode";
-            this.pricesCodeComboBox.FormattingEnabled = true;
-            this.pricesCodeComboBox.Location = new System.Drawing.Point(148, 147);
-            this.pricesCodeComboBox.Name = "pricesCodeComboBox";
-            this.pricesCodeComboBox.Size = new System.Drawing.Size(100, 21);
-            this.pricesCodeComboBox.TabIndex = 14;
-            this.pricesCodeComboBox.ValueMember = "PriceCode";
-            // 
-            // pricesBindingSource
-            // 
-            this.pricesBindingSource.DataMember = "Prices";
-            this.pricesBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
             // pricesTableAdapter
             // 
             this.pricesTableAdapter.ClearBeforeFill = true;
@@ -496,6 +497,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1264, 759);
             this.Controls.Add(this.paymentTypeDataGridView);
             this.Controls.Add(this.paymentTypeBindingNavigator);
@@ -509,13 +511,13 @@
             this.detailsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeBindingNavigator)).EndInit();
             this.paymentTypeBindingNavigator.ResumeLayout(false);
             this.paymentTypeBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -71,6 +71,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchTeacherNameCB()
         {
             List<string> teacherNumberList = _teacherRepository.GetTeacherData("TeacherName");
+            teacherNumberList.Sort();
             teacherNameToolStripComboBox.Items.Clear();
             teacherNameToolStripComboBox.Items.AddRange(teacherNumberList.ToArray());
         }
@@ -78,6 +79,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchTeacherCodeCB()
         {
             List<string> teacherCodeList = _teacherRepository.GetTeacherData("TeacherCode");
+            teacherCodeList.Sort();
             teacherCodeToolStripComboBox.Items.Clear();
             teacherCodeToolStripComboBox.Items.AddRange(teacherCodeList.ToArray());
         }
@@ -85,6 +87,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchSectionCodeCB()
         {
             List<string> sectionCodeList = _teacherRepository.GetTeacherData("SectionCode");
+            sectionCodeList.Sort();
             sectionCodeToolStripComboBox.Items.Clear();
             foreach(string items in sectionCodeList)
             {
@@ -98,6 +101,7 @@ namespace STUEnrollmentSystem
         private void InitializeSearchSubjectCodeCB()
         {
             List<string> subjectCodeList = _teacherRepository.GetTeacherData("SubjectCode");
+            subjectCodeList.Sort();
             subjectCodeToolStripComboBox.Items.Clear();
             foreach (string items in subjectCodeList)
             {
@@ -111,6 +115,7 @@ namespace STUEnrollmentSystem
         private void InitializeSectionCB()
         {
             List<string> sectionCodeList = new SectionRepository(_teacherRepository.GetConnectionString()).GetSectionData("SectionCode");
+            sectionCodeList.Sort();
             sectionCodeComboBox.Items.Clear();
             sectionCodeComboBox.Items.AddRange(sectionCodeList.ToArray());
         }
