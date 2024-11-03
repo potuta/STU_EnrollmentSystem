@@ -65,7 +65,6 @@ namespace STUEnrollmentSystem
             {
                 totalAmount = Convert.ToDouble(tuitionFeeTextBox.Text) + Convert.ToDouble(booksTextBox.Text) + Convert.ToDouble(laboratoryFeeTextBox.Text) + Convert.ToDouble(uniformTextBox.Text) + Convert.ToDouble(miscellanaousFeeTextBox.Text);
             }
-
             totalAmountTextBox.Text = totalAmount.ToString();
         }
 

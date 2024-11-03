@@ -194,6 +194,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPaymentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentType.Designer.cs">
+      <DependentUpon>frmPaymentType.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPDFReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,7 @@
     <Compile Include="frmPrices.Designer.cs">
       <DependentUpon>frmPrices.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaymentTypeRepository.cs" />
     <Compile Include="PendingStudentsRepository.cs" />
     <Compile Include="PricesRepository.cs" />
     <Compile Include="frmRegistration.cs">
@@ -289,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentType.resx">
+      <DependentUpon>frmPaymentType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPDFReceipt.resx">
       <DependentUpon>frmPDFReceipt.cs</DependentUpon>

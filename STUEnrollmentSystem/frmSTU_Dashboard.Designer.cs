@@ -44,7 +44,7 @@
             this.adminButton = new System.Windows.Forms.Button();
             this.cashierSubPanel = new System.Windows.Forms.Panel();
             this.pricesButton = new System.Windows.Forms.Button();
-            this.installmentsButton = new System.Windows.Forms.Button();
+            this.paymentTypeButton = new System.Windows.Forms.Button();
             this.pendingButton = new System.Windows.Forms.Button();
             this.managePaymentButton = new System.Windows.Forms.Button();
             this.cashierButton = new System.Windows.Forms.Button();
@@ -279,7 +279,7 @@
             // cashierSubPanel
             // 
             this.cashierSubPanel.Controls.Add(this.pricesButton);
-            this.cashierSubPanel.Controls.Add(this.installmentsButton);
+            this.cashierSubPanel.Controls.Add(this.paymentTypeButton);
             this.cashierSubPanel.Controls.Add(this.pendingButton);
             this.cashierSubPanel.Controls.Add(this.managePaymentButton);
             this.cashierSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -306,22 +306,23 @@
             this.pricesButton.UseVisualStyleBackColor = false;
             this.pricesButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // installmentsButton
+            // paymentTypeButton
             // 
-            this.installmentsButton.BackColor = System.Drawing.Color.Silver;
-            this.installmentsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.installmentsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.installmentsButton.FlatAppearance.BorderSize = 2;
-            this.installmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.installmentsButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.installmentsButton.Location = new System.Drawing.Point(0, 110);
-            this.installmentsButton.Name = "installmentsButton";
-            this.installmentsButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.installmentsButton.Size = new System.Drawing.Size(263, 55);
-            this.installmentsButton.TabIndex = 3;
-            this.installmentsButton.Text = "↪ Payment Types";
-            this.installmentsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.installmentsButton.UseVisualStyleBackColor = false;
+            this.paymentTypeButton.BackColor = System.Drawing.Color.Silver;
+            this.paymentTypeButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paymentTypeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.paymentTypeButton.FlatAppearance.BorderSize = 2;
+            this.paymentTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paymentTypeButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTypeButton.Location = new System.Drawing.Point(0, 110);
+            this.paymentTypeButton.Name = "paymentTypeButton";
+            this.paymentTypeButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.paymentTypeButton.Size = new System.Drawing.Size(263, 55);
+            this.paymentTypeButton.TabIndex = 3;
+            this.paymentTypeButton.Text = "↪ Payment Type";
+            this.paymentTypeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.paymentTypeButton.UseVisualStyleBackColor = false;
+            this.paymentTypeButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // pendingButton
             // 
@@ -540,7 +541,7 @@
         private System.Windows.Forms.Button courseButton;
         private System.Windows.Forms.Button scheduleButton;
         private System.Windows.Forms.Button pricesButton;
-        private System.Windows.Forms.Button installmentsButton;
+        private System.Windows.Forms.Button paymentTypeButton;
         private System.Windows.Forms.Button pendingRequirementsButton;
         private System.Windows.Forms.Button usersButton;
         private System.Windows.Forms.Label label1;
