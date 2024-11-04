@@ -70,7 +70,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchTeacherNameCB()
         {
-            List<string> teacherNumberList = _teacherRepository.GetTeacherData("TeacherName");
+            List<string> teacherNumberList = _teacherRepository.GetColumnData("Teachers", "TeacherName");
             teacherNumberList.Sort();
             teacherNameToolStripComboBox.Items.Clear();
             teacherNameToolStripComboBox.Items.AddRange(teacherNumberList.ToArray());
@@ -78,7 +78,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchTeacherCodeCB()
         {
-            List<string> teacherCodeList = _teacherRepository.GetTeacherData("TeacherCode");
+            List<string> teacherCodeList = _teacherRepository.GetColumnData("Teachers", "TeacherCode");
             teacherCodeList.Sort();
             teacherCodeToolStripComboBox.Items.Clear();
             teacherCodeToolStripComboBox.Items.AddRange(teacherCodeList.ToArray());
@@ -86,7 +86,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchSectionCodeCB()
         {
-            List<string> sectionCodeList = _teacherRepository.GetTeacherData("SectionCode");
+            List<string> sectionCodeList = _teacherRepository.GetColumnData("Teachers", "SectionCode");
             sectionCodeList.Sort();
             sectionCodeToolStripComboBox.Items.Clear();
             foreach(string items in sectionCodeList)
@@ -100,7 +100,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchSubjectCodeCB()
         {
-            List<string> subjectCodeList = _teacherRepository.GetTeacherData("SubjectCode");
+            List<string> subjectCodeList = _teacherRepository.GetColumnData("Teachers", "SubjectCode");
             subjectCodeList.Sort();
             subjectCodeToolStripComboBox.Items.Clear();
             foreach (string items in subjectCodeList)
@@ -114,7 +114,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSectionCB()
         {
-            List<string> sectionCodeList = new SectionRepository(_teacherRepository.GetConnectionString()).GetSectionData("SectionCode");
+            List<string> sectionCodeList = new SectionRepository(_teacherRepository.GetConnectionString()).GetColumnData("Sections", "SectionCode");
             sectionCodeList.Sort();
             sectionCodeComboBox.Items.Clear();
             sectionCodeComboBox.Items.AddRange(sectionCodeList.ToArray());

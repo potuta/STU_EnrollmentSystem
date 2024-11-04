@@ -48,6 +48,7 @@
             this.roomToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.roomToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.gradeCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.gradeCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
@@ -89,7 +90,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gradeCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             sectionTitleLabel = new System.Windows.Forms.Label();
             sectionCodeLabel = new System.Windows.Forms.Label();
             roomLabel = new System.Windows.Forms.Label();
@@ -223,7 +223,7 @@
             this.searchToolStrip.Location = new System.Drawing.Point(67, 50);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(876, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(845, 25);
             this.searchToolStrip.TabIndex = 17;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -275,6 +275,13 @@
             this.gradeCodeToolStripLabel.Name = "gradeCodeToolStripLabel";
             this.gradeCodeToolStripLabel.Size = new System.Drawing.Size(102, 22);
             this.gradeCodeToolStripLabel.Text = "          Grade Code:";
+            // 
+            // gradeCodeToolStripComboBox
+            // 
+            this.gradeCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.gradeCodeToolStripComboBox.Name = "gradeCodeToolStripComboBox";
+            this.gradeCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.gradeCodeToolStripComboBox.TextChanged += new System.EventHandler(this.gradeCodeToolStripComboBox_TextChanged);
             // 
             // searchToolStripButton
             // 
@@ -422,6 +429,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = null;
@@ -590,7 +598,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.sectionsDataGridView.DataSource = this.sectionsBindingSource;
-            this.sectionsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sectionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sectionsDataGridView.Location = new System.Drawing.Point(316, 169);
             this.sectionsDataGridView.Name = "sectionsDataGridView";
             this.sectionsDataGridView.Size = new System.Drawing.Size(948, 590);
@@ -644,14 +652,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "StudCount";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // gradeCodeToolStripComboBox
-            // 
-            this.gradeCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.gradeCodeToolStripComboBox.Name = "gradeCodeToolStripComboBox";
-            this.gradeCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.gradeCodeToolStripComboBox.TextChanged += new System.EventHandler(this.gradeCodeToolStripComboBox_TextChanged);
-            // 
-            // Section
+            // frmSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -662,7 +663,7 @@
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
             this.Controls.Add(this.searchPanel);
-            this.Name = "Section";
+            this.Name = "frmSection";
             this.Text = "Section";
             this.Load += new System.EventHandler(this.Section_Load);
             this.searchPanel.ResumeLayout(false);

@@ -565,10 +565,10 @@
             this.GoodMoral,
             this.TransferCertificate});
             this.registrationDataGridView.DataSource = this.registrationBindingSource;
-            this.registrationDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.registrationDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registrationDataGridView.Location = new System.Drawing.Point(0, 416);
             this.registrationDataGridView.Name = "registrationDataGridView";
-            this.registrationDataGridView.Size = new System.Drawing.Size(1264, 358);
+            this.registrationDataGridView.Size = new System.Drawing.Size(1264, 360);
             this.registrationDataGridView.TabIndex = 1;
             this.registrationDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registrationDataGridView_CellClick);
             // 
@@ -1230,6 +1230,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter;
@@ -1243,7 +1244,7 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // Registration
+            // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1254,7 +1255,7 @@
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
             this.Controls.Add(this.searchPanel);
-            this.Name = "Registration";
+            this.Name = "frmRegistration";
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.Registration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingNavigator)).EndInit();

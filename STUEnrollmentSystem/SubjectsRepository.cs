@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class PaymentTypeRepository : BaseRepository
+    internal class SubjectsRepository : BaseRepository
     {
-        public PaymentTypeRepository(string connectionString) : base(connectionString) { }
+        public SubjectsRepository(string connectionString) : base(connectionString) { }
        
     }
 }

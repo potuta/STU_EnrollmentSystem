@@ -70,7 +70,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchScheduleCodeCB()
         {
-            List<string> scheduleCodeList = _scheduleRepository.GetScheduleData("ScheduleCode");
+            List<string> scheduleCodeList = _scheduleRepository.GetColumnData("Schedule", "ScheduleCode");
             scheduleCodeList.Sort();
             scheduleCodeToolStripComboBox.Items.Clear();
             foreach (string items in scheduleCodeList)
@@ -84,7 +84,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchSectionCodeCB()
         {
-            List<string> sectionCodeList = _scheduleRepository.GetScheduleData("SectionCode");
+            List<string> sectionCodeList = _scheduleRepository.GetColumnData("Schedule", "SectionCode");
             sectionCodeList.Sort();
             sectionCodeToolStripComboBox.Items.Clear();
             foreach (string items in sectionCodeList)
@@ -98,7 +98,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchTeacherCodeCB()
         {
-            List<string> teacherCodeList = _scheduleRepository.GetScheduleData("TeacherCode");
+            List<string> teacherCodeList = _scheduleRepository.GetColumnData("Schedule", "TeacherCode");
             teacherCodeList.Sort();
             teacherCodeToolStripComboBox.Items.Clear();
             foreach (string items in teacherCodeList)

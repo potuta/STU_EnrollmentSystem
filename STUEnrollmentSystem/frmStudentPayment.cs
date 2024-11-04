@@ -38,7 +38,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchStudentNumCB()
         {
-            List<string> studentNumList = _studentPaymentRepository.GetStudentPaymentData("StudentNumber");
+            List<string> studentNumList = _studentPaymentRepository.GetColumnData("StudentPayment", "StudentNumber");
             studentNumList.Sort();
             studentNumberToolStripComboBox.Items.Clear();
             studentNumberToolStripComboBox.Items.AddRange(studentNumList.ToArray());
@@ -46,7 +46,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSearchPaymentCodeCB()
         {
-            List<string> paymentCodeList = _studentPaymentRepository.GetStudentPaymentData("PaymentCode");
+            List<string> paymentCodeList = _studentPaymentRepository.GetColumnData("StudentPayment", "PaymentCode");
             paymentCodeList.Sort();
             paymentCodeToolStripComboBox.Items.Clear();
             foreach (string items in paymentCodeList)
@@ -149,20 +149,21 @@ namespace STUEnrollmentSystem
         private void HandleFileOperation(string fileType, string operation)
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+            _studentPaymentRepository.MonthOfPayment = monthOfPaymentComboBox.SelectedItem.ToString();
             switch (operation)
             {
                 case "view":
-                    _studentPaymentRepository.ViewImageFile(fileType, studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
+                    _studentPaymentRepository.ViewImageFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
                 case "upload":
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                        _studentPaymentRepository.UploadFile(fileType, studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString(), fileData);
+                        _studentPaymentRepository.UploadFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
                     break;
                 case "delete":
-                    _studentPaymentRepository.DeleteFile(fileType, studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
+                    _studentPaymentRepository.DeleteFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
             }
         }

@@ -174,6 +174,10 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmSchedule());
             }
+            else if (sender == subjectButton)
+            {
+                openChildForm(new frmSubjects());
+            }
         }
     }
 }

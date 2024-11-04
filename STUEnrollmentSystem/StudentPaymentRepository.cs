@@ -10,35 +10,11 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class StudentPaymentRepository : IConnectionRepository
+    internal class StudentPaymentRepository : BaseRepository
     {
-        private SqlConnection _connection;
+        public string MonthOfPayment {  get; set; }
 
-        public StudentPaymentRepository(string connectionString) 
-        {
-            _connection = new SqlConnection(connectionString);
-        }
-
-        public void OpenConnection()
-        {
-            if (_connection.State == ConnectionState.Closed)
-            {
-                _connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
-        }
+        public StudentPaymentRepository(string connectionString) : base(connectionString) { }
 
         public Dictionary<string, bool> CheckStudentPaymentRequirements(string studentNumber, string monthOfPayment)
         {
@@ -60,22 +36,12 @@ namespace STUEnrollmentSystem
             return requirements;
         }
 
-        public void ViewFile(string column, string studentNumber, string monthOfPayment)
+        public override void ViewImageFile(string table, string column, string condition, string ID)
         {
-            string query = $"SELECT {column} FROM StudentPayment WHERE StudentNumber = '{studentNumber}' AND MonthOfPayment = '{monthOfPayment}'";
+            string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment";
             SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            byte[] fileData = (byte[])command.ExecuteScalar();
-            _connection.Close();
-
-            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
-            pdfViewer.Show();
-        }
-
-        public void ViewImageFile(string column, string studentNumber, string monthOfPayment)
-        {
-            string query = $"SELECT {column} FROM StudentPayment WHERE StudentNumber = '{studentNumber}' AND MonthOfPayment = '{monthOfPayment}'";
-            SqlCommand command = new SqlCommand(query, _connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
@@ -92,33 +58,33 @@ namespace STUEnrollmentSystem
             imageViewer.Show();
         }
 
-        public void UploadFile(string column, string studentNumber, string monthOfPayment, byte[] fileData)
+        public override void UploadFile(string table, string column, string condition, string ID, byte[] fileData)
         {
-            string query = $"UPDATE StudentPayment SET {column} = @FileData WHERE StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment";
+            string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment";
             SqlCommand command = new SqlCommand(query, _connection);
             command.Parameters.AddWithValue("@FileData", fileData);
-            command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-            command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
+            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
             _connection.Open();
             command.ExecuteNonQuery();
             _connection.Close();
         }
 
-        public void DeleteFile(string column, string studentNumber, string monthOfPayment)
+        public override void DeleteFile(string table, string column, string condition, string ID)
         {
-            string query = $"UPDATE StudentPayment SET {column} = NULL WHERE StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment";
+            string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment";
             SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-            command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
+            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
             _connection.Open();
             command.ExecuteNonQuery();
             _connection.Close();
         }
 
-        public List<string> GetStudentPaymentData(string column)
+        public override List<string> GetColumnData(string table, string column)
         {
-            List<string> studentDataList = new List<string>();
-            string query = $"SELECT {column} FROM StudentPayment WHERE MonthOfPayment = 'August'";
+            List<string> columnDataList = new List<string>();
+            string query = $"SELECT {column} FROM {table} WHERE MonthOfPayment = 'August'";
             SqlCommand command = new SqlCommand(query, _connection);
             _connection.Open();
             using (SqlDataReader reader = command.ExecuteReader())
@@ -127,12 +93,12 @@ namespace STUEnrollmentSystem
                 {
                     if (!reader[column].ToString().Equals(string.Empty))
                     {
-                        studentDataList.Add(reader[column].ToString());
+                        columnDataList.Add(reader[column].ToString());
                     }
                 }
             }
             _connection.Close();
-            return studentDataList;
+            return columnDataList;
         }
     }
 }

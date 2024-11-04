@@ -326,6 +326,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = this.pricesTableAdapter;
             this.tableAdapterManager.RegistrationTableAdapter = null;
@@ -490,7 +491,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.pricesDataGridView.DataSource = this.pricesBindingSource;
-            this.pricesDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pricesDataGridView.Location = new System.Drawing.Point(322, 169);
             this.pricesDataGridView.Name = "pricesDataGridView";
             this.pricesDataGridView.Size = new System.Drawing.Size(942, 590);

@@ -168,22 +168,22 @@ namespace STUEnrollmentSystem
                 case "view":
                     if (fileType.Equals("ProofOfPayment"))
                     {
-                        _pendingStudentsRepository.ViewImageFile(fileType, registerIDTextBox.Text);
+                        _pendingStudentsRepository.ViewImageFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text);
                     }
                     else
                     {
-                        _pendingStudentsRepository.ViewFile(fileType, registerIDTextBox.Text);
+                        _pendingStudentsRepository.ViewPDFFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text);
                     }
                     break;
                 case "upload":
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                        _pendingStudentsRepository.UploadFile(fileType, registerIDTextBox.Text, fileData);
+                        _pendingStudentsRepository.UploadFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
                     break;
                 case "delete":
-                    _pendingStudentsRepository.DeleteFile(fileType, registerIDTextBox.Text);
+                    _pendingStudentsRepository.DeleteFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text);
                     break;
             }
         }

@@ -11,35 +11,9 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class PendingStudentsRepository : IConnectionRepository
+    internal class PendingStudentsRepository : BaseRepository
     {
-        private SqlConnection _connection;
-
-        public PendingStudentsRepository(string connectionString)
-        {
-            _connection = new SqlConnection(connectionString);
-        }
-
-        public void OpenConnection()
-        {
-            if (_connection.State == ConnectionState.Closed)
-            {
-                _connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
-        }
+        public PendingStudentsRepository(string connectionString) : base(connectionString) { }
 
         public Dictionary<string, bool> CheckPendingStudentsRequirements(string registerID)
         {
@@ -102,58 +76,6 @@ namespace STUEnrollmentSystem
         {
             SqlCommand command = new SqlCommand("DELETE FROM PendingStudents WHERE RegisterID = @RegisterID", _connection);
             command.Parameters.AddWithValue("@RegisterID", registerId);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public void ViewFile(string column, string registerID)
-        {
-            string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
-            SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            byte[] fileData = (byte[])command.ExecuteScalar();
-            _connection.Close();
-            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
-            pdfViewer.Show();
-        }
-
-        public void ViewImageFile(string column, string registerID)
-        {
-            string query = $"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}";
-            SqlCommand command = new SqlCommand(query, _connection);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
-
-            MemoryStream ms = new MemoryStream();
-            if (dataSet.Tables[0].Rows.Count == 1)
-            {
-                Byte[] data = new Byte[0];
-                data = (Byte[])(dataSet.Tables[0].Rows[0][column]);
-                ms = new MemoryStream(data);
-            }
-
-            frmImageViewer imageViewer = new frmImageViewer(ms);
-            imageViewer.Show();
-        }
-
-        public void UploadFile(string column, string registerID, byte[] fileData)
-        {
-            string query = $"UPDATE PendingStudents SET {column} = @FileData WHERE RegisterID = @RegisterID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@FileData", fileData);
-            command.Parameters.AddWithValue("@RegisterID", registerID);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public void DeleteFile(string column, string registerID)
-        {
-            string query = $"UPDATE PendingStudents SET {column} = NULL WHERE RegisterID = @RegisterID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@RegisterID", registerID);
             _connection.Open();
             command.ExecuteNonQuery();
             _connection.Close();

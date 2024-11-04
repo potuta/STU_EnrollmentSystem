@@ -29,7 +29,6 @@ namespace STUEnrollmentSystem
 
         private void frmPaymentType_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sTU_DBDataSet.Prices' table. You can move, or remove it, as needed.
             this.pricesTableAdapter.Fill(this.sTU_DBDataSet.Prices);
             this.paymentTypeTableAdapter.Fill(this.sTU_DBDataSet.PaymentType);
             searchPanel.Visible = false;
@@ -54,7 +53,5 @@ namespace STUEnrollmentSystem
                 searchPanel.Visible = false;
             }
         }
-
-
     }
 }

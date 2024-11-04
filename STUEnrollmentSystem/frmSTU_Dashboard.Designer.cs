@@ -37,7 +37,6 @@
             this.adminSubPanel = new System.Windows.Forms.Panel();
             this.usersButton = new System.Windows.Forms.Button();
             this.subjectButton = new System.Windows.Forms.Button();
-            this.courseButton = new System.Windows.Forms.Button();
             this.scheduleButton = new System.Windows.Forms.Button();
             this.sectionButton = new System.Windows.Forms.Button();
             this.teacherButton = new System.Windows.Forms.Button();
@@ -90,7 +89,7 @@
             this.userInfoPanel.Controls.Add(this.logoutButton);
             this.userInfoPanel.Controls.Add(this.userLabel);
             this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userInfoPanel.Location = new System.Drawing.Point(0, 1076);
+            this.userInfoPanel.Location = new System.Drawing.Point(0, 1021);
             this.userInfoPanel.Name = "userInfoPanel";
             this.userInfoPanel.Size = new System.Drawing.Size(263, 128);
             this.userInfoPanel.TabIndex = 1;
@@ -144,14 +143,13 @@
             // 
             this.adminSubPanel.Controls.Add(this.usersButton);
             this.adminSubPanel.Controls.Add(this.subjectButton);
-            this.adminSubPanel.Controls.Add(this.courseButton);
             this.adminSubPanel.Controls.Add(this.scheduleButton);
             this.adminSubPanel.Controls.Add(this.sectionButton);
             this.adminSubPanel.Controls.Add(this.teacherButton);
             this.adminSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.adminSubPanel.Location = new System.Drawing.Point(0, 745);
             this.adminSubPanel.Name = "adminSubPanel";
-            this.adminSubPanel.Size = new System.Drawing.Size(263, 331);
+            this.adminSubPanel.Size = new System.Drawing.Size(263, 276);
             this.adminSubPanel.TabIndex = 2;
             // 
             // usersButton
@@ -162,7 +160,7 @@
             this.usersButton.FlatAppearance.BorderSize = 2;
             this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usersButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.Location = new System.Drawing.Point(0, 275);
+            this.usersButton.Location = new System.Drawing.Point(0, 220);
             this.usersButton.Name = "usersButton";
             this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.usersButton.Size = new System.Drawing.Size(263, 56);
@@ -180,7 +178,7 @@
             this.subjectButton.FlatAppearance.BorderSize = 2;
             this.subjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.subjectButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectButton.Location = new System.Drawing.Point(0, 220);
+            this.subjectButton.Location = new System.Drawing.Point(0, 165);
             this.subjectButton.Name = "subjectButton";
             this.subjectButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.subjectButton.Size = new System.Drawing.Size(263, 55);
@@ -188,23 +186,7 @@
             this.subjectButton.Text = "↪ Subject";
             this.subjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.subjectButton.UseVisualStyleBackColor = false;
-            // 
-            // courseButton
-            // 
-            this.courseButton.BackColor = System.Drawing.Color.Silver;
-            this.courseButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.courseButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.courseButton.FlatAppearance.BorderSize = 2;
-            this.courseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.courseButton.Font = new System.Drawing.Font("Subway", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseButton.Location = new System.Drawing.Point(0, 165);
-            this.courseButton.Name = "courseButton";
-            this.courseButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.courseButton.Size = new System.Drawing.Size(263, 55);
-            this.courseButton.TabIndex = 4;
-            this.courseButton.Text = "↪ Course";
-            this.courseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.courseButton.UseVisualStyleBackColor = false;
+            this.subjectButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // scheduleButton
             // 
@@ -539,7 +521,6 @@
         private System.Windows.Forms.Button sectionButton;
         private System.Windows.Forms.Button teacherButton;
         private System.Windows.Forms.Button subjectButton;
-        private System.Windows.Forms.Button courseButton;
         private System.Windows.Forms.Button scheduleButton;
         private System.Windows.Forms.Button pricesButton;
         private System.Windows.Forms.Button paymentTypeButton;

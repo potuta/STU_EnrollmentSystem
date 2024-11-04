@@ -474,7 +474,7 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1434, 282);
+            this.detailsPanel.Size = new System.Drawing.Size(1451, 282);
             this.detailsPanel.TabIndex = 9;
             // 
             // sectionComboBox
@@ -896,7 +896,7 @@
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 117);
             this.showSearchButton.Name = "showSearchButton";
-            this.showSearchButton.Size = new System.Drawing.Size(1434, 27);
+            this.showSearchButton.Size = new System.Drawing.Size(1451, 27);
             this.showSearchButton.TabIndex = 8;
             this.showSearchButton.Text = "Search ▼";
             this.showSearchButton.UseVisualStyleBackColor = false;
@@ -909,7 +909,7 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1434, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1451, 117);
             this.searchPanel.TabIndex = 7;
             // 
             // label2
@@ -930,6 +930,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = null;
@@ -971,7 +972,7 @@
             this.studentsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.studentsBindingNavigator.Name = "studentsBindingNavigator";
             this.studentsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.studentsBindingNavigator.Size = new System.Drawing.Size(1434, 25);
+            this.studentsBindingNavigator.Size = new System.Drawing.Size(1451, 25);
             this.studentsBindingNavigator.TabIndex = 10;
             this.studentsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -1121,10 +1122,10 @@
             this.dataGridViewImageColumn3,
             this.dataGridViewImageColumn4});
             this.studentsDataGridView.DataSource = this.studentsBindingSource;
-            this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentsDataGridView.Location = new System.Drawing.Point(0, 451);
             this.studentsDataGridView.Name = "studentsDataGridView";
-            this.studentsDataGridView.Size = new System.Drawing.Size(1434, 362);
+            this.studentsDataGridView.Size = new System.Drawing.Size(1451, 374);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
@@ -1327,9 +1328,9 @@
             // 
             this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 813);
+            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 451);
             this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
-            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1434, 362);
+            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1451, 362);
             this.totalEnrolledStudentsGridView.TabIndex = 12;
             this.totalEnrolledStudentsGridView.Visible = false;
             // 

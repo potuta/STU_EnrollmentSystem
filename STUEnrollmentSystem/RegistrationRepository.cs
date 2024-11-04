@@ -8,37 +8,10 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class RegistrationRepository : IConnectionRepository
+    internal class RegistrationRepository : BaseRepository
     {
-        private SqlConnection _connection;
-
-        public RegistrationRepository(string connectionString)
-        {
-            _connection = new SqlConnection(connectionString);
-        }
-
-        public void OpenConnection()
-        {
-            if (_connection.State == ConnectionState.Closed)
-            {
-                _connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
-        }
-
-
+        public RegistrationRepository(string connectionString) : base(connectionString) { }
+      
         public Dictionary<string, bool> CheckRegistrationRequirements(string registerID)
         {
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
@@ -81,39 +54,6 @@ namespace STUEnrollmentSystem
         {
             SqlCommand command = new SqlCommand("DELETE FROM Registration WHERE RegisterID = @RegisterID", _connection);
             command.Parameters.AddWithValue("@RegisterID", registerId);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public void ViewFile(string column, string registerID)
-        {
-            string query = $"SELECT {column} FROM Registration WHERE RegisterID = {registerID}";
-            SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            byte[] fileData = (byte[])command.ExecuteScalar();
-            _connection.Close();
-
-            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
-            pdfViewer.Show();
-        }
-
-        public void UploadFile(string column, string registerID, byte[] fileData)
-        {
-            string query = $"UPDATE Registration SET {column} = @FileData WHERE RegisterID = @RegisterID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@FileData", fileData);
-            command.Parameters.AddWithValue("@RegisterID", registerID);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public void DeleteFile(string column, string registerID)
-        {
-            string query = $"UPDATE Registration SET {column} = NULL WHERE RegisterID = @RegisterID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@RegisterID", registerID);
             _connection.Open();
             command.ExecuteNonQuery();
             _connection.Close();

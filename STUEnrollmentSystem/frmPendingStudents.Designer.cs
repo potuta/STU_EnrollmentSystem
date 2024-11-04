@@ -64,7 +64,6 @@
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.amountToPayLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
             this.deleteGoodMoralButton = new System.Windows.Forms.Button();
@@ -97,9 +96,6 @@
             this.generateStudNumButton = new System.Windows.Forms.Button();
             this.uploadFrm137Button = new System.Windows.Forms.Button();
             this.viewBirthCertButton = new System.Windows.Forms.Button();
-            this.uploadGoodMoralButton = new System.Windows.Forms.Button();
-            this.viewGoodMoralButton = new System.Windows.Forms.Button();
-            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
             this.viewFrm137Button = new System.Windows.Forms.Button();
             this.studForm137TextBox = new System.Windows.Forms.TextBox();
             this.uploadTransferCertButton = new System.Windows.Forms.Button();
@@ -108,6 +104,10 @@
             this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
             this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
+            this.uploadGoodMoralButton = new System.Windows.Forms.Button();
+            this.viewGoodMoralButton = new System.Windows.Forms.Button();
+            this.goodMoralTextBox = new System.Windows.Forms.TextBox();
+            this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -573,14 +573,6 @@
             this.label5.TabIndex = 68;
             this.label5.Text = "Payment:";
             // 
-            // studentNumberTextBox
-            // 
-            this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudentNumber", true));
-            this.studentNumberTextBox.Location = new System.Drawing.Point(122, 88);
-            this.studentNumberTextBox.Name = "studentNumberTextBox";
-            this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.studentNumberTextBox.TabIndex = 64;
-            // 
             // civilStatusComboBox
             // 
             this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "CivilStatus", true));
@@ -891,35 +883,6 @@
             this.viewBirthCertButton.UseVisualStyleBackColor = true;
             this.viewBirthCertButton.Click += new System.EventHandler(this.viewBirthCertButton_Click);
             // 
-            // uploadGoodMoralButton
-            // 
-            this.uploadGoodMoralButton.Location = new System.Drawing.Point(604, 142);
-            this.uploadGoodMoralButton.Name = "uploadGoodMoralButton";
-            this.uploadGoodMoralButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadGoodMoralButton.TabIndex = 59;
-            this.uploadGoodMoralButton.Text = "Upload File";
-            this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
-            this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
-            // 
-            // viewGoodMoralButton
-            // 
-            this.viewGoodMoralButton.Location = new System.Drawing.Point(604, 142);
-            this.viewGoodMoralButton.Name = "viewGoodMoralButton";
-            this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
-            this.viewGoodMoralButton.TabIndex = 57;
-            this.viewGoodMoralButton.Text = "View File";
-            this.viewGoodMoralButton.UseVisualStyleBackColor = true;
-            this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
-            // 
-            // goodMoralTextBox
-            // 
-            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GoodMoral", true));
-            this.goodMoralTextBox.Location = new System.Drawing.Point(604, 142);
-            this.goodMoralTextBox.Name = "goodMoralTextBox";
-            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
-            this.goodMoralTextBox.TabIndex = 46;
-            this.goodMoralTextBox.Visible = false;
-            // 
             // viewFrm137Button
             // 
             this.viewFrm137Button.Location = new System.Drawing.Point(604, 88);
@@ -998,6 +961,43 @@
             this.viewProofOfPaymentButton.UseVisualStyleBackColor = true;
             this.viewProofOfPaymentButton.Visible = false;
             this.viewProofOfPaymentButton.Click += new System.EventHandler(this.viewProofOfPaymentButton_Click);
+            // 
+            // uploadGoodMoralButton
+            // 
+            this.uploadGoodMoralButton.Location = new System.Drawing.Point(604, 142);
+            this.uploadGoodMoralButton.Name = "uploadGoodMoralButton";
+            this.uploadGoodMoralButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadGoodMoralButton.TabIndex = 59;
+            this.uploadGoodMoralButton.Text = "Upload File";
+            this.uploadGoodMoralButton.UseVisualStyleBackColor = true;
+            this.uploadGoodMoralButton.Click += new System.EventHandler(this.uploadGoodMoralButton_Click);
+            // 
+            // viewGoodMoralButton
+            // 
+            this.viewGoodMoralButton.Location = new System.Drawing.Point(604, 142);
+            this.viewGoodMoralButton.Name = "viewGoodMoralButton";
+            this.viewGoodMoralButton.Size = new System.Drawing.Size(100, 23);
+            this.viewGoodMoralButton.TabIndex = 57;
+            this.viewGoodMoralButton.Text = "View File";
+            this.viewGoodMoralButton.UseVisualStyleBackColor = true;
+            this.viewGoodMoralButton.Click += new System.EventHandler(this.viewGoodMoralButton_Click);
+            // 
+            // goodMoralTextBox
+            // 
+            this.goodMoralTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GoodMoral", true));
+            this.goodMoralTextBox.Location = new System.Drawing.Point(604, 142);
+            this.goodMoralTextBox.Name = "goodMoralTextBox";
+            this.goodMoralTextBox.Size = new System.Drawing.Size(100, 20);
+            this.goodMoralTextBox.TabIndex = 46;
+            this.goodMoralTextBox.Visible = false;
+            // 
+            // studentNumberTextBox
+            // 
+            this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudentNumber", true));
+            this.studentNumberTextBox.Location = new System.Drawing.Point(122, 88);
+            this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
+            this.studentNumberTextBox.TabIndex = 64;
             // 
             // showSearchButton
             // 
@@ -1213,10 +1213,10 @@
             this.ProofOfPayment,
             this.dataGridViewTextBoxColumn21});
             this.pendingStudentsDataGridView.DataSource = this.pendingStudentsBindingSource;
-            this.pendingStudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pendingStudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 441);
             this.pendingStudentsDataGridView.Name = "pendingStudentsDataGridView";
-            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 423);
+            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 440);
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
@@ -1435,6 +1435,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
             this.tableAdapterManager.PricesTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = null;
@@ -1448,7 +1449,7 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // PendingStudents
+            // frmPendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1459,7 +1460,7 @@
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
             this.Controls.Add(this.searchPanel);
-            this.Name = "PendingStudents";
+            this.Name = "frmPendingStudents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PendingStudents";
             this.Load += new System.EventHandler(this.PendingStudents_Load);

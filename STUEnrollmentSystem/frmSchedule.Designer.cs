@@ -303,7 +303,7 @@
             this.searchToolStrip.Location = new System.Drawing.Point(108, 37);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(717, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(686, 25);
             this.searchToolStrip.TabIndex = 23;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -535,7 +535,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.scheduleDataGridView.DataSource = this.scheduleBindingSource;
-            this.scheduleDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scheduleDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scheduleDataGridView.Location = new System.Drawing.Point(299, 137);
             this.scheduleDataGridView.Name = "scheduleDataGridView";
             this.scheduleDataGridView.Size = new System.Drawing.Size(965, 622);

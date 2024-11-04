@@ -145,17 +145,17 @@ namespace STUEnrollmentSystem
             switch (operation)
             {
                 case "view":
-                    _studentRepository.ViewFile(fileType, studentNumberTextBox.Text);
+                    _studentRepository.ViewPDFFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
                 case "upload":
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
-                        _studentRepository.UploadFile(fileType, studentNumberTextBox.Text, fileData);
+                        _studentRepository.UploadFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
                     break;
                 case "delete":
-                    _studentRepository.DeleteFile(fileType, studentNumberTextBox.Text);
+                    _studentRepository.DeleteFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
             }
         }

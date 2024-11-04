@@ -46,6 +46,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchTeachersToolStrip = new System.Windows.Forms.ToolStrip();
+            this.teacherNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.teacherNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.teacherCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.teacherCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.sectionCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.sectionCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.subjectCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.subjectCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.searchTeachersToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.teachersTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TeachersTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
@@ -69,16 +79,6 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SubjectsTableAdapter();
-            this.searchTeachersToolStrip = new System.Windows.Forms.ToolStrip();
-            this.teacherNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.teacherCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.sectionCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.subjectCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.searchTeachersToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.teacherNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.teacherCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.sectionCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.subjectCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             teacherNameLabel = new System.Windows.Forms.Label();
             teacherCodeLabel = new System.Windows.Forms.Label();
             sectionCodeLabel = new System.Windows.Forms.Label();
@@ -88,10 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectsBindingSource)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.searchTeachersToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingNavigator)).BeginInit();
             this.teachersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataGridView)).BeginInit();
-            this.searchTeachersToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // teacherNameLabel
@@ -250,6 +250,92 @@
             this.searchPanel.Size = new System.Drawing.Size(1264, 89);
             this.searchPanel.TabIndex = 19;
             // 
+            // searchTeachersToolStrip
+            // 
+            this.searchTeachersToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchTeachersToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchTeachersToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.teacherNameToolStripLabel,
+            this.teacherNameToolStripComboBox,
+            this.teacherCodeToolStripLabel,
+            this.teacherCodeToolStripComboBox,
+            this.sectionCodeToolStripLabel,
+            this.sectionCodeToolStripComboBox,
+            this.subjectCodeToolStripLabel,
+            this.subjectCodeToolStripComboBox,
+            this.searchTeachersToolStripButton});
+            this.searchTeachersToolStrip.Location = new System.Drawing.Point(61, 41);
+            this.searchTeachersToolStrip.Name = "searchTeachersToolStrip";
+            this.searchTeachersToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.searchTeachersToolStrip.Size = new System.Drawing.Size(903, 25);
+            this.searchTeachersToolStrip.TabIndex = 23;
+            this.searchTeachersToolStrip.Text = "searchTeachersToolStrip";
+            // 
+            // teacherNameToolStripLabel
+            // 
+            this.teacherNameToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.teacherNameToolStripLabel.Name = "teacherNameToolStripLabel";
+            this.teacherNameToolStripLabel.Size = new System.Drawing.Size(85, 22);
+            this.teacherNameToolStripLabel.Text = "Teacher Name:";
+            // 
+            // teacherNameToolStripComboBox
+            // 
+            this.teacherNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.teacherNameToolStripComboBox.Name = "teacherNameToolStripComboBox";
+            this.teacherNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.teacherNameToolStripComboBox.TextChanged += new System.EventHandler(this.teacherNameToolStripComboBox_TextChanged);
+            // 
+            // teacherCodeToolStripLabel
+            // 
+            this.teacherCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.teacherCodeToolStripLabel.Name = "teacherCodeToolStripLabel";
+            this.teacherCodeToolStripLabel.Size = new System.Drawing.Size(111, 22);
+            this.teacherCodeToolStripLabel.Text = "          Teacher Code:";
+            // 
+            // teacherCodeToolStripComboBox
+            // 
+            this.teacherCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.teacherCodeToolStripComboBox.Name = "teacherCodeToolStripComboBox";
+            this.teacherCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.teacherCodeToolStripComboBox.TextChanged += new System.EventHandler(this.teacherCodeToolStripComboBox_TextChanged);
+            // 
+            // sectionCodeToolStripLabel
+            // 
+            this.sectionCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sectionCodeToolStripLabel.Name = "sectionCodeToolStripLabel";
+            this.sectionCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
+            this.sectionCodeToolStripLabel.Text = "          Section Code:";
+            // 
+            // sectionCodeToolStripComboBox
+            // 
+            this.sectionCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.sectionCodeToolStripComboBox.Name = "sectionCodeToolStripComboBox";
+            this.sectionCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripComboBox_TextChanged);
+            // 
+            // subjectCodeToolStripLabel
+            // 
+            this.subjectCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
+            this.subjectCodeToolStripLabel.Name = "subjectCodeToolStripLabel";
+            this.subjectCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
+            this.subjectCodeToolStripLabel.Text = "          Subject Code:";
+            // 
+            // subjectCodeToolStripComboBox
+            // 
+            this.subjectCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.subjectCodeToolStripComboBox.Name = "subjectCodeToolStripComboBox";
+            this.subjectCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.subjectCodeToolStripComboBox.TextChanged += new System.EventHandler(this.subjectCodeToolStripComboBox_TextChanged);
+            // 
+            // searchTeachersToolStripButton
+            // 
+            this.searchTeachersToolStripButton.BackColor = System.Drawing.Color.Transparent;
+            this.searchTeachersToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchTeachersToolStripButton.Name = "searchTeachersToolStripButton";
+            this.searchTeachersToolStripButton.Size = new System.Drawing.Size(76, 22);
+            this.searchTeachersToolStripButton.Text = "          Search";
+            this.searchTeachersToolStripButton.Click += new System.EventHandler(this.searchTeachersToolStripButton_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -268,6 +354,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = null;
@@ -427,10 +514,10 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.teachersDataGridView.DataSource = this.teachersBindingSource;
-            this.teachersDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.teachersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teachersDataGridView.Location = new System.Drawing.Point(317, 141);
             this.teachersDataGridView.Name = "teachersDataGridView";
-            this.teachersDataGridView.Size = new System.Drawing.Size(947, 590);
+            this.teachersDataGridView.Size = new System.Drawing.Size(947, 618);
             this.teachersDataGridView.TabIndex = 22;
             this.teachersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teachersDataGridView_CellClick);
             // 
@@ -462,93 +549,7 @@
             // 
             this.subjectsTableAdapter.ClearBeforeFill = true;
             // 
-            // searchTeachersToolStrip
-            // 
-            this.searchTeachersToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.searchTeachersToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.searchTeachersToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teacherNameToolStripLabel,
-            this.teacherNameToolStripComboBox,
-            this.teacherCodeToolStripLabel,
-            this.teacherCodeToolStripComboBox,
-            this.sectionCodeToolStripLabel,
-            this.sectionCodeToolStripComboBox,
-            this.subjectCodeToolStripLabel,
-            this.subjectCodeToolStripComboBox,
-            this.searchTeachersToolStripButton});
-            this.searchTeachersToolStrip.Location = new System.Drawing.Point(61, 41);
-            this.searchTeachersToolStrip.Name = "searchTeachersToolStrip";
-            this.searchTeachersToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchTeachersToolStrip.Size = new System.Drawing.Size(934, 25);
-            this.searchTeachersToolStrip.TabIndex = 23;
-            this.searchTeachersToolStrip.Text = "searchTeachersToolStrip";
-            // 
-            // teacherNameToolStripLabel
-            // 
-            this.teacherNameToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.teacherNameToolStripLabel.Name = "teacherNameToolStripLabel";
-            this.teacherNameToolStripLabel.Size = new System.Drawing.Size(85, 22);
-            this.teacherNameToolStripLabel.Text = "Teacher Name:";
-            // 
-            // teacherCodeToolStripLabel
-            // 
-            this.teacherCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.teacherCodeToolStripLabel.Name = "teacherCodeToolStripLabel";
-            this.teacherCodeToolStripLabel.Size = new System.Drawing.Size(111, 22);
-            this.teacherCodeToolStripLabel.Text = "          Teacher Code:";
-            // 
-            // sectionCodeToolStripLabel
-            // 
-            this.sectionCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sectionCodeToolStripLabel.Name = "sectionCodeToolStripLabel";
-            this.sectionCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
-            this.sectionCodeToolStripLabel.Text = "          Section Code:";
-            // 
-            // subjectCodeToolStripLabel
-            // 
-            this.subjectCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.subjectCodeToolStripLabel.Name = "subjectCodeToolStripLabel";
-            this.subjectCodeToolStripLabel.Size = new System.Drawing.Size(110, 22);
-            this.subjectCodeToolStripLabel.Text = "          Subject Code:";
-            // 
-            // searchTeachersToolStripButton
-            // 
-            this.searchTeachersToolStripButton.BackColor = System.Drawing.Color.Transparent;
-            this.searchTeachersToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchTeachersToolStripButton.Name = "searchTeachersToolStripButton";
-            this.searchTeachersToolStripButton.Size = new System.Drawing.Size(76, 22);
-            this.searchTeachersToolStripButton.Text = "          Search";
-            this.searchTeachersToolStripButton.Click += new System.EventHandler(this.searchTeachersToolStripButton_Click);
-            // 
-            // teacherNameToolStripComboBox
-            // 
-            this.teacherNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.teacherNameToolStripComboBox.Name = "teacherNameToolStripComboBox";
-            this.teacherNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.teacherNameToolStripComboBox.TextChanged += new System.EventHandler(this.teacherNameToolStripComboBox_TextChanged);
-            // 
-            // teacherCodeToolStripComboBox
-            // 
-            this.teacherCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.teacherCodeToolStripComboBox.Name = "teacherCodeToolStripComboBox";
-            this.teacherCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.teacherCodeToolStripComboBox.TextChanged += new System.EventHandler(this.teacherCodeToolStripComboBox_TextChanged);
-            // 
-            // sectionCodeToolStripComboBox
-            // 
-            this.sectionCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.sectionCodeToolStripComboBox.Name = "sectionCodeToolStripComboBox";
-            this.sectionCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripComboBox_TextChanged);
-            // 
-            // subjectCodeToolStripComboBox
-            // 
-            this.subjectCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.subjectCodeToolStripComboBox.Name = "subjectCodeToolStripComboBox";
-            this.subjectCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.subjectCodeToolStripComboBox.TextChanged += new System.EventHandler(this.subjectCodeToolStripComboBox_TextChanged);
-            // 
-            // Teacher
+            // frmTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -559,7 +560,7 @@
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
             this.Controls.Add(this.searchPanel);
-            this.Name = "Teacher";
+            this.Name = "frmTeacher";
             this.Text = "Teacher";
             this.Load += new System.EventHandler(this.Teacher_Load);
             this.detailsPanel.ResumeLayout(false);
@@ -569,12 +570,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.subjectsBindingSource)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchTeachersToolStrip.ResumeLayout(false);
+            this.searchTeachersToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingNavigator)).EndInit();
             this.teachersBindingNavigator.ResumeLayout(false);
             this.teachersBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataGridView)).EndInit();
-            this.searchTeachersToolStrip.ResumeLayout(false);
-            this.searchTeachersToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

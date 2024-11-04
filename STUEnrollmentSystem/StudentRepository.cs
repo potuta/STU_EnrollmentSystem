@@ -8,36 +8,10 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class StudentRepository :  IConnectionRepository
+    internal class StudentRepository : BaseRepository
     {
-        private SqlConnection _connection;
-
-        public StudentRepository(string connectionString)
-        {
-            _connection = new SqlConnection(connectionString);
-        }
-
-        public void OpenConnection()
-        {
-            if (_connection.State == ConnectionState.Closed)
-            {
-                _connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
-        }
-
+        public StudentRepository(string connectionString) : base(connectionString) { }
+     
         public Dictionary<string, bool> CheckStudentRequirements(string studentNumber)
         {
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
@@ -73,39 +47,6 @@ namespace STUEnrollmentSystem
             }
             _connection.Close();
             return sections;
-        }
-
-        public void ViewFile(string column, string studentNumber)
-        {
-            string query = $"SELECT {column} FROM Students WHERE StudentNumber = '{studentNumber}'";
-            SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            byte[] fileData = (byte[])command.ExecuteScalar();
-            _connection.Close();
-
-            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
-            pdfViewer.Show();
-        }
-
-        public void UploadFile(string column, string studentNumber, byte[] fileData)
-        {
-            string query = $"UPDATE Students SET {column} = @FileData WHERE StudentNumber = @StudentNumber";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@FileData", fileData);
-            command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public void DeleteFile(string column, string studentNumber)
-        {
-            string query = $"UPDATE Students SET {column} = NULL WHERE StudentNumber = @StudentNumber";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
         }
 
         public DataTable GetTotalEnrolledStudentsByGrade()

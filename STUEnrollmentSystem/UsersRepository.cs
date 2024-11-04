@@ -8,35 +8,9 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class UsersRepository : IConnectionRepository
+    internal class UsersRepository : BaseRepository
     {
-        private SqlConnection _connection;
-
-        public UsersRepository(string connectionString)
-        {
-            _connection = new SqlConnection(connectionString);
-        }
-
-        public void OpenConnection()
-        {
-            if (_connection.State == ConnectionState.Closed)
-            {
-                _connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
-        }
+        public UsersRepository(string connectionString) : base(connectionString) { }
 
         public bool VerifyUserLogin(string userID, string username, string password)
         {
