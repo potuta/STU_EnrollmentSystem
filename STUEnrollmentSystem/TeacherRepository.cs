@@ -12,6 +12,8 @@ namespace STUEnrollmentSystem
     {
         public TeacherRepository(string connectionString) : base(connectionString) { }
 
+        // Additional methods specific to TeacherRepository can be added here
+
         public int GenerateTeacherCode()
         {
             string query = "SELECT COUNT(*) FROM Teachers";

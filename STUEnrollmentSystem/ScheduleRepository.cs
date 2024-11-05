@@ -11,6 +11,8 @@ namespace STUEnrollmentSystem
     internal class ScheduleRepository : BaseRepository
     {
         public ScheduleRepository(string connectionString) : base(connectionString) { }
-     
+
+        // Additional methods specific to ScheduleRepository can be added here
+
     }
 }

@@ -12,5 +12,7 @@ namespace STUEnrollmentSystem
     {
         public PricesRepository(string connectionString) : base(connectionString) { }
 
+        // Additional methods specific to PricesRepository can be added here
+
     }
 }

@@ -12,6 +12,8 @@ namespace STUEnrollmentSystem
     {
         public UsersRepository(string connectionString) : base(connectionString) { }
 
+        // Additional methods specific to UsersRepository can be added here
+
         public bool VerifyUserLogin(string userID, string username, string password)
         {
             string query = "SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password";

@@ -11,6 +11,8 @@ namespace STUEnrollmentSystem
     internal class SubjectsRepository : BaseRepository
     {
         public SubjectsRepository(string connectionString) : base(connectionString) { }
-       
+
+        // Additional methods specific to SubjectsRepository can be added here
+
     }
 }

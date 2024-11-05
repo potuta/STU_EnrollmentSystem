@@ -15,6 +15,8 @@ namespace STUEnrollmentSystem
     {
         public PendingStudentsRepository(string connectionString) : base(connectionString) { }
 
+        // Additional methods specific to PendingStudentsRepository can be added here
+
         public Dictionary<string, bool> CheckPendingStudentsRequirements(string registerID)
         {
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();

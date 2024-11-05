@@ -16,6 +16,8 @@ namespace STUEnrollmentSystem
 
         public StudentPaymentRepository(string connectionString) : base(connectionString) { }
 
+        // Additional methods specific to StudentPaymentRepository can be added here
+
         public Dictionary<string, bool> CheckStudentPaymentRequirements(string studentNumber, string monthOfPayment)
         {
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
@@ -34,6 +36,46 @@ namespace STUEnrollmentSystem
             _connection.Close();
 
             return requirements;
+        }
+
+        public List<string> CheckMonthlyPendingPaymentStatus(string studentNumber)
+        {
+            List<string> columnDataList = new List<string>();
+            string query = $"SELECT MonthOfPayment FROM StudentPayment WHERE StudentNumber = @StudentNumber AND PaymentStatus = 'Pending'";
+            SqlCommand command = new SqlCommand(query, _connection);
+            command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+            _connection.Open();
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    if (!reader["MonthOfPayment"].ToString().Equals(string.Empty))
+                    {
+                        columnDataList.Add(reader["MonthOfPayment"].ToString());
+                    }
+                }
+            }
+            _connection.Close();
+            return columnDataList;
+        }
+
+        public Dictionary<string, int> GetTotalPendingPaymentAmount(string studentNumber, string paymentCode)
+        {
+            Dictionary<string, int> totalPendingPaymentAmount = new Dictionary<string, int>();
+            List<string> monthlyPendingDataList = CheckMonthlyPendingPaymentStatus(studentNumber);
+
+            _connection.Open();
+            foreach (string month in monthlyPendingDataList)
+            {
+                string query = $"SELECT PaymentAmount FROM PaymentType WHERE PaymentCode = @PaymentCode AND Month = @Month";
+                SqlCommand command = new SqlCommand(query, _connection);
+                command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                command.Parameters.AddWithValue("@Month", month);
+                totalPendingPaymentAmount[month] = Convert.ToInt32(command.ExecuteScalar());
+            }
+            _connection.Close();
+
+            return totalPendingPaymentAmount;
         }
 
         public override void ViewImageFile(string table, string column, string condition, string ID)

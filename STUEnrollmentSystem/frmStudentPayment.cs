@@ -90,6 +90,7 @@ namespace STUEnrollmentSystem
             try
             {
                 checkForRequirements();
+                checkBalance();
             }
             catch (FormatException fe)
             {
@@ -117,6 +118,34 @@ namespace STUEnrollmentSystem
             {
                 hideRequirementButtons();
             }
+        }
+
+        private void checkBalance()
+        {
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
+
+            if (paymentCodeComboBox.SelectedItem.ToString().Contains("M"))
+            {
+                paymentTypeLabel.Text = "Monthly";
+                remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
+                paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
+            }
+            else if (paymentCodeComboBox.SelectedItem.ToString().Contains("F"))
+            {
+                paymentTypeLabel.Text = "Full";
+                remainingBalanceLabel.Text = "0";
+                paymentDueLabel.Text = "None";
+            }
+        }
+
+        private int calculateTotalPendingAmount(Dictionary<string, int> monthlyPendingList)
+        {
+            int totalPendingAmount = 0;
+            foreach (string month in monthlyPendingList.Keys)
+            {
+                totalPendingAmount += monthlyPendingList[month];
+            }
+            return totalPendingAmount;
         }
 
         private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)

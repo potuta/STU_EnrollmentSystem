@@ -11,7 +11,9 @@ namespace STUEnrollmentSystem
     internal class StudentRepository : BaseRepository
     {
         public StudentRepository(string connectionString) : base(connectionString) { }
-     
+
+        // Additional methods specific to StudentRepository can be added here
+
         public Dictionary<string, bool> CheckStudentRequirements(string studentNumber)
         {
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();

@@ -11,6 +11,8 @@ namespace STUEnrollmentSystem
     internal class PaymentTypeRepository : BaseRepository
     {
         public PaymentTypeRepository(string connectionString) : base(connectionString) { }
-       
+
+        // Additional methods specific to PaymentTypeRepository can be added here
+
     }
 }

@@ -12,5 +12,7 @@ namespace STUEnrollmentSystem
     {
         public SectionRepository(string connectionString) : base(connectionString) { }
 
+        // Additional methods specific to SectionRepository can be added here
+
     }
 }
