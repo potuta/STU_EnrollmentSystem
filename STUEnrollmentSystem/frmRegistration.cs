@@ -35,6 +35,70 @@ namespace STUEnrollmentSystem
         {
             this.registrationTableAdapter.Fill(this.sTU_DBDataSet.Registration);
             searchPanel.Visible = false;
+            InitializeSearchComboBoxes();
+        }
+
+        private void registrationBindingNavigatorRefreshItem_Click(object sender, EventArgs e)
+        {
+            this.registrationTableAdapter.Update(sTU_DBDataSet);
+            this.registrationTableAdapter.Fill(sTU_DBDataSet.Registration);
+            InitializeSearchComboBoxes();
+        }
+
+        private void InitializeSearchComboBoxes()
+        {
+            InitializeSearchRegisterIDCB();
+            InitializeSearchStudFirstName();
+            InitializeSearchStudMidNameCB();
+            InitializeSearchStudLastNameCB();
+        }
+
+        private void InitializeSearchStudLastNameCB()
+        {
+            List<string> studLastNameList = _registrationRepository.GetColumnData("Registration", "StudLastName");
+            studLastNameList.Sort();
+            studLastNameToolStripComboBox.Items.Clear();
+            foreach (string items in studLastNameList)
+            {
+                if (!studLastNameToolStripComboBox.Items.Contains(items))
+                {
+                    studLastNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudMidNameCB()
+        {
+            List<string> studMidNameList = _registrationRepository.GetColumnData("Registration", "StudMidName");
+            studMidNameList.Sort();
+            studMidNameToolStripComboBox.Items.Clear();
+            foreach (string items in studMidNameList)
+            {
+                if (!studMidNameToolStripComboBox.Items.Contains(items))
+                {
+                    studMidNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudFirstName()
+        {
+            List<string> studFirstNameList = _registrationRepository.GetColumnData("Registration", "StudFirstName");
+            studFirstNameToolStripComboBox.Items.Clear();
+            foreach (string items in studFirstNameList)
+            {
+                if (!studFirstNameToolStripComboBox.Items.Contains(items))
+                {
+                    studFirstNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchRegisterIDCB()
+        {
+            List<string> registerIDList = _registrationRepository.GetColumnData("Registration", "RegisterID");
+            registerIDToolStripComboBox.Items.Clear();
+            registerIDToolStripComboBox.Items.AddRange(registerIDList.ToArray());
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -49,12 +113,6 @@ namespace STUEnrollmentSystem
                 showSearchButton.Text = "Search ▼";
                 searchPanel.Visible = false;
             }
-        }
-
-        private void registrationBindingNavigatorRefreshItem_Click(object sender, EventArgs e)
-        {
-            this.registrationTableAdapter.Update(sTU_DBDataSet);
-            this.registrationTableAdapter.Fill(sTU_DBDataSet.Registration);
         }
 
         private void registrationDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -215,6 +273,21 @@ namespace STUEnrollmentSystem
             if (requirements["TransferCertificate"] == true)
             {
                 _registrationRepository.UpdateRequirements("PendingStudents", "TransferCertificate", registerIDTextBox.Text);
+            }
+        }
+
+        private void searchToolStripButton_Click(object sender, EventArgs e) => searchRegistration();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchRegistration();
+
+        private void searchRegistration()
+        {
+            try
+            {
+                this.registrationTableAdapter.Search(this.sTU_DBDataSet.Registration, ((int)(System.Convert.ChangeType(registerIDToolStripComboBox.Text, typeof(int)))), studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
     }

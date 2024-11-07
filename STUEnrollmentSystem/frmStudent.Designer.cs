@@ -150,6 +150,16 @@
             this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
             this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
             this.totalEnrolledStudentsGridView = new System.Windows.Forms.DataGridView();
+            this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
+            this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studFirstNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studMidNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studLastNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studFirstNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studMidNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studLastNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -185,6 +195,7 @@
             this.studentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalEnrolledStudentsGridView)).BeginInit();
+            this.fillBy1ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // studentNumberLabel
@@ -472,7 +483,7 @@
             this.detailsPanel.Controls.Add(this.birthDateTimePicker);
             this.detailsPanel.Controls.Add(this.birthDateTextBox);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 119);
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1451, 282);
             this.detailsPanel.TabIndex = 9;
@@ -894,7 +905,7 @@
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Location = new System.Drawing.Point(0, 92);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1451, 27);
             this.showSearchButton.TabIndex = 8;
@@ -905,11 +916,12 @@
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.fillBy1ToolStrip);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1451, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1451, 92);
             this.searchPanel.TabIndex = 7;
             // 
             // label2
@@ -965,7 +977,7 @@
             this.studentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorTotalStudentsItem});
-            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 426);
+            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 401);
             this.studentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.studentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -1123,9 +1135,9 @@
             this.dataGridViewImageColumn4});
             this.studentsDataGridView.DataSource = this.studentsBindingSource;
             this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentsDataGridView.Location = new System.Drawing.Point(0, 451);
+            this.studentsDataGridView.Location = new System.Drawing.Point(0, 426);
             this.studentsDataGridView.Name = "studentsDataGridView";
-            this.studentsDataGridView.Size = new System.Drawing.Size(1451, 374);
+            this.studentsDataGridView.Size = new System.Drawing.Size(1451, 399);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
@@ -1327,12 +1339,92 @@
             // totalEnrolledStudentsGridView
             // 
             this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 451);
+            this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 0);
             this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
-            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1451, 362);
+            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1451, 825);
             this.totalEnrolledStudentsGridView.TabIndex = 12;
             this.totalEnrolledStudentsGridView.Visible = false;
+            // 
+            // fillBy1ToolStrip
+            // 
+            this.fillBy1ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillBy1ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.fillBy1ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.studentNumberToolStripLabel,
+            this.studentNumberToolStripComboBox,
+            this.studFirstNameToolStripLabel,
+            this.studFirstNameToolStripComboBox,
+            this.studMidNameToolStripLabel,
+            this.studMidNameToolStripComboBox,
+            this.studLastNameToolStripLabel,
+            this.studLastNameToolStripComboBox,
+            this.fillBy1ToolStripButton});
+            this.fillBy1ToolStrip.Location = new System.Drawing.Point(73, 44);
+            this.fillBy1ToolStrip.Name = "fillBy1ToolStrip";
+            this.fillBy1ToolStrip.Size = new System.Drawing.Size(822, 25);
+            this.fillBy1ToolStrip.TabIndex = 13;
+            this.fillBy1ToolStrip.Text = "fillBy1ToolStrip";
+            // 
+            // studentNumberToolStripLabel
+            // 
+            this.studentNumberToolStripLabel.Name = "studentNumberToolStripLabel";
+            this.studentNumberToolStripLabel.Size = new System.Drawing.Size(98, 22);
+            this.studentNumberToolStripLabel.Text = "Student Number:";
+            // 
+            // studFirstNameToolStripLabel
+            // 
+            this.studFirstNameToolStripLabel.Name = "studFirstNameToolStripLabel";
+            this.studFirstNameToolStripLabel.Size = new System.Drawing.Size(82, 22);
+            this.studFirstNameToolStripLabel.Text = "     First Name:";
+            // 
+            // studMidNameToolStripLabel
+            // 
+            this.studMidNameToolStripLabel.Name = "studMidNameToolStripLabel";
+            this.studMidNameToolStripLabel.Size = new System.Drawing.Size(104, 22);
+            this.studMidNameToolStripLabel.Text = "     Midddle Name:";
+            // 
+            // studLastNameToolStripLabel
+            // 
+            this.studLastNameToolStripLabel.Name = "studLastNameToolStripLabel";
+            this.studLastNameToolStripLabel.Size = new System.Drawing.Size(81, 22);
+            this.studLastNameToolStripLabel.Text = "     Last Name:";
+            // 
+            // fillBy1ToolStripButton
+            // 
+            this.fillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
+            this.fillBy1ToolStripButton.Size = new System.Drawing.Size(46, 22);
+            this.fillBy1ToolStripButton.Text = "Search";
+            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
+            // 
+            // studentNumberToolStripComboBox
+            // 
+            this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
+            this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studFirstNameToolStripComboBox
+            // 
+            this.studFirstNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studFirstNameToolStripComboBox.Name = "studFirstNameToolStripComboBox";
+            this.studFirstNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studFirstNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studMidNameToolStripComboBox
+            // 
+            this.studMidNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studMidNameToolStripComboBox.Name = "studMidNameToolStripComboBox";
+            this.studMidNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studMidNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studLastNameToolStripComboBox
+            // 
+            this.studLastNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studLastNameToolStripComboBox.Name = "studLastNameToolStripComboBox";
+            this.studLastNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studLastNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // frmStudent
             // 
@@ -1340,12 +1432,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1451, 825);
-            this.Controls.Add(this.totalEnrolledStudentsGridView);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.studentsBindingNavigator);
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
             this.Controls.Add(this.searchPanel);
+            this.Controls.Add(this.totalEnrolledStudentsGridView);
             this.Name = "frmStudent";
             this.Text = "Student";
             this.Load += new System.EventHandler(this.Student_Load);
@@ -1363,6 +1455,8 @@
             this.studentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalEnrolledStudentsGridView)).EndInit();
+            this.fillBy1ToolStrip.ResumeLayout(false);
+            this.fillBy1ToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1467,5 +1561,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
         private System.Windows.Forms.DataGridView totalEnrolledStudentsGridView;
         private System.Windows.Forms.ToolStripButton bindingNavigatorTotalStudentsItem;
+        private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
+        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
+        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
     }
 }

@@ -303,7 +303,7 @@
             this.searchToolStrip.Location = new System.Drawing.Point(108, 37);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(686, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(717, 25);
             this.searchToolStrip.TabIndex = 23;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -318,7 +318,7 @@
             this.scheduleCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.scheduleCodeToolStripComboBox.Name = "scheduleCodeToolStripComboBox";
             this.scheduleCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.scheduleCodeToolStripComboBox.TextChanged += new System.EventHandler(this.scheduleCodeToolStripComboBox_TextChanged);
+            this.scheduleCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // sectionCodeToolStripLabel
             // 
@@ -331,7 +331,7 @@
             this.sectionCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.sectionCodeToolStripComboBox.Name = "sectionCodeToolStripComboBox";
             this.sectionCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripComboBox_TextChanged);
+            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // teacherCodeToolStripLabel
             // 
@@ -344,7 +344,7 @@
             this.teacherCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.teacherCodeToolStripComboBox.Name = "teacherCodeToolStripComboBox";
             this.teacherCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.teacherCodeToolStripComboBox.TextChanged += new System.EventHandler(this.teacherCodeToolStripComboBox_TextChanged);
+            this.teacherCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // searchToolStripButton
             // 

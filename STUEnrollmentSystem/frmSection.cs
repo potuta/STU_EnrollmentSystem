@@ -104,10 +104,7 @@ namespace STUEnrollmentSystem
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchSection();
-        private void sectionTitleToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
-        private void sectionCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
-        private void roomToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
-        private void gradeCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSection();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchSection();
 
         private void searchSection()
         {

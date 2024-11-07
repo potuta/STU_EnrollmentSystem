@@ -272,7 +272,7 @@
             this.userIDToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.userIDToolStripComboBox.Name = "userIDToolStripComboBox";
             this.userIDToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.userIDToolStripComboBox.TextChanged += new System.EventHandler(this.userIDToolStripComboBox_TextChanged);
+            this.userIDToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // usernameToolStripLabel
             // 
@@ -285,7 +285,7 @@
             this.usernameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.usernameToolStripComboBox.Name = "usernameToolStripComboBox";
             this.usernameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.usernameToolStripComboBox.TextChanged += new System.EventHandler(this.usernameToolStripComboBox_TextChanged);
+            this.usernameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // roleIDToolStripLabel
             // 
@@ -298,7 +298,7 @@
             this.roleIDToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.roleIDToolStripComboBox.Name = "roleIDToolStripComboBox";
             this.roleIDToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.roleIDToolStripComboBox.TextChanged += new System.EventHandler(this.roleIDToolStripComboBox_TextChanged);
+            this.roleIDToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // searchToolStripButton
             // 

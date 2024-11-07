@@ -48,6 +48,13 @@
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.paymentDueLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.remainingBalanceLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.paymentTypeLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
             this.paymentReceiptTextBox = new System.Windows.Forms.TextBox();
             this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -87,13 +94,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.paymentTypeLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.remainingBalanceLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.paymentDueLabel = new System.Windows.Forms.Label();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -220,7 +220,7 @@
             this.paymentCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.paymentCodeToolStripComboBox.Name = "paymentCodeToolStripComboBox";
             this.paymentCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.paymentCodeToolStripComboBox.TextChanged += new System.EventHandler(this.paymentCodeToolStripComboBox_TextChanged);
+            this.paymentCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // studentNumberToolStripLabel
             // 
@@ -234,7 +234,7 @@
             this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
             this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.studentNumberToolStripComboBox_TextChanged);
+            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // monthOfPaymentToolStripLabel
             // 
@@ -249,7 +249,7 @@
             this.monthOfPaymentToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.monthOfPaymentToolStripTextBox.Name = "monthOfPaymentToolStripTextBox";
             this.monthOfPaymentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.monthOfPaymentToolStripTextBox.TextChanged += new System.EventHandler(this.monthOfPaymentToolStripTextBox_TextChanged);
+            this.monthOfPaymentToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // searchToolStripButton
             // 
@@ -303,6 +303,70 @@
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(361, 615);
             this.detailsPanel.TabIndex = 14;
+            // 
+            // paymentDueLabel
+            // 
+            this.paymentDueLabel.AutoSize = true;
+            this.paymentDueLabel.Location = new System.Drawing.Point(170, 374);
+            this.paymentDueLabel.Name = "paymentDueLabel";
+            this.paymentDueLabel.Size = new System.Drawing.Size(109, 13);
+            this.paymentDueLabel.TabIndex = 87;
+            this.paymentDueLabel.Text = "----------------------------------";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(61, 374);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 86;
+            this.label7.Text = "Payment due:";
+            // 
+            // remainingBalanceLabel
+            // 
+            this.remainingBalanceLabel.AutoSize = true;
+            this.remainingBalanceLabel.Location = new System.Drawing.Point(170, 346);
+            this.remainingBalanceLabel.Name = "remainingBalanceLabel";
+            this.remainingBalanceLabel.Size = new System.Drawing.Size(109, 13);
+            this.remainingBalanceLabel.TabIndex = 85;
+            this.remainingBalanceLabel.Text = "----------------------------------";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 345);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 13);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "Remaining Balance:";
+            // 
+            // paymentTypeLabel
+            // 
+            this.paymentTypeLabel.AutoSize = true;
+            this.paymentTypeLabel.Location = new System.Drawing.Point(170, 317);
+            this.paymentTypeLabel.Name = "paymentTypeLabel";
+            this.paymentTypeLabel.Size = new System.Drawing.Size(109, 13);
+            this.paymentTypeLabel.TabIndex = 83;
+            this.paymentTypeLabel.Text = "----------------------------------";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(61, 316);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 82;
+            this.label4.Text = "Payment Type:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(136, 284);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 18);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "Balance";
             // 
             // deleteProofOfPaymentButton
             // 
@@ -676,70 +740,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(136, 284);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 18);
-            this.label3.TabIndex = 81;
-            this.label3.Text = "Balance";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 316);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 13);
-            this.label4.TabIndex = 82;
-            this.label4.Text = "Payment Type:";
-            // 
-            // paymentTypeLabel
-            // 
-            this.paymentTypeLabel.AutoSize = true;
-            this.paymentTypeLabel.Location = new System.Drawing.Point(170, 317);
-            this.paymentTypeLabel.Name = "paymentTypeLabel";
-            this.paymentTypeLabel.Size = new System.Drawing.Size(109, 13);
-            this.paymentTypeLabel.TabIndex = 83;
-            this.paymentTypeLabel.Text = "----------------------------------";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 345);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 13);
-            this.label5.TabIndex = 84;
-            this.label5.Text = "Remaining Balance:";
-            // 
-            // remainingBalanceLabel
-            // 
-            this.remainingBalanceLabel.AutoSize = true;
-            this.remainingBalanceLabel.Location = new System.Drawing.Point(170, 346);
-            this.remainingBalanceLabel.Name = "remainingBalanceLabel";
-            this.remainingBalanceLabel.Size = new System.Drawing.Size(109, 13);
-            this.remainingBalanceLabel.TabIndex = 85;
-            this.remainingBalanceLabel.Text = "----------------------------------";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(61, 374);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 13);
-            this.label7.TabIndex = 86;
-            this.label7.Text = "Payment due:";
-            // 
-            // paymentDueLabel
-            // 
-            this.paymentDueLabel.AutoSize = true;
-            this.paymentDueLabel.Location = new System.Drawing.Point(170, 374);
-            this.paymentDueLabel.Name = "paymentDueLabel";
-            this.paymentDueLabel.Size = new System.Drawing.Size(109, 13);
-            this.paymentDueLabel.TabIndex = 87;
-            this.paymentDueLabel.Text = "----------------------------------";
             // 
             // frmStudentPayment
             // 

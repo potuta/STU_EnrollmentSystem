@@ -110,6 +110,18 @@
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.registerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.registerIDToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studFirstNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studFirstNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studMidNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studMidNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studLastNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studLastNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pendingStudentsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -187,6 +199,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingNavigator)).BeginInit();
             this.pendingStudentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).BeginInit();
@@ -505,7 +518,7 @@
             this.detailsPanel.Controls.Add(this.goodMoralTextBox);
             this.detailsPanel.Controls.Add(this.studentNumberTextBox);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 122);
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1264, 272);
             this.detailsPanel.TabIndex = 6;
@@ -1005,7 +1018,7 @@
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Location = new System.Drawing.Point(0, 95);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
             this.showSearchButton.TabIndex = 5;
@@ -1016,12 +1029,108 @@
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.searchToolStrip);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1264, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1264, 95);
             this.searchPanel.TabIndex = 4;
+            // 
+            // searchToolStrip
+            // 
+            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerIDToolStripLabel,
+            this.registerIDToolStripComboBox,
+            this.studentNumberToolStripLabel,
+            this.studentNumberToolStripComboBox,
+            this.studFirstNameToolStripLabel,
+            this.studFirstNameToolStripComboBox,
+            this.studMidNameToolStripLabel,
+            this.studMidNameToolStripComboBox,
+            this.studLastNameToolStripLabel,
+            this.studLastNameToolStripComboBox,
+            this.searchToolStripButton});
+            this.searchToolStrip.Location = new System.Drawing.Point(65, 43);
+            this.searchToolStrip.Name = "searchToolStrip";
+            this.searchToolStrip.Size = new System.Drawing.Size(1029, 25);
+            this.searchToolStrip.TabIndex = 8;
+            this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // registerIDToolStripLabel
+            // 
+            this.registerIDToolStripLabel.Name = "registerIDToolStripLabel";
+            this.registerIDToolStripLabel.Size = new System.Drawing.Size(66, 22);
+            this.registerIDToolStripLabel.Text = "Register ID:";
+            // 
+            // registerIDToolStripComboBox
+            // 
+            this.registerIDToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.registerIDToolStripComboBox.Name = "registerIDToolStripComboBox";
+            this.registerIDToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.registerIDToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studentNumberToolStripLabel
+            // 
+            this.studentNumberToolStripLabel.Name = "studentNumberToolStripLabel";
+            this.studentNumberToolStripLabel.Size = new System.Drawing.Size(113, 22);
+            this.studentNumberToolStripLabel.Text = "     Student Number:";
+            // 
+            // studentNumberToolStripComboBox
+            // 
+            this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
+            this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studFirstNameToolStripLabel
+            // 
+            this.studFirstNameToolStripLabel.Name = "studFirstNameToolStripLabel";
+            this.studFirstNameToolStripLabel.Size = new System.Drawing.Size(82, 22);
+            this.studFirstNameToolStripLabel.Text = "     First Name:";
+            // 
+            // studFirstNameToolStripComboBox
+            // 
+            this.studFirstNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studFirstNameToolStripComboBox.Name = "studFirstNameToolStripComboBox";
+            this.studFirstNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studFirstNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studMidNameToolStripLabel
+            // 
+            this.studMidNameToolStripLabel.Name = "studMidNameToolStripLabel";
+            this.studMidNameToolStripLabel.Size = new System.Drawing.Size(97, 22);
+            this.studMidNameToolStripLabel.Text = "     Middle Name:";
+            // 
+            // studMidNameToolStripComboBox
+            // 
+            this.studMidNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studMidNameToolStripComboBox.Name = "studMidNameToolStripComboBox";
+            this.studMidNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studMidNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studLastNameToolStripLabel
+            // 
+            this.studLastNameToolStripLabel.Name = "studLastNameToolStripLabel";
+            this.studLastNameToolStripLabel.Size = new System.Drawing.Size(81, 22);
+            this.studLastNameToolStripLabel.Text = "     Last Name:";
+            // 
+            // studLastNameToolStripComboBox
+            // 
+            this.studLastNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studLastNameToolStripComboBox.Name = "studLastNameToolStripComboBox";
+            this.studLastNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studLastNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(46, 22);
+            this.searchToolStripButton.Text = "Search";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // label2
             // 
@@ -1054,7 +1163,7 @@
             this.pendingStudentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorEnrollStudentItem});
-            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 416);
+            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 394);
             this.pendingStudentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pendingStudentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pendingStudentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -1214,9 +1323,9 @@
             this.dataGridViewTextBoxColumn21});
             this.pendingStudentsDataGridView.DataSource = this.pendingStudentsBindingSource;
             this.pendingStudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 441);
+            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 419);
             this.pendingStudentsDataGridView.Name = "pendingStudentsDataGridView";
-            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 440);
+            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 462);
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
@@ -1470,6 +1579,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchToolStrip.ResumeLayout(false);
+            this.searchToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingNavigator)).EndInit();
             this.pendingStudentsBindingNavigator.ResumeLayout(false);
             this.pendingStudentsBindingNavigator.PerformLayout();
@@ -1583,5 +1694,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProofOfPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.Label amountToPayLabel;
+        private System.Windows.Forms.ToolStrip searchToolStrip;
+        private System.Windows.Forms.ToolStripLabel registerIDToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
+        private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox registerIDToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
     }
 }

@@ -31,12 +31,36 @@ namespace STUEnrollmentSystem
         {
             this.pricesTableAdapter.Fill(this.sTU_DBDataSet.Prices);
             searchPanel.Visible = false;
+            InitializeSearchComboBoxes();
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
             this.pricesTableAdapter.Update(sTU_DBDataSet);
             this.pricesTableAdapter.Fill(sTU_DBDataSet.Prices);
+            InitializeSearchComboBoxes();
+        }
+
+        private void InitializeSearchComboBoxes()
+        {
+            InitializeSearchPriceCodeCB();
+            InitializeSearchGradeCodeCB();
+        }
+
+        private void InitializeSearchGradeCodeCB()
+        {
+            List<string> gradeCodeList = _pricesRepository.GetColumnData("Prices", "GradeCode");
+            gradeCodeList.Sort();
+            gradeCodeToolStripComboBox.Items.Clear();
+            gradeCodeToolStripComboBox.Items.AddRange(gradeCodeList.ToArray());
+        }
+
+        private void InitializeSearchPriceCodeCB()
+        {
+            List<string> priceList = _pricesRepository.GetColumnData("Prices", "PriceCode");
+            priceList.Sort();
+            priceCodeToolStripComboBox.Items.Clear();
+            priceCodeToolStripComboBox.Items.AddRange(priceList.ToArray());
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -58,6 +82,8 @@ namespace STUEnrollmentSystem
 
         }
 
+        private void pricesFeeTextBox_TextChanged(object sender, EventArgs e) => calculateTotalAmount();
+
         private void calculateTotalAmount()
         {
             double totalAmount = 0;
@@ -68,6 +94,19 @@ namespace STUEnrollmentSystem
             totalAmountTextBox.Text = totalAmount.ToString();
         }
 
-        private void pricesFeeTextBox_TextChanged(object sender, EventArgs e) => calculateTotalAmount();
+        private void searchToolStripButton_Click(object sender, EventArgs e) => searchPrices();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchPrices();
+
+        private void searchPrices()
+        {
+            try
+            {
+                this.pricesTableAdapter.Search(this.sTU_DBDataSet.Prices, priceCodeToolStripComboBox.Text, gradeCodeToolStripComboBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

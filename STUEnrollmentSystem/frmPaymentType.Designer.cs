@@ -49,6 +49,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.paymentTypeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.paymentTypeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.paymentCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.paymentCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.pricesCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.pricesCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.monthToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.monthToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.schoolYearToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.schoolYearToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.paymentTypeTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PaymentTypeTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
@@ -85,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeBindingNavigator)).BeginInit();
             this.paymentTypeBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeDataGridView)).BeginInit();
@@ -161,9 +174,9 @@
             this.detailsPanel.Controls.Add(this.schoolYearTextBox);
             this.detailsPanel.Controls.Add(this.label1);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 133);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(306, 615);
+            this.detailsPanel.Size = new System.Drawing.Size(306, 626);
             this.detailsPanel.TabIndex = 20;
             // 
             // pricesCodeComboBox
@@ -249,7 +262,7 @@
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Location = new System.Drawing.Point(0, 106);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
             this.showSearchButton.TabIndex = 19;
@@ -260,12 +273,109 @@
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.searchToolStrip);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1264, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1264, 106);
             this.searchPanel.TabIndex = 18;
+            // 
+            // searchToolStrip
+            // 
+            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paymentTypeToolStripLabel,
+            this.paymentTypeToolStripComboBox,
+            this.paymentCodeToolStripLabel,
+            this.paymentCodeToolStripComboBox,
+            this.pricesCodeToolStripLabel,
+            this.pricesCodeToolStripComboBox,
+            this.monthToolStripLabel,
+            this.monthToolStripComboBox,
+            this.schoolYearToolStripLabel,
+            this.schoolYearToolStripComboBox,
+            this.searchToolStripButton});
+            this.searchToolStrip.Location = new System.Drawing.Point(55, 48);
+            this.searchToolStrip.Name = "searchToolStrip";
+            this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.searchToolStrip.Size = new System.Drawing.Size(1011, 25);
+            this.searchToolStrip.TabIndex = 22;
+            this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // paymentTypeToolStripLabel
+            // 
+            this.paymentTypeToolStripLabel.Name = "paymentTypeToolStripLabel";
+            this.paymentTypeToolStripLabel.Size = new System.Drawing.Size(84, 22);
+            this.paymentTypeToolStripLabel.Text = "Payment Type:";
+            // 
+            // paymentTypeToolStripComboBox
+            // 
+            this.paymentTypeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.paymentTypeToolStripComboBox.Name = "paymentTypeToolStripComboBox";
+            this.paymentTypeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.paymentTypeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // paymentCodeToolStripLabel
+            // 
+            this.paymentCodeToolStripLabel.Name = "paymentCodeToolStripLabel";
+            this.paymentCodeToolStripLabel.Size = new System.Drawing.Size(103, 22);
+            this.paymentCodeToolStripLabel.Text = "     Payment Code:";
+            // 
+            // paymentCodeToolStripComboBox
+            // 
+            this.paymentCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.paymentCodeToolStripComboBox.Name = "paymentCodeToolStripComboBox";
+            this.paymentCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.paymentCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // pricesCodeToolStripLabel
+            // 
+            this.pricesCodeToolStripLabel.Name = "pricesCodeToolStripLabel";
+            this.pricesCodeToolStripLabel.Size = new System.Drawing.Size(87, 22);
+            this.pricesCodeToolStripLabel.Text = "     Prices Code:";
+            // 
+            // pricesCodeToolStripComboBox
+            // 
+            this.pricesCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.pricesCodeToolStripComboBox.Name = "pricesCodeToolStripComboBox";
+            this.pricesCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.pricesCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // monthToolStripLabel
+            // 
+            this.monthToolStripLabel.Name = "monthToolStripLabel";
+            this.monthToolStripLabel.Size = new System.Drawing.Size(61, 22);
+            this.monthToolStripLabel.Text = "     Month:";
+            // 
+            // monthToolStripComboBox
+            // 
+            this.monthToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.monthToolStripComboBox.Name = "monthToolStripComboBox";
+            this.monthToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.monthToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // schoolYearToolStripLabel
+            // 
+            this.schoolYearToolStripLabel.Name = "schoolYearToolStripLabel";
+            this.schoolYearToolStripLabel.Size = new System.Drawing.Size(86, 22);
+            this.schoolYearToolStripLabel.Text = "     School Year:";
+            // 
+            // schoolYearToolStripComboBox
+            // 
+            this.schoolYearToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.schoolYearToolStripComboBox.Name = "schoolYearToolStripComboBox";
+            this.schoolYearToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.schoolYearToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(46, 22);
+            this.searchToolStripButton.Text = "Search";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // label2
             // 
@@ -319,7 +429,7 @@
             this.bindingNavigatorDeleteItem,
             this.paymentTypeBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.paymentTypeBindingNavigator.Location = new System.Drawing.Point(306, 144);
+            this.paymentTypeBindingNavigator.Location = new System.Drawing.Point(306, 133);
             this.paymentTypeBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.paymentTypeBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.paymentTypeBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -448,9 +558,9 @@
             this.dataGridViewTextBoxColumn6});
             this.paymentTypeDataGridView.DataSource = this.paymentTypeBindingSource;
             this.paymentTypeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paymentTypeDataGridView.Location = new System.Drawing.Point(306, 169);
+            this.paymentTypeDataGridView.Location = new System.Drawing.Point(306, 158);
             this.paymentTypeDataGridView.Name = "paymentTypeDataGridView";
-            this.paymentTypeDataGridView.Size = new System.Drawing.Size(958, 590);
+            this.paymentTypeDataGridView.Size = new System.Drawing.Size(958, 601);
             this.paymentTypeDataGridView.TabIndex = 21;
             // 
             // dataGridViewTextBoxColumn1
@@ -514,6 +624,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchToolStrip.ResumeLayout(false);
+            this.searchToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTypeBindingNavigator)).EndInit();
             this.paymentTypeBindingNavigator.ResumeLayout(false);
             this.paymentTypeBindingNavigator.PerformLayout();
@@ -563,5 +675,17 @@
         private System.Windows.Forms.ComboBox pricesCodeComboBox;
         private System.Windows.Forms.BindingSource pricesBindingSource;
         private STU_DBDataSetTableAdapters.PricesTableAdapter pricesTableAdapter;
+        private System.Windows.Forms.ToolStrip searchToolStrip;
+        private System.Windows.Forms.ToolStripLabel paymentTypeToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel paymentCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel pricesCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel monthToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel schoolYearToolStripLabel;
+        private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox paymentTypeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox paymentCodeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox pricesCodeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox monthToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox schoolYearToolStripComboBox;
     }
 }

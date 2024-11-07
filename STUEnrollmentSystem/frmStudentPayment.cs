@@ -216,9 +216,7 @@ namespace STUEnrollmentSystem
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchStudentPayment();
-        private void paymentCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchStudentPayment();
-        private void studentNumberToolStripComboBox_TextChanged(object sender, EventArgs e) => searchStudentPayment();
-        private void monthOfPaymentToolStripTextBox_TextChanged(object sender, EventArgs e) => searchStudentPayment();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchStudentPayment();
 
         private void searchStudentPayment()
         {

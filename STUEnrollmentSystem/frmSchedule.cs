@@ -111,9 +111,7 @@ namespace STUEnrollmentSystem
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchSchedule();
-        private void scheduleCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSchedule();
-        private void sectionCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSchedule();
-        private void teacherCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSchedule();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchSchedule();
 
         private void searchSchedule()
         {

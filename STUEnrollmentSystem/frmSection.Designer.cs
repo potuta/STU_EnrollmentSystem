@@ -223,7 +223,7 @@
             this.searchToolStrip.Location = new System.Drawing.Point(67, 50);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(845, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(876, 25);
             this.searchToolStrip.TabIndex = 17;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -239,7 +239,7 @@
             this.sectionTitleToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.sectionTitleToolStripComboBox.Name = "sectionTitleToolStripComboBox";
             this.sectionTitleToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.sectionTitleToolStripComboBox.TextChanged += new System.EventHandler(this.sectionTitleToolStripComboBox_TextChanged);
+            this.sectionTitleToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // sectionCodeToolStripLabel
             // 
@@ -253,7 +253,7 @@
             this.sectionCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.sectionCodeToolStripComboBox.Name = "sectionCodeToolStripComboBox";
             this.sectionCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.sectionCodeToolStripComboBox_TextChanged);
+            this.sectionCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // roomToolStripLabel
             // 
@@ -267,7 +267,7 @@
             this.roomToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.roomToolStripComboBox.Name = "roomToolStripComboBox";
             this.roomToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.roomToolStripComboBox.TextChanged += new System.EventHandler(this.roomToolStripComboBox_TextChanged);
+            this.roomToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // gradeCodeToolStripLabel
             // 
@@ -281,7 +281,7 @@
             this.gradeCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.gradeCodeToolStripComboBox.Name = "gradeCodeToolStripComboBox";
             this.gradeCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.gradeCodeToolStripComboBox.TextChanged += new System.EventHandler(this.gradeCodeToolStripComboBox_TextChanged);
+            this.gradeCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // searchToolStripButton
             // 

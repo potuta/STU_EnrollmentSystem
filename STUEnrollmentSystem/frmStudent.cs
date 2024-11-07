@@ -23,20 +23,84 @@ namespace STUEnrollmentSystem
             _studentRepository = new StudentRepository(Properties.Settings.Default.STU_DBConnectionString);
         }
 
-        private void Student_Load(object sender, EventArgs e)
-        {
-            this.gradeLevelTableAdapter.Fill(this.sTU_DBDataSet.GradeLevel);
-            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
-            this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
-            searchPanel.Visible = false;
-        }
-
         private void studentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             birthDateTextBox.Text = birthDateTimePicker.Value.Date.ToShortDateString();
             this.Validate();
             this.studentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+        }
+
+        private void Student_Load(object sender, EventArgs e)
+        {
+            this.gradeLevelTableAdapter.Fill(this.sTU_DBDataSet.GradeLevel);
+            this.sectionsTableAdapter.Fill(this.sTU_DBDataSet.Sections);
+            this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
+            searchPanel.Visible = false;
+            InitializeSearchComboBoxes();
+        }
+
+        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
+        {
+            this.studentsTableAdapter.Update(sTU_DBDataSet);
+            this.studentsTableAdapter.Fill(sTU_DBDataSet.Students);
+            InitializeSearchComboBoxes();
+        }
+
+        private void InitializeSearchComboBoxes()
+        {
+            InitializeSearchStudentNumberCB();
+            InitializeSearchStudFirstName();
+            InitializeSearchStudMidNameCB();
+            InitializeSearchStudLastNameCB();
+        }
+
+        private void InitializeSearchStudLastNameCB()
+        {
+            List<string> studLastNameList = _studentRepository.GetColumnData("Students", "StudLastName");
+            studLastNameList.Sort();
+            studLastNameToolStripComboBox.Items.Clear();
+            foreach (string items in studLastNameList)
+            {
+                if (!studLastNameToolStripComboBox.Items.Contains(items))
+                {
+                    studLastNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudMidNameCB()
+        {
+            List<string> studMidNameList = _studentRepository.GetColumnData("Students", "StudMidName");
+            studMidNameList.Sort();
+            studMidNameToolStripComboBox.Items.Clear();
+            foreach (string items in studMidNameList)
+            {
+                if (!studMidNameToolStripComboBox.Items.Contains(items))
+                {
+                    studMidNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudFirstName()
+        {
+            List<string> studFirstNameList = _studentRepository.GetColumnData("Students", "StudFirstName");
+            studFirstNameToolStripComboBox.Items.Clear();
+            foreach (string items in studFirstNameList)
+            {
+                if (!studFirstNameToolStripComboBox.Items.Contains(items))
+                {
+                    studFirstNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudentNumberCB()
+        {
+            List<string> studentNumberList = _studentRepository.GetColumnData("Students", "StudentNumber");
+            studentNumberToolStripComboBox.Items.Clear();
+            studentNumberToolStripComboBox.Items.AddRange(studentNumberList.ToArray());
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -51,12 +115,6 @@ namespace STUEnrollmentSystem
                 showSearchButton.Text = "Search ▼";
                 searchPanel.Visible = false;
             }
-        }
-
-        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
-        {
-            this.studentsTableAdapter.Update(sTU_DBDataSet);
-            this.studentsTableAdapter.Fill(sTU_DBDataSet.Students);
         }
 
         private void studentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,6 +270,21 @@ namespace STUEnrollmentSystem
                 bindingNavigatorAddNewItem.Enabled = false;
                 studentsBindingNavigatorSaveItem.Enabled = false;
                 bindingNavigatorRefreshItem.Enabled = false;
+            }
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e) => searchStudents();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchStudents();
+
+        private void searchStudents()
+        {
+            try
+            {
+                this.studentsTableAdapter.FillBy1(this.sTU_DBDataSet.Students, studentNumberToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
     }

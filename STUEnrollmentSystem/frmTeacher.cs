@@ -157,10 +157,7 @@ namespace STUEnrollmentSystem
         }
 
         private void searchTeachersToolStripButton_Click(object sender, EventArgs e) => searchTeacher();
-        private void teacherNameToolStripComboBox_TextChanged(object sender, EventArgs e) => searchTeacher();
-        private void teacherCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchTeacher();
-        private void sectionCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchTeacher();
-        private void subjectCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchTeacher();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchTeacher();
 
         private void searchTeacher()
         {

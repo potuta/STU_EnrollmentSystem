@@ -52,6 +52,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.priceCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.priceCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.gradeCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.gradeCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pricesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PricesTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
@@ -90,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pricesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pricesBindingNavigator)).BeginInit();
             this.pricesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pricesDataGridView)).BeginInit();
@@ -188,9 +195,9 @@
             this.detailsPanel.Controls.Add(this.totalAmountTextBox);
             this.detailsPanel.Controls.Add(this.label1);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 115);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(322, 615);
+            this.detailsPanel.Size = new System.Drawing.Size(322, 644);
             this.detailsPanel.TabIndex = 17;
             // 
             // priceCodeTextBox
@@ -290,7 +297,7 @@
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Location = new System.Drawing.Point(0, 88);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
             this.showSearchButton.TabIndex = 16;
@@ -301,12 +308,63 @@
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.searchToolStrip);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1264, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1264, 88);
             this.searchPanel.TabIndex = 15;
+            // 
+            // searchToolStrip
+            // 
+            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.priceCodeToolStripLabel,
+            this.priceCodeToolStripComboBox,
+            this.gradeCodeToolStripLabel,
+            this.gradeCodeToolStripComboBox,
+            this.searchToolStripButton});
+            this.searchToolStrip.Location = new System.Drawing.Point(106, 37);
+            this.searchToolStrip.Name = "searchToolStrip";
+            this.searchToolStrip.Size = new System.Drawing.Size(453, 25);
+            this.searchToolStrip.TabIndex = 19;
+            this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // priceCodeToolStripLabel
+            // 
+            this.priceCodeToolStripLabel.Name = "priceCodeToolStripLabel";
+            this.priceCodeToolStripLabel.Size = new System.Drawing.Size(67, 22);
+            this.priceCodeToolStripLabel.Text = "Price Code:";
+            // 
+            // priceCodeToolStripComboBox
+            // 
+            this.priceCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.priceCodeToolStripComboBox.Name = "priceCodeToolStripComboBox";
+            this.priceCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.priceCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // gradeCodeToolStripLabel
+            // 
+            this.gradeCodeToolStripLabel.Name = "gradeCodeToolStripLabel";
+            this.gradeCodeToolStripLabel.Size = new System.Drawing.Size(102, 22);
+            this.gradeCodeToolStripLabel.Text = "          Grade Code:";
+            // 
+            // gradeCodeToolStripComboBox
+            // 
+            this.gradeCodeToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.gradeCodeToolStripComboBox.Name = "gradeCodeToolStripComboBox";
+            this.gradeCodeToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.gradeCodeToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(46, 22);
+            this.searchToolStripButton.Text = "Search";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // label2
             // 
@@ -360,7 +418,7 @@
             this.bindingNavigatorDeleteItem,
             this.pricesBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.pricesBindingNavigator.Location = new System.Drawing.Point(322, 144);
+            this.pricesBindingNavigator.Location = new System.Drawing.Point(322, 115);
             this.pricesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pricesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pricesBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -492,9 +550,9 @@
             this.dataGridViewTextBoxColumn8});
             this.pricesDataGridView.DataSource = this.pricesBindingSource;
             this.pricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pricesDataGridView.Location = new System.Drawing.Point(322, 169);
+            this.pricesDataGridView.Location = new System.Drawing.Point(322, 140);
             this.pricesDataGridView.Name = "pricesDataGridView";
-            this.pricesDataGridView.Size = new System.Drawing.Size(942, 590);
+            this.pricesDataGridView.Size = new System.Drawing.Size(942, 619);
             this.pricesDataGridView.TabIndex = 18;
             this.pricesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pricesDataGridView_CellClick);
             // 
@@ -566,6 +624,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchToolStrip.ResumeLayout(false);
+            this.searchToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pricesBindingNavigator)).EndInit();
             this.pricesBindingNavigator.ResumeLayout(false);
             this.pricesBindingNavigator.PerformLayout();
@@ -617,5 +677,11 @@
         private System.Windows.Forms.TextBox miscellanaousFeeTextBox;
         private System.Windows.Forms.TextBox totalAmountTextBox;
         private System.Windows.Forms.ToolStripButton bindingNavigatorRefreshItem;
+        private System.Windows.Forms.ToolStrip searchToolStrip;
+        private System.Windows.Forms.ToolStripLabel priceCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel gradeCodeToolStripLabel;
+        private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox priceCodeToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox gradeCodeToolStripComboBox;
     }
 }

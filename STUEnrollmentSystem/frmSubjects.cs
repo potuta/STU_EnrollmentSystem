@@ -89,10 +89,8 @@ namespace STUEnrollmentSystem
             subjectTitleToolStripComboBox.Items.AddRange(subjectTitleList.ToArray());
         }
 
-        private void subjectTitleToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSubjects();
-        private void subjectCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSubjects();
-        private void subjectGradeCodeToolStripComboBox_TextChanged(object sender, EventArgs e) => searchSubjects();
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchSubjects();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchSubjects();
 
         private void searchSubjects()
         {

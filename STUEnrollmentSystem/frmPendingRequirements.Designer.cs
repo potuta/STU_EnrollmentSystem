@@ -146,6 +146,16 @@
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
+            this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studFirstNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studFirstNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studMidNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studMidNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.studLastNameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.studLastNameToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             sectionLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
@@ -179,6 +189,7 @@
             this.studentsBindingNavigator.SuspendLayout();
             this.detailsPanel.SuspendLayout();
             this.searchPanel.SuspendLayout();
+            this.fillBy1ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // sectionLabel
@@ -870,9 +881,9 @@
             this.dataGridViewImageColumn4});
             this.studentsDataGridView.DataSource = this.studentsBindingSource;
             this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentsDataGridView.Location = new System.Drawing.Point(0, 452);
+            this.studentsDataGridView.Location = new System.Drawing.Point(0, 431);
             this.studentsDataGridView.Name = "studentsDataGridView";
-            this.studentsDataGridView.Size = new System.Drawing.Size(1298, 377);
+            this.studentsDataGridView.Size = new System.Drawing.Size(1298, 398);
             this.studentsDataGridView.TabIndex = 14;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
@@ -897,7 +908,7 @@
             this.studentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorUpdateRequirementsItem});
-            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 427);
+            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 406);
             this.studentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.studentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -1091,7 +1102,7 @@
             this.detailsPanel.Controls.Add(this.transferCertificateTextBox);
             this.detailsPanel.Controls.Add(this.viewTransferCertButton);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.detailsPanel.Location = new System.Drawing.Point(0, 144);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 123);
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1298, 283);
             this.detailsPanel.TabIndex = 13;
@@ -1268,7 +1279,7 @@
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showSearchButton.Location = new System.Drawing.Point(0, 117);
+            this.showSearchButton.Location = new System.Drawing.Point(0, 96);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1298, 27);
             this.showSearchButton.TabIndex = 12;
@@ -1279,11 +1290,12 @@
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
+            this.searchPanel.Controls.Add(this.fillBy1ToolStrip);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1298, 117);
+            this.searchPanel.Size = new System.Drawing.Size(1298, 96);
             this.searchPanel.TabIndex = 11;
             // 
             // label2
@@ -1314,6 +1326,86 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // fillBy1ToolStrip
+            // 
+            this.fillBy1ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillBy1ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.fillBy1ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.studentNumberToolStripLabel,
+            this.studentNumberToolStripComboBox,
+            this.studFirstNameToolStripLabel,
+            this.studFirstNameToolStripComboBox,
+            this.studMidNameToolStripLabel,
+            this.studMidNameToolStripComboBox,
+            this.studLastNameToolStripLabel,
+            this.studLastNameToolStripComboBox,
+            this.fillBy1ToolStripButton});
+            this.fillBy1ToolStrip.Location = new System.Drawing.Point(84, 41);
+            this.fillBy1ToolStrip.Name = "fillBy1ToolStrip";
+            this.fillBy1ToolStrip.Size = new System.Drawing.Size(853, 25);
+            this.fillBy1ToolStrip.TabIndex = 14;
+            this.fillBy1ToolStrip.Text = "fillBy1ToolStrip";
+            // 
+            // studentNumberToolStripLabel
+            // 
+            this.studentNumberToolStripLabel.Name = "studentNumberToolStripLabel";
+            this.studentNumberToolStripLabel.Size = new System.Drawing.Size(98, 22);
+            this.studentNumberToolStripLabel.Text = "Student Number:";
+            // 
+            // studentNumberToolStripComboBox
+            // 
+            this.studentNumberToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studentNumberToolStripComboBox.Name = "studentNumberToolStripComboBox";
+            this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studFirstNameToolStripLabel
+            // 
+            this.studFirstNameToolStripLabel.Name = "studFirstNameToolStripLabel";
+            this.studFirstNameToolStripLabel.Size = new System.Drawing.Size(82, 22);
+            this.studFirstNameToolStripLabel.Text = "     First Name:";
+            // 
+            // studFirstNameToolStripComboBox
+            // 
+            this.studFirstNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studFirstNameToolStripComboBox.Name = "studFirstNameToolStripComboBox";
+            this.studFirstNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studFirstNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studMidNameToolStripLabel
+            // 
+            this.studMidNameToolStripLabel.Name = "studMidNameToolStripLabel";
+            this.studMidNameToolStripLabel.Size = new System.Drawing.Size(104, 22);
+            this.studMidNameToolStripLabel.Text = "     Midddle Name:";
+            // 
+            // studMidNameToolStripComboBox
+            // 
+            this.studMidNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studMidNameToolStripComboBox.Name = "studMidNameToolStripComboBox";
+            this.studMidNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studMidNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // studLastNameToolStripLabel
+            // 
+            this.studLastNameToolStripLabel.Name = "studLastNameToolStripLabel";
+            this.studLastNameToolStripLabel.Size = new System.Drawing.Size(81, 22);
+            this.studLastNameToolStripLabel.Text = "     Last Name:";
+            // 
+            // studLastNameToolStripComboBox
+            // 
+            this.studLastNameToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.studLastNameToolStripComboBox.Name = "studLastNameToolStripComboBox";
+            this.studLastNameToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.studLastNameToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // fillBy1ToolStripButton
+            // 
+            this.fillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
+            this.fillBy1ToolStripButton.Size = new System.Drawing.Size(46, 22);
+            this.fillBy1ToolStripButton.Text = "Search";
+            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
+            // 
             // frmPendingRequirements
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1341,6 +1433,8 @@
             this.detailsPanel.PerformLayout();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.fillBy1ToolStrip.ResumeLayout(false);
+            this.fillBy1ToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1440,5 +1534,15 @@
         private System.Windows.Forms.TextBox sectionTextBox;
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox enrollmentStatusTextBox;
+        private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
+        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
+        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
+        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
+        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
+        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
+        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
     }
 }

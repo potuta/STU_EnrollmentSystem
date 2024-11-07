@@ -37,6 +37,81 @@ namespace STUEnrollmentSystem
         {
             this.pendingStudentsTableAdapter.Fill(this.sTU_DBDataSet.PendingStudents);
             searchPanel.Visible = false;
+            InitializeSearchComboBoxes();
+        }
+
+        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
+        {
+            this.pendingStudentsTableAdapter.Update(sTU_DBDataSet);
+            this.pendingStudentsTableAdapter.Fill(sTU_DBDataSet.PendingStudents);
+            InitializeSearchComboBoxes();
+        }
+
+        private void InitializeSearchComboBoxes()
+        {
+            InitializeSearchRegisterIDCB();
+            InitializeSearchStudentNumberCB();
+            InitializeSearchStudFirstNameCB();
+            InitializeSearchStudMidNameCB();
+            InitializeSearchStudLastNameCB();
+        }
+
+        private void InitializeSearchStudLastNameCB()
+        {
+            List<string> studLastNameList = _pendingStudentsRepository.GetColumnData("PendingStudents", "StudLastName");
+            studLastNameList.Sort();
+            studLastNameToolStripComboBox.Items.Clear();
+            foreach (string items in studLastNameList)
+            {
+                if (!studLastNameToolStripComboBox.Items.Contains(items))
+                {
+                    studLastNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudMidNameCB()
+        {
+            List<string> studMidNameList = _pendingStudentsRepository.GetColumnData("PendingStudents", "StudMidName");
+            studMidNameList.Sort();
+            studMidNameToolStripComboBox.Items.Clear(); 
+            foreach (string items in studMidNameList)
+            {
+                if (!studMidNameToolStripComboBox.Items.Contains(items))
+                {
+                    studMidNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudFirstNameCB()
+        {
+            List<string> studFirstNameList = _pendingStudentsRepository.GetColumnData("PendingStudents", "StudFirstName");
+            studFirstNameList.Sort();
+            studFirstNameToolStripComboBox.Items.Clear();
+            foreach (string items in studFirstNameList)
+            {
+                if (!studFirstNameToolStripComboBox.Items.Contains(items))
+                {
+                    studFirstNameToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
+        private void InitializeSearchStudentNumberCB()
+        {
+            List<string> studentNumberList = _pendingStudentsRepository.GetColumnData("PendingStudents", "StudentNumber");
+            studentNumberList.Sort();
+            studentNumberToolStripComboBox.Items.Clear();
+            studentNumberToolStripComboBox.Items.AddRange(studentNumberList.ToArray());
+        }
+
+        private void InitializeSearchRegisterIDCB()
+        {
+            List<string> regIDList = _pendingStudentsRepository.GetColumnData("PendingStudents", "RegisterID");
+            regIDList.Sort();
+            registerIDToolStripComboBox.Items.Clear();
+            registerIDToolStripComboBox.Items.AddRange(regIDList.ToArray());
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -51,12 +126,6 @@ namespace STUEnrollmentSystem
                 showSearchButton.Text = "Search ▼";
                 searchPanel.Visible = false;
             }
-        }
-
-        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
-        {
-            this.pendingStudentsTableAdapter.Update(sTU_DBDataSet);
-            this.pendingStudentsTableAdapter.Fill(sTU_DBDataSet.PendingStudents);
         }
 
         private void pendingStudentsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -345,6 +414,21 @@ namespace STUEnrollmentSystem
             else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
             {
                 amountToPayLabel.Text = "57000.00";
+            }
+        }
+
+        private void searchToolStripButton_Click(object sender, EventArgs e) => searchPendingStudents();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchPendingStudents();
+
+        private void searchPendingStudents()
+        {
+            try
+            {
+                this.pendingStudentsTableAdapter.Search(this.sTU_DBDataSet.PendingStudents, ((int)(System.Convert.ChangeType(registerIDToolStripComboBox.Text, typeof(int)))), studentNumberToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
     }

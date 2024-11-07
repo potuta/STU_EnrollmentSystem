@@ -96,9 +96,7 @@ namespace STUEnrollmentSystem
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchUsers();
-        private void userIDToolStripComboBox_TextChanged(object sender, EventArgs e) => searchUsers();
-        private void usernameToolStripComboBox_TextChanged(object sender, EventArgs e) => searchUsers();
-        private void roleIDToolStripComboBox_TextChanged(object sender, EventArgs e) => searchUsers();
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchUsers();
 
         private void searchUsers()
         {
