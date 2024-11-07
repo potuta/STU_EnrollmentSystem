@@ -27,7 +27,6 @@ namespace STUEnrollmentSystem
 
         private void pendingStudentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            birthDateTextBox.Text = birthDateTimePicker.Value.Date.ToShortDateString();
             this.Validate();
             this.pendingStudentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
@@ -132,7 +131,6 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                birthDateTimePicker.Text = birthDateTextBox.Text;
                 checkForRequirements();
             }
             catch (FormatException fe)
@@ -275,13 +273,13 @@ namespace STUEnrollmentSystem
                 {"StudFirstName", studFirstNameTextBox.Text},
                 {"StudMidName", studMidNameTextBox.Text},
                 {"StudLastName", studLastNameTextBox.Text},
-                {"Gender", genderComboBox.SelectedItem},
-                {"BirthDate", birthDateTimePicker.Value.Date.ToShortDateString()},
-                {"CivilStatus", civilStatusComboBox.SelectedItem},
+                {"Gender", genderTextBox.Text},
+                {"BirthDate", birthDateTextBox.Text},
+                {"CivilStatus", civilStatusTextBox.Text},
                 {"Address", addressTextBox.Text},
                 {"ContactNum", Convert.ToInt32(contactNumTextBox.Text)},
-                {"EnrollmentStatus", enrollmentStatusComboBox.SelectedItem},
-                {"EnrollmentType", enrollmentTypeComboBox.SelectedItem},
+                {"EnrollmentStatus", enrollmentStatusTextBox.Text},
+                {"EnrollmentType", enrollmentTypeTextBox.Text},
                 {"PaymentType", paymentTypeComboBox.SelectedItem},
                 {"MotherFirstName", motherFirstNameTextBox.Text},
                 {"MotherLastName", motherLastNameTextBox.Text},
@@ -295,7 +293,7 @@ namespace STUEnrollmentSystem
 
         private void insertStudentPayment()
         {
-            string paymentCode = getPaymentCode(paymentTypeComboBox.SelectedItem.ToString(), enrollmentTypeComboBox.SelectedItem.ToString());
+            string paymentCode = getPaymentCode(paymentTypeComboBox.SelectedItem.ToString(), enrollmentTypeTextBox.Text);
             var studentPaymentData = new Dictionary<string, object>
             {
                 {"PaymentCode", paymentCode},
@@ -407,11 +405,11 @@ namespace STUEnrollmentSystem
 
         private void paymentTypeComboBox_TextChanged(object sender, EventArgs e)
         {
-            if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
+            if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
             {
                 amountToPayLabel.Text = "5700.00";
             }
-            else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeComboBox.SelectedItem.Equals("Grade 7"))
+            else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
             {
                 amountToPayLabel.Text = "57000.00";
             }

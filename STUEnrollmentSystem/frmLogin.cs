@@ -76,7 +76,7 @@ namespace STUEnrollmentSystem
             Username = userLoginInfo[1];
             Password = userLoginInfo[2];
             Email = userLoginInfo[3];
-            Role = userLoginInfo[4];
+            Role = userLoginInfo[4]; 
         }
 
         private void loginButton_Click(object sender, EventArgs e)

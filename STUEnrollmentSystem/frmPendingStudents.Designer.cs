@@ -64,16 +64,12 @@
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.amountToPayLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
             this.deleteGoodMoralButton = new System.Windows.Forms.Button();
             this.deleteBirthCertButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.paymentTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.enrollmentTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.genderComboBox = new System.Windows.Forms.ComboBox();
-            this.enrollmentStatusComboBox = new System.Windows.Forms.ComboBox();
             this.registerIDTextBox = new System.Windows.Forms.TextBox();
             this.studFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.studMidNameTextBox = new System.Windows.Forms.TextBox();
@@ -91,7 +87,6 @@
             this.deleteFrm137Button = new System.Windows.Forms.Button();
             this.uploadBirthCertButton = new System.Windows.Forms.Button();
             this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
-            this.birthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.birthDateTextBox = new System.Windows.Forms.TextBox();
             this.generateStudNumButton = new System.Windows.Forms.Button();
             this.uploadFrm137Button = new System.Windows.Forms.Button();
@@ -169,6 +164,10 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.enrollmentStatusTextBox = new System.Windows.Forms.TextBox();
+            this.genderTextBox = new System.Windows.Forms.TextBox();
+            this.civilStatusTextBox = new System.Windows.Forms.TextBox();
+            this.enrollmentTypeTextBox = new System.Windows.Forms.TextBox();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -442,6 +441,10 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.enrollmentTypeTextBox);
+            this.detailsPanel.Controls.Add(this.civilStatusTextBox);
+            this.detailsPanel.Controls.Add(this.genderTextBox);
+            this.detailsPanel.Controls.Add(this.enrollmentStatusTextBox);
             this.detailsPanel.Controls.Add(this.deleteProofOfPaymentButton);
             this.detailsPanel.Controls.Add(this.proofOfPaymentLabel);
             this.detailsPanel.Controls.Add(paymentMethodLabel1);
@@ -450,7 +453,6 @@
             this.detailsPanel.Controls.Add(label6);
             this.detailsPanel.Controls.Add(this.label5);
             this.detailsPanel.Controls.Add(studentNumberLabel);
-            this.detailsPanel.Controls.Add(this.civilStatusComboBox);
             this.detailsPanel.Controls.Add(this.deleteTransferCertButton);
             this.detailsPanel.Controls.Add(this.deleteGoodMoralButton);
             this.detailsPanel.Controls.Add(this.deleteBirthCertButton);
@@ -461,9 +463,6 @@
             this.detailsPanel.Controls.Add(birthCertificateLabel);
             this.detailsPanel.Controls.Add(studForm137Label);
             this.detailsPanel.Controls.Add(this.paymentTypeComboBox);
-            this.detailsPanel.Controls.Add(this.enrollmentTypeComboBox);
-            this.detailsPanel.Controls.Add(this.genderComboBox);
-            this.detailsPanel.Controls.Add(this.enrollmentStatusComboBox);
             this.detailsPanel.Controls.Add(registerIDLabel);
             this.detailsPanel.Controls.Add(this.registerIDTextBox);
             this.detailsPanel.Controls.Add(enrollmentStatusLabel);
@@ -500,7 +499,6 @@
             this.detailsPanel.Controls.Add(this.deleteFrm137Button);
             this.detailsPanel.Controls.Add(this.uploadBirthCertButton);
             this.detailsPanel.Controls.Add(this.birthCertificateTextBox);
-            this.detailsPanel.Controls.Add(this.birthDateTimePicker);
             this.detailsPanel.Controls.Add(this.birthDateTextBox);
             this.detailsPanel.Controls.Add(this.generateStudNumButton);
             this.detailsPanel.Controls.Add(this.uploadFrm137Button);
@@ -520,7 +518,7 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 122);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1264, 272);
+            this.detailsPanel.Size = new System.Drawing.Size(1264, 291);
             this.detailsPanel.TabIndex = 6;
             // 
             // deleteProofOfPaymentButton
@@ -586,21 +584,6 @@
             this.label5.TabIndex = 68;
             this.label5.Text = "Payment:";
             // 
-            // civilStatusComboBox
-            // 
-            this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "CivilStatus", true));
-            this.civilStatusComboBox.FormattingEnabled = true;
-            this.civilStatusComboBox.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
-            this.civilStatusComboBox.Location = new System.Drawing.Point(122, 270);
-            this.civilStatusComboBox.Name = "civilStatusComboBox";
-            this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
-            this.civilStatusComboBox.TabIndex = 63;
-            // 
             // deleteTransferCertButton
             // 
             this.deleteTransferCertButton.Location = new System.Drawing.Point(710, 165);
@@ -664,50 +647,12 @@
             this.paymentTypeComboBox.TabIndex = 43;
             this.paymentTypeComboBox.TextChanged += new System.EventHandler(this.paymentTypeComboBox_TextChanged);
             // 
-            // enrollmentTypeComboBox
-            // 
-            this.enrollmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentType", true));
-            this.enrollmentTypeComboBox.FormattingEnabled = true;
-            this.enrollmentTypeComboBox.Items.AddRange(new object[] {
-            "Grade 7",
-            "Grade 8",
-            "Grade 9",
-            "Grade 10"});
-            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(122, 347);
-            this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
-            this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
-            this.enrollmentTypeComboBox.TabIndex = 42;
-            // 
-            // genderComboBox
-            // 
-            this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Gender", true));
-            this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.genderComboBox.Location = new System.Drawing.Point(122, 217);
-            this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(100, 21);
-            this.genderComboBox.TabIndex = 41;
-            // 
-            // enrollmentStatusComboBox
-            // 
-            this.enrollmentStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentStatus", true));
-            this.enrollmentStatusComboBox.FormattingEnabled = true;
-            this.enrollmentStatusComboBox.Items.AddRange(new object[] {
-            "OLD",
-            "NEW",
-            "TRANSFEREE"});
-            this.enrollmentStatusComboBox.Location = new System.Drawing.Point(122, 113);
-            this.enrollmentStatusComboBox.Name = "enrollmentStatusComboBox";
-            this.enrollmentStatusComboBox.Size = new System.Drawing.Size(100, 21);
-            this.enrollmentStatusComboBox.TabIndex = 40;
-            // 
             // registerIDTextBox
             // 
             this.registerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "RegisterID", true));
             this.registerIDTextBox.Location = new System.Drawing.Point(122, 64);
             this.registerIDTextBox.Name = "registerIDTextBox";
+            this.registerIDTextBox.ReadOnly = true;
             this.registerIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.registerIDTextBox.TabIndex = 2;
             // 
@@ -716,6 +661,7 @@
             this.studFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudFirstName", true));
             this.studFirstNameTextBox.Location = new System.Drawing.Point(122, 139);
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
+            this.studFirstNameTextBox.ReadOnly = true;
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studFirstNameTextBox.TabIndex = 6;
             // 
@@ -724,6 +670,7 @@
             this.studMidNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudMidName", true));
             this.studMidNameTextBox.Location = new System.Drawing.Point(122, 165);
             this.studMidNameTextBox.Name = "studMidNameTextBox";
+            this.studMidNameTextBox.ReadOnly = true;
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studMidNameTextBox.TabIndex = 8;
             // 
@@ -732,6 +679,7 @@
             this.studLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudLastName", true));
             this.studLastNameTextBox.Location = new System.Drawing.Point(122, 191);
             this.studLastNameTextBox.Name = "studLastNameTextBox";
+            this.studLastNameTextBox.ReadOnly = true;
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studLastNameTextBox.TabIndex = 10;
             // 
@@ -740,6 +688,7 @@
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Address", true));
             this.addressTextBox.Location = new System.Drawing.Point(122, 296);
             this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.ReadOnly = true;
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 18;
             // 
@@ -748,6 +697,7 @@
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ContactNum", true));
             this.contactNumTextBox.Location = new System.Drawing.Point(122, 322);
             this.contactNumTextBox.Name = "contactNumTextBox";
+            this.contactNumTextBox.ReadOnly = true;
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
             // 
@@ -756,6 +706,7 @@
             this.motherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherFirstName", true));
             this.motherFirstNameTextBox.Location = new System.Drawing.Point(368, 64);
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
+            this.motherFirstNameTextBox.ReadOnly = true;
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherFirstNameTextBox.TabIndex = 26;
             // 
@@ -764,6 +715,7 @@
             this.motherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherLastName", true));
             this.motherLastNameTextBox.Location = new System.Drawing.Point(368, 90);
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
+            this.motherLastNameTextBox.ReadOnly = true;
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherLastNameTextBox.TabIndex = 28;
             // 
@@ -772,6 +724,7 @@
             this.motherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherOccupation", true));
             this.motherOccupationTextBox.Location = new System.Drawing.Point(368, 116);
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
+            this.motherOccupationTextBox.ReadOnly = true;
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherOccupationTextBox.TabIndex = 30;
             // 
@@ -780,6 +733,7 @@
             this.fatherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherFirstName", true));
             this.fatherFirstNameTextBox.Location = new System.Drawing.Point(368, 142);
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
+            this.fatherFirstNameTextBox.ReadOnly = true;
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherFirstNameTextBox.TabIndex = 32;
             // 
@@ -788,6 +742,7 @@
             this.fatherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherLastName", true));
             this.fatherLastNameTextBox.Location = new System.Drawing.Point(368, 168);
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
+            this.fatherLastNameTextBox.ReadOnly = true;
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherLastNameTextBox.TabIndex = 34;
             // 
@@ -796,6 +751,7 @@
             this.fatherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherOccupation", true));
             this.fatherOccupationTextBox.Location = new System.Drawing.Point(368, 194);
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
+            this.fatherOccupationTextBox.ReadOnly = true;
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherOccupationTextBox.TabIndex = 36;
             // 
@@ -846,19 +802,12 @@
             this.birthCertificateTextBox.TabIndex = 45;
             this.birthCertificateTextBox.Visible = false;
             // 
-            // birthDateTimePicker
-            // 
-            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(122, 244);
-            this.birthDateTimePicker.Name = "birthDateTimePicker";
-            this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
-            this.birthDateTimePicker.TabIndex = 50;
-            // 
             // birthDateTextBox
             // 
             this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "BirthDate", true));
             this.birthDateTextBox.Location = new System.Drawing.Point(122, 244);
             this.birthDateTextBox.Name = "birthDateTextBox";
+            this.birthDateTextBox.ReadOnly = true;
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
             // 
@@ -1055,7 +1004,7 @@
             this.searchToolStripButton});
             this.searchToolStrip.Location = new System.Drawing.Point(65, 43);
             this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.Size = new System.Drawing.Size(1029, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(998, 25);
             this.searchToolStrip.TabIndex = 8;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -1163,7 +1112,7 @@
             this.pendingStudentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorEnrollStudentItem});
-            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 394);
+            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 413);
             this.pendingStudentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pendingStudentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pendingStudentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -1323,9 +1272,9 @@
             this.dataGridViewTextBoxColumn21});
             this.pendingStudentsDataGridView.DataSource = this.pendingStudentsBindingSource;
             this.pendingStudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 419);
+            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 438);
             this.pendingStudentsDataGridView.Name = "pendingStudentsDataGridView";
-            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 462);
+            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 443);
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
@@ -1558,6 +1507,42 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // enrollmentStatusTextBox
+            // 
+            this.enrollmentStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentStatus", true));
+            this.enrollmentStatusTextBox.Location = new System.Drawing.Point(122, 113);
+            this.enrollmentStatusTextBox.Name = "enrollmentStatusTextBox";
+            this.enrollmentStatusTextBox.ReadOnly = true;
+            this.enrollmentStatusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.enrollmentStatusTextBox.TabIndex = 77;
+            // 
+            // genderTextBox
+            // 
+            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Gender", true));
+            this.genderTextBox.Location = new System.Drawing.Point(122, 218);
+            this.genderTextBox.Name = "genderTextBox";
+            this.genderTextBox.ReadOnly = true;
+            this.genderTextBox.Size = new System.Drawing.Size(100, 20);
+            this.genderTextBox.TabIndex = 78;
+            // 
+            // civilStatusTextBox
+            // 
+            this.civilStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "CivilStatus", true));
+            this.civilStatusTextBox.Location = new System.Drawing.Point(122, 270);
+            this.civilStatusTextBox.Name = "civilStatusTextBox";
+            this.civilStatusTextBox.ReadOnly = true;
+            this.civilStatusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.civilStatusTextBox.TabIndex = 79;
+            // 
+            // enrollmentTypeTextBox
+            // 
+            this.enrollmentTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentType", true));
+            this.enrollmentTypeTextBox.Location = new System.Drawing.Point(122, 348);
+            this.enrollmentTypeTextBox.Name = "enrollmentTypeTextBox";
+            this.enrollmentTypeTextBox.ReadOnly = true;
+            this.enrollmentTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.enrollmentTypeTextBox.TabIndex = 80;
+            // 
             // frmPendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1593,17 +1578,12 @@
         #endregion
 
         private System.Windows.Forms.Panel detailsPanel;
-        private System.Windows.Forms.ComboBox civilStatusComboBox;
         private System.Windows.Forms.Button deleteTransferCertButton;
         private System.Windows.Forms.Button deleteGoodMoralButton;
         private System.Windows.Forms.Button deleteBirthCertButton;
-        private System.Windows.Forms.DateTimePicker birthDateTimePicker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox paymentTypeComboBox;
-        private System.Windows.Forms.ComboBox enrollmentTypeComboBox;
-        private System.Windows.Forms.ComboBox genderComboBox;
-        private System.Windows.Forms.ComboBox enrollmentStatusComboBox;
         private System.Windows.Forms.TextBox registerIDTextBox;
         private System.Windows.Forms.TextBox studFirstNameTextBox;
         private System.Windows.Forms.TextBox studMidNameTextBox;
@@ -1706,5 +1686,9 @@
         private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
+        private System.Windows.Forms.TextBox enrollmentStatusTextBox;
+        private System.Windows.Forms.TextBox genderTextBox;
+        private System.Windows.Forms.TextBox enrollmentTypeTextBox;
+        private System.Windows.Forms.TextBox civilStatusTextBox;
     }
 }
