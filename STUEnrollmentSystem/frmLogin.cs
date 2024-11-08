@@ -27,6 +27,11 @@ namespace STUEnrollmentSystem
             _usersRepository = new UsersRepository(Properties.Settings.Default.STU_DBConnectionString);
         }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = loginButton;
+        }
+
         private frmSTU_Dashboard STU;
         private void confirmUserLogin(string userID, string username, string password)
         {
@@ -90,5 +95,6 @@ namespace STUEnrollmentSystem
                 return;
             }
         }
+
     }
 }

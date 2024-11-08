@@ -192,7 +192,16 @@ namespace STUEnrollmentSystem
                     }
                     break;
                 case "delete":
-                    _studentPaymentRepository.DeleteFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        _studentPaymentRepository.DeleteFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
+                        break;
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
                     break;
             }
         }

@@ -44,6 +44,36 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // userIDLabel
+            // 
+            userIDLabel.AutoSize = true;
+            userIDLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            userIDLabel.Location = new System.Drawing.Point(63, 171);
+            userIDLabel.Name = "userIDLabel";
+            userIDLabel.Size = new System.Drawing.Size(101, 23);
+            userIDLabel.TabIndex = 7;
+            userIDLabel.Text = "User ID:";
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            passwordLabel.Location = new System.Drawing.Point(63, 287);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(124, 23);
+            passwordLabel.TabIndex = 11;
+            passwordLabel.Text = "Password:";
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            usernameLabel.Location = new System.Drawing.Point(63, 229);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new System.Drawing.Size(127, 23);
+            usernameLabel.TabIndex = 9;
+            usernameLabel.Text = "Username:";
+            // 
             // passwordTextBox
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -82,36 +112,6 @@
             this.userIDTextBox.Name = "userIDTextBox";
             this.userIDTextBox.Size = new System.Drawing.Size(179, 31);
             this.userIDTextBox.TabIndex = 8;
-            // 
-            // userIDLabel
-            // 
-            userIDLabel.AutoSize = true;
-            userIDLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            userIDLabel.Location = new System.Drawing.Point(63, 171);
-            userIDLabel.Name = "userIDLabel";
-            userIDLabel.Size = new System.Drawing.Size(101, 23);
-            userIDLabel.TabIndex = 7;
-            userIDLabel.Text = "User ID:";
-            // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passwordLabel.Location = new System.Drawing.Point(63, 287);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(124, 23);
-            passwordLabel.TabIndex = 11;
-            passwordLabel.Text = "Password:";
-            // 
-            // usernameLabel
-            // 
-            usernameLabel.AutoSize = true;
-            usernameLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            usernameLabel.Location = new System.Drawing.Point(63, 229);
-            usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new System.Drawing.Size(127, 23);
-            usernameLabel.TabIndex = 9;
-            usernameLabel.Text = "Username:";
             // 
             // usernameTextBox
             // 
@@ -154,16 +154,17 @@
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // Login
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(445, 426);
             this.Controls.Add(this.panel1);
-            this.Name = "Login";
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
