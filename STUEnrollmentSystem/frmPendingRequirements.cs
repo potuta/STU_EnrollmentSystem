@@ -212,7 +212,16 @@ namespace STUEnrollmentSystem
                     }
                     break;
                 case "delete":
-                    _studentRepository.DeleteFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        _studentRepository.DeleteFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
+                        break;
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
                     break;
             }
         }
