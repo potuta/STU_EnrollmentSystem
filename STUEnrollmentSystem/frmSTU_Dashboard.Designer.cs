@@ -56,6 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
             this.userInfoPanel.SuspendLayout();
             this.adminSubPanel.SuspendLayout();
@@ -444,6 +446,8 @@
             // 
             // logoPanel
             // 
+            this.logoPanel.Controls.Add(this.settingsButton);
+            this.logoPanel.Controls.Add(this.label4);
             this.logoPanel.Controls.Add(this.label2);
             this.logoPanel.Controls.Add(this.label1);
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -474,11 +478,33 @@
             // 
             // panel_main
             // 
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(280, 0);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(1084, 681);
             this.panel_main.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 15);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "S.Y.";
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.settings_982x1024;
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Location = new System.Drawing.Point(243, 172);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(17, 16);
+            this.settingsButton.TabIndex = 3;
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // frmSTU_Dashboard
             // 
@@ -534,6 +560,8 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Label roleLabel;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button settingsButton;
     }
 }
 

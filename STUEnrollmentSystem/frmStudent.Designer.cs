@@ -485,7 +485,7 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 119);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1434, 282);
+            this.detailsPanel.Size = new System.Drawing.Size(1451, 282);
             this.detailsPanel.TabIndex = 9;
             // 
             // sectionComboBox
@@ -907,7 +907,7 @@
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 92);
             this.showSearchButton.Name = "showSearchButton";
-            this.showSearchButton.Size = new System.Drawing.Size(1434, 27);
+            this.showSearchButton.Size = new System.Drawing.Size(1451, 27);
             this.showSearchButton.TabIndex = 8;
             this.showSearchButton.Text = "Search ▼";
             this.showSearchButton.UseVisualStyleBackColor = false;
@@ -921,7 +921,7 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1434, 92);
+            this.searchPanel.Size = new System.Drawing.Size(1451, 92);
             this.searchPanel.TabIndex = 7;
             // 
             // fillBy1ToolStrip
@@ -1064,7 +1064,7 @@
             this.studentsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.studentsBindingNavigator.Name = "studentsBindingNavigator";
             this.studentsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.studentsBindingNavigator.Size = new System.Drawing.Size(1434, 25);
+            this.studentsBindingNavigator.Size = new System.Drawing.Size(1451, 25);
             this.studentsBindingNavigator.TabIndex = 10;
             this.studentsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -1217,7 +1217,7 @@
             this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.studentsDataGridView.Location = new System.Drawing.Point(0, 426);
             this.studentsDataGridView.Name = "studentsDataGridView";
-            this.studentsDataGridView.Size = new System.Drawing.Size(1434, 449);
+            this.studentsDataGridView.Size = new System.Drawing.Size(1451, 449);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
@@ -1422,7 +1422,7 @@
             this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 875);
             this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
-            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1434, 332);
+            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1451, 332);
             this.totalEnrolledStudentsGridView.TabIndex = 12;
             this.totalEnrolledStudentsGridView.Visible = false;
             // 
@@ -1431,7 +1431,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1451, 1061);
+            this.ClientSize = new System.Drawing.Size(1468, 1061);
             this.Controls.Add(this.totalEnrolledStudentsGridView);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.studentsBindingNavigator);

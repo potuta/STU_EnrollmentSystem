@@ -178,6 +178,10 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmSubjects());
             }
+            else if (sender == settingsButton)
+            {
+                openChildForm(new frmSettings());
+            }
         }
     }
 }
