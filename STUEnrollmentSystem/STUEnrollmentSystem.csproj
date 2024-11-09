@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="frmSubjects.cs">
       <SubType>Form</SubType>
     </Compile>

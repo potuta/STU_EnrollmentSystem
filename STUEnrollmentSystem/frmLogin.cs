@@ -25,6 +25,7 @@ namespace STUEnrollmentSystem
         {
             InitializeComponent();
             _usersRepository = new UsersRepository(Properties.Settings.Default.STU_DBConnectionString);
+            this.AcceptButton = loginButton;
         }
 
         private frmSTU_Dashboard STU;

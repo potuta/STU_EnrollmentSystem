@@ -489,6 +489,7 @@
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.sidePanel);
             this.Name = "frmSTU_Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU";
             this.Load += new System.EventHandler(this.STU_Dashboard_Load);
             this.sidePanel.ResumeLayout(false);
