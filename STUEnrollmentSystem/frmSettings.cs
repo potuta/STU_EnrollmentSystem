@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,10 @@ namespace STUEnrollmentSystem
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            displayAllDatabaseToPanel();
+            updateDatabaseListFromPanel();
         }
 
-        private void displayAllDatabaseToPanel()
+        private void updateDatabaseListFromPanel()
         {
             Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
             flowLayoutPanel1.Controls.Clear();
@@ -107,12 +108,13 @@ namespace STUEnrollmentSystem
 
         private void selectSchoolYear()
         {
+            Process.Start(Application.ExecutablePath);
             return;
         }
 
         private void deleteSchoolYear()
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this database?", "Delete file", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this school year database?", "Delete school year", MessageBoxButtons.YesNo);
 
             if (dialogResult != DialogResult.Yes)
             {
@@ -125,18 +127,32 @@ namespace STUEnrollmentSystem
                 {
                     if (schoolYearRadioButtonsList[name].Name == "STU_DB")
                     {
-                        MessageBox.Show($"Cannot delete database '{name} ({schoolYearRadioButtonsList[name].Text})'. Please make sure it is unselected.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show($"Cannot delete school year database '{name} ({schoolYearRadioButtonsList[name].Text})'. Please make sure it is unselected.", "Error", MessageBoxButtons.OK);
                         break;
                     }
                     _databaseManager.DeleteDatabase(name);
-                    MessageBox.Show($"Successfully deleted database school year: '{name} ({schoolYearRadioButtonsList[name].Text})'");
+                    MessageBox.Show($"Successfully deleted school year database: '{name} ({schoolYearRadioButtonsList[name].Text})'");
+                    schoolYearRadioButtonsList.Remove(name);
                 }
             }
+
+            updateDatabaseListFromPanel();
         }
 
         private void addSchoolYear()
         {
-            Console.WriteLine(generateNewDatabaseName("STU_DB"));
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to add a new school year database?", "Add school year", MessageBoxButtons.YesNo);
+
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            string originalDbName = "STU_DB";
+            string newDbName = generateNewDatabaseName(originalDbName);
+            _databaseManager.DuplicateDatabase(originalDbName, newDbName);
+            updateDatabaseListFromPanel();
+            MessageBox.Show($"Successfully created database school year: '{newDbName}'");
         }
 
         private string generateNewDatabaseName(string originalDbName)
@@ -152,6 +168,11 @@ namespace STUEnrollmentSystem
                     string[] nameParts = name.Split('_');
                     dbPreviousYearList.Add(Convert.ToInt32(nameParts[2]));
                     dbNextYearList.Add(Convert.ToInt32(nameParts[3]));
+                }
+                else
+                {
+                    dbPreviousYearList.Add(DateTime.Now.Year - 1);
+                    dbNextYearList.Add(DateTime.Now.Year);
                 }
             }
 

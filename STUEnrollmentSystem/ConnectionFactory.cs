@@ -58,26 +58,19 @@ namespace STUEnrollmentSystem
 
         public static void UpdateConfigConnectionString(string name, string newConnectionString)
         {
-            // Open the configuration file
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-            // Check if the connection string exists
             if (config.ConnectionStrings.ConnectionStrings[name] != null)
             {
-                // Update the connection string if it exists
                 config.ConnectionStrings.ConnectionStrings[name].ConnectionString = newConnectionString;
                 config.ConnectionStrings.ConnectionStrings[name].ProviderName = "System.Data.SqlClient";
             }
             else
             {
-                // Add a new connection string if it does not exist
                 config.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings(name, newConnectionString, "System.Data.SqlClient"));
             }
 
-            // Save the changes in the configuration file
             config.Save(ConfigurationSaveMode.Modified);
-
-            // Refresh the connection strings section to reflect changes
             ConfigurationManager.RefreshSection("connectionStrings");
         }
     }
