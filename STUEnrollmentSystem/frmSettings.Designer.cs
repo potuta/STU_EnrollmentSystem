@@ -31,11 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.currentYearRadioButton = new System.Windows.Forms.RadioButton();
             this.addSchoolYearButton = new System.Windows.Forms.Button();
             this.deleteSchoolYearButton = new System.Windows.Forms.Button();
             this.selectSchoolYearButton = new System.Windows.Forms.Button();
             this.schoolYearLabel = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,11 +63,27 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.AliceBlue;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.radioButton1);
+            this.flowLayoutPanel1.Controls.Add(this.currentYearRadioButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(161, 142);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(462, 197);
             this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // currentYearRadioButton
+            // 
+            this.currentYearRadioButton.BackColor = System.Drawing.SystemColors.GrayText;
+            this.currentYearRadioButton.FlatAppearance.BorderSize = 0;
+            this.currentYearRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentYearRadioButton.ForeColor = System.Drawing.SystemColors.Window;
+            this.currentYearRadioButton.Location = new System.Drawing.Point(3, 3);
+            this.currentYearRadioButton.Name = "currentYearRadioButton";
+            this.currentYearRadioButton.Size = new System.Drawing.Size(124, 34);
+            this.currentYearRadioButton.TabIndex = 8;
+            this.currentYearRadioButton.TabStop = true;
+            this.currentYearRadioButton.Text = "Current year";
+            this.currentYearRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.currentYearRadioButton.UseVisualStyleBackColor = false;
+            this.currentYearRadioButton.Visible = false;
             // 
             // addSchoolYearButton
             // 
@@ -118,21 +134,6 @@
             this.schoolYearLabel.TabIndex = 7;
             this.schoolYearLabel.Text = "---------";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.radioButton1.FlatAppearance.BorderSize = 0;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.Window;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(107, 34);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "2024-2025";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = false;
-            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +150,7 @@
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSettings";
+            this.Load += new System.EventHandler(this.frmSettings_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,6 +166,6 @@
         private System.Windows.Forms.Button deleteSchoolYearButton;
         private System.Windows.Forms.Button selectSchoolYearButton;
         private System.Windows.Forms.Label schoolYearLabel;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton currentYearRadioButton;
     }
 }

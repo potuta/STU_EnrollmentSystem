@@ -9,34 +9,13 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class BaseRepository : IConnectionRepository
+    internal class BaseRepository : ConnectionFactory
     {
         protected SqlConnection _connection;
 
-        protected BaseRepository(string connectionString)
+        protected BaseRepository(string connectionString) : base(connectionString)
         {
-            _connection = new SqlConnection(connectionString);
-        }
-
-        public void OpenConnection()
-        {
-            if (_connection.State == ConnectionState.Closed)
-            {
-                _connection.Open();
-            }
-        }
-
-        public void CloseConnection()
-        {
-            if (_connection.State == ConnectionState.Open)
-            {
-                _connection.Close();
-            }
-        }
-
-        public string GetConnectionString()
-        {
-            return _connection.ConnectionString;
+            this._connection = _sourceConnectionString;
         }
 
         public virtual List<string> GetColumnData(string table, string column)

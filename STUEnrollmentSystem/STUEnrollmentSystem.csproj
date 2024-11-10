@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="ConnectionFactory.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
@@ -250,7 +251,6 @@
     <Compile Include="frmSchedule.Designer.cs">
       <DependentUpon>frmSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="IConnectionRepository.cs" />
     <Compile Include="PaymentTypeRepository.cs" />
     <Compile Include="PendingStudentsRepository.cs" />
     <Compile Include="PricesRepository.cs" />
