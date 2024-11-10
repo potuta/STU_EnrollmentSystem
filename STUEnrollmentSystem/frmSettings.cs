@@ -61,6 +61,7 @@ namespace STUEnrollmentSystem
             newButton.Name = name;
             newButton.Size = originalButton.Size;
             newButton.BackColor = originalButton.BackColor;
+            newButton.ForeColor = originalButton.ForeColor;
             newButton.Font = originalButton.Font;
             newButton.Enabled = originalButton.Enabled;
             newButton.Visible = originalButton.Visible;
@@ -111,14 +112,25 @@ namespace STUEnrollmentSystem
 
         private void deleteSchoolYear()
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this database?", "Delete file", MessageBoxButtons.YesNo);
+
+            if (dialogResult != DialogResult.Yes)
             {
                 return;
             }
-            else if (dialogResult == DialogResult.No)
+
+            foreach (string name in schoolYearRadioButtonsList.Keys)
             {
-                return;
+                if (schoolYearRadioButtonsList[name].Checked == true)
+                {
+                    if (schoolYearRadioButtonsList[name].Name == "STU_DB")
+                    {
+                        MessageBox.Show($"Cannot delete database '{name} ({schoolYearRadioButtonsList[name].Text})'. Please make sure it is unselected.", "Error", MessageBoxButtons.OK);
+                        break;
+                    }
+                    _databaseManager.DeleteDatabase(name);
+                    MessageBox.Show($"Successfully deleted database school year: '{name} ({schoolYearRadioButtonsList[name].Text})'");
+                }
             }
         }
 

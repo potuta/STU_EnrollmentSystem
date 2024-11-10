@@ -35,7 +35,6 @@
             this.addSchoolYearButton = new System.Windows.Forms.Button();
             this.deleteSchoolYearButton = new System.Windows.Forms.Button();
             this.selectSchoolYearButton = new System.Windows.Forms.Button();
-            this.schoolYearLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,9 +54,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(158, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 18);
+            this.label2.Size = new System.Drawing.Size(124, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "School year:";
+            this.label2.Text = "School year(s):";
             // 
             // flowLayoutPanel1
             // 
@@ -124,23 +123,12 @@
             this.selectSchoolYearButton.UseVisualStyleBackColor = false;
             this.selectSchoolYearButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // schoolYearLabel
-            // 
-            this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(267, 118);
-            this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(62, 18);
-            this.schoolYearLabel.TabIndex = 7;
-            this.schoolYearLabel.Text = "---------";
-            // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.schoolYearLabel);
             this.Controls.Add(this.selectSchoolYearButton);
             this.Controls.Add(this.deleteSchoolYearButton);
             this.Controls.Add(this.addSchoolYearButton);
@@ -165,7 +153,6 @@
         private System.Windows.Forms.Button addSchoolYearButton;
         private System.Windows.Forms.Button deleteSchoolYearButton;
         private System.Windows.Forms.Button selectSchoolYearButton;
-        private System.Windows.Forms.Label schoolYearLabel;
         private System.Windows.Forms.RadioButton currentYearRadioButton;
     }
 }
