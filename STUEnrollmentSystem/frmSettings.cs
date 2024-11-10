@@ -13,18 +13,24 @@ namespace STUEnrollmentSystem
     public partial class frmSettings : Form
     {
         private DatabaseManager _databaseManager;
-        private List<RadioButton> schoolYearRadioButtonsList;
+        private Dictionary<string, RadioButton> schoolYearRadioButtonsList;
 
         public frmSettings()
         {
             InitializeComponent();
             _databaseManager = new DatabaseManager(Properties.Settings.Default.STU_DBConnectionString);
-            schoolYearRadioButtonsList = new List<RadioButton>();
+            schoolYearRadioButtonsList = new Dictionary<string, RadioButton>();
         }
 
         private void frmSettings_Load(object sender, EventArgs e)
         {
+            displayAllDatabaseToPanel();
+        }
+
+        private void displayAllDatabaseToPanel()
+        {
             Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
+            flowLayoutPanel1.Controls.Clear();
             foreach (string name in databases.Keys)
             {
                 flowLayoutPanel1.Controls.Add(cloneButton(currentYearRadioButton, getButtonText(name), name));
@@ -61,9 +67,25 @@ namespace STUEnrollmentSystem
             newButton.FlatStyle = originalButton.FlatStyle;
             newButton.TextAlign = originalButton.TextAlign;
             newButton.Visible = true;
+            newButton.AutoCheck = false;
+            newButton.Click += SYButton_Click_EventHandler;
 
-            schoolYearRadioButtonsList.Add(newButton);
-            return newButton;
+            schoolYearRadioButtonsList[newButton.Name] = newButton;
+            return schoolYearRadioButtonsList[newButton.Name];
+        }
+
+        private void SYButton_Click_EventHandler(object sender, EventArgs e)
+        {
+            RadioButton button = sender as RadioButton;
+
+            if (button.Checked == true)
+            {
+                button.Checked = false;
+            }
+            else
+            {
+                button.Checked = true;
+            }
         }
 
         private void OnButtonClicked(object sender, EventArgs e)
@@ -84,18 +106,46 @@ namespace STUEnrollmentSystem
 
         private void selectSchoolYear()
         {
-            throw new NotImplementedException();
+            return;
         }
 
         private void deleteSchoolYear()
         {
-            throw new NotImplementedException();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
         }
 
         private void addSchoolYear()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(generateNewDatabaseName("STU_DB"));
         }
 
+        private string generateNewDatabaseName(string originalDbName)
+        {
+            Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
+            List<int> dbPreviousYearList = new List<int>();
+            List<int> dbNextYearList = new List<int>();
+
+            foreach (string name in databases.Keys)
+            {
+                if (name.Contains("2"))
+                {
+                    string[] nameParts = name.Split('_');
+                    dbPreviousYearList.Add(Convert.ToInt32(nameParts[2]));
+                    dbNextYearList.Add(Convert.ToInt32(nameParts[3]));
+                }
+            }
+
+            string newYear = $"{dbPreviousYearList.Max() + 1}_{dbNextYearList.Max() + 1}";
+            string newDbName = $"{originalDbName}_{newYear}";
+            return newDbName;
+        }
     }
 }
