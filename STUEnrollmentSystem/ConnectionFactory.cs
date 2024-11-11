@@ -54,6 +54,27 @@ namespace STUEnrollmentSystem
             return InitialCatalog;
         }
 
+        public static string GetSelectedSchoolYearInConnectionString(string connectionString)
+        {
+            string InitialCatalog = GetSelectedDatabaseInConnectionString(_sourceConnectionString.ConnectionString);
+            string selectedSchoolYear = string.Empty;
+
+            if (InitialCatalog == "STU_DB")
+            {
+                string dbPreviousYearList = Convert.ToString(DateTime.Now.Year - 5);
+                string dbNextYearList = Convert.ToString(DateTime.Now.Year);
+                selectedSchoolYear = $"{dbPreviousYearList}-{dbNextYearList}";
+            }
+            else
+            {
+                string[] parts = InitialCatalog.Split('_');
+                string[] years = { parts[2], parts[3] };
+                selectedSchoolYear = string.Join("-", years);
+            }
+
+            return selectedSchoolYear;
+        }
+
         public static string GetNewDestinationString(string databaseName)
         {
             //string[] sourceConnectionStringArr = _sourceConnectionString.ConnectionString.Split(';');

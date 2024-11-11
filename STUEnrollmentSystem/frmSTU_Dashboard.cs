@@ -111,24 +111,9 @@ namespace STUEnrollmentSystem
 
         private void InitializeSelectedSchoolYear()
         {
-            string InitialCatalog = ConnectionFactory.GetSelectedDatabaseInConnectionString(ConnectionFactory.GetConnectionString());
-            string selectedSchoolYear = string.Empty;
-            if (InitialCatalog == "STU_DB")
-            {
-                string dbPreviousYearList = Convert.ToString(DateTime.Now.Year - 5);
-                string dbNextYearList = Convert.ToString(DateTime.Now.Year);
-                selectedSchoolYear = $"{dbPreviousYearList}-{dbNextYearList}";
-                schoolYearLabel.Text = "S.Y.";
-                schoolYearLabel.Text += $" {selectedSchoolYear}";
-            }
-            else
-            {
-                string[] parts = InitialCatalog.Split('_');
-                string[] years = { parts[2], parts[3] };
-                selectedSchoolYear = string.Join("-", years);
-                schoolYearLabel.Text = "S.Y.";
-                schoolYearLabel.Text += $" {selectedSchoolYear}";
-            }
+            string selectedSchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
+            schoolYearLabel.Text = "S.Y.";
+            schoolYearLabel.Text += $" {selectedSchoolYear}";
         }
 
         private void logoutButton_Click(object sender, EventArgs e)

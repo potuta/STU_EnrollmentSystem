@@ -35,6 +35,7 @@
             System.Windows.Forms.Label monthOfPaymentLabel;
             System.Windows.Forms.Label paymentStatusLabel1;
             System.Windows.Forms.Label paymentReceiptLabel;
+            System.Windows.Forms.Label schoolYearLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentPayment));
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -43,11 +44,14 @@
             this.paymentCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.monthOfPaymentToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.monthOfPaymentToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.schoolYearToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.schoolYearTextBox = new System.Windows.Forms.TextBox();
+            this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.paymentDueLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.remainingBalanceLabel = new System.Windows.Forms.Label();
@@ -57,8 +61,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
             this.paymentReceiptTextBox = new System.Windows.Forms.TextBox();
-            this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.proofOfPaymentLabel = new System.Windows.Forms.Label();
             this.paymentCodeComboBox = new System.Windows.Forms.ComboBox();
             this.paymentMethodComboBox = new System.Windows.Forms.ComboBox();
@@ -93,6 +95,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
@@ -100,6 +103,7 @@
             monthOfPaymentLabel = new System.Windows.Forms.Label();
             paymentStatusLabel1 = new System.Windows.Forms.Label();
             paymentReceiptLabel = new System.Windows.Forms.Label();
+            schoolYearLabel = new System.Windows.Forms.Label();
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             this.detailsPanel.SuspendLayout();
@@ -164,6 +168,15 @@
             paymentReceiptLabel.TabIndex = 63;
             paymentReceiptLabel.Text = "Payment Receipt:";
             // 
+            // schoolYearLabel
+            // 
+            schoolYearLabel.AutoSize = true;
+            schoolYearLabel.Location = new System.Drawing.Point(63, 271);
+            schoolYearLabel.Name = "schoolYearLabel";
+            schoolYearLabel.Size = new System.Drawing.Size(68, 13);
+            schoolYearLabel.TabIndex = 87;
+            schoolYearLabel.Text = "School Year:";
+            // 
             // showSearchButton
             // 
             this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -198,13 +211,13 @@
             this.paymentCodeToolStripComboBox,
             this.studentNumberToolStripLabel,
             this.studentNumberToolStripComboBox,
-            this.monthOfPaymentToolStripLabel,
-            this.monthOfPaymentToolStripTextBox,
+            this.toolStripLabel1,
+            this.schoolYearToolStripComboBox,
             this.searchToolStripButton});
             this.searchToolStrip.Location = new System.Drawing.Point(52, 50);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(743, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(702, 25);
             this.searchToolStrip.TabIndex = 16;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -236,20 +249,18 @@
             this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
             this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
-            // monthOfPaymentToolStripLabel
+            // toolStripLabel1
             // 
-            this.monthOfPaymentToolStripLabel.BackColor = System.Drawing.Color.Transparent;
-            this.monthOfPaymentToolStripLabel.Name = "monthOfPaymentToolStripLabel";
-            this.monthOfPaymentToolStripLabel.Size = new System.Drawing.Size(142, 22);
-            this.monthOfPaymentToolStripLabel.Text = "          Month Of Payment:";
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(101, 22);
+            this.toolStripLabel1.Text = "          School Year:";
             // 
-            // monthOfPaymentToolStripTextBox
+            // schoolYearToolStripComboBox
             // 
-            this.monthOfPaymentToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.monthOfPaymentToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.monthOfPaymentToolStripTextBox.Name = "monthOfPaymentToolStripTextBox";
-            this.monthOfPaymentToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.monthOfPaymentToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            this.schoolYearToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.schoolYearToolStripComboBox.Name = "schoolYearToolStripComboBox";
+            this.schoolYearToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.schoolYearToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // searchToolStripButton
             // 
@@ -273,6 +284,8 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(schoolYearLabel);
+            this.detailsPanel.Controls.Add(this.schoolYearTextBox);
             this.detailsPanel.Controls.Add(this.paymentDueLabel);
             this.detailsPanel.Controls.Add(this.label7);
             this.detailsPanel.Controls.Add(this.remainingBalanceLabel);
@@ -304,10 +317,28 @@
             this.detailsPanel.Size = new System.Drawing.Size(361, 615);
             this.detailsPanel.TabIndex = 14;
             // 
+            // schoolYearTextBox
+            // 
+            this.schoolYearTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "SchoolYear", true));
+            this.schoolYearTextBox.Location = new System.Drawing.Point(173, 268);
+            this.schoolYearTextBox.Name = "schoolYearTextBox";
+            this.schoolYearTextBox.Size = new System.Drawing.Size(100, 20);
+            this.schoolYearTextBox.TabIndex = 88;
+            // 
+            // studentPaymentBindingSource
+            // 
+            this.studentPaymentBindingSource.DataMember = "StudentPayment";
+            this.studentPaymentBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // paymentDueLabel
             // 
             this.paymentDueLabel.AutoSize = true;
-            this.paymentDueLabel.Location = new System.Drawing.Point(170, 374);
+            this.paymentDueLabel.Location = new System.Drawing.Point(168, 405);
             this.paymentDueLabel.Name = "paymentDueLabel";
             this.paymentDueLabel.Size = new System.Drawing.Size(109, 13);
             this.paymentDueLabel.TabIndex = 87;
@@ -316,7 +347,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(61, 374);
+            this.label7.Location = new System.Drawing.Point(59, 405);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 13);
             this.label7.TabIndex = 86;
@@ -325,7 +356,7 @@
             // remainingBalanceLabel
             // 
             this.remainingBalanceLabel.AutoSize = true;
-            this.remainingBalanceLabel.Location = new System.Drawing.Point(170, 346);
+            this.remainingBalanceLabel.Location = new System.Drawing.Point(168, 377);
             this.remainingBalanceLabel.Name = "remainingBalanceLabel";
             this.remainingBalanceLabel.Size = new System.Drawing.Size(109, 13);
             this.remainingBalanceLabel.TabIndex = 85;
@@ -334,7 +365,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 345);
+            this.label5.Location = new System.Drawing.Point(59, 376);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 13);
             this.label5.TabIndex = 84;
@@ -343,7 +374,7 @@
             // paymentTypeLabel
             // 
             this.paymentTypeLabel.AutoSize = true;
-            this.paymentTypeLabel.Location = new System.Drawing.Point(170, 317);
+            this.paymentTypeLabel.Location = new System.Drawing.Point(168, 348);
             this.paymentTypeLabel.Name = "paymentTypeLabel";
             this.paymentTypeLabel.Size = new System.Drawing.Size(109, 13);
             this.paymentTypeLabel.TabIndex = 83;
@@ -352,7 +383,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 316);
+            this.label4.Location = new System.Drawing.Point(59, 347);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 82;
@@ -362,7 +393,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(136, 284);
+            this.label3.Location = new System.Drawing.Point(134, 315);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 18);
             this.label3.TabIndex = 81;
@@ -387,16 +418,6 @@
             this.paymentReceiptTextBox.Size = new System.Drawing.Size(100, 20);
             this.paymentReceiptTextBox.TabIndex = 64;
             this.paymentReceiptTextBox.Visible = false;
-            // 
-            // studentPaymentBindingSource
-            // 
-            this.studentPaymentBindingSource.DataMember = "StudentPayment";
-            this.studentPaymentBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // proofOfPaymentLabel
             // 
@@ -684,7 +705,8 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewImageColumn1,
-            this.dataGridViewImageColumn2});
+            this.dataGridViewImageColumn2,
+            this.SchoolYear});
             this.studentPaymentDataGridView.DataSource = this.studentPaymentBindingSource;
             this.studentPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentPaymentDataGridView.Location = new System.Drawing.Point(361, 169);
@@ -736,6 +758,12 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // SchoolYear
+            // 
+            this.SchoolYear.DataPropertyName = "SchoolYear";
+            this.SchoolYear.HeaderText = "SchoolYear";
+            this.SchoolYear.Name = "SchoolYear";
             // 
             // openFileDialog1
             // 
@@ -798,13 +826,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton studentPaymentBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView studentPaymentDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.TextBox studentNumberTextBox;
         private System.Windows.Forms.ComboBox paymentStatusComboBox;
         private System.Windows.Forms.ComboBox monthOfPaymentComboBox;
@@ -821,8 +842,6 @@
         private System.Windows.Forms.ToolStrip searchToolStrip;
         private System.Windows.Forms.ToolStripLabel paymentCodeToolStripLabel;
         private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel monthOfPaymentToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox monthOfPaymentToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchToolStripButton;
         private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox paymentCodeToolStripComboBox;
@@ -833,5 +852,16 @@
         private System.Windows.Forms.Label remainingBalanceLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label paymentDueLabel;
+        private System.Windows.Forms.TextBox schoolYearTextBox;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox schoolYearToolStripComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SchoolYear;
     }
 }

@@ -4951,6 +4951,8 @@ namespace STUEnrollmentSystem {
             
             private global::System.Data.DataColumn columnPaymentReceipt;
             
+            private global::System.Data.DataColumn columnSchoolYear;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StudentPaymentDataTable() {
@@ -5042,6 +5044,14 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SchoolYearColumn {
+                get {
+                    return this.columnSchoolYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5077,7 +5087,7 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StudentPaymentRow AddStudentPaymentRow(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, byte[] PaymentReceipt) {
+            public StudentPaymentRow AddStudentPaymentRow(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, byte[] PaymentReceipt, string SchoolYear) {
                 StudentPaymentRow rowStudentPaymentRow = ((StudentPaymentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PaymentCode,
@@ -5086,7 +5096,8 @@ namespace STUEnrollmentSystem {
                         MonthOfPayment,
                         PaymentStatus,
                         ProofOfPayment,
-                        PaymentReceipt};
+                        PaymentReceipt,
+                        SchoolYear};
                 rowStudentPaymentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentPaymentRow);
                 return rowStudentPaymentRow;
@@ -5116,6 +5127,7 @@ namespace STUEnrollmentSystem {
                 this.columnPaymentStatus = base.Columns["PaymentStatus"];
                 this.columnProofOfPayment = base.Columns["ProofOfPayment"];
                 this.columnPaymentReceipt = base.Columns["PaymentReceipt"];
+                this.columnSchoolYear = base.Columns["SchoolYear"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5135,10 +5147,13 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnProofOfPayment);
                 this.columnPaymentReceipt = new global::System.Data.DataColumn("PaymentReceipt", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentReceipt);
+                this.columnSchoolYear = new global::System.Data.DataColumn("SchoolYear", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchoolYear);
                 this.columnPaymentCode.MaxLength = 20;
                 this.columnPaymentMethod.MaxLength = 20;
                 this.columnMonthOfPayment.MaxLength = 20;
                 this.columnPaymentStatus.MaxLength = 20;
+                this.columnSchoolYear.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8266,6 +8281,22 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string SchoolYear {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentPayment.SchoolYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SchoolYear\' in table \'StudentPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentPayment.SchoolYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPaymentCodeNull() {
                 return this.IsNull(this.tableStudentPayment.PaymentCodeColumn);
             }
@@ -8346,6 +8377,18 @@ namespace STUEnrollmentSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPaymentReceiptNull() {
                 this[this.tableStudentPayment.PaymentReceiptColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSchoolYearNull() {
+                return this.IsNull(this.tableStudentPayment.SchoolYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSchoolYearNull() {
+                this[this.tableStudentPayment.SchoolYearColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -15832,6 +15875,7 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             tableMapping.ColumnMappings.Add("PaymentStatus", "PaymentStatus");
             tableMapping.ColumnMappings.Add("ProofOfPayment", "ProofOfPayment");
             tableMapping.ColumnMappings.Add("PaymentReceipt", "PaymentReceipt");
+            tableMapping.ColumnMappings.Add("SchoolYear", "SchoolYear");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -15842,7 +15886,7 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthOfPayment", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MonthOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[StudentPayment] ([PaymentCode], [PaymentMethod], [StudentNumber], [MonthOfPayment], [PaymentStatus], [ProofOfPayment], [PaymentReceipt]) VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @ProofOfPayment, @PaymentReceipt)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StudentPayment] ([PaymentCode], [PaymentMethod], [StudentNumber], [MonthOfPayment], [PaymentStatus], [ProofOfPayment], [PaymentReceipt], [SchoolYear]) VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @ProofOfPayment, @PaymentReceipt, @SchoolYear)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15851,6 +15895,7 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentReceipt", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentReceipt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE       StudentPayment
@@ -15881,19 +15926,19 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, " +
-                "ProofOfPayment, PaymentReceipt FROM dbo.StudentPayment";
+                "ProofOfPayment, PaymentReceipt, SchoolYear FROM StudentPayment";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, ProofOfPayment, PaymentReceipt
+            this._commandCollection[1].CommandText = @"SELECT        PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, ProofOfPayment, PaymentReceipt, SchoolYear
 FROM            StudentPayment
 WHERE        (PaymentCode = @PaymentCode) OR
                          (StudentNumber = @StudentNumber) OR
-                         (MonthOfPayment = @MonthOfPayment)";
+                         (SchoolYear = @SchoolYear)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthOfPayment", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MonthOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15924,7 +15969,7 @@ WHERE        (PaymentCode = @PaymentCode) OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int Search(STU_DBDataSet.StudentPaymentDataTable dataTable, string PaymentCode, string StudentNumber, string MonthOfPayment) {
+        public virtual int Search(STU_DBDataSet.StudentPaymentDataTable dataTable, string PaymentCode, string StudentNumber, string SchoolYear) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((PaymentCode == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -15938,11 +15983,11 @@ WHERE        (PaymentCode = @PaymentCode) OR
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(StudentNumber));
             }
-            if ((MonthOfPayment == null)) {
+            if ((SchoolYear == null)) {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(MonthOfPayment));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(SchoolYear));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -16017,7 +16062,7 @@ WHERE        (PaymentCode = @PaymentCode) OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, byte[] PaymentReceipt) {
+        public virtual int Insert(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, byte[] PaymentReceipt, string SchoolYear) {
             if ((PaymentCode == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -16059,6 +16104,12 @@ WHERE        (PaymentCode = @PaymentCode) OR
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((byte[])(PaymentReceipt));
+            }
+            if ((SchoolYear == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(SchoolYear));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

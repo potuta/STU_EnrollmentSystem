@@ -13,6 +13,7 @@ namespace STUEnrollmentSystem
     internal class StudentPaymentRepository : BaseRepository
     {
         public string MonthOfPayment {  get; set; }
+        public string SchoolYear { get; set; }
 
         public StudentPaymentRepository(string connectionString) : base(connectionString) { }
 
@@ -26,10 +27,11 @@ namespace STUEnrollmentSystem
             _connection.Open();
             foreach (var column in columns)
             {
-                string query = $"SELECT {column} FROM StudentPayment WHERE StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment";
+                string query = $"SELECT {column} FROM StudentPayment WHERE StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
                 SqlCommand command = new SqlCommand(query, _connection);
                 command.Parameters.AddWithValue("@StudentNumber", studentNumber);
                 command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
+                command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
                 bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
                 requirements[column] = !hasRequirement;
             }
@@ -80,10 +82,11 @@ namespace STUEnrollmentSystem
 
         public override void ViewImageFile(string table, string column, string condition, string ID)
         {
-            string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment";
+            string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
             SqlCommand command = new SqlCommand(query, _connection);
             command.Parameters.AddWithValue("@ID", ID);
             command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
+            command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
@@ -102,11 +105,12 @@ namespace STUEnrollmentSystem
 
         public override void UploadFile(string table, string column, string condition, string ID, byte[] fileData)
         {
-            string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment";
+            string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
             SqlCommand command = new SqlCommand(query, _connection);
             command.Parameters.AddWithValue("@FileData", fileData);
             command.Parameters.AddWithValue("@ID", ID);
             command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
+            command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
             _connection.Open();
             command.ExecuteNonQuery();
             _connection.Close();
@@ -114,10 +118,11 @@ namespace STUEnrollmentSystem
 
         public override void DeleteFile(string table, string column, string condition, string ID)
         {
-            string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment";
+            string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
             SqlCommand command = new SqlCommand(query, _connection);
             command.Parameters.AddWithValue("@ID", ID);
             command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
+            command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
             _connection.Open();
             command.ExecuteNonQuery();
             _connection.Close();

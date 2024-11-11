@@ -37,6 +37,27 @@ namespace STUEnrollmentSystem
             InitializeSearchComboBoxes();
         }
 
+        private void InitializeSearchComboBoxes()
+        {
+            InitializeSearchStudentNumCB();
+            InitializeSearchPaymentCodeCB();
+            InitializeSearchSchoolYearCB();
+        }
+
+        private void InitializeSearchSchoolYearCB()
+        {
+            List<string> schoolYearList = _studentPaymentRepository.GetColumnData("StudentPayment", "SchoolYear");
+            schoolYearList.Sort();
+            schoolYearToolStripComboBox.Items.Clear();
+            foreach (string items in schoolYearList)
+            {
+                if (!schoolYearToolStripComboBox.Items.Contains(items))
+                {
+                    schoolYearToolStripComboBox.Items.Add(items);
+                }
+            }
+        }
+
         private void InitializeSearchStudentNumCB()
         {
             List<string> studentNumList = _studentPaymentRepository.GetColumnData("StudentPayment", "StudentNumber");
@@ -57,12 +78,6 @@ namespace STUEnrollmentSystem
                     paymentCodeToolStripComboBox.Items.Add(items);
                 }
             }
-        }
-
-        private void InitializeSearchComboBoxes()
-        {
-            InitializeSearchStudentNumCB();
-            InitializeSearchPaymentCodeCB();
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -109,6 +124,7 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
+            _studentPaymentRepository.SchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
             var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
 
             if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
@@ -180,6 +196,7 @@ namespace STUEnrollmentSystem
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
             _studentPaymentRepository.MonthOfPayment = monthOfPaymentComboBox.SelectedItem.ToString();
+            _studentPaymentRepository.SchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
             switch (operation)
             {
                 case "view":
@@ -232,7 +249,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, monthOfPaymentToolStripTextBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, schoolYearToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {

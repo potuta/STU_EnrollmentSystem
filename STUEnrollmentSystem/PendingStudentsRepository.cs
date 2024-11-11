@@ -19,6 +19,11 @@ namespace STUEnrollmentSystem
 
         public Dictionary<string, bool> CheckPendingStudentsRequirements(string registerID)
         {
+            if (_connection.State == ConnectionState.Open)
+            {
+                _connection.Close();
+            }
+
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
             string[] columns = { "StudForm137", "LRN", "GoodMoral", "BirthCertificate", "TransferCertificate", "ProofOfPayment"};
 
@@ -55,10 +60,10 @@ namespace STUEnrollmentSystem
             _connection.Close();
         }
 
-        public void InsertStudentPayment(Dictionary<string, object> studentPaymentData, string monthOfPayment, string paymentStatus)
+        public void InsertStudentPayment(Dictionary<string, object> studentPaymentData, string monthOfPayment, string paymentStatus, string schoolYear)
         {
-            var query = "INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus)" +
-                        "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus)";
+            var query = "INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, SchoolYear)" +
+                        "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @SchoolYear)";
 
             SqlCommand command = new SqlCommand(query, _connection);
 
@@ -68,6 +73,7 @@ namespace STUEnrollmentSystem
             }
             command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
             command.Parameters.AddWithValue("@PaymentStatus", paymentStatus);
+            command.Parameters.AddWithValue("@SchoolYear", schoolYear);
 
             _connection.Open();
             command.ExecuteNonQuery();
@@ -95,14 +101,15 @@ namespace STUEnrollmentSystem
             _connection.Close();
         }
 
-        public void UpdateProofOfPayment(string table, string column, string registerID, string studentNumber)
+        public void UpdateProofOfPayment(string table, string column, string registerID, string studentNumber, string schoolYear)
         {
             SqlCommand columnData = new SqlCommand($"SELECT {column} FROM PendingStudents WHERE RegisterID = {registerID}", _connection);
-            string query = $"UPDATE {table} SET {column} = @Param WHERE StudentNumber = @StudentNumber AND MonthOfPayment = 'August'";
+            string query = $"UPDATE {table} SET {column} = @Param WHERE StudentNumber = @StudentNumber AND MonthOfPayment = 'August' AND SchoolYear = @SchoolYear";
             SqlCommand command = new SqlCommand(query, _connection);
             _connection.Open();
             command.Parameters.AddWithValue("@Param", columnData.ExecuteScalar());
             command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+            command.Parameters.AddWithValue("@SchoolYear", schoolYear);
             command.ExecuteNonQuery();
             _connection.Close();
         }

@@ -313,20 +313,20 @@ namespace STUEnrollmentSystem
 
             if (paymentTypeComboBox.SelectedItem.Equals("Monthly"))
             {
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "September", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "October", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "November", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "December", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "January", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "February", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "March", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "April", "Pending");
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "May", "Pending");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
             else if (paymentTypeComboBox.SelectedItem.Equals("Full"))
             {
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid");
+                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
         }
 
@@ -340,6 +340,30 @@ namespace STUEnrollmentSystem
             else if (paymentType.Equals("Full") && enrollmentType.Equals("Grade 7"))
             {
                 paymentCode = "FG7";
+            }
+            else if (paymentType.Equals("Monthly") && enrollmentType.Equals("Grade 8"))
+            {
+                paymentCode = "MG8";
+            }
+            else if (paymentType.Equals("Full") && enrollmentType.Equals("Grade 8"))
+            {
+                paymentCode = "FG8";
+            }
+            else if (paymentType.Equals("Monthly") && enrollmentType.Equals("Grade 9"))
+            {
+                paymentCode = "MG9";
+            }
+            else if (paymentType.Equals("Full") && enrollmentType.Equals("Grade 9"))
+            {
+                paymentCode = "FG9";
+            }
+            else if (paymentType.Equals("Monthly") && enrollmentType.Equals("Grade 10"))
+            {
+                paymentCode = "MG10";
+            }
+            else if (paymentType.Equals("Full") && enrollmentType.Equals("Grade 10"))
+            {
+                paymentCode = "FG10";
             }
             return paymentCode;
         }
@@ -375,7 +399,7 @@ namespace STUEnrollmentSystem
 
             if (requirements["ProofOfPayment"] == true)
             {
-                _pendingStudentsRepository.UpdateProofOfPayment("StudentPayment", "ProofOfPayment", registerIDTextBox.Text, studentNumberTextBox.Text);
+                _pendingStudentsRepository.UpdateProofOfPayment("StudentPayment", "ProofOfPayment", registerIDTextBox.Text, studentNumberTextBox.Text, ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
         }
 
@@ -415,14 +439,16 @@ namespace STUEnrollmentSystem
 
         private void paymentTypeComboBox_TextChanged(object sender, EventArgs e)
         {
-            if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
-            {
-                amountToPayLabel.Text = "5700.00";
-            }
-            else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
-            {
-                amountToPayLabel.Text = "57000.00";
-            }
+            //if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
+            //{
+            //    amountToPayLabel.Text = "5700.00";
+            //}
+            //else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
+            //{
+            //    amountToPayLabel.Text = "57000.00";
+            //}
+
+            amountToPayLabel.Text = Convert.ToString(new PricesRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmountPerGrade(paymentTypeComboBox.Text, enrollmentTypeTextBox.Text));
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchPendingStudents();
