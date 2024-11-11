@@ -120,7 +120,6 @@ namespace STUEnrollmentSystem
                 selectedSchoolYear = $"{dbPreviousYearList}-{dbNextYearList}";
                 schoolYearLabel.Text = "S.Y.";
                 schoolYearLabel.Text += $" {selectedSchoolYear}";
-
             }
             else
             {

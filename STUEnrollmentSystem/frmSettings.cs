@@ -33,6 +33,7 @@ namespace STUEnrollmentSystem
         {
             Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
             flowLayoutPanel1.Controls.Clear();
+            schoolYearRadioButtonsList.Clear();
             foreach (string name in databases.Keys)
             {
                 flowLayoutPanel1.Controls.Add(cloneButton(currentYearRadioButton, getButtonText(name), name));
@@ -72,9 +73,32 @@ namespace STUEnrollmentSystem
             newButton.Visible = true;
             newButton.AutoCheck = false;
             newButton.Click += SYButton_Click_EventHandler;
+            newButton.CheckedChanged += SYButton_CheckedChanged_EventHandler;
 
             schoolYearRadioButtonsList[newButton.Name] = newButton;
             return schoolYearRadioButtonsList[newButton.Name];
+        }
+
+        private void SYButton_CheckedChanged_EventHandler(object sender, EventArgs e)
+        {
+            RadioButton button = sender as RadioButton;
+            if (button.Checked == true)
+            {
+                if (button.Name == "STU_DB")
+                {
+                    string dbPreviousYear = Convert.ToString(DateTime.Now.Year - 5);
+                    string dbNextYear = Convert.ToString(DateTime.Now.Year);
+                    schoolYearLabel.Text = $"{button.Text} ({button.Name}: {dbPreviousYear}-{dbNextYear})";
+                }
+                else
+                {
+                    schoolYearLabel.Text = $"{button.Text} ({button.Name})";
+                }
+            }
+            else
+            {
+                schoolYearLabel.Text = "---------------";
+            }
         }
 
         private void SYButton_Click_EventHandler(object sender, EventArgs e)
@@ -147,14 +171,20 @@ namespace STUEnrollmentSystem
             {
                 if (schoolYearRadioButtonsList[name].Checked == true)
                 {
-                    if (schoolYearRadioButtonsList[name].Name == "STU_DB")
+                    if (ConnectionFactory.GetConnectionString() == ConnectionFactory.GetNewDestinationString(name))
                     {
-                        MessageBox.Show($"Cannot delete school year database '{name} ({schoolYearRadioButtonsList[name].Text})'. Please make sure it is unselected.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show($"Cannot delete the school year database you're currently using '{name} ({schoolYearRadioButtonsList[name].Text})'", "Error", MessageBoxButtons.OK);
                         break;
                     }
+
+                    if (schoolYearRadioButtonsList[name].Name == "STU_DB")
+                    {
+                        MessageBox.Show($"You're not allowed to delete the current school year database '{name} ({schoolYearRadioButtonsList[name].Text})'. Please make sure it is unselected.", "Error", MessageBoxButtons.OK);
+                        break;
+                    }
+
                     _databaseManager.DeleteDatabase(name);
                     MessageBox.Show($"Successfully deleted school year database: '{name} ({schoolYearRadioButtonsList[name].Text})'");
-                    schoolYearRadioButtonsList.Remove(name);
                 }
             }
 
