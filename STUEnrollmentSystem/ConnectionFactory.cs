@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,8 +12,8 @@ namespace STUEnrollmentSystem
 {
     internal class ConnectionFactory
     {
-        protected SqlConnection _sourceConnectionString;
-        public SqlConnection _destinationConnectionString;
+        protected static SqlConnection _sourceConnectionString;
+        public static SqlConnection _destinationConnectionString;
 
         public ConnectionFactory(string connectionString)
         {
@@ -38,6 +39,13 @@ namespace STUEnrollmentSystem
         public string GetConnectionString()
         {
             return _sourceConnectionString.ConnectionString;
+        }
+
+        public static string GetSelectedDatabaseInConnectionString(string connectionString)
+        {
+            var connectionStringBuilder = new SqlConnectionStringBuilder(connectionString);
+            string InitialCatalog = connectionStringBuilder.InitialCatalog;
+            return InitialCatalog;
         }
 
         public string GetNewDestinationString(string databaseName)

@@ -16,6 +16,7 @@ namespace STUEnrollmentSystem
         public frmSTU_Dashboard()
         {
             InitializeComponent();
+            InitializeSelectedSchoolYear();
             InitializeUserLoginRole(frmLogin.Role);
             MessageBox.Show("Welcome " + frmLogin.Role + ": " + frmLogin.Username);
         }
@@ -104,6 +105,28 @@ namespace STUEnrollmentSystem
                 studentButton.Enabled = true;
                 cashierButton.Enabled = false;
                 adminButton.Enabled = false;
+            }
+        }
+
+        private void InitializeSelectedSchoolYear()
+        {
+            //ConnectionFactory con = new ConnectionFactory(Properties.Settings.Default.STU_DBConnectionString);
+            string InitialCatalog = ConnectionFactory.GetSelectedDatabaseInConnectionString(Properties.Settings.Default.STU_DBConnectionString);
+            string selectedSchoolYear = string.Empty;
+            if (InitialCatalog == "STU_DB")
+            {
+                string dbPreviousYearList = Convert.ToString(DateTime.Now.Year - 5);
+                string dbNextYearList = Convert.ToString(DateTime.Now.Year);
+                selectedSchoolYear = $"{dbPreviousYearList}-{dbNextYearList}";
+                schoolYearLabel.Text += $" {selectedSchoolYear}";
+
+            }
+            else
+            {
+                string[] parts = InitialCatalog.Split('_');
+                string[] years = { parts[2], parts[3] };
+                selectedSchoolYear = string.Join("-", years);
+                schoolYearLabel.Text += $" {selectedSchoolYear}";
             }
         }
 

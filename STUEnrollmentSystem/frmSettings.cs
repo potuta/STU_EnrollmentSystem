@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -108,8 +109,30 @@ namespace STUEnrollmentSystem
 
         private void selectSchoolYear()
         {
-            Process.Start(Application.ExecutablePath);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to select this school year database?", "Select school year", MessageBoxButtons.YesNo);
+
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+
             return;
+            //foreach (string name in schoolYearRadioButtonsList.Keys)
+            //{
+            //    if (schoolYearRadioButtonsList[name].Checked == true)
+            //    {
+            //        Console.WriteLine(_databaseManager.GetConnectionString() + "\n" + _databaseManager.GetNewDestinationString(name));
+            //        if (_databaseManager.GetConnectionString() != _databaseManager.GetNewDestinationString(name))
+            //        {
+            //            Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
+            //            ConnectionFactory.UpdateConfigConnectionString("STUEnrollmentSystem.Properties.Settings.STU_DBConnectionString", databases[name]);
+            //            Process.Start(Application.ExecutablePath);
+            //            MessageBox.Show($"Successfully selected school year database '{name} ({schoolYearRadioButtonsList[name].Text})'", "Success", MessageBoxButtons.OK);
+            //            break;
+            //        }
+            //        MessageBox.Show($"School year database '{name} ({schoolYearRadioButtonsList[name].Text})' is already selected", "Notice", MessageBoxButtons.OK);
+            //    }
+            //}
         }
 
         private void deleteSchoolYear()
