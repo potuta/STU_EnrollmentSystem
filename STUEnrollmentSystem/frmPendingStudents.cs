@@ -439,15 +439,6 @@ namespace STUEnrollmentSystem
 
         private void paymentTypeComboBox_TextChanged(object sender, EventArgs e)
         {
-            //if (paymentTypeComboBox.SelectedItem.Equals("Monthly") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
-            //{
-            //    amountToPayLabel.Text = "5700.00";
-            //}
-            //else if (paymentTypeComboBox.SelectedItem.Equals("Full") && enrollmentTypeTextBox.Text.Equals("Grade 7"))
-            //{
-            //    amountToPayLabel.Text = "57000.00";
-            //}
-
             amountToPayLabel.Text = Convert.ToString(new PricesRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmountPerGrade(paymentTypeComboBox.Text, enrollmentTypeTextBox.Text));
         }
 

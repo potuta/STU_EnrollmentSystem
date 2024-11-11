@@ -124,7 +124,6 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            //_studentPaymentRepository.SchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
             _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
 
