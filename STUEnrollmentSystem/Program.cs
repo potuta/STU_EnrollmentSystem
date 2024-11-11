@@ -15,6 +15,7 @@ namespace STUEnrollmentSystem
         [STAThread]
         static void Main()
         {
+            ConnectionFactory.SetConnectionString(Properties.Settings.Default.STU_DBConnectionString);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());

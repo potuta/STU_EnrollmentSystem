@@ -17,7 +17,8 @@ namespace STUEnrollmentSystem
         public frmPaymentType()
         {
             InitializeComponent();
-            _paymentTypeRepository = new PaymentTypeRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _paymentTypeRepository = new PaymentTypeRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void paymentTypeBindingNavigatorSaveItem_Click(object sender, EventArgs e)

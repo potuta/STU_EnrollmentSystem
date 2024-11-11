@@ -17,7 +17,8 @@ namespace STUEnrollmentSystem
         public frmSubjects()
         {
             InitializeComponent();
-            _subjectsRepository = new SubjectsRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _subjectsRepository = new SubjectsRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void subjectsBindingNavigatorSaveItem_Click(object sender, EventArgs e)

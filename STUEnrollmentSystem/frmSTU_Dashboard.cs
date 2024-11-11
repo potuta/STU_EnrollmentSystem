@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,14 +111,14 @@ namespace STUEnrollmentSystem
 
         private void InitializeSelectedSchoolYear()
         {
-            //ConnectionFactory con = new ConnectionFactory(Properties.Settings.Default.STU_DBConnectionString);
-            string InitialCatalog = ConnectionFactory.GetSelectedDatabaseInConnectionString(Properties.Settings.Default.STU_DBConnectionString);
+            string InitialCatalog = ConnectionFactory.GetSelectedDatabaseInConnectionString(ConnectionFactory.GetConnectionString());
             string selectedSchoolYear = string.Empty;
             if (InitialCatalog == "STU_DB")
             {
                 string dbPreviousYearList = Convert.ToString(DateTime.Now.Year - 5);
                 string dbNextYearList = Convert.ToString(DateTime.Now.Year);
                 selectedSchoolYear = $"{dbPreviousYearList}-{dbNextYearList}";
+                schoolYearLabel.Text = "S.Y.";
                 schoolYearLabel.Text += $" {selectedSchoolYear}";
 
             }
@@ -126,6 +127,7 @@ namespace STUEnrollmentSystem
                 string[] parts = InitialCatalog.Split('_');
                 string[] years = { parts[2], parts[3] };
                 selectedSchoolYear = string.Join("-", years);
+                schoolYearLabel.Text = "S.Y.";
                 schoolYearLabel.Text += $" {selectedSchoolYear}";
             }
         }
@@ -203,8 +205,19 @@ namespace STUEnrollmentSystem
             }
             else if (sender == settingsButton)
             {
-                openChildForm(new frmSettings());
+                frmSettings frmSettings = new frmSettings();
+                frmSettings.EnabledChanged += FrmSettings_EnabledChanged;
+                openChildForm(frmSettings);
             }
+        }
+
+        private void FrmSettings_EnabledChanged(object sender, EventArgs e)
+        {
+            InitializeSelectedSchoolYear();
+            this.Update();
+            this.Refresh();
+            this.Invalidate();
+            this.PerformLayout();
         }
     }
 }

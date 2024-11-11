@@ -13,7 +13,7 @@ namespace STUEnrollmentSystem
     internal class ConnectionFactory
     {
         protected static SqlConnection _sourceConnectionString;
-        public static SqlConnection _destinationConnectionString;
+        protected static SqlConnection _destinationConnectionString;
 
         public ConnectionFactory(string connectionString)
         {
@@ -36,7 +36,13 @@ namespace STUEnrollmentSystem
             }
         }
 
-        public string GetConnectionString()
+        public static void SetConnectionString(string connectionString)
+        {
+            //_sourceConnectionString.ConnectionString = connectionString;
+            _sourceConnectionString = new SqlConnection(connectionString);
+        }
+
+        public static string GetConnectionString()
         {
             return _sourceConnectionString.ConnectionString;
         }
@@ -48,7 +54,7 @@ namespace STUEnrollmentSystem
             return InitialCatalog;
         }
 
-        public string GetNewDestinationString(string databaseName)
+        public static string GetNewDestinationString(string databaseName)
         {
             //string[] sourceConnectionStringArr = _sourceConnectionString.ConnectionString.Split(';');
             //sourceConnectionStringArr[1] = $"Initial Catalog = {databaseName}";

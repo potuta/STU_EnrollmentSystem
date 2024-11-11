@@ -18,7 +18,8 @@ namespace STUEnrollmentSystem
         public frmSection()
         {
             InitializeComponent();
-            _sectionRepository = new SectionRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _sectionRepository = new SectionRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void sectionsBindingNavigatorSaveItem_Click(object sender, EventArgs e)

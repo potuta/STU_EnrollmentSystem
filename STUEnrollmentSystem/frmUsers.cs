@@ -17,7 +17,8 @@ namespace STUEnrollmentSystem
         public frmUsers()
         {
             InitializeComponent();
-            _usersRepository = new UsersRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _usersRepository = new UsersRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void usersBindingNavigatorSaveItem_Click(object sender, EventArgs e)

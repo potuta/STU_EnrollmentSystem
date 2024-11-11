@@ -19,7 +19,8 @@ namespace STUEnrollmentSystem
         public frmStudentPayment()
         {
             InitializeComponent();
-            _studentPaymentRepository = new StudentPaymentRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _studentPaymentRepository = new StudentPaymentRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void studentPaymentBindingNavigatorSaveItem_Click(object sender, EventArgs e)

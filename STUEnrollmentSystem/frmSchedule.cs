@@ -18,7 +18,8 @@ namespace STUEnrollmentSystem
         public frmSchedule()
         {
             InitializeComponent();
-            _scheduleRepository = new ScheduleRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _scheduleRepository = new ScheduleRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void scheduleBindingNavigatorSaveItem_Click(object sender, EventArgs e)

@@ -17,7 +17,8 @@ namespace STUEnrollmentSystem
         public frmPrices()
         {
             InitializeComponent();
-            _pricesRepository = new PricesRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _pricesRepository = new PricesRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void pricesBindingNavigatorSaveItem_Click(object sender, EventArgs e)

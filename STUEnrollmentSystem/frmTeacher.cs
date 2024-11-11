@@ -17,7 +17,8 @@ namespace STUEnrollmentSystem
         public frmTeacher()
         {
             InitializeComponent();
-            _teacherRepository = new TeacherRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _teacherRepository = new TeacherRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void teachersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -114,7 +115,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeSectionCB()
         {
-            List<string> sectionCodeList = new SectionRepository(_teacherRepository.GetConnectionString()).GetColumnData("Sections", "SectionCode");
+            List<string> sectionCodeList = new SectionRepository(ConnectionFactory.GetConnectionString()).GetColumnData("Sections", "SectionCode");
             sectionCodeList.Sort();
             sectionCodeComboBox.Items.Clear();
             sectionCodeComboBox.Items.AddRange(sectionCodeList.ToArray());

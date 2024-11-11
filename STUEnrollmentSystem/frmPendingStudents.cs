@@ -22,7 +22,8 @@ namespace STUEnrollmentSystem
         public frmPendingStudents()
         {
             InitializeComponent();
-            _pendingStudentsRepository = new PendingStudentsRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _pendingStudentsRepository = new PendingStudentsRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void pendingStudentsBindingNavigatorSaveItem_Click(object sender, EventArgs e)

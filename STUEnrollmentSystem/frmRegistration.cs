@@ -20,7 +20,8 @@ namespace STUEnrollmentSystem
         public frmRegistration()
         {
             InitializeComponent();
-            _registrationRepository = new RegistrationRepository(Properties.Settings.Default.STU_DBConnectionString);
+            _registrationRepository = new RegistrationRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void registrationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
