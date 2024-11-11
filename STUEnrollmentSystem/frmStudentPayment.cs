@@ -124,7 +124,8 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            _studentPaymentRepository.SchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
+            //_studentPaymentRepository.SchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
+            _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
 
             if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
@@ -196,7 +197,7 @@ namespace STUEnrollmentSystem
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
             _studentPaymentRepository.MonthOfPayment = monthOfPaymentComboBox.SelectedItem.ToString();
-            _studentPaymentRepository.SchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
+            _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             switch (operation)
             {
                 case "view":
