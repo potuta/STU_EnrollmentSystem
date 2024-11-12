@@ -124,34 +124,50 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
-            var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
+            try
+            {
+                _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
+                var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
 
-            if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
-            {
-                SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
+                if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+                {
+                    SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
+                }
+                else
+                {
+                    hideRequirementButtons();
+                }
             }
-            else
+            catch (KeyNotFoundException knfe)
             {
-                hideRequirementButtons();
+                _studentPaymentRepository.CloseConnection();
+                return;
             }
         }
 
         private void checkBalance()
         {
-            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
+            try
+            {
+                Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
 
-            if (paymentCodeComboBox.SelectedItem.ToString().Contains("M"))
-            {
-                paymentTypeLabel.Text = "Monthly";
-                remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
-                paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
+                if (paymentCodeComboBox.SelectedItem.ToString().Contains("M"))
+                {
+                    paymentTypeLabel.Text = "Monthly";
+                    remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
+                    paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
+                }
+                else if (paymentCodeComboBox.SelectedItem.ToString().Contains("F"))
+                {
+                    paymentTypeLabel.Text = "Full";
+                    remainingBalanceLabel.Text = "0";
+                    paymentDueLabel.Text = "None";
+                }
             }
-            else if (paymentCodeComboBox.SelectedItem.ToString().Contains("F"))
+            catch (ArgumentOutOfRangeException aoore)
             {
-                paymentTypeLabel.Text = "Full";
-                remainingBalanceLabel.Text = "0";
-                paymentDueLabel.Text = "None";
+                _studentPaymentRepository.CloseConnection();
+                return;
             }
         }
 

@@ -139,12 +139,20 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            var requirements = _registrationRepository.CheckRegistrationRequirements(registerIDTextBox.Text);
+            try
+            {
+                var requirements = _registrationRepository.CheckRegistrationRequirements(registerIDTextBox.Text);
 
-            SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
-            SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
-            SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
-            SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+                SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
+                SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
+                SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
+                SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+            }
+            catch (KeyNotFoundException knfe)
+            {
+                _registrationRepository.CloseConnection();
+                return;
+            }
         }
 
         private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
@@ -234,7 +242,7 @@ namespace STUEnrollmentSystem
         {
             var studentData = new Dictionary<string, object>
             {
-                {"RegisterID", Convert.ToInt32(registerIDTextBox.Text)},
+                {"RegisterID", registerIDTextBox.Text},
                 {"EnrollmentStatus", enrollmentStatusComboBox.SelectedItem},
                 {"StudFirstName", studFirstNameTextBox.Text},
                 {"StudMidName", studMidNameTextBox.Text},
@@ -284,6 +292,16 @@ namespace STUEnrollmentSystem
             {
                 _registrationRepository.UpdateRequirements("PendingStudents", "TransferCertificate", registerIDTextBox.Text);
             }
+
+            if (requirements["PersonalEmail"] == true)
+            {
+                _registrationRepository.UpdateRequirements("PendingStudents", "PersonalEmail", registerIDTextBox.Text);
+            }
+
+            if (requirements["GuardianEmail"] == true)
+            {
+                _registrationRepository.UpdateRequirements("PendingStudents", "GuardianEmail", registerIDTextBox.Text);
+            }
         }
 
         private void searchToolStripButton_Click(object sender, EventArgs e) => searchRegistration();
@@ -293,7 +311,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.registrationTableAdapter.Search(this.sTU_DBDataSet.Registration, ((int)(System.Convert.ChangeType(registerIDToolStripComboBox.Text, typeof(int)))), studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+                this.registrationTableAdapter.Search(this.sTU_DBDataSet.Registration, registerIDToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {

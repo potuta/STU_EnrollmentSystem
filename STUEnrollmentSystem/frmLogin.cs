@@ -49,6 +49,7 @@ namespace STUEnrollmentSystem
                 }
                 else
                 {
+                    MessageBox.Show("User account not found");
                     return;
                 }
             }

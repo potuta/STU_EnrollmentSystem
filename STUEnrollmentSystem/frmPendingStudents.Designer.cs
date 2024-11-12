@@ -56,12 +56,16 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label paymentMethodLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
+            System.Windows.Forms.Label personalEmailLabel;
+            System.Windows.Forms.Label guardianEmailLabel;
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.enrollmentTypeTextBox = new System.Windows.Forms.TextBox();
+            this.civilStatusTextBox = new System.Windows.Forms.TextBox();
+            this.genderTextBox = new System.Windows.Forms.TextBox();
+            this.enrollmentStatusTextBox = new System.Windows.Forms.TextBox();
             this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
             this.proofOfPaymentLabel = new System.Windows.Forms.Label();
             this.paymentMethodComboBox = new System.Windows.Forms.ComboBox();
-            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.amountToPayLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
@@ -134,6 +138,12 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.personalEmailTextBox = new System.Windows.Forms.TextBox();
+            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,7 +156,6 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -158,16 +167,11 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.enrollmentStatusTextBox = new System.Windows.Forms.TextBox();
-            this.genderTextBox = new System.Windows.Forms.TextBox();
-            this.civilStatusTextBox = new System.Windows.Forms.TextBox();
-            this.enrollmentTypeTextBox = new System.Windows.Forms.TextBox();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -194,14 +198,16 @@
             studentNumberLabel = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             paymentMethodLabel1 = new System.Windows.Forms.Label();
+            personalEmailLabel = new System.Windows.Forms.Label();
+            guardianEmailLabel = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingNavigator)).BeginInit();
             this.pendingStudentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // transferCertificateLabel
@@ -333,7 +339,7 @@
             // enrollmentTypeLabel
             // 
             enrollmentTypeLabel.AutoSize = true;
-            enrollmentTypeLabel.Location = new System.Drawing.Point(15, 351);
+            enrollmentTypeLabel.Location = new System.Drawing.Point(15, 403);
             enrollmentTypeLabel.Name = "enrollmentTypeLabel";
             enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
             enrollmentTypeLabel.TabIndex = 21;
@@ -441,6 +447,10 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(guardianEmailLabel);
+            this.detailsPanel.Controls.Add(this.guardianEmailTextBox);
+            this.detailsPanel.Controls.Add(personalEmailLabel);
+            this.detailsPanel.Controls.Add(this.personalEmailTextBox);
             this.detailsPanel.Controls.Add(this.enrollmentTypeTextBox);
             this.detailsPanel.Controls.Add(this.civilStatusTextBox);
             this.detailsPanel.Controls.Add(this.genderTextBox);
@@ -518,8 +528,48 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 122);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1264, 291);
+            this.detailsPanel.Size = new System.Drawing.Size(1264, 267);
             this.detailsPanel.TabIndex = 6;
+            // 
+            // enrollmentTypeTextBox
+            // 
+            this.enrollmentTypeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.enrollmentTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentType", true));
+            this.enrollmentTypeTextBox.Location = new System.Drawing.Point(122, 400);
+            this.enrollmentTypeTextBox.Name = "enrollmentTypeTextBox";
+            this.enrollmentTypeTextBox.ReadOnly = true;
+            this.enrollmentTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.enrollmentTypeTextBox.TabIndex = 80;
+            // 
+            // civilStatusTextBox
+            // 
+            this.civilStatusTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.civilStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "CivilStatus", true));
+            this.civilStatusTextBox.Location = new System.Drawing.Point(122, 270);
+            this.civilStatusTextBox.Name = "civilStatusTextBox";
+            this.civilStatusTextBox.ReadOnly = true;
+            this.civilStatusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.civilStatusTextBox.TabIndex = 79;
+            // 
+            // genderTextBox
+            // 
+            this.genderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Gender", true));
+            this.genderTextBox.Location = new System.Drawing.Point(122, 218);
+            this.genderTextBox.Name = "genderTextBox";
+            this.genderTextBox.ReadOnly = true;
+            this.genderTextBox.Size = new System.Drawing.Size(100, 20);
+            this.genderTextBox.TabIndex = 78;
+            // 
+            // enrollmentStatusTextBox
+            // 
+            this.enrollmentStatusTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.enrollmentStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentStatus", true));
+            this.enrollmentStatusTextBox.Location = new System.Drawing.Point(122, 113);
+            this.enrollmentStatusTextBox.Name = "enrollmentStatusTextBox";
+            this.enrollmentStatusTextBox.ReadOnly = true;
+            this.enrollmentStatusTextBox.Size = new System.Drawing.Size(100, 20);
+            this.enrollmentStatusTextBox.TabIndex = 77;
             // 
             // deleteProofOfPaymentButton
             // 
@@ -555,16 +605,6 @@
             this.paymentMethodComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentMethodComboBox.TabIndex = 72;
             this.paymentMethodComboBox.TextChanged += new System.EventHandler(this.paymentMethodComboBox_TextChanged);
-            // 
-            // pendingStudentsBindingSource
-            // 
-            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
-            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // amountToPayLabel
             // 
@@ -649,6 +689,7 @@
             // 
             // registerIDTextBox
             // 
+            this.registerIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.registerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "RegisterID", true));
             this.registerIDTextBox.Location = new System.Drawing.Point(122, 64);
             this.registerIDTextBox.Name = "registerIDTextBox";
@@ -658,6 +699,7 @@
             // 
             // studFirstNameTextBox
             // 
+            this.studFirstNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudFirstName", true));
             this.studFirstNameTextBox.Location = new System.Drawing.Point(122, 139);
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
@@ -667,6 +709,7 @@
             // 
             // studMidNameTextBox
             // 
+            this.studMidNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studMidNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudMidName", true));
             this.studMidNameTextBox.Location = new System.Drawing.Point(122, 165);
             this.studMidNameTextBox.Name = "studMidNameTextBox";
@@ -676,6 +719,7 @@
             // 
             // studLastNameTextBox
             // 
+            this.studLastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudLastName", true));
             this.studLastNameTextBox.Location = new System.Drawing.Point(122, 191);
             this.studLastNameTextBox.Name = "studLastNameTextBox";
@@ -685,6 +729,7 @@
             // 
             // addressTextBox
             // 
+            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Address", true));
             this.addressTextBox.Location = new System.Drawing.Point(122, 296);
             this.addressTextBox.Name = "addressTextBox";
@@ -694,6 +739,7 @@
             // 
             // contactNumTextBox
             // 
+            this.contactNumTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ContactNum", true));
             this.contactNumTextBox.Location = new System.Drawing.Point(122, 322);
             this.contactNumTextBox.Name = "contactNumTextBox";
@@ -703,6 +749,7 @@
             // 
             // motherFirstNameTextBox
             // 
+            this.motherFirstNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.motherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherFirstName", true));
             this.motherFirstNameTextBox.Location = new System.Drawing.Point(368, 64);
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
@@ -712,6 +759,7 @@
             // 
             // motherLastNameTextBox
             // 
+            this.motherLastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.motherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherLastName", true));
             this.motherLastNameTextBox.Location = new System.Drawing.Point(368, 90);
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
@@ -721,6 +769,7 @@
             // 
             // motherOccupationTextBox
             // 
+            this.motherOccupationTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.motherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "MotherOccupation", true));
             this.motherOccupationTextBox.Location = new System.Drawing.Point(368, 116);
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
@@ -730,6 +779,7 @@
             // 
             // fatherFirstNameTextBox
             // 
+            this.fatherFirstNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fatherFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherFirstName", true));
             this.fatherFirstNameTextBox.Location = new System.Drawing.Point(368, 142);
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
@@ -739,6 +789,7 @@
             // 
             // fatherLastNameTextBox
             // 
+            this.fatherLastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fatherLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherLastName", true));
             this.fatherLastNameTextBox.Location = new System.Drawing.Point(368, 168);
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
@@ -748,6 +799,7 @@
             // 
             // fatherOccupationTextBox
             // 
+            this.fatherOccupationTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fatherOccupationTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "FatherOccupation", true));
             this.fatherOccupationTextBox.Location = new System.Drawing.Point(368, 194);
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
@@ -804,6 +856,7 @@
             // 
             // birthDateTextBox
             // 
+            this.birthDateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "BirthDate", true));
             this.birthDateTextBox.Location = new System.Drawing.Point(122, 244);
             this.birthDateTextBox.Name = "birthDateTextBox";
@@ -1112,7 +1165,7 @@
             this.pendingStudentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorEnrollStudentItem});
-            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 413);
+            this.pendingStudentsBindingNavigator.Location = new System.Drawing.Point(0, 389);
             this.pendingStudentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.pendingStudentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.pendingStudentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -1272,11 +1325,74 @@
             this.dataGridViewTextBoxColumn21});
             this.pendingStudentsDataGridView.DataSource = this.pendingStudentsBindingSource;
             this.pendingStudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 438);
+            this.pendingStudentsDataGridView.Location = new System.Drawing.Point(0, 414);
             this.pendingStudentsDataGridView.Name = "pendingStudentsDataGridView";
-            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 443);
+            this.pendingStudentsDataGridView.Size = new System.Drawing.Size(1264, 467);
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
+            // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            // 
+            // PaymentMethod
+            // 
+            this.PaymentMethod.DataPropertyName = "PaymentMethod";
+            this.PaymentMethod.HeaderText = "PaymentMethod";
+            this.PaymentMethod.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.PaymentMethod.Name = "PaymentMethod";
+            // 
+            // ProofOfPayment
+            // 
+            this.ProofOfPayment.DataPropertyName = "ProofOfPayment";
+            this.ProofOfPayment.HeaderText = "ProofOfPayment";
+            this.ProofOfPayment.Name = "ProofOfPayment";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // personalEmailLabel
+            // 
+            personalEmailLabel.AutoSize = true;
+            personalEmailLabel.Location = new System.Drawing.Point(15, 351);
+            personalEmailLabel.Name = "personalEmailLabel";
+            personalEmailLabel.Size = new System.Drawing.Size(79, 13);
+            personalEmailLabel.TabIndex = 80;
+            personalEmailLabel.Text = "Personal Email:";
+            // 
+            // personalEmailTextBox
+            // 
+            this.personalEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PersonalEmail", true));
+            this.personalEmailTextBox.Location = new System.Drawing.Point(122, 348);
+            this.personalEmailTextBox.Name = "personalEmailTextBox";
+            this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.personalEmailTextBox.TabIndex = 81;
+            // 
+            // guardianEmailLabel
+            // 
+            guardianEmailLabel.AutoSize = true;
+            guardianEmailLabel.Location = new System.Drawing.Point(15, 377);
+            guardianEmailLabel.Name = "guardianEmailLabel";
+            guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
+            guardianEmailLabel.TabIndex = 81;
+            guardianEmailLabel.Text = "Guardian Email:";
+            // 
+            // guardianEmailTextBox
+            // 
+            this.guardianEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GuardianEmail", true));
+            this.guardianEmailTextBox.Location = new System.Drawing.Point(122, 374);
+            this.guardianEmailTextBox.Name = "guardianEmailTextBox";
+            this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.guardianEmailTextBox.TabIndex = 82;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1376,15 +1492,6 @@
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // PaymentType
-            // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.PaymentType.Name = "PaymentType";
-            // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherFirstName";
@@ -1459,31 +1566,21 @@
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // PaymentMethod
-            // 
-            this.PaymentMethod.DataPropertyName = "PaymentMethod";
-            this.PaymentMethod.HeaderText = "PaymentMethod";
-            this.PaymentMethod.Items.AddRange(new object[] {
-            "CASH",
-            "GCASH",
-            "BANK TRANSFER"});
-            this.PaymentMethod.Name = "PaymentMethod";
-            // 
-            // ProofOfPayment
-            // 
-            this.ProofOfPayment.DataPropertyName = "ProofOfPayment";
-            this.ProofOfPayment.HeaderText = "ProofOfPayment";
-            this.ProofOfPayment.Name = "ProofOfPayment";
-            // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Section";
             this.dataGridViewTextBoxColumn21.HeaderText = "Section";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
-            // openFileDialog1
+            // pendingStudentsBindingSource
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
+            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pendingStudentsTableAdapter
             // 
@@ -1507,42 +1604,6 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // enrollmentStatusTextBox
-            // 
-            this.enrollmentStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentStatus", true));
-            this.enrollmentStatusTextBox.Location = new System.Drawing.Point(122, 113);
-            this.enrollmentStatusTextBox.Name = "enrollmentStatusTextBox";
-            this.enrollmentStatusTextBox.ReadOnly = true;
-            this.enrollmentStatusTextBox.Size = new System.Drawing.Size(100, 20);
-            this.enrollmentStatusTextBox.TabIndex = 77;
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(122, 218);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.ReadOnly = true;
-            this.genderTextBox.Size = new System.Drawing.Size(100, 20);
-            this.genderTextBox.TabIndex = 78;
-            // 
-            // civilStatusTextBox
-            // 
-            this.civilStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "CivilStatus", true));
-            this.civilStatusTextBox.Location = new System.Drawing.Point(122, 270);
-            this.civilStatusTextBox.Name = "civilStatusTextBox";
-            this.civilStatusTextBox.ReadOnly = true;
-            this.civilStatusTextBox.Size = new System.Drawing.Size(100, 20);
-            this.civilStatusTextBox.TabIndex = 79;
-            // 
-            // enrollmentTypeTextBox
-            // 
-            this.enrollmentTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "EnrollmentType", true));
-            this.enrollmentTypeTextBox.Location = new System.Drawing.Point(122, 348);
-            this.enrollmentTypeTextBox.Name = "enrollmentTypeTextBox";
-            this.enrollmentTypeTextBox.ReadOnly = true;
-            this.enrollmentTypeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.enrollmentTypeTextBox.TabIndex = 80;
-            // 
             // frmPendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1560,8 +1621,6 @@
             this.Load += new System.EventHandler(this.PendingStudents_Load);
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.searchToolStrip.ResumeLayout(false);
@@ -1570,6 +1629,8 @@
             this.pendingStudentsBindingNavigator.ResumeLayout(false);
             this.pendingStudentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1690,5 +1751,7 @@
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox enrollmentTypeTextBox;
         private System.Windows.Forms.TextBox civilStatusTextBox;
+        private System.Windows.Forms.TextBox guardianEmailTextBox;
+        private System.Windows.Forms.TextBox personalEmailTextBox;
     }
 }

@@ -53,6 +53,8 @@
             System.Windows.Forms.Label goodMoralLabel;
             System.Windows.Forms.Label transferCertificateLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistration));
+            System.Windows.Forms.Label personalEmailLabel;
+            System.Windows.Forms.Label guardianEmailLabel;
             this.registrationBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,29 +73,6 @@
             this.registrationBindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.registrationBindingNavigatorMoveToCashierItem = new System.Windows.Forms.ToolStripButton();
             this.registrationDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudForm137 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GoodMoral = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransferCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();
             this.registerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -150,6 +129,33 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.registrationTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RegistrationTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonalEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardianEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudForm137 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GoodMoral = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransferCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personalEmailTextBox = new System.Windows.Forms.TextBox();
+            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             registerIDLabel = new System.Windows.Forms.Label();
             enrollmentStatusLabel = new System.Windows.Forms.Label();
             studFirstNameLabel = new System.Windows.Forms.Label();
@@ -173,6 +179,8 @@
             birthCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
+            personalEmailLabel = new System.Windows.Forms.Label();
+            guardianEmailLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingNavigator)).BeginInit();
             this.registrationBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
@@ -240,7 +248,7 @@
             // birthDateLabel
             // 
             birthDateLabel.AutoSize = true;
-            birthDateLabel.Location = new System.Drawing.Point(262, 67);
+            birthDateLabel.Location = new System.Drawing.Point(16, 226);
             birthDateLabel.Name = "birthDateLabel";
             birthDateLabel.Size = new System.Drawing.Size(57, 13);
             birthDateLabel.TabIndex = 13;
@@ -249,7 +257,7 @@
             // civilStatusLabel
             // 
             civilStatusLabel.AutoSize = true;
-            civilStatusLabel.Location = new System.Drawing.Point(262, 93);
+            civilStatusLabel.Location = new System.Drawing.Point(265, 67);
             civilStatusLabel.Name = "civilStatusLabel";
             civilStatusLabel.Size = new System.Drawing.Size(62, 13);
             civilStatusLabel.TabIndex = 15;
@@ -258,7 +266,7 @@
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(262, 119);
+            addressLabel.Location = new System.Drawing.Point(265, 94);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(48, 13);
             addressLabel.TabIndex = 17;
@@ -267,7 +275,7 @@
             // contactNumLabel
             // 
             contactNumLabel.AutoSize = true;
-            contactNumLabel.Location = new System.Drawing.Point(262, 145);
+            contactNumLabel.Location = new System.Drawing.Point(265, 120);
             contactNumLabel.Name = "contactNumLabel";
             contactNumLabel.Size = new System.Drawing.Size(72, 13);
             contactNumLabel.TabIndex = 19;
@@ -276,7 +284,7 @@
             // enrollmentTypeLabel
             // 
             enrollmentTypeLabel.AutoSize = true;
-            enrollmentTypeLabel.Location = new System.Drawing.Point(262, 171);
+            enrollmentTypeLabel.Location = new System.Drawing.Point(265, 199);
             enrollmentTypeLabel.Name = "enrollmentTypeLabel";
             enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
             enrollmentTypeLabel.TabIndex = 21;
@@ -285,7 +293,7 @@
             // installmentTypeLabel
             // 
             installmentTypeLabel.AutoSize = true;
-            installmentTypeLabel.Location = new System.Drawing.Point(262, 197);
+            installmentTypeLabel.Location = new System.Drawing.Point(265, 225);
             installmentTypeLabel.Name = "installmentTypeLabel";
             installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
@@ -411,7 +419,7 @@
             this.registrationBindingNavigatorSaveItem,
             this.registrationBindingNavigatorRefreshItem,
             this.registrationBindingNavigatorMoveToCashierItem});
-            this.registrationBindingNavigator.Location = new System.Drawing.Point(0, 362);
+            this.registrationBindingNavigator.Location = new System.Drawing.Point(0, 400);
             this.registrationBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.registrationBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.registrationBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -562,6 +570,8 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
+            this.PersonalEmail,
+            this.GuardianEmail,
             this.dataGridViewTextBoxColumn11,
             this.PaymentType,
             this.dataGridViewTextBoxColumn13,
@@ -577,180 +587,11 @@
             this.TransferCertificate});
             this.registrationDataGridView.DataSource = this.registrationBindingSource;
             this.registrationDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.registrationDataGridView.Location = new System.Drawing.Point(0, 387);
+            this.registrationDataGridView.Location = new System.Drawing.Point(0, 425);
             this.registrationDataGridView.Name = "registrationDataGridView";
-            this.registrationDataGridView.Size = new System.Drawing.Size(1264, 389);
+            this.registrationDataGridView.Size = new System.Drawing.Size(1264, 351);
             this.registrationDataGridView.TabIndex = 1;
             this.registrationDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registrationDataGridView_CellClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "RegisterID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "RegisterID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "EnrollmentStatus";
-            this.dataGridViewTextBoxColumn2.HeaderText = "EnrollmentStatus";
-            this.dataGridViewTextBoxColumn2.Items.AddRange(new object[] {
-            "OLD",
-            "NEW",
-            "TRANSFEREE"});
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "StudFirstName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "StudFirstName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "StudMidName";
-            this.dataGridViewTextBoxColumn4.HeaderText = "StudMidName";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "StudLastName";
-            this.dataGridViewTextBoxColumn5.HeaderText = "StudLastName";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Gender";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Gender";
-            this.dataGridViewTextBoxColumn6.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "BirthDate";
-            this.dataGridViewTextBoxColumn7.HeaderText = "BirthDate";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
-            this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
-            this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "ContactNum";
-            this.dataGridViewTextBoxColumn10.HeaderText = "ContactNum";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "EnrollmentType";
-            this.dataGridViewTextBoxColumn11.HeaderText = "EnrollmentType";
-            this.dataGridViewTextBoxColumn11.Items.AddRange(new object[] {
-            "Grade 7",
-            "Grade 8",
-            "Grade 9",
-            "Grade 10"});
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // PaymentType
-            // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.PaymentType.Name = "PaymentType";
-            this.PaymentType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PaymentType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "MotherFirstName";
-            this.dataGridViewTextBoxColumn13.HeaderText = "MotherFirstName";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherLastName";
-            this.dataGridViewTextBoxColumn14.HeaderText = "MotherLastName";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "MotherOccupation";
-            this.dataGridViewTextBoxColumn15.HeaderText = "MotherOccupation";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "FatherFirstName";
-            this.dataGridViewTextBoxColumn16.HeaderText = "FatherFirstName";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "FatherLastName";
-            this.dataGridViewTextBoxColumn17.HeaderText = "FatherLastName";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "FatherOccupation";
-            this.dataGridViewTextBoxColumn18.HeaderText = "FatherOccupation";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "LRN";
-            this.dataGridViewTextBoxColumn19.HeaderText = "LRN";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            // 
-            // StudForm137
-            // 
-            this.StudForm137.DataPropertyName = "StudForm137";
-            this.StudForm137.HeaderText = "StudForm137";
-            this.StudForm137.Name = "StudForm137";
-            // 
-            // BirthCertificate
-            // 
-            this.BirthCertificate.DataPropertyName = "BirthCertificate";
-            this.BirthCertificate.HeaderText = "BirthCertificate";
-            this.BirthCertificate.Name = "BirthCertificate";
-            // 
-            // GoodMoral
-            // 
-            this.GoodMoral.DataPropertyName = "GoodMoral";
-            this.GoodMoral.HeaderText = "GoodMoral";
-            this.GoodMoral.Name = "GoodMoral";
-            // 
-            // TransferCertificate
-            // 
-            this.TransferCertificate.DataPropertyName = "TransferCertificate";
-            this.TransferCertificate.HeaderText = "TransferCertificate";
-            this.TransferCertificate.Name = "TransferCertificate";
             // 
             // searchPanel
             // 
@@ -779,7 +620,7 @@
             this.searchToolStripButton});
             this.searchToolStrip.Location = new System.Drawing.Point(83, 38);
             this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.Size = new System.Drawing.Size(814, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(783, 25);
             this.searchToolStrip.TabIndex = 4;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -870,6 +711,10 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(guardianEmailLabel);
+            this.detailsPanel.Controls.Add(this.guardianEmailTextBox);
+            this.detailsPanel.Controls.Add(personalEmailLabel);
+            this.detailsPanel.Controls.Add(this.personalEmailTextBox);
             this.detailsPanel.Controls.Add(this.civilStatusComboBox);
             this.detailsPanel.Controls.Add(this.deleteTransferCertButton);
             this.detailsPanel.Controls.Add(this.deleteGoodMoralButton);
@@ -935,7 +780,7 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 115);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1264, 247);
+            this.detailsPanel.Size = new System.Drawing.Size(1264, 285);
             this.detailsPanel.TabIndex = 3;
             // 
             // civilStatusComboBox
@@ -948,7 +793,7 @@
             "Separated",
             "Divorced",
             "Widowed"});
-            this.civilStatusComboBox.Location = new System.Drawing.Point(369, 90);
+            this.civilStatusComboBox.Location = new System.Drawing.Point(372, 64);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.civilStatusComboBox.TabIndex = 63;
@@ -986,7 +831,7 @@
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(369, 64);
+            this.birthDateTimePicker.Location = new System.Drawing.Point(123, 223);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
             this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.birthDateTimePicker.TabIndex = 50;
@@ -1018,7 +863,7 @@
             this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.paymentTypeComboBox.Location = new System.Drawing.Point(369, 194);
+            this.paymentTypeComboBox.Location = new System.Drawing.Point(372, 222);
             this.paymentTypeComboBox.Name = "paymentTypeComboBox";
             this.paymentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentTypeComboBox.TabIndex = 43;
@@ -1032,7 +877,7 @@
             "Grade 8",
             "Grade 9",
             "Grade 10"});
-            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(369, 167);
+            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(372, 195);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 42;
@@ -1097,7 +942,7 @@
             // birthDateTextBox
             // 
             this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "BirthDate", true));
-            this.birthDateTextBox.Location = new System.Drawing.Point(369, 64);
+            this.birthDateTextBox.Location = new System.Drawing.Point(123, 223);
             this.birthDateTextBox.Name = "birthDateTextBox";
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
@@ -1105,7 +950,7 @@
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(369, 116);
+            this.addressTextBox.Location = new System.Drawing.Point(372, 91);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 18;
@@ -1113,7 +958,7 @@
             // contactNumTextBox
             // 
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "ContactNum", true));
-            this.contactNumTextBox.Location = new System.Drawing.Point(369, 142);
+            this.contactNumTextBox.Location = new System.Drawing.Point(372, 117);
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
@@ -1336,6 +1181,221 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RegisterID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "RegisterID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "EnrollmentStatus";
+            this.dataGridViewTextBoxColumn2.HeaderText = "EnrollmentStatus";
+            this.dataGridViewTextBoxColumn2.Items.AddRange(new object[] {
+            "OLD",
+            "NEW",
+            "TRANSFEREE"});
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "StudFirstName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "StudFirstName";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "StudMidName";
+            this.dataGridViewTextBoxColumn4.HeaderText = "StudMidName";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "StudLastName";
+            this.dataGridViewTextBoxColumn5.HeaderText = "StudLastName";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Gender";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn6.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "BirthDate";
+            this.dataGridViewTextBoxColumn7.HeaderText = "BirthDate";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
+            this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
+            this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
+            "Single",
+            "Married",
+            "Separated",
+            "Divorced",
+            "Widowed"});
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ContactNum";
+            this.dataGridViewTextBoxColumn10.HeaderText = "ContactNum";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // PersonalEmail
+            // 
+            this.PersonalEmail.DataPropertyName = "PersonalEmail";
+            this.PersonalEmail.HeaderText = "PersonalEmail";
+            this.PersonalEmail.Name = "PersonalEmail";
+            // 
+            // GuardianEmail
+            // 
+            this.GuardianEmail.DataPropertyName = "GuardianEmail";
+            this.GuardianEmail.HeaderText = "GuardianEmail";
+            this.GuardianEmail.Name = "GuardianEmail";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "EnrollmentType";
+            this.dataGridViewTextBoxColumn11.HeaderText = "EnrollmentType";
+            this.dataGridViewTextBoxColumn11.Items.AddRange(new object[] {
+            "Grade 7",
+            "Grade 8",
+            "Grade 9",
+            "Grade 10"});
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            this.PaymentType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaymentType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "MotherFirstName";
+            this.dataGridViewTextBoxColumn13.HeaderText = "MotherFirstName";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherLastName";
+            this.dataGridViewTextBoxColumn14.HeaderText = "MotherLastName";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "MotherOccupation";
+            this.dataGridViewTextBoxColumn15.HeaderText = "MotherOccupation";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "FatherFirstName";
+            this.dataGridViewTextBoxColumn16.HeaderText = "FatherFirstName";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "FatherLastName";
+            this.dataGridViewTextBoxColumn17.HeaderText = "FatherLastName";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "FatherOccupation";
+            this.dataGridViewTextBoxColumn18.HeaderText = "FatherOccupation";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "LRN";
+            this.dataGridViewTextBoxColumn19.HeaderText = "LRN";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // StudForm137
+            // 
+            this.StudForm137.DataPropertyName = "StudForm137";
+            this.StudForm137.HeaderText = "StudForm137";
+            this.StudForm137.Name = "StudForm137";
+            // 
+            // BirthCertificate
+            // 
+            this.BirthCertificate.DataPropertyName = "BirthCertificate";
+            this.BirthCertificate.HeaderText = "BirthCertificate";
+            this.BirthCertificate.Name = "BirthCertificate";
+            // 
+            // GoodMoral
+            // 
+            this.GoodMoral.DataPropertyName = "GoodMoral";
+            this.GoodMoral.HeaderText = "GoodMoral";
+            this.GoodMoral.Name = "GoodMoral";
+            // 
+            // TransferCertificate
+            // 
+            this.TransferCertificate.DataPropertyName = "TransferCertificate";
+            this.TransferCertificate.HeaderText = "TransferCertificate";
+            this.TransferCertificate.Name = "TransferCertificate";
+            // 
+            // personalEmailLabel
+            // 
+            personalEmailLabel.AutoSize = true;
+            personalEmailLabel.Location = new System.Drawing.Point(265, 146);
+            personalEmailLabel.Name = "personalEmailLabel";
+            personalEmailLabel.Size = new System.Drawing.Size(79, 13);
+            personalEmailLabel.TabIndex = 63;
+            personalEmailLabel.Text = "Personal Email:";
+            // 
+            // personalEmailTextBox
+            // 
+            this.personalEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "PersonalEmail", true));
+            this.personalEmailTextBox.Location = new System.Drawing.Point(372, 143);
+            this.personalEmailTextBox.Name = "personalEmailTextBox";
+            this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.personalEmailTextBox.TabIndex = 64;
+            // 
+            // guardianEmailLabel
+            // 
+            guardianEmailLabel.AutoSize = true;
+            guardianEmailLabel.Location = new System.Drawing.Point(265, 172);
+            guardianEmailLabel.Name = "guardianEmailLabel";
+            guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
+            guardianEmailLabel.TabIndex = 64;
+            guardianEmailLabel.Text = "Guardian Email:";
+            // 
+            // guardianEmailTextBox
+            // 
+            this.guardianEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.registrationBindingSource, "GuardianEmail", true));
+            this.guardianEmailTextBox.Location = new System.Drawing.Point(372, 169);
+            this.guardianEmailTextBox.Name = "guardianEmailTextBox";
+            this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.guardianEmailTextBox.TabIndex = 65;
+            // 
             // frmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1434,6 +1494,16 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox civilStatusComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.ToolStrip searchToolStrip;
+        private System.Windows.Forms.ToolStripLabel registerIDToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
+        private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox registerIDToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1444,6 +1514,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonalEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuardianEmail;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -1457,15 +1529,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthCertificate;
         private System.Windows.Forms.DataGridViewTextBoxColumn GoodMoral;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransferCertificate;
-        private System.Windows.Forms.ToolStrip searchToolStrip;
-        private System.Windows.Forms.ToolStripLabel registerIDToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
-        private System.Windows.Forms.ToolStripButton searchToolStripButton;
-        private System.Windows.Forms.ToolStripComboBox registerIDToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
+        private System.Windows.Forms.TextBox guardianEmailTextBox;
+        private System.Windows.Forms.TextBox personalEmailTextBox;
     }
 }

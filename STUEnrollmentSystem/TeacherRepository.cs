@@ -17,10 +17,32 @@ namespace STUEnrollmentSystem
         public int GenerateTeacherCode()
         {
             string query = "SELECT COUNT(*) FROM Teachers";
-            SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            int teacherCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
-            _connection.Close();
+            int teacherCount = 0;
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    teacherCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Log SQL error (example: log to a file or monitoring system)
+                Console.WriteLine($"SQL Error in GenerateTeacherCode: {ex.Message}");
+                // Optionally, handle specific SQL error codes here
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GenerateTeacherCode: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
             return teacherCount;
         }
     }

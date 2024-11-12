@@ -19,53 +19,103 @@ namespace STUEnrollmentSystem
             switch (grade)
             {
                 case "Grade 7":
-                    grade = "G7";
+                    grade = "PG7";
                     break;
                 case "Grade 8":
-                    grade = "G8";
+                    grade = "PG8";
                     break;
                 case "Grade 9":
-                    grade = "G9";
+                    grade = "PG9";
                     break;
                 case "Grade 10":
-                    grade = "G10";
+                    grade = "PG10";
                     break;
             }
 
             int total = 0;
 
-            if (paymentType.Equals("Monthly"))
+            //if (paymentType.Equals("Monthly"))
+            //{
+            //    List<int> amountList = new List<int>();
+            //    string query = $"SELECT TuitionFee, Books, LaboratoryFee, Uniform, MiscellanaousFee FROM Prices WHERE GradeCode = '{grade}'";
+            //    SqlCommand command = new SqlCommand(query, _connection);
+            //    _connection.Open();
+            //    using (SqlDataReader reader = command.ExecuteReader())
+            //    {
+            //        while (reader.Read())
+            //        {
+            //            for (int column = 0; column < reader.FieldCount; column++)
+            //            {
+            //                amountList.Add(reader.GetInt32(column));
+            //            }
+            //        }
+            //    }
+            //    _connection.Close();
+
+            //    foreach (int amount in amountList)
+            //    {
+            //        total += amount;
+            //    }
+
+            //    total = total / 10;
+            //}
+            //else if (paymentType.Equals("Full"))
+            //{
+            //    string query = $"SELECT TotalAmount FROM Prices WHERE GradeCode = '{grade}'";
+            //    SqlCommand command = new SqlCommand(query, _connection);
+            //    _connection.Open();
+            //    total = Convert.ToInt32(command.ExecuteScalar());
+            //    _connection.Close();
+            //}
+
+            try
             {
-                List<int> amountList = new List<int>();
-                string query = $"SELECT TuitionFee, Books, LaboratoryFee, Uniform, MiscellanaousFee FROM Prices WHERE GradeCode = '{grade}'";
-                SqlCommand command = new SqlCommand(query, _connection);
-                _connection.Open();
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlCommand command = new SqlCommand())
                 {
-                    while (reader.Read())
+                    command.Connection = _connection;
+                    _connection.Open();
+
+                    if (paymentType.Equals("Monthly", StringComparison.OrdinalIgnoreCase))
                     {
-                        for (int column = 0; column < reader.FieldCount; column++)
+                        command.CommandText = "SELECT TuitionFee, Books, LaboratoryFee, Uniform, MiscellanaousFee FROM Prices WHERE PriceCode = @PriceCode";
+                        command.Parameters.AddWithValue("@PriceCode", grade);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            amountList.Add(reader.GetInt32(column));
+                            while (reader.Read())
+                            {
+                                for (int column = 0; column < reader.FieldCount; column++)
+                                {
+                                    total += reader.GetInt32(column);
+                                }
+                            }
                         }
+
+                        int monthCount = new PaymentTypeRepository(_connection.ConnectionString).GetMonthCount(paymentType, grade);
+
+                        total /= monthCount;
+                    }
+                    else if (paymentType.Equals("Full", StringComparison.OrdinalIgnoreCase))
+                    {
+                        command.CommandText = "SELECT TotalAmount FROM Prices WHERE PriceCode = @PriceCode";
+                        command.Parameters.AddWithValue("@PriceCode", grade);
+
+                        total = Convert.ToInt32(command.ExecuteScalar());
                     }
                 }
-                _connection.Close();
-
-                foreach (int amount in amountList)
-                {
-                    total += amount;
-                }
-
-                total = total / 10;
             }
-            else if (paymentType.Equals("Full"))
+            catch (SqlException ex)
             {
-                string query = $"SELECT TotalAmount FROM Prices WHERE GradeCode = '{grade}'";
-                SqlCommand command = new SqlCommand(query, _connection);
-                _connection.Open();
-                total = Convert.ToInt32(command.ExecuteScalar());
-                _connection.Close();
+                Console.WriteLine($"SQL Error in GetPaymentAmountPerGrade: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetPaymentAmountPerGrade: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
             }
 
             return total;

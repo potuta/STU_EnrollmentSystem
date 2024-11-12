@@ -53,11 +53,15 @@
             System.Windows.Forms.Label fatherOccupationLabel;
             System.Windows.Forms.Label lRNLabel;
             System.Windows.Forms.Label sectionLabel;
+            System.Windows.Forms.Label personalEmailLabel;
+            System.Windows.Forms.Label guardianEmailLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudent));
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.sectionComboBox = new System.Windows.Forms.ComboBox();
+            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.personalEmailTextBox = new System.Windows.Forms.TextBox();
+            this.sectionComboBox = new System.Windows.Forms.ComboBox();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusComboBox = new System.Windows.Forms.ComboBox();
             this.deleteTransferCertButton = new System.Windows.Forms.Button();
@@ -142,6 +146,8 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonalEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardianEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -184,6 +190,8 @@
             fatherOccupationLabel = new System.Windows.Forms.Label();
             lRNLabel = new System.Windows.Forms.Label();
             sectionLabel = new System.Windows.Forms.Label();
+            personalEmailLabel = new System.Windows.Forms.Label();
+            guardianEmailLabel = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
@@ -291,7 +299,7 @@
             // birthDateLabel
             // 
             birthDateLabel.AutoSize = true;
-            birthDateLabel.Location = new System.Drawing.Point(268, 67);
+            birthDateLabel.Location = new System.Drawing.Point(13, 250);
             birthDateLabel.Name = "birthDateLabel";
             birthDateLabel.Size = new System.Drawing.Size(57, 13);
             birthDateLabel.TabIndex = 13;
@@ -300,7 +308,7 @@
             // civilStatusLabel
             // 
             civilStatusLabel.AutoSize = true;
-            civilStatusLabel.Location = new System.Drawing.Point(268, 93);
+            civilStatusLabel.Location = new System.Drawing.Point(267, 67);
             civilStatusLabel.Name = "civilStatusLabel";
             civilStatusLabel.Size = new System.Drawing.Size(62, 13);
             civilStatusLabel.TabIndex = 15;
@@ -309,7 +317,7 @@
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(268, 119);
+            addressLabel.Location = new System.Drawing.Point(267, 93);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(48, 13);
             addressLabel.TabIndex = 17;
@@ -318,7 +326,7 @@
             // contactNumLabel
             // 
             contactNumLabel.AutoSize = true;
-            contactNumLabel.Location = new System.Drawing.Point(268, 145);
+            contactNumLabel.Location = new System.Drawing.Point(267, 119);
             contactNumLabel.Name = "contactNumLabel";
             contactNumLabel.Size = new System.Drawing.Size(72, 13);
             contactNumLabel.TabIndex = 19;
@@ -327,7 +335,7 @@
             // enrollmentTypeLabel
             // 
             enrollmentTypeLabel.AutoSize = true;
-            enrollmentTypeLabel.Location = new System.Drawing.Point(268, 171);
+            enrollmentTypeLabel.Location = new System.Drawing.Point(267, 198);
             enrollmentTypeLabel.Name = "enrollmentTypeLabel";
             enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
             enrollmentTypeLabel.TabIndex = 21;
@@ -336,7 +344,7 @@
             // installmentTypeLabel
             // 
             installmentTypeLabel.AutoSize = true;
-            installmentTypeLabel.Location = new System.Drawing.Point(268, 197);
+            installmentTypeLabel.Location = new System.Drawing.Point(267, 224);
             installmentTypeLabel.Name = "installmentTypeLabel";
             installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
@@ -414,9 +422,31 @@
             sectionLabel.TabIndex = 66;
             sectionLabel.Text = "Section:";
             // 
+            // personalEmailLabel
+            // 
+            personalEmailLabel.AutoSize = true;
+            personalEmailLabel.Location = new System.Drawing.Point(266, 145);
+            personalEmailLabel.Name = "personalEmailLabel";
+            personalEmailLabel.Size = new System.Drawing.Size(79, 13);
+            personalEmailLabel.TabIndex = 68;
+            personalEmailLabel.Text = "Personal Email:";
+            // 
+            // guardianEmailLabel
+            // 
+            guardianEmailLabel.AutoSize = true;
+            guardianEmailLabel.Location = new System.Drawing.Point(267, 170);
+            guardianEmailLabel.Name = "guardianEmailLabel";
+            guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
+            guardianEmailLabel.TabIndex = 69;
+            guardianEmailLabel.Text = "Guardian Email:";
+            // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(guardianEmailLabel);
+            this.detailsPanel.Controls.Add(this.guardianEmailTextBox);
+            this.detailsPanel.Controls.Add(personalEmailLabel);
+            this.detailsPanel.Controls.Add(this.personalEmailTextBox);
             this.detailsPanel.Controls.Add(this.sectionComboBox);
             this.detailsPanel.Controls.Add(sectionLabel);
             this.detailsPanel.Controls.Add(studentNumberLabel);
@@ -485,17 +515,16 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.detailsPanel.Location = new System.Drawing.Point(0, 119);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(1451, 282);
+            this.detailsPanel.Size = new System.Drawing.Size(1468, 298);
             this.detailsPanel.TabIndex = 9;
             // 
-            // sectionComboBox
+            // guardianEmailTextBox
             // 
-            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
-            this.sectionComboBox.FormattingEnabled = true;
-            this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
-            this.sectionComboBox.Name = "sectionComboBox";
-            this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
-            this.sectionComboBox.TabIndex = 68;
+            this.guardianEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "GuardianEmail", true));
+            this.guardianEmailTextBox.Location = new System.Drawing.Point(374, 168);
+            this.guardianEmailTextBox.Name = "guardianEmailTextBox";
+            this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.guardianEmailTextBox.TabIndex = 70;
             // 
             // studentsBindingSource
             // 
@@ -506,6 +535,23 @@
             // 
             this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
             this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personalEmailTextBox
+            // 
+            this.personalEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "PersonalEmail", true));
+            this.personalEmailTextBox.Location = new System.Drawing.Point(374, 142);
+            this.personalEmailTextBox.Name = "personalEmailTextBox";
+            this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.personalEmailTextBox.TabIndex = 69;
+            // 
+            // sectionComboBox
+            // 
+            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
+            this.sectionComboBox.FormattingEnabled = true;
+            this.sectionComboBox.Location = new System.Drawing.Point(120, 220);
+            this.sectionComboBox.Name = "sectionComboBox";
+            this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
+            this.sectionComboBox.TabIndex = 68;
             // 
             // studentNumberTextBox
             // 
@@ -525,7 +571,7 @@
             "Separated",
             "Divorced",
             "Widowed"});
-            this.civilStatusComboBox.Location = new System.Drawing.Point(375, 90);
+            this.civilStatusComboBox.Location = new System.Drawing.Point(374, 64);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.civilStatusComboBox.TabIndex = 63;
@@ -587,7 +633,7 @@
             this.installmentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.installmentTypeComboBox.Location = new System.Drawing.Point(375, 194);
+            this.installmentTypeComboBox.Location = new System.Drawing.Point(374, 221);
             this.installmentTypeComboBox.Name = "installmentTypeComboBox";
             this.installmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.installmentTypeComboBox.TabIndex = 43;
@@ -598,7 +644,7 @@
             this.enrollmentTypeComboBox.DataSource = this.gradeLevelBindingSource;
             this.enrollmentTypeComboBox.DisplayMember = "GradeLevel";
             this.enrollmentTypeComboBox.FormattingEnabled = true;
-            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(375, 167);
+            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(374, 194);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 42;
@@ -661,7 +707,7 @@
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(375, 116);
+            this.addressTextBox.Location = new System.Drawing.Point(374, 90);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 18;
@@ -669,7 +715,7 @@
             // contactNumTextBox
             // 
             this.contactNumTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "ContactNum", true));
-            this.contactNumTextBox.Location = new System.Drawing.Point(375, 142);
+            this.contactNumTextBox.Location = new System.Drawing.Point(374, 116);
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
@@ -876,7 +922,7 @@
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTimePicker.Location = new System.Drawing.Point(120, 247);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
             this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.birthDateTimePicker.TabIndex = 50;
@@ -884,7 +930,7 @@
             // birthDateTextBox
             // 
             this.birthDateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "BirthDate", true));
-            this.birthDateTextBox.Location = new System.Drawing.Point(375, 64);
+            this.birthDateTextBox.Location = new System.Drawing.Point(120, 247);
             this.birthDateTextBox.Name = "birthDateTextBox";
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
@@ -907,7 +953,7 @@
             this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 92);
             this.showSearchButton.Name = "showSearchButton";
-            this.showSearchButton.Size = new System.Drawing.Size(1451, 27);
+            this.showSearchButton.Size = new System.Drawing.Size(1468, 27);
             this.showSearchButton.TabIndex = 8;
             this.showSearchButton.Text = "Search ▼";
             this.showSearchButton.UseVisualStyleBackColor = false;
@@ -921,7 +967,7 @@
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1451, 92);
+            this.searchPanel.Size = new System.Drawing.Size(1468, 92);
             this.searchPanel.TabIndex = 7;
             // 
             // fillBy1ToolStrip
@@ -1057,14 +1103,14 @@
             this.studentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.bindingNavigatorTotalStudentsItem});
-            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 401);
+            this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 417);
             this.studentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.studentsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.studentsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.studentsBindingNavigator.Name = "studentsBindingNavigator";
             this.studentsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.studentsBindingNavigator.Size = new System.Drawing.Size(1451, 25);
+            this.studentsBindingNavigator.Size = new System.Drawing.Size(1468, 25);
             this.studentsBindingNavigator.TabIndex = 10;
             this.studentsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -1199,6 +1245,8 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
+            this.PersonalEmail,
+            this.GuardianEmail,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.PaymentType,
@@ -1215,9 +1263,9 @@
             this.dataGridViewImageColumn4});
             this.studentsDataGridView.DataSource = this.studentsBindingSource;
             this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.studentsDataGridView.Location = new System.Drawing.Point(0, 426);
+            this.studentsDataGridView.Location = new System.Drawing.Point(0, 442);
             this.studentsDataGridView.Name = "studentsDataGridView";
-            this.studentsDataGridView.Size = new System.Drawing.Size(1451, 449);
+            this.studentsDataGridView.Size = new System.Drawing.Size(1468, 449);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
@@ -1295,6 +1343,18 @@
             this.dataGridViewTextBoxColumn10.DataPropertyName = "ContactNum";
             this.dataGridViewTextBoxColumn10.HeaderText = "ContactNum";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // PersonalEmail
+            // 
+            this.PersonalEmail.DataPropertyName = "PersonalEmail";
+            this.PersonalEmail.HeaderText = "PersonalEmail";
+            this.PersonalEmail.Name = "PersonalEmail";
+            // 
+            // GuardianEmail
+            // 
+            this.GuardianEmail.DataPropertyName = "GuardianEmail";
+            this.GuardianEmail.HeaderText = "GuardianEmail";
+            this.GuardianEmail.Name = "GuardianEmail";
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -1420,9 +1480,9 @@
             // 
             this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 875);
+            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 891);
             this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
-            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1451, 332);
+            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1468, 332);
             this.totalEnrolledStudentsGridView.TabIndex = 12;
             this.totalEnrolledStudentsGridView.Visible = false;
             // 
@@ -1431,7 +1491,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1468, 1061);
+            this.ClientSize = new System.Drawing.Size(1485, 1061);
             this.Controls.Add(this.totalEnrolledStudentsGridView);
             this.Controls.Add(this.studentsDataGridView);
             this.Controls.Add(this.studentsBindingNavigator);
@@ -1535,6 +1595,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.BindingSource gradeLevelBindingSource;
         private STU_DBDataSetTableAdapters.GradeLevelTableAdapter gradeLevelTableAdapter;
+        private System.Windows.Forms.DataGridView totalEnrolledStudentsGridView;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorTotalStudentsItem;
+        private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
+        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
+        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
+        private System.Windows.Forms.TextBox guardianEmailTextBox;
+        private System.Windows.Forms.TextBox personalEmailTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -1545,6 +1619,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonalEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuardianEmail;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewComboBoxColumn PaymentType;
@@ -1559,17 +1635,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.DataGridView totalEnrolledStudentsGridView;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorTotalStudentsItem;
-        private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
-        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
-        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
-        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
     }
 }

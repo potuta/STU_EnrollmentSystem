@@ -22,74 +22,168 @@ namespace STUEnrollmentSystem
         {
             List<string> columnDataList = new List<string>();
             string query = $"SELECT {column} FROM {table}";
-            SqlCommand command = new SqlCommand(query, _connection);
-            _connection.Open();
-            using (SqlDataReader reader = command.ExecuteReader())
+
+            try
             {
-                while (reader.Read())
+                using (SqlCommand command = new SqlCommand(query, _connection))
                 {
-                    if (!reader[column].ToString().Equals(string.Empty))
+                    _connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        columnDataList.Add(reader[column].ToString());
+                        while (reader.Read())
+                        {
+                            if (!reader[column].ToString().Equals(string.Empty))
+                            {
+                                columnDataList.Add(reader[column].ToString());
+                            }
+                        }
                     }
                 }
             }
-            _connection.Close();
+            catch (SqlException ex)
+            {
+                // Log SQL error (example: log to a file or monitoring system)
+                Console.WriteLine($"SQL Error in GetColumnData: {ex.Message}");
+                // Optionally, handle specific SQL error codes here
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetColumnData: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
             return columnDataList;
         }
 
         public virtual void ViewPDFFile(string table, string column, string condition, string ID)
         {
             string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@ID", ID);
-            _connection.Open();
-            byte[] fileData = (byte[])command.ExecuteScalar();
-            _connection.Close();
-            frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
-            pdfViewer.Show();
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@ID", ID);
+                    _connection.Open();
+                    byte[] fileData = (byte[])command.ExecuteScalar();
+                    frmPDFViewer pdfViewer = new frmPDFViewer(fileData);
+                    pdfViewer.Show();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in ViewPDFFile: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in ViewPDFFile: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
         }
 
         public virtual void ViewImageFile(string table, string column, string condition, string ID)
         {
             string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@ID", ID);
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            dataAdapter.Fill(dataSet);
 
-            MemoryStream ms = new MemoryStream();
-            if (dataSet.Tables[0].Rows.Count == 1)
+            try
             {
-                Byte[] data = new Byte[0];
-                data = (Byte[])(dataSet.Tables[0].Rows[0][column]);
-                ms = new MemoryStream(data);
-            }
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@ID", ID);
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataSet dataSet = new DataSet();
+                    dataAdapter.Fill(dataSet);
 
-            frmImageViewer imageViewer = new frmImageViewer(ms);
-            imageViewer.Show();
+                    MemoryStream ms = new MemoryStream();
+                    if (dataSet.Tables[0].Rows.Count == 1)
+                    {
+                        Byte[] data = new Byte[0];
+                        data = (Byte[])(dataSet.Tables[0].Rows[0][column]);
+                        ms = new MemoryStream(data);
+                    }
+
+                    frmImageViewer imageViewer = new frmImageViewer(ms);
+                    imageViewer.Show();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in ViewImageFile: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in ViewImageFile: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
         }
 
         public virtual void UploadFile(string table, string column, string condition, string ID, byte[] fileData)
         {
             string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@FileData", fileData);
-            command.Parameters.AddWithValue("@ID", ID);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                { 
+                    command.Parameters.AddWithValue("@FileData", fileData);
+                    command.Parameters.AddWithValue("@ID", ID);
+                    _connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in UploadFile: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in UploadFile: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
         }
 
         public virtual void DeleteFile(string table, string column, string condition, string ID)
         {
             string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID";
-            SqlCommand command = new SqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@ID", ID);
-            _connection.Open();
-            command.ExecuteNonQuery();
-            _connection.Close();
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@ID", ID);
+                    _connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in DeleteFile: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in DeleteFile: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
         }
     }
 }

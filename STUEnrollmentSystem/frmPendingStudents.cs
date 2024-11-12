@@ -150,22 +150,30 @@ namespace STUEnrollmentSystem
 
         private void checkForRequirements()
         {
-            var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
-
-            SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
-            SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
-            SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
-            SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
-
-            if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+            try
             {
-                SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
+                var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
+
+                SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
+                SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
+                SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
+                SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+
+                if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+                {
+                    SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
+                }
+                else
+                {
+                    viewProofOfPaymentButton.Visible = false;
+                    deleteProofOfPaymentButton.Visible = false;
+                    uploadProofOfPaymentButton.Visible = false;
+                }
             }
-            else
+            catch (KeyNotFoundException knfe)
             {
-                viewProofOfPaymentButton.Visible = false;
-                deleteProofOfPaymentButton.Visible = false;
-                uploadProofOfPaymentButton.Visible = false;
+                _pendingStudentsRepository.CloseConnection();
+                return;
             }
         }
 
@@ -397,10 +405,21 @@ namespace STUEnrollmentSystem
                 _pendingStudentsRepository.UpdateRequirements("Students", "TransferCertificate", registerIDTextBox.Text);
             }
 
+            if (requirements["PersonalEmail"] == true)
+            {
+                _pendingStudentsRepository.UpdateRequirements("Students", "PersonalEmail", registerIDTextBox.Text);
+            }
+
+            if (requirements["GuardianEmail"] == true)
+            {
+                _pendingStudentsRepository.UpdateRequirements("Students", "GuardianEmail", registerIDTextBox.Text);
+            }
+
             if (requirements["ProofOfPayment"] == true)
             {
                 _pendingStudentsRepository.UpdateProofOfPayment("StudentPayment", "ProofOfPayment", registerIDTextBox.Text, studentNumberTextBox.Text, ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
+
         }
 
         private void generateStudNumButton_Click(object sender, EventArgs e)
@@ -449,7 +468,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.pendingStudentsTableAdapter.Search(this.sTU_DBDataSet.PendingStudents, ((int)(System.Convert.ChangeType(registerIDToolStripComboBox.Text, typeof(int)))), studentNumberToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+                this.pendingStudentsTableAdapter.Search(this.sTU_DBDataSet.PendingStudents, registerIDToolStripComboBox.Text, studentNumberToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {
