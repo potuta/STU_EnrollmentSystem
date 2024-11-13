@@ -127,9 +127,9 @@ namespace STUEnrollmentSystem
             try
             {
                 _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
-                var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.SelectedItem.ToString());
+                var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.Text);
 
-                if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+                if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER")))
                 {
                     SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
                 }
@@ -141,6 +141,7 @@ namespace STUEnrollmentSystem
             catch (KeyNotFoundException knfe)
             {
                 _studentPaymentRepository.CloseConnection();
+                hideRequirementButtons();
                 return;
             }
         }
@@ -151,22 +152,34 @@ namespace STUEnrollmentSystem
             {
                 Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
 
-                if (paymentCodeComboBox.SelectedItem.ToString().Contains("M"))
+                if (paymentCodeComboBox.Text.Contains("M"))
                 {
                     paymentTypeLabel.Text = "Monthly";
                     remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
                     paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
+
+                    if (assignIntValueToMonth(monthlyPendingList.Keys.ElementAt(0)) <= DateTime.Now.Month)
+                    {
+                        notifyButton.Visible = true;
+                    }
+                    else
+                    {
+                        notifyButton.Visible = false;
+                    }
                 }
-                else if (paymentCodeComboBox.SelectedItem.ToString().Contains("F"))
+                else if (paymentCodeComboBox.Text.Contains("F"))
                 {
                     paymentTypeLabel.Text = "Full";
                     remainingBalanceLabel.Text = "0";
                     paymentDueLabel.Text = "None";
+                    notifyButton.Visible = false;
                 }
             }
             catch (ArgumentOutOfRangeException aoore)
             {
                 _studentPaymentRepository.CloseConnection();
+                hideRequirementButtons();
+                notifyButton.Visible = false;
                 return;
             }
         }
@@ -204,6 +217,36 @@ namespace STUEnrollmentSystem
             uploadProofOfPaymentButton.Visible = false;
         }
 
+        private int assignIntValueToMonth(string month)
+        {
+            Dictionary<string, int> months = new Dictionary<string, int>
+            {
+                { "January", 1},
+                { "February", 2},
+                { "March", 3 },
+                { "April", 4 },
+                { "May", 5 },
+                { "June", 6 },
+                { "July", 7 },
+                { "August", 8 },
+                { "September", 9 },
+                { "October", 10 },
+                { "November", 11 },
+                { "December", 12 },
+            };
+
+            return months[month];
+
+            //if (DateTime.TryParseExact(month, "MMMM", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime date))
+            //{
+            //    return date.Month;
+            //}
+            //else
+            //{
+            //    throw new ArgumentException("Invalid month name.", nameof(month));
+            //}
+        }
+
         private void viewProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "view");
         private void uploadProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "upload");
         private void deleteProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "delete");
@@ -211,7 +254,7 @@ namespace STUEnrollmentSystem
         private void HandleFileOperation(string fileType, string operation)
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
-            _studentPaymentRepository.MonthOfPayment = monthOfPaymentComboBox.SelectedItem.ToString();
+            _studentPaymentRepository.MonthOfPayment = monthOfPaymentComboBox.Text;
             _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             switch (operation)
             {
@@ -242,7 +285,7 @@ namespace STUEnrollmentSystem
 
         private void paymentMethodComboBox_TextChanged(object sender, EventArgs e)
         {
-            if (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER"))
+            if (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
             {
                 proofOfPaymentLabel.Visible = true;
                 viewProofOfPaymentButton.Visible = true;
@@ -271,6 +314,33 @@ namespace STUEnrollmentSystem
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
+
+        private void notifyButton_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> emails = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentEmail(studentNumberTextBox.Text);
+            foreach (string email in emails.Keys)
+            {
+                if (!emails[email].Equals(string.Empty))
+                {
+                    Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
+                    string studentName = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentName(studentNumberTextBox.Text);
+
+                    string studentEmail = emails[email];
+                    string subject = $"STU Payment Due";
+                    string body = $"Good day student {studentName}. We are here to inform you that you have pending balances due for payment.";
+
+                    foreach (string month in monthlyPendingList.Keys)
+                    {
+                        body += $"\n{month}: ₱{monthlyPendingList[month]} ";
+                    }
+
+                    EmailSender emailSender = new EmailSender();
+                    emailSender.SendEmail(studentEmail, subject, body);
+                }
+            }
+
+            MessageBox.Show("Email has been sent", "Email", MessageBoxButtons.OK);
         }
     }
 }

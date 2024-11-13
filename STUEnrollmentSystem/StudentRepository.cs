@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IdentityModel.Tokens;
 
 namespace STUEnrollmentSystem
 {
@@ -121,6 +122,87 @@ namespace STUEnrollmentSystem
             }
 
             return dataTable;
+        }
+
+        public Dictionary<string, string> GetStudentEmail(string studentNumber)
+        {
+            Dictionary<string, string> emails = new Dictionary<string, string>();
+            string[] columns = { "PersonalEmail", "GuardianEmail" };
+
+            try
+            {
+                _connection.Open();
+                foreach (var column in columns)
+                {
+                    string query = $"SELECT {column} FROM Students WHERE StudentNumber = @StudentNumber";
+
+                    using (SqlCommand command = new SqlCommand(query, _connection))
+                    {
+                        command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                        string email = !command.ExecuteScalar().Equals(DBNull.Value) ? Convert.ToString(command.ExecuteScalar()) : string.Empty;
+                        emails[column] = Convert.ToString(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetStudentEmail: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetStudentEmail: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            Console.WriteLine("PersonalEmail: " + emails.Values.ElementAt(0));
+            Console.WriteLine("GuardianEmail: " + emails.Values.ElementAt(1));
+            return emails;
+        }
+
+        public string GetStudentName(string studentNumber)
+        {
+            List<string> names = new List<string>();
+            string query = $"SELECT StudFirstName, StudMidName, StudLastName FROM Students WHERE StudentNumber = @StudentNumber";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+
+                    _connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            for (int column = 0; column < reader.FieldCount; column++)
+                            {
+                                names.Add(reader.GetString(column));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetStudentName: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetStudentName: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            string fullName = $"{names[0]} {names[1]} {names[2]}";
+            return fullName;
         }
     }
 }

@@ -151,6 +151,7 @@ namespace STUEnrollmentSystem
             catch (KeyNotFoundException knfe)
             {
                 _registrationRepository.CloseConnection();
+                hideRequirementButtons();
                 return;
             }
         }

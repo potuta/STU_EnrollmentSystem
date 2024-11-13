@@ -97,6 +97,7 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.notifyButton = new System.Windows.Forms.Button();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -284,6 +285,7 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.notifyButton);
             this.detailsPanel.Controls.Add(schoolYearLabel);
             this.detailsPanel.Controls.Add(this.schoolYearTextBox);
             this.detailsPanel.Controls.Add(this.paymentDueLabel);
@@ -769,6 +771,17 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // notifyButton
+            // 
+            this.notifyButton.Location = new System.Drawing.Point(277, 400);
+            this.notifyButton.Name = "notifyButton";
+            this.notifyButton.Size = new System.Drawing.Size(58, 23);
+            this.notifyButton.TabIndex = 89;
+            this.notifyButton.Text = "Notify";
+            this.notifyButton.UseVisualStyleBackColor = true;
+            this.notifyButton.Visible = false;
+            this.notifyButton.Click += new System.EventHandler(this.notifyButton_Click);
+            // 
             // frmStudentPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -863,5 +876,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn SchoolYear;
+        private System.Windows.Forms.Button notifyButton;
     }
 }

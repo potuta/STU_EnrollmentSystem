@@ -159,7 +159,7 @@ namespace STUEnrollmentSystem
                 SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
                 SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
 
-                if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER")))
+                if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER")))
                 {
                     SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
                 }
@@ -173,6 +173,7 @@ namespace STUEnrollmentSystem
             catch (KeyNotFoundException knfe)
             {
                 _pendingStudentsRepository.CloseConnection();
+                hideRequirementButtons();   
                 return;
             }
         }
@@ -311,15 +312,15 @@ namespace STUEnrollmentSystem
 
         private void insertStudentPayment()
         {
-            string paymentCode = getPaymentCode(paymentTypeComboBox.SelectedItem.ToString(), enrollmentTypeTextBox.Text);
+            string paymentCode = getPaymentCode(paymentTypeComboBox.Text, enrollmentTypeTextBox.Text);
             var studentPaymentData = new Dictionary<string, object>
             {
                 {"PaymentCode", paymentCode},
-                {"PaymentMethod", paymentMethodComboBox.SelectedItem.ToString()},
+                {"PaymentMethod", paymentMethodComboBox.Text},
                 {"StudentNumber", studentNumberTextBox.Text}
             };
 
-            if (paymentTypeComboBox.SelectedItem.Equals("Monthly"))
+            if (paymentTypeComboBox.Text.Equals("Monthly"))
             {
                 _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
                 _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
@@ -332,7 +333,7 @@ namespace STUEnrollmentSystem
                 _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
                 _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
-            else if (paymentTypeComboBox.SelectedItem.Equals("Full"))
+            else if (paymentTypeComboBox.Text.Equals("Full"))
             {
                 _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
@@ -446,7 +447,7 @@ namespace STUEnrollmentSystem
 
         private void paymentMethodComboBox_TextChanged(object sender, EventArgs e)
         {
-            if (paymentMethodComboBox.SelectedItem.Equals("GCASH") || paymentMethodComboBox.SelectedItem.Equals("BANK TRANSFER"))
+            if (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
             {
                 proofOfPaymentLabel.Visible = true;
             }

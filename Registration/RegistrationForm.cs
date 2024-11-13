@@ -78,11 +78,11 @@ namespace Registration
 
         private void enrollmentStatusComboBox_TextChanged(object sender, EventArgs e)
         {
-            if (enrollmentStatusComboBox.SelectedItem.Equals("NEW"))
+            if (enrollmentStatusComboBox.Text.Equals("NEW"))
             {
                 label3.Text = "• LRN, Form 137 / 138, Birth Certificate, Good Moral";
             }
-            else if (enrollmentStatusComboBox.SelectedItem.Equals("TRANSFEREE"))
+            else if (enrollmentStatusComboBox.Text.Equals("TRANSFEREE"))
             {
                 label3.Text = "• Transfer Certificate, LRN, Form 137/138, Birth Certificate, Good Moral";
             }

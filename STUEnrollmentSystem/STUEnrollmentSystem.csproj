@@ -185,6 +185,7 @@
     <Compile Include="BaseRepository.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="EmailSender.cs" />
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
