@@ -179,6 +179,16 @@ namespace STUEnrollmentSystem
                 SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
                 SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
                 SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+
+                if (!sectionComboBox.Text.Equals(string.Empty))
+                {
+                    viewRAFButton.Visible = true;
+                }
+                else
+                {
+                    viewRAFButton.Visible = false;
+                }
+
             }
             catch (KeyNotFoundException knfe)
             {
@@ -218,6 +228,7 @@ namespace STUEnrollmentSystem
             viewTransferCertButton.Visible = false;
             deleteTransferCertButton.Visible = false;
             uploadTransferCertButton.Visible = false;
+            viewRAFButton.Visible = false;
         }
 
         private void viewFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "view");
@@ -232,6 +243,11 @@ namespace STUEnrollmentSystem
         private void viewTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "view");
         private void uploadTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "upload");
         private void deleteTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "delete");
+        private void viewRAFButton_Click(object sender, EventArgs e)
+        {
+            frmPDFRAF pdfRAF = new frmPDFRAF(studentNumberTextBox.Text, getGradeCode(enrollmentTypeComboBox.Text), sectionComboBox.Text);
+            pdfRAF.Show();
+        }
 
         private void HandleFileOperation(string fileType, string operation)
         {
@@ -306,5 +322,6 @@ namespace STUEnrollmentSystem
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

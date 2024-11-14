@@ -55,8 +55,10 @@
             System.Windows.Forms.Label sectionLabel;
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
+            System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudent));
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.viewRAFButton = new System.Windows.Forms.Button();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
@@ -192,6 +194,7 @@
             sectionLabel = new System.Windows.Forms.Label();
             personalEmailLabel = new System.Windows.Forms.Label();
             guardianEmailLabel = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
@@ -440,9 +443,20 @@
             guardianEmailLabel.TabIndex = 69;
             guardianEmailLabel.Text = "Guardian Email:";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(267, 255);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(31, 13);
+            label5.TabIndex = 71;
+            label5.Text = "RAF:";
+            // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.viewRAFButton);
+            this.detailsPanel.Controls.Add(label5);
             this.detailsPanel.Controls.Add(guardianEmailLabel);
             this.detailsPanel.Controls.Add(this.guardianEmailTextBox);
             this.detailsPanel.Controls.Add(personalEmailLabel);
@@ -517,6 +531,17 @@
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1468, 298);
             this.detailsPanel.TabIndex = 9;
+            // 
+            // viewRAFButton
+            // 
+            this.viewRAFButton.Location = new System.Drawing.Point(374, 250);
+            this.viewRAFButton.Name = "viewRAFButton";
+            this.viewRAFButton.Size = new System.Drawing.Size(100, 23);
+            this.viewRAFButton.TabIndex = 72;
+            this.viewRAFButton.Text = "View File";
+            this.viewRAFButton.UseVisualStyleBackColor = true;
+            this.viewRAFButton.Visible = false;
+            this.viewRAFButton.Click += new System.EventHandler(this.viewRAFButton_Click);
             // 
             // guardianEmailTextBox
             // 
@@ -1635,5 +1660,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
+        private System.Windows.Forms.Button viewRAFButton;
     }
 }

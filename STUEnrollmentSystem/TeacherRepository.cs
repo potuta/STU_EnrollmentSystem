@@ -45,5 +45,40 @@ namespace STUEnrollmentSystem
 
             return teacherCount;
         }
+
+        public Dictionary<string, string> GetTeacherNameAndTeacherCodeDictionary(List<string> teacherCodeList)
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand())
+                {
+                    foreach (string teacherCode in teacherCodeList)
+                    {
+                        string query = $"SELECT TeacherName FROM Teachers WHERE TeacherCode = '{teacherCode}'";
+                        command.CommandText = query;
+                        command.Connection = _connection;
+                        dictionary[teacherCode] = Convert.ToString(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTeacherNameAndTeacherCode: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTeacherNameAndTeacherCode: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dictionary;
+        }
     }
 }

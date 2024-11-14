@@ -403,6 +403,7 @@
             this.labelSubject3.Size = new System.Drawing.Size(198, 21);
             this.labelSubject3.TabIndex = 11;
             this.labelSubject3.Text = "Filipino";
+            this.labelSubject3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSubject4
             // 
@@ -412,6 +413,7 @@
             this.labelSubject4.Size = new System.Drawing.Size(198, 21);
             this.labelSubject4.TabIndex = 10;
             this.labelSubject4.Text = "Science";
+            this.labelSubject4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSubject5
             // 
@@ -421,6 +423,7 @@
             this.labelSubject5.Size = new System.Drawing.Size(198, 21);
             this.labelSubject5.TabIndex = 9;
             this.labelSubject5.Text = "Araling Panlipunan (AP)";
+            this.labelSubject5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSubject6
             // 
@@ -430,6 +433,7 @@
             this.labelSubject6.Size = new System.Drawing.Size(198, 21);
             this.labelSubject6.TabIndex = 8;
             this.labelSubject6.Text = "MAPEH";
+            this.labelSubject6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSubject7
             // 
@@ -439,6 +443,7 @@
             this.labelSubject7.Size = new System.Drawing.Size(198, 21);
             this.labelSubject7.TabIndex = 7;
             this.labelSubject7.Text = "TLE";
+            this.labelSubject7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSubject2
             // 
@@ -448,6 +453,7 @@
             this.labelSubject2.Size = new System.Drawing.Size(198, 21);
             this.labelSubject2.TabIndex = 5;
             this.labelSubject2.Text = "English";
+            this.labelSubject2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSubject1
             // 
@@ -457,6 +463,7 @@
             this.labelSubject1.Size = new System.Drawing.Size(198, 21);
             this.labelSubject1.TabIndex = 4;
             this.labelSubject1.Text = "Mathematics";
+            this.labelSubject1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
@@ -544,7 +551,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(734, 282);
             this.panel5.TabIndex = 7;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // labelDue10
             // 
@@ -1120,6 +1126,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "frmPDFRAF";
             this.Text = "frmPDFRAF";
+            this.Load += new System.EventHandler(this.frmPDFRAF_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
