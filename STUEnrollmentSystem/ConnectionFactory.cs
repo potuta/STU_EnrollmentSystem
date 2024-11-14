@@ -61,7 +61,7 @@ namespace STUEnrollmentSystem
 
             if (InitialCatalog == "STU_DB")
             {
-                string dbPreviousYearList = Convert.ToString(DateTime.Now.Year - 5);
+                string dbPreviousYearList = Convert.ToString(DateTime.Now.Year - 1);
                 string dbNextYearList = Convert.ToString(DateTime.Now.Year);
                 selectedSchoolYear = $"{dbPreviousYearList}-{dbNextYearList}";
             }

@@ -186,6 +186,12 @@
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="EmailSender.cs" />
+    <Compile Include="frmPDFRAF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPDFRAF.Designer.cs">
+      <DependentUpon>frmPDFRAF.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,9 @@
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersRepository.cs" />
+    <EmbeddedResource Include="frmPDFRAF.resx">
+      <DependentUpon>frmPDFRAF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>

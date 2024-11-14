@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spire.Pdf.OPC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -141,6 +142,7 @@ namespace STUEnrollmentSystem
             catch (KeyNotFoundException knfe)
             {
                 _studentPaymentRepository.CloseConnection();
+                Console.WriteLine($"Unexpected error in checkForRequirements: {knfe.Message}");
                 hideRequirementButtons();
                 return;
             }
@@ -158,7 +160,7 @@ namespace STUEnrollmentSystem
                     remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
                     paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
 
-                    if (assignIntValueToMonth(monthlyPendingList.Keys.ElementAt(0)) <= DateTime.Now.Month)
+                    if (assignIntValueToMonth(monthlyPendingList.Keys.ElementAt(0)) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
                     {
                         notifyButton.Visible = true;
                     }
@@ -178,6 +180,7 @@ namespace STUEnrollmentSystem
             catch (ArgumentOutOfRangeException aoore)
             {
                 _studentPaymentRepository.CloseConnection();
+                Console.WriteLine($"Unexpected error in checkBalance: {aoore.Message}");
                 hideRequirementButtons();
                 notifyButton.Visible = false;
                 return;
@@ -219,32 +222,35 @@ namespace STUEnrollmentSystem
 
         private int assignIntValueToMonth(string month)
         {
-            Dictionary<string, int> months = new Dictionary<string, int>
+            Dictionary<string, int> months = new Dictionary<string, int>();
+
+            try
             {
-                { "January", 1},
-                { "February", 2},
-                { "March", 3 },
-                { "April", 4 },
-                { "May", 5 },
-                { "June", 6 },
-                { "July", 7 },
-                { "August", 8 },
-                { "September", 9 },
-                { "October", 10 },
-                { "November", 11 },
-                { "December", 12 },
-            };
-
+                months = new Dictionary<string, int>
+                {
+                    { "August", 1 },
+                    { "September", 2 },
+                    { "October", 3 },
+                    { "November", 4 },
+                    { "December", 5 },
+                    { "January", 6 },
+                    { "February", 7 },
+                    { "March", 8 },
+                    { "April", 9 },
+                    { "May", 10 },
+                    { "June", 11 },
+                    { "July", 12 },
+                };
+            }
+            catch (KeyNotFoundException knfe)
+            {
+                _studentPaymentRepository.CloseConnection();
+                hideRequirementButtons();
+                notifyButton.Visible = false;
+                Console.WriteLine($"Unexpected error in assignIntValueToMonth: {knfe.Message}");
+                return months[month];
+            }
             return months[month];
-
-            //if (DateTime.TryParseExact(month, "MMMM", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime date))
-            //{
-            //    return date.Month;
-            //}
-            //else
-            //{
-            //    throw new ArgumentException("Invalid month name.", nameof(month));
-            //}
         }
 
         private void viewProofOfPaymentButton_Click(object sender, EventArgs e) => HandleFileOperation("ProofOfPayment", "view");
@@ -332,7 +338,10 @@ namespace STUEnrollmentSystem
 
                     foreach (string month in monthlyPendingList.Keys)
                     {
-                        body += $"\n{month}: ₱{monthlyPendingList[month]} ";
+                        if (assignIntValueToMonth(month) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
+                        {
+                            body += $"\n{month}: ₱{monthlyPendingList[month]}, {schoolYearTextBox.Text}";
+                        }
                     }
 
                     EmailSender emailSender = new EmailSender();
