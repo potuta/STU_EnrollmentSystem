@@ -1125,6 +1125,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmPDFRAF";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPDFRAF";
             this.Load += new System.EventHandler(this.frmPDFRAF_Load);
             this.panel1.ResumeLayout(false);
