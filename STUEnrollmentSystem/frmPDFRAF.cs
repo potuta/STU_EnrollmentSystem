@@ -19,14 +19,16 @@ namespace STUEnrollmentSystem
         private string StudentNumber {  get; set; }
         private string GradeCode { get; set; }
         private string SectionTitle { get; set; }
+        private string PaymentType {  get; set; }
 
-        public frmPDFRAF(string studentNumber, string gradeCode, string sectionTitle)
+        public frmPDFRAF(string studentNumber, string gradeCode, string sectionTitle, string paymentType)
         {
             InitializeComponent();
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
             this.StudentNumber = studentNumber;
             this.GradeCode = gradeCode;
             this.SectionTitle = sectionTitle;
+            this.PaymentType = paymentType;
         }
 
         public void GetPrintArea(Panel pnl)
@@ -172,6 +174,54 @@ namespace STUEnrollmentSystem
             {
                 labelInstructor7.Visible = false;
             }
+
+            // Academic Information
+            List<int> paymentAmountList = new PricesRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmountListFromGradeCode(GradeCode);
+            int tuitionFee = paymentAmountList[0];
+            int booksFee = paymentAmountList[1];
+            int laboratoryFee = paymentAmountList[2];
+            int uniformFee = paymentAmountList[3];
+            int miscellanaousFee = paymentAmountList[4];
+            int totalFee = paymentAmountList[5];
+
+            string priceCode = $"P{GradeCode}";
+            Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(PaymentType, priceCode);
+
+            labelGradeLevel.Text = GradeCode;
+            labelPayment.Text = PaymentType;
+            labelTF.Text = Convert.ToString(tuitionFee + ".00");
+            labelOSF.Text = Convert.ToString(booksFee+laboratoryFee+ uniformFee + ".00");
+            labelMF.Text = Convert.ToString(miscellanaousFee + ".00");
+            labelTO.Text = Convert.ToString(totalFee + ".00");
+
+            if (PaymentType.Equals("Monthly"))
+            {
+                labelDue1.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(0) + ".00");
+                labelDue2.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(1) + ".00");
+                labelDue3.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(2) + ".00");
+                labelDue4.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(3) + ".00");
+                labelDue5.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(4) + ".00");
+                labelDue6.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(5) + ".00");
+                labelDue7.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(6) + ".00");
+                labelDue8.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(7) + ".00");
+                labelDue9.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(8) + ".00");
+                labelDue10.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(9) + ".00");
+            }
+            else if (PaymentType.Equals("Full"))
+            {
+                labelDue1.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(0) + ".00");
+                labelDue2.Text = "0.00";
+                labelDue3.Text = "0.00";
+                labelDue4.Text = "0.00";
+                labelDue5.Text = "0.00";
+                labelDue6.Text = "0.00";
+                labelDue7.Text = "0.00";
+                labelDue8.Text = "0.00";
+                labelDue9.Text = "0.00";
+                labelDue10.Text = "0.00";
+            }
+
+            labelTOB.Text = Convert.ToString(totalFee + ".00");
         }
     }
 }

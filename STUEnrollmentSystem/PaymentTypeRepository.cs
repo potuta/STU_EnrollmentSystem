@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,12 +56,10 @@ namespace STUEnrollmentSystem
                     }
                 }
 
-                foreach (string month in monthsList)
+                for (int i = 0; i < monthsList.Count; i++)
                 {
-                    foreach (int amount in paymentAmountList)
-                    {
-                        paymentAmountDictionary[month] = amount;
-                    }
+                    Console.WriteLine(monthsList[i] +"," + paymentAmountList[i]);
+                    paymentAmountDictionary[monthsList[i]] = paymentAmountList[i];
                 }
             }
             catch (SqlException ex)

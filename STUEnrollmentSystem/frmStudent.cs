@@ -245,7 +245,7 @@ namespace STUEnrollmentSystem
         private void deleteTransferCertButton_Click(object sender, EventArgs e) => HandleFileOperation("TransferCertificate", "delete");
         private void viewRAFButton_Click(object sender, EventArgs e)
         {
-            frmPDFRAF pdfRAF = new frmPDFRAF(studentNumberTextBox.Text, getGradeCode(enrollmentTypeComboBox.Text), sectionComboBox.Text);
+            frmPDFRAF pdfRAF = new frmPDFRAF(studentNumberTextBox.Text, getGradeCode(enrollmentTypeComboBox.Text), sectionComboBox.Text, installmentTypeComboBox.Text);
             pdfRAF.Show();
         }
 

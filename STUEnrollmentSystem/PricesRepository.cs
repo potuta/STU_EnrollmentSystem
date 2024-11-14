@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,6 +120,47 @@ namespace STUEnrollmentSystem
             }
 
             return total;
+        }
+
+        public List<int> GetPaymentAmountListFromGradeCode(string gradeCode)
+        {
+            List<int> paymentAmountList = new List<int>();
+            string query = $"SELECT TuitionFee, Books, LaboratoryFee, Uniform, MiscellanaousFee, TotalAmount FROM Prices WHERE GradeCode = @GradeCode";
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@GradeCode", gradeCode);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            for (int column = 0; column < reader.FieldCount; column++)
+                            {
+                                paymentAmountList.Add(reader.GetInt32(column));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetPaymentAmountList: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetPaymentAmountList: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return paymentAmountList;
         }
     }
 }
