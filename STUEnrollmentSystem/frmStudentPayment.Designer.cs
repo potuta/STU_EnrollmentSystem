@@ -49,9 +49,8 @@
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.notifyButton = new System.Windows.Forms.Button();
             this.schoolYearTextBox = new System.Windows.Forms.TextBox();
-            this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.paymentDueLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.remainingBalanceLabel = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.deleteProofOfPaymentButton = new System.Windows.Forms.Button();
-            this.paymentReceiptTextBox = new System.Windows.Forms.TextBox();
             this.proofOfPaymentLabel = new System.Windows.Forms.Label();
             this.paymentCodeComboBox = new System.Windows.Forms.ComboBox();
             this.paymentMethodComboBox = new System.Windows.Forms.ComboBox();
@@ -71,8 +69,6 @@
             this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
             this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
             this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
-            this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.studentPaymentBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -88,16 +84,19 @@
             this.studentPaymentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.studentPaymentDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewPaymentReceiptButton = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.notifyButton = new System.Windows.Forms.Button();
+            this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -108,11 +107,11 @@
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             this.detailsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingNavigator)).BeginInit();
             this.studentPaymentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // paymentCodeLabel
@@ -163,7 +162,7 @@
             // paymentReceiptLabel
             // 
             paymentReceiptLabel.AutoSize = true;
-            paymentReceiptLabel.Location = new System.Drawing.Point(61, 215);
+            paymentReceiptLabel.Location = new System.Drawing.Point(61, 244);
             paymentReceiptLabel.Name = "paymentReceiptLabel";
             paymentReceiptLabel.Size = new System.Drawing.Size(91, 13);
             paymentReceiptLabel.TabIndex = 63;
@@ -172,7 +171,7 @@
             // schoolYearLabel
             // 
             schoolYearLabel.AutoSize = true;
-            schoolYearLabel.Location = new System.Drawing.Point(63, 271);
+            schoolYearLabel.Location = new System.Drawing.Point(63, 273);
             schoolYearLabel.Name = "schoolYearLabel";
             schoolYearLabel.Size = new System.Drawing.Size(68, 13);
             schoolYearLabel.TabIndex = 87;
@@ -285,6 +284,7 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.viewPaymentReceiptButton);
             this.detailsPanel.Controls.Add(this.notifyButton);
             this.detailsPanel.Controls.Add(schoolYearLabel);
             this.detailsPanel.Controls.Add(this.schoolYearTextBox);
@@ -297,7 +297,6 @@
             this.detailsPanel.Controls.Add(this.label3);
             this.detailsPanel.Controls.Add(this.deleteProofOfPaymentButton);
             this.detailsPanel.Controls.Add(paymentReceiptLabel);
-            this.detailsPanel.Controls.Add(this.paymentReceiptTextBox);
             this.detailsPanel.Controls.Add(this.proofOfPaymentLabel);
             this.detailsPanel.Controls.Add(this.paymentCodeComboBox);
             this.detailsPanel.Controls.Add(this.paymentMethodComboBox);
@@ -319,23 +318,24 @@
             this.detailsPanel.Size = new System.Drawing.Size(361, 615);
             this.detailsPanel.TabIndex = 14;
             // 
+            // notifyButton
+            // 
+            this.notifyButton.Location = new System.Drawing.Point(277, 400);
+            this.notifyButton.Name = "notifyButton";
+            this.notifyButton.Size = new System.Drawing.Size(58, 23);
+            this.notifyButton.TabIndex = 89;
+            this.notifyButton.Text = "Notify";
+            this.notifyButton.UseVisualStyleBackColor = true;
+            this.notifyButton.Visible = false;
+            this.notifyButton.Click += new System.EventHandler(this.notifyButton_Click);
+            // 
             // schoolYearTextBox
             // 
             this.schoolYearTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "SchoolYear", true));
-            this.schoolYearTextBox.Location = new System.Drawing.Point(173, 268);
+            this.schoolYearTextBox.Location = new System.Drawing.Point(173, 270);
             this.schoolYearTextBox.Name = "schoolYearTextBox";
             this.schoolYearTextBox.Size = new System.Drawing.Size(100, 20);
             this.schoolYearTextBox.TabIndex = 88;
-            // 
-            // studentPaymentBindingSource
-            // 
-            this.studentPaymentBindingSource.DataMember = "StudentPayment";
-            this.studentPaymentBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // paymentDueLabel
             // 
@@ -403,7 +403,7 @@
             // 
             // deleteProofOfPaymentButton
             // 
-            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(277, 239);
+            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(277, 213);
             this.deleteProofOfPaymentButton.Name = "deleteProofOfPaymentButton";
             this.deleteProofOfPaymentButton.Size = new System.Drawing.Size(33, 23);
             this.deleteProofOfPaymentButton.TabIndex = 78;
@@ -412,19 +412,10 @@
             this.deleteProofOfPaymentButton.Visible = false;
             this.deleteProofOfPaymentButton.Click += new System.EventHandler(this.deleteProofOfPaymentButton_Click);
             // 
-            // paymentReceiptTextBox
-            // 
-            this.paymentReceiptTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "PaymentReceipt", true));
-            this.paymentReceiptTextBox.Location = new System.Drawing.Point(173, 213);
-            this.paymentReceiptTextBox.Name = "paymentReceiptTextBox";
-            this.paymentReceiptTextBox.Size = new System.Drawing.Size(100, 20);
-            this.paymentReceiptTextBox.TabIndex = 64;
-            this.paymentReceiptTextBox.Visible = false;
-            // 
             // proofOfPaymentLabel
             // 
             this.proofOfPaymentLabel.AutoSize = true;
-            this.proofOfPaymentLabel.Location = new System.Drawing.Point(61, 243);
+            this.proofOfPaymentLabel.Location = new System.Drawing.Point(61, 217);
             this.proofOfPaymentLabel.Name = "proofOfPaymentLabel";
             this.proofOfPaymentLabel.Size = new System.Drawing.Size(93, 13);
             this.proofOfPaymentLabel.TabIndex = 62;
@@ -508,7 +499,7 @@
             // 
             // viewProofOfPaymentButton
             // 
-            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(173, 239);
+            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(173, 213);
             this.viewProofOfPaymentButton.Name = "viewProofOfPaymentButton";
             this.viewProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
             this.viewProofOfPaymentButton.TabIndex = 80;
@@ -520,7 +511,7 @@
             // proofOfPaymentTextBox
             // 
             this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "ProofOfPayment", true));
-            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(173, 241);
+            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(173, 215);
             this.proofOfPaymentTextBox.Name = "proofOfPaymentTextBox";
             this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
             this.proofOfPaymentTextBox.TabIndex = 63;
@@ -528,7 +519,7 @@
             // 
             // uploadProofOfPaymentButton
             // 
-            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(173, 239);
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(173, 213);
             this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
             this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
             this.uploadProofOfPaymentButton.TabIndex = 79;
@@ -536,28 +527,6 @@
             this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
             this.uploadProofOfPaymentButton.Visible = false;
             this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
-            // 
-            // studentPaymentTableAdapter
-            // 
-            this.studentPaymentTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.PaymentTypeTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = null;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = this.studentPaymentTableAdapter;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
             // 
             // studentPaymentBindingNavigator
             // 
@@ -707,7 +676,6 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewImageColumn1,
-            this.dataGridViewImageColumn2,
             this.SchoolYear});
             this.studentPaymentDataGridView.DataSource = this.studentPaymentBindingSource;
             this.studentPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -716,6 +684,27 @@
             this.studentPaymentDataGridView.Size = new System.Drawing.Size(903, 590);
             this.studentPaymentDataGridView.TabIndex = 15;
             this.studentPaymentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentPaymentDataGridView_CellClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // SchoolYear
+            // 
+            this.SchoolYear.DataPropertyName = "SchoolYear";
+            this.SchoolYear.HeaderText = "SchoolYear";
+            this.SchoolYear.Name = "SchoolYear";
+            // 
+            // viewPaymentReceiptButton
+            // 
+            this.viewPaymentReceiptButton.Location = new System.Drawing.Point(173, 241);
+            this.viewPaymentReceiptButton.Name = "viewPaymentReceiptButton";
+            this.viewPaymentReceiptButton.Size = new System.Drawing.Size(100, 23);
+            this.viewPaymentReceiptButton.TabIndex = 90;
+            this.viewPaymentReceiptButton.Text = "View File";
+            this.viewPaymentReceiptButton.UseVisualStyleBackColor = true;
+            this.viewPaymentReceiptButton.Visible = false;
+            this.viewPaymentReceiptButton.Click += new System.EventHandler(this.viewPaymentReceiptButton_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -753,34 +742,37 @@
             this.dataGridViewImageColumn1.HeaderText = "ProofOfPayment";
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
-            // dataGridViewImageColumn2
+            // studentPaymentBindingSource
             // 
-            this.dataGridViewImageColumn2.DataPropertyName = "PaymentReceipt";
-            this.dataGridViewImageColumn2.HeaderText = "PaymentReceipt";
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.studentPaymentBindingSource.DataMember = "StudentPayment";
+            this.studentPaymentBindingSource.DataSource = this.sTU_DBDataSet;
             // 
-            // SchoolYear
+            // sTU_DBDataSet
             // 
-            this.SchoolYear.DataPropertyName = "SchoolYear";
-            this.SchoolYear.HeaderText = "SchoolYear";
-            this.SchoolYear.Name = "SchoolYear";
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // openFileDialog1
+            // studentPaymentTableAdapter
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.studentPaymentTableAdapter.ClearBeforeFill = true;
             // 
-            // notifyButton
+            // tableAdapterManager
             // 
-            this.notifyButton.Location = new System.Drawing.Point(277, 400);
-            this.notifyButton.Name = "notifyButton";
-            this.notifyButton.Size = new System.Drawing.Size(58, 23);
-            this.notifyButton.TabIndex = 89;
-            this.notifyButton.Text = "Notify";
-            this.notifyButton.UseVisualStyleBackColor = true;
-            this.notifyButton.Visible = false;
-            this.notifyButton.Click += new System.EventHandler(this.notifyButton_Click);
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = null;
+            this.tableAdapterManager.PricesTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = this.studentPaymentTableAdapter;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
             // 
             // frmStudentPayment
             // 
@@ -803,12 +795,12 @@
             this.searchToolStrip.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingNavigator)).EndInit();
             this.studentPaymentBindingNavigator.ResumeLayout(false);
             this.studentPaymentBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -845,7 +837,6 @@
         private System.Windows.Forms.ComboBox paymentMethodComboBox;
         private System.Windows.Forms.ComboBox paymentCodeComboBox;
         private System.Windows.Forms.TextBox proofOfPaymentTextBox;
-        private System.Windows.Forms.TextBox paymentReceiptTextBox;
         private System.Windows.Forms.Button deleteProofOfPaymentButton;
         private System.Windows.Forms.Button uploadProofOfPaymentButton;
         private System.Windows.Forms.Button viewProofOfPaymentButton;
@@ -868,14 +859,14 @@
         private System.Windows.Forms.TextBox schoolYearTextBox;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox schoolYearToolStripComboBox;
+        private System.Windows.Forms.Button notifyButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn SchoolYear;
-        private System.Windows.Forms.Button notifyButton;
+        private System.Windows.Forms.Button viewPaymentReceiptButton;
     }
 }

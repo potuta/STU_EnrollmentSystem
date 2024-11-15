@@ -58,7 +58,6 @@ namespace STUEnrollmentSystem
 
                 for (int i = 0; i < monthsList.Count; i++)
                 {
-                    Console.WriteLine(monthsList[i] +"," + paymentAmountList[i]);
                     paymentAmountDictionary[monthsList[i]] = paymentAmountList[i];
                 }
             }

@@ -204,5 +204,37 @@ namespace STUEnrollmentSystem
             string fullName = $"{names[0]} {names[1]} {names[2]}";
             return fullName;
         }
+
+        public string GetStudentSection(string studentNumber)
+        {
+            string section = string.Empty;
+            string query = $"SELECT Section FROM Students WHERE StudentNumber = @StudentNumber";
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    section = Convert.ToString(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetStudentSection: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetStudentSection: {ex.Message}");
+                return string.Empty;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return section;
+        }
     }
 }

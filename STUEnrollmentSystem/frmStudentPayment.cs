@@ -138,6 +138,15 @@ namespace STUEnrollmentSystem
                 {
                     hideRequirementButtons();
                 }
+
+                if (paymentStatusComboBox.Text.Equals("Paid"))
+                {
+                    viewPaymentReceiptButton.Visible = true;
+                }
+                else
+                {
+                    viewPaymentReceiptButton.Visible = false;
+                }
             }
             catch (KeyNotFoundException knfe)
             {
@@ -350,6 +359,12 @@ namespace STUEnrollmentSystem
             }
 
             MessageBox.Show("Email has been sent", "Email", MessageBoxButtons.OK);
+        }
+
+        private void viewPaymentReceiptButton_Click(object sender, EventArgs e)
+        {
+            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeComboBox.Text, paymentMethodComboBox.Text, monthOfPaymentComboBox.Text, schoolYearTextBox.Text);
+            frmPDFReceipt.Show();
         }
     }
 }
