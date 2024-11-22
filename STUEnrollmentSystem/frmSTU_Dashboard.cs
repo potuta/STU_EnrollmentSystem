@@ -14,9 +14,13 @@ namespace STUEnrollmentSystem
 {
     public partial class frmSTU_Dashboard : Form
     {
+        public static frmSTU_Dashboard Instance {  get; private set; }
+        public Label SchoolYearLabel => schoolYearLabel;
+
         public frmSTU_Dashboard()
         {
             InitializeComponent();
+            Instance = this;
             InitializeSelectedSchoolYear();
             InitializeUserLoginRole(frmLogin.Role);
             MessageBox.Show("Welcome " + frmLogin.Role + ": " + frmLogin.Username);
@@ -93,7 +97,7 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void InitializeSelectedSchoolYear()
+        public void InitializeSelectedSchoolYear()
         {
             string selectedSchoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
             schoolYearLabel.Text = "S.Y.";
@@ -202,19 +206,8 @@ namespace STUEnrollmentSystem
             }
             else if (sender == settingsButton)
             {
-                frmSettings frmSettings = new frmSettings();
-                frmSettings.EnabledChanged += FrmSettings_EnabledChanged;
-                openChildForm(frmSettings);
+                openChildForm(new frmSettings());
             }
-        }
-
-        private void FrmSettings_EnabledChanged(object sender, EventArgs e)
-        {
-            InitializeSelectedSchoolYear();
-            this.Update();
-            this.Refresh();
-            this.Invalidate();
-            this.PerformLayout();
         }
     }
 }

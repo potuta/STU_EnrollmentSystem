@@ -29,143 +29,121 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.currentYearRadioButton = new System.Windows.Forms.RadioButton();
-            this.addSchoolYearButton = new System.Windows.Forms.Button();
-            this.deleteSchoolYearButton = new System.Windows.Forms.Button();
-            this.selectSchoolYearButton = new System.Windows.Forms.Button();
-            this.schoolYearLabel = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.schoolYearButton = new System.Windows.Forms.Button();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.settingsPanel = new System.Windows.Forms.Panel();
+            this.systemLogsButton = new System.Windows.Forms.Button();
+            this.userProfileButton = new System.Windows.Forms.Button();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.panelHeader.SuspendLayout();
+            this.settingsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Subway", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(312, 52);
+            this.label1.Location = new System.Drawing.Point(34, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 27);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "- Settings -";
+            this.label1.Size = new System.Drawing.Size(114, 27);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Settings";
             // 
-            // label2
+            // schoolYearButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(82, 116);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "School year(s):";
+            this.schoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.schoolYearButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.schoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.schoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolYearButton.Location = new System.Drawing.Point(187, 0);
+            this.schoolYearButton.Name = "schoolYearButton";
+            this.schoolYearButton.Size = new System.Drawing.Size(133, 53);
+            this.schoolYearButton.TabIndex = 7;
+            this.schoolYearButton.Text = "School Year";
+            this.schoolYearButton.UseVisualStyleBackColor = false;
+            this.schoolYearButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // flowLayoutPanel1
+            // panelHeader
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.AliceBlue;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.currentYearRadioButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(85, 142);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(627, 217);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.panelHeader.Controls.Add(this.userProfileButton);
+            this.panelHeader.Controls.Add(this.systemLogsButton);
+            this.panelHeader.Controls.Add(this.schoolYearButton);
+            this.panelHeader.Controls.Add(this.settingsPanel);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(800, 53);
+            this.panelHeader.TabIndex = 8;
             // 
-            // currentYearRadioButton
+            // settingsPanel
             // 
-            this.currentYearRadioButton.BackColor = System.Drawing.SystemColors.GrayText;
-            this.currentYearRadioButton.FlatAppearance.BorderSize = 0;
-            this.currentYearRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentYearRadioButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.currentYearRadioButton.Location = new System.Drawing.Point(3, 3);
-            this.currentYearRadioButton.Name = "currentYearRadioButton";
-            this.currentYearRadioButton.Size = new System.Drawing.Size(124, 34);
-            this.currentYearRadioButton.TabIndex = 8;
-            this.currentYearRadioButton.TabStop = true;
-            this.currentYearRadioButton.Text = "Current year";
-            this.currentYearRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.currentYearRadioButton.UseVisualStyleBackColor = false;
-            this.currentYearRadioButton.Visible = false;
+            this.settingsPanel.Controls.Add(this.label1);
+            this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.settingsPanel.Location = new System.Drawing.Point(0, 0);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.Size = new System.Drawing.Size(187, 53);
+            this.settingsPanel.TabIndex = 9;
             // 
-            // addSchoolYearButton
+            // systemLogsButton
             // 
-            this.addSchoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.addSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSchoolYearButton.Location = new System.Drawing.Point(537, 113);
-            this.addSchoolYearButton.Name = "addSchoolYearButton";
-            this.addSchoolYearButton.Size = new System.Drawing.Size(75, 23);
-            this.addSchoolYearButton.TabIndex = 4;
-            this.addSchoolYearButton.Text = "Add S.Y.";
-            this.addSchoolYearButton.UseVisualStyleBackColor = false;
-            this.addSchoolYearButton.Click += new System.EventHandler(this.OnButtonClicked);
+            this.systemLogsButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.systemLogsButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.systemLogsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.systemLogsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.systemLogsButton.Location = new System.Drawing.Point(320, 0);
+            this.systemLogsButton.Name = "systemLogsButton";
+            this.systemLogsButton.Size = new System.Drawing.Size(133, 53);
+            this.systemLogsButton.TabIndex = 10;
+            this.systemLogsButton.Text = "System Logs";
+            this.systemLogsButton.UseVisualStyleBackColor = false;
+            this.systemLogsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // deleteSchoolYearButton
+            // userProfileButton
             // 
-            this.deleteSchoolYearButton.BackColor = System.Drawing.Color.LightCoral;
-            this.deleteSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteSchoolYearButton.Location = new System.Drawing.Point(628, 113);
-            this.deleteSchoolYearButton.Name = "deleteSchoolYearButton";
-            this.deleteSchoolYearButton.Size = new System.Drawing.Size(84, 23);
-            this.deleteSchoolYearButton.TabIndex = 5;
-            this.deleteSchoolYearButton.Text = "Delete S.Y.";
-            this.deleteSchoolYearButton.UseVisualStyleBackColor = false;
-            this.deleteSchoolYearButton.Click += new System.EventHandler(this.OnButtonClicked);
+            this.userProfileButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userProfileButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.userProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.userProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userProfileButton.Location = new System.Drawing.Point(453, 0);
+            this.userProfileButton.Name = "userProfileButton";
+            this.userProfileButton.Size = new System.Drawing.Size(133, 53);
+            this.userProfileButton.TabIndex = 11;
+            this.userProfileButton.Text = "User Profile";
+            this.userProfileButton.UseVisualStyleBackColor = false;
+            this.userProfileButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // selectSchoolYearButton
+            // panelMain
             // 
-            this.selectSchoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.selectSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.selectSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectSchoolYearButton.Location = new System.Drawing.Point(333, 386);
-            this.selectSchoolYearButton.Name = "selectSchoolYearButton";
-            this.selectSchoolYearButton.Size = new System.Drawing.Size(118, 40);
-            this.selectSchoolYearButton.TabIndex = 6;
-            this.selectSchoolYearButton.Text = "Select S.Y.";
-            this.selectSchoolYearButton.UseVisualStyleBackColor = false;
-            this.selectSchoolYearButton.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
-            // schoolYearLabel
-            // 
-            this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(212, 116);
-            this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(188, 18);
-            this.schoolYearLabel.TabIndex = 7;
-            this.schoolYearLabel.Text = "------------------------------";
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 53);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(800, 397);
+            this.panelMain.TabIndex = 9;
             // 
             // frmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.schoolYearLabel);
-            this.Controls.Add(this.selectSchoolYearButton);
-            this.Controls.Add(this.deleteSchoolYearButton);
-            this.Controls.Add(this.addSchoolYearButton);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelHeader);
             this.Name = "frmSettings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSettings";
-            this.Load += new System.EventHandler(this.frmSettings_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelHeader.ResumeLayout(false);
+            this.settingsPanel.ResumeLayout(false);
+            this.settingsPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button addSchoolYearButton;
-        private System.Windows.Forms.Button deleteSchoolYearButton;
-        private System.Windows.Forms.Button selectSchoolYearButton;
-        private System.Windows.Forms.RadioButton currentYearRadioButton;
-        private System.Windows.Forms.Label schoolYearLabel;
+        private System.Windows.Forms.Button schoolYearButton;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Panel settingsPanel;
+        private System.Windows.Forms.Button systemLogsButton;
+        private System.Windows.Forms.Button userProfileButton;
+        private System.Windows.Forms.Panel panelMain;
     }
 }
