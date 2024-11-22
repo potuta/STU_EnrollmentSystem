@@ -34,30 +34,13 @@
             this.miscellanaousFeeLabel = new System.Windows.Forms.Label();
             this.laboratoryFeeLabel = new System.Windows.Forms.Label();
             this.booksFeeLabel = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.paymentMethodLabel = new System.Windows.Forms.TextBox();
             this.tuitionFeeLabel = new System.Windows.Forms.Label();
-            this.gradeCodeLabel = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.paymentTypeLabel = new System.Windows.Forms.Label();
             this.Mis = new System.Windows.Forms.Label();
             this.Uni = new System.Windows.Forms.Label();
             this.lab = new System.Windows.Forms.Label();
             this.book = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.issueDateLabel = new System.Windows.Forms.Label();
-            this.Label = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.sectionLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -73,26 +56,46 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.paymentMethodLabel = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.totalLabel = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.paymentTypeLabel = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.gradeCodeLabel = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.issueDateLabel = new System.Windows.Forms.TextBox();
+            this.receiptRNLabel = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.receiptRNLabel);
             this.panel1.Controls.Add(this.issueDateLabel);
-            this.panel1.Controls.Add(this.Label);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel10);
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.totalLabel);
+            this.panel1.Controls.Add(this.paymentMethodLabel);
+            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -102,26 +105,23 @@
             this.panel1.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 465);
+            this.panel1.Size = new System.Drawing.Size(800, 528);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.uniformFeeLabel);
             this.panel4.Controls.Add(this.miscellanaousFeeLabel);
             this.panel4.Controls.Add(this.laboratoryFeeLabel);
             this.panel4.Controls.Add(this.booksFeeLabel);
-            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.tuitionFeeLabel);
-            this.panel4.Controls.Add(this.gradeCodeLabel);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
             this.panel4.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(25, 214);
+            this.panel4.Location = new System.Drawing.Point(664, 250);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(747, 176);
+            this.panel4.Size = new System.Drawing.Size(108, 157);
             this.panel4.TabIndex = 12;
             // 
             // uniformFeeLabel
@@ -129,7 +129,7 @@
             this.uniformFeeLabel.AutoSize = true;
             this.uniformFeeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.uniformFeeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uniformFeeLabel.Location = new System.Drawing.Point(676, 113);
+            this.uniformFeeLabel.Location = new System.Drawing.Point(36, 103);
             this.uniformFeeLabel.Name = "uniformFeeLabel";
             this.uniformFeeLabel.Size = new System.Drawing.Size(31, 15);
             this.uniformFeeLabel.TabIndex = 24;
@@ -140,7 +140,7 @@
             this.miscellanaousFeeLabel.AutoSize = true;
             this.miscellanaousFeeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.miscellanaousFeeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miscellanaousFeeLabel.Location = new System.Drawing.Point(676, 126);
+            this.miscellanaousFeeLabel.Location = new System.Drawing.Point(36, 116);
             this.miscellanaousFeeLabel.Name = "miscellanaousFeeLabel";
             this.miscellanaousFeeLabel.Size = new System.Drawing.Size(31, 15);
             this.miscellanaousFeeLabel.TabIndex = 23;
@@ -151,7 +151,7 @@
             this.laboratoryFeeLabel.AutoSize = true;
             this.laboratoryFeeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.laboratoryFeeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laboratoryFeeLabel.Location = new System.Drawing.Point(676, 100);
+            this.laboratoryFeeLabel.Location = new System.Drawing.Point(36, 90);
             this.laboratoryFeeLabel.Name = "laboratoryFeeLabel";
             this.laboratoryFeeLabel.Size = new System.Drawing.Size(31, 15);
             this.laboratoryFeeLabel.TabIndex = 21;
@@ -162,219 +162,43 @@
             this.booksFeeLabel.AutoSize = true;
             this.booksFeeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.booksFeeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.booksFeeLabel.Location = new System.Drawing.Point(676, 87);
+            this.booksFeeLabel.Location = new System.Drawing.Point(36, 77);
             this.booksFeeLabel.Name = "booksFeeLabel";
             this.booksFeeLabel.Size = new System.Drawing.Size(37, 15);
             this.booksFeeLabel.TabIndex = 20;
             this.booksFeeLabel.Text = "10000";
             // 
-            // panel8
+            // paymentMethodLabel
             // 
-            this.panel8.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.totalLabel);
-            this.panel8.Controls.Add(this.label14);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel8.Location = new System.Drawing.Point(0, 153);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
-            this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.panel8.Size = new System.Drawing.Size(747, 23);
-            this.panel8.TabIndex = 18;
-            // 
-            // totalLabel
-            // 
-            this.totalLabel.AutoSize = true;
-            this.totalLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.totalLabel.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLabel.Location = new System.Drawing.Point(668, 3);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(48, 17);
-            this.totalLabel.TabIndex = 17;
-            this.totalLabel.Text = "57000";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label14.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(30, 3);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 17);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Total:";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.paymentMethodLabel);
-            this.panel9.Controls.Add(this.panel11);
-            this.panel9.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.Location = new System.Drawing.Point(109, -1);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2);
-            this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.panel9.Size = new System.Drawing.Size(530, 23);
-            this.panel9.TabIndex = 15;
-            // 
-            // panel11
-            // 
-            this.panel11.Location = new System.Drawing.Point(-1, -1);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(121, 23);
-            this.panel11.TabIndex = 25;
+            this.paymentMethodLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.paymentMethodLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paymentMethodLabel.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentMethodLabel.HideSelection = false;
+            this.paymentMethodLabel.Location = new System.Drawing.Point(252, 406);
+            this.paymentMethodLabel.Name = "paymentMethodLabel";
+            this.paymentMethodLabel.ReadOnly = true;
+            this.paymentMethodLabel.Size = new System.Drawing.Size(413, 23);
+            this.paymentMethodLabel.TabIndex = 26;
+            this.paymentMethodLabel.Text = "Paid by: GCASH";
+            this.paymentMethodLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tuitionFeeLabel
             // 
             this.tuitionFeeLabel.AutoSize = true;
             this.tuitionFeeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tuitionFeeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tuitionFeeLabel.Location = new System.Drawing.Point(676, 34);
+            this.tuitionFeeLabel.Location = new System.Drawing.Point(36, 24);
             this.tuitionFeeLabel.Name = "tuitionFeeLabel";
             this.tuitionFeeLabel.Size = new System.Drawing.Size(37, 15);
             this.tuitionFeeLabel.TabIndex = 19;
             this.tuitionFeeLabel.Text = "30000";
-            // 
-            // gradeCodeLabel
-            // 
-            this.gradeCodeLabel.AutoSize = true;
-            this.gradeCodeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.gradeCodeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradeCodeLabel.Location = new System.Drawing.Point(43, 34);
-            this.gradeCodeLabel.Name = "gradeCodeLabel";
-            this.gradeCodeLabel.Size = new System.Drawing.Size(22, 15);
-            this.gradeCodeLabel.TabIndex = 18;
-            this.gradeCodeLabel.Text = "G7";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(0, 2);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.panel6.Size = new System.Drawing.Size(747, 23);
-            this.panel6.TabIndex = 14;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label11.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(666, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 17);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Amount";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label9.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(36, 2);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 17);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Code";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.panel12);
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(109, -1);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.panel7.Size = new System.Drawing.Size(530, 23);
-            this.panel7.TabIndex = 15;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.label13);
-            this.panel12.Location = new System.Drawing.Point(-1, -1);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(121, 23);
-            this.panel12.TabIndex = 25;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label13.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(33, 3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 17);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "Payment";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label10.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(329, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 17);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Particulars";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.panel10);
-            this.panel5.Controls.Add(this.Mis);
-            this.panel5.Controls.Add(this.Uni);
-            this.panel5.Controls.Add(this.lab);
-            this.panel5.Controls.Add(this.book);
-            this.panel5.Controls.Add(this.label12);
-            this.panel5.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.Location = new System.Drawing.Point(110, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.panel5.Size = new System.Drawing.Size(530, 177);
-            this.panel5.TabIndex = 13;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.paymentTypeLabel);
-            this.panel10.Location = new System.Drawing.Point(-1, 23);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(121, 134);
-            this.panel10.TabIndex = 24;
-            // 
-            // paymentTypeLabel
-            // 
-            this.paymentTypeLabel.AutoSize = true;
-            this.paymentTypeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.paymentTypeLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTypeLabel.Location = new System.Drawing.Point(47, 11);
-            this.paymentTypeLabel.Name = "paymentTypeLabel";
-            this.paymentTypeLabel.Size = new System.Drawing.Size(27, 15);
-            this.paymentTypeLabel.TabIndex = 25;
-            this.paymentTypeLabel.Text = "Full";
             // 
             // Mis
             // 
             this.Mis.AutoSize = true;
             this.Mis.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.Mis.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Mis.Location = new System.Drawing.Point(422, 125);
+            this.Mis.Location = new System.Drawing.Point(307, 116);
             this.Mis.Name = "Mis";
             this.Mis.Size = new System.Drawing.Size(101, 15);
             this.Mis.TabIndex = 23;
@@ -385,7 +209,7 @@
             this.Uni.AutoSize = true;
             this.Uni.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.Uni.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Uni.Location = new System.Drawing.Point(471, 112);
+            this.Uni.Location = new System.Drawing.Point(356, 103);
             this.Uni.Name = "Uni";
             this.Uni.Size = new System.Drawing.Size(51, 15);
             this.Uni.TabIndex = 22;
@@ -396,7 +220,7 @@
             this.lab.AutoSize = true;
             this.lab.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lab.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab.Location = new System.Drawing.Point(437, 99);
+            this.lab.Location = new System.Drawing.Point(322, 90);
             this.lab.Name = "lab";
             this.lab.Size = new System.Drawing.Size(86, 15);
             this.lab.TabIndex = 21;
@@ -407,7 +231,7 @@
             this.book.AutoSize = true;
             this.book.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.book.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.book.Location = new System.Drawing.Point(483, 86);
+            this.book.Location = new System.Drawing.Point(368, 77);
             this.book.Name = "book";
             this.book.Size = new System.Drawing.Size(39, 15);
             this.book.TabIndex = 20;
@@ -418,33 +242,11 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.label12.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(407, 34);
+            this.label12.Location = new System.Drawing.Point(292, 25);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 15);
             this.label12.TabIndex = 19;
             this.label12.Text = "Tuition Fee & Misc Fee";
-            // 
-            // issueDateLabel
-            // 
-            this.issueDateLabel.AutoSize = true;
-            this.issueDateLabel.BackColor = System.Drawing.Color.White;
-            this.issueDateLabel.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.issueDateLabel.Location = new System.Drawing.Point(692, 105);
-            this.issueDateLabel.Name = "issueDateLabel";
-            this.issueDateLabel.Size = new System.Drawing.Size(83, 15);
-            this.issueDateLabel.TabIndex = 11;
-            this.issueDateLabel.Text = "August 1, 2024";
-            // 
-            // Label
-            // 
-            this.Label.AutoSize = true;
-            this.Label.BackColor = System.Drawing.Color.White;
-            this.Label.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label.Location = new System.Drawing.Point(619, 105);
-            this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(75, 15);
-            this.Label.TabIndex = 9;
-            this.Label.Text = "Issue Date:";
             // 
             // panel3
             // 
@@ -459,7 +261,7 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.SchoolYearTerm);
             this.panel3.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(25, 123);
+            this.panel3.Location = new System.Drawing.Point(25, 132);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(747, 81);
@@ -557,7 +359,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(303, 93);
+            this.label4.Location = new System.Drawing.Point(310, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(201, 28);
             this.label4.TabIndex = 3;
@@ -567,7 +369,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(176, 30);
+            this.label3.Location = new System.Drawing.Point(189, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(308, 15);
             this.label3.TabIndex = 2;
@@ -576,7 +378,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(176, 14);
+            this.label2.Location = new System.Drawing.Point(189, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(163, 16);
             this.label2.TabIndex = 1;
@@ -587,7 +389,7 @@
             this.label1.Font = new System.Drawing.Font("Century", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(511, 79);
+            this.label1.Size = new System.Drawing.Size(171, 79);
             this.label1.TabIndex = 0;
             this.label1.Text = "STU";
             // 
@@ -614,25 +416,192 @@
             this.panel2.Size = new System.Drawing.Size(800, 47);
             this.panel2.TabIndex = 1;
             // 
-            // paymentMethodLabel
+            // textBox1
             // 
-            this.paymentMethodLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.paymentMethodLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.paymentMethodLabel.HideSelection = false;
-            this.paymentMethodLabel.Location = new System.Drawing.Point(125, 2);
-            this.paymentMethodLabel.Name = "paymentMethodLabel";
-            this.paymentMethodLabel.ReadOnly = true;
-            this.paymentMethodLabel.Size = new System.Drawing.Size(400, 17);
-            this.paymentMethodLabel.TabIndex = 26;
-            this.paymentMethodLabel.Text = "Paid by: GCASH";
-            this.paymentMethodLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(26, 228);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(111, 23);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.Text = "Code";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(136, 228);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(117, 23);
+            this.textBox2.TabIndex = 14;
+            this.textBox2.Text = "Payment";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(252, 228);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(413, 23);
+            this.textBox3.TabIndex = 15;
+            this.textBox3.Text = "Particulars";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(664, 228);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(108, 23);
+            this.textBox4.TabIndex = 16;
+            this.textBox4.Text = "Amount";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.totalLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.totalLabel.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(664, 406);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.ReadOnly = true;
+            this.totalLabel.Size = new System.Drawing.Size(108, 23);
+            this.totalLabel.TabIndex = 27;
+            this.totalLabel.Text = "5700";
+            this.totalLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(26, 406);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(111, 23);
+            this.textBox5.TabIndex = 28;
+            this.textBox5.Text = "Total";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(136, 406);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(117, 23);
+            this.textBox6.TabIndex = 29;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.paymentTypeLabel);
+            this.panel10.Location = new System.Drawing.Point(136, 250);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(117, 157);
+            this.panel10.TabIndex = 24;
+            // 
+            // paymentTypeLabel
+            // 
+            this.paymentTypeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.paymentTypeLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.paymentTypeLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.paymentTypeLabel.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTypeLabel.Location = new System.Drawing.Point(0, 0);
+            this.paymentTypeLabel.Name = "paymentTypeLabel";
+            this.paymentTypeLabel.ReadOnly = true;
+            this.paymentTypeLabel.Size = new System.Drawing.Size(115, 14);
+            this.paymentTypeLabel.TabIndex = 30;
+            this.paymentTypeLabel.Text = "Full";
+            this.paymentTypeLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.gradeCodeLabel);
+            this.panel5.Location = new System.Drawing.Point(26, 250);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(111, 157);
+            this.panel5.TabIndex = 25;
+            // 
+            // gradeCodeLabel
+            // 
+            this.gradeCodeLabel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.gradeCodeLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gradeCodeLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gradeCodeLabel.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradeCodeLabel.Location = new System.Drawing.Point(0, 0);
+            this.gradeCodeLabel.Name = "gradeCodeLabel";
+            this.gradeCodeLabel.ReadOnly = true;
+            this.gradeCodeLabel.Size = new System.Drawing.Size(109, 14);
+            this.gradeCodeLabel.TabIndex = 30;
+            this.gradeCodeLabel.Text = "G7";
+            this.gradeCodeLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.Mis);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.Uni);
+            this.panel6.Controls.Add(this.book);
+            this.panel6.Controls.Add(this.lab);
+            this.panel6.Location = new System.Drawing.Point(251, 250);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(414, 157);
+            this.panel6.TabIndex = 31;
+            // 
+            // issueDateLabel
+            // 
+            this.issueDateLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.issueDateLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.issueDateLabel.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.issueDateLabel.Location = new System.Drawing.Point(517, 93);
+            this.issueDateLabel.Name = "issueDateLabel";
+            this.issueDateLabel.ReadOnly = true;
+            this.issueDateLabel.Size = new System.Drawing.Size(255, 14);
+            this.issueDateLabel.TabIndex = 33;
+            this.issueDateLabel.Text = "Issue Date: 22/12/2024";
+            this.issueDateLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // receiptRNLabel
+            // 
+            this.receiptRNLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.receiptRNLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.receiptRNLabel.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiptRNLabel.Location = new System.Drawing.Point(517, 112);
+            this.receiptRNLabel.Name = "receiptRNLabel";
+            this.receiptRNLabel.ReadOnly = true;
+            this.receiptRNLabel.Size = new System.Drawing.Size(255, 14);
+            this.receiptRNLabel.TabIndex = 34;
+            this.receiptRNLabel.Text = "Receipt RN: STU01D12122024T1";
+            this.receiptRNLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmPDFReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 512);
+            this.ClientSize = new System.Drawing.Size(800, 574);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmPDFReceipt";
@@ -642,23 +611,15 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -674,9 +635,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label SchoolYearTerm;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label issueDateLabel;
         private System.Windows.Forms.Label schoolYearLabel;
         private System.Windows.Forms.Label fullNameLabel;
         private System.Windows.Forms.Label label7;
@@ -684,19 +643,8 @@
         private System.Windows.Forms.Label gradeLabel;
         private System.Windows.Forms.Label sectionLabel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label tuitionFeeLabel;
-        private System.Windows.Forms.Label gradeCodeLabel;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label totalLabel;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label uniformFeeLabel;
         private System.Windows.Forms.Label miscellanaousFeeLabel;
         private System.Windows.Forms.Label laboratoryFeeLabel;
@@ -705,12 +653,21 @@
         private System.Windows.Forms.Label Uni;
         private System.Windows.Forms.Label lab;
         private System.Windows.Forms.Label book;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label paymentTypeLabel;
         private System.Windows.Forms.TextBox paymentMethodLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox totalLabel;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox paymentTypeLabel;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox gradeCodeLabel;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox issueDateLabel;
+        private System.Windows.Forms.TextBox receiptRNLabel;
     }
 }
 

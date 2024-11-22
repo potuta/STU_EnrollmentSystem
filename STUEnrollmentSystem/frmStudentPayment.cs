@@ -378,7 +378,7 @@ namespace STUEnrollmentSystem
 
         private void viewPaymentReceiptButton_Click(object sender, EventArgs e)
         {
-            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeComboBox.Text, paymentMethodComboBox.Text, monthOfPaymentComboBox.Text, schoolYearTextBox.Text);
+            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeComboBox.Text, paymentMethodComboBox.Text, monthOfPaymentComboBox.Text, schoolYearTextBox.Text, transactionDateTextBox.Text, receiptRNTextBox.Text);
             frmPDFReceipt.Show();
         }
 
@@ -386,14 +386,16 @@ namespace STUEnrollmentSystem
         {
             if (paymentStatusComboBox.Text.Equals("Paid"))
             {
-                viewPaymentReceiptButton.Visible = true;
-
                 if (transactionNumberTextBox.Text.Equals(string.Empty) && transactionDateTextBox.Text.Equals(string.Empty) && receiptRNTextBox.Text.Equals(string.Empty))
                 {
                     generateTransactionNumber();
                     transactionDateTextBox.Text = DateTime.Now.ToShortDateString();
                     generateReceiptRN();
                     updateBillingReportButton();
+                }
+                else
+                {
+                    viewPaymentReceiptButton.Visible = true;
                 }
             }
             else

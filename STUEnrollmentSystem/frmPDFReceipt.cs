@@ -21,9 +21,10 @@ namespace STUEnrollmentSystem
         private string PaymentMethod { get; set; }
         private string Month {  get; set; }
         private string Year { get; set; }
-        
+        private string TransactionDate {  get; set; }
+        private string ReceiptRN {  get; set; }
 
-        public frmPDFReceipt(string studentNumber, string paymentCode, string paymentMethod, string month, string year)
+        public frmPDFReceipt(string studentNumber, string paymentCode, string paymentMethod, string month, string year, string transactionDate, string receiptRN)
         {
             InitializeComponent();
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
@@ -32,6 +33,8 @@ namespace STUEnrollmentSystem
             this.PaymentMethod = paymentMethod;
             this.Month = month;
             this.Year = year;
+            this.TransactionDate = transactionDate;
+            this.ReceiptRN = receiptRN;
         }
 
         public void GetPrintArea(Panel pnl)
@@ -102,7 +105,8 @@ namespace STUEnrollmentSystem
             sectionLabel.Text = section;
             gradeCodeLabel.Text = PaymentCode.Substring(0);
             paymentTypeLabel.Text = paymentType;
-            issueDateLabel.Text = $"{Month}, {Year}";
+            issueDateLabel.Text = $"Issue Date: {TransactionDate}";
+            receiptRNLabel.Text = $"Receipt RN: {ReceiptRN}";
             paymentMethodLabel.Text = $"Paid by: {PaymentMethod}";
             totalLabel.Text = Convert.ToString(paymentAmountDictionary[Month]);
         }
