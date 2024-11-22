@@ -24,30 +24,14 @@ namespace STUEnrollmentSystem
 
         private void STU_Dashboard_Load(object sender, EventArgs e)
         {
-            studentSubPanel.Visible = false;
-            cashierSubPanel.Visible = false;
-            adminSubPanel.Visible = false;
             userLabel.Text = "User: " + frmLogin.Username;
             roleLabel.Text = "Role: " + frmLogin.Role;
-        }
-
-        private void hideSubpanel()
-        {
-            if (studentSubPanel.Visible == true)
-            {
-                studentSubPanel.Visible = false;
-            }
-            if (cashierSubPanel.Visible == true)
-            {
-                cashierSubPanel.Visible = false;
-            }
         }
 
         private void showSubPanel(Panel subPanel)
         {
             if (subPanel.Visible == false)
             {
-                //hideSubpanel();
                 subPanel.Visible = true;
             }
             else
@@ -83,29 +67,29 @@ namespace STUEnrollmentSystem
             {
                 frmLogin.Role = "Admin";
                 studentButton.Enabled = true;
-                cashierButton.Enabled = true;
-                adminButton.Enabled = true;
+                billingButton.Enabled = true;
+                facultyButton.Enabled = true;
             }
             else if (role.Equals("A"))
             {
                 frmLogin.Role = "Admission";
                 studentButton.Enabled = true;
-                cashierButton.Enabled = false;
-                adminButton.Enabled = false;
+                billingButton.Enabled = false;
+                facultyButton.Enabled = false;
             }
             else if (role.Equals("C"))
             {
                 frmLogin.Role = "Cashier";
                 studentButton.Enabled = false;
-                cashierButton.Enabled = true;
-                adminButton.Enabled = false;
+                billingButton.Enabled = true;
+                facultyButton.Enabled = false;
             }
             else if (role.Equals("R")) 
             {
                 frmLogin.Role = "Registrar";
                 studentButton.Enabled = true;
-                cashierButton.Enabled = false;
-                adminButton.Enabled = false;
+                billingButton.Enabled = false;
+                facultyButton.Enabled = false;
             }
         }
 
@@ -122,19 +106,29 @@ namespace STUEnrollmentSystem
             this.Close();
         }
 
+        private void enrollmentButton_Click(object sender, EventArgs e)
+        {
+            showSubPanel(enrollmentSubPanel);
+        }
+
         private void studentButton_Click(object sender, EventArgs e)
         {
             showSubPanel(studentSubPanel);
         }
 
-        private void cashierButton_Click(object sender, EventArgs e)
+        private void billingButton_Click(object sender, EventArgs e)
         {
-            showSubPanel(cashierSubPanel);
+            showSubPanel(billingSubPanel);
         }
 
-        private void adminButton_Click(object sender, EventArgs e)
+        private void facultyButton_Click(object sender, EventArgs e)
         {
-            showSubPanel(adminSubPanel);
+            showSubPanel(facultySubPanel);
+        }
+
+        private void academicButton_Click(object sender, EventArgs e)
+        {
+            showSubPanel(academicSubPanel);
         }
 
         private void OnButtonClicked(object sender, EventArgs e)
@@ -171,7 +165,7 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmTeacher());
             }
-            else if (sender == pricesButton)
+            else if (sender == feesButton)
             {
                 openChildForm(new frmPrices());
             }
@@ -186,6 +180,25 @@ namespace STUEnrollmentSystem
             else if (sender == subjectButton)
             {
                 openChildForm(new frmSubjects());
+            }
+            else if (sender == billingReportButton)
+            {
+                openChildForm(new frmBillingReport());
+            }
+            else if (sender == gradeLevelButton)
+            {
+                // None yet
+                return;
+            }
+            else if (sender == logoLabel)
+            {
+                // None yet
+                return;
+            }
+            else if (sender == homeButton)
+            {
+                // None yet
+                return;
             }
             else if (sender == settingsButton)
             {
