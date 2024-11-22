@@ -5,10 +5,10 @@
     <Setting Name="STU_DBConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Data Source=112.204.102.205,16969;Initial Catalog=STU_DB;Integrated Security=False;Persist Security Info=True;User ID=STU_DB_Login;Password=;TrustServerCertificate=True;Column Encryption Setting=Disabled&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=CYLAPTOP\SQLEXPRESS;Initial Catalog=STU_DB;Integrated Security=True;TrustServerCertificate=True;Column Encryption Setting=Disabled&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=112.204.102.205,16969;Initial Catalog=STU_DB;Integrated Security=False;Persist Security Info=True;User ID=STU_DB_Login;Password=;TrustServerCertificate=True;Column Encryption Setting=Disabled</Value>
+      <Value Profile="(Default)">Data Source=CYLAPTOP\SQLEXPRESS;Initial Catalog=STU_DB;Integrated Security=True;TrustServerCertificate=True;Column Encryption Setting=Disabled</Value>
     </Setting>
   </Settings>
 </SettingsFile>
