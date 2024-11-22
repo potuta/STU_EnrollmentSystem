@@ -135,6 +135,38 @@ namespace STUEnrollmentSystem
             return totalPendingPaymentAmount;
         }
 
+        public int GetTotalPaymentAmountFromMonth(string paymentCode, string month)
+        {
+            int totalPaymentAmount = 0;
+
+            try
+            {
+                _connection.Open();
+                string query = $"SELECT PaymentAmount FROM PaymentType WHERE PaymentCode = @PaymentCode AND Month = @Month";
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@Month", month);
+                    totalPaymentAmount = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return totalPaymentAmount;
+        }
+
         public override void ViewImageFile(string table, string column, string condition, string ID)
         {
             string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
@@ -276,6 +308,109 @@ namespace STUEnrollmentSystem
             }
 
             return columnDataList;
+        }
+
+        public int GetStudentNotificationCount(string studentNumber, string paymentCode, string schoolYear, string monthOfPayment)
+        {
+            int count = 0;
+            string query = $"SELECT NotificationCount FROM StudentPayment WHERE SchoolYear = @SchoolYear AND PaymentCode = @PaymentCode AND StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+
+                    command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
+
+                    count = command.ExecuteScalar().Equals(DBNull.Value) ? 0 : Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetStudentNotificationCount: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetStudentNotificationCount: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return count;
+        }
+
+        public void UpdateStudentNotificationCount(string studentNumber, string paymentCode, string schoolYear, string monthOfPayment)
+        {
+            int count = GetStudentNotificationCount(studentNumber, paymentCode, schoolYear, monthOfPayment) + 1;
+            string query = $"UPDATE StudentPayment SET NotificationCount = @NotificationCount WHERE SchoolYear = @SchoolYear AND PaymentCode = @PaymentCode AND StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(@query, _connection))
+                {
+                    _connection.Open();
+
+                    command.Parameters.AddWithValue("@NotificationCount", count);
+                    command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in UpdateStudentNotificationCount: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in UpdateStudentNotificationCount: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+        }
+        
+        public void InsertBillingReport(Dictionary<string, object> billingReportData)
+        {
+            string query = "INSERT INTO BillingReport(TransactionNumber, StudentNumber, PaymentAmount, TransactionDate, PaymentRN, ReceiptRN)"+
+                            "VALUES (@TransactionNumber, @StudentNumber, @PaymentAmount, @TransactionDate, @PaymentRN, @ReceiptRN)";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    foreach (var key in billingReportData.Keys)
+                    {
+                        command.Parameters.AddWithValue($"@{key}", billingReportData[key]);
+                    }
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in InsertBillingReport: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in InsertBillingReport: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
         }
     }
 }

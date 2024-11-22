@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="BillingReportRepository.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="EmailSender.cs" />

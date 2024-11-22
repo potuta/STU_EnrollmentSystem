@@ -50,6 +50,8 @@ namespace STUEnrollmentSystem {
         
         private PaymentTypeDataTable tablePaymentType;
         
+        private BillingReportDataTable tableBillingReport;
+        
         private global::System.Data.DataRelation relationFK_Schedule_Sections;
         
         private global::System.Data.DataRelation relationFK_Schedule_Subjects;
@@ -128,6 +130,9 @@ namespace STUEnrollmentSystem {
                 }
                 if ((ds.Tables["PaymentType"] != null)) {
                     base.Tables.Add(new PaymentTypeDataTable(ds.Tables["PaymentType"]));
+                }
+                if ((ds.Tables["BillingReport"] != null)) {
+                    base.Tables.Add(new BillingReportDataTable(ds.Tables["BillingReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -279,6 +284,16 @@ namespace STUEnrollmentSystem {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public BillingReportDataTable BillingReport {
+            get {
+                return this.tableBillingReport;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -382,6 +397,9 @@ namespace STUEnrollmentSystem {
                 }
                 if ((ds.Tables["PaymentType"] != null)) {
                     base.Tables.Add(new PaymentTypeDataTable(ds.Tables["PaymentType"]));
+                }
+                if ((ds.Tables["BillingReport"] != null)) {
+                    base.Tables.Add(new BillingReportDataTable(ds.Tables["BillingReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -494,6 +512,12 @@ namespace STUEnrollmentSystem {
                     this.tablePaymentType.InitVars();
                 }
             }
+            this.tableBillingReport = ((BillingReportDataTable)(base.Tables["BillingReport"]));
+            if ((initTable == true)) {
+                if ((this.tableBillingReport != null)) {
+                    this.tableBillingReport.InitVars();
+                }
+            }
             this.relationFK_Schedule_Sections = this.Relations["FK_Schedule_Sections"];
             this.relationFK_Schedule_Subjects = this.Relations["FK_Schedule_Subjects"];
             this.relationFK_Schedule_Teachers = this.Relations["FK_Schedule_Teachers"];
@@ -536,6 +560,8 @@ namespace STUEnrollmentSystem {
             base.Tables.Add(this.tableUsers);
             this.tablePaymentType = new PaymentTypeDataTable();
             base.Tables.Add(this.tablePaymentType);
+            this.tableBillingReport = new BillingReportDataTable();
+            base.Tables.Add(this.tableBillingReport);
             this.relationFK_Schedule_Sections = new global::System.Data.DataRelation("FK_Schedule_Sections", new global::System.Data.DataColumn[] {
                         this.tableSections.SectionCodeColumn}, new global::System.Data.DataColumn[] {
                         this.tableSchedule.SectionCodeColumn}, false);
@@ -642,6 +668,12 @@ namespace STUEnrollmentSystem {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeBillingReport() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -733,6 +765,9 @@ namespace STUEnrollmentSystem {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void PaymentTypeRowChangeEventHandler(object sender, PaymentTypeRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void BillingReportRowChangeEventHandler(object sender, BillingReportRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -5047,6 +5082,16 @@ namespace STUEnrollmentSystem {
             
             private global::System.Data.DataColumn columnSchoolYear;
             
+            private global::System.Data.DataColumn columnPaymentRN;
+            
+            private global::System.Data.DataColumn columnReceiptRN;
+            
+            private global::System.Data.DataColumn columnTransactionDate;
+            
+            private global::System.Data.DataColumn columnTransactionNumber;
+            
+            private global::System.Data.DataColumn columnNotificationCount;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StudentPaymentDataTable() {
@@ -5138,6 +5183,46 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaymentRNColumn {
+                get {
+                    return this.columnPaymentRN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReceiptRNColumn {
+                get {
+                    return this.columnReceiptRN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TransactionDateColumn {
+                get {
+                    return this.columnTransactionDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TransactionNumberColumn {
+                get {
+                    return this.columnTransactionNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NotificationCountColumn {
+                get {
+                    return this.columnNotificationCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5173,7 +5258,7 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StudentPaymentRow AddStudentPaymentRow(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string SchoolYear) {
+            public StudentPaymentRow AddStudentPaymentRow(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string SchoolYear, string PaymentRN, string ReceiptRN, string TransactionDate, string TransactionNumber, int NotificationCount) {
                 StudentPaymentRow rowStudentPaymentRow = ((StudentPaymentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PaymentCode,
@@ -5182,7 +5267,12 @@ namespace STUEnrollmentSystem {
                         MonthOfPayment,
                         PaymentStatus,
                         ProofOfPayment,
-                        SchoolYear};
+                        SchoolYear,
+                        PaymentRN,
+                        ReceiptRN,
+                        TransactionDate,
+                        TransactionNumber,
+                        NotificationCount};
                 rowStudentPaymentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentPaymentRow);
                 return rowStudentPaymentRow;
@@ -5212,6 +5302,11 @@ namespace STUEnrollmentSystem {
                 this.columnPaymentStatus = base.Columns["PaymentStatus"];
                 this.columnProofOfPayment = base.Columns["ProofOfPayment"];
                 this.columnSchoolYear = base.Columns["SchoolYear"];
+                this.columnPaymentRN = base.Columns["PaymentRN"];
+                this.columnReceiptRN = base.Columns["ReceiptRN"];
+                this.columnTransactionDate = base.Columns["TransactionDate"];
+                this.columnTransactionNumber = base.Columns["TransactionNumber"];
+                this.columnNotificationCount = base.Columns["NotificationCount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5231,11 +5326,25 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnProofOfPayment);
                 this.columnSchoolYear = new global::System.Data.DataColumn("SchoolYear", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSchoolYear);
+                this.columnPaymentRN = new global::System.Data.DataColumn("PaymentRN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentRN);
+                this.columnReceiptRN = new global::System.Data.DataColumn("ReceiptRN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceiptRN);
+                this.columnTransactionDate = new global::System.Data.DataColumn("TransactionDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionDate);
+                this.columnTransactionNumber = new global::System.Data.DataColumn("TransactionNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionNumber);
+                this.columnNotificationCount = new global::System.Data.DataColumn("NotificationCount", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNotificationCount);
                 this.columnPaymentCode.MaxLength = 20;
                 this.columnPaymentMethod.MaxLength = 20;
                 this.columnMonthOfPayment.MaxLength = 20;
                 this.columnPaymentStatus.MaxLength = 20;
                 this.columnSchoolYear.MaxLength = 20;
+                this.columnPaymentRN.MaxLength = 50;
+                this.columnReceiptRN.MaxLength = 50;
+                this.columnTransactionDate.MaxLength = 50;
+                this.columnTransactionNumber.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5966,6 +6075,328 @@ namespace STUEnrollmentSystem {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "PaymentTypeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class BillingReportDataTable : global::System.Data.TypedTableBase<BillingReportRow> {
+            
+            private global::System.Data.DataColumn columnTransactionNumber;
+            
+            private global::System.Data.DataColumn columnStudentNumber;
+            
+            private global::System.Data.DataColumn columnPaymentAmount;
+            
+            private global::System.Data.DataColumn columnTransactionDate;
+            
+            private global::System.Data.DataColumn columnPaymentRN;
+            
+            private global::System.Data.DataColumn columnReceiptRN;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public BillingReportDataTable() {
+                this.TableName = "BillingReport";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal BillingReportDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected BillingReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TransactionNumberColumn {
+                get {
+                    return this.columnTransactionNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StudentNumberColumn {
+                get {
+                    return this.columnStudentNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaymentAmountColumn {
+                get {
+                    return this.columnPaymentAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TransactionDateColumn {
+                get {
+                    return this.columnTransactionDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaymentRNColumn {
+                get {
+                    return this.columnPaymentRN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReceiptRNColumn {
+                get {
+                    return this.columnReceiptRN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public BillingReportRow this[int index] {
+                get {
+                    return ((BillingReportRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event BillingReportRowChangeEventHandler BillingReportRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event BillingReportRowChangeEventHandler BillingReportRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event BillingReportRowChangeEventHandler BillingReportRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event BillingReportRowChangeEventHandler BillingReportRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddBillingReportRow(BillingReportRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public BillingReportRow AddBillingReportRow(string TransactionNumber, string StudentNumber, int PaymentAmount, string TransactionDate, string PaymentRN, string ReceiptRN) {
+                BillingReportRow rowBillingReportRow = ((BillingReportRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        TransactionNumber,
+                        StudentNumber,
+                        PaymentAmount,
+                        TransactionDate,
+                        PaymentRN,
+                        ReceiptRN};
+                rowBillingReportRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBillingReportRow);
+                return rowBillingReportRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                BillingReportDataTable cln = ((BillingReportDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new BillingReportDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnTransactionNumber = base.Columns["TransactionNumber"];
+                this.columnStudentNumber = base.Columns["StudentNumber"];
+                this.columnPaymentAmount = base.Columns["PaymentAmount"];
+                this.columnTransactionDate = base.Columns["TransactionDate"];
+                this.columnPaymentRN = base.Columns["PaymentRN"];
+                this.columnReceiptRN = base.Columns["ReceiptRN"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnTransactionNumber = new global::System.Data.DataColumn("TransactionNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionNumber);
+                this.columnStudentNumber = new global::System.Data.DataColumn("StudentNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentNumber);
+                this.columnPaymentAmount = new global::System.Data.DataColumn("PaymentAmount", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentAmount);
+                this.columnTransactionDate = new global::System.Data.DataColumn("TransactionDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionDate);
+                this.columnPaymentRN = new global::System.Data.DataColumn("PaymentRN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentRN);
+                this.columnReceiptRN = new global::System.Data.DataColumn("ReceiptRN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceiptRN);
+                this.columnTransactionNumber.MaxLength = 50;
+                this.columnStudentNumber.MaxLength = 30;
+                this.columnTransactionDate.MaxLength = 50;
+                this.columnPaymentRN.MaxLength = 50;
+                this.columnReceiptRN.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public BillingReportRow NewBillingReportRow() {
+                return ((BillingReportRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new BillingReportRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(BillingReportRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.BillingReportRowChanged != null)) {
+                    this.BillingReportRowChanged(this, new BillingReportRowChangeEvent(((BillingReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.BillingReportRowChanging != null)) {
+                    this.BillingReportRowChanging(this, new BillingReportRowChangeEvent(((BillingReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.BillingReportRowDeleted != null)) {
+                    this.BillingReportRowDeleted(this, new BillingReportRowChangeEvent(((BillingReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.BillingReportRowDeleting != null)) {
+                    this.BillingReportRowDeleting(this, new BillingReportRowChangeEvent(((BillingReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveBillingReportRow(BillingReportRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                STU_DBDataSet ds = new STU_DBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "BillingReportDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -8531,6 +8962,86 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PaymentRN {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentPayment.PaymentRNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentRN\' in table \'StudentPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentPayment.PaymentRNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ReceiptRN {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentPayment.ReceiptRNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReceiptRN\' in table \'StudentPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentPayment.ReceiptRNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TransactionDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentPayment.TransactionDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionDate\' in table \'StudentPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentPayment.TransactionDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TransactionNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableStudentPayment.TransactionNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionNumber\' in table \'StudentPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentPayment.TransactionNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int NotificationCount {
+                get {
+                    try {
+                        return ((int)(this[this.tableStudentPayment.NotificationCountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NotificationCount\' in table \'StudentPayment\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStudentPayment.NotificationCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPaymentCodeNull() {
                 return this.IsNull(this.tableStudentPayment.PaymentCodeColumn);
             }
@@ -8611,6 +9122,66 @@ namespace STUEnrollmentSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSchoolYearNull() {
                 this[this.tableStudentPayment.SchoolYearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPaymentRNNull() {
+                return this.IsNull(this.tableStudentPayment.PaymentRNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPaymentRNNull() {
+                this[this.tableStudentPayment.PaymentRNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReceiptRNNull() {
+                return this.IsNull(this.tableStudentPayment.ReceiptRNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReceiptRNNull() {
+                this[this.tableStudentPayment.ReceiptRNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTransactionDateNull() {
+                return this.IsNull(this.tableStudentPayment.TransactionDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTransactionDateNull() {
+                this[this.tableStudentPayment.TransactionDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTransactionNumberNull() {
+                return this.IsNull(this.tableStudentPayment.TransactionNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTransactionNumberNull() {
+                this[this.tableStudentPayment.TransactionNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNotificationCountNull() {
+                return this.IsNull(this.tableStudentPayment.NotificationCountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNotificationCountNull() {
+                this[this.tableStudentPayment.NotificationCountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8943,6 +9514,189 @@ namespace STUEnrollmentSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSchoolYearNull() {
                 this[this.tablePaymentType.SchoolYearColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class BillingReportRow : global::System.Data.DataRow {
+            
+            private BillingReportDataTable tableBillingReport;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal BillingReportRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableBillingReport = ((BillingReportDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TransactionNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableBillingReport.TransactionNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionNumber\' in table \'BillingReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBillingReport.TransactionNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string StudentNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableBillingReport.StudentNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StudentNumber\' in table \'BillingReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBillingReport.StudentNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int PaymentAmount {
+                get {
+                    try {
+                        return ((int)(this[this.tableBillingReport.PaymentAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentAmount\' in table \'BillingReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBillingReport.PaymentAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TransactionDate {
+                get {
+                    try {
+                        return ((string)(this[this.tableBillingReport.TransactionDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionDate\' in table \'BillingReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBillingReport.TransactionDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string PaymentRN {
+                get {
+                    try {
+                        return ((string)(this[this.tableBillingReport.PaymentRNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentRN\' in table \'BillingReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBillingReport.PaymentRNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ReceiptRN {
+                get {
+                    try {
+                        return ((string)(this[this.tableBillingReport.ReceiptRNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReceiptRN\' in table \'BillingReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBillingReport.ReceiptRNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTransactionNumberNull() {
+                return this.IsNull(this.tableBillingReport.TransactionNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTransactionNumberNull() {
+                this[this.tableBillingReport.TransactionNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStudentNumberNull() {
+                return this.IsNull(this.tableBillingReport.StudentNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStudentNumberNull() {
+                this[this.tableBillingReport.StudentNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPaymentAmountNull() {
+                return this.IsNull(this.tableBillingReport.PaymentAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPaymentAmountNull() {
+                this[this.tableBillingReport.PaymentAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTransactionDateNull() {
+                return this.IsNull(this.tableBillingReport.TransactionDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTransactionDateNull() {
+                this[this.tableBillingReport.TransactionDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPaymentRNNull() {
+                return this.IsNull(this.tableBillingReport.PaymentRNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPaymentRNNull() {
+                this[this.tableBillingReport.PaymentRNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReceiptRNNull() {
+                return this.IsNull(this.tableBillingReport.ReceiptRNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReceiptRNNull() {
+                this[this.tableBillingReport.ReceiptRNColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9374,6 +10128,40 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PaymentTypeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class BillingReportRowChangeEvent : global::System.EventArgs {
+            
+            private BillingReportRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public BillingReportRowChangeEvent(BillingReportRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public BillingReportRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -16384,17 +17172,25 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             tableMapping.ColumnMappings.Add("PaymentStatus", "PaymentStatus");
             tableMapping.ColumnMappings.Add("ProofOfPayment", "ProofOfPayment");
             tableMapping.ColumnMappings.Add("SchoolYear", "SchoolYear");
+            tableMapping.ColumnMappings.Add("PaymentRN", "PaymentRN");
+            tableMapping.ColumnMappings.Add("ReceiptRN", "ReceiptRN");
+            tableMapping.ColumnMappings.Add("TransactionDate", "TransactionDate");
+            tableMapping.ColumnMappings.Add("TransactionNumber", "TransactionNumber");
+            tableMapping.ColumnMappings.Add("NotificationCount", "NotificationCount");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM StudentPayment\r\nWHERE        (StudentNumber = @StudentNumber) AND (Mo" +
-                "nthOfPayment = @MonthOfPayment)";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM StudentPayment\r\nWHERE        (SchoolYear = @SchoolYear) AND (PaymentC" +
+                "ode = @PaymentCode) AND (StudentNumber = @StudentNumber) AND (MonthOfPayment = @" +
+                "MonthOfPayment)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthOfPayment", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MonthOfPayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StudentPayment] ([PaymentCode], [PaymentMethod], [StudentNumber], [MonthOfPayment], [PaymentStatus], [ProofOfPayment], [SchoolYear]) VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @ProofOfPayment, @SchoolYear)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [StudentPayment] ([PaymentCode], [PaymentMethod], [StudentNumber], [MonthOfPayment], [PaymentStatus], [ProofOfPayment], [SchoolYear], [NotificationCount], [PaymentRN], [ReceiptRN], [TransactionDate], [TransactionNumber]) VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @ProofOfPayment, @SchoolYear, @NotificationCount, @PaymentRN, @ReceiptRN, @TransactionDate, @TransactionNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -16403,20 +17199,30 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NotificationCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NotificationCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReceiptRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReceiptRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE       StudentPayment
-SET                PaymentCode = @PaymentCode, PaymentMethod = @PaymentMethod, StudentNumber = @StudentNumber, MonthOfPayment = @MonthOfPayment, PaymentStatus = @PaymentStatus, ProofOfPayment = @ProofOfPayment, 
-                         PaymentReceipt = @PaymentReceipt
-WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPayment)";
+SET                SchoolYear = @SchoolYear, PaymentCode = @PaymentCode, PaymentMethod = @PaymentMethod, StudentNumber = @StudentNumber, MonthOfPayment = @MonthOfPayment, PaymentStatus = @PaymentStatus, 
+                         ProofOfPayment = @ProofOfPayment, PaymentRN = @PaymentRN, ReceiptRN = @ReceiptRN, TransactionDate = @TransactionDate, TransactionNumber = @TransactionNumber, NotificationCount = @NotificationCount
+WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPayment)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MonthOfPayment", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MonthOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentReceipt", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentReceipt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReceiptRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ReceiptRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionDate", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionNumber", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NotificationCount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NotificationCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16433,17 +17239,19 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, " +
-                "ProofOfPayment, SchoolYear FROM StudentPayment";
+                "ProofOfPayment, SchoolYear, NotificationCount, PaymentRN, ReceiptRN, Transaction" +
+                "Date, TransactionNumber FROM StudentPayment";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, " +
-                "ProofOfPayment, SchoolYear FROM StudentPayment WHERE (PaymentCode = @PaymentCode" +
-                ") OR (StudentNumber = @StudentNumber) OR (SchoolYear = @SchoolYear)";
+            this._commandCollection[1].CommandText = @"SELECT MonthOfPayment, NotificationCount, PaymentCode, PaymentMethod, PaymentRN, PaymentStatus, ProofOfPayment, ReceiptRN, SchoolYear, StudentNumber, TransactionDate, TransactionNumber FROM StudentPayment WHERE (PaymentCode = @PaymentCode) OR (StudentNumber = @StudentNumber) OR (SchoolYear = @SchoolYear) OR (PaymentRN = @PaymentRN) OR (ReceiptRN = @ReceiptRN) OR (TransactionNumber = @TransactionNumber)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReceiptRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ReceiptRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionNumber", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16474,7 +17282,7 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int Search(STU_DBDataSet.StudentPaymentDataTable dataTable, string PaymentCode, string StudentNumber, string SchoolYear) {
+        public virtual int Search(STU_DBDataSet.StudentPaymentDataTable dataTable, string PaymentCode, string StudentNumber, string SchoolYear, string PaymentRN, string ReceiptRN, string TransactionNumber) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((PaymentCode == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -16493,6 +17301,24 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(SchoolYear));
+            }
+            if ((PaymentRN == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(PaymentRN));
+            }
+            if ((ReceiptRN == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(ReceiptRN));
+            }
+            if ((TransactionNumber == null)) {
+                this.Adapter.SelectCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[5].Value = ((string)(TransactionNumber));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -16534,18 +17360,30 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string StudentNumber, string MonthOfPayment) {
-            if ((StudentNumber == null)) {
+        public virtual int Delete(string SchoolYear, string PaymentCode, string StudentNumber, string MonthOfPayment) {
+            if ((SchoolYear == null)) {
                 this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(StudentNumber));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(SchoolYear));
             }
-            if ((MonthOfPayment == null)) {
+            if ((PaymentCode == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(MonthOfPayment));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(PaymentCode));
+            }
+            if ((StudentNumber == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(StudentNumber));
+            }
+            if ((MonthOfPayment == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(MonthOfPayment));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -16567,7 +17405,7 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string SchoolYear) {
+        public virtual int Insert(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string SchoolYear, global::System.Nullable<int> NotificationCount, string PaymentRN, string ReceiptRN, string TransactionDate, string TransactionNumber) {
             if ((PaymentCode == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -16610,6 +17448,36 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(SchoolYear));
             }
+            if ((NotificationCount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(NotificationCount.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((PaymentRN == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(PaymentRN));
+            }
+            if ((ReceiptRN == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ReceiptRN));
+            }
+            if ((TransactionDate == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(TransactionDate));
+            }
+            if ((TransactionNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(TransactionNumber));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -16630,48 +17498,78 @@ WHERE        (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPaym
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, byte[] PaymentReceipt) {
-            if ((PaymentCode == null)) {
+        public virtual int Update(string SchoolYear, string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string PaymentRN, string ReceiptRN, string TransactionDate, string TransactionNumber, global::System.Nullable<int> NotificationCount) {
+            if ((SchoolYear == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(PaymentCode));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(SchoolYear));
             }
-            if ((PaymentMethod == null)) {
+            if ((PaymentCode == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(PaymentMethod));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(PaymentCode));
             }
-            if ((StudentNumber == null)) {
+            if ((PaymentMethod == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(StudentNumber));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(PaymentMethod));
             }
-            if ((MonthOfPayment == null)) {
+            if ((StudentNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(MonthOfPayment));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(StudentNumber));
             }
-            if ((PaymentStatus == null)) {
+            if ((MonthOfPayment == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(PaymentStatus));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(MonthOfPayment));
             }
-            if ((ProofOfPayment == null)) {
+            if ((PaymentStatus == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((byte[])(ProofOfPayment));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PaymentStatus));
             }
-            if ((PaymentReceipt == null)) {
+            if ((ProofOfPayment == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((byte[])(PaymentReceipt));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((byte[])(ProofOfPayment));
+            }
+            if ((PaymentRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(PaymentRN));
+            }
+            if ((ReceiptRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(ReceiptRN));
+            }
+            if ((TransactionDate == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(TransactionDate));
+            }
+            if ((TransactionNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(TransactionNumber));
+            }
+            if ((NotificationCount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(NotificationCount.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17549,6 +18447,277 @@ WHERE        (PaymentType = @PaymentType) OR
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class BillingReportTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public BillingReportTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "BillingReport";
+            tableMapping.ColumnMappings.Add("TransactionNumber", "TransactionNumber");
+            tableMapping.ColumnMappings.Add("StudentNumber", "StudentNumber");
+            tableMapping.ColumnMappings.Add("PaymentAmount", "PaymentAmount");
+            tableMapping.ColumnMappings.Add("TransactionDate", "TransactionDate");
+            tableMapping.ColumnMappings.Add("PaymentRN", "PaymentRN");
+            tableMapping.ColumnMappings.Add("ReceiptRN", "ReceiptRN");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[BillingReport] ([TransactionNumber], [StudentNumber], [Payment" +
+                "Amount], [TransactionDate], [PaymentRN], [ReceiptRN]) VALUES (@TransactionNumber" +
+                ", @StudentNumber, @PaymentAmount, @TransactionDate, @PaymentRN, @ReceiptRN)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentAmount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReceiptRN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReceiptRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::STUEnrollmentSystem.Properties.Settings.Default.STU_DBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT TransactionNumber, StudentNumber, PaymentAmount, TransactionDate, PaymentR" +
+                "N, ReceiptRN FROM dbo.BillingReport";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(STU_DBDataSet.BillingReportDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual STU_DBDataSet.BillingReportDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            STU_DBDataSet.BillingReportDataTable dataTable = new STU_DBDataSet.BillingReportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(STU_DBDataSet.BillingReportDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(STU_DBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "BillingReport");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string TransactionNumber, string StudentNumber, global::System.Nullable<int> PaymentAmount, string TransactionDate, string PaymentRN, string ReceiptRN) {
+            if ((TransactionNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(TransactionNumber));
+            }
+            if ((StudentNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(StudentNumber));
+            }
+            if ((PaymentAmount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(PaymentAmount.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((TransactionDate == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(TransactionDate));
+            }
+            if ((PaymentRN == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(PaymentRN));
+            }
+            if ((ReceiptRN == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ReceiptRN));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -17585,6 +18754,8 @@ WHERE        (PaymentType = @PaymentType) OR
         private UsersTableAdapter _usersTableAdapter;
         
         private PaymentTypeTableAdapter _paymentTypeTableAdapter;
+        
+        private BillingReportTableAdapter _billingReportTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -17785,6 +18956,20 @@ WHERE        (PaymentType = @PaymentType) OR
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public BillingReportTableAdapter BillingReportTableAdapter {
+            get {
+                return this._billingReportTableAdapter;
+            }
+            set {
+                this._billingReportTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -17854,6 +19039,10 @@ WHERE        (PaymentType = @PaymentType) OR
                             && (this._paymentTypeTableAdapter.Connection != null))) {
                     return this._paymentTypeTableAdapter.Connection;
                 }
+                if (((this._billingReportTableAdapter != null) 
+                            && (this._billingReportTableAdapter.Connection != null))) {
+                    return this._billingReportTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -17904,6 +19093,9 @@ WHERE        (PaymentType = @PaymentType) OR
                     count = (count + 1);
                 }
                 if ((this._paymentTypeTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._billingReportTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -18034,6 +19226,15 @@ WHERE        (PaymentType = @PaymentType) OR
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._billingReportTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BillingReport.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._billingReportTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -18148,6 +19349,14 @@ WHERE        (PaymentType = @PaymentType) OR
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._billingReportTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BillingReport.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._billingReportTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -18158,6 +19367,14 @@ WHERE        (PaymentType = @PaymentType) OR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(STU_DBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._billingReportTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BillingReport.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._billingReportTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._paymentTypeTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PaymentType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -18366,6 +19583,11 @@ WHERE        (PaymentType = @PaymentType) OR
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._billingReportTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._billingReportTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -18515,6 +19737,15 @@ WHERE        (PaymentType = @PaymentType) OR
                         adaptersWithAcceptChangesDuringUpdate.Add(this._paymentTypeTableAdapter.Adapter);
                     }
                 }
+                if ((this._billingReportTableAdapter != null)) {
+                    revertConnections.Add(this._billingReportTableAdapter, this._billingReportTableAdapter.Connection);
+                    this._billingReportTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._billingReportTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._billingReportTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._billingReportTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._billingReportTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -18624,6 +19855,10 @@ WHERE        (PaymentType = @PaymentType) OR
                 if ((this._paymentTypeTableAdapter != null)) {
                     this._paymentTypeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._paymentTypeTableAdapter]));
                     this._paymentTypeTableAdapter.Transaction = null;
+                }
+                if ((this._billingReportTableAdapter != null)) {
+                    this._billingReportTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._billingReportTableAdapter]));
+                    this._billingReportTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

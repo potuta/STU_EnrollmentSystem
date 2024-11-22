@@ -138,15 +138,6 @@ namespace STUEnrollmentSystem
                 {
                     hideRequirementButtons();
                 }
-
-                if (paymentStatusComboBox.Text.Equals("Paid"))
-                {
-                    viewPaymentReceiptButton.Visible = true;
-                }
-                else
-                {
-                    viewPaymentReceiptButton.Visible = false;
-                }
             }
             catch (KeyNotFoundException knfe)
             {
@@ -168,15 +159,7 @@ namespace STUEnrollmentSystem
                     paymentTypeLabel.Text = "Monthly";
                     remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
                     paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
-
-                    if (assignIntValueToMonth(monthlyPendingList.Keys.ElementAt(0)) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
-                    {
-                        notifyButton.Visible = true;
-                    }
-                    else
-                    {
-                        notifyButton.Visible = false;
-                    }
+                    showNotifyButton();
                 }
                 else if (paymentCodeComboBox.Text.Contains("F"))
                 {
@@ -193,6 +176,28 @@ namespace STUEnrollmentSystem
                 hideRequirementButtons();
                 notifyButton.Visible = false;
                 return;
+            }
+        }
+
+        private void showNotifyButton()
+        {
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
+            int notificationCount = _studentPaymentRepository.GetStudentNotificationCount(studentNumberTextBox.Text, paymentCodeComboBox.Text, schoolYearTextBox.Text, monthOfPaymentComboBox.Text);
+
+            if (notificationCount == 0)
+            {
+                if (assignIntValueToMonth(monthlyPendingList.Keys.ElementAt(0)) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
+                {
+                    notifyButton.Visible = true;
+                }
+                else
+                {
+                    notifyButton.Visible = false;
+                }
+            }
+            else
+            {
+                notifyButton.Visible = false;
             }
         }
 
@@ -323,7 +328,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, schoolYearToolStripComboBox.Text);
+                this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, schoolYearToolStripComboBox.Text, paymentRNToolStripTextBox.Text, receiptRNToolStripTextBox.Text, transactionNumberToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -333,12 +338,13 @@ namespace STUEnrollmentSystem
 
         private void notifyButton_Click(object sender, EventArgs e)
         {
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
             Dictionary<string, string> emails = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentEmail(studentNumberTextBox.Text);
+
             foreach (string email in emails.Keys)
             {
                 if (!emails[email].Equals(string.Empty))
                 {
-                    Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
                     string studentName = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentName(studentNumberTextBox.Text);
 
                     string studentEmail = emails[email];
@@ -358,6 +364,15 @@ namespace STUEnrollmentSystem
                 }
             }
 
+            _studentPaymentRepository.UpdateStudentNotificationCount(studentNumberTextBox.Text, paymentCodeComboBox.Text, schoolYearTextBox.Text, monthOfPaymentComboBox.Text);
+            foreach (string month in monthlyPendingList.Keys)
+            {
+                if (assignIntValueToMonth(month) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
+                {
+                    _studentPaymentRepository.UpdateStudentNotificationCount(studentNumberTextBox.Text, paymentCodeComboBox.Text, schoolYearTextBox.Text, month);
+                }
+            }
+
             MessageBox.Show("Email has been sent", "Email", MessageBoxButtons.OK);
         }
 
@@ -365,6 +380,87 @@ namespace STUEnrollmentSystem
         {
             frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeComboBox.Text, paymentMethodComboBox.Text, monthOfPaymentComboBox.Text, schoolYearTextBox.Text);
             frmPDFReceipt.Show();
+        }
+
+        private void paymentStatusComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (paymentStatusComboBox.Text.Equals("Paid"))
+            {
+                viewPaymentReceiptButton.Visible = true;
+
+                if (transactionNumberTextBox.Text.Equals(string.Empty) && transactionDateTextBox.Text.Equals(string.Empty) && receiptRNTextBox.Text.Equals(string.Empty))
+                {
+                    generateTransactionNumber();
+                    transactionDateTextBox.Text = DateTime.Now.ToShortDateString();
+                    generateReceiptRN();
+                    updateBillingReportButton();
+                }
+            }
+            else
+            {
+                viewPaymentReceiptButton.Visible = false;
+                transactionNumberTextBox.Clear();
+                transactionDateTextBox.Clear();
+                receiptRNTextBox.Clear();
+            }
+        }
+
+        private void generateReceiptRN()
+        {
+            string[] dateParts = DateTime.Now.ToShortDateString().Split('/');
+            string date = dateParts[0]+dateParts[1]+dateParts[2];
+            string receiptRN = $"STU01D{date}T{transactionNumberTextBox.Text}";
+            receiptRNTextBox.Text = receiptRN;
+        }
+
+        private void generateTransactionNumber()
+        {
+            int number = new BillingReportRepository(ConnectionFactory.GetConnectionString()).GenerateTransactionNumber();
+            transactionNumberTextBox.Text = number.ToString();
+        }
+
+        private void updateBillingReportButton()
+        {
+            if (paymentRNTextBox.Text.Equals(string.Empty)) 
+            {
+                addBillingReportButton.Enabled = false;
+                return;
+            }
+
+            bool isTransactionNumberExist = new BillingReportRepository(ConnectionFactory.GetConnectionString()).CheckIfTransactionNumberExists(transactionNumberTextBox.Text);
+
+            if (isTransactionNumberExist == true)
+            {
+                addBillingReportButton.Enabled = false;
+            }
+            else
+            {
+                addBillingReportButton.Enabled = true;
+            }
+        }
+
+        private void addBillingReportButton_Click(object sender, EventArgs e)
+        {
+            int totalPaymentAmount = _studentPaymentRepository.GetTotalPaymentAmountFromMonth(paymentCodeComboBox.Text, monthOfPaymentComboBox.Text);
+
+            var billingReportData = new Dictionary<string, object>()
+            {
+                {"TransactionNumber", transactionNumberTextBox.Text},
+                {"StudentNumber", studentNumberTextBox.Text},
+                {"PaymentAmount", totalPaymentAmount},
+                {"TransactionDate", transactionDateTextBox.Text},
+                {"PaymentRN", paymentRNTextBox.Text},
+                {"ReceiptRN", receiptRNTextBox.Text}
+            };
+
+            _studentPaymentRepository.InsertBillingReport(billingReportData);
+            studentPaymentBindingNavigatorSaveItem_Click(sender, e);
+            MessageBox.Show("Successfully added to billing report!", "Success", MessageBoxButtons.OK);
+        }
+
+        private void paymentRNTextBox_TextChanged(object sender, EventArgs e)
+        {
+            updateBillingReportButton();
         }
     }
 }
