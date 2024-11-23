@@ -50,8 +50,7 @@ namespace STUEnrollmentSystem
             }
             else if (sender == userProfileButton)
             {
-                // None yet
-                return;
+                openChildForm(new frmUserProfile());
             }
         }
     }

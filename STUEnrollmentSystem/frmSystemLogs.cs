@@ -44,6 +44,11 @@ namespace STUEnrollmentSystem
 
         private void searchToolStripButton_Click(object sender, EventArgs e)
         {
+            if (downloadButton.Enabled == true)
+            {
+                downloadButton.Enabled = false;
+            }
+
             if (Regex.IsMatch(yearTextBox.Text+monthTextBox.Text+dayTextBox.Text, ".*[a-zA-Z].*"))
             {
                 MessageBox.Show("Alphabet characters are invalid.", "Error", MessageBoxButtons.OK);
@@ -61,6 +66,8 @@ namespace STUEnrollmentSystem
                 MessageBox.Show("Month can't be greater than 12.", "Error", MessageBoxButtons.OK);
                 return;
             }
+
+            downloadButton.Enabled = true;
 
             try
             {

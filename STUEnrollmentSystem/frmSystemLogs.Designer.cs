@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSystemLogs));
             System.Windows.Forms.Label transactionNumberLabel;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSystemLogs));
             this.label1 = new System.Windows.Forms.Label();
             this.downloadButton = new System.Windows.Forms.Button();
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
@@ -52,6 +52,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.logsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.logsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,14 +63,13 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dayTextBox = new System.Windows.Forms.TextBox();
+            this.monthTextBox = new System.Windows.Forms.TextBox();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();
             this.timeStampToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.timeStampToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.yearTextBox = new System.Windows.Forms.TextBox();
-            this.monthTextBox = new System.Windows.Forms.TextBox();
-            this.dayTextBox = new System.Windows.Forms.TextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             transactionNumberLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -83,11 +83,38 @@
             this.searchToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
+            // transactionNumberLabel
+            // 
+            transactionNumberLabel.AutoSize = true;
+            transactionNumberLabel.Location = new System.Drawing.Point(35, 43);
+            transactionNumberLabel.Name = "transactionNumberLabel";
+            transactionNumberLabel.Size = new System.Drawing.Size(32, 13);
+            transactionNumberLabel.TabIndex = 13;
+            transactionNumberLabel.Text = "Year:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(35, 69);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(43, 13);
+            label2.TabIndex = 15;
+            label2.Text = "Month: ";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(35, 95);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(29, 13);
+            label3.TabIndex = 17;
+            label3.Text = "Day:";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Subway", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(390, 18);
+            this.label1.Location = new System.Drawing.Point(19, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 27);
             this.label1.TabIndex = 5;
@@ -96,6 +123,7 @@
             // downloadButton
             // 
             this.downloadButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.downloadButton.Enabled = false;
             this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.downloadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadButton.Location = new System.Drawing.Point(88, 165);
@@ -266,6 +294,16 @@
             this.logsBindingNavigatorSaveItem.Text = "Save Data";
             this.logsBindingNavigatorSaveItem.Click += new System.EventHandler(this.logsBindingNavigatorSaveItem_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(77, 22);
+            this.toolStripButton1.Text = "Refresh Data";
+            this.toolStripButton1.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
+            // 
             // logsDataGridView
             // 
             this.logsDataGridView.AutoGenerateColumns = false;
@@ -330,6 +368,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -352,6 +391,33 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(263, 697);
             this.panel2.TabIndex = 9;
+            // 
+            // dayTextBox
+            // 
+            this.dayTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dayTextBox.Location = new System.Drawing.Point(88, 93);
+            this.dayTextBox.Name = "dayTextBox";
+            this.dayTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dayTextBox.TabIndex = 16;
+            this.dayTextBox.TextChanged += new System.EventHandler(this.searchJoinDateTimeStamp_TextChanged);
+            // 
+            // monthTextBox
+            // 
+            this.monthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.monthTextBox.Location = new System.Drawing.Point(88, 67);
+            this.monthTextBox.Name = "monthTextBox";
+            this.monthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.monthTextBox.TabIndex = 14;
+            this.monthTextBox.TextChanged += new System.EventHandler(this.searchJoinDateTimeStamp_TextChanged);
+            // 
+            // yearTextBox
+            // 
+            this.yearTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.yearTextBox.Location = new System.Drawing.Point(88, 41);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(100, 20);
+            this.yearTextBox.TabIndex = 11;
+            this.yearTextBox.TextChanged += new System.EventHandler(this.searchJoinDateTimeStamp_TextChanged);
             // 
             // searchToolStrip
             // 
@@ -383,75 +449,13 @@
             // 
             // searchToolStripButton
             // 
+            this.searchToolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchToolStripButton.Name = "searchToolStripButton";
-            this.searchToolStripButton.Size = new System.Drawing.Size(61, 22);
+            this.searchToolStripButton.Size = new System.Drawing.Size(64, 22);
             this.searchToolStripButton.Text = "     Search";
             this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
-            // 
-            // yearTextBox
-            // 
-            this.yearTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.yearTextBox.Location = new System.Drawing.Point(88, 41);
-            this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(100, 20);
-            this.yearTextBox.TabIndex = 11;
-            this.yearTextBox.TextChanged += new System.EventHandler(this.searchJoinDateTimeStamp_TextChanged);
-            // 
-            // transactionNumberLabel
-            // 
-            transactionNumberLabel.AutoSize = true;
-            transactionNumberLabel.Location = new System.Drawing.Point(35, 43);
-            transactionNumberLabel.Name = "transactionNumberLabel";
-            transactionNumberLabel.Size = new System.Drawing.Size(32, 13);
-            transactionNumberLabel.TabIndex = 13;
-            transactionNumberLabel.Text = "Year:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(35, 69);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(43, 13);
-            label2.TabIndex = 15;
-            label2.Text = "Month: ";
-            // 
-            // monthTextBox
-            // 
-            this.monthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.monthTextBox.Location = new System.Drawing.Point(88, 67);
-            this.monthTextBox.Name = "monthTextBox";
-            this.monthTextBox.Size = new System.Drawing.Size(100, 20);
-            this.monthTextBox.TabIndex = 14;
-            this.monthTextBox.TextChanged += new System.EventHandler(this.searchJoinDateTimeStamp_TextChanged);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(35, 95);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(29, 13);
-            label3.TabIndex = 17;
-            label3.Text = "Day:";
-            // 
-            // dayTextBox
-            // 
-            this.dayTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dayTextBox.Location = new System.Drawing.Point(88, 93);
-            this.dayTextBox.Name = "dayTextBox";
-            this.dayTextBox.Size = new System.Drawing.Size(100, 20);
-            this.dayTextBox.TabIndex = 16;
-            this.dayTextBox.TextChanged += new System.EventHandler(this.searchJoinDateTimeStamp_TextChanged);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(77, 22);
-            this.toolStripButton1.Text = "Refresh Data";
-            this.toolStripButton1.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
             // frmSystemLogs
             // 

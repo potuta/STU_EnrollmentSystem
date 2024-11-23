@@ -30,6 +30,7 @@ namespace STUEnrollmentSystem
         {
             userLabel.Text = "User: " + frmLogin.Username;
             roleLabel.Text = "Role: " + frmLogin.Role;
+            openChildForm(new frmDashboardDisplay());
         }
 
         private void showSubPanel(Panel subPanel)
@@ -195,15 +196,13 @@ namespace STUEnrollmentSystem
                 // None yet
                 return;
             }
-            else if (sender == logoLabel)
+            else if (sender == logoButton)
             {
-                // None yet
-                return;
+                openChildForm(new frmDashboardDisplay());
             }
             else if (sender == homeButton)
             {
-                // None yet
-                return;
+                openChildForm(new frmDashboardDisplay());
             }
             else if (sender == settingsButton)
             {

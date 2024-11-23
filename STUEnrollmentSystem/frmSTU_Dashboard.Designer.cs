@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.userInfoPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.logoutButton = new System.Windows.Forms.Button();
+            this.userLabel = new System.Windows.Forms.Label();
+            this.facultySubPanel = new System.Windows.Forms.Panel();
+            this.usersButton = new System.Windows.Forms.Button();
+            this.teacherButton = new System.Windows.Forms.Button();
+            this.facultyButton = new System.Windows.Forms.Button();
             this.academicSubPanel = new System.Windows.Forms.Panel();
             this.gradeLevelButton = new System.Windows.Forms.Button();
             this.subjectButton = new System.Windows.Forms.Button();
@@ -36,7 +45,6 @@
             this.sectionButton = new System.Windows.Forms.Button();
             this.paymentTypeButton = new System.Windows.Forms.Button();
             this.feesButton = new System.Windows.Forms.Button();
-            this.facultyButton = new System.Windows.Forms.Button();
             this.academicButton = new System.Windows.Forms.Button();
             this.billingSubPanel = new System.Windows.Forms.Panel();
             this.billingReportButton = new System.Windows.Forms.Button();
@@ -51,28 +59,20 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.enrollmentButton = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.schoolYearLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.logoLabel = new System.Windows.Forms.Label();
-            this.userInfoPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.roleLabel = new System.Windows.Forms.Label();
-            this.logoutButton = new System.Windows.Forms.Button();
-            this.userLabel = new System.Windows.Forms.Label();
-            this.facultySubPanel = new System.Windows.Forms.Panel();
-            this.usersButton = new System.Windows.Forms.Button();
-            this.teacherButton = new System.Windows.Forms.Button();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.logoButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
+            this.userInfoPanel.SuspendLayout();
+            this.facultySubPanel.SuspendLayout();
             this.academicSubPanel.SuspendLayout();
             this.billingSubPanel.SuspendLayout();
             this.studentSubPanel.SuspendLayout();
             this.enrollmentSubPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
-            this.userInfoPanel.SuspendLayout();
-            this.facultySubPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -96,6 +96,127 @@
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(280, 558);
             this.sidePanel.TabIndex = 0;
+            // 
+            // userInfoPanel
+            // 
+            this.userInfoPanel.Controls.Add(this.label3);
+            this.userInfoPanel.Controls.Add(this.roleLabel);
+            this.userInfoPanel.Controls.Add(this.logoutButton);
+            this.userInfoPanel.Controls.Add(this.userLabel);
+            this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.userInfoPanel.Location = new System.Drawing.Point(0, 913);
+            this.userInfoPanel.Name = "userInfoPanel";
+            this.userInfoPanel.Size = new System.Drawing.Size(263, 97);
+            this.userInfoPanel.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Profile:";
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleLabel.Location = new System.Drawing.Point(14, 72);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(79, 12);
+            this.roleLabel.TabIndex = 8;
+            this.roleLabel.Text = "Role: ----------";
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.logoutButton.FlatAppearance.BorderSize = 2;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.Location = new System.Drawing.Point(178, 61);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(71, 23);
+            this.logoutButton.TabIndex = 7;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLabel.Location = new System.Drawing.Point(14, 47);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(78, 12);
+            this.userLabel.TabIndex = 1;
+            this.userLabel.Text = "User: ----------";
+            // 
+            // facultySubPanel
+            // 
+            this.facultySubPanel.Controls.Add(this.usersButton);
+            this.facultySubPanel.Controls.Add(this.teacherButton);
+            this.facultySubPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.facultySubPanel.Location = new System.Drawing.Point(0, 833);
+            this.facultySubPanel.Name = "facultySubPanel";
+            this.facultySubPanel.Size = new System.Drawing.Size(263, 80);
+            this.facultySubPanel.TabIndex = 2;
+            this.facultySubPanel.Visible = false;
+            // 
+            // usersButton
+            // 
+            this.usersButton.BackColor = System.Drawing.Color.Silver;
+            this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usersButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.usersButton.FlatAppearance.BorderSize = 2;
+            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersButton.Location = new System.Drawing.Point(0, 39);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.usersButton.Size = new System.Drawing.Size(263, 40);
+            this.usersButton.TabIndex = 6;
+            this.usersButton.Text = "↪ Users";
+            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.OnButtonClicked);
+            // 
+            // teacherButton
+            // 
+            this.teacherButton.BackColor = System.Drawing.Color.Silver;
+            this.teacherButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.teacherButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.teacherButton.FlatAppearance.BorderSize = 2;
+            this.teacherButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.teacherButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherButton.Location = new System.Drawing.Point(0, 0);
+            this.teacherButton.Name = "teacherButton";
+            this.teacherButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.teacherButton.Size = new System.Drawing.Size(263, 39);
+            this.teacherButton.TabIndex = 1;
+            this.teacherButton.Text = "↪ Teachers";
+            this.teacherButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.teacherButton.UseVisualStyleBackColor = false;
+            this.teacherButton.Click += new System.EventHandler(this.OnButtonClicked);
+            // 
+            // facultyButton
+            // 
+            this.facultyButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.facultyButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.facultyButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.facultyButton.FlatAppearance.BorderSize = 2;
+            this.facultyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.facultyButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facultyButton.Location = new System.Drawing.Point(0, 794);
+            this.facultyButton.Name = "facultyButton";
+            this.facultyButton.Size = new System.Drawing.Size(263, 39);
+            this.facultyButton.TabIndex = 2;
+            this.facultyButton.Text = "Faculty";
+            this.facultyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.facultyButton.UseVisualStyleBackColor = false;
+            this.facultyButton.Click += new System.EventHandler(this.facultyButton_Click);
             // 
             // academicSubPanel
             // 
@@ -219,23 +340,6 @@
             this.feesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.feesButton.UseVisualStyleBackColor = false;
             this.feesButton.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
-            // facultyButton
-            // 
-            this.facultyButton.BackColor = System.Drawing.Color.AliceBlue;
-            this.facultyButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.facultyButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.facultyButton.FlatAppearance.BorderSize = 2;
-            this.facultyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.facultyButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facultyButton.Location = new System.Drawing.Point(0, 794);
-            this.facultyButton.Name = "facultyButton";
-            this.facultyButton.Size = new System.Drawing.Size(263, 39);
-            this.facultyButton.TabIndex = 2;
-            this.facultyButton.Text = "Faculty";
-            this.facultyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.facultyButton.UseVisualStyleBackColor = false;
-            this.facultyButton.Click += new System.EventHandler(this.facultyButton_Click);
             // 
             // academicButton
             // 
@@ -448,29 +552,16 @@
             // 
             // logoPanel
             // 
+            this.logoPanel.Controls.Add(this.logoButton);
             this.logoPanel.Controls.Add(this.homeButton);
             this.logoPanel.Controls.Add(this.settingsButton);
             this.logoPanel.Controls.Add(this.schoolYearLabel);
             this.logoPanel.Controls.Add(this.label2);
-            this.logoPanel.Controls.Add(this.logoLabel);
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(263, 172);
             this.logoPanel.TabIndex = 0;
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.settings_982x1024;
-            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingsButton.FlatAppearance.BorderSize = 0;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Location = new System.Drawing.Point(246, 146);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(17, 16);
-            this.settingsButton.TabIndex = 3;
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // schoolYearLabel
             // 
@@ -492,121 +583,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "- Enrollment System -";
             // 
-            // logoLabel
-            // 
-            this.logoLabel.AutoSize = true;
-            this.logoLabel.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoLabel.Location = new System.Drawing.Point(70, 40);
-            this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(126, 54);
-            this.logoLabel.TabIndex = 0;
-            this.logoLabel.Text = "STU";
-            this.logoLabel.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
-            // userInfoPanel
-            // 
-            this.userInfoPanel.Controls.Add(this.label3);
-            this.userInfoPanel.Controls.Add(this.roleLabel);
-            this.userInfoPanel.Controls.Add(this.logoutButton);
-            this.userInfoPanel.Controls.Add(this.userLabel);
-            this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.userInfoPanel.Location = new System.Drawing.Point(0, 913);
-            this.userInfoPanel.Name = "userInfoPanel";
-            this.userInfoPanel.Size = new System.Drawing.Size(263, 97);
-            this.userInfoPanel.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 15);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Profile:";
-            // 
-            // roleLabel
-            // 
-            this.roleLabel.AutoSize = true;
-            this.roleLabel.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleLabel.Location = new System.Drawing.Point(14, 72);
-            this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(79, 12);
-            this.roleLabel.TabIndex = 8;
-            this.roleLabel.Text = "Role: ----------";
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.logoutButton.FlatAppearance.BorderSize = 2;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(178, 61);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(71, 23);
-            this.logoutButton.TabIndex = 7;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.UseVisualStyleBackColor = false;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
-            // userLabel
-            // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLabel.Location = new System.Drawing.Point(14, 47);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(78, 12);
-            this.userLabel.TabIndex = 1;
-            this.userLabel.Text = "User: ----------";
-            // 
-            // facultySubPanel
-            // 
-            this.facultySubPanel.Controls.Add(this.usersButton);
-            this.facultySubPanel.Controls.Add(this.teacherButton);
-            this.facultySubPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.facultySubPanel.Location = new System.Drawing.Point(0, 833);
-            this.facultySubPanel.Name = "facultySubPanel";
-            this.facultySubPanel.Size = new System.Drawing.Size(263, 80);
-            this.facultySubPanel.TabIndex = 2;
-            this.facultySubPanel.Visible = false;
-            // 
-            // usersButton
-            // 
-            this.usersButton.BackColor = System.Drawing.Color.Silver;
-            this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.usersButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.usersButton.FlatAppearance.BorderSize = 2;
-            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.Location = new System.Drawing.Point(0, 39);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.usersButton.Size = new System.Drawing.Size(263, 40);
-            this.usersButton.TabIndex = 6;
-            this.usersButton.Text = "↪ Users";
-            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
-            // teacherButton
-            // 
-            this.teacherButton.BackColor = System.Drawing.Color.Silver;
-            this.teacherButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.teacherButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.teacherButton.FlatAppearance.BorderSize = 2;
-            this.teacherButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.teacherButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherButton.Location = new System.Drawing.Point(0, 0);
-            this.teacherButton.Name = "teacherButton";
-            this.teacherButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.teacherButton.Size = new System.Drawing.Size(263, 39);
-            this.teacherButton.TabIndex = 1;
-            this.teacherButton.Text = "↪ Teachers";
-            this.teacherButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.teacherButton.UseVisualStyleBackColor = false;
-            this.teacherButton.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
             // panel_main
             // 
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -615,18 +591,47 @@
             this.panel_main.Size = new System.Drawing.Size(1084, 558);
             this.panel_main.TabIndex = 1;
             // 
+            // logoButton
+            // 
+            this.logoButton.BackColor = System.Drawing.Color.Transparent;
+            this.logoButton.FlatAppearance.BorderSize = 0;
+            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
+            this.logoButton.Location = new System.Drawing.Point(53, 30);
+            this.logoButton.Name = "logoButton";
+            this.logoButton.Size = new System.Drawing.Size(152, 70);
+            this.logoButton.TabIndex = 5;
+            this.logoButton.Text = "STU";
+            this.logoButton.UseVisualStyleBackColor = false;
+            this.logoButton.Click += new System.EventHandler(this.OnButtonClicked);
+            // 
             // homeButton
             // 
-            this.homeButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.settings_982x1024;
+            this.homeButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.pngwing_com;
             this.homeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.homeButton.FlatAppearance.BorderSize = 0;
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeButton.Location = new System.Drawing.Point(223, 146);
+            this.homeButton.Location = new System.Drawing.Point(220, 143);
             this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(17, 16);
+            this.homeButton.Size = new System.Drawing.Size(22, 20);
             this.homeButton.TabIndex = 4;
             this.homeButton.UseVisualStyleBackColor = true;
             this.homeButton.Click += new System.EventHandler(this.OnButtonClicked);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.settings_982x1024;
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingsButton.FlatAppearance.BorderSize = 0;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Location = new System.Drawing.Point(246, 146);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(17, 16);
+            this.settingsButton.TabIndex = 3;
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // frmSTU_Dashboard
             // 
@@ -641,15 +646,15 @@
             this.Text = "STU";
             this.Load += new System.EventHandler(this.STU_Dashboard_Load);
             this.sidePanel.ResumeLayout(false);
+            this.userInfoPanel.ResumeLayout(false);
+            this.userInfoPanel.PerformLayout();
+            this.facultySubPanel.ResumeLayout(false);
             this.academicSubPanel.ResumeLayout(false);
             this.billingSubPanel.ResumeLayout(false);
             this.studentSubPanel.ResumeLayout(false);
             this.enrollmentSubPanel.ResumeLayout(false);
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
-            this.userInfoPanel.ResumeLayout(false);
-            this.userInfoPanel.PerformLayout();
-            this.facultySubPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -677,7 +682,6 @@
         private System.Windows.Forms.Button paymentTypeButton;
         private System.Windows.Forms.Button pendingRequirementsButton;
         private System.Windows.Forms.Button usersButton;
-        private System.Windows.Forms.Label logoLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel userInfoPanel;
         private System.Windows.Forms.Label userLabel;
@@ -693,6 +697,7 @@
         private System.Windows.Forms.Button academicButton;
         private System.Windows.Forms.Button gradeLevelButton;
         private System.Windows.Forms.Button homeButton;
+        private System.Windows.Forms.Button logoButton;
     }
 }
 
