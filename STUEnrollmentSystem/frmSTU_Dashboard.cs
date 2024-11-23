@@ -108,6 +108,7 @@ namespace STUEnrollmentSystem
         {
             this.Hide();
             this.Close();
+            LoggingService.LogInformation($"User has logged out: UserID: {frmLogin.UserID} Username: {frmLogin.Username}");
         }
 
         private void enrollmentButton_Click(object sender, EventArgs e)

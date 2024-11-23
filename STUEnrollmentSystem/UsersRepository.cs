@@ -21,6 +21,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Verifying login attempt in VerifyUserLogin: UserID: {userID} Username: {username}");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@UserID", userID);
@@ -36,10 +37,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in VerifyUserLogin: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                LoggingService.LogError($"SQL Error in VerifyUserLogin. User not found or verified: UserID: {userID} Username: {username}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in VerifyUserLogin: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in VerifyUserLogin: User not found or verified: UserID: {userID} Username: {username}, {ex.Message}");
             }
             finally
             {
