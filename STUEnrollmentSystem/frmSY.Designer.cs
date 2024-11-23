@@ -86,7 +86,7 @@
             this.addSchoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.addSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSchoolYearButton.Location = new System.Drawing.Point(545, 21);
+            this.addSchoolYearButton.Location = new System.Drawing.Point(611, 21);
             this.addSchoolYearButton.Name = "addSchoolYearButton";
             this.addSchoolYearButton.Size = new System.Drawing.Size(75, 23);
             this.addSchoolYearButton.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.deleteSchoolYearButton.BackColor = System.Drawing.Color.LightCoral;
             this.deleteSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteSchoolYearButton.Location = new System.Drawing.Point(636, 21);
+            this.deleteSchoolYearButton.Location = new System.Drawing.Point(702, 21);
             this.deleteSchoolYearButton.Name = "deleteSchoolYearButton";
             this.deleteSchoolYearButton.Size = new System.Drawing.Size(84, 23);
             this.deleteSchoolYearButton.TabIndex = 5;
@@ -112,7 +112,7 @@
             this.selectSchoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.selectSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.selectSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectSchoolYearButton.Location = new System.Drawing.Point(385, 13);
+            this.selectSchoolYearButton.Location = new System.Drawing.Point(451, 13);
             this.selectSchoolYearButton.Name = "selectSchoolYearButton";
             this.selectSchoolYearButton.Size = new System.Drawing.Size(118, 40);
             this.selectSchoolYearButton.TabIndex = 6;
@@ -168,7 +168,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Candara Light", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(512, 11);
+            this.label3.Location = new System.Drawing.Point(578, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 42);
             this.label3.TabIndex = 12;

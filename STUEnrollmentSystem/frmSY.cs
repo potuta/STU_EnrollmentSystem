@@ -146,10 +146,12 @@ namespace STUEnrollmentSystem
                 {
                     if (ConnectionFactory.GetConnectionString() != ConnectionFactory.GetNewDestinationString(name))
                     {
+                        LoggingService.LogInformation($"Database selection attempt in selectSchoolYear: DBName: {name}");
                         Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
                         ConnectionFactory.SetConnectionString(databases[name]);
                         this.Enabled = false;
                         MessageBox.Show($"Successfully selected school year database '{name} ({schoolYearRadioButtonsList[name].Text})'", "Success", MessageBoxButtons.OK);
+                        LoggingService.LogInformation($"Database selection successful in selectSchoolYear: DBName: {name}");
                         this.Enabled = true;
                         break;
                     }
