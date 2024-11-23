@@ -46,8 +46,7 @@ namespace STUEnrollmentSystem
             }
             else if (sender == systemLogsButton)
             {
-                // None yet
-                return;
+                openChildForm(new frmSystemLogs());
             }
             else if (sender == userProfileButton)
             {

@@ -46,6 +46,7 @@ namespace STUEnrollmentSystem
                     STU.FormClosed += STU_FormClosed;
                     STU.Show();
                     this.Hide();
+                    LoggingService.LogInformation($"Successful login verification in VerifyUserLogin: UserID: {userID} Username: {username}");
                 }
                 else
                 {
