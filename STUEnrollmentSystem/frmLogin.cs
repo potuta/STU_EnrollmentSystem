@@ -33,7 +33,6 @@ namespace STUEnrollmentSystem
             this.AcceptButton = loginButton;
         }
 
-        private frmSTU_Dashboard STU;
         private void confirmUserLogin(string userID, string username, string password)
         {
             try
@@ -42,7 +41,7 @@ namespace STUEnrollmentSystem
                 if (isUserVerified == true)
                 {
                     InitializeUserLoginInfo(userID, username, password);
-                    STU = new frmSTU_Dashboard();
+                    frmSTU_Dashboard STU = new frmSTU_Dashboard();
                     STU.FormClosed += STU_FormClosed;
                     STU.Show();
                     this.Hide();
@@ -70,7 +69,6 @@ namespace STUEnrollmentSystem
 
         private void STU_FormClosed(object sender, FormClosedEventArgs e)
         {
-            STU.Dispose();
             userIDTextBox.Clear();
             usernameTextBox.Clear();
             passwordTextBox.Clear();
