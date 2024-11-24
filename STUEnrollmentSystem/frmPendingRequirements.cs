@@ -168,6 +168,12 @@ namespace STUEnrollmentSystem
                 hideRequirementButtons();
                 return;
             }
+            catch (NullReferenceException nfe)
+            {
+                _studentRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
         }
 
         private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)

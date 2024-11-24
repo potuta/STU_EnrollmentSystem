@@ -20,11 +20,6 @@ namespace STUEnrollmentSystem
 
         public Dictionary<string, bool> CheckPendingStudentsRequirements(string registerID)
         {
-            //if (_connection.State == ConnectionState.Open)
-            //{
-            //    _connection.Close();
-            //}
-
             Dictionary<string, bool> requirements = new Dictionary<string, bool>();
             string[] columns = { "StudForm137", "LRN", "GoodMoral", "BirthCertificate", "TransferCertificate", "ProofOfPayment", "PersonalEmail", "GuardianEmail"};
 
@@ -47,10 +42,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in CheckPendingStudentsRequirements: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                return requirements;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in CheckPendingStudentsRequirements: {ex.Message}");
+                return requirements;
             }
             finally
             {
@@ -70,6 +67,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Insert attempt in InsertStudents to Students table");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     foreach (var key in studentData.Keys)
@@ -84,10 +82,14 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in InsertStudents: {ex.Message}");
+                LoggingService.LogError($"SQL Error in InsertStudents: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in InsertStudents: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in InsertStudents: {ex.Message}");
+                return;
             }
             finally
             {
@@ -103,6 +105,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Insert attempt in InsertStudentPayment to StudentPayment table");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     foreach (var key in studentPaymentData.Keys)
@@ -120,10 +123,14 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in InsertStudentPayment: {ex.Message}");
+                LoggingService.LogError($"SQL Error in InsertStudentPayment: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in InsertStudentPayment: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in InsertStudentPayment: {ex.Message}");
+                return;
             }
             finally
             {
@@ -138,6 +145,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Deletion attempt in  DeletePendingStudents from PendingNewStudents table");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@RegisterID", registerId);
@@ -148,10 +156,14 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in DeletePendingStudents: {ex.Message}");
+                LoggingService.LogError($"SQL Error in DeletePendingStudents: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in DeletePendingStudents: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in DeletePendingStudents: {ex.Message}");
+                return;
             }
             finally
             {
@@ -178,10 +190,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UpdateRequirements: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UpdateRequirements: {ex.Message}");
+                return;
             }
             finally
             {
@@ -209,10 +223,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UpdateProofOfPayment: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UpdateProofOfPayment: {ex.Message}");
+                return;
             }
             finally
             {
@@ -237,10 +253,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UpdateProofOfPayment: {ex.Message}");
+                return studentCount;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UpdateProofOfPayment: {ex.Message}");
+                return studentCount;
             }
             finally
             {

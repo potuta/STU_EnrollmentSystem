@@ -38,10 +38,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in CheckRegistrationRequirements: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                return requirements;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in CheckRegistrationRequirements: {ex.Message}");
+                return requirements;
             }
             finally
             {
@@ -60,6 +62,7 @@ namespace STUEnrollmentSystem
                         "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)";
             try
             {
+                LoggingService.LogInformation($"Insert attempt in InsertPendingStudent to PendingNewStudents table.");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     foreach (var key in studentData.Keys)
@@ -73,10 +76,14 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in InsertPendingStudent: {ex.Message}");
+                LoggingService.LogError($"SQL Error in InsertPendingStudent: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in InsertPendingStudent: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in InsertPendingStudent: {ex.Message}");
+                return;
             }
             finally
             {
@@ -90,6 +97,7 @@ namespace STUEnrollmentSystem
             string query = "DELETE FROM Registration WHERE RegisterID = @RegisterID";
             try
             {
+                LoggingService.LogInformation($"Deletion attempt in DeleteRegistration from Registration table.");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@RegisterID", registerId);
@@ -100,10 +108,14 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in DeleteRegistration: {ex.Message}");
+                LoggingService.LogError($"SQL Error in DeleteRegistration: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in DeleteRegistration: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in DeleteRegistration: {ex.Message}");
+                return;
             }
             finally
             {
@@ -129,10 +141,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UpdateRequirements: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UpdateRequirements: {ex.Message}");
+                return;
             }
             finally
             {

@@ -146,6 +146,12 @@ namespace STUEnrollmentSystem
                 hideRequirementButtons();
                 return;
             }
+            catch (NullReferenceException nfe)
+            {
+                _studentPaymentRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
         }
 
         private void checkBalance()
@@ -173,6 +179,13 @@ namespace STUEnrollmentSystem
             {
                 _studentPaymentRepository.CloseConnection();
                 Console.WriteLine($"Unexpected error in checkBalance: {aoore.Message}");
+                hideRequirementButtons();
+                notifyButton.Visible = false;
+                return;
+            }
+            catch (NullReferenceException nfe)
+            {
+                _studentPaymentRepository.CloseConnection();
                 hideRequirementButtons();
                 notifyButton.Visible = false;
                 return;
@@ -458,6 +471,7 @@ namespace STUEnrollmentSystem
             _studentPaymentRepository.InsertBillingReport(billingReportData);
             studentPaymentBindingNavigatorSaveItem_Click(sender, e);
             MessageBox.Show("Successfully added to billing report!", "Success", MessageBoxButtons.OK);
+            LoggingService.LogInformation($"Insert successful in InsertBillingReport to BillingReport table");
         }
 
         private void paymentRNTextBox_TextChanged(object sender, EventArgs e)

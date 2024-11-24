@@ -18,7 +18,7 @@ namespace STUEnrollmentSystem
         {
             InitializeComponent();
             _billingReportRepository = new BillingReportRepository(ConnectionFactory.GetConnectionString());
-
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
         }
 
         private void billingReportBindingNavigatorSaveItem_Click(object sender, EventArgs e)

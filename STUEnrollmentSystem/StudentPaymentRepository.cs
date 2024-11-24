@@ -45,10 +45,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in CheckStudentPaymentRequirements: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                return requirements;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in CheckStudentPaymentRequirements: {ex.Message}");
+                return requirements;
             }
             finally
             {
@@ -85,10 +87,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in CheckMonthlyPendingPaymentStatus: {ex.Message}");
+                return columnDataList;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in CheckMonthlyPendingPaymentStatus: {ex.Message}");
+                return columnDataList;
             }
             finally
             {
@@ -121,10 +125,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPendingPaymentAmount;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPendingPaymentAmount;
             }
             finally
             {
@@ -153,10 +159,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPaymentAmount;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPaymentAmount;
             }
             finally
             {
@@ -198,10 +206,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in ViewImageFile: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in ViewImageFile: {ex.Message}");
+                return;
             }
             finally
             {
@@ -229,10 +239,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UploadFile: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UploadFile: {ex.Message}");
+                return;
             }
             finally
             {
@@ -259,10 +271,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in DeleteFile: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in DeleteFile: {ex.Message}");
+                return;
             }
             finally
             {
@@ -296,10 +310,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetColumnData: {ex.Message}");
+                return columnDataList;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetColumnData: {ex.Message}");
+                return columnDataList;
             }
             finally
             {
@@ -332,10 +348,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetStudentNotificationCount: {ex.Message}");
+                return count;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetStudentNotificationCount: {ex.Message}");
+                return count;
             }
             finally
             {
@@ -369,10 +387,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UpdateStudentNotificationCount: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UpdateStudentNotificationCount: {ex.Message}");
+                return;
             }
             finally
             {
@@ -388,6 +408,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Insert attempt in InsertBillingReport to BillingReport table");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     _connection.Open();
@@ -401,10 +422,14 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in InsertBillingReport: {ex.Message}");
+                LoggingService.LogError($"SQL Error in InsertBillingReport: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in InsertBillingReport: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in InsertBillingReport: {ex.Message}");
+                return;
             }
             finally
             {

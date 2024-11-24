@@ -154,6 +154,12 @@ namespace STUEnrollmentSystem
                 hideRequirementButtons();
                 return;
             }
+            catch (NullReferenceException nre)
+            {
+                _registrationRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
         }
 
         private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
@@ -233,10 +239,20 @@ namespace STUEnrollmentSystem
 
         private void registrationBindingNavigatorMoveToCashierItem_Click(object sender, EventArgs e)
         {
-            insertPendingStudents();
-            checkIsNullRequirements();
-            _registrationRepository.DeleteRegistration(registerIDTextBox.Text);
-            registrationBindingNavigatorRefreshItem_Click(sender, e);
+            try
+            {
+                insertPendingStudents();
+                checkIsNullRequirements();
+                _registrationRepository.DeleteRegistration(registerIDTextBox.Text);
+                registrationBindingNavigatorRefreshItem_Click(sender, e);
+                LoggingService.LogInformation($"Insert successful in InsertPendingStudent to PendingNewStudents table.");
+                LoggingService.LogInformation($"Deletion successful in DeleteRegistration from Registration table.");
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError($"Unexpected error in registrationBindingNavigatorMoveToCashierItem_Click: {ex.Message}");
+                return;
+            }
         }
 
         private void insertPendingStudents()
@@ -267,41 +283,50 @@ namespace STUEnrollmentSystem
 
         private void checkIsNullRequirements()
         {
-            var requirements = _registrationRepository.CheckRegistrationRequirements(registerIDTextBox.Text);
-
-            if (requirements["StudForm137"] == true)
+            try
             {
-                _registrationRepository.UpdateRequirements("PendingStudents", "StudForm137", registerIDTextBox.Text);
+                var requirements = _registrationRepository.CheckRegistrationRequirements(registerIDTextBox.Text);
+
+                if (requirements["StudForm137"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "StudForm137", registerIDTextBox.Text);
+                }
+
+                if (requirements["LRN"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "LRN", registerIDTextBox.Text);
+                }
+
+                if (requirements["BirthCertificate"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "BirthCertificate", registerIDTextBox.Text);
+                }
+
+                if (requirements["GoodMoral"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "GoodMoral", registerIDTextBox.Text);
+                }
+
+                if (requirements["TransferCertificate"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "TransferCertificate", registerIDTextBox.Text);
+                }
+
+                if (requirements["PersonalEmail"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "PersonalEmail", registerIDTextBox.Text);
+                }
+
+                if (requirements["GuardianEmail"] == true)
+                {
+                    _registrationRepository.UpdateRequirements("PendingStudents", "GuardianEmail", registerIDTextBox.Text);
+                }
             }
-
-            if (requirements["LRN"] == true)
+            catch (NullReferenceException nre)
             {
-                _registrationRepository.UpdateRequirements("PendingStudents", "LRN", registerIDTextBox.Text);
-            }
-
-            if (requirements["BirthCertificate"] == true)
-            {
-                _registrationRepository.UpdateRequirements("PendingStudents", "BirthCertificate", registerIDTextBox.Text);
-            }
-
-            if (requirements["GoodMoral"] == true)
-            {
-                _registrationRepository.UpdateRequirements("PendingStudents", "GoodMoral", registerIDTextBox.Text);
-            }
-
-            if (requirements["TransferCertificate"] == true)
-            {
-                _registrationRepository.UpdateRequirements("PendingStudents", "TransferCertificate", registerIDTextBox.Text);
-            }
-
-            if (requirements["PersonalEmail"] == true)
-            {
-                _registrationRepository.UpdateRequirements("PendingStudents", "PersonalEmail", registerIDTextBox.Text);
-            }
-
-            if (requirements["GuardianEmail"] == true)
-            {
-                _registrationRepository.UpdateRequirements("PendingStudents", "GuardianEmail", registerIDTextBox.Text);
+                _registrationRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
             }
         }
 

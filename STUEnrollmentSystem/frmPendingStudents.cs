@@ -176,6 +176,12 @@ namespace STUEnrollmentSystem
                 hideRequirementButtons();   
                 return;
             }
+            catch (NullReferenceException nre)
+            {
+                _pendingStudentsRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
         }
 
         private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
@@ -276,11 +282,22 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorEnrollStudentItem_Click(object sender, EventArgs e)
         {
-            insertStudents();
-            insertStudentPayment();
-            checkIsNullRequirements();
-            _pendingStudentsRepository.DeletePendingStudents(registerIDTextBox.Text);
-            bindingNavigatorRefreshItem_Click(sender, e);
+            try
+            {
+                insertStudents();
+                insertStudentPayment();
+                checkIsNullRequirements();
+                _pendingStudentsRepository.DeletePendingStudents(registerIDTextBox.Text);
+                bindingNavigatorRefreshItem_Click(sender, e);
+                LoggingService.LogInformation($"Insert successful in InsertStudents to Students table");
+                LoggingService.LogInformation($"Insert successful in InsertStudentPayment to StudentPayment table");
+                LoggingService.LogInformation($"Deletion successful in  DeletePendingStudents from PendingNewStudents table");
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError($"Unexpected error in bindingNavigatorEnrollStudentItem_Click: {ex.Message}");
+                return;
+            }
         }
 
         private void insertStudents()
@@ -379,48 +396,56 @@ namespace STUEnrollmentSystem
 
         private void checkIsNullRequirements()
         {
-            var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
-
-            if (requirements["StudForm137"] == true)
+            try
             {
-                _pendingStudentsRepository.UpdateRequirements("Students", "StudForm137", registerIDTextBox.Text);
-            }
+                var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
 
-            if (requirements["LRN"] == true)
+                if (requirements["StudForm137"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "StudForm137", registerIDTextBox.Text);
+                }
+
+                if (requirements["LRN"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "LRN", registerIDTextBox.Text);
+                }
+
+                if (requirements["BirthCertificate"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "BirthCertificate", registerIDTextBox.Text);
+                }
+
+                if (requirements["GoodMoral"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "GoodMoral", registerIDTextBox.Text);
+                }
+
+                if (requirements["TransferCertificate"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "TransferCertificate", registerIDTextBox.Text);
+                }
+
+                if (requirements["PersonalEmail"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "PersonalEmail", registerIDTextBox.Text);
+                }
+
+                if (requirements["GuardianEmail"] == true)
+                {
+                    _pendingStudentsRepository.UpdateRequirements("Students", "GuardianEmail", registerIDTextBox.Text);
+                }
+
+                if (requirements["ProofOfPayment"] == true)
+                {
+                    _pendingStudentsRepository.UpdateProofOfPayment("StudentPayment", "ProofOfPayment", registerIDTextBox.Text, studentNumberTextBox.Text, ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                }
+            }
+            catch (NullReferenceException nre)
             {
-                _pendingStudentsRepository.UpdateRequirements("Students", "LRN", registerIDTextBox.Text);
+                _pendingStudentsRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
             }
-
-            if (requirements["BirthCertificate"] == true)
-            {
-                _pendingStudentsRepository.UpdateRequirements("Students", "BirthCertificate", registerIDTextBox.Text);
-            }
-
-            if (requirements["GoodMoral"] == true)
-            {
-                _pendingStudentsRepository.UpdateRequirements("Students", "GoodMoral", registerIDTextBox.Text);
-            }
-
-            if (requirements["TransferCertificate"] == true)
-            {
-                _pendingStudentsRepository.UpdateRequirements("Students", "TransferCertificate", registerIDTextBox.Text);
-            }
-
-            if (requirements["PersonalEmail"] == true)
-            {
-                _pendingStudentsRepository.UpdateRequirements("Students", "PersonalEmail", registerIDTextBox.Text);
-            }
-
-            if (requirements["GuardianEmail"] == true)
-            {
-                _pendingStudentsRepository.UpdateRequirements("Students", "GuardianEmail", registerIDTextBox.Text);
-            }
-
-            if (requirements["ProofOfPayment"] == true)
-            {
-                _pendingStudentsRepository.UpdateProofOfPayment("StudentPayment", "ProofOfPayment", registerIDTextBox.Text, studentNumberTextBox.Text, ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-            }
-
         }
 
         private void generateStudNumButton_Click(object sender, EventArgs e)
