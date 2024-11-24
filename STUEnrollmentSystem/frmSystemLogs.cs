@@ -52,18 +52,21 @@ namespace STUEnrollmentSystem
             if (Regex.IsMatch(yearTextBox.Text+monthTextBox.Text+dayTextBox.Text, ".*[a-zA-Z].*"))
             {
                 MessageBox.Show("Alphabet characters are invalid.", "Error", MessageBoxButtons.OK);
+                downloadButton.Enabled = false;
                 return;
             }
             
             if (yearTextBox.Text.Equals(string.Empty) || monthTextBox.Text.Equals(string.Empty) || dayTextBox.Text.Equals(string.Empty))
             {
                 MessageBox.Show("Missing details, unable to search.", "Error", MessageBoxButtons.OK);
+                downloadButton.Enabled = false;
                 return;
             }
 
             if (Convert.ToInt32(monthTextBox.Text) > 12)
             {
                 MessageBox.Show("Month can't be greater than 12.", "Error", MessageBoxButtons.OK);
+                downloadButton.Enabled = false;
                 return;
             }
 
@@ -82,6 +85,11 @@ namespace STUEnrollmentSystem
 
         private void searchJoinDateTimeStamp_TextChanged(object sender, EventArgs e)
         {
+            if (downloadButton.Enabled == true)
+            {
+                downloadButton.Enabled = false;
+            }
+
             if (sender == yearTextBox || sender == monthTextBox || sender == dayTextBox)
             {
                 timeStampToolStripTextBox.Text = $"{yearTextBox.Text}-{monthTextBox.Text}-{dayTextBox.Text}";
@@ -129,6 +137,18 @@ namespace STUEnrollmentSystem
         private void downloadButton_Click(object sender, EventArgs e)
         {
             ExportLogsToTextFile();
+        }
+
+        private void downloadButton_EnabledChanged(object sender, EventArgs e)
+        {
+            if (downloadButton.Enabled == true)
+            {
+                downloadButton.BackColor = SystemColors.ActiveCaption;
+            }
+            else
+            {
+                downloadButton.BackColor = SystemColors.InactiveCaption;
+            }
         }
     }
 }

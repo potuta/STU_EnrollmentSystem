@@ -39,10 +39,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in CheckStudentRequirements: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                return requirements;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in CheckStudentRequirements: {ex.Message}");
+                return requirements;
             }
             finally
             {
@@ -76,10 +78,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetSectionsByGrade: {ex.Message}");
+                return sections;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetSectionsByGrade: {ex.Message}");
+                return sections;
             }
             finally
             {
@@ -110,10 +114,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetTotalEnrolledStudentsByGrade: {ex.Message}");
+                return dataTable;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetTotalEnrolledStudentsByGrade: {ex.Message}");
+                return dataTable;
             }
             finally
             {
@@ -147,10 +153,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetStudentEmail: {ex.Message}");
+                return emails;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetStudentEmail: {ex.Message}");
+                return emails;
             }
             finally
             {
@@ -190,10 +198,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetStudentName: {ex.Message}");
+                return null;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetStudentName: {ex.Message}");
+                return null;
             }
             finally
             {
@@ -222,11 +232,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetStudentSection: {ex.Message}");
+                return section;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetStudentSection: {ex.Message}");
-                return string.Empty;
+                return section;
             }
             finally
             {

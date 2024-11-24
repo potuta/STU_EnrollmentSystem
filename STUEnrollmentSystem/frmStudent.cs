@@ -142,10 +142,19 @@ namespace STUEnrollmentSystem
 
         private void InitializeSectionCB()
         {
-            string gradeCode = getGradeCode(enrollmentTypeComboBox.Text);
-            List<string> sections = _studentRepository.GetSectionsByGrade(gradeCode);
-            sectionComboBox.Items.Clear();
-            sectionComboBox.Items.AddRange(sections.ToArray());
+            try
+            {
+                string gradeCode = getGradeCode(enrollmentTypeComboBox.Text);
+                List<string> sections = _studentRepository.GetSectionsByGrade(gradeCode);
+                sectionComboBox.Items.Clear();
+                sectionComboBox.Items.AddRange(sections.ToArray());
+            }
+            catch (NullReferenceException nfe)
+            {
+                _studentRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
         }
 
         private string getGradeCode(string enrollmentType)
@@ -191,6 +200,12 @@ namespace STUEnrollmentSystem
 
             }
             catch (KeyNotFoundException knfe)
+            {
+                _studentRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
+            catch (NullReferenceException nre)
             {
                 _studentRepository.CloseConnection();
                 hideRequirementButtons();

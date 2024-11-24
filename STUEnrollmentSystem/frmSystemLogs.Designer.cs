@@ -122,7 +122,7 @@
             // 
             // downloadButton
             // 
-            this.downloadButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.downloadButton.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.downloadButton.Enabled = false;
             this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.downloadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,6 +132,7 @@
             this.downloadButton.TabIndex = 6;
             this.downloadButton.Text = "Download";
             this.downloadButton.UseVisualStyleBackColor = false;
+            this.downloadButton.EnabledChanged += new System.EventHandler(this.downloadButton_EnabledChanged);
             this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // sTU_DBDataSet
