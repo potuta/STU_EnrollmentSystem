@@ -324,7 +324,7 @@ namespace STUEnrollmentSystem
                 {"FatherLastName", fatherLastNameTextBox.Text},
                 {"FatherOccupation", fatherOccupationTextBox.Text}
             };
-            _pendingStudentsRepository.InsertStudents(studentData);
+            new StudentRepository(ConnectionFactory.GetConnectionString()).InsertStudents(studentData);
         }
 
         private void insertStudentPayment()
@@ -339,24 +339,24 @@ namespace STUEnrollmentSystem
 
             if (paymentTypeComboBox.Text.Equals("Monthly"))
             {
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
             else if (paymentTypeComboBox.Text.Equals("Full"))
             {
-                _pendingStudentsRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
         }
 
-        private string getPaymentCode(string paymentType, string enrollmentType)
+        public static string getPaymentCode(string paymentType, string enrollmentType)
         {
             string paymentCode = string.Empty;
             if (paymentType.Equals("Monthly") && enrollmentType.Equals("Grade 7"))

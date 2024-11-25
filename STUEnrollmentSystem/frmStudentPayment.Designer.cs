@@ -44,12 +44,12 @@
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.schoolYearToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.paymentCodeToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.paymentCodeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.studentNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.studentNumberToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.schoolYearToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.paymentRNToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -101,6 +101,13 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentPaymentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.addReturningStudentToolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.addReturningStudentToolStripStudentNumberComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.addReturningStudentToolStripPaymentTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.addReturningStudentToolStripEnrollmentTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.addReturningStudentToolStripInsertMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentPaymentDataGridView = new System.Windows.Forms.DataGridView();
             this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -267,12 +274,12 @@
             this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.schoolYearToolStripComboBox,
             this.paymentCodeToolStripLabel,
             this.paymentCodeToolStripComboBox,
             this.studentNumberToolStripLabel,
             this.studentNumberToolStripComboBox,
-            this.toolStripLabel1,
-            this.schoolYearToolStripComboBox,
             this.toolStripLabel2,
             this.paymentRNToolStripTextBox,
             this.toolStripLabel3,
@@ -283,16 +290,29 @@
             this.searchToolStrip.Location = new System.Drawing.Point(15, 46);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(1237, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(1240, 25);
             this.searchToolStrip.TabIndex = 16;
             this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(71, 22);
+            this.toolStripLabel1.Text = "School Year:";
+            // 
+            // schoolYearToolStripComboBox
+            // 
+            this.schoolYearToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.schoolYearToolStripComboBox.Name = "schoolYearToolStripComboBox";
+            this.schoolYearToolStripComboBox.Size = new System.Drawing.Size(100, 25);
+            this.schoolYearToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
             // paymentCodeToolStripLabel
             // 
             this.paymentCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
             this.paymentCodeToolStripLabel.Name = "paymentCodeToolStripLabel";
-            this.paymentCodeToolStripLabel.Size = new System.Drawing.Size(88, 22);
-            this.paymentCodeToolStripLabel.Text = "Payment Code:";
+            this.paymentCodeToolStripLabel.Size = new System.Drawing.Size(103, 22);
+            this.paymentCodeToolStripLabel.Text = "     Payment Code:";
             // 
             // paymentCodeToolStripComboBox
             // 
@@ -315,19 +335,6 @@
             this.studentNumberToolStripComboBox.Size = new System.Drawing.Size(100, 25);
             this.studentNumberToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(83, 22);
-            this.toolStripLabel1.Text = "    School Year:";
-            // 
-            // schoolYearToolStripComboBox
-            // 
-            this.schoolYearToolStripComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.schoolYearToolStripComboBox.Name = "schoolYearToolStripComboBox";
-            this.schoolYearToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-            this.schoolYearToolStripComboBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
-            // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
@@ -337,7 +344,6 @@
             // paymentRNToolStripTextBox
             // 
             this.paymentRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paymentRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.paymentRNToolStripTextBox.Name = "paymentRNToolStripTextBox";
             this.paymentRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             this.paymentRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
@@ -351,7 +357,6 @@
             // receiptRNToolStripTextBox
             // 
             this.receiptRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.receiptRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.receiptRNToolStripTextBox.Name = "receiptRNToolStripTextBox";
             this.receiptRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             this.receiptRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
@@ -365,7 +370,6 @@
             // transactionNumberToolStripTextBox
             // 
             this.transactionNumberToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.transactionNumberToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.transactionNumberToolStripTextBox.Name = "transactionNumberToolStripTextBox";
             this.transactionNumberToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             this.transactionNumberToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
@@ -741,7 +745,9 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.studentPaymentBindingNavigatorSaveItem,
-            this.bindingNavigatorRefreshItem});
+            this.bindingNavigatorRefreshItem,
+            this.toolStripSeparator1,
+            this.addReturningStudentToolStripDropDownButton});
             this.studentPaymentBindingNavigator.Location = new System.Drawing.Point(361, 132);
             this.studentPaymentBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentPaymentBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -805,7 +811,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -857,6 +862,70 @@
             this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // addReturningStudentToolStripDropDownButton
+            // 
+            this.addReturningStudentToolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addReturningStudentToolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addReturningStudentToolStripStudentNumberComboBox,
+            this.addReturningStudentToolStripPaymentTypeComboBox,
+            this.addReturningStudentToolStripEnrollmentTypeComboBox,
+            this.toolStripSeparator2,
+            this.addReturningStudentToolStripInsertMenuItem});
+            this.addReturningStudentToolStripDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("addReturningStudentToolStripDropDownButton.Image")));
+            this.addReturningStudentToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addReturningStudentToolStripDropDownButton.Name = "addReturningStudentToolStripDropDownButton";
+            this.addReturningStudentToolStripDropDownButton.Size = new System.Drawing.Size(141, 22);
+            this.addReturningStudentToolStripDropDownButton.Text = "Add Returning Student";
+            this.addReturningStudentToolStripDropDownButton.Click += new System.EventHandler(this.addReturningStudentToolStripDropDownButton_Click);
+            // 
+            // addReturningStudentToolStripStudentNumberComboBox
+            // 
+            this.addReturningStudentToolStripStudentNumberComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.addReturningStudentToolStripStudentNumberComboBox.Name = "addReturningStudentToolStripStudentNumberComboBox";
+            this.addReturningStudentToolStripStudentNumberComboBox.Size = new System.Drawing.Size(121, 23);
+            // 
+            // addReturningStudentToolStripPaymentTypeComboBox
+            // 
+            this.addReturningStudentToolStripPaymentTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.addReturningStudentToolStripPaymentTypeComboBox.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.addReturningStudentToolStripPaymentTypeComboBox.Name = "addReturningStudentToolStripPaymentTypeComboBox";
+            this.addReturningStudentToolStripPaymentTypeComboBox.Size = new System.Drawing.Size(121, 23);
+            // 
+            // addReturningStudentToolStripEnrollmentTypeComboBox
+            // 
+            this.addReturningStudentToolStripEnrollmentTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.addReturningStudentToolStripEnrollmentTypeComboBox.Items.AddRange(new object[] {
+            "Grade 7",
+            "Grade 8",
+            "Grade 9",
+            "Grade 10"});
+            this.addReturningStudentToolStripEnrollmentTypeComboBox.Name = "addReturningStudentToolStripEnrollmentTypeComboBox";
+            this.addReturningStudentToolStripEnrollmentTypeComboBox.Size = new System.Drawing.Size(121, 23);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            // 
+            // addReturningStudentToolStripInsertMenuItem
+            // 
+            this.addReturningStudentToolStripInsertMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.addReturningStudentToolStripInsertMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addReturningStudentToolStripInsertMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addReturningStudentToolStripInsertMenuItem.Name = "addReturningStudentToolStripInsertMenuItem";
+            this.addReturningStudentToolStripInsertMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addReturningStudentToolStripInsertMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.addReturningStudentToolStripInsertMenuItem.Text = "Insert";
+            this.addReturningStudentToolStripInsertMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.addReturningStudentToolStripInsertMenuItem.Click += new System.EventHandler(this.addReturningStudentToolStripInsertMenuItem_Click);
             // 
             // studentPaymentDataGridView
             // 
@@ -981,6 +1050,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.BillingReportTableAdapter = null;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
             this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
@@ -1105,5 +1175,12 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripTextBox transactionNumberToolStripTextBox;
         private System.Windows.Forms.Button addBillingReportButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripDropDownButton addReturningStudentToolStripDropDownButton;
+        private System.Windows.Forms.ToolStripComboBox addReturningStudentToolStripStudentNumberComboBox;
+        private System.Windows.Forms.ToolStripComboBox addReturningStudentToolStripPaymentTypeComboBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem addReturningStudentToolStripInsertMenuItem;
+        private System.Windows.Forms.ToolStripComboBox addReturningStudentToolStripEnrollmentTypeComboBox;
     }
 }

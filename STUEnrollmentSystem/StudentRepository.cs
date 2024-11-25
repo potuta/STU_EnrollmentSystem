@@ -247,5 +247,45 @@ namespace STUEnrollmentSystem
 
             return section;
         }
+
+        public void InsertStudents(Dictionary<string, object> studentData)
+        {
+            string query = "INSERT INTO Students (RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, PaymentType, " +
+                        "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) " +
+                        "VALUES (@RegisterID, @StudentNumber, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentStatus, @EnrollmentType, @PaymentType, " +
+                        "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)";
+
+            try
+            {
+                LoggingService.LogInformation($"Insert attempt in InsertStudents to Students table");
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    foreach (var key in studentData.Keys)
+                    {
+                        command.Parameters.AddWithValue($"@{key}", studentData[key]);
+                    }
+
+                    _connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in InsertStudents: {ex.Message}");
+                LoggingService.LogError($"SQL Error in InsertStudents: {ex.Message}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in InsertStudents: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in InsertStudents: {ex.Message}");
+                return;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+        }
     }
 }

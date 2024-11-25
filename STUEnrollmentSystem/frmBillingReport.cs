@@ -33,14 +33,12 @@ namespace STUEnrollmentSystem
         {
             this.billingReportTableAdapter.Fill(this.sTU_DBDataSet.BillingReport);
             searchPanel.Visible = false;
-            InitializeSearchComboBoxes();
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
             this.billingReportTableAdapter.Update(this.sTU_DBDataSet);
             this.billingReportTableAdapter.Fill(this.sTU_DBDataSet.BillingReport);
-            InitializeSearchComboBoxes();
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
@@ -57,9 +55,19 @@ namespace STUEnrollmentSystem
             }
         }
 
-        private void InitializeSearchComboBoxes()
+        private void OnSearchToolStripTextChanged(object sender, EventArgs e) => searchBillingReport();
+        private void searchToolStripButton_Click(object sender, EventArgs e) => searchBillingReport();
+        
+        private void searchBillingReport()
         {
-            
+            try
+            {
+                this.billingReportTableAdapter.Search(this.sTU_DBDataSet.BillingReport, paymentRNToolStripTextBox.Text, receiptRNToolStripTextBox.Text);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
     }
 }
