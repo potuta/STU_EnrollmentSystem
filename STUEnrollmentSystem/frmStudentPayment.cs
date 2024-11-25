@@ -64,7 +64,15 @@ namespace STUEnrollmentSystem
             List<string> studentNumList = _studentPaymentRepository.GetColumnData("StudentPayment", "StudentNumber");
             studentNumList.Sort();
             studentNumberToolStripComboBox.Items.Clear();
-            studentNumberToolStripComboBox.Items.AddRange(studentNumList.ToArray());
+            addReturningStudentToolStripStudentNumberComboBox.Items.Clear();
+            foreach (string items in studentNumList)
+            {
+                if (!studentNumberToolStripComboBox.Items.Contains(items))
+                {
+                    studentNumberToolStripComboBox.Items.Add(items);
+                    addReturningStudentToolStripStudentNumberComboBox.Items.Add(items);
+                }
+            }
         }
 
         private void InitializeSearchPaymentCodeCB()
@@ -101,6 +109,7 @@ namespace STUEnrollmentSystem
             this.studentPaymentTableAdapter.Fill(sTU_DBDataSet.StudentPayment);
             InitializeSearchComboBoxes();
         }
+
 
         private void studentPaymentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -341,6 +350,12 @@ namespace STUEnrollmentSystem
         {
             try
             {
+                if (!paymentCodeToolStripComboBox.Text.Equals(string.Empty) && !studentNumberToolStripComboBox.Text.Equals(string.Empty) && !schoolYearToolStripComboBox.Text.Equals(string.Empty))
+                {
+                    this.studentPaymentTableAdapter.Search2(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, schoolYearToolStripComboBox.Text);
+                    return;
+                }
+
                 this.studentPaymentTableAdapter.Search(this.sTU_DBDataSet.StudentPayment, paymentCodeToolStripComboBox.Text, studentNumberToolStripComboBox.Text, schoolYearToolStripComboBox.Text, paymentRNToolStripTextBox.Text, receiptRNToolStripTextBox.Text, transactionNumberToolStripTextBox.Text);
             }
             catch (System.Exception ex)
@@ -436,21 +451,31 @@ namespace STUEnrollmentSystem
 
         private void updateBillingReportButton()
         {
-            if (paymentRNTextBox.Text.Equals(string.Empty)) 
+            try
             {
-                addBillingReportButton.Enabled = false;
+                if (paymentRNTextBox.Text.Equals(string.Empty)) 
+                {
+                    if (addBillingReportButton.Enabled == true)
+                    {
+                        addBillingReportButton.Enabled = false;
+                    }
+                    return;
+                }
+
+                bool isTransactionNumberExist = new BillingReportRepository(ConnectionFactory.GetConnectionString()).CheckIfTransactionNumberExists(transactionNumberTextBox.Text);
+
+                if (isTransactionNumberExist == true)
+                {
+                    addBillingReportButton.Enabled = false;
+                }
+                else
+                {
+                    addBillingReportButton.Enabled = true;
+                }
+            }
+            catch (IndexOutOfRangeException ioore)
+            {
                 return;
-            }
-
-            bool isTransactionNumberExist = new BillingReportRepository(ConnectionFactory.GetConnectionString()).CheckIfTransactionNumberExists(transactionNumberTextBox.Text);
-
-            if (isTransactionNumberExist == true)
-            {
-                addBillingReportButton.Enabled = false;
-            }
-            else
-            {
-                addBillingReportButton.Enabled = true;
             }
         }
 
@@ -469,7 +494,7 @@ namespace STUEnrollmentSystem
             };
 
             _studentPaymentRepository.InsertBillingReport(billingReportData);
-            studentPaymentBindingNavigatorSaveItem_Click(sender, e);
+            studentPaymentBindingNavigatorSaveItem.PerformClick();
             MessageBox.Show("Successfully added to billing report!", "Success", MessageBoxButtons.OK);
             LoggingService.LogInformation($"Insert successful in InsertBillingReport to BillingReport table");
         }
@@ -477,6 +502,42 @@ namespace STUEnrollmentSystem
         private void paymentRNTextBox_TextChanged(object sender, EventArgs e)
         {
             updateBillingReportButton();
+        }
+
+        private void addReturningStudentToolStripDropDownButton_Click(object sender, EventArgs e)
+        {
+            InitializeSearchStudentNumCB();
+        }
+
+        private void addReturningStudentToolStripInsertMenuItem_Click(object sender, EventArgs e)
+        {
+            string paymentCode = frmPendingStudents.getPaymentCode(addReturningStudentToolStripPaymentTypeComboBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text);
+            var studentPaymentData = new Dictionary<string, object>
+            {
+                {"PaymentCode", paymentCode},
+                {"PaymentMethod", paymentMethodComboBox.Text},
+                {"StudentNumber", studentNumberTextBox.Text}
+            };
+
+            if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Monthly"))
+            {
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+            }
+            else if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Full"))
+            {
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+            }
+
+            bindingNavigatorRefreshItem.PerformClick();
         }
     }
 }
