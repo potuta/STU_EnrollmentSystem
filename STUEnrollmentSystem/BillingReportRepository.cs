@@ -79,5 +79,37 @@ namespace STUEnrollmentSystem
 
             return result;
         }
+
+        public DataTable GetTotalEarningsAsDataTable()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT SUM(PaymentAmount) AS 'Total Earnings' FROM BillingReport";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTotalEarningsAsDataTable: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTotalEarningsAsDataTable: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }
