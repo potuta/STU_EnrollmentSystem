@@ -80,5 +80,37 @@ namespace STUEnrollmentSystem
 
             return dictionary;
         }
+
+        public DataTable GetTotalTeachersAsDataTable()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT COUNT(*) AS 'Total Teachers' FROM Teachers";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTotalTeachersAsDataTable: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTotalTeachersAsDataTable: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }

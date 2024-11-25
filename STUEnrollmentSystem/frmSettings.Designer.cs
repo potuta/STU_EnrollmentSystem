@@ -57,7 +57,7 @@
             this.schoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.schoolYearButton.Location = new System.Drawing.Point(187, 0);
             this.schoolYearButton.Name = "schoolYearButton";
-            this.schoolYearButton.Size = new System.Drawing.Size(133, 45);
+            this.schoolYearButton.Size = new System.Drawing.Size(133, 47);
             this.schoolYearButton.TabIndex = 7;
             this.schoolYearButton.Text = "School Year";
             this.schoolYearButton.UseVisualStyleBackColor = false;
@@ -66,7 +66,6 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelHeader.Controls.Add(this.userProfileButton);
             this.panelHeader.Controls.Add(this.systemLogsButton);
             this.panelHeader.Controls.Add(this.schoolYearButton);
@@ -85,7 +84,7 @@
             this.userProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userProfileButton.Location = new System.Drawing.Point(453, 0);
             this.userProfileButton.Name = "userProfileButton";
-            this.userProfileButton.Size = new System.Drawing.Size(133, 45);
+            this.userProfileButton.Size = new System.Drawing.Size(133, 47);
             this.userProfileButton.TabIndex = 11;
             this.userProfileButton.Text = "User Profile";
             this.userProfileButton.UseVisualStyleBackColor = false;
@@ -99,7 +98,7 @@
             this.systemLogsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemLogsButton.Location = new System.Drawing.Point(320, 0);
             this.systemLogsButton.Name = "systemLogsButton";
-            this.systemLogsButton.Size = new System.Drawing.Size(133, 45);
+            this.systemLogsButton.Size = new System.Drawing.Size(133, 47);
             this.systemLogsButton.TabIndex = 10;
             this.systemLogsButton.Text = "System Logs";
             this.systemLogsButton.UseVisualStyleBackColor = false;
@@ -111,7 +110,7 @@
             this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.settingsPanel.Location = new System.Drawing.Point(0, 0);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(187, 45);
+            this.settingsPanel.Size = new System.Drawing.Size(187, 47);
             this.settingsPanel.TabIndex = 9;
             // 
             // panelMain

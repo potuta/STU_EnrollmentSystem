@@ -59,12 +59,12 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.enrollmentButton = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.schoolYearLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel_main = new System.Windows.Forms.Panel();
             this.logoButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.schoolYearLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel_main = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
             this.userInfoPanel.SuspendLayout();
             this.facultySubPanel.SuspendLayout();
@@ -79,6 +79,7 @@
             // 
             this.sidePanel.AutoScroll = true;
             this.sidePanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.sidePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sidePanel.Controls.Add(this.userInfoPanel);
             this.sidePanel.Controls.Add(this.facultySubPanel);
             this.sidePanel.Controls.Add(this.facultyButton);
@@ -106,7 +107,7 @@
             this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.userInfoPanel.Location = new System.Drawing.Point(0, 913);
             this.userInfoPanel.Name = "userInfoPanel";
-            this.userInfoPanel.Size = new System.Drawing.Size(263, 97);
+            this.userInfoPanel.Size = new System.Drawing.Size(261, 97);
             this.userInfoPanel.TabIndex = 1;
             // 
             // label3
@@ -161,7 +162,7 @@
             this.facultySubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.facultySubPanel.Location = new System.Drawing.Point(0, 833);
             this.facultySubPanel.Name = "facultySubPanel";
-            this.facultySubPanel.Size = new System.Drawing.Size(263, 80);
+            this.facultySubPanel.Size = new System.Drawing.Size(261, 80);
             this.facultySubPanel.TabIndex = 2;
             this.facultySubPanel.Visible = false;
             // 
@@ -176,7 +177,7 @@
             this.usersButton.Location = new System.Drawing.Point(0, 39);
             this.usersButton.Name = "usersButton";
             this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.usersButton.Size = new System.Drawing.Size(263, 40);
+            this.usersButton.Size = new System.Drawing.Size(261, 40);
             this.usersButton.TabIndex = 6;
             this.usersButton.Text = "↪ Users";
             this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,7 +195,7 @@
             this.teacherButton.Location = new System.Drawing.Point(0, 0);
             this.teacherButton.Name = "teacherButton";
             this.teacherButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.teacherButton.Size = new System.Drawing.Size(263, 39);
+            this.teacherButton.Size = new System.Drawing.Size(261, 39);
             this.teacherButton.TabIndex = 1;
             this.teacherButton.Text = "↪ Teachers";
             this.teacherButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,7 +212,7 @@
             this.facultyButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.facultyButton.Location = new System.Drawing.Point(0, 794);
             this.facultyButton.Name = "facultyButton";
-            this.facultyButton.Size = new System.Drawing.Size(263, 39);
+            this.facultyButton.Size = new System.Drawing.Size(261, 39);
             this.facultyButton.TabIndex = 2;
             this.facultyButton.Text = "Faculty";
             this.facultyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,7 +230,7 @@
             this.academicSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.academicSubPanel.Location = new System.Drawing.Point(0, 559);
             this.academicSubPanel.Name = "academicSubPanel";
-            this.academicSubPanel.Size = new System.Drawing.Size(263, 235);
+            this.academicSubPanel.Size = new System.Drawing.Size(261, 235);
             this.academicSubPanel.TabIndex = 6;
             this.academicSubPanel.Visible = false;
             // 
@@ -244,7 +245,7 @@
             this.gradeLevelButton.Location = new System.Drawing.Point(0, 195);
             this.gradeLevelButton.Name = "gradeLevelButton";
             this.gradeLevelButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.gradeLevelButton.Size = new System.Drawing.Size(263, 39);
+            this.gradeLevelButton.Size = new System.Drawing.Size(261, 39);
             this.gradeLevelButton.TabIndex = 6;
             this.gradeLevelButton.Text = "↪ Grade Level";
             this.gradeLevelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -262,7 +263,7 @@
             this.subjectButton.Location = new System.Drawing.Point(0, 156);
             this.subjectButton.Name = "subjectButton";
             this.subjectButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.subjectButton.Size = new System.Drawing.Size(263, 39);
+            this.subjectButton.Size = new System.Drawing.Size(261, 39);
             this.subjectButton.TabIndex = 5;
             this.subjectButton.Text = "↪ Subject";
             this.subjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,7 +281,7 @@
             this.scheduleButton.Location = new System.Drawing.Point(0, 117);
             this.scheduleButton.Name = "scheduleButton";
             this.scheduleButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.scheduleButton.Size = new System.Drawing.Size(263, 39);
+            this.scheduleButton.Size = new System.Drawing.Size(261, 39);
             this.scheduleButton.TabIndex = 3;
             this.scheduleButton.Text = "↪ Schedule";
             this.scheduleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,7 +299,7 @@
             this.sectionButton.Location = new System.Drawing.Point(0, 78);
             this.sectionButton.Name = "sectionButton";
             this.sectionButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.sectionButton.Size = new System.Drawing.Size(263, 39);
+            this.sectionButton.Size = new System.Drawing.Size(261, 39);
             this.sectionButton.TabIndex = 2;
             this.sectionButton.Text = "↪ Section";
             this.sectionButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,7 +317,7 @@
             this.paymentTypeButton.Location = new System.Drawing.Point(0, 39);
             this.paymentTypeButton.Name = "paymentTypeButton";
             this.paymentTypeButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.paymentTypeButton.Size = new System.Drawing.Size(263, 39);
+            this.paymentTypeButton.Size = new System.Drawing.Size(261, 39);
             this.paymentTypeButton.TabIndex = 3;
             this.paymentTypeButton.Text = "↪ Payment Type";
             this.paymentTypeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,7 +335,7 @@
             this.feesButton.Location = new System.Drawing.Point(0, 0);
             this.feesButton.Name = "feesButton";
             this.feesButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.feesButton.Size = new System.Drawing.Size(263, 39);
+            this.feesButton.Size = new System.Drawing.Size(261, 39);
             this.feesButton.TabIndex = 4;
             this.feesButton.Text = "↪ Fees";
             this.feesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -351,7 +352,7 @@
             this.academicButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.academicButton.Location = new System.Drawing.Point(0, 520);
             this.academicButton.Name = "academicButton";
-            this.academicButton.Size = new System.Drawing.Size(263, 39);
+            this.academicButton.Size = new System.Drawing.Size(261, 39);
             this.academicButton.TabIndex = 5;
             this.academicButton.Text = "Academic";
             this.academicButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -365,7 +366,7 @@
             this.billingSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.billingSubPanel.Location = new System.Drawing.Point(0, 443);
             this.billingSubPanel.Name = "billingSubPanel";
-            this.billingSubPanel.Size = new System.Drawing.Size(263, 77);
+            this.billingSubPanel.Size = new System.Drawing.Size(261, 77);
             this.billingSubPanel.TabIndex = 1;
             this.billingSubPanel.Visible = false;
             // 
@@ -380,7 +381,7 @@
             this.billingReportButton.Location = new System.Drawing.Point(0, 39);
             this.billingReportButton.Name = "billingReportButton";
             this.billingReportButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.billingReportButton.Size = new System.Drawing.Size(263, 39);
+            this.billingReportButton.Size = new System.Drawing.Size(261, 39);
             this.billingReportButton.TabIndex = 5;
             this.billingReportButton.Text = "↪ Billing Report";
             this.billingReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,7 +399,7 @@
             this.managePaymentButton.Location = new System.Drawing.Point(0, 0);
             this.managePaymentButton.Name = "managePaymentButton";
             this.managePaymentButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.managePaymentButton.Size = new System.Drawing.Size(263, 39);
+            this.managePaymentButton.Size = new System.Drawing.Size(261, 39);
             this.managePaymentButton.TabIndex = 1;
             this.managePaymentButton.Text = "↪ Manage Payments";
             this.managePaymentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -415,7 +416,7 @@
             this.billingButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.billingButton.Location = new System.Drawing.Point(0, 404);
             this.billingButton.Name = "billingButton";
-            this.billingButton.Size = new System.Drawing.Size(263, 39);
+            this.billingButton.Size = new System.Drawing.Size(261, 39);
             this.billingButton.TabIndex = 1;
             this.billingButton.Text = "Billing ";
             this.billingButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,7 +430,7 @@
             this.studentSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.studentSubPanel.Location = new System.Drawing.Point(0, 327);
             this.studentSubPanel.Name = "studentSubPanel";
-            this.studentSubPanel.Size = new System.Drawing.Size(263, 77);
+            this.studentSubPanel.Size = new System.Drawing.Size(261, 77);
             this.studentSubPanel.TabIndex = 0;
             this.studentSubPanel.Visible = false;
             // 
@@ -444,7 +445,7 @@
             this.pendingRequirementsButton.Location = new System.Drawing.Point(0, 39);
             this.pendingRequirementsButton.Name = "pendingRequirementsButton";
             this.pendingRequirementsButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.pendingRequirementsButton.Size = new System.Drawing.Size(263, 39);
+            this.pendingRequirementsButton.Size = new System.Drawing.Size(261, 39);
             this.pendingRequirementsButton.TabIndex = 3;
             this.pendingRequirementsButton.Text = "↪ Pending Requirements";
             this.pendingRequirementsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -462,7 +463,7 @@
             this.manageStudentButton.Location = new System.Drawing.Point(0, 0);
             this.manageStudentButton.Name = "manageStudentButton";
             this.manageStudentButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.manageStudentButton.Size = new System.Drawing.Size(263, 39);
+            this.manageStudentButton.Size = new System.Drawing.Size(261, 39);
             this.manageStudentButton.TabIndex = 2;
             this.manageStudentButton.Text = "↪ Manage Students";
             this.manageStudentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -479,7 +480,7 @@
             this.studentButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentButton.Location = new System.Drawing.Point(0, 288);
             this.studentButton.Name = "studentButton";
-            this.studentButton.Size = new System.Drawing.Size(263, 39);
+            this.studentButton.Size = new System.Drawing.Size(261, 39);
             this.studentButton.TabIndex = 0;
             this.studentButton.Text = "Student Records";
             this.studentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -493,7 +494,7 @@
             this.enrollmentSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.enrollmentSubPanel.Location = new System.Drawing.Point(0, 211);
             this.enrollmentSubPanel.Name = "enrollmentSubPanel";
-            this.enrollmentSubPanel.Size = new System.Drawing.Size(263, 77);
+            this.enrollmentSubPanel.Size = new System.Drawing.Size(261, 77);
             this.enrollmentSubPanel.TabIndex = 2;
             this.enrollmentSubPanel.Visible = false;
             // 
@@ -508,7 +509,7 @@
             this.pendingButton.Location = new System.Drawing.Point(0, 39);
             this.pendingButton.Name = "pendingButton";
             this.pendingButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.pendingButton.Size = new System.Drawing.Size(263, 39);
+            this.pendingButton.Size = new System.Drawing.Size(261, 39);
             this.pendingButton.TabIndex = 2;
             this.pendingButton.Text = "↪ Pending New Students";
             this.pendingButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -526,7 +527,7 @@
             this.registrationButton.Location = new System.Drawing.Point(0, 0);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.registrationButton.Size = new System.Drawing.Size(263, 39);
+            this.registrationButton.Size = new System.Drawing.Size(261, 39);
             this.registrationButton.TabIndex = 1;
             this.registrationButton.Text = "↪ Registration";
             this.registrationButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -543,7 +544,7 @@
             this.enrollmentButton.Font = new System.Drawing.Font("Subway", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enrollmentButton.Location = new System.Drawing.Point(0, 172);
             this.enrollmentButton.Name = "enrollmentButton";
-            this.enrollmentButton.Size = new System.Drawing.Size(263, 39);
+            this.enrollmentButton.Size = new System.Drawing.Size(261, 39);
             this.enrollmentButton.TabIndex = 2;
             this.enrollmentButton.Text = "Enrollment";
             this.enrollmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -560,36 +561,8 @@
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
             this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(263, 172);
+            this.logoPanel.Size = new System.Drawing.Size(261, 172);
             this.logoPanel.TabIndex = 0;
-            // 
-            // schoolYearLabel
-            // 
-            this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(6, 150);
-            this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(32, 13);
-            this.schoolYearLabel.TabIndex = 2;
-            this.schoolYearLabel.Text = "S.Y.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Subway", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "- Enrollment System -";
-            // 
-            // panel_main
-            // 
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(280, 0);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1084, 558);
-            this.panel_main.TabIndex = 1;
             // 
             // logoButton
             // 
@@ -632,6 +605,34 @@
             this.settingsButton.TabIndex = 3;
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
+            // 
+            // schoolYearLabel
+            // 
+            this.schoolYearLabel.AutoSize = true;
+            this.schoolYearLabel.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolYearLabel.Location = new System.Drawing.Point(6, 150);
+            this.schoolYearLabel.Name = "schoolYearLabel";
+            this.schoolYearLabel.Size = new System.Drawing.Size(32, 13);
+            this.schoolYearLabel.TabIndex = 2;
+            this.schoolYearLabel.Text = "S.Y.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Subway", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(38, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 18);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "- Enrollment System -";
+            // 
+            // panel_main
+            // 
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(280, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(1084, 558);
+            this.panel_main.TabIndex = 1;
             // 
             // frmSTU_Dashboard
             // 
