@@ -18,7 +18,7 @@ namespace STUEnrollmentSystem
         public List<Dictionary<string, string>> GetLogsFromDatabase(string year, string month, string day)
         {
             var logs = new List<Dictionary<string, string>>();
-            string query = $"SELECT TimeStamp, Level, Message, Exception FROM Logs WHERE CAST(Timestamp AS DATE) = @TimeStamp ORDER BY Timestamp DESC";
+            string query = $"SELECT TimeStamp, Level, Message, Exception FROM Logs WHERE CAST(Timestamp AS DATE) = @TimeStamp ORDER BY Timestamp ASC";
             string[] dateParts = { year, month, day };
             string dateTimeStamp = string.Join("-", dateParts);
 
