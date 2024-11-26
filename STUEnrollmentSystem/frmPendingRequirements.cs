@@ -127,12 +127,30 @@ namespace STUEnrollmentSystem
             {
                 //birthDateTimePicker.Text = birthDateTextBox.Text;
                 checkForRequirements();
+                InitializeSectionCB();
             }
             catch (FormatException fe)
             {
                 _studentRepository.CloseConnection();
                 hideRequirementButtons();
                 return;
+            }
+            catch (NullReferenceException nfe)
+            {
+                _studentRepository.CloseConnection();
+                hideRequirementButtons();
+                return;
+            }
+        }
+
+        private void InitializeSectionCB()
+        {
+            try
+            {
+                string gradeCode = getGradeCode(enrollmentTypeTextBox.Text);
+                List<string> sections = _studentRepository.GetSectionsByGrade(gradeCode);
+                sectionComboBox.Items.Clear();
+                sectionComboBox.Items.AddRange(sections.ToArray());
             }
             catch (NullReferenceException nfe)
             {

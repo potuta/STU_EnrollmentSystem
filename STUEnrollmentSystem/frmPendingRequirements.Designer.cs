@@ -55,8 +55,8 @@
             System.Windows.Forms.Label lRNLabel;
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingRequirements));
             System.Windows.Forms.Label label5;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingRequirements));
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -130,6 +130,7 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorUpdateRequirementsItem = new System.Windows.Forms.ToolStripButton();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.viewRAFButton = new System.Windows.Forms.Button();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.sectionTextBox = new System.Windows.Forms.TextBox();
@@ -163,7 +164,7 @@
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.viewRAFButton = new System.Windows.Forms.Button();
+            this.sectionComboBox = new System.Windows.Forms.ComboBox();
             sectionLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
@@ -436,6 +437,15 @@
             guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
             guardianEmailLabel.TabIndex = 75;
             guardianEmailLabel.Text = "Guardian Email:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(268, 254);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(31, 13);
+            label5.TabIndex = 77;
+            label5.Text = "RAF:";
             // 
             // studentsBindingSource
             // 
@@ -1080,6 +1090,7 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.sectionComboBox);
             this.detailsPanel.Controls.Add(this.viewRAFButton);
             this.detailsPanel.Controls.Add(label5);
             this.detailsPanel.Controls.Add(guardianEmailLabel);
@@ -1155,6 +1166,17 @@
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1298, 299);
             this.detailsPanel.TabIndex = 13;
+            // 
+            // viewRAFButton
+            // 
+            this.viewRAFButton.Location = new System.Drawing.Point(375, 249);
+            this.viewRAFButton.Name = "viewRAFButton";
+            this.viewRAFButton.Size = new System.Drawing.Size(100, 23);
+            this.viewRAFButton.TabIndex = 78;
+            this.viewRAFButton.Text = "View File";
+            this.viewRAFButton.UseVisualStyleBackColor = true;
+            this.viewRAFButton.Visible = false;
+            this.viewRAFButton.Click += new System.EventHandler(this.viewRAFButton_Click);
             // 
             // guardianEmailTextBox
             // 
@@ -1460,7 +1482,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
             this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
@@ -1475,25 +1499,14 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // viewRAFButton
+            // sectionComboBox
             // 
-            this.viewRAFButton.Location = new System.Drawing.Point(375, 249);
-            this.viewRAFButton.Name = "viewRAFButton";
-            this.viewRAFButton.Size = new System.Drawing.Size(100, 23);
-            this.viewRAFButton.TabIndex = 78;
-            this.viewRAFButton.Text = "View File";
-            this.viewRAFButton.UseVisualStyleBackColor = true;
-            this.viewRAFButton.Visible = false;
-            this.viewRAFButton.Click += new System.EventHandler(this.viewRAFButton_Click);
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(268, 254);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(31, 13);
-            label5.TabIndex = 77;
-            label5.Text = "RAF:";
+            this.sectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Section", true));
+            this.sectionComboBox.FormattingEnabled = true;
+            this.sectionComboBox.Location = new System.Drawing.Point(120, 219);
+            this.sectionComboBox.Name = "sectionComboBox";
+            this.sectionComboBox.Size = new System.Drawing.Size(100, 21);
+            this.sectionComboBox.TabIndex = 79;
             // 
             // frmPendingRequirements
             // 
@@ -1637,5 +1650,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
         private System.Windows.Forms.Button viewRAFButton;
+        private System.Windows.Forms.ComboBox sectionComboBox;
     }
 }

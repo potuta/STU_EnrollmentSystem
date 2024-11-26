@@ -71,29 +71,54 @@ namespace STUEnrollmentSystem
             if (role.Equals("Admin"))
             {
                 frmLogin.Role = "Admin";
+
+                enrollmentButton.Enabled = true;
                 studentButton.Enabled = true;
                 billingButton.Enabled = true;
+                academicButton.Enabled = true;
                 facultyButton.Enabled = true;
             }
             else if (role.Equals("A"))
             {
                 frmLogin.Role = "Admission";
+
+                enrollmentButton.Enabled = true;
+                    registrationButton.Enabled = true;
+                    pendingButton.Enabled = false;
+
                 studentButton.Enabled = true;
+                    manageStudentButton.Enabled = false;
+                    pendingRequirementsButton.Enabled = true;
+
                 billingButton.Enabled = false;
+                academicButton.Enabled = true;
                 facultyButton.Enabled = false;
             }
             else if (role.Equals("C"))
             {
                 frmLogin.Role = "Cashier";
+
+                enrollmentButton.Enabled = true;
+                    registrationButton.Enabled = false;
+                    pendingButton.Enabled = true;
+
                 studentButton.Enabled = false;
                 billingButton.Enabled = true;
+                academicButton.Enabled = true;
                 facultyButton.Enabled = false;
             }
             else if (role.Equals("R")) 
             {
                 frmLogin.Role = "Registrar";
+
+                enrollmentButton.Enabled = false;
+
                 studentButton.Enabled = true;
+                    manageStudentButton.Enabled = true;
+                    pendingRequirementsButton.Enabled = true;
+
                 billingButton.Enabled = false;
+                academicButton.Enabled = true;
                 facultyButton.Enabled = false;
             }
         }
@@ -127,15 +152,16 @@ namespace STUEnrollmentSystem
             showSubPanel(billingSubPanel);
         }
 
+        private void academicButton_Click(object sender, EventArgs e)
+        {
+            showSubPanel(academicSubPanel);
+        }
+
         private void facultyButton_Click(object sender, EventArgs e)
         {
             showSubPanel(facultySubPanel);
         }
 
-        private void academicButton_Click(object sender, EventArgs e)
-        {
-            showSubPanel(academicSubPanel);
-        }
 
         private void OnButtonClicked(object sender, EventArgs e)
         {
