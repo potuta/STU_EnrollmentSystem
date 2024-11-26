@@ -221,12 +221,14 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _registrationRepository.UploadFile("Registration", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
+                    registrationBindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         _registrationRepository.DeleteFile("Registration", fileType, "RegisterID", registerIDTextBox.Text);
+                        registrationBindingNavigatorRefreshItem.PerformClick();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)

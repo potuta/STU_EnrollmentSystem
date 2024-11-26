@@ -25,7 +25,17 @@ namespace STUEnrollmentSystem
                 using (SqlCommand command = new SqlCommand (query, _connection))
                 {
                     _connection.Open();
-                    number = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+                    var data = command.ExecuteScalar();
+
+                    if (data != null && data != DBNull.Value)
+                    {
+                        number = Convert.ToInt32(data) + 1;
+                    }
+                    else
+                    {
+                        number = 1;
+                    }
+                    //number = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
                 }
             }
             catch (SqlException ex)
@@ -33,10 +43,14 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in GenerateTransactionNumber: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                number = 1;
+                return number;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GenerateTransactionNumber: {ex.Message}");
+                number = 1;
+                return number;
             }
             finally
             {
@@ -51,14 +65,15 @@ namespace STUEnrollmentSystem
         {
             bool result = false;
             string query = $"SELECT TransactionNumber FROM BillingReport WHERE TransactionNumber = @TransactionNumber";
-
+            
             try
             {
                 _connection.Open();
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                    result = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                    var data = command.ExecuteScalar();
+                    result = data != null && data != DBNull.Value;
                 }
             }
             catch (SqlException ex)
@@ -66,10 +81,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in CheckIfTransactionNumberExists: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                return false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in CheckIfTransactionNumberExists: {ex.Message}");
+                return false;
             }
             finally
             {

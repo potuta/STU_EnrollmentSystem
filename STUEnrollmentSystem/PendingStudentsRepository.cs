@@ -32,8 +32,10 @@ namespace STUEnrollmentSystem
                     using(SqlCommand command = new SqlCommand(query, _connection))
                     {
                         command.Parameters.AddWithValue("@RegisterID", registerID);
-                        bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                        requirements[column] = !hasRequirement;
+                        //bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                        var result = command.ExecuteScalar();
+                        bool hasRequirement = result != null && result != DBNull.Value;
+                        requirements[column] = hasRequirement;
                     }
                 }
             }
@@ -57,87 +59,6 @@ namespace STUEnrollmentSystem
 
             return requirements;
         }
-
-        //public void InsertStudents(Dictionary<string, object> studentData)
-        //{
-        //    string query = "INSERT INTO Students (RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, PaymentType, " +
-        //                "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation) " +
-        //                "VALUES (@RegisterID, @StudentNumber, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentStatus, @EnrollmentType, @PaymentType, " +
-        //                "@MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation)";
-
-        //    try
-        //    {
-        //        LoggingService.LogInformation($"Insert attempt in InsertStudents to Students table");
-        //        using (SqlCommand command = new SqlCommand(query, _connection))
-        //        {
-        //            foreach (var key in studentData.Keys)
-        //            {
-        //                command.Parameters.AddWithValue($"@{key}", studentData[key]);
-        //            }
-
-        //            _connection.Open();
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        Console.WriteLine($"SQL Error in InsertStudents: {ex.Message}");
-        //        LoggingService.LogError($"SQL Error in InsertStudents: {ex.Message}");
-        //        return;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"Unexpected error in InsertStudents: {ex.Message}");
-        //        LoggingService.LogError($"Unexpected error in InsertStudents: {ex.Message}");
-        //        return;
-        //    }
-        //    finally
-        //    {
-        //        if (_connection.State == ConnectionState.Open)
-        //            _connection.Close();
-        //    }
-        //}
-
-        //public void InsertStudentPayment(Dictionary<string, object> studentPaymentData, string monthOfPayment, string paymentStatus, string schoolYear)
-        //{
-        //    string query = "INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, SchoolYear)" +
-        //                "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @SchoolYear)";
-
-        //    try
-        //    {
-        //        LoggingService.LogInformation($"Insert attempt in InsertStudentPayment to StudentPayment table");
-        //        using (SqlCommand command = new SqlCommand(query, _connection))
-        //        {
-        //            foreach (var key in studentPaymentData.Keys)
-        //            {
-        //                command.Parameters.AddWithValue($"@{key}", studentPaymentData[key]);
-        //            }
-        //            command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
-        //            command.Parameters.AddWithValue("@PaymentStatus", paymentStatus);
-        //            command.Parameters.AddWithValue("@SchoolYear", schoolYear);
-
-        //            _connection.Open();
-        //            command.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        Console.WriteLine($"SQL Error in InsertStudentPayment: {ex.Message}");
-        //        LoggingService.LogError($"SQL Error in InsertStudentPayment: {ex.Message}");
-        //        return;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"Unexpected error in InsertStudentPayment: {ex.Message}");
-        //        LoggingService.LogError($"Unexpected error in InsertStudentPayment: {ex.Message}");
-        //        return;
-        //    }
-        //    finally
-        //    {
-        //        if (_connection.State == ConnectionState.Open)
-        //            _connection.Close();
-        //    }
-        //}
 
         public void DeletePendingStudents(string registerId)
         {
@@ -247,17 +168,28 @@ namespace STUEnrollmentSystem
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     _connection.Open();
-                    studentCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+                    //studentCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+                    var data = command.ExecuteScalar();
+                    if (data != null && data != DBNull.Value)
+                    {
+                        studentCount = Convert.ToInt32(data) + 1;
+                    }
+                    else
+                    {
+                        studentCount = 1;
+                    }
                 }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UpdateProofOfPayment: {ex.Message}");
+                studentCount = 1;
                 return studentCount;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UpdateProofOfPayment: {ex.Message}");
+                studentCount = 1;
                 return studentCount;
             }
             finally

@@ -110,7 +110,6 @@ namespace STUEnrollmentSystem
             InitializeSearchComboBoxes();
         }
 
-
         private void studentPaymentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -309,12 +308,14 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentPaymentRepository.UploadFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
+                    bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         _studentPaymentRepository.DeleteFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
+                        bindingNavigatorRefreshItem.PerformClick();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)

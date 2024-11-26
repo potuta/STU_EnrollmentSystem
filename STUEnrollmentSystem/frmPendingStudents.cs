@@ -264,12 +264,14 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _pendingStudentsRepository.UploadFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
+                    bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         _pendingStudentsRepository.DeleteFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text);
+                        bindingNavigatorRefreshItem.PerformClick();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)
