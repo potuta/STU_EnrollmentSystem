@@ -29,8 +29,10 @@ namespace STUEnrollmentSystem
                     using (SqlCommand command = new SqlCommand(query, _connection))
                     {
                         command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-                        bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                        requirements[column] = !hasRequirement;
+                        //bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                        var result = command.ExecuteScalar();
+                        bool hasRequirement = result != null && result != DBNull.Value;
+                        requirements[column] = hasRequirement;
                     }
                 }
             }
@@ -145,7 +147,7 @@ namespace STUEnrollmentSystem
                     using (SqlCommand command = new SqlCommand(query, _connection))
                     {
                         command.Parameters.AddWithValue("@StudentNumber", studentNumber);
-                        string email = !command.ExecuteScalar().Equals(DBNull.Value) ? Convert.ToString(command.ExecuteScalar()) : string.Empty;
+                        //string email = !command.ExecuteScalar().Equals(DBNull.Value) ? Convert.ToString(command.ExecuteScalar()) : string.Empty;
                         emails[column] = Convert.ToString(command.ExecuteScalar());
                     }
                 }

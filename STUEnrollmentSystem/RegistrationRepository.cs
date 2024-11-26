@@ -28,8 +28,10 @@ namespace STUEnrollmentSystem
                     using (SqlCommand command = new SqlCommand(query, _connection))
                     {
                         command.Parameters.AddWithValue("@RegisterID", registerID);
-                        bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                        requirements[column] = !hasRequirement;
+                        //bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                        var result = command.ExecuteScalar();
+                        bool hasRequirement = result != null && result != DBNull.Value;
+                        requirements[column] = hasRequirement;
                     }
                 }
             }

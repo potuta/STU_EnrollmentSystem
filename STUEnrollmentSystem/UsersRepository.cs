@@ -29,7 +29,9 @@ namespace STUEnrollmentSystem
                     command.Parameters.AddWithValue("@Password", password);
 
                     _connection.Open();
-                    isUserVerified = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                    var result = command.ExecuteScalar();
+                    //isUserVerified = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                    isUserVerified = result != null && result != DBNull.Value;
                 }
             }
             catch (SqlException ex)
@@ -38,11 +40,13 @@ namespace STUEnrollmentSystem
                 Console.WriteLine($"SQL Error in VerifyUserLogin: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
                 LoggingService.LogError($"SQL Error in VerifyUserLogin. User not found or verified: UserID: {userID} Username: {username}");
+                return false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in VerifyUserLogin: {ex.Message}");
                 LoggingService.LogError($"Unexpected error in VerifyUserLogin: User not found or verified: UserID: {userID} Username: {username}, {ex.Message}");
+                return false;
             }
             finally
             {

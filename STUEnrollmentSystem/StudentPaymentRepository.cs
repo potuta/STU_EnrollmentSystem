@@ -35,8 +35,10 @@ namespace STUEnrollmentSystem
                         command.Parameters.AddWithValue("@StudentNumber", studentNumber);
                         command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
                         command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
-                        bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? true : false;
-                        requirements[column] = !hasRequirement;
+                        //bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
+                        var result = command.ExecuteScalar();
+                        bool hasRequirement = result != null && result != DBNull.Value;
+                        requirements[column] = hasRequirement;
                     }
                 }
             }
@@ -226,6 +228,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Upload attempt in UploadFile: Table: {table} Column: {column} ID: {ID}");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@FileData", fileData);
@@ -239,11 +242,13 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UploadFile: {ex.Message}");
+                LoggingService.LogError($"SQL Error in UploadFile: {ex.Message}");
                 return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UploadFile: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in UploadFile: {ex.Message}");
                 return;
             }
             finally
@@ -251,6 +256,8 @@ namespace STUEnrollmentSystem
                 if (_connection.State == ConnectionState.Open)
                     _connection.Close();
             }
+
+            LoggingService.LogInformation($"Upload successful in UploadFile: Table: {table} Column: {column} ID: {ID}");
         }
 
         public override void DeleteFile(string table, string column, string condition, string ID)
@@ -259,6 +266,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Deletion attempt in DeleteFile: Table: {table} Column: {column} ID: {ID}");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@ID", ID);
@@ -271,11 +279,13 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in DeleteFile: {ex.Message}");
+                LoggingService.LogError($"SQL Error in DeleteFile: {ex.Message}");
                 return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in DeleteFile: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in DeleteFile: {ex.Message}");
                 return;
             }
             finally
@@ -283,6 +293,8 @@ namespace STUEnrollmentSystem
                 if (_connection.State == ConnectionState.Open)
                     _connection.Close();
             }
+
+            LoggingService.LogInformation($"Deletion successful in DeleteFile: Table: {table} Column: {column} ID: {ID}");
         }
 
         public override List<string> GetColumnData(string table, string column)
@@ -342,18 +354,27 @@ namespace STUEnrollmentSystem
                     command.Parameters.AddWithValue("@StudentNumber", studentNumber);
                     command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
 
-                    count = command.ExecuteScalar().Equals(DBNull.Value) ? 0 : Convert.ToInt32(command.ExecuteScalar());
+                    //count = command.ExecuteScalar().Equals(DBNull.Value) ? 0 : Convert.ToInt32(command.ExecuteScalar());
+                    var data = command.ExecuteScalar();
+                    if (data != null && data != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(data);
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
                 }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetStudentNotificationCount: {ex.Message}");
-                return count;
+                return 0;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetStudentNotificationCount: {ex.Message}");
-                return count;
+                return 0;
             }
             finally
             {

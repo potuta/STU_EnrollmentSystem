@@ -24,7 +24,17 @@ namespace STUEnrollmentSystem
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     _connection.Open();
-                    teacherCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+                    var data = command.ExecuteScalar();
+
+                    if (data != null && data != DBNull.Value)
+                    {
+                        teacherCount = Convert.ToInt32(data) + 1;
+                    }
+                    else
+                    {
+                        teacherCount = 1;
+                    }
+                    //teacherCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
                 }
             }
             catch (SqlException ex)
@@ -32,10 +42,12 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in GenerateTeacherCode: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
+                return 1;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GenerateTeacherCode: {ex.Message}");
+                return 1;
             }
             finally
             {

@@ -135,6 +135,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Upload attempt in UploadFile: Table: {table} Column: {column} ID: {ID}");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 { 
                     command.Parameters.AddWithValue("@FileData", fileData);
@@ -146,16 +147,22 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in UploadFile: {ex.Message}");
+                LoggingService.LogError($"SQL Error in UploadFile: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in UploadFile: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in UploadFile: {ex.Message}");
+                return;
             }
             finally
             {
                 if (_connection.State == ConnectionState.Open)
                     _connection.Close();
             }
+
+            LoggingService.LogInformation($"Upload successful in UploadFile: Table: {table} Column: {column} ID: {ID}");
         }
 
         public virtual void DeleteFile(string table, string column, string condition, string ID)
@@ -164,6 +171,7 @@ namespace STUEnrollmentSystem
 
             try
             {
+                LoggingService.LogInformation($"Deletion attempt in DeleteFile: Table: {table} Column: {column} ID: {ID}");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@ID", ID);
@@ -174,16 +182,22 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in DeleteFile: {ex.Message}");
+                LoggingService.LogError($"SQL Error in DeleteFile: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in DeleteFile: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in DeleteFile: {ex.Message}");
+                return;
             }
             finally
             {
                 if (_connection.State == ConnectionState.Open)
                     _connection.Close();
             }
+
+            LoggingService.LogInformation($"Deletion successful in DeleteFile: Table: {table} Column: {column} ID: {ID}");
         }
     }
 }
