@@ -95,7 +95,7 @@
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Location = new System.Drawing.Point(0, 0);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(280, 558);
+            this.sidePanel.Size = new System.Drawing.Size(280, 681);
             this.sidePanel.TabIndex = 0;
             // 
             // userInfoPanel
@@ -631,7 +631,7 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(280, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1084, 558);
+            this.panel_main.Size = new System.Drawing.Size(1084, 681);
             this.panel_main.TabIndex = 1;
             // 
             // frmSTU_Dashboard
@@ -639,7 +639,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1364, 558);
+            this.ClientSize = new System.Drawing.Size(1364, 681);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.sidePanel);
             this.Name = "frmSTU_Dashboard";
