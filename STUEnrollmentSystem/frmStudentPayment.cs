@@ -538,7 +538,9 @@ namespace STUEnrollmentSystem
                 _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
 
+            new StudentRepository(ConnectionFactory.GetConnectionString()).UpdateStudentYearLevel(studentNumberTextBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text, addReturningStudentToolStripPaymentTypeComboBox.Text);
             bindingNavigatorRefreshItem.PerformClick();
+            MessageBox.Show($"Successfully added returning student {studentNumberTextBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
         }
     }
 }

@@ -99,5 +99,73 @@ namespace STUEnrollmentSystem
 
             return userLoginInfo;
         }
+
+        public void UpdateUserPassword(string userID, string newPassword)
+        {
+            string query = $"UPDATE Users SET Password = @Password WHERE UserID = @UserID";
+            try
+            {
+                LoggingService.LogInformation($"Update password attempt in UpdateUserPassword: UserID {userID}");
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    command.Parameters.AddWithValue("@Password", newPassword);
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in UpdateUserPassword: {ex.Message}");
+                LoggingService.LogError($"SQL Error in UpdateUserPassword: {ex.Message}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in UpdateUserPassword: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in UpdateUserPassword: {ex.Message}");
+                return;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            LoggingService.LogInformation($"Update password successful in UpdateUserPassword: UserID {userID}");
+        }
+
+        public string GetEmail(string userID)
+        {
+            string query = $"SELECT Email FROM Users WHERE UserID = @UserID";
+            string email = string.Empty;
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    email = Convert.ToString(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetEmail: {ex.Message}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetEmail: {ex.Message}");
+                return null;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return email;
+        }
     }
 }

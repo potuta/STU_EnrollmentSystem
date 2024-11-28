@@ -86,9 +86,7 @@ namespace STUEnrollmentSystem
             {
                 if (button.Name == "STU_DB")
                 {
-                    string dbPreviousYear = Convert.ToString(DateTime.Now.Year - 1);
-                    string dbNextYear = Convert.ToString(DateTime.Now.Year);
-                    schoolYearLabel.Text = $"{button.Text} ({button.Name}: {dbPreviousYear}-{dbNextYear})";
+                    schoolYearLabel.Text = $"{button.Text} ({button.Name}: {frmSTU_Dashboard.Instance.SchoolYearLabel.Text})";
                 }
                 else
                 {
@@ -178,13 +176,13 @@ namespace STUEnrollmentSystem
                     if (ConnectionFactory.GetConnectionString() == ConnectionFactory.GetNewDestinationString(name))
                     {
                         MessageBox.Show($"Cannot delete the school year database you're currently using '{name} ({schoolYearRadioButtonsList[name].Text})'", "Error", MessageBoxButtons.OK);
-                        break;
+                        return;
                     }
 
                     if (schoolYearRadioButtonsList[name].Name == "STU_DB")
                     {
                         MessageBox.Show($"You're not allowed to delete the current school year database '{name} ({schoolYearRadioButtonsList[name].Text})'. Please make sure it is unselected.", "Error", MessageBoxButtons.OK);
-                        break;
+                        return;
                     }
 
                     _databaseManager.DeleteDatabase(name);
@@ -204,9 +202,27 @@ namespace STUEnrollmentSystem
                 return;
             }
 
+            if (!ConnectionFactory.GetSelectedDatabaseInConnectionString(ConnectionFactory.GetConnectionString()).Equals("STU_DB"))
+            {
+                MessageBox.Show($"Please use the Current School Year to add new databases.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             string originalDbName = "STU_DB";
             string newDbName = generateNewDatabaseName(originalDbName);
+
+            //Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
+            //foreach (string name in databases.Keys)
+            //{
+            //    if (name == newDbName)
+            //    {
+            //        MessageBox.Show($"Database {newDbName} has already been created.", "Error", MessageBoxButtons.OK);
+            //        return;
+            //    }
+            //}
+
             _databaseManager.DuplicateDatabase(originalDbName, newDbName);
+            _databaseManager.UpdateDatabaseDataForSY(ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             updateDatabaseListFromPanel();
             MessageBox.Show($"Successfully created database school year: '{newDbName}'");
         }
@@ -216,6 +232,7 @@ namespace STUEnrollmentSystem
             Dictionary<string, string> databases = _databaseManager.GetDatabaseConnectionStrings();
             List<int> dbPreviousYearList = new List<int>();
             List<int> dbNextYearList = new List<int>();
+            string newYear = string.Empty;
 
             foreach (string name in databases.Keys)
             {
@@ -232,7 +249,15 @@ namespace STUEnrollmentSystem
                 }
             }
 
-            string newYear = $"{dbPreviousYearList.Max() + 1}_{dbNextYearList.Max() + 1}";
+            if (databases.Count == 1)
+            {
+                newYear = $"{dbPreviousYearList.Max()}_{dbNextYearList.Max()}";
+            }
+            else
+            {
+                newYear = $"{dbPreviousYearList.Max() + 1}_{dbNextYearList.Max() + 1}";
+            }
+
             string newDbName = $"{originalDbName}_{newYear}";
             return newDbName;
         }
