@@ -289,5 +289,42 @@ namespace STUEnrollmentSystem
                     _connection.Close();
             }
         }
+
+        public void UpdateStudentYearLevel(string studentNumber, string enrollmentType, string paymentType)
+        {
+            string query = $"UPDATE Students SET EnrollmentStatus = 'OLD', EnrollmentType = @EnrollmentType, PaymentType = @PaymentType, Section = NULL WHERE StudentNumber = @StudentNumber";
+
+            try
+            {
+                LoggingService.LogInformation($"Update attempt in UpdateStudentYearLevel: StudentNumber: {studentNumber} EnrollmentType: {enrollmentType}");
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    command.Parameters.AddWithValue("@EnrollmentType", enrollmentType);
+                    command.Parameters.AddWithValue("@PaymentType", paymentType);
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in UpdateStudentYearLevel: {ex.Message}");
+                LoggingService.LogError($"SQL Error in UpdateStudentYearLevel: {ex.Message}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in UpdateStudentYearLevel: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in UpdateStudentYearLevel: {ex.Message}");
+                return;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            LoggingService.LogInformation($"Update successful in UpdateStudentYearLevel: StudentNumber: {studentNumber} EnrollmentType: {enrollmentType}");
+        }
     }
 }

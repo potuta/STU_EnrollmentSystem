@@ -64,10 +64,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetPaymentAmount: {ex.Message}");
+                return paymentAmountDictionary;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetPaymentAmount: {ex.Message}");
+                return paymentAmountDictionary;
             }
             finally
             {
@@ -103,10 +105,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetMonthCount: {ex.Message}");
+                return monthsList.Count;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetMonthCount: {ex.Message}");
+                return monthsList.Count;
             }
             finally
             {
@@ -115,6 +119,33 @@ namespace STUEnrollmentSystem
             }
 
             return monthsList.Count;
+        }
+
+        public void UpdatePaymentTypeSchoolYear(string schoolYear)
+        {
+            string query = $"UPDATE PaymentType SET SchoolYear = '{schoolYear}' WHERE PaymentType IN ('Monthly', 'Full')";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in UpdatePaymentTypeSchoolYear: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in UpdatePaymentTypeSchoolYear: {ex.Message}");
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
         }
     }
 }

@@ -58,11 +58,13 @@ namespace STUEnrollmentSystem
                 Console.WriteLine($"SQL Error in DuplicateDatabase: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
                 LoggingService.LogError($"SQL Error in DuplicateDatabase: {ex.Message}");
+                return;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in DuplicateDatabase: {ex.Message}");
                 LoggingService.LogError($"Unexpected error in DuplicateDatabase: {ex.Message}");
+                return;
             }
             finally
             {
@@ -205,7 +207,7 @@ namespace STUEnrollmentSystem
 
         public void UpdateDatabaseDataForSY(string schoolYear)
         {
-            
+            new PaymentTypeRepository(_sourceConnectionString.ConnectionString).UpdatePaymentTypeSchoolYear(schoolYear);
         }
     }
 }
