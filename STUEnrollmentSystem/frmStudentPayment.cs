@@ -64,13 +64,11 @@ namespace STUEnrollmentSystem
             List<string> studentNumList = _studentPaymentRepository.GetColumnData("StudentPayment", "StudentNumber");
             studentNumList.Sort();
             studentNumberToolStripComboBox.Items.Clear();
-            addReturningStudentToolStripStudentNumberComboBox.Items.Clear();
             foreach (string items in studentNumList)
             {
                 if (!studentNumberToolStripComboBox.Items.Contains(items))
                 {
                     studentNumberToolStripComboBox.Items.Add(items);
-                    addReturningStudentToolStripStudentNumberComboBox.Items.Add(items);
                 }
             }
         }
@@ -507,7 +505,10 @@ namespace STUEnrollmentSystem
 
         private void addReturningStudentToolStripDropDownButton_Click(object sender, EventArgs e)
         {
-            InitializeSearchStudentNumCB();
+            List<string> studentNumberList = new StudentRepository(ConnectionFactory.GetConnectionString()).GetColumnData("Students", "StudentNumber");
+            studentNumberList.Sort();
+            addReturningStudentToolStripStudentNumberComboBox.Items.Clear();
+            addReturningStudentToolStripStudentNumberComboBox.Items.AddRange(studentNumberList.ToArray());
         }
 
         private void addReturningStudentToolStripInsertMenuItem_Click(object sender, EventArgs e)
@@ -538,9 +539,9 @@ namespace STUEnrollmentSystem
                 _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
 
-            new StudentRepository(ConnectionFactory.GetConnectionString()).UpdateStudentYearLevel(studentNumberTextBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text, addReturningStudentToolStripPaymentTypeComboBox.Text);
+            new StudentRepository(ConnectionFactory.GetConnectionString()).UpdateStudentYearLevel(addReturningStudentToolStripStudentNumberComboBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text, addReturningStudentToolStripPaymentTypeComboBox.Text);
             bindingNavigatorRefreshItem.PerformClick();
-            MessageBox.Show($"Successfully added returning student {studentNumberTextBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
+            MessageBox.Show($"Successfully added returning student {addReturningStudentToolStripStudentNumberComboBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
         }
     }
 }

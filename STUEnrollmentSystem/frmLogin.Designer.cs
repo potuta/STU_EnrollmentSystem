@@ -43,16 +43,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.forgotPasswordButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.confirmUserIDTextBox = new System.Windows.Forms.TextBox();
-            this.sendCodeButton = new System.Windows.Forms.Button();
-            this.codeTextBox = new System.Windows.Forms.TextBox();
-            this.changePasswordPanel = new System.Windows.Forms.Panel();
-            this.newPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.showButton = new System.Windows.Forms.Button();
-            this.saveChangesButton = new System.Windows.Forms.Button();
-            this.confirmButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.confirmButton = new System.Windows.Forms.Button();
+            this.changePasswordPanel = new System.Windows.Forms.Panel();
+            this.saveChangesButton = new System.Windows.Forms.Button();
+            this.showButton = new System.Windows.Forms.Button();
+            this.newPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.codeTextBox = new System.Windows.Forms.TextBox();
+            this.sendCodeButton = new System.Windows.Forms.Button();
+            this.confirmUserIDTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             passwordLabel = new System.Windows.Forms.Label();
             userIDLabel = new System.Windows.Forms.Label();
@@ -85,6 +85,56 @@
             userIDLabel.Size = new System.Drawing.Size(101, 23);
             userIDLabel.TabIndex = 7;
             userIDLabel.Text = "User ID:";
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            usernameLabel.Location = new System.Drawing.Point(63, 229);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new System.Drawing.Size(127, 23);
+            usernameLabel.TabIndex = 9;
+            usernameLabel.Text = "Username:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(19, 44);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(101, 23);
+            label4.TabIndex = 16;
+            label4.Text = "User ID:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(47, 121);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(73, 23);
+            label5.TabIndex = 18;
+            label5.Text = "Code:";
+            // 
+            // separator
+            // 
+            separator.AutoSize = true;
+            separator.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            separator.Location = new System.Drawing.Point(81, 24);
+            separator.Name = "separator";
+            separator.Size = new System.Drawing.Size(282, 23);
+            separator.TabIndex = 22;
+            separator.Text = "----------------------------------";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(127, 60);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(178, 23);
+            label6.TabIndex = 23;
+            label6.Text = "New Password:";
             // 
             // passwordTextBox
             // 
@@ -123,16 +173,6 @@
             this.userIDTextBox.Name = "userIDTextBox";
             this.userIDTextBox.Size = new System.Drawing.Size(179, 31);
             this.userIDTextBox.TabIndex = 8;
-            // 
-            // usernameLabel
-            // 
-            usernameLabel.AutoSize = true;
-            usernameLabel.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            usernameLabel.Location = new System.Drawing.Point(63, 229);
-            usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new System.Drawing.Size(127, 23);
-            usernameLabel.TabIndex = 9;
-            usernameLabel.Text = "Username:";
             // 
             // loginButton
             // 
@@ -193,134 +233,29 @@
             this.panel2.TabIndex = 22;
             this.panel2.Visible = false;
             // 
-            // label4
+            // emailTextBox
             // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(19, 44);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(101, 23);
-            label4.TabIndex = 16;
-            label4.Text = "User ID:";
+            this.emailTextBox.BackColor = System.Drawing.Color.AliceBlue;
+            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.Location = new System.Drawing.Point(271, 99);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(119, 13);
+            this.emailTextBox.TabIndex = 26;
+            this.emailTextBox.Text = "sample@gmail.com";
+            this.emailTextBox.Visible = false;
             // 
-            // confirmUserIDTextBox
+            // textBox1
             // 
-            this.confirmUserIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.confirmUserIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmUserIDTextBox.Location = new System.Drawing.Point(137, 41);
-            this.confirmUserIDTextBox.Name = "confirmUserIDTextBox";
-            this.confirmUserIDTextBox.Size = new System.Drawing.Size(179, 31);
-            this.confirmUserIDTextBox.TabIndex = 17;
-            this.confirmUserIDTextBox.TextChanged += new System.EventHandler(this.confirmUserIDTextBox_TextChanged);
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(47, 121);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(73, 23);
-            label5.TabIndex = 18;
-            label5.Text = "Code:";
-            // 
-            // sendCodeButton
-            // 
-            this.sendCodeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.sendCodeButton.Enabled = false;
-            this.sendCodeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.sendCodeButton.FlatAppearance.BorderSize = 2;
-            this.sendCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendCodeButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendCodeButton.Location = new System.Drawing.Point(331, 41);
-            this.sendCodeButton.Name = "sendCodeButton";
-            this.sendCodeButton.Size = new System.Drawing.Size(92, 30);
-            this.sendCodeButton.TabIndex = 17;
-            this.sendCodeButton.Text = "Send Code";
-            this.sendCodeButton.UseVisualStyleBackColor = false;
-            this.sendCodeButton.Click += new System.EventHandler(this.sendCodeButton_Click);
-            // 
-            // codeTextBox
-            // 
-            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeTextBox.Location = new System.Drawing.Point(137, 118);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(179, 31);
-            this.codeTextBox.TabIndex = 19;
-            this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
-            // 
-            // changePasswordPanel
-            // 
-            this.changePasswordPanel.Controls.Add(this.saveChangesButton);
-            this.changePasswordPanel.Controls.Add(this.showButton);
-            this.changePasswordPanel.Controls.Add(label6);
-            this.changePasswordPanel.Controls.Add(separator);
-            this.changePasswordPanel.Controls.Add(this.newPasswordTextBox);
-            this.changePasswordPanel.Location = new System.Drawing.Point(3, 172);
-            this.changePasswordPanel.Name = "changePasswordPanel";
-            this.changePasswordPanel.Size = new System.Drawing.Size(433, 199);
-            this.changePasswordPanel.TabIndex = 22;
-            this.changePasswordPanel.Visible = false;
-            // 
-            // newPasswordTextBox
-            // 
-            this.newPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.newPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPasswordTextBox.Location = new System.Drawing.Point(97, 104);
-            this.newPasswordTextBox.Name = "newPasswordTextBox";
-            this.newPasswordTextBox.Size = new System.Drawing.Size(235, 31);
-            this.newPasswordTextBox.TabIndex = 21;
-            this.newPasswordTextBox.UseSystemPasswordChar = true;
-            // 
-            // separator
-            // 
-            separator.AutoSize = true;
-            separator.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            separator.Location = new System.Drawing.Point(81, 24);
-            separator.Name = "separator";
-            separator.Size = new System.Drawing.Size(282, 23);
-            separator.TabIndex = 22;
-            separator.Text = "----------------------------------";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Subway", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(127, 60);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(178, 23);
-            label6.TabIndex = 23;
-            label6.Text = "New Password:";
-            // 
-            // showButton
-            // 
-            this.showButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.showButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.showButton.FlatAppearance.BorderSize = 2;
-            this.showButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showButton.Location = new System.Drawing.Point(347, 107);
-            this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(50, 26);
-            this.showButton.TabIndex = 23;
-            this.showButton.Text = "Show";
-            this.showButton.UseVisualStyleBackColor = false;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
-            // 
-            // saveChangesButton
-            // 
-            this.saveChangesButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.saveChangesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.saveChangesButton.FlatAppearance.BorderSize = 2;
-            this.saveChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveChangesButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveChangesButton.Location = new System.Drawing.Point(156, 151);
-            this.saveChangesButton.Name = "saveChangesButton";
-            this.saveChangesButton.Size = new System.Drawing.Size(131, 30);
-            this.saveChangesButton.TabIndex = 25;
-            this.saveChangesButton.Text = "Save changes";
-            this.saveChangesButton.UseVisualStyleBackColor = false;
-            this.saveChangesButton.Click += new System.EventHandler(this.saveChangesButton_Click);
+            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(78, 99);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 13);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.Text = "Please enter the code we sent to email: ";
+            this.textBox1.Visible = false;
             // 
             // confirmButton
             // 
@@ -338,29 +273,94 @@
             this.confirmButton.UseVisualStyleBackColor = false;
             this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
-            // textBox1
+            // changePasswordPanel
             // 
-            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(78, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 13);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.Text = "Please enter the code we sent to email: ";
-            this.textBox1.Visible = false;
+            this.changePasswordPanel.Controls.Add(this.saveChangesButton);
+            this.changePasswordPanel.Controls.Add(this.showButton);
+            this.changePasswordPanel.Controls.Add(label6);
+            this.changePasswordPanel.Controls.Add(separator);
+            this.changePasswordPanel.Controls.Add(this.newPasswordTextBox);
+            this.changePasswordPanel.Location = new System.Drawing.Point(3, 172);
+            this.changePasswordPanel.Name = "changePasswordPanel";
+            this.changePasswordPanel.Size = new System.Drawing.Size(433, 199);
+            this.changePasswordPanel.TabIndex = 22;
+            this.changePasswordPanel.Visible = false;
             // 
-            // emailTextBox
+            // saveChangesButton
             // 
-            this.emailTextBox.BackColor = System.Drawing.Color.AliceBlue;
-            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(271, 99);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(119, 13);
-            this.emailTextBox.TabIndex = 26;
-            this.emailTextBox.Text = "sample@gmail.com";
-            this.emailTextBox.Visible = false;
+            this.saveChangesButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.saveChangesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.saveChangesButton.FlatAppearance.BorderSize = 2;
+            this.saveChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveChangesButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveChangesButton.Location = new System.Drawing.Point(156, 151);
+            this.saveChangesButton.Name = "saveChangesButton";
+            this.saveChangesButton.Size = new System.Drawing.Size(131, 30);
+            this.saveChangesButton.TabIndex = 25;
+            this.saveChangesButton.Text = "Save changes";
+            this.saveChangesButton.UseVisualStyleBackColor = false;
+            this.saveChangesButton.Click += new System.EventHandler(this.saveChangesButton_Click);
+            // 
+            // showButton
+            // 
+            this.showButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.showButton.FlatAppearance.BorderSize = 2;
+            this.showButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showButton.Location = new System.Drawing.Point(347, 107);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(50, 26);
+            this.showButton.TabIndex = 23;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = false;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
+            // newPasswordTextBox
+            // 
+            this.newPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.newPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newPasswordTextBox.Location = new System.Drawing.Point(97, 104);
+            this.newPasswordTextBox.Name = "newPasswordTextBox";
+            this.newPasswordTextBox.Size = new System.Drawing.Size(235, 31);
+            this.newPasswordTextBox.TabIndex = 21;
+            this.newPasswordTextBox.UseSystemPasswordChar = true;
+            // 
+            // codeTextBox
+            // 
+            this.codeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeTextBox.Location = new System.Drawing.Point(137, 118);
+            this.codeTextBox.Name = "codeTextBox";
+            this.codeTextBox.Size = new System.Drawing.Size(179, 31);
+            this.codeTextBox.TabIndex = 19;
+            this.codeTextBox.TextChanged += new System.EventHandler(this.codeTextBox_TextChanged);
+            // 
+            // sendCodeButton
+            // 
+            this.sendCodeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.sendCodeButton.Enabled = false;
+            this.sendCodeButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.sendCodeButton.FlatAppearance.BorderSize = 2;
+            this.sendCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendCodeButton.Font = new System.Drawing.Font("Subway", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendCodeButton.Location = new System.Drawing.Point(331, 41);
+            this.sendCodeButton.Name = "sendCodeButton";
+            this.sendCodeButton.Size = new System.Drawing.Size(92, 30);
+            this.sendCodeButton.TabIndex = 17;
+            this.sendCodeButton.Text = "Send Code";
+            this.sendCodeButton.UseVisualStyleBackColor = false;
+            this.sendCodeButton.Click += new System.EventHandler(this.sendCodeButton_Click);
+            // 
+            // confirmUserIDTextBox
+            // 
+            this.confirmUserIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.confirmUserIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmUserIDTextBox.Location = new System.Drawing.Point(137, 41);
+            this.confirmUserIDTextBox.Name = "confirmUserIDTextBox";
+            this.confirmUserIDTextBox.Size = new System.Drawing.Size(179, 31);
+            this.confirmUserIDTextBox.TabIndex = 17;
+            this.confirmUserIDTextBox.TextChanged += new System.EventHandler(this.confirmUserIDTextBox_TextChanged);
             // 
             // panel1
             // 

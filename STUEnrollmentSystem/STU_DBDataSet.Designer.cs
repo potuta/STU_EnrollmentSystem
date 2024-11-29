@@ -10960,11 +10960,19 @@ SELECT GradeLevel, GradeCode, SubjectGradeCode FROM GradeLevel WHERE (GradeCode 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT GradeLevel, GradeCode, SubjectGradeCode FROM dbo.GradeLevel";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT * FROM GradeLevel WHERE \r\n(GradeLevel = @GradeLevel) OR\r\n(GradeCode = @Gra" +
+                "deCode) OR\r\n(SubjectGradeCode = @SubjectGradeCode)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GradeLevel", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GradeCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "GradeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubjectGradeCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SubjectGradeCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10989,6 +10997,37 @@ SELECT GradeLevel, GradeCode, SubjectGradeCode FROM GradeLevel WHERE (GradeCode 
             STU_DBDataSet.GradeLevelDataTable dataTable = new STU_DBDataSet.GradeLevelDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Search(STU_DBDataSet.GradeLevelDataTable dataTable, string GradeLevel, string GradeCode, string SubjectGradeCode) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((GradeLevel == null)) {
+                throw new global::System.ArgumentNullException("GradeLevel");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(GradeLevel));
+            }
+            if ((GradeCode == null)) {
+                throw new global::System.ArgumentNullException("GradeCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(GradeCode));
+            }
+            if ((SubjectGradeCode == null)) {
+                throw new global::System.ArgumentNullException("SubjectGradeCode");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(SubjectGradeCode));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
