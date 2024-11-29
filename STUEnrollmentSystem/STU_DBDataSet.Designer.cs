@@ -1463,7 +1463,7 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PendingStudentsRow AddPendingStudentsRow(
-                        int RegisterID, 
+                        string RegisterID, 
                         string StudentNumber, 
                         string StudFirstName, 
                         string StudMidName, 
@@ -1472,7 +1472,7 @@ namespace STUEnrollmentSystem {
                         string BirthDate, 
                         string CivilStatus, 
                         string Address, 
-                        int ContactNum, 
+                        string ContactNum, 
                         string EnrollmentStatus, 
                         string EnrollmentType, 
                         string MotherFirstName, 
@@ -1482,7 +1482,7 @@ namespace STUEnrollmentSystem {
                         string FatherLastName, 
                         string FatherOccupation, 
                         byte[] StudForm137, 
-                        int LRN, 
+                        string LRN, 
                         byte[] BirthCertificate, 
                         byte[] GoodMoral, 
                         byte[] TransferCertificate, 
@@ -1530,7 +1530,7 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PendingStudentsRow FindByRegisterID(int RegisterID) {
+            public PendingStudentsRow FindByRegisterID(string RegisterID) {
                 return ((PendingStudentsRow)(this.Rows.Find(new object[] {
                             RegisterID})));
             }
@@ -1586,7 +1586,7 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnRegisterID = new global::System.Data.DataColumn("RegisterID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnRegisterID = new global::System.Data.DataColumn("RegisterID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegisterID);
                 this.columnStudentNumber = new global::System.Data.DataColumn("StudentNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudentNumber);
@@ -1604,7 +1604,7 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnCivilStatus);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress);
-                this.columnContactNum = new global::System.Data.DataColumn("ContactNum", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnContactNum = new global::System.Data.DataColumn("ContactNum", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContactNum);
                 this.columnEnrollmentStatus = new global::System.Data.DataColumn("EnrollmentStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnrollmentStatus);
@@ -1624,7 +1624,7 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnFatherOccupation);
                 this.columnStudForm137 = new global::System.Data.DataColumn("StudForm137", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudForm137);
-                this.columnLRN = new global::System.Data.DataColumn("LRN", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnLRN = new global::System.Data.DataColumn("LRN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLRN);
                 this.columnBirthCertificate = new global::System.Data.DataColumn("BirthCertificate", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBirthCertificate);
@@ -1648,6 +1648,7 @@ namespace STUEnrollmentSystem {
                                 this.columnRegisterID}, true));
                 this.columnRegisterID.AllowDBNull = false;
                 this.columnRegisterID.Unique = true;
+                this.columnRegisterID.MaxLength = 30;
                 this.columnStudentNumber.MaxLength = 30;
                 this.columnStudFirstName.AllowDBNull = false;
                 this.columnStudFirstName.MaxLength = 20;
@@ -1664,6 +1665,7 @@ namespace STUEnrollmentSystem {
                 this.columnAddress.AllowDBNull = false;
                 this.columnAddress.MaxLength = 20;
                 this.columnContactNum.AllowDBNull = false;
+                this.columnContactNum.MaxLength = 50;
                 this.columnEnrollmentStatus.AllowDBNull = false;
                 this.columnEnrollmentStatus.MaxLength = 20;
                 this.columnEnrollmentType.AllowDBNull = false;
@@ -1680,6 +1682,7 @@ namespace STUEnrollmentSystem {
                 this.columnFatherLastName.MaxLength = 30;
                 this.columnFatherOccupation.AllowDBNull = false;
                 this.columnFatherOccupation.MaxLength = 30;
+                this.columnLRN.MaxLength = 50;
                 this.columnSection.MaxLength = 20;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 20;
@@ -2140,7 +2143,7 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public RegistrationRow AddRegistrationRow(
-                        int RegisterID, 
+                        string RegisterID, 
                         string EnrollmentStatus, 
                         string StudFirstName, 
                         string StudMidName, 
@@ -2149,7 +2152,7 @@ namespace STUEnrollmentSystem {
                         string BirthDate, 
                         string CivilStatus, 
                         string Address, 
-                        int ContactNum, 
+                        string ContactNum, 
                         string EnrollmentType, 
                         string MotherFirstName, 
                         string MotherLastName, 
@@ -2158,7 +2161,7 @@ namespace STUEnrollmentSystem {
                         string FatherLastName, 
                         string FatherOccupation, 
                         byte[] StudForm137, 
-                        int LRN, 
+                        string LRN, 
                         byte[] BirthCertificate, 
                         byte[] GoodMoral, 
                         byte[] TransferCertificate, 
@@ -2199,7 +2202,7 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RegistrationRow FindByRegisterID(int RegisterID) {
+            public RegistrationRow FindByRegisterID(string RegisterID) {
                 return ((RegistrationRow)(this.Rows.Find(new object[] {
                             RegisterID})));
             }
@@ -2251,7 +2254,7 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnRegisterID = new global::System.Data.DataColumn("RegisterID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnRegisterID = new global::System.Data.DataColumn("RegisterID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegisterID);
                 this.columnEnrollmentStatus = new global::System.Data.DataColumn("EnrollmentStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnrollmentStatus);
@@ -2269,7 +2272,7 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnCivilStatus);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress);
-                this.columnContactNum = new global::System.Data.DataColumn("ContactNum", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnContactNum = new global::System.Data.DataColumn("ContactNum", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContactNum);
                 this.columnEnrollmentType = new global::System.Data.DataColumn("EnrollmentType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnrollmentType);
@@ -2287,7 +2290,7 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnFatherOccupation);
                 this.columnStudForm137 = new global::System.Data.DataColumn("StudForm137", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudForm137);
-                this.columnLRN = new global::System.Data.DataColumn("LRN", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnLRN = new global::System.Data.DataColumn("LRN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLRN);
                 this.columnBirthCertificate = new global::System.Data.DataColumn("BirthCertificate", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBirthCertificate);
@@ -2305,6 +2308,7 @@ namespace STUEnrollmentSystem {
                                 this.columnRegisterID}, true));
                 this.columnRegisterID.AllowDBNull = false;
                 this.columnRegisterID.Unique = true;
+                this.columnRegisterID.MaxLength = 30;
                 this.columnEnrollmentStatus.AllowDBNull = false;
                 this.columnEnrollmentStatus.MaxLength = 20;
                 this.columnStudFirstName.AllowDBNull = false;
@@ -2322,6 +2326,7 @@ namespace STUEnrollmentSystem {
                 this.columnAddress.AllowDBNull = false;
                 this.columnAddress.MaxLength = 20;
                 this.columnContactNum.AllowDBNull = false;
+                this.columnContactNum.MaxLength = 50;
                 this.columnEnrollmentType.AllowDBNull = false;
                 this.columnEnrollmentType.MaxLength = 20;
                 this.columnMotherFirstName.AllowDBNull = false;
@@ -2336,6 +2341,7 @@ namespace STUEnrollmentSystem {
                 this.columnFatherLastName.MaxLength = 30;
                 this.columnFatherOccupation.AllowDBNull = false;
                 this.columnFatherOccupation.MaxLength = 30;
+                this.columnLRN.MaxLength = 50;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 20;
                 this.columnPersonalEmail.MaxLength = 50;
@@ -3530,7 +3536,7 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StudentsRow AddStudentsRow(
-                        int RegisterID, 
+                        string RegisterID, 
                         string StudentNumber, 
                         string StudFirstName, 
                         string StudMidName, 
@@ -3539,7 +3545,7 @@ namespace STUEnrollmentSystem {
                         string BirthDate, 
                         string CivilStatus, 
                         string Address, 
-                        int ContactNum, 
+                        string ContactNum, 
                         string EnrollmentStatus, 
                         string EnrollmentType, 
                         string MotherFirstName, 
@@ -3549,7 +3555,7 @@ namespace STUEnrollmentSystem {
                         string FatherLastName, 
                         string FatherOccupation, 
                         byte[] StudForm137, 
-                        int LRN, 
+                        string LRN, 
                         byte[] BirthCertificate, 
                         byte[] GoodMoral, 
                         byte[] TransferCertificate, 
@@ -3647,7 +3653,7 @@ namespace STUEnrollmentSystem {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnRegisterID = new global::System.Data.DataColumn("RegisterID", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnRegisterID = new global::System.Data.DataColumn("RegisterID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegisterID);
                 this.columnStudentNumber = new global::System.Data.DataColumn("StudentNumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudentNumber);
@@ -3665,7 +3671,7 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnCivilStatus);
                 this.columnAddress = new global::System.Data.DataColumn("Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress);
-                this.columnContactNum = new global::System.Data.DataColumn("ContactNum", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnContactNum = new global::System.Data.DataColumn("ContactNum", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContactNum);
                 this.columnEnrollmentStatus = new global::System.Data.DataColumn("EnrollmentStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEnrollmentStatus);
@@ -3685,7 +3691,7 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnFatherOccupation);
                 this.columnStudForm137 = new global::System.Data.DataColumn("StudForm137", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStudForm137);
-                this.columnLRN = new global::System.Data.DataColumn("LRN", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnLRN = new global::System.Data.DataColumn("LRN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLRN);
                 this.columnBirthCertificate = new global::System.Data.DataColumn("BirthCertificate", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBirthCertificate);
@@ -3704,6 +3710,7 @@ namespace STUEnrollmentSystem {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnStudentNumber}, true));
                 this.columnRegisterID.AllowDBNull = false;
+                this.columnRegisterID.MaxLength = 30;
                 this.columnStudentNumber.AllowDBNull = false;
                 this.columnStudentNumber.Unique = true;
                 this.columnStudentNumber.MaxLength = 30;
@@ -3722,6 +3729,7 @@ namespace STUEnrollmentSystem {
                 this.columnAddress.AllowDBNull = false;
                 this.columnAddress.MaxLength = 20;
                 this.columnContactNum.AllowDBNull = false;
+                this.columnContactNum.MaxLength = 50;
                 this.columnEnrollmentStatus.AllowDBNull = false;
                 this.columnEnrollmentStatus.MaxLength = 20;
                 this.columnEnrollmentType.AllowDBNull = false;
@@ -3738,6 +3746,7 @@ namespace STUEnrollmentSystem {
                 this.columnFatherLastName.MaxLength = 30;
                 this.columnFatherOccupation.AllowDBNull = false;
                 this.columnFatherOccupation.MaxLength = 30;
+                this.columnLRN.MaxLength = 50;
                 this.columnSection.MaxLength = 20;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 20;
@@ -6898,9 +6907,9 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int RegisterID {
+            public string RegisterID {
                 get {
-                    return ((int)(this[this.tablePendingStudents.RegisterIDColumn]));
+                    return ((string)(this[this.tablePendingStudents.RegisterIDColumn]));
                 }
                 set {
                     this[this.tablePendingStudents.RegisterIDColumn] = value;
@@ -7002,9 +7011,9 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ContactNum {
+            public string ContactNum {
                 get {
-                    return ((int)(this[this.tablePendingStudents.ContactNumColumn]));
+                    return ((string)(this[this.tablePendingStudents.ContactNumColumn]));
                 }
                 set {
                     this[this.tablePendingStudents.ContactNumColumn] = value;
@@ -7117,10 +7126,10 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int LRN {
+            public string LRN {
                 get {
                     try {
-                        return ((int)(this[this.tablePendingStudents.LRNColumn]));
+                        return ((string)(this[this.tablePendingStudents.LRNColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'LRN\' in table \'PendingStudents\' is DBNull.", e);
@@ -7419,9 +7428,9 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int RegisterID {
+            public string RegisterID {
                 get {
-                    return ((int)(this[this.tableRegistration.RegisterIDColumn]));
+                    return ((string)(this[this.tableRegistration.RegisterIDColumn]));
                 }
                 set {
                     this[this.tableRegistration.RegisterIDColumn] = value;
@@ -7518,9 +7527,9 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ContactNum {
+            public string ContactNum {
                 get {
-                    return ((int)(this[this.tableRegistration.ContactNumColumn]));
+                    return ((string)(this[this.tableRegistration.ContactNumColumn]));
                 }
                 set {
                     this[this.tableRegistration.ContactNumColumn] = value;
@@ -7622,10 +7631,10 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int LRN {
+            public string LRN {
                 get {
                     try {
-                        return ((int)(this[this.tableRegistration.LRNColumn]));
+                        return ((string)(this[this.tableRegistration.LRNColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'LRN\' in table \'Registration\' is DBNull.", e);
@@ -8310,9 +8319,9 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int RegisterID {
+            public string RegisterID {
                 get {
-                    return ((int)(this[this.tableStudents.RegisterIDColumn]));
+                    return ((string)(this[this.tableStudents.RegisterIDColumn]));
                 }
                 set {
                     this[this.tableStudents.RegisterIDColumn] = value;
@@ -8409,9 +8418,9 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ContactNum {
+            public string ContactNum {
                 get {
-                    return ((int)(this[this.tableStudents.ContactNumColumn]));
+                    return ((string)(this[this.tableStudents.ContactNumColumn]));
                 }
                 set {
                     this[this.tableStudents.ContactNumColumn] = value;
@@ -8524,10 +8533,10 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int LRN {
+            public string LRN {
                 get {
                     try {
-                        return ((int)(this[this.tableStudents.LRNColumn]));
+                        return ((string)(this[this.tableStudents.LRNColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'LRN\' in table \'Students\' is DBNull.", e);
@@ -11356,170 +11365,196 @@ SELECT GradeLevel, GradeCode, SubjectGradeCode FROM GradeLevel WHERE (GradeCode 
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [PendingStudents] WHERE (([RegisterID] = @Original_RegisterID) AND ((@IsNull_StudentNumber = 1 AND [StudentNumber] IS NULL) OR ([StudentNumber] = @Original_StudentNumber)) AND ([StudFirstName] = @Original_StudFirstName) AND ([StudMidName] = @Original_StudMidName) AND ([StudLastName] = @Original_StudLastName) AND ([Gender] = @Original_Gender) AND ([BirthDate] = @Original_BirthDate) AND ([CivilStatus] = @Original_CivilStatus) AND ([Address] = @Original_Address) AND ([ContactNum] = @Original_ContactNum) AND ([EnrollmentStatus] = @Original_EnrollmentStatus) AND ([EnrollmentType] = @Original_EnrollmentType) AND ([MotherFirstName] = @Original_MotherFirstName) AND ([MotherLastName] = @Original_MotherLastName) AND ([MotherOccupation] = @Original_MotherOccupation) AND ([FatherFirstName] = @Original_FatherFirstName) AND ([FatherLastName] = @Original_FatherLastName) AND ([FatherOccupation] = @Original_FatherOccupation) AND ((@IsNull_LRN = 1 AND [LRN] IS NULL) OR ([LRN] = @Original_LRN)) AND ((@IsNull_Section = 1 AND [Section] IS NULL) OR ([Section] = @Original_Section)) AND ([PaymentType] = @Original_PaymentType) AND ((@IsNull_PaymentMethod = 1 AND [PaymentMethod] IS NULL) OR ([PaymentMethod] = @Original_PaymentMethod)) AND ((@IsNull_GuardianEmail = 1 AND [GuardianEmail] IS NULL) OR ([GuardianEmail] = @Original_GuardianEmail)) AND ((@IsNull_PersonalEmail = 1 AND [PersonalEmail] IS NULL) OR ([PersonalEmail] = @Original_PersonalEmail)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM PendingStudents\r\nWHERE        (RegisterID = @Original_RegisterID) AND" +
+                " (@IsNull_StudentNumber = 1 AND StudentNumber IS NULL OR\r\n                      " +
+                "   StudentNumber = @Original_StudentNumber) AND (StudFirstName = @Original_StudF" +
+                "irstName) AND (StudMidName = @Original_StudMidName) AND (StudLastName = @Origina" +
+                "l_StudLastName) AND \r\n                         (Gender = @Original_Gender) AND (" +
+                "BirthDate = @Original_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (" +
+                "Address = @Original_Address) AND (ContactNum = @Original_ContactNum) AND \r\n     " +
+                "                    (EnrollmentStatus = @Original_EnrollmentStatus) AND (Enrollm" +
+                "entType = @Original_EnrollmentType) AND (MotherFirstName = @Original_MotherFirst" +
+                "Name) AND (MotherLastName = @Original_MotherLastName) AND \r\n                    " +
+                "     (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstName = @Ori" +
+                "ginal_FatherFirstName) AND (FatherLastName = @Original_FatherLastName) AND (Fath" +
+                "erOccupation = @Original_FatherOccupation) AND \r\n                         (@IsNu" +
+                "ll_LRN = 1 AND LRN IS NULL OR\r\n                         LRN = @Original_LRN) AND" +
+                " (@IsNull_Section = 1 AND Section IS NULL OR\r\n                         Section =" +
+                " @Original_Section) AND (PaymentType = @Original_PaymentType) AND (@IsNull_Payme" +
+                "ntMethod = 1 AND PaymentMethod IS NULL OR\r\n                         PaymentMetho" +
+                "d = @Original_PaymentMethod) AND (@IsNull_GuardianEmail = 1 AND GuardianEmail IS" +
+                " NULL OR\r\n                         GuardianEmail = @Original_GuardianEmail) AND " +
+                "(@IsNull_PersonalEmail = 1 AND PersonalEmail IS NULL OR\r\n                       " +
+                "  PersonalEmail = @Original_PersonalEmail)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StudentNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Section", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentMethod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentMethod", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GuardianEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonalEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [PendingStudents] ([RegisterID], [StudentNumber], [StudFirstName], [StudMidName], [StudLastName], [Gender], [BirthDate], [CivilStatus], [Address], [ContactNum], [EnrollmentStatus], [EnrollmentType], [MotherFirstName], [MotherLastName], [MotherOccupation], [FatherFirstName], [FatherLastName], [FatherOccupation], [StudForm137], [LRN], [BirthCertificate], [GoodMoral], [TransferCertificate], [Section], [PaymentType], [PaymentMethod], [ProofOfPayment], [GuardianEmail], [PersonalEmail]) VALUES (@RegisterID, @StudentNumber, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentStatus, @EnrollmentType, @MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation, @StudForm137, @LRN, @BirthCertificate, @GoodMoral, @TransferCertificate, @Section, @PaymentType, @PaymentMethod, @ProofOfPayment, @GuardianEmail, @PersonalEmail);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO PendingStudents
+                         (RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, 
+                         FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, GuardianEmail, PersonalEmail)
+VALUES        (@RegisterID,@StudentNumber,@StudFirstName,@StudMidName,@StudLastName,@Gender,@BirthDate,@CivilStatus,@Address,@ContactNum,@EnrollmentStatus,@EnrollmentType,@MotherFirstName,@MotherLastName,@MotherOccupation,@FatherFirstName,@FatherLastName,@FatherOccupation,@StudForm137,@LRN,@BirthCertificate,@GoodMoral,@TransferCertificate,@Section,@PaymentType,@PaymentMethod,@ProofOfPayment,@GuardianEmail,@PersonalEmail); 
 SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, GuardianEmail, PersonalEmail FROM PendingStudents WHERE (RegisterID = @RegisterID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [PendingStudents] SET [RegisterID] = @RegisterID, [StudentNumber] = @Stude" +
-                "ntNumber, [StudFirstName] = @StudFirstName, [StudMidName] = @StudMidName, [StudL" +
-                "astName] = @StudLastName, [Gender] = @Gender, [BirthDate] = @BirthDate, [CivilSt" +
-                "atus] = @CivilStatus, [Address] = @Address, [ContactNum] = @ContactNum, [Enrollm" +
-                "entStatus] = @EnrollmentStatus, [EnrollmentType] = @EnrollmentType, [MotherFirst" +
-                "Name] = @MotherFirstName, [MotherLastName] = @MotherLastName, [MotherOccupation]" +
-                " = @MotherOccupation, [FatherFirstName] = @FatherFirstName, [FatherLastName] = @" +
-                "FatherLastName, [FatherOccupation] = @FatherOccupation, [StudForm137] = @StudFor" +
-                "m137, [LRN] = @LRN, [BirthCertificate] = @BirthCertificate, [GoodMoral] = @GoodM" +
-                "oral, [TransferCertificate] = @TransferCertificate, [Section] = @Section, [Payme" +
-                "ntType] = @PaymentType, [PaymentMethod] = @PaymentMethod, [ProofOfPayment] = @Pr" +
-                "oofOfPayment, [GuardianEmail] = @GuardianEmail, [PersonalEmail] = @PersonalEmail" +
-                " WHERE (([RegisterID] = @Original_RegisterID) AND ((@IsNull_StudentNumber = 1 AN" +
-                "D [StudentNumber] IS NULL) OR ([StudentNumber] = @Original_StudentNumber)) AND (" +
-                "[StudFirstName] = @Original_StudFirstName) AND ([StudMidName] = @Original_StudMi" +
-                "dName) AND ([StudLastName] = @Original_StudLastName) AND ([Gender] = @Original_G" +
-                "ender) AND ([BirthDate] = @Original_BirthDate) AND ([CivilStatus] = @Original_Ci" +
-                "vilStatus) AND ([Address] = @Original_Address) AND ([ContactNum] = @Original_Con" +
-                "tactNum) AND ([EnrollmentStatus] = @Original_EnrollmentStatus) AND ([EnrollmentT" +
-                "ype] = @Original_EnrollmentType) AND ([MotherFirstName] = @Original_MotherFirstN" +
-                "ame) AND ([MotherLastName] = @Original_MotherLastName) AND ([MotherOccupation] =" +
-                " @Original_MotherOccupation) AND ([FatherFirstName] = @Original_FatherFirstName)" +
-                " AND ([FatherLastName] = @Original_FatherLastName) AND ([FatherOccupation] = @Or" +
-                "iginal_FatherOccupation) AND ((@IsNull_LRN = 1 AND [LRN] IS NULL) OR ([LRN] = @O" +
-                "riginal_LRN)) AND ((@IsNull_Section = 1 AND [Section] IS NULL) OR ([Section] = @" +
-                "Original_Section)) AND ([PaymentType] = @Original_PaymentType) AND ((@IsNull_Pay" +
-                "mentMethod = 1 AND [PaymentMethod] IS NULL) OR ([PaymentMethod] = @Original_Paym" +
-                "entMethod)) AND ((@IsNull_GuardianEmail = 1 AND [GuardianEmail] IS NULL) OR ([Gu" +
-                "ardianEmail] = @Original_GuardianEmail)) AND ((@IsNull_PersonalEmail = 1 AND [Pe" +
-                "rsonalEmail] IS NULL) OR ([PersonalEmail] = @Original_PersonalEmail)));\r\nSELECT " +
-                "RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, Bir" +
-                "thDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, Moth" +
-                "erFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, " +
-                "FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertifi" +
-                "cate, Section, PaymentType, PaymentMethod, ProofOfPayment, GuardianEmail, Person" +
-                "alEmail FROM PendingStudents WHERE (RegisterID = @RegisterID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       PendingStudents\r\nSET                RegisterID = @RegisterID, Studen" +
+                "tNumber = @StudentNumber, StudFirstName = @StudFirstName, StudMidName = @StudMid" +
+                "Name, StudLastName = @StudLastName, Gender = @Gender, BirthDate = @BirthDate, \r\n" +
+                "                         CivilStatus = @CivilStatus, Address = @Address, Contact" +
+                "Num = @ContactNum, EnrollmentStatus = @EnrollmentStatus, EnrollmentType = @Enrol" +
+                "lmentType, MotherFirstName = @MotherFirstName, \r\n                         Mother" +
+                "LastName = @MotherLastName, MotherOccupation = @MotherOccupation, FatherFirstNam" +
+                "e = @FatherFirstName, FatherLastName = @FatherLastName, FatherOccupation = @Fath" +
+                "erOccupation, \r\n                         StudForm137 = @StudForm137, LRN = @LRN," +
+                " BirthCertificate = @BirthCertificate, GoodMoral = @GoodMoral, TransferCertifica" +
+                "te = @TransferCertificate, Section = @Section, PaymentType = @PaymentType, \r\n   " +
+                "                      PaymentMethod = @PaymentMethod, ProofOfPayment = @ProofOfP" +
+                "ayment, GuardianEmail = @GuardianEmail, PersonalEmail = @PersonalEmail\r\nWHERE   " +
+                "     (RegisterID = @Original_RegisterID) AND (@IsNull_StudentNumber = 1 AND Stud" +
+                "entNumber IS NULL OR\r\n                         StudentNumber = @Original_Student" +
+                "Number) AND (StudFirstName = @Original_StudFirstName) AND (StudMidName = @Origin" +
+                "al_StudMidName) AND (StudLastName = @Original_StudLastName) AND \r\n              " +
+                "           (Gender = @Original_Gender) AND (BirthDate = @Original_BirthDate) AND" +
+                " (CivilStatus = @Original_CivilStatus) AND (Address = @Original_Address) AND (Co" +
+                "ntactNum = @Original_ContactNum) AND \r\n                         (EnrollmentStatu" +
+                "s = @Original_EnrollmentStatus) AND (EnrollmentType = @Original_EnrollmentType) " +
+                "AND (MotherFirstName = @Original_MotherFirstName) AND (MotherLastName = @Origina" +
+                "l_MotherLastName) AND \r\n                         (MotherOccupation = @Original_M" +
+                "otherOccupation) AND (FatherFirstName = @Original_FatherFirstName) AND (FatherLa" +
+                "stName = @Original_FatherLastName) AND (FatherOccupation = @Original_FatherOccup" +
+                "ation) AND \r\n                         (@IsNull_LRN = 1 AND LRN IS NULL OR\r\n     " +
+                "                    LRN = @Original_LRN) AND (@IsNull_Section = 1 AND Section IS" +
+                " NULL OR\r\n                         Section = @Original_Section) AND (PaymentType" +
+                " = @Original_PaymentType) AND (@IsNull_PaymentMethod = 1 AND PaymentMethod IS NU" +
+                "LL OR\r\n                         PaymentMethod = @Original_PaymentMethod) AND (@I" +
+                "sNull_GuardianEmail = 1 AND GuardianEmail IS NULL OR\r\n                         G" +
+                "uardianEmail = @Original_GuardianEmail) AND (@IsNull_PersonalEmail = 1 AND Perso" +
+                "nalEmail IS NULL OR\r\n                         PersonalEmail = @Original_Personal" +
+                "Email);  \r\nSELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLas" +
+                "tName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, En" +
+                "rollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName" +
+                ", FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMora" +
+                "l, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, Gua" +
+                "rdianEmail, PersonalEmail FROM PendingStudents WHERE (RegisterID = @RegisterID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentMethod", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProofOfPayment", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "ProofOfPayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StudentNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Section", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentMethod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentMethod", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentMethod", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentMethod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GuardianEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonalEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11535,7 +11570,9 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, GuardianEmail, PersonalEmail FROM PendingStudents";
+            this._commandCollection[0].CommandText = @"SELECT        RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, 
+                         FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, GuardianEmail, PersonalEmail
+FROM            PendingStudents";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -11656,7 +11693,7 @@ WHERE        (RegisterID = @RegisterID) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_StudentNumber, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -11665,7 +11702,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentStatus, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
@@ -11674,13 +11711,18 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
+                    string Original_LRN, 
                     string Original_Section, 
                     string Original_PaymentType, 
                     string Original_PaymentMethod, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RegisterID));
+            if ((Original_RegisterID == null)) {
+                throw new global::System.ArgumentNullException("Original_RegisterID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_RegisterID));
+            }
             if ((Original_StudentNumber == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -11731,7 +11773,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Address));
             }
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_ContactNum));
+            if ((Original_ContactNum == null)) {
+                throw new global::System.ArgumentNullException("Original_ContactNum");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ContactNum));
+            }
             if ((Original_EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentStatus");
             }
@@ -11780,13 +11827,13 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_FatherOccupation));
             }
-            if ((Original_LRN.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_LRN.Value));
-            }
-            else {
+            if ((Original_LRN == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_LRN));
             }
             if ((Original_Section == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
@@ -11847,7 +11894,7 @@ WHERE        (RegisterID = @RegisterID) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int RegisterID, 
+                    string RegisterID, 
                     string StudentNumber, 
                     string StudFirstName, 
                     string StudMidName, 
@@ -11856,7 +11903,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentStatus, 
                     string EnrollmentType, 
                     string MotherFirstName, 
@@ -11866,7 +11913,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
@@ -11876,7 +11923,12 @@ WHERE        (RegisterID = @RegisterID) OR
                     byte[] ProofOfPayment, 
                     string GuardianEmail, 
                     string PersonalEmail) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RegisterID));
+            if ((RegisterID == null)) {
+                throw new global::System.ArgumentNullException("RegisterID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RegisterID));
+            }
             if ((StudentNumber == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -11925,7 +11977,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Address));
             }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(ContactNum));
+            if ((ContactNum == null)) {
+                throw new global::System.ArgumentNullException("ContactNum");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ContactNum));
+            }
             if ((EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentStatus");
             }
@@ -11980,11 +12037,11 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.InsertCommand.Parameters[18].Value = ((byte[])(StudForm137));
             }
-            if ((LRN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((int)(LRN.Value));
+            if ((LRN == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(LRN));
             }
             if ((BirthCertificate == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
@@ -12061,7 +12118,7 @@ WHERE        (RegisterID = @RegisterID) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int RegisterID, 
+                    string RegisterID, 
                     string StudentNumber, 
                     string StudFirstName, 
                     string StudMidName, 
@@ -12070,7 +12127,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentStatus, 
                     string EnrollmentType, 
                     string MotherFirstName, 
@@ -12080,7 +12137,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
@@ -12090,7 +12147,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     byte[] ProofOfPayment, 
                     string GuardianEmail, 
                     string PersonalEmail, 
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_StudentNumber, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -12099,7 +12156,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentStatus, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
@@ -12108,13 +12165,18 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
+                    string Original_LRN, 
                     string Original_Section, 
                     string Original_PaymentType, 
                     string Original_PaymentMethod, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RegisterID));
+            if ((RegisterID == null)) {
+                throw new global::System.ArgumentNullException("RegisterID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RegisterID));
+            }
             if ((StudentNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -12163,7 +12225,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Address));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ContactNum));
+            if ((ContactNum == null)) {
+                throw new global::System.ArgumentNullException("ContactNum");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(ContactNum));
+            }
             if ((EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentStatus");
             }
@@ -12218,11 +12285,11 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((byte[])(StudForm137));
             }
-            if ((LRN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(LRN.Value));
+            if ((LRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(LRN));
             }
             if ((BirthCertificate == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
@@ -12278,7 +12345,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(PersonalEmail));
             }
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_RegisterID));
+            if ((Original_RegisterID == null)) {
+                throw new global::System.ArgumentNullException("Original_RegisterID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_RegisterID));
+            }
             if ((Original_StudentNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
@@ -12329,7 +12401,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_Address));
             }
-            this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_ContactNum));
+            if ((Original_ContactNum == null)) {
+                throw new global::System.ArgumentNullException("Original_ContactNum");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_ContactNum));
+            }
             if ((Original_EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentStatus");
             }
@@ -12378,13 +12455,13 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_FatherOccupation));
             }
-            if ((Original_LRN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_LRN.Value));
-            }
-            else {
+            if ((Original_LRN == null)) {
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Original_LRN));
             }
             if ((Original_Section == null)) {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
@@ -12453,7 +12530,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentStatus, 
                     string EnrollmentType, 
                     string MotherFirstName, 
@@ -12463,7 +12540,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
@@ -12473,7 +12550,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     byte[] ProofOfPayment, 
                     string GuardianEmail, 
                     string PersonalEmail, 
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_StudentNumber, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -12482,7 +12559,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentStatus, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
@@ -12491,7 +12568,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
+                    string Original_LRN, 
                     string Original_Section, 
                     string Original_PaymentType, 
                     string Original_PaymentMethod, 
@@ -12650,144 +12727,348 @@ WHERE        (RegisterID = @RegisterID) OR
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Registration] WHERE (([RegisterID] = @Original_RegisterID) AND ([EnrollmentStatus] = @Original_EnrollmentStatus) AND ([StudFirstName] = @Original_StudFirstName) AND ([StudMidName] = @Original_StudMidName) AND ([StudLastName] = @Original_StudLastName) AND ([Gender] = @Original_Gender) AND ([BirthDate] = @Original_BirthDate) AND ([CivilStatus] = @Original_CivilStatus) AND ([Address] = @Original_Address) AND ([ContactNum] = @Original_ContactNum) AND ([EnrollmentType] = @Original_EnrollmentType) AND ([MotherFirstName] = @Original_MotherFirstName) AND ([MotherLastName] = @Original_MotherLastName) AND ([MotherOccupation] = @Original_MotherOccupation) AND ([FatherFirstName] = @Original_FatherFirstName) AND ([FatherLastName] = @Original_FatherLastName) AND ([FatherOccupation] = @Original_FatherOccupation) AND ((@IsNull_LRN = 1 AND [LRN] IS NULL) OR ([LRN] = @Original_LRN)) AND ([PaymentType] = @Original_PaymentType) AND ((@IsNull_GuardianEmail = 1 AND [GuardianEmail] IS NULL) OR ([GuardianEmail] = @Original_GuardianEmail)) AND ((@IsNull_PersonalEmail = 1 AND [PersonalEmail] IS NULL) OR ([PersonalEmail] = @Original_PersonalEmail)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM Registration\r\nWHERE        (RegisterID = @Original_RegisterID) AND (E" +
+                "nrollmentStatus = @Original_EnrollmentStatus) AND (StudFirstName = @Original_Stu" +
+                "dFirstName) AND (StudMidName = @Original_StudMidName) AND \r\n                    " +
+                "     (StudLastName = @Original_StudLastName) AND (Gender = @Original_Gender) AND" +
+                " (BirthDate = @Original_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND" +
+                " (Address = @Original_Address) AND \r\n                         (ContactNum = @Ori" +
+                "ginal_ContactNum) AND (EnrollmentType = @Original_EnrollmentType) AND (MotherFir" +
+                "stName = @Original_MotherFirstName) AND (MotherLastName = @Original_MotherLastNa" +
+                "me) AND \r\n                         (MotherOccupation = @Original_MotherOccupatio" +
+                "n) AND (FatherFirstName = @Original_FatherFirstName) AND (FatherLastName = @Orig" +
+                "inal_FatherLastName) AND (FatherOccupation = @Original_FatherOccupation) AND \r\n " +
+                "                        (@IsNull_LRN = 1) AND (LRN IS NULL) AND (PaymentType = @" +
+                "Original_PaymentType) AND (@IsNull_GuardianEmail = 1) AND (GuardianEmail IS NULL" +
+                ") AND (@IsNull_PersonalEmail = 1) AND (PersonalEmail IS NULL) OR\r\n              " +
+                "           (RegisterID = @Original_RegisterID) AND (EnrollmentStatus = @Original" +
+                "_EnrollmentStatus) AND (StudFirstName = @Original_StudFirstName) AND (StudMidNam" +
+                "e = @Original_StudMidName) AND \r\n                         (StudLastName = @Origi" +
+                "nal_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Original_Bir" +
+                "thDate) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Original_Addre" +
+                "ss) AND \r\n                         (ContactNum = @Original_ContactNum) AND (Enro" +
+                "llmentType = @Original_EnrollmentType) AND (MotherFirstName = @Original_MotherFi" +
+                "rstName) AND (MotherLastName = @Original_MotherLastName) AND \r\n                 " +
+                "        (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstName = @" +
+                "Original_FatherFirstName) AND (FatherLastName = @Original_FatherLastName) AND (F" +
+                "atherOccupation = @Original_FatherOccupation) AND \r\n                         (LR" +
+                "N = @Original_LRN) AND (PaymentType = @Original_PaymentType) AND (@IsNull_Guardi" +
+                "anEmail = 1) AND (GuardianEmail IS NULL) AND (@IsNull_PersonalEmail = 1) AND (Pe" +
+                "rsonalEmail IS NULL) OR\r\n                         (RegisterID = @Original_Regist" +
+                "erID) AND (EnrollmentStatus = @Original_EnrollmentStatus) AND (StudFirstName = @" +
+                "Original_StudFirstName) AND (StudMidName = @Original_StudMidName) AND \r\n        " +
+                "                 (StudLastName = @Original_StudLastName) AND (Gender = @Original" +
+                "_Gender) AND (BirthDate = @Original_BirthDate) AND (CivilStatus = @Original_Civi" +
+                "lStatus) AND (Address = @Original_Address) AND \r\n                         (Conta" +
+                "ctNum = @Original_ContactNum) AND (EnrollmentType = @Original_EnrollmentType) AN" +
+                "D (MotherFirstName = @Original_MotherFirstName) AND (MotherLastName = @Original_" +
+                "MotherLastName) AND \r\n                         (MotherOccupation = @Original_Mot" +
+                "herOccupation) AND (FatherFirstName = @Original_FatherFirstName) AND (FatherLast" +
+                "Name = @Original_FatherLastName) AND (FatherOccupation = @Original_FatherOccupat" +
+                "ion) AND \r\n                         (@IsNull_LRN = 1) AND (LRN IS NULL) AND (Pay" +
+                "mentType = @Original_PaymentType) AND (GuardianEmail = @Original_GuardianEmail) " +
+                "AND (@IsNull_PersonalEmail = 1) AND (PersonalEmail IS NULL) OR\r\n                " +
+                "         (RegisterID = @Original_RegisterID) AND (EnrollmentStatus = @Original_E" +
+                "nrollmentStatus) AND (StudFirstName = @Original_StudFirstName) AND (StudMidName " +
+                "= @Original_StudMidName) AND \r\n                         (StudLastName = @Origina" +
+                "l_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Original_Birth" +
+                "Date) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Original_Address" +
+                ") AND \r\n                         (ContactNum = @Original_ContactNum) AND (Enroll" +
+                "mentType = @Original_EnrollmentType) AND (MotherFirstName = @Original_MotherFirs" +
+                "tName) AND (MotherLastName = @Original_MotherLastName) AND \r\n                   " +
+                "      (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstName = @Or" +
+                "iginal_FatherFirstName) AND (FatherLastName = @Original_FatherLastName) AND (Fat" +
+                "herOccupation = @Original_FatherOccupation) AND \r\n                         (LRN " +
+                "= @Original_LRN) AND (PaymentType = @Original_PaymentType) AND (GuardianEmail = " +
+                "@Original_GuardianEmail) AND (@IsNull_PersonalEmail = 1) AND (PersonalEmail IS N" +
+                "ULL) OR\r\n                         (RegisterID = @Original_RegisterID) AND (Enrol" +
+                "lmentStatus = @Original_EnrollmentStatus) AND (StudFirstName = @Original_StudFir" +
+                "stName) AND (StudMidName = @Original_StudMidName) AND \r\n                        " +
+                " (StudLastName = @Original_StudLastName) AND (Gender = @Original_Gender) AND (Bi" +
+                "rthDate = @Original_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (Ad" +
+                "dress = @Original_Address) AND \r\n                         (ContactNum = @Origina" +
+                "l_ContactNum) AND (EnrollmentType = @Original_EnrollmentType) AND (MotherFirstNa" +
+                "me = @Original_MotherFirstName) AND (MotherLastName = @Original_MotherLastName) " +
+                "AND \r\n                         (MotherOccupation = @Original_MotherOccupation) A" +
+                "ND (FatherFirstName = @Original_FatherFirstName) AND (FatherLastName = @Original" +
+                "_FatherLastName) AND (FatherOccupation = @Original_FatherOccupation) AND \r\n     " +
+                "                    (@IsNull_LRN = 1) AND (LRN IS NULL) AND (PaymentType = @Orig" +
+                "inal_PaymentType) AND (@IsNull_GuardianEmail = 1) AND (GuardianEmail IS NULL) AN" +
+                "D (PersonalEmail = @Original_PersonalEmail) OR\r\n                         (Regist" +
+                "erID = @Original_RegisterID) AND (EnrollmentStatus = @Original_EnrollmentStatus)" +
+                " AND (StudFirstName = @Original_StudFirstName) AND (StudMidName = @Original_Stud" +
+                "MidName) AND \r\n                         (StudLastName = @Original_StudLastName) " +
+                "AND (Gender = @Original_Gender) AND (BirthDate = @Original_BirthDate) AND (Civil" +
+                "Status = @Original_CivilStatus) AND (Address = @Original_Address) AND \r\n        " +
+                "                 (ContactNum = @Original_ContactNum) AND (EnrollmentType = @Orig" +
+                "inal_EnrollmentType) AND (MotherFirstName = @Original_MotherFirstName) AND (Moth" +
+                "erLastName = @Original_MotherLastName) AND \r\n                         (MotherOcc" +
+                "upation = @Original_MotherOccupation) AND (FatherFirstName = @Original_FatherFir" +
+                "stName) AND (FatherLastName = @Original_FatherLastName) AND (FatherOccupation = " +
+                "@Original_FatherOccupation) AND \r\n                         (LRN = @Original_LRN)" +
+                " AND (PaymentType = @Original_PaymentType) AND (@IsNull_GuardianEmail = 1) AND (" +
+                "GuardianEmail IS NULL) AND (PersonalEmail = @Original_PersonalEmail) OR\r\n       " +
+                "                  (RegisterID = @Original_RegisterID) AND (EnrollmentStatus = @O" +
+                "riginal_EnrollmentStatus) AND (StudFirstName = @Original_StudFirstName) AND (Stu" +
+                "dMidName = @Original_StudMidName) AND \r\n                         (StudLastName =" +
+                " @Original_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Origi" +
+                "nal_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Origina" +
+                "l_Address) AND \r\n                         (ContactNum = @Original_ContactNum) AN" +
+                "D (EnrollmentType = @Original_EnrollmentType) AND (MotherFirstName = @Original_M" +
+                "otherFirstName) AND (MotherLastName = @Original_MotherLastName) AND \r\n          " +
+                "               (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstN" +
+                "ame = @Original_FatherFirstName) AND (FatherLastName = @Original_FatherLastName)" +
+                " AND (FatherOccupation = @Original_FatherOccupation) AND \r\n                     " +
+                "    (@IsNull_LRN = 1) AND (LRN IS NULL) AND (PaymentType = @Original_PaymentType" +
+                ") AND (GuardianEmail = @Original_GuardianEmail) AND (PersonalEmail = @Original_P" +
+                "ersonalEmail) OR\r\n                         (RegisterID = @Original_RegisterID) A" +
+                "ND (EnrollmentStatus = @Original_EnrollmentStatus) AND (StudFirstName = @Origina" +
+                "l_StudFirstName) AND (StudMidName = @Original_StudMidName) AND \r\n               " +
+                "          (StudLastName = @Original_StudLastName) AND (Gender = @Original_Gender" +
+                ") AND (BirthDate = @Original_BirthDate) AND (CivilStatus = @Original_CivilStatus" +
+                ") AND (Address = @Original_Address) AND \r\n                         (ContactNum =" +
+                " @Original_ContactNum) AND (EnrollmentType = @Original_EnrollmentType) AND (Moth" +
+                "erFirstName = @Original_MotherFirstName) AND (MotherLastName = @Original_MotherL" +
+                "astName) AND \r\n                         (MotherOccupation = @Original_MotherOccu" +
+                "pation) AND (FatherFirstName = @Original_FatherFirstName) AND (FatherLastName = " +
+                "@Original_FatherLastName) AND (FatherOccupation = @Original_FatherOccupation) AN" +
+                "D \r\n                         (LRN = @Original_LRN) AND (PaymentType = @Original_" +
+                "PaymentType) AND (GuardianEmail = @Original_GuardianEmail) AND (PersonalEmail = " +
+                "@Original_PersonalEmail)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GuardianEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonalEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Registration] ([RegisterID], [EnrollmentStatus], [StudFirstName], [StudMidName], [StudLastName], [Gender], [BirthDate], [CivilStatus], [Address], [ContactNum], [EnrollmentType], [MotherFirstName], [MotherLastName], [MotherOccupation], [FatherFirstName], [FatherLastName], [FatherOccupation], [StudForm137], [LRN], [BirthCertificate], [GoodMoral], [TransferCertificate], [PaymentType], [GuardianEmail], [PersonalEmail]) VALUES (@RegisterID, @EnrollmentStatus, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentType, @MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation, @StudForm137, @LRN, @BirthCertificate, @GoodMoral, @TransferCertificate, @PaymentType, @GuardianEmail, @PersonalEmail);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO Registration
+                         (RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, 
+                         FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail)
+VALUES        (@RegisterID,@EnrollmentStatus,@StudFirstName,@StudMidName,@StudLastName,@Gender,@BirthDate,@CivilStatus,@Address,@ContactNum,@EnrollmentType,@MotherFirstName,@MotherLastName,@MotherOccupation,@FatherFirstName,@FatherLastName,@FatherOccupation,@StudForm137,@LRN,@BirthCertificate,@GoodMoral,@TransferCertificate,@PaymentType,@GuardianEmail,@PersonalEmail); 
 SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail FROM Registration WHERE (RegisterID = @RegisterID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Registration] SET [RegisterID] = @RegisterID, [EnrollmentStatus] = @Enrol" +
-                "lmentStatus, [StudFirstName] = @StudFirstName, [StudMidName] = @StudMidName, [St" +
-                "udLastName] = @StudLastName, [Gender] = @Gender, [BirthDate] = @BirthDate, [Civi" +
-                "lStatus] = @CivilStatus, [Address] = @Address, [ContactNum] = @ContactNum, [Enro" +
-                "llmentType] = @EnrollmentType, [MotherFirstName] = @MotherFirstName, [MotherLast" +
-                "Name] = @MotherLastName, [MotherOccupation] = @MotherOccupation, [FatherFirstNam" +
-                "e] = @FatherFirstName, [FatherLastName] = @FatherLastName, [FatherOccupation] = " +
-                "@FatherOccupation, [StudForm137] = @StudForm137, [LRN] = @LRN, [BirthCertificate" +
-                "] = @BirthCertificate, [GoodMoral] = @GoodMoral, [TransferCertificate] = @Transf" +
-                "erCertificate, [PaymentType] = @PaymentType, [GuardianEmail] = @GuardianEmail, [" +
-                "PersonalEmail] = @PersonalEmail WHERE (([RegisterID] = @Original_RegisterID) AND" +
-                " ([EnrollmentStatus] = @Original_EnrollmentStatus) AND ([StudFirstName] = @Origi" +
-                "nal_StudFirstName) AND ([StudMidName] = @Original_StudMidName) AND ([StudLastNam" +
-                "e] = @Original_StudLastName) AND ([Gender] = @Original_Gender) AND ([BirthDate] " +
-                "= @Original_BirthDate) AND ([CivilStatus] = @Original_CivilStatus) AND ([Address" +
-                "] = @Original_Address) AND ([ContactNum] = @Original_ContactNum) AND ([Enrollmen" +
-                "tType] = @Original_EnrollmentType) AND ([MotherFirstName] = @Original_MotherFirs" +
-                "tName) AND ([MotherLastName] = @Original_MotherLastName) AND ([MotherOccupation]" +
-                " = @Original_MotherOccupation) AND ([FatherFirstName] = @Original_FatherFirstNam" +
-                "e) AND ([FatherLastName] = @Original_FatherLastName) AND ([FatherOccupation] = @" +
-                "Original_FatherOccupation) AND ((@IsNull_LRN = 1 AND [LRN] IS NULL) OR ([LRN] = " +
-                "@Original_LRN)) AND ([PaymentType] = @Original_PaymentType) AND ((@IsNull_Guardi" +
-                "anEmail = 1 AND [GuardianEmail] IS NULL) OR ([GuardianEmail] = @Original_Guardia" +
-                "nEmail)) AND ((@IsNull_PersonalEmail = 1 AND [PersonalEmail] IS NULL) OR ([Perso" +
-                "nalEmail] = @Original_PersonalEmail)));\r\nSELECT RegisterID, EnrollmentStatus, St" +
-                "udFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address," +
-                " ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, " +
-                "FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertif" +
-                "icate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail" +
-                " FROM Registration WHERE (RegisterID = @RegisterID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       Registration\r\nSET                RegisterID = @RegisterID, Enrollmen" +
+                "tStatus = @EnrollmentStatus, StudFirstName = @StudFirstName, StudMidName = @Stud" +
+                "MidName, StudLastName = @StudLastName, Gender = @Gender, BirthDate = @BirthDate," +
+                " \r\n                         CivilStatus = @CivilStatus, Address = @Address, Cont" +
+                "actNum = @ContactNum, EnrollmentType = @EnrollmentType, MotherFirstName = @Mothe" +
+                "rFirstName, MotherLastName = @MotherLastName, \r\n                         MotherO" +
+                "ccupation = @MotherOccupation, FatherFirstName = @FatherFirstName, FatherLastNam" +
+                "e = @FatherLastName, FatherOccupation = @FatherOccupation, StudForm137 = @StudFo" +
+                "rm137, LRN = @LRN, \r\n                         BirthCertificate = @BirthCertifica" +
+                "te, GoodMoral = @GoodMoral, TransferCertificate = @TransferCertificate, PaymentT" +
+                "ype = @PaymentType, GuardianEmail = @GuardianEmail, PersonalEmail = @PersonalEma" +
+                "il\r\nWHERE        (RegisterID = @Original_RegisterID) AND (EnrollmentStatus = @Or" +
+                "iginal_EnrollmentStatus) AND (StudFirstName = @Original_StudFirstName) AND (Stud" +
+                "MidName = @Original_StudMidName) AND \r\n                         (StudLastName = " +
+                "@Original_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Origin" +
+                "al_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Original" +
+                "_Address) AND \r\n                         (ContactNum = @Original_ContactNum) AND" +
+                " (EnrollmentType = @Original_EnrollmentType) AND (MotherFirstName = @Original_Mo" +
+                "therFirstName) AND (MotherLastName = @Original_MotherLastName) AND \r\n           " +
+                "              (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstNa" +
+                "me = @Original_FatherFirstName) AND (FatherLastName = @Original_FatherLastName) " +
+                "AND (FatherOccupation = @Original_FatherOccupation) AND \r\n                      " +
+                "   (@IsNull_LRN = 1) AND (LRN IS NULL) AND (PaymentType = @Original_PaymentType)" +
+                " AND (@IsNull_GuardianEmail = 1) AND (GuardianEmail IS NULL) AND (@IsNull_Person" +
+                "alEmail = 1) AND (PersonalEmail IS NULL) OR\r\n                         (RegisterI" +
+                "D = @Original_RegisterID) AND (EnrollmentStatus = @Original_EnrollmentStatus) AN" +
+                "D (StudFirstName = @Original_StudFirstName) AND (StudMidName = @Original_StudMid" +
+                "Name) AND \r\n                         (StudLastName = @Original_StudLastName) AND" +
+                " (Gender = @Original_Gender) AND (BirthDate = @Original_BirthDate) AND (CivilSta" +
+                "tus = @Original_CivilStatus) AND (Address = @Original_Address) AND \r\n           " +
+                "              (ContactNum = @Original_ContactNum) AND (EnrollmentType = @Origina" +
+                "l_EnrollmentType) AND (MotherFirstName = @Original_MotherFirstName) AND (MotherL" +
+                "astName = @Original_MotherLastName) AND \r\n                         (MotherOccupa" +
+                "tion = @Original_MotherOccupation) AND (FatherFirstName = @Original_FatherFirstN" +
+                "ame) AND (FatherLastName = @Original_FatherLastName) AND (FatherOccupation = @Or" +
+                "iginal_FatherOccupation) AND \r\n                         (LRN = @Original_LRN) AN" +
+                "D (PaymentType = @Original_PaymentType) AND (@IsNull_GuardianEmail = 1) AND (Gua" +
+                "rdianEmail IS NULL) AND (@IsNull_PersonalEmail = 1) AND (PersonalEmail IS NULL) " +
+                "OR\r\n                         (RegisterID = @Original_RegisterID) AND (Enrollment" +
+                "Status = @Original_EnrollmentStatus) AND (StudFirstName = @Original_StudFirstNam" +
+                "e) AND (StudMidName = @Original_StudMidName) AND \r\n                         (Stu" +
+                "dLastName = @Original_StudLastName) AND (Gender = @Original_Gender) AND (BirthDa" +
+                "te = @Original_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (Address" +
+                " = @Original_Address) AND \r\n                         (ContactNum = @Original_Con" +
+                "tactNum) AND (EnrollmentType = @Original_EnrollmentType) AND (MotherFirstName = " +
+                "@Original_MotherFirstName) AND (MotherLastName = @Original_MotherLastName) AND \r" +
+                "\n                         (MotherOccupation = @Original_MotherOccupation) AND (F" +
+                "atherFirstName = @Original_FatherFirstName) AND (FatherLastName = @Original_Fath" +
+                "erLastName) AND (FatherOccupation = @Original_FatherOccupation) AND \r\n          " +
+                "               (@IsNull_LRN = 1) AND (LRN IS NULL) AND (PaymentType = @Original_" +
+                "PaymentType) AND (GuardianEmail = @Original_GuardianEmail) AND (@IsNull_Personal" +
+                "Email = 1) AND (PersonalEmail IS NULL) OR\r\n                         (RegisterID " +
+                "= @Original_RegisterID) AND (EnrollmentStatus = @Original_EnrollmentStatus) AND " +
+                "(StudFirstName = @Original_StudFirstName) AND (StudMidName = @Original_StudMidNa" +
+                "me) AND \r\n                         (StudLastName = @Original_StudLastName) AND (" +
+                "Gender = @Original_Gender) AND (BirthDate = @Original_BirthDate) AND (CivilStatu" +
+                "s = @Original_CivilStatus) AND (Address = @Original_Address) AND \r\n             " +
+                "            (ContactNum = @Original_ContactNum) AND (EnrollmentType = @Original_" +
+                "EnrollmentType) AND (MotherFirstName = @Original_MotherFirstName) AND (MotherLas" +
+                "tName = @Original_MotherLastName) AND \r\n                         (MotherOccupati" +
+                "on = @Original_MotherOccupation) AND (FatherFirstName = @Original_FatherFirstNam" +
+                "e) AND (FatherLastName = @Original_FatherLastName) AND (FatherOccupation = @Orig" +
+                "inal_FatherOccupation) AND \r\n                         (LRN = @Original_LRN) AND " +
+                "(PaymentType = @Original_PaymentType) AND (GuardianEmail = @Original_GuardianEma" +
+                "il) AND (@IsNull_PersonalEmail = 1) AND (PersonalEmail IS NULL) OR\r\n            " +
+                "             (RegisterID = @Original_RegisterID) AND (EnrollmentStatus = @Origin" +
+                "al_EnrollmentStatus) AND (StudFirstName = @Original_StudFirstName) AND (StudMidN" +
+                "ame = @Original_StudMidName) AND \r\n                         (StudLastName = @Ori" +
+                "ginal_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Original_B" +
+                "irthDate) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Original_Add" +
+                "ress) AND \r\n                         (ContactNum = @Original_ContactNum) AND (En" +
+                "rollmentType = @Original_EnrollmentType) AND (MotherFirstName = @Original_Mother" +
+                "FirstName) AND (MotherLastName = @Original_MotherLastName) AND \r\n               " +
+                "          (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstName =" +
+                " @Original_FatherFirstName) AND (FatherLastName = @Original_FatherLastName) AND " +
+                "(FatherOccupation = @Original_FatherOccupation) AND \r\n                         (" +
+                "@IsNull_LRN = 1) AND (LRN IS NULL) AND (PaymentType = @Original_PaymentType) AND" +
+                " (@IsNull_GuardianEmail = 1) AND (GuardianEmail IS NULL) AND (PersonalEmail = @O" +
+                "riginal_PersonalEmail) OR\r\n                         (RegisterID = @Original_Regi" +
+                "sterID) AND (EnrollmentStatus = @Original_EnrollmentStatus) AND (StudFirstName =" +
+                " @Original_StudFirstName) AND (StudMidName = @Original_StudMidName) AND \r\n      " +
+                "                   (StudLastName = @Original_StudLastName) AND (Gender = @Origin" +
+                "al_Gender) AND (BirthDate = @Original_BirthDate) AND (CivilStatus = @Original_Ci" +
+                "vilStatus) AND (Address = @Original_Address) AND \r\n                         (Con" +
+                "tactNum = @Original_ContactNum) AND (EnrollmentType = @Original_EnrollmentType) " +
+                "AND (MotherFirstName = @Original_MotherFirstName) AND (MotherLastName = @Origina" +
+                "l_MotherLastName) AND \r\n                         (MotherOccupation = @Original_M" +
+                "otherOccupation) AND (FatherFirstName = @Original_FatherFirstName) AND (FatherLa" +
+                "stName = @Original_FatherLastName) AND (FatherOccupation = @Original_FatherOccup" +
+                "ation) AND \r\n                         (LRN = @Original_LRN) AND (PaymentType = @" +
+                "Original_PaymentType) AND (@IsNull_GuardianEmail = 1) AND (GuardianEmail IS NULL" +
+                ") AND (PersonalEmail = @Original_PersonalEmail) OR\r\n                         (Re" +
+                "gisterID = @Original_RegisterID) AND (EnrollmentStatus = @Original_EnrollmentSta" +
+                "tus) AND (StudFirstName = @Original_StudFirstName) AND (StudMidName = @Original_" +
+                "StudMidName) AND \r\n                         (StudLastName = @Original_StudLastNa" +
+                "me) AND (Gender = @Original_Gender) AND (BirthDate = @Original_BirthDate) AND (C" +
+                "ivilStatus = @Original_CivilStatus) AND (Address = @Original_Address) AND \r\n    " +
+                "                     (ContactNum = @Original_ContactNum) AND (EnrollmentType = @" +
+                "Original_EnrollmentType) AND (MotherFirstName = @Original_MotherFirstName) AND (" +
+                "MotherLastName = @Original_MotherLastName) AND \r\n                         (Mothe" +
+                "rOccupation = @Original_MotherOccupation) AND (FatherFirstName = @Original_Fathe" +
+                "rFirstName) AND (FatherLastName = @Original_FatherLastName) AND (FatherOccupatio" +
+                "n = @Original_FatherOccupation) AND \r\n                         (@IsNull_LRN = 1)" +
+                " AND (LRN IS NULL) AND (PaymentType = @Original_PaymentType) AND (GuardianEmail " +
+                "= @Original_GuardianEmail) AND (PersonalEmail = @Original_PersonalEmail) OR\r\n   " +
+                "                      (RegisterID = @Original_RegisterID) AND (EnrollmentStatus " +
+                "= @Original_EnrollmentStatus) AND (StudFirstName = @Original_StudFirstName) AND " +
+                "(StudMidName = @Original_StudMidName) AND \r\n                         (StudLastNa" +
+                "me = @Original_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @O" +
+                "riginal_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Ori" +
+                "ginal_Address) AND \r\n                         (ContactNum = @Original_ContactNum" +
+                ") AND (EnrollmentType = @Original_EnrollmentType) AND (MotherFirstName = @Origin" +
+                "al_MotherFirstName) AND (MotherLastName = @Original_MotherLastName) AND \r\n      " +
+                "                   (MotherOccupation = @Original_MotherOccupation) AND (FatherFi" +
+                "rstName = @Original_FatherFirstName) AND (FatherLastName = @Original_FatherLastN" +
+                "ame) AND (FatherOccupation = @Original_FatherOccupation) AND \r\n                 " +
+                "        (LRN = @Original_LRN) AND (PaymentType = @Original_PaymentType) AND (Gua" +
+                "rdianEmail = @Original_GuardianEmail) AND (PersonalEmail = @Original_PersonalEma" +
+                "il);  \r\nSELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLas" +
+                "tName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, Moth" +
+                "erFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, " +
+                "FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertifi" +
+                "cate, PaymentType, GuardianEmail, PersonalEmail FROM Registration WHERE (Registe" +
+                "rID = @RegisterID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GuardianEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonalEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12803,7 +13084,9 @@ SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, G
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail FROM Registration";
+            this._commandCollection[0].CommandText = @"SELECT        RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, 
+                         FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail
+FROM            Registration";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -12916,7 +13199,7 @@ WHERE        (RegisterID = @RegisterID) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_EnrollmentStatus, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -12925,7 +13208,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
                     string Original_MotherLastName, 
@@ -12933,11 +13216,16 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
                     string Original_PaymentType, 
+                    string Original_LRN, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RegisterID));
+            if ((Original_RegisterID == null)) {
+                throw new global::System.ArgumentNullException("Original_RegisterID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_RegisterID));
+            }
             if ((Original_EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentStatus");
             }
@@ -12986,7 +13274,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Address));
             }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_ContactNum));
+            if ((Original_ContactNum == null)) {
+                throw new global::System.ArgumentNullException("Original_ContactNum");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_ContactNum));
+            }
             if ((Original_EnrollmentType == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentType");
             }
@@ -13029,34 +13322,34 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_FatherOccupation));
             }
-            if ((Original_LRN.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_LRN.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
             if ((Original_PaymentType == null)) {
                 throw new global::System.ArgumentNullException("Original_PaymentType");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_PaymentType));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_PaymentType));
             }
-            if ((Original_GuardianEmail == null)) {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+            if ((Original_LRN == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_GuardianEmail));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_LRN));
+            }
+            if ((Original_GuardianEmail == null)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_GuardianEmail));
             }
             if ((Original_PersonalEmail == null)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_PersonalEmail));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -13080,7 +13373,7 @@ WHERE        (RegisterID = @RegisterID) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int RegisterID, 
+                    string RegisterID, 
                     string EnrollmentStatus, 
                     string StudFirstName, 
                     string StudMidName, 
@@ -13089,7 +13382,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentType, 
                     string MotherFirstName, 
                     string MotherLastName, 
@@ -13098,14 +13391,19 @@ WHERE        (RegisterID = @RegisterID) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
                     string PaymentType, 
                     string GuardianEmail, 
                     string PersonalEmail) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RegisterID));
+            if ((RegisterID == null)) {
+                throw new global::System.ArgumentNullException("RegisterID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RegisterID));
+            }
             if ((EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentStatus");
             }
@@ -13154,7 +13452,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Address));
             }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(ContactNum));
+            if ((ContactNum == null)) {
+                throw new global::System.ArgumentNullException("ContactNum");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ContactNum));
+            }
             if ((EnrollmentType == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentType");
             }
@@ -13203,11 +13506,11 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.InsertCommand.Parameters[17].Value = ((byte[])(StudForm137));
             }
-            if ((LRN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(LRN.Value));
+            if ((LRN == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(LRN));
             }
             if ((BirthCertificate == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
@@ -13266,7 +13569,7 @@ WHERE        (RegisterID = @RegisterID) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int RegisterID, 
+                    string RegisterID, 
                     string EnrollmentStatus, 
                     string StudFirstName, 
                     string StudMidName, 
@@ -13275,7 +13578,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentType, 
                     string MotherFirstName, 
                     string MotherLastName, 
@@ -13284,14 +13587,14 @@ WHERE        (RegisterID = @RegisterID) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
                     string PaymentType, 
                     string GuardianEmail, 
                     string PersonalEmail, 
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_EnrollmentStatus, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -13300,7 +13603,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
                     string Original_MotherLastName, 
@@ -13308,11 +13611,16 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
                     string Original_PaymentType, 
+                    string Original_LRN, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RegisterID));
+            if ((RegisterID == null)) {
+                throw new global::System.ArgumentNullException("RegisterID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RegisterID));
+            }
             if ((EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentStatus");
             }
@@ -13361,7 +13669,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Address));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ContactNum));
+            if ((ContactNum == null)) {
+                throw new global::System.ArgumentNullException("ContactNum");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(ContactNum));
+            }
             if ((EnrollmentType == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentType");
             }
@@ -13410,11 +13723,11 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((byte[])(StudForm137));
             }
-            if ((LRN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(LRN.Value));
+            if ((LRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(LRN));
             }
             if ((BirthCertificate == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
@@ -13452,7 +13765,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(PersonalEmail));
             }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_RegisterID));
+            if ((Original_RegisterID == null)) {
+                throw new global::System.ArgumentNullException("Original_RegisterID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_RegisterID));
+            }
             if ((Original_EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentStatus");
             }
@@ -13501,7 +13819,12 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Address));
             }
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_ContactNum));
+            if ((Original_ContactNum == null)) {
+                throw new global::System.ArgumentNullException("Original_ContactNum");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_ContactNum));
+            }
             if ((Original_EnrollmentType == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentType");
             }
@@ -13544,34 +13867,34 @@ WHERE        (RegisterID = @RegisterID) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_FatherOccupation));
             }
-            if ((Original_LRN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_LRN.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
-            }
             if ((Original_PaymentType == null)) {
                 throw new global::System.ArgumentNullException("Original_PaymentType");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_PaymentType));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_PaymentType));
             }
-            if ((Original_GuardianEmail == null)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+            if ((Original_LRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_GuardianEmail));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_LRN));
+            }
+            if ((Original_GuardianEmail == null)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_GuardianEmail));
             }
             if ((Original_PersonalEmail == null)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_PersonalEmail));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -13603,7 +13926,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentType, 
                     string MotherFirstName, 
                     string MotherLastName, 
@@ -13612,14 +13935,14 @@ WHERE        (RegisterID = @RegisterID) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
                     string PaymentType, 
                     string GuardianEmail, 
                     string PersonalEmail, 
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_EnrollmentStatus, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -13628,7 +13951,7 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
                     string Original_MotherLastName, 
@@ -13636,11 +13959,11 @@ WHERE        (RegisterID = @RegisterID) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
                     string Original_PaymentType, 
+                    string Original_LRN, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            return this.Update(Original_RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail, Original_RegisterID, Original_EnrollmentStatus, Original_StudFirstName, Original_StudMidName, Original_StudLastName, Original_Gender, Original_BirthDate, Original_CivilStatus, Original_Address, Original_ContactNum, Original_EnrollmentType, Original_MotherFirstName, Original_MotherLastName, Original_MotherOccupation, Original_FatherFirstName, Original_FatherLastName, Original_FatherOccupation, Original_LRN, Original_PaymentType, Original_GuardianEmail, Original_PersonalEmail);
+            return this.Update(Original_RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, PaymentType, GuardianEmail, PersonalEmail, Original_RegisterID, Original_EnrollmentStatus, Original_StudFirstName, Original_StudMidName, Original_StudLastName, Original_Gender, Original_BirthDate, Original_CivilStatus, Original_Address, Original_ContactNum, Original_EnrollmentType, Original_MotherFirstName, Original_MotherLastName, Original_MotherOccupation, Original_FatherFirstName, Original_FatherLastName, Original_FatherOccupation, Original_PaymentType, Original_LRN, Original_GuardianEmail, Original_PersonalEmail);
         }
     }
     
@@ -14770,157 +15093,172 @@ SELECT SectionTitle, SectionCode, Room, TeacherCode, GradeCode, ScheduleCode, Ca
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Students] WHERE (([RegisterID] = @Original_RegisterID) AND ([StudentNumber] = @Original_StudentNumber) AND ([StudFirstName] = @Original_StudFirstName) AND ([StudMidName] = @Original_StudMidName) AND ([StudLastName] = @Original_StudLastName) AND ([Gender] = @Original_Gender) AND ([BirthDate] = @Original_BirthDate) AND ([CivilStatus] = @Original_CivilStatus) AND ([Address] = @Original_Address) AND ([ContactNum] = @Original_ContactNum) AND ([EnrollmentStatus] = @Original_EnrollmentStatus) AND ([EnrollmentType] = @Original_EnrollmentType) AND ([MotherFirstName] = @Original_MotherFirstName) AND ([MotherLastName] = @Original_MotherLastName) AND ([MotherOccupation] = @Original_MotherOccupation) AND ([FatherFirstName] = @Original_FatherFirstName) AND ([FatherLastName] = @Original_FatherLastName) AND ([FatherOccupation] = @Original_FatherOccupation) AND ((@IsNull_LRN = 1 AND [LRN] IS NULL) OR ([LRN] = @Original_LRN)) AND ((@IsNull_Section = 1 AND [Section] IS NULL) OR ([Section] = @Original_Section)) AND ([PaymentType] = @Original_PaymentType) AND ((@IsNull_GuardianEmail = 1 AND [GuardianEmail] IS NULL) OR ([GuardianEmail] = @Original_GuardianEmail)) AND ((@IsNull_PersonalEmail = 1 AND [PersonalEmail] IS NULL) OR ([PersonalEmail] = @Original_PersonalEmail)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM Students
+WHERE        (RegisterID = @Original_RegisterID) AND (StudentNumber = @Original_StudentNumber) AND (StudFirstName = @Original_StudFirstName) AND (StudMidName = @Original_StudMidName) AND 
+                         (StudLastName = @Original_StudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Original_BirthDate) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Original_Address) AND 
+                         (ContactNum = @Original_ContactNum) AND (EnrollmentStatus = @Original_EnrollmentStatus) AND (EnrollmentType = @Original_EnrollmentType) AND (MotherFirstName = @Original_MotherFirstName) AND 
+                         (MotherLastName = @Original_MotherLastName) AND (MotherOccupation = @Original_MotherOccupation) AND (FatherFirstName = @Original_FatherFirstName) AND (FatherLastName = @Original_FatherLastName) AND 
+                         (FatherOccupation = @Original_FatherOccupation) AND (@IsNull_LRN = 1 AND LRN IS NULL OR
+                         LRN = @Original_LRN) AND (@IsNull_Section = 1 AND Section IS NULL OR
+                         Section = @Original_Section) AND (PaymentType = @Original_PaymentType) AND (@IsNull_GuardianEmail = 1 AND GuardianEmail IS NULL OR
+                         GuardianEmail = @Original_GuardianEmail) AND (@IsNull_PersonalEmail = 1 AND PersonalEmail IS NULL OR
+                         PersonalEmail = @Original_PersonalEmail)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Section", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GuardianEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonalEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Students] ([RegisterID], [StudentNumber], [StudFirstName], [StudMidName], [StudLastName], [Gender], [BirthDate], [CivilStatus], [Address], [ContactNum], [EnrollmentStatus], [EnrollmentType], [MotherFirstName], [MotherLastName], [MotherOccupation], [FatherFirstName], [FatherLastName], [FatherOccupation], [StudForm137], [LRN], [BirthCertificate], [GoodMoral], [TransferCertificate], [Section], [PaymentType], [GuardianEmail], [PersonalEmail]) VALUES (@RegisterID, @StudentNumber, @StudFirstName, @StudMidName, @StudLastName, @Gender, @BirthDate, @CivilStatus, @Address, @ContactNum, @EnrollmentStatus, @EnrollmentType, @MotherFirstName, @MotherLastName, @MotherOccupation, @FatherFirstName, @FatherLastName, @FatherOccupation, @StudForm137, @LRN, @BirthCertificate, @GoodMoral, @TransferCertificate, @Section, @PaymentType, @GuardianEmail, @PersonalEmail);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO Students
+                         (RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, 
+                         FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, GuardianEmail, PersonalEmail)
+VALUES        (@RegisterID,@StudentNumber,@StudFirstName,@StudMidName,@StudLastName,@Gender,@BirthDate,@CivilStatus,@Address,@ContactNum,@EnrollmentStatus,@EnrollmentType,@MotherFirstName,@MotherLastName,@MotherOccupation,@FatherFirstName,@FatherLastName,@FatherOccupation,@StudForm137,@LRN,@BirthCertificate,@GoodMoral,@TransferCertificate,@Section,@PaymentType,@GuardianEmail,@PersonalEmail); 
 SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, GuardianEmail, PersonalEmail FROM Students WHERE (StudentNumber = @StudentNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Students] SET [RegisterID] = @RegisterID, [StudentNumber] = @StudentNumbe" +
-                "r, [StudFirstName] = @StudFirstName, [StudMidName] = @StudMidName, [StudLastName" +
-                "] = @StudLastName, [Gender] = @Gender, [BirthDate] = @BirthDate, [CivilStatus] =" +
-                " @CivilStatus, [Address] = @Address, [ContactNum] = @ContactNum, [EnrollmentStat" +
-                "us] = @EnrollmentStatus, [EnrollmentType] = @EnrollmentType, [MotherFirstName] =" +
-                " @MotherFirstName, [MotherLastName] = @MotherLastName, [MotherOccupation] = @Mot" +
-                "herOccupation, [FatherFirstName] = @FatherFirstName, [FatherLastName] = @FatherL" +
-                "astName, [FatherOccupation] = @FatherOccupation, [StudForm137] = @StudForm137, [" +
-                "LRN] = @LRN, [BirthCertificate] = @BirthCertificate, [GoodMoral] = @GoodMoral, [" +
-                "TransferCertificate] = @TransferCertificate, [Section] = @Section, [PaymentType]" +
-                " = @PaymentType, [GuardianEmail] = @GuardianEmail, [PersonalEmail] = @PersonalEm" +
-                "ail WHERE (([RegisterID] = @Original_RegisterID) AND ([StudentNumber] = @Origina" +
-                "l_StudentNumber) AND ([StudFirstName] = @Original_StudFirstName) AND ([StudMidNa" +
-                "me] = @Original_StudMidName) AND ([StudLastName] = @Original_StudLastName) AND (" +
-                "[Gender] = @Original_Gender) AND ([BirthDate] = @Original_BirthDate) AND ([Civil" +
-                "Status] = @Original_CivilStatus) AND ([Address] = @Original_Address) AND ([Conta" +
-                "ctNum] = @Original_ContactNum) AND ([EnrollmentStatus] = @Original_EnrollmentSta" +
-                "tus) AND ([EnrollmentType] = @Original_EnrollmentType) AND ([MotherFirstName] = " +
-                "@Original_MotherFirstName) AND ([MotherLastName] = @Original_MotherLastName) AND" +
-                " ([MotherOccupation] = @Original_MotherOccupation) AND ([FatherFirstName] = @Ori" +
-                "ginal_FatherFirstName) AND ([FatherLastName] = @Original_FatherLastName) AND ([F" +
-                "atherOccupation] = @Original_FatherOccupation) AND ((@IsNull_LRN = 1 AND [LRN] I" +
-                "S NULL) OR ([LRN] = @Original_LRN)) AND ((@IsNull_Section = 1 AND [Section] IS N" +
-                "ULL) OR ([Section] = @Original_Section)) AND ([PaymentType] = @Original_PaymentT" +
-                "ype) AND ((@IsNull_GuardianEmail = 1 AND [GuardianEmail] IS NULL) OR ([GuardianE" +
-                "mail] = @Original_GuardianEmail)) AND ((@IsNull_PersonalEmail = 1 AND [PersonalE" +
-                "mail] IS NULL) OR ([PersonalEmail] = @Original_PersonalEmail)));\r\nSELECT Registe" +
-                "rID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate," +
-                " CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirst" +
-                "Name, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherO" +
-                "ccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, S" +
-                "ection, PaymentType, GuardianEmail, PersonalEmail FROM Students WHERE (StudentNu" +
-                "mber = @StudentNumber)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       Students\r\nSET                RegisterID = @RegisterID, StudentNumber" +
+                " = @StudentNumber, StudFirstName = @StudFirstName, StudMidName = @StudMidName, S" +
+                "tudLastName = @StudLastName, Gender = @Gender, BirthDate = @BirthDate, \r\n       " +
+                "                  CivilStatus = @CivilStatus, Address = @Address, ContactNum = @" +
+                "ContactNum, EnrollmentStatus = @EnrollmentStatus, EnrollmentType = @EnrollmentTy" +
+                "pe, MotherFirstName = @MotherFirstName, \r\n                         MotherLastNam" +
+                "e = @MotherLastName, MotherOccupation = @MotherOccupation, FatherFirstName = @Fa" +
+                "therFirstName, FatherLastName = @FatherLastName, FatherOccupation = @FatherOccup" +
+                "ation, \r\n                         StudForm137 = @StudForm137, LRN = @LRN, BirthC" +
+                "ertificate = @BirthCertificate, GoodMoral = @GoodMoral, TransferCertificate = @T" +
+                "ransferCertificate, Section = @Section, PaymentType = @PaymentType, \r\n          " +
+                "               GuardianEmail = @GuardianEmail, PersonalEmail = @PersonalEmail\r\nW" +
+                "HERE        (RegisterID = @Original_RegisterID) AND (StudentNumber = @Original_S" +
+                "tudentNumber) AND (StudFirstName = @Original_StudFirstName) AND (StudMidName = @" +
+                "Original_StudMidName) AND \r\n                         (StudLastName = @Original_S" +
+                "tudLastName) AND (Gender = @Original_Gender) AND (BirthDate = @Original_BirthDat" +
+                "e) AND (CivilStatus = @Original_CivilStatus) AND (Address = @Original_Address) A" +
+                "ND \r\n                         (ContactNum = @Original_ContactNum) AND (Enrollmen" +
+                "tStatus = @Original_EnrollmentStatus) AND (EnrollmentType = @Original_Enrollment" +
+                "Type) AND (MotherFirstName = @Original_MotherFirstName) AND \r\n                  " +
+                "       (MotherLastName = @Original_MotherLastName) AND (MotherOccupation = @Orig" +
+                "inal_MotherOccupation) AND (FatherFirstName = @Original_FatherFirstName) AND (Fa" +
+                "therLastName = @Original_FatherLastName) AND \r\n                         (FatherO" +
+                "ccupation = @Original_FatherOccupation) AND (@IsNull_LRN = 1 AND LRN IS NULL OR\r" +
+                "\n                         LRN = @Original_LRN) AND (@IsNull_Section = 1 AND Sect" +
+                "ion IS NULL OR\r\n                         Section = @Original_Section) AND (Payme" +
+                "ntType = @Original_PaymentType) AND (@IsNull_GuardianEmail = 1 AND GuardianEmail" +
+                " IS NULL OR\r\n                         GuardianEmail = @Original_GuardianEmail) A" +
+                "ND (@IsNull_PersonalEmail = 1 AND PersonalEmail IS NULL OR\r\n                    " +
+                "     PersonalEmail = @Original_PersonalEmail);  \r\nSELECT RegisterID, StudentNumb" +
+                "er, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Ad" +
+                "dress, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLast" +
+                "Name, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudF" +
+                "orm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentT" +
+                "ype, GuardianEmail, PersonalEmail FROM Students WHERE (StudentNumber = @StudentN" +
+                "umber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudForm137", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "StudForm137", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "BirthCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoodMoral", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "GoodMoral", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransferCertificate", global::System.Data.SqlDbType.VarBinary, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "TransferCertificate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "MotherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherFirstName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherLastName", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherLastName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FatherOccupation", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "FatherOccupation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LRN", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LRN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Section", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Section", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Section", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GuardianEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GuardianEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GuardianEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PersonalEmail", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonalEmail", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PersonalEmail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14936,7 +15274,9 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, GuardianEmail, PersonalEmail FROM Students";
+            this._commandCollection[0].CommandText = @"SELECT        RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, 
+                         FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentType, GuardianEmail, PersonalEmail
+FROM            Students";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -15084,7 +15424,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_StudentNumber, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -15093,7 +15433,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentStatus, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
@@ -15102,12 +15442,17 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
+                    string Original_LRN, 
                     string Original_Section, 
                     string Original_PaymentType, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RegisterID));
+            if ((Original_RegisterID == null)) {
+                throw new global::System.ArgumentNullException("Original_RegisterID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_RegisterID));
+            }
             if ((Original_StudentNumber == null)) {
                 throw new global::System.ArgumentNullException("Original_StudentNumber");
             }
@@ -15156,7 +15501,12 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Address));
             }
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_ContactNum));
+            if ((Original_ContactNum == null)) {
+                throw new global::System.ArgumentNullException("Original_ContactNum");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_ContactNum));
+            }
             if ((Original_EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentStatus");
             }
@@ -15205,13 +15555,13 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_FatherOccupation));
             }
-            if ((Original_LRN.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(Original_LRN.Value));
-            }
-            else {
+            if ((Original_LRN == null)) {
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_LRN));
             }
             if ((Original_Section == null)) {
                 this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
@@ -15264,7 +15614,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    int RegisterID, 
+                    string RegisterID, 
                     string StudentNumber, 
                     string StudFirstName, 
                     string StudMidName, 
@@ -15273,7 +15623,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentStatus, 
                     string EnrollmentType, 
                     string MotherFirstName, 
@@ -15283,7 +15633,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
@@ -15291,7 +15641,12 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string PaymentType, 
                     string GuardianEmail, 
                     string PersonalEmail) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RegisterID));
+            if ((RegisterID == null)) {
+                throw new global::System.ArgumentNullException("RegisterID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RegisterID));
+            }
             if ((StudentNumber == null)) {
                 throw new global::System.ArgumentNullException("StudentNumber");
             }
@@ -15340,7 +15695,12 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Address));
             }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(ContactNum));
+            if ((ContactNum == null)) {
+                throw new global::System.ArgumentNullException("ContactNum");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ContactNum));
+            }
             if ((EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentStatus");
             }
@@ -15395,11 +15755,11 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.InsertCommand.Parameters[18].Value = ((byte[])(StudForm137));
             }
-            if ((LRN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((int)(LRN.Value));
+            if ((LRN == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(LRN));
             }
             if ((BirthCertificate == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
@@ -15464,7 +15824,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int RegisterID, 
+                    string RegisterID, 
                     string StudentNumber, 
                     string StudFirstName, 
                     string StudMidName, 
@@ -15473,7 +15833,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentStatus, 
                     string EnrollmentType, 
                     string MotherFirstName, 
@@ -15483,7 +15843,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
@@ -15491,7 +15851,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string PaymentType, 
                     string GuardianEmail, 
                     string PersonalEmail, 
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_StudentNumber, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -15500,7 +15860,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentStatus, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
@@ -15509,12 +15869,17 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
+                    string Original_LRN, 
                     string Original_Section, 
                     string Original_PaymentType, 
                     string Original_GuardianEmail, 
                     string Original_PersonalEmail) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RegisterID));
+            if ((RegisterID == null)) {
+                throw new global::System.ArgumentNullException("RegisterID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RegisterID));
+            }
             if ((StudentNumber == null)) {
                 throw new global::System.ArgumentNullException("StudentNumber");
             }
@@ -15563,7 +15928,12 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Address));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ContactNum));
+            if ((ContactNum == null)) {
+                throw new global::System.ArgumentNullException("ContactNum");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(ContactNum));
+            }
             if ((EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("EnrollmentStatus");
             }
@@ -15618,11 +15988,11 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((byte[])(StudForm137));
             }
-            if ((LRN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(LRN.Value));
+            if ((LRN == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(LRN));
             }
             if ((BirthCertificate == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
@@ -15666,7 +16036,12 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(PersonalEmail));
             }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_RegisterID));
+            if ((Original_RegisterID == null)) {
+                throw new global::System.ArgumentNullException("Original_RegisterID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_RegisterID));
+            }
             if ((Original_StudentNumber == null)) {
                 throw new global::System.ArgumentNullException("Original_StudentNumber");
             }
@@ -15715,7 +16090,12 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Address));
             }
-            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_ContactNum));
+            if ((Original_ContactNum == null)) {
+                throw new global::System.ArgumentNullException("Original_ContactNum");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_ContactNum));
+            }
             if ((Original_EnrollmentStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_EnrollmentStatus");
             }
@@ -15764,13 +16144,13 @@ WHERE        (StudentNumber = @StudentNumber) OR
             else {
                 this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_FatherOccupation));
             }
-            if ((Original_LRN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(Original_LRN.Value));
-            }
-            else {
+            if ((Original_LRN == null)) {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_LRN));
             }
             if ((Original_Section == null)) {
                 this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
@@ -15823,7 +16203,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    int RegisterID, 
+                    string RegisterID, 
                     string StudFirstName, 
                     string StudMidName, 
                     string StudLastName, 
@@ -15831,7 +16211,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string BirthDate, 
                     string CivilStatus, 
                     string Address, 
-                    int ContactNum, 
+                    string ContactNum, 
                     string EnrollmentStatus, 
                     string EnrollmentType, 
                     string MotherFirstName, 
@@ -15841,7 +16221,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string FatherLastName, 
                     string FatherOccupation, 
                     byte[] StudForm137, 
-                    global::System.Nullable<int> LRN, 
+                    string LRN, 
                     byte[] BirthCertificate, 
                     byte[] GoodMoral, 
                     byte[] TransferCertificate, 
@@ -15849,7 +16229,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string PaymentType, 
                     string GuardianEmail, 
                     string PersonalEmail, 
-                    int Original_RegisterID, 
+                    string Original_RegisterID, 
                     string Original_StudentNumber, 
                     string Original_StudFirstName, 
                     string Original_StudMidName, 
@@ -15858,7 +16238,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string Original_BirthDate, 
                     string Original_CivilStatus, 
                     string Original_Address, 
-                    int Original_ContactNum, 
+                    string Original_ContactNum, 
                     string Original_EnrollmentStatus, 
                     string Original_EnrollmentType, 
                     string Original_MotherFirstName, 
@@ -15867,7 +16247,7 @@ WHERE        (StudentNumber = @StudentNumber) OR
                     string Original_FatherFirstName, 
                     string Original_FatherLastName, 
                     string Original_FatherOccupation, 
-                    global::System.Nullable<int> Original_LRN, 
+                    string Original_LRN, 
                     string Original_Section, 
                     string Original_PaymentType, 
                     string Original_GuardianEmail, 

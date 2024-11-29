@@ -124,6 +124,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.addReturningStudentToolStripPaymentMethodComboBox = new System.Windows.Forms.ToolStripComboBox();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -344,6 +345,7 @@
             // paymentRNToolStripTextBox
             // 
             this.paymentRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paymentRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.paymentRNToolStripTextBox.Name = "paymentRNToolStripTextBox";
             this.paymentRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             this.paymentRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
@@ -357,6 +359,7 @@
             // receiptRNToolStripTextBox
             // 
             this.receiptRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.receiptRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.receiptRNToolStripTextBox.Name = "receiptRNToolStripTextBox";
             this.receiptRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             this.receiptRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
@@ -370,6 +373,7 @@
             // transactionNumberToolStripTextBox
             // 
             this.transactionNumberToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.transactionNumberToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.transactionNumberToolStripTextBox.Name = "transactionNumberToolStripTextBox";
             this.transactionNumberToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             this.transactionNumberToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
@@ -811,6 +815,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -874,6 +879,7 @@
             this.addReturningStudentToolStripDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addReturningStudentToolStripStudentNumberComboBox,
             this.addReturningStudentToolStripPaymentTypeComboBox,
+            this.addReturningStudentToolStripPaymentMethodComboBox,
             this.addReturningStudentToolStripEnrollmentTypeComboBox,
             this.toolStripSeparator2,
             this.addReturningStudentToolStripInsertMenuItem});
@@ -1065,6 +1071,16 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // addReturningStudentToolStripPaymentMethodComboBox
+            // 
+            this.addReturningStudentToolStripPaymentMethodComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.addReturningStudentToolStripPaymentMethodComboBox.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.addReturningStudentToolStripPaymentMethodComboBox.Name = "addReturningStudentToolStripPaymentMethodComboBox";
+            this.addReturningStudentToolStripPaymentMethodComboBox.Size = new System.Drawing.Size(121, 23);
+            // 
             // frmStudentPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1182,5 +1198,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem addReturningStudentToolStripInsertMenuItem;
         private System.Windows.Forms.ToolStripComboBox addReturningStudentToolStripEnrollmentTypeComboBox;
+        private System.Windows.Forms.ToolStripComboBox addReturningStudentToolStripPaymentMethodComboBox;
     }
 }

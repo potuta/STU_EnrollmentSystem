@@ -270,7 +270,7 @@ namespace STUEnrollmentSystem
                 {"BirthDate", birthDateTimePicker.Value.Date.ToShortDateString()},
                 {"CivilStatus", civilStatusComboBox.SelectedItem},
                 {"Address", addressTextBox.Text},
-                {"ContactNum", Convert.ToInt32(contactNumTextBox.Text)},
+                {"ContactNum", contactNumTextBox.Text},
                 {"EnrollmentType", enrollmentTypeComboBox.SelectedItem},
                 {"PaymentType", paymentTypeComboBox.SelectedItem},
                 {"MotherFirstName", motherFirstNameTextBox.Text},

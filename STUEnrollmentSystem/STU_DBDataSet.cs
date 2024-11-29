@@ -4,6 +4,10 @@
 
     partial class STU_DBDataSet
     {
+        partial class StudentsDataTable
+        {
+        }
+
         partial class PendingStudentsDataTable
         {
         }
