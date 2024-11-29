@@ -517,8 +517,8 @@ namespace STUEnrollmentSystem
             var studentPaymentData = new Dictionary<string, object>
             {
                 {"PaymentCode", paymentCode},
-                {"PaymentMethod", paymentMethodComboBox.Text},
-                {"StudentNumber", studentNumberTextBox.Text}
+                {"PaymentMethod", addReturningStudentToolStripPaymentMethodComboBox.Text},
+                {"StudentNumber", addReturningStudentToolStripStudentNumberComboBox.Text}
             };
 
             if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Monthly"))

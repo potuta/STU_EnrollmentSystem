@@ -315,7 +315,7 @@ namespace STUEnrollmentSystem
                 {"BirthDate", birthDateTextBox.Text},
                 {"CivilStatus", civilStatusTextBox.Text},
                 {"Address", addressTextBox.Text},
-                {"ContactNum", Convert.ToInt32(contactNumTextBox.Text)},
+                {"ContactNum", contactNumTextBox.Text},
                 {"EnrollmentStatus", enrollmentStatusTextBox.Text},
                 {"EnrollmentType", enrollmentTypeTextBox.Text},
                 {"PaymentType", paymentTypeComboBox.SelectedItem},

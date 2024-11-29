@@ -53,7 +53,7 @@ namespace Registration
             command.Parameters.AddWithValue("@BirthDate", birthDateTimePicker.Value.Date.ToShortDateString());
             command.Parameters.AddWithValue("@CivilStatus", civilStatusComboBox.SelectedItem);
             command.Parameters.AddWithValue("@Address", addressTextBox.Text);
-            command.Parameters.AddWithValue("@ContactNum", Convert.ToInt32(contactNumTextBox.Text));
+            command.Parameters.AddWithValue("@ContactNum", contactNumTextBox.Text);
             command.Parameters.AddWithValue("@EnrollmentType", enrollmentTypeComboBox.SelectedItem);
             command.Parameters.AddWithValue("@PaymentType", paymentTypeComboBox.SelectedItem);
             command.Parameters.AddWithValue("@MotherFirstName", motherFirstNameTextBox.Text);
