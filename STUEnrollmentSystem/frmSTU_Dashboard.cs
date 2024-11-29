@@ -219,8 +219,7 @@ namespace STUEnrollmentSystem
             }
             else if (sender == gradeLevelButton)
             {
-                // None yet
-                return;
+                openChildForm(new frmGradeLevel());
             }
             else if (sender == logoButton)
             {
