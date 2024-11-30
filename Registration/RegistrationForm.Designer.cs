@@ -51,6 +51,7 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.studFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.studMidNameTextBox = new System.Windows.Forms.TextBox();
             this.studLastNameTextBox = new System.Windows.Forms.TextBox();
@@ -270,6 +271,44 @@
             label2.TabIndex = 46;
             label2.Text = "Requirements (to be passed at registrar office):";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(91, 87);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(168, 18);
+            label4.TabIndex = 49;
+            label4.Text = "Student\'s Information";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(374, 87);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(160, 18);
+            label5.TabIndex = 50;
+            label5.Text = "Parent\'s Information";
+            // 
+            // personalEmailLabel
+            // 
+            personalEmailLabel.AutoSize = true;
+            personalEmailLabel.Location = new System.Drawing.Point(20, 360);
+            personalEmailLabel.Name = "personalEmailLabel";
+            personalEmailLabel.Size = new System.Drawing.Size(127, 13);
+            personalEmailLabel.TabIndex = 51;
+            personalEmailLabel.Text = "(Optional) Personal Email:";
+            // 
+            // guardianEmailLabel
+            // 
+            guardianEmailLabel.AutoSize = true;
+            guardianEmailLabel.Location = new System.Drawing.Point(20, 386);
+            guardianEmailLabel.Name = "guardianEmailLabel";
+            guardianEmailLabel.Size = new System.Drawing.Size(129, 13);
+            guardianEmailLabel.TabIndex = 53;
+            guardianEmailLabel.Text = "(Optional) Guardian Email:";
+            // 
             // studFirstNameTextBox
             // 
             this.studFirstNameTextBox.Location = new System.Drawing.Point(176, 149);
@@ -442,50 +481,12 @@
             this.register_Button.UseVisualStyleBackColor = true;
             this.register_Button.Click += new System.EventHandler(this.register_Button_Click);
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(91, 87);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(168, 18);
-            label4.TabIndex = 49;
-            label4.Text = "Student\'s Information";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(374, 87);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(160, 18);
-            label5.TabIndex = 50;
-            label5.Text = "Parent\'s Information";
-            // 
-            // personalEmailLabel
-            // 
-            personalEmailLabel.AutoSize = true;
-            personalEmailLabel.Location = new System.Drawing.Point(20, 360);
-            personalEmailLabel.Name = "personalEmailLabel";
-            personalEmailLabel.Size = new System.Drawing.Size(127, 13);
-            personalEmailLabel.TabIndex = 51;
-            personalEmailLabel.Text = "(Optional) Personal Email:";
-            // 
             // personalEmailTextBox
             // 
             this.personalEmailTextBox.Location = new System.Drawing.Point(176, 357);
             this.personalEmailTextBox.Name = "personalEmailTextBox";
             this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.personalEmailTextBox.TabIndex = 52;
-            // 
-            // guardianEmailLabel
-            // 
-            guardianEmailLabel.AutoSize = true;
-            guardianEmailLabel.Location = new System.Drawing.Point(20, 386);
-            guardianEmailLabel.Name = "guardianEmailLabel";
-            guardianEmailLabel.Size = new System.Drawing.Size(129, 13);
-            guardianEmailLabel.TabIndex = 53;
-            guardianEmailLabel.Text = "(Optional) Guardian Email:";
             // 
             // guardianEmailTextBox
             // 
@@ -499,6 +500,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.ClientSize = new System.Drawing.Size(620, 643);
             this.Controls.Add(guardianEmailLabel);
             this.Controls.Add(this.guardianEmailTextBox);
@@ -546,6 +548,7 @@
             this.Controls.Add(fatherOccupationLabel);
             this.Controls.Add(this.fatherOccupationTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU Registration Form";

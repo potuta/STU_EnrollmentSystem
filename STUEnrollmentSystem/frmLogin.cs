@@ -75,6 +75,8 @@ namespace STUEnrollmentSystem
             passwordTextBox.Clear();
             confirmUserIDTextBox.Clear();
             codeTextBox.Clear();
+            emailTextBox.Visible = false;
+            textBox1.Visible = false;
             this.Show();
         }
 
