@@ -122,7 +122,7 @@
             // 
             // downloadButton
             // 
-            this.downloadButton.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.downloadButton.BackColor = System.Drawing.Color.MediumAquamarine;
             this.downloadButton.Enabled = false;
             this.downloadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.downloadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -450,7 +450,7 @@
             // 
             // searchToolStripButton
             // 
-            this.searchToolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.searchToolStripButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.searchToolStripButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchToolStripButton.Name = "searchToolStripButton";

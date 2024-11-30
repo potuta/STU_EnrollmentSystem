@@ -143,11 +143,11 @@ namespace STUEnrollmentSystem
         {
             if (downloadButton.Enabled == true)
             {
-                downloadButton.BackColor = SystemColors.ActiveCaption;
+                downloadButton.BackColor = Color.MediumSeaGreen;
             }
             else
             {
-                downloadButton.BackColor = SystemColors.InactiveCaption;
+                downloadButton.BackColor = Color.MediumAquamarine;
             }
         }
     }

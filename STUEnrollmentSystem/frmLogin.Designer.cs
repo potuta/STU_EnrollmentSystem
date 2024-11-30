@@ -34,6 +34,7 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.userIDTextBox = new System.Windows.Forms.TextBox();
@@ -206,9 +207,9 @@
             this.emailTextBox.BackColor = System.Drawing.Color.MintCream;
             this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailTextBox.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(269, 99);
+            this.emailTextBox.Location = new System.Drawing.Point(266, 99);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(119, 13);
+            this.emailTextBox.Size = new System.Drawing.Size(134, 13);
             this.emailTextBox.TabIndex = 26;
             this.emailTextBox.Text = "sample@gmail.com";
             this.emailTextBox.Visible = false;
@@ -218,9 +219,9 @@
             this.textBox1.BackColor = System.Drawing.Color.MintCream;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(100, 99);
+            this.textBox1.Location = new System.Drawing.Point(92, 99);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 13);
+            this.textBox1.Size = new System.Drawing.Size(168, 13);
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = "Please enter the code we sent to email: ";
             this.textBox1.Visible = false;
@@ -357,11 +358,11 @@
             this.logoButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.STU_LOGO;
             this.logoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logoButton.FlatAppearance.BorderSize = 0;
-            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightYellow;
-            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGoldenrod;
+            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
-            this.logoButton.Location = new System.Drawing.Point(150, 22);
+            this.logoButton.Location = new System.Drawing.Point(151, 15);
             this.logoButton.Name = "logoButton";
             this.logoButton.Size = new System.Drawing.Size(140, 123);
             this.logoButton.TabIndex = 17;
@@ -371,7 +372,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(191, 157);
+            this.label2.Location = new System.Drawing.Point(192, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 23);
             this.label2.TabIndex = 14;
@@ -387,6 +388,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU Login";

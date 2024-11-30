@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSTU_Dashboard));
             this.sidePanel = new System.Windows.Forms.Panel();
             this.userInfoPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,12 +60,12 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.enrollmentButton = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.schoolYearLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel_main = new System.Windows.Forms.Panel();
             this.logoButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.schoolYearLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel_main = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
             this.userInfoPanel.SuspendLayout();
             this.facultySubPanel.SuspendLayout();
@@ -566,34 +567,6 @@
             this.logoPanel.Size = new System.Drawing.Size(261, 186);
             this.logoPanel.TabIndex = 0;
             // 
-            // schoolYearLabel
-            // 
-            this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(3, 167);
-            this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(27, 16);
-            this.schoolYearLabel.TabIndex = 2;
-            this.schoolYearLabel.Text = "S.Y.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(71, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Enrollment System";
-            // 
-            // panel_main
-            // 
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(280, 0);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1084, 681);
-            this.panel_main.TabIndex = 1;
-            // 
             // logoButton
             // 
             this.logoButton.BackColor = System.Drawing.Color.Transparent;
@@ -604,7 +577,7 @@
             this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGoldenrod;
             this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
-            this.logoButton.Location = new System.Drawing.Point(75, 21);
+            this.logoButton.Location = new System.Drawing.Point(80, 21);
             this.logoButton.Name = "logoButton";
             this.logoButton.Size = new System.Drawing.Size(116, 101);
             this.logoButton.TabIndex = 5;
@@ -637,6 +610,34 @@
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
+            // schoolYearLabel
+            // 
+            this.schoolYearLabel.AutoSize = true;
+            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolYearLabel.Location = new System.Drawing.Point(3, 167);
+            this.schoolYearLabel.Name = "schoolYearLabel";
+            this.schoolYearLabel.Size = new System.Drawing.Size(27, 16);
+            this.schoolYearLabel.TabIndex = 2;
+            this.schoolYearLabel.Text = "S.Y.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(76, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Enrollment System";
+            // 
+            // panel_main
+            // 
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(280, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(1084, 681);
+            this.panel_main.TabIndex = 1;
+            // 
             // frmSTU_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,6 +647,7 @@
             this.ClientSize = new System.Drawing.Size(1364, 681);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.sidePanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSTU_Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU";
