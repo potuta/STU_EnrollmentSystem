@@ -55,10 +55,14 @@
             System.Windows.Forms.Label studentNumberLabel;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label paymentMethodLabel1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
+            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.enrollmentTypeTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusTextBox = new System.Windows.Forms.TextBox();
             this.genderTextBox = new System.Windows.Forms.TextBox();
@@ -138,12 +142,6 @@
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.personalEmailTextBox = new System.Windows.Forms.TextBox();
-            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -156,6 +154,7 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -167,9 +166,10 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             transferCertificateLabel = new System.Windows.Forms.Label();
@@ -201,13 +201,13 @@
             personalEmailLabel = new System.Windows.Forms.Label();
             guardianEmailLabel = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingNavigator)).BeginInit();
             this.pendingStudentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // transferCertificateLabel
@@ -444,6 +444,24 @@
             paymentMethodLabel1.TabIndex = 71;
             paymentMethodLabel1.Text = "Payment Method:";
             // 
+            // personalEmailLabel
+            // 
+            personalEmailLabel.AutoSize = true;
+            personalEmailLabel.Location = new System.Drawing.Point(15, 351);
+            personalEmailLabel.Name = "personalEmailLabel";
+            personalEmailLabel.Size = new System.Drawing.Size(79, 13);
+            personalEmailLabel.TabIndex = 80;
+            personalEmailLabel.Text = "Personal Email:";
+            // 
+            // guardianEmailLabel
+            // 
+            guardianEmailLabel.AutoSize = true;
+            guardianEmailLabel.Location = new System.Drawing.Point(15, 377);
+            guardianEmailLabel.Name = "guardianEmailLabel";
+            guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
+            guardianEmailLabel.TabIndex = 81;
+            guardianEmailLabel.Text = "Guardian Email:";
+            // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
@@ -530,6 +548,32 @@
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(1264, 267);
             this.detailsPanel.TabIndex = 6;
+            // 
+            // guardianEmailTextBox
+            // 
+            this.guardianEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GuardianEmail", true));
+            this.guardianEmailTextBox.Location = new System.Drawing.Point(122, 374);
+            this.guardianEmailTextBox.Name = "guardianEmailTextBox";
+            this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.guardianEmailTextBox.TabIndex = 82;
+            // 
+            // pendingStudentsBindingSource
+            // 
+            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
+            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // personalEmailTextBox
+            // 
+            this.personalEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PersonalEmail", true));
+            this.personalEmailTextBox.Location = new System.Drawing.Point(122, 348);
+            this.personalEmailTextBox.Name = "personalEmailTextBox";
+            this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
+            this.personalEmailTextBox.TabIndex = 81;
             // 
             // enrollmentTypeTextBox
             // 
@@ -1016,10 +1060,10 @@
             // 
             // showSearchButton
             // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 95);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
@@ -1331,69 +1375,6 @@
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
-            // PaymentType
-            // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.PaymentType.Name = "PaymentType";
-            // 
-            // PaymentMethod
-            // 
-            this.PaymentMethod.DataPropertyName = "PaymentMethod";
-            this.PaymentMethod.HeaderText = "PaymentMethod";
-            this.PaymentMethod.Items.AddRange(new object[] {
-            "CASH",
-            "GCASH",
-            "BANK TRANSFER"});
-            this.PaymentMethod.Name = "PaymentMethod";
-            // 
-            // ProofOfPayment
-            // 
-            this.ProofOfPayment.DataPropertyName = "ProofOfPayment";
-            this.ProofOfPayment.HeaderText = "ProofOfPayment";
-            this.ProofOfPayment.Name = "ProofOfPayment";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // personalEmailLabel
-            // 
-            personalEmailLabel.AutoSize = true;
-            personalEmailLabel.Location = new System.Drawing.Point(15, 351);
-            personalEmailLabel.Name = "personalEmailLabel";
-            personalEmailLabel.Size = new System.Drawing.Size(79, 13);
-            personalEmailLabel.TabIndex = 80;
-            personalEmailLabel.Text = "Personal Email:";
-            // 
-            // personalEmailTextBox
-            // 
-            this.personalEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "PersonalEmail", true));
-            this.personalEmailTextBox.Location = new System.Drawing.Point(122, 348);
-            this.personalEmailTextBox.Name = "personalEmailTextBox";
-            this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
-            this.personalEmailTextBox.TabIndex = 81;
-            // 
-            // guardianEmailLabel
-            // 
-            guardianEmailLabel.AutoSize = true;
-            guardianEmailLabel.Location = new System.Drawing.Point(15, 377);
-            guardianEmailLabel.Name = "guardianEmailLabel";
-            guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
-            guardianEmailLabel.TabIndex = 81;
-            guardianEmailLabel.Text = "Guardian Email:";
-            // 
-            // guardianEmailTextBox
-            // 
-            this.guardianEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GuardianEmail", true));
-            this.guardianEmailTextBox.Location = new System.Drawing.Point(122, 374);
-            this.guardianEmailTextBox.Name = "guardianEmailTextBox";
-            this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
-            this.guardianEmailTextBox.TabIndex = 82;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RegisterID";
@@ -1492,6 +1473,15 @@
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherFirstName";
@@ -1566,21 +1556,31 @@
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // PaymentMethod
+            // 
+            this.PaymentMethod.DataPropertyName = "PaymentMethod";
+            this.PaymentMethod.HeaderText = "PaymentMethod";
+            this.PaymentMethod.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.PaymentMethod.Name = "PaymentMethod";
+            // 
+            // ProofOfPayment
+            // 
+            this.ProofOfPayment.DataPropertyName = "ProofOfPayment";
+            this.ProofOfPayment.HeaderText = "ProofOfPayment";
+            this.ProofOfPayment.Name = "ProofOfPayment";
+            // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Section";
             this.dataGridViewTextBoxColumn21.HeaderText = "Section";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             // 
-            // pendingStudentsBindingSource
+            // openFileDialog1
             // 
-            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
-            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // pendingStudentsTableAdapter
             // 
@@ -1589,7 +1589,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
             this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
             this.tableAdapterManager.PricesTableAdapter = null;
@@ -1621,6 +1623,8 @@
             this.Load += new System.EventHandler(this.PendingStudents_Load);
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.searchToolStrip.ResumeLayout(false);
@@ -1629,8 +1633,6 @@
             this.pendingStudentsBindingNavigator.ResumeLayout(false);
             this.pendingStudentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

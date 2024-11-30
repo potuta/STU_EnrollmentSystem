@@ -258,10 +258,10 @@
             // 
             // showSearchButton
             // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 106);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
@@ -300,14 +300,14 @@
             this.searchToolStrip.Location = new System.Drawing.Point(55, 48);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(1011, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(981, 25);
             this.searchToolStrip.TabIndex = 22;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
             // paymentTypeToolStripLabel
             // 
             this.paymentTypeToolStripLabel.Name = "paymentTypeToolStripLabel";
-            this.paymentTypeToolStripLabel.Size = new System.Drawing.Size(84, 22);
+            this.paymentTypeToolStripLabel.Size = new System.Drawing.Size(85, 22);
             this.paymentTypeToolStripLabel.Text = "Payment Type:";
             // 
             // paymentTypeToolStripComboBox
@@ -394,7 +394,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
             this.tableAdapterManager.PaymentTypeTableAdapter = this.paymentTypeTableAdapter;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;
