@@ -47,16 +47,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(25, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 18);
+            this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "School year(s):";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.AliceBlue;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.currentYearRadioButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -69,7 +69,7 @@
             // 
             this.currentYearRadioButton.BackColor = System.Drawing.SystemColors.GrayText;
             this.currentYearRadioButton.FlatAppearance.BorderSize = 0;
-            this.currentYearRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentYearRadioButton.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentYearRadioButton.ForeColor = System.Drawing.SystemColors.Window;
             this.currentYearRadioButton.Location = new System.Drawing.Point(3, 3);
             this.currentYearRadioButton.Name = "currentYearRadioButton";
@@ -83,9 +83,9 @@
             // 
             // addSchoolYearButton
             // 
-            this.addSchoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addSchoolYearButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.addSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSchoolYearButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addSchoolYearButton.Location = new System.Drawing.Point(611, 21);
             this.addSchoolYearButton.Name = "addSchoolYearButton";
             this.addSchoolYearButton.Size = new System.Drawing.Size(75, 23);
@@ -98,7 +98,7 @@
             // 
             this.deleteSchoolYearButton.BackColor = System.Drawing.Color.LightCoral;
             this.deleteSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteSchoolYearButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteSchoolYearButton.Location = new System.Drawing.Point(702, 21);
             this.deleteSchoolYearButton.Name = "deleteSchoolYearButton";
             this.deleteSchoolYearButton.Size = new System.Drawing.Size(84, 23);
@@ -109,9 +109,9 @@
             // 
             // selectSchoolYearButton
             // 
-            this.selectSchoolYearButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.selectSchoolYearButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.selectSchoolYearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.selectSchoolYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selectSchoolYearButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectSchoolYearButton.Location = new System.Drawing.Point(451, 13);
             this.selectSchoolYearButton.Name = "selectSchoolYearButton";
             this.selectSchoolYearButton.Size = new System.Drawing.Size(118, 40);
@@ -123,10 +123,10 @@
             // schoolYearLabel
             // 
             this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(155, 23);
+            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolYearLabel.Location = new System.Drawing.Point(131, 24);
             this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(188, 18);
+            this.schoolYearLabel.Size = new System.Drawing.Size(129, 20);
             this.schoolYearLabel.TabIndex = 7;
             this.schoolYearLabel.Text = "------------------------------";
             // 
@@ -143,10 +143,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Subway", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 27);
+            this.label1.Size = new System.Drawing.Size(204, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "Manage School Year";
             // 

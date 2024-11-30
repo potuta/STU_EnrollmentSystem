@@ -227,10 +227,10 @@
             // 
             // showSearchButton
             // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 89);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
@@ -267,7 +267,7 @@
             this.searchTeachersToolStrip.Location = new System.Drawing.Point(61, 41);
             this.searchTeachersToolStrip.Name = "searchTeachersToolStrip";
             this.searchTeachersToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchTeachersToolStrip.Size = new System.Drawing.Size(934, 25);
+            this.searchTeachersToolStrip.Size = new System.Drawing.Size(905, 25);
             this.searchTeachersToolStrip.TabIndex = 23;
             this.searchTeachersToolStrip.Text = "searchTeachersToolStrip";
             // 
@@ -275,7 +275,7 @@
             // 
             this.teacherNameToolStripLabel.BackColor = System.Drawing.Color.Transparent;
             this.teacherNameToolStripLabel.Name = "teacherNameToolStripLabel";
-            this.teacherNameToolStripLabel.Size = new System.Drawing.Size(85, 22);
+            this.teacherNameToolStripLabel.Size = new System.Drawing.Size(86, 22);
             this.teacherNameToolStripLabel.Text = "Teacher Name:";
             // 
             // teacherNameToolStripComboBox
@@ -289,7 +289,7 @@
             // 
             this.teacherCodeToolStripLabel.BackColor = System.Drawing.Color.Transparent;
             this.teacherCodeToolStripLabel.Name = "teacherCodeToolStripLabel";
-            this.teacherCodeToolStripLabel.Size = new System.Drawing.Size(111, 22);
+            this.teacherCodeToolStripLabel.Size = new System.Drawing.Size(112, 22);
             this.teacherCodeToolStripLabel.Text = "          Teacher Code:";
             // 
             // teacherCodeToolStripComboBox
@@ -353,7 +353,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
             this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
             this.tableAdapterManager.PaymentTypeTableAdapter = null;
             this.tableAdapterManager.PendingStudentsTableAdapter = null;
             this.tableAdapterManager.PricesTableAdapter = null;

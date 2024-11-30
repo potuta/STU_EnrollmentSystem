@@ -105,6 +105,7 @@
             this.addReturningStudentToolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.addReturningStudentToolStripStudentNumberComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.addReturningStudentToolStripPaymentTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.addReturningStudentToolStripPaymentMethodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.addReturningStudentToolStripEnrollmentTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.addReturningStudentToolStripInsertMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,7 +125,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.addReturningStudentToolStripPaymentMethodComboBox = new System.Windows.Forms.ToolStripComboBox();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -247,10 +247,10 @@
             // 
             // showSearchButton
             // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 105);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
@@ -291,7 +291,7 @@
             this.searchToolStrip.Location = new System.Drawing.Point(15, 46);
             this.searchToolStrip.Name = "searchToolStrip";
             this.searchToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.searchToolStrip.Size = new System.Drawing.Size(1240, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(1241, 25);
             this.searchToolStrip.TabIndex = 16;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -367,7 +367,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(112, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(113, 22);
             this.toolStripLabel4.Text = "     TransactionNum:";
             // 
             // transactionNumberToolStripTextBox
@@ -905,6 +905,16 @@
             this.addReturningStudentToolStripPaymentTypeComboBox.Name = "addReturningStudentToolStripPaymentTypeComboBox";
             this.addReturningStudentToolStripPaymentTypeComboBox.Size = new System.Drawing.Size(121, 23);
             // 
+            // addReturningStudentToolStripPaymentMethodComboBox
+            // 
+            this.addReturningStudentToolStripPaymentMethodComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.addReturningStudentToolStripPaymentMethodComboBox.Items.AddRange(new object[] {
+            "CASH",
+            "GCASH",
+            "BANK TRANSFER"});
+            this.addReturningStudentToolStripPaymentMethodComboBox.Name = "addReturningStudentToolStripPaymentMethodComboBox";
+            this.addReturningStudentToolStripPaymentMethodComboBox.Size = new System.Drawing.Size(121, 23);
+            // 
             // addReturningStudentToolStripEnrollmentTypeComboBox
             // 
             this.addReturningStudentToolStripEnrollmentTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
@@ -1070,16 +1080,6 @@
             this.tableAdapterManager.TeachersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
-            // 
-            // addReturningStudentToolStripPaymentMethodComboBox
-            // 
-            this.addReturningStudentToolStripPaymentMethodComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.addReturningStudentToolStripPaymentMethodComboBox.Items.AddRange(new object[] {
-            "CASH",
-            "GCASH",
-            "BANK TRANSFER"});
-            this.addReturningStudentToolStripPaymentMethodComboBox.Name = "addReturningStudentToolStripPaymentMethodComboBox";
-            this.addReturningStudentToolStripPaymentMethodComboBox.Size = new System.Drawing.Size(121, 23);
             // 
             // frmStudentPayment
             // 

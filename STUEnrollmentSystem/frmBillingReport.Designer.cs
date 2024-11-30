@@ -48,6 +48,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
+            this.paymentRNToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.paymentRNToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.receiptRNToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.receiptRNToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.billingReportTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.BillingReportTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
@@ -72,12 +78,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchToolStrip = new System.Windows.Forms.ToolStrip();
-            this.paymentRNToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.paymentRNToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.receiptRNToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.receiptRNToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             transactionNumberLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             paymentAmountLabel = new System.Windows.Forms.Label();
@@ -88,10 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.billingReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billingReportBindingNavigator)).BeginInit();
             this.billingReportBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billingReportDataGridView)).BeginInit();
-            this.searchToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // transactionNumberLabel
@@ -252,10 +252,10 @@
             // 
             // showSearchButton
             // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 88);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1264, 27);
@@ -274,6 +274,58 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1264, 88);
             this.searchPanel.TabIndex = 18;
+            // 
+            // searchToolStrip
+            // 
+            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paymentRNToolStripLabel,
+            this.paymentRNToolStripTextBox,
+            this.receiptRNToolStripLabel,
+            this.receiptRNToolStripTextBox,
+            this.searchToolStripButton});
+            this.searchToolStrip.Location = new System.Drawing.Point(71, 40);
+            this.searchToolStrip.Name = "searchToolStrip";
+            this.searchToolStrip.Size = new System.Drawing.Size(421, 25);
+            this.searchToolStrip.TabIndex = 22;
+            this.searchToolStrip.Text = "searchToolStrip";
+            // 
+            // paymentRNToolStripLabel
+            // 
+            this.paymentRNToolStripLabel.Name = "paymentRNToolStripLabel";
+            this.paymentRNToolStripLabel.Size = new System.Drawing.Size(73, 22);
+            this.paymentRNToolStripLabel.Text = "PaymentRN:";
+            // 
+            // paymentRNToolStripTextBox
+            // 
+            this.paymentRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paymentRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.paymentRNToolStripTextBox.Name = "paymentRNToolStripTextBox";
+            this.paymentRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.paymentRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // receiptRNToolStripLabel
+            // 
+            this.receiptRNToolStripLabel.Name = "receiptRNToolStripLabel";
+            this.receiptRNToolStripLabel.Size = new System.Drawing.Size(80, 22);
+            this.receiptRNToolStripLabel.Text = "     ReceiptRN:";
+            // 
+            // receiptRNToolStripTextBox
+            // 
+            this.receiptRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.receiptRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.receiptRNToolStripTextBox.Name = "receiptRNToolStripTextBox";
+            this.receiptRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.receiptRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(61, 22);
+            this.searchToolStripButton.Text = "     Search";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // label2
             // 
@@ -499,58 +551,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "ReceiptRN";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // searchToolStrip
-            // 
-            this.searchToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.searchToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.searchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.paymentRNToolStripLabel,
-            this.paymentRNToolStripTextBox,
-            this.receiptRNToolStripLabel,
-            this.receiptRNToolStripTextBox,
-            this.searchToolStripButton});
-            this.searchToolStrip.Location = new System.Drawing.Point(71, 40);
-            this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.Size = new System.Drawing.Size(452, 25);
-            this.searchToolStrip.TabIndex = 22;
-            this.searchToolStrip.Text = "searchToolStrip";
-            // 
-            // paymentRNToolStripLabel
-            // 
-            this.paymentRNToolStripLabel.Name = "paymentRNToolStripLabel";
-            this.paymentRNToolStripLabel.Size = new System.Drawing.Size(73, 22);
-            this.paymentRNToolStripLabel.Text = "PaymentRN:";
-            // 
-            // paymentRNToolStripTextBox
-            // 
-            this.paymentRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paymentRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.paymentRNToolStripTextBox.Name = "paymentRNToolStripTextBox";
-            this.paymentRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.paymentRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
-            // 
-            // receiptRNToolStripLabel
-            // 
-            this.receiptRNToolStripLabel.Name = "receiptRNToolStripLabel";
-            this.receiptRNToolStripLabel.Size = new System.Drawing.Size(80, 22);
-            this.receiptRNToolStripLabel.Text = "     ReceiptRN:";
-            // 
-            // receiptRNToolStripTextBox
-            // 
-            this.receiptRNToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.receiptRNToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.receiptRNToolStripTextBox.Name = "receiptRNToolStripTextBox";
-            this.receiptRNToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.receiptRNToolStripTextBox.TextChanged += new System.EventHandler(this.OnSearchToolStripTextChanged);
-            // 
-            // searchToolStripButton
-            // 
-            this.searchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.searchToolStripButton.Name = "searchToolStripButton";
-            this.searchToolStripButton.Size = new System.Drawing.Size(61, 22);
-            this.searchToolStripButton.Text = "     Search";
-            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
-            // 
             // frmBillingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,12 +570,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.searchToolStrip.ResumeLayout(false);
+            this.searchToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billingReportBindingNavigator)).EndInit();
             this.billingReportBindingNavigator.ResumeLayout(false);
             this.billingReportBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billingReportDataGridView)).EndInit();
-            this.searchToolStrip.ResumeLayout(false);
-            this.searchToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

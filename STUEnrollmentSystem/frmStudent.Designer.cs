@@ -972,10 +972,10 @@
             // 
             // showSearchButton
             // 
-            this.showSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.showSearchButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.showSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.showSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.showSearchButton.Font = new System.Drawing.Font("Subway", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showSearchButton.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showSearchButton.Location = new System.Drawing.Point(0, 92);
             this.showSearchButton.Name = "showSearchButton";
             this.showSearchButton.Size = new System.Drawing.Size(1485, 27);
@@ -1253,7 +1253,7 @@
             this.bindingNavigatorTotalStudentsItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorTotalStudentsItem.Image")));
             this.bindingNavigatorTotalStudentsItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bindingNavigatorTotalStudentsItem.Name = "bindingNavigatorTotalStudentsItem";
-            this.bindingNavigatorTotalStudentsItem.Size = new System.Drawing.Size(85, 22);
+            this.bindingNavigatorTotalStudentsItem.Size = new System.Drawing.Size(86, 22);
             this.bindingNavigatorTotalStudentsItem.Text = "Total Students";
             this.bindingNavigatorTotalStudentsItem.Click += new System.EventHandler(this.bindingNavigatorTotalStudentsItem_Click);
             // 
