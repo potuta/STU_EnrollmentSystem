@@ -33,6 +33,15 @@ namespace STUEnrollmentSystem
         {
             this.billingReportTableAdapter.Fill(this.sTU_DBDataSet.BillingReport);
             searchPanel.Visible = false;
+            InitializeUserRolePrivileges();
+        }
+
+        private void InitializeUserRolePrivileges()
+        {
+            if (!frmLogin.Role.Equals("Admin"))
+            {
+                bindingNavigatorDeleteItem.Enabled = false;
+            }
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)

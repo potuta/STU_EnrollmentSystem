@@ -36,6 +36,15 @@ namespace STUEnrollmentSystem
             this.studentPaymentTableAdapter.Fill(this.sTU_DBDataSet.StudentPayment);
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
+            InitializeUserRolePrivileges();
+        }
+
+        private void InitializeUserRolePrivileges()
+        {
+            if (!frmLogin.Role.Equals("Admin"))
+            {
+                bindingNavigatorDeleteItem.Enabled = false;
+            }
         }
 
         private void InitializeSearchComboBoxes()
