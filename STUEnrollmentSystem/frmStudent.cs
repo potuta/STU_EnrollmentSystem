@@ -39,6 +39,15 @@ namespace STUEnrollmentSystem
             this.studentsTableAdapter.Fill(this.sTU_DBDataSet.Students);
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
+            InitializeUserRolePrivileges();
+        }
+
+        private void InitializeUserRolePrivileges()
+        {
+            if (!frmLogin.Role.Equals("Admin"))
+            {
+                bindingNavigatorDeleteItem.Enabled = false;
+            }
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
