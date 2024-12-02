@@ -51,6 +51,7 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
+            System.Windows.Forms.Label label6;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.studFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.studMidNameTextBox = new System.Windows.Forms.TextBox();
@@ -74,6 +75,15 @@
             this.register_Button = new System.Windows.Forms.Button();
             this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.studentsPanel = new System.Windows.Forms.Panel();
+            this.contactPanel = new System.Windows.Forms.Panel();
+            this.parentsPanel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.studentsInfoButton = new System.Windows.Forms.Button();
+            this.contactInfoButton = new System.Windows.Forms.Button();
+            this.parentsInfoButton = new System.Windows.Forms.Button();
             enrollmentStatusLabel = new System.Windows.Forms.Label();
             studFirstNameLabel = new System.Windows.Forms.Label();
             studMidNameLabel = new System.Windows.Forms.Label();
@@ -97,12 +107,18 @@
             label5 = new System.Windows.Forms.Label();
             personalEmailLabel = new System.Windows.Forms.Label();
             guardianEmailLabel = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.studentsPanel.SuspendLayout();
+            this.contactPanel.SuspendLayout();
+            this.parentsPanel.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // enrollmentStatusLabel
             // 
             enrollmentStatusLabel.AutoSize = true;
-            enrollmentStatusLabel.Location = new System.Drawing.Point(69, 126);
+            enrollmentStatusLabel.Location = new System.Drawing.Point(197, 61);
             enrollmentStatusLabel.Name = "enrollmentStatusLabel";
             enrollmentStatusLabel.Size = new System.Drawing.Size(92, 13);
             enrollmentStatusLabel.TabIndex = 3;
@@ -111,7 +127,7 @@
             // studFirstNameLabel
             // 
             studFirstNameLabel.AutoSize = true;
-            studFirstNameLabel.Location = new System.Drawing.Point(69, 152);
+            studFirstNameLabel.Location = new System.Drawing.Point(197, 87);
             studFirstNameLabel.Name = "studFirstNameLabel";
             studFirstNameLabel.Size = new System.Drawing.Size(60, 13);
             studFirstNameLabel.TabIndex = 5;
@@ -120,7 +136,7 @@
             // studMidNameLabel
             // 
             studMidNameLabel.AutoSize = true;
-            studMidNameLabel.Location = new System.Drawing.Point(69, 178);
+            studMidNameLabel.Location = new System.Drawing.Point(197, 113);
             studMidNameLabel.Name = "studMidNameLabel";
             studMidNameLabel.Size = new System.Drawing.Size(72, 13);
             studMidNameLabel.TabIndex = 7;
@@ -129,7 +145,7 @@
             // studLastNameLabel
             // 
             studLastNameLabel.AutoSize = true;
-            studLastNameLabel.Location = new System.Drawing.Point(69, 204);
+            studLastNameLabel.Location = new System.Drawing.Point(197, 139);
             studLastNameLabel.Name = "studLastNameLabel";
             studLastNameLabel.Size = new System.Drawing.Size(61, 13);
             studLastNameLabel.TabIndex = 9;
@@ -138,7 +154,7 @@
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(69, 230);
+            genderLabel.Location = new System.Drawing.Point(197, 165);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new System.Drawing.Size(45, 13);
             genderLabel.TabIndex = 11;
@@ -147,7 +163,7 @@
             // birthDateLabel
             // 
             birthDateLabel.AutoSize = true;
-            birthDateLabel.Location = new System.Drawing.Point(69, 256);
+            birthDateLabel.Location = new System.Drawing.Point(197, 191);
             birthDateLabel.Name = "birthDateLabel";
             birthDateLabel.Size = new System.Drawing.Size(57, 13);
             birthDateLabel.TabIndex = 13;
@@ -156,7 +172,7 @@
             // civilStatusLabel
             // 
             civilStatusLabel.AutoSize = true;
-            civilStatusLabel.Location = new System.Drawing.Point(69, 282);
+            civilStatusLabel.Location = new System.Drawing.Point(197, 217);
             civilStatusLabel.Name = "civilStatusLabel";
             civilStatusLabel.Size = new System.Drawing.Size(62, 13);
             civilStatusLabel.TabIndex = 15;
@@ -165,7 +181,7 @@
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(69, 308);
+            addressLabel.Location = new System.Drawing.Point(194, 55);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(48, 13);
             addressLabel.TabIndex = 17;
@@ -174,7 +190,7 @@
             // contactNumLabel
             // 
             contactNumLabel.AutoSize = true;
-            contactNumLabel.Location = new System.Drawing.Point(69, 334);
+            contactNumLabel.Location = new System.Drawing.Point(194, 81);
             contactNumLabel.Name = "contactNumLabel";
             contactNumLabel.Size = new System.Drawing.Size(87, 13);
             contactNumLabel.TabIndex = 19;
@@ -183,7 +199,7 @@
             // enrollmentTypeLabel
             // 
             enrollmentTypeLabel.AutoSize = true;
-            enrollmentTypeLabel.Location = new System.Drawing.Point(69, 413);
+            enrollmentTypeLabel.Location = new System.Drawing.Point(197, 244);
             enrollmentTypeLabel.Name = "enrollmentTypeLabel";
             enrollmentTypeLabel.Size = new System.Drawing.Size(86, 13);
             enrollmentTypeLabel.TabIndex = 21;
@@ -192,7 +208,7 @@
             // installmentTypeLabel
             // 
             installmentTypeLabel.AutoSize = true;
-            installmentTypeLabel.Location = new System.Drawing.Point(69, 439);
+            installmentTypeLabel.Location = new System.Drawing.Point(197, 270);
             installmentTypeLabel.Name = "installmentTypeLabel";
             installmentTypeLabel.Size = new System.Drawing.Size(78, 13);
             installmentTypeLabel.TabIndex = 23;
@@ -201,7 +217,7 @@
             // motherFirstNameLabel
             // 
             motherFirstNameLabel.AutoSize = true;
-            motherFirstNameLabel.Location = new System.Drawing.Point(354, 123);
+            motherFirstNameLabel.Location = new System.Drawing.Point(194, 63);
             motherFirstNameLabel.Name = "motherFirstNameLabel";
             motherFirstNameLabel.Size = new System.Drawing.Size(96, 13);
             motherFirstNameLabel.TabIndex = 25;
@@ -210,7 +226,7 @@
             // motherLastNameLabel
             // 
             motherLastNameLabel.AutoSize = true;
-            motherLastNameLabel.Location = new System.Drawing.Point(354, 149);
+            motherLastNameLabel.Location = new System.Drawing.Point(194, 89);
             motherLastNameLabel.Name = "motherLastNameLabel";
             motherLastNameLabel.Size = new System.Drawing.Size(97, 13);
             motherLastNameLabel.TabIndex = 27;
@@ -219,7 +235,7 @@
             // motherOccupationLabel
             // 
             motherOccupationLabel.AutoSize = true;
-            motherOccupationLabel.Location = new System.Drawing.Point(354, 175);
+            motherOccupationLabel.Location = new System.Drawing.Point(194, 115);
             motherOccupationLabel.Name = "motherOccupationLabel";
             motherOccupationLabel.Size = new System.Drawing.Size(101, 13);
             motherOccupationLabel.TabIndex = 29;
@@ -228,7 +244,7 @@
             // fatherFirstNameLabel
             // 
             fatherFirstNameLabel.AutoSize = true;
-            fatherFirstNameLabel.Location = new System.Drawing.Point(354, 201);
+            fatherFirstNameLabel.Location = new System.Drawing.Point(194, 141);
             fatherFirstNameLabel.Name = "fatherFirstNameLabel";
             fatherFirstNameLabel.Size = new System.Drawing.Size(93, 13);
             fatherFirstNameLabel.TabIndex = 31;
@@ -237,7 +253,7 @@
             // fatherLastNameLabel
             // 
             fatherLastNameLabel.AutoSize = true;
-            fatherLastNameLabel.Location = new System.Drawing.Point(354, 227);
+            fatherLastNameLabel.Location = new System.Drawing.Point(194, 167);
             fatherLastNameLabel.Name = "fatherLastNameLabel";
             fatherLastNameLabel.Size = new System.Drawing.Size(94, 13);
             fatherLastNameLabel.TabIndex = 33;
@@ -246,7 +262,7 @@
             // fatherOccupationLabel
             // 
             fatherOccupationLabel.AutoSize = true;
-            fatherOccupationLabel.Location = new System.Drawing.Point(354, 253);
+            fatherOccupationLabel.Location = new System.Drawing.Point(194, 193);
             fatherOccupationLabel.Name = "fatherOccupationLabel";
             fatherOccupationLabel.Size = new System.Drawing.Size(98, 13);
             fatherOccupationLabel.TabIndex = 35;
@@ -255,17 +271,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(205, 19);
+            label1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(184, 43);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(199, 25);
+            label1.Size = new System.Drawing.Size(254, 32);
             label1.TabIndex = 39;
             label1.Text = "Registration Form";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(186, 508);
+            label2.Location = new System.Drawing.Point(201, 15);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(226, 13);
             label2.TabIndex = 46;
@@ -274,27 +290,27 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(91, 87);
+            label4.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(215, 18);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(168, 18);
+            label4.Size = new System.Drawing.Size(173, 23);
             label4.TabIndex = 49;
             label4.Text = "Student\'s Information";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(374, 87);
+            label5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(215, 23);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(160, 18);
+            label5.Size = new System.Drawing.Size(163, 23);
             label5.TabIndex = 50;
             label5.Text = "Parent\'s Information";
             // 
             // personalEmailLabel
             // 
             personalEmailLabel.AutoSize = true;
-            personalEmailLabel.Location = new System.Drawing.Point(20, 360);
+            personalEmailLabel.Location = new System.Drawing.Point(145, 107);
             personalEmailLabel.Name = "personalEmailLabel";
             personalEmailLabel.Size = new System.Drawing.Size(127, 13);
             personalEmailLabel.TabIndex = 51;
@@ -303,92 +319,92 @@
             // guardianEmailLabel
             // 
             guardianEmailLabel.AutoSize = true;
-            guardianEmailLabel.Location = new System.Drawing.Point(20, 386);
+            guardianEmailLabel.Location = new System.Drawing.Point(194, 133);
             guardianEmailLabel.Name = "guardianEmailLabel";
-            guardianEmailLabel.Size = new System.Drawing.Size(129, 13);
+            guardianEmailLabel.Size = new System.Drawing.Size(81, 13);
             guardianEmailLabel.TabIndex = 53;
-            guardianEmailLabel.Text = "(Optional) Guardian Email:";
+            guardianEmailLabel.Text = "Guardian Email:";
             // 
             // studFirstNameTextBox
             // 
-            this.studFirstNameTextBox.Location = new System.Drawing.Point(176, 149);
+            this.studFirstNameTextBox.Location = new System.Drawing.Point(304, 84);
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studFirstNameTextBox.TabIndex = 6;
             // 
             // studMidNameTextBox
             // 
-            this.studMidNameTextBox.Location = new System.Drawing.Point(176, 175);
+            this.studMidNameTextBox.Location = new System.Drawing.Point(304, 110);
             this.studMidNameTextBox.Name = "studMidNameTextBox";
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studMidNameTextBox.TabIndex = 8;
             // 
             // studLastNameTextBox
             // 
-            this.studLastNameTextBox.Location = new System.Drawing.Point(176, 201);
+            this.studLastNameTextBox.Location = new System.Drawing.Point(304, 136);
             this.studLastNameTextBox.Name = "studLastNameTextBox";
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studLastNameTextBox.TabIndex = 10;
             // 
             // birthDateTextBox
             // 
-            this.birthDateTextBox.Location = new System.Drawing.Point(176, 253);
+            this.birthDateTextBox.Location = new System.Drawing.Point(304, 188);
             this.birthDateTextBox.Name = "birthDateTextBox";
             this.birthDateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthDateTextBox.TabIndex = 14;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(176, 305);
+            this.addressTextBox.Location = new System.Drawing.Point(301, 52);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 18;
             // 
             // contactNumTextBox
             // 
-            this.contactNumTextBox.Location = new System.Drawing.Point(176, 331);
+            this.contactNumTextBox.Location = new System.Drawing.Point(301, 78);
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
             // 
             // motherFirstNameTextBox
             // 
-            this.motherFirstNameTextBox.Location = new System.Drawing.Point(461, 120);
+            this.motherFirstNameTextBox.Location = new System.Drawing.Point(301, 60);
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherFirstNameTextBox.TabIndex = 26;
             // 
             // motherLastNameTextBox
             // 
-            this.motherLastNameTextBox.Location = new System.Drawing.Point(461, 146);
+            this.motherLastNameTextBox.Location = new System.Drawing.Point(301, 86);
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherLastNameTextBox.TabIndex = 28;
             // 
             // motherOccupationTextBox
             // 
-            this.motherOccupationTextBox.Location = new System.Drawing.Point(461, 172);
+            this.motherOccupationTextBox.Location = new System.Drawing.Point(301, 112);
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherOccupationTextBox.TabIndex = 30;
             // 
             // fatherFirstNameTextBox
             // 
-            this.fatherFirstNameTextBox.Location = new System.Drawing.Point(461, 198);
+            this.fatherFirstNameTextBox.Location = new System.Drawing.Point(301, 138);
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherFirstNameTextBox.TabIndex = 32;
             // 
             // fatherLastNameTextBox
             // 
-            this.fatherLastNameTextBox.Location = new System.Drawing.Point(461, 224);
+            this.fatherLastNameTextBox.Location = new System.Drawing.Point(301, 164);
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherLastNameTextBox.TabIndex = 34;
             // 
             // fatherOccupationTextBox
             // 
-            this.fatherOccupationTextBox.Location = new System.Drawing.Point(461, 250);
+            this.fatherOccupationTextBox.Location = new System.Drawing.Point(301, 190);
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherOccupationTextBox.TabIndex = 36;
@@ -399,7 +415,7 @@
             this.enrollmentStatusComboBox.Items.AddRange(new object[] {
             "NEW",
             "TRANSFEREE"});
-            this.enrollmentStatusComboBox.Location = new System.Drawing.Point(176, 123);
+            this.enrollmentStatusComboBox.Location = new System.Drawing.Point(304, 58);
             this.enrollmentStatusComboBox.Name = "enrollmentStatusComboBox";
             this.enrollmentStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentStatusComboBox.TabIndex = 40;
@@ -411,7 +427,7 @@
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderComboBox.Location = new System.Drawing.Point(176, 226);
+            this.genderComboBox.Location = new System.Drawing.Point(304, 161);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(100, 21);
             this.genderComboBox.TabIndex = 41;
@@ -419,7 +435,7 @@
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthDateTimePicker.Location = new System.Drawing.Point(176, 253);
+            this.birthDateTimePicker.Location = new System.Drawing.Point(304, 188);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
             this.birthDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.birthDateTimePicker.TabIndex = 42;
@@ -432,7 +448,7 @@
             "Grade 8",
             "Grade 9",
             "Grade 10"});
-            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(176, 409);
+            this.enrollmentTypeComboBox.Location = new System.Drawing.Point(304, 240);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
             this.enrollmentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.enrollmentTypeComboBox.TabIndex = 43;
@@ -443,7 +459,7 @@
             this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
             "Full"});
-            this.paymentTypeComboBox.Location = new System.Drawing.Point(176, 436);
+            this.paymentTypeComboBox.Location = new System.Drawing.Point(304, 267);
             this.paymentTypeComboBox.Name = "paymentTypeComboBox";
             this.paymentTypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.paymentTypeComboBox.TabIndex = 44;
@@ -457,7 +473,7 @@
             "Separated",
             "Divorced",
             "Widowed"});
-            this.civilStatusComboBox.Location = new System.Drawing.Point(176, 278);
+            this.civilStatusComboBox.Location = new System.Drawing.Point(304, 213);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
             this.civilStatusComboBox.TabIndex = 45;
@@ -465,7 +481,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(173, 531);
+            this.label3.Location = new System.Drawing.Point(178, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(249, 13);
             this.label3.TabIndex = 47;
@@ -473,27 +489,190 @@
             // 
             // register_Button
             // 
-            this.register_Button.Location = new System.Drawing.Point(246, 565);
+            this.register_Button.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.register_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.register_Button.Location = new System.Drawing.Point(253, 68);
             this.register_Button.Name = "register_Button";
-            this.register_Button.Size = new System.Drawing.Size(104, 49);
+            this.register_Button.Size = new System.Drawing.Size(105, 38);
             this.register_Button.TabIndex = 48;
             this.register_Button.Text = "Register";
-            this.register_Button.UseVisualStyleBackColor = true;
+            this.register_Button.UseVisualStyleBackColor = false;
             this.register_Button.Click += new System.EventHandler(this.register_Button_Click);
             // 
             // personalEmailTextBox
             // 
-            this.personalEmailTextBox.Location = new System.Drawing.Point(176, 357);
+            this.personalEmailTextBox.Location = new System.Drawing.Point(301, 104);
             this.personalEmailTextBox.Name = "personalEmailTextBox";
             this.personalEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.personalEmailTextBox.TabIndex = 52;
             // 
             // guardianEmailTextBox
             // 
-            this.guardianEmailTextBox.Location = new System.Drawing.Point(176, 383);
+            this.guardianEmailTextBox.Location = new System.Drawing.Point(301, 130);
             this.guardianEmailTextBox.Name = "guardianEmailTextBox";
             this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.guardianEmailTextBox.TabIndex = 54;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Registration.Properties.Resources.STU_LOGO;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 103);
+            this.button1.TabIndex = 55;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(215, 14);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(160, 23);
+            label6.TabIndex = 56;
+            label6.Text = "Contact Information";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(label1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(603, 129);
+            this.panel1.TabIndex = 57;
+            // 
+            // studentsPanel
+            // 
+            this.studentsPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.studentsPanel.Controls.Add(label4);
+            this.studentsPanel.Controls.Add(installmentTypeLabel);
+            this.studentsPanel.Controls.Add(enrollmentTypeLabel);
+            this.studentsPanel.Controls.Add(civilStatusLabel);
+            this.studentsPanel.Controls.Add(birthDateLabel);
+            this.studentsPanel.Controls.Add(genderLabel);
+            this.studentsPanel.Controls.Add(this.studLastNameTextBox);
+            this.studentsPanel.Controls.Add(studLastNameLabel);
+            this.studentsPanel.Controls.Add(this.studMidNameTextBox);
+            this.studentsPanel.Controls.Add(studMidNameLabel);
+            this.studentsPanel.Controls.Add(this.studFirstNameTextBox);
+            this.studentsPanel.Controls.Add(this.civilStatusComboBox);
+            this.studentsPanel.Controls.Add(studFirstNameLabel);
+            this.studentsPanel.Controls.Add(this.paymentTypeComboBox);
+            this.studentsPanel.Controls.Add(enrollmentStatusLabel);
+            this.studentsPanel.Controls.Add(this.enrollmentTypeComboBox);
+            this.studentsPanel.Controls.Add(this.enrollmentStatusComboBox);
+            this.studentsPanel.Controls.Add(this.birthDateTimePicker);
+            this.studentsPanel.Controls.Add(this.genderComboBox);
+            this.studentsPanel.Controls.Add(this.birthDateTextBox);
+            this.studentsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studentsPanel.Location = new System.Drawing.Point(0, 165);
+            this.studentsPanel.Name = "studentsPanel";
+            this.studentsPanel.Size = new System.Drawing.Size(603, 306);
+            this.studentsPanel.TabIndex = 58;
+            this.studentsPanel.Visible = false;
+            // 
+            // contactPanel
+            // 
+            this.contactPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.contactPanel.Controls.Add(label6);
+            this.contactPanel.Controls.Add(this.contactNumTextBox);
+            this.contactPanel.Controls.Add(contactNumLabel);
+            this.contactPanel.Controls.Add(this.addressTextBox);
+            this.contactPanel.Controls.Add(guardianEmailLabel);
+            this.contactPanel.Controls.Add(addressLabel);
+            this.contactPanel.Controls.Add(this.guardianEmailTextBox);
+            this.contactPanel.Controls.Add(this.personalEmailTextBox);
+            this.contactPanel.Controls.Add(personalEmailLabel);
+            this.contactPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.contactPanel.Location = new System.Drawing.Point(0, 507);
+            this.contactPanel.Name = "contactPanel";
+            this.contactPanel.Size = new System.Drawing.Size(603, 165);
+            this.contactPanel.TabIndex = 59;
+            this.contactPanel.Visible = false;
+            // 
+            // parentsPanel
+            // 
+            this.parentsPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.parentsPanel.Controls.Add(motherOccupationLabel);
+            this.parentsPanel.Controls.Add(this.fatherOccupationTextBox);
+            this.parentsPanel.Controls.Add(fatherOccupationLabel);
+            this.parentsPanel.Controls.Add(this.fatherLastNameTextBox);
+            this.parentsPanel.Controls.Add(label5);
+            this.parentsPanel.Controls.Add(fatherLastNameLabel);
+            this.parentsPanel.Controls.Add(this.fatherFirstNameTextBox);
+            this.parentsPanel.Controls.Add(fatherFirstNameLabel);
+            this.parentsPanel.Controls.Add(this.motherOccupationTextBox);
+            this.parentsPanel.Controls.Add(motherFirstNameLabel);
+            this.parentsPanel.Controls.Add(this.motherLastNameTextBox);
+            this.parentsPanel.Controls.Add(this.motherFirstNameTextBox);
+            this.parentsPanel.Controls.Add(motherLastNameLabel);
+            this.parentsPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.parentsPanel.Location = new System.Drawing.Point(0, 708);
+            this.parentsPanel.Name = "parentsPanel";
+            this.parentsPanel.Size = new System.Drawing.Size(603, 224);
+            this.parentsPanel.TabIndex = 60;
+            this.parentsPanel.Visible = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.panel5.Controls.Add(this.register_Button);
+            this.panel5.Controls.Add(label2);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 932);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(603, 129);
+            this.panel5.TabIndex = 61;
+            // 
+            // studentsInfoButton
+            // 
+            this.studentsInfoButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.studentsInfoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studentsInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.studentsInfoButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsInfoButton.Location = new System.Drawing.Point(0, 129);
+            this.studentsInfoButton.Name = "studentsInfoButton";
+            this.studentsInfoButton.Size = new System.Drawing.Size(603, 36);
+            this.studentsInfoButton.TabIndex = 51;
+            this.studentsInfoButton.Text = "Student\'s Information";
+            this.studentsInfoButton.UseVisualStyleBackColor = false;
+            this.studentsInfoButton.Click += new System.EventHandler(this.studentsInfoButton_Click);
+            // 
+            // contactInfoButton
+            // 
+            this.contactInfoButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.contactInfoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.contactInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.contactInfoButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactInfoButton.Location = new System.Drawing.Point(0, 471);
+            this.contactInfoButton.Name = "contactInfoButton";
+            this.contactInfoButton.Size = new System.Drawing.Size(603, 36);
+            this.contactInfoButton.TabIndex = 62;
+            this.contactInfoButton.Text = "Contact Information";
+            this.contactInfoButton.UseVisualStyleBackColor = false;
+            this.contactInfoButton.Click += new System.EventHandler(this.contactInfoButton_Click);
+            // 
+            // parentsInfoButton
+            // 
+            this.parentsInfoButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.parentsInfoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.parentsInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.parentsInfoButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parentsInfoButton.Location = new System.Drawing.Point(0, 672);
+            this.parentsInfoButton.Name = "parentsInfoButton";
+            this.parentsInfoButton.Size = new System.Drawing.Size(603, 36);
+            this.parentsInfoButton.TabIndex = 63;
+            this.parentsInfoButton.Text = "Parent\'s Information";
+            this.parentsInfoButton.UseVisualStyleBackColor = false;
+            this.parentsInfoButton.Click += new System.EventHandler(this.parentsInfoButton_Click);
             // 
             // RegistrationForm
             // 
@@ -501,60 +680,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.ClientSize = new System.Drawing.Size(620, 643);
-            this.Controls.Add(guardianEmailLabel);
-            this.Controls.Add(this.guardianEmailTextBox);
-            this.Controls.Add(personalEmailLabel);
-            this.Controls.Add(this.personalEmailTextBox);
-            this.Controls.Add(label5);
-            this.Controls.Add(label4);
-            this.Controls.Add(this.register_Button);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(label2);
-            this.Controls.Add(this.civilStatusComboBox);
-            this.Controls.Add(this.paymentTypeComboBox);
-            this.Controls.Add(this.enrollmentTypeComboBox);
-            this.Controls.Add(this.birthDateTimePicker);
-            this.Controls.Add(this.genderComboBox);
-            this.Controls.Add(this.enrollmentStatusComboBox);
-            this.Controls.Add(label1);
-            this.Controls.Add(enrollmentStatusLabel);
-            this.Controls.Add(studFirstNameLabel);
-            this.Controls.Add(this.studFirstNameTextBox);
-            this.Controls.Add(studMidNameLabel);
-            this.Controls.Add(this.studMidNameTextBox);
-            this.Controls.Add(studLastNameLabel);
-            this.Controls.Add(this.studLastNameTextBox);
-            this.Controls.Add(genderLabel);
-            this.Controls.Add(birthDateLabel);
-            this.Controls.Add(this.birthDateTextBox);
-            this.Controls.Add(civilStatusLabel);
-            this.Controls.Add(addressLabel);
-            this.Controls.Add(this.addressTextBox);
-            this.Controls.Add(contactNumLabel);
-            this.Controls.Add(this.contactNumTextBox);
-            this.Controls.Add(enrollmentTypeLabel);
-            this.Controls.Add(installmentTypeLabel);
-            this.Controls.Add(motherFirstNameLabel);
-            this.Controls.Add(this.motherFirstNameTextBox);
-            this.Controls.Add(motherLastNameLabel);
-            this.Controls.Add(this.motherLastNameTextBox);
-            this.Controls.Add(motherOccupationLabel);
-            this.Controls.Add(this.motherOccupationTextBox);
-            this.Controls.Add(fatherFirstNameLabel);
-            this.Controls.Add(this.fatherFirstNameTextBox);
-            this.Controls.Add(fatherLastNameLabel);
-            this.Controls.Add(this.fatherLastNameTextBox);
-            this.Controls.Add(fatherOccupationLabel);
-            this.Controls.Add(this.fatherOccupationTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ClientSize = new System.Drawing.Size(620, 597);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.parentsPanel);
+            this.Controls.Add(this.parentsInfoButton);
+            this.Controls.Add(this.contactPanel);
+            this.Controls.Add(this.contactInfoButton);
+            this.Controls.Add(this.studentsPanel);
+            this.Controls.Add(this.studentsInfoButton);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "STU Registration Form";
             this.Load += new System.EventHandler(this.RegistrationForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.studentsPanel.ResumeLayout(false);
+            this.studentsPanel.PerformLayout();
+            this.contactPanel.ResumeLayout(false);
+            this.contactPanel.PerformLayout();
+            this.parentsPanel.ResumeLayout(false);
+            this.parentsPanel.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -581,6 +731,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox personalEmailTextBox;
         private System.Windows.Forms.TextBox guardianEmailTextBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel studentsPanel;
+        private System.Windows.Forms.Panel contactPanel;
+        private System.Windows.Forms.Panel parentsPanel;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button studentsInfoButton;
+        private System.Windows.Forms.Button contactInfoButton;
+        private System.Windows.Forms.Button parentsInfoButton;
     }
 }
 
