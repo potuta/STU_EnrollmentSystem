@@ -1663,7 +1663,6 @@ namespace STUEnrollmentSystem {
                 this.columnCivilStatus.AllowDBNull = false;
                 this.columnCivilStatus.MaxLength = 20;
                 this.columnAddress.AllowDBNull = false;
-                this.columnAddress.MaxLength = 20;
                 this.columnContactNum.AllowDBNull = false;
                 this.columnContactNum.MaxLength = 50;
                 this.columnEnrollmentStatus.AllowDBNull = false;
@@ -2324,7 +2323,6 @@ namespace STUEnrollmentSystem {
                 this.columnCivilStatus.AllowDBNull = false;
                 this.columnCivilStatus.MaxLength = 20;
                 this.columnAddress.AllowDBNull = false;
-                this.columnAddress.MaxLength = 20;
                 this.columnContactNum.AllowDBNull = false;
                 this.columnContactNum.MaxLength = 50;
                 this.columnEnrollmentType.AllowDBNull = false;
@@ -3727,7 +3725,6 @@ namespace STUEnrollmentSystem {
                 this.columnCivilStatus.AllowDBNull = false;
                 this.columnCivilStatus.MaxLength = 20;
                 this.columnAddress.AllowDBNull = false;
-                this.columnAddress.MaxLength = 20;
                 this.columnContactNum.AllowDBNull = false;
                 this.columnContactNum.MaxLength = 50;
                 this.columnEnrollmentStatus.AllowDBNull = false;
@@ -11489,12 +11486,13 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
                 "sNull_GuardianEmail = 1 AND GuardianEmail IS NULL OR\r\n                         G" +
                 "uardianEmail = @Original_GuardianEmail) AND (@IsNull_PersonalEmail = 1 AND Perso" +
                 "nalEmail IS NULL OR\r\n                         PersonalEmail = @Original_Personal" +
-                "Email);  \r\nSELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLas" +
-                "tName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, En" +
-                "rollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName" +
-                ", FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMora" +
-                "l, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, Gua" +
-                "rdianEmail, PersonalEmail FROM PendingStudents WHERE (RegisterID = @RegisterID)";
+                "Email);   \r\nSELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLa" +
+                "stName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, E" +
+                "nrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstNam" +
+                "e, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMor" +
+                "al, TransferCertificate, Section, PaymentType, PaymentMethod, ProofOfPayment, Gu" +
+                "ardianEmail, PersonalEmail FROM PendingStudents WHERE (RegisterID = @RegisterID)" +
+                "";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11504,7 +11502,7 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11534,7 +11532,7 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -13013,12 +13011,12 @@ SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, G
                 "ame) AND (FatherOccupation = @Original_FatherOccupation) AND \r\n                 " +
                 "        (LRN = @Original_LRN) AND (PaymentType = @Original_PaymentType) AND (Gua" +
                 "rdianEmail = @Original_GuardianEmail) AND (PersonalEmail = @Original_PersonalEma" +
-                "il);  \r\nSELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLas" +
-                "tName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, Moth" +
-                "erFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, " +
-                "FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertifi" +
-                "cate, PaymentType, GuardianEmail, PersonalEmail FROM Registration WHERE (Registe" +
-                "rID = @RegisterID)";
+                "il);   \r\nSELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLa" +
+                "stName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, Mot" +
+                "herFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName," +
+                " FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertif" +
+                "icate, PaymentType, GuardianEmail, PersonalEmail FROM Registration WHERE (Regist" +
+                "erID = @RegisterID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13028,7 +13026,7 @@ SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, G
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13053,7 +13051,7 @@ SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, G
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MotherFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherFirstName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15197,13 +15195,13 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
                 "ntType = @Original_PaymentType) AND (@IsNull_GuardianEmail = 1 AND GuardianEmail" +
                 " IS NULL OR\r\n                         GuardianEmail = @Original_GuardianEmail) A" +
                 "ND (@IsNull_PersonalEmail = 1 AND PersonalEmail IS NULL OR\r\n                    " +
-                "     PersonalEmail = @Original_PersonalEmail);  \r\nSELECT RegisterID, StudentNumb" +
-                "er, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Ad" +
-                "dress, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLast" +
-                "Name, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudF" +
-                "orm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PaymentT" +
-                "ype, GuardianEmail, PersonalEmail FROM Students WHERE (StudentNumber = @StudentN" +
-                "umber)";
+                "     PersonalEmail = @Original_PersonalEmail);   \r\nSELECT RegisterID, StudentNum" +
+                "ber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, A" +
+                "ddress, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLas" +
+                "tName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, Stud" +
+                "Form137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, Payment" +
+                "Type, GuardianEmail, PersonalEmail FROM Students WHERE (StudentNumber = @Student" +
+                "Number)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegisterID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "RegisterID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentNumber", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "StudentNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15213,7 +15211,7 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -15240,7 +15238,7 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BirthDate", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "BirthDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CivilStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CivilStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.VarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContactNum", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "ContactNum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentStatus", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EnrollmentType", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "EnrollmentType", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
