@@ -325,6 +325,16 @@
             guardianEmailLabel.TabIndex = 53;
             guardianEmailLabel.Text = "Guardian Email:";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(215, 14);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(160, 23);
+            label6.TabIndex = 56;
+            label6.Text = "Contact Information";
+            // 
             // studFirstNameTextBox
             // 
             this.studFirstNameTextBox.Location = new System.Drawing.Point(304, 84);
@@ -528,16 +538,6 @@
             this.button1.TabIndex = 55;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(215, 14);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(160, 23);
-            label6.TabIndex = 56;
-            label6.Text = "Contact Information";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(label1);
@@ -545,7 +545,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(603, 129);
+            this.panel1.Size = new System.Drawing.Size(620, 129);
             this.panel1.TabIndex = 57;
             // 
             // studentsPanel
@@ -574,7 +574,7 @@
             this.studentsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.studentsPanel.Location = new System.Drawing.Point(0, 165);
             this.studentsPanel.Name = "studentsPanel";
-            this.studentsPanel.Size = new System.Drawing.Size(603, 306);
+            this.studentsPanel.Size = new System.Drawing.Size(620, 306);
             this.studentsPanel.TabIndex = 58;
             this.studentsPanel.Visible = false;
             // 
@@ -593,7 +593,7 @@
             this.contactPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.contactPanel.Location = new System.Drawing.Point(0, 507);
             this.contactPanel.Name = "contactPanel";
-            this.contactPanel.Size = new System.Drawing.Size(603, 165);
+            this.contactPanel.Size = new System.Drawing.Size(620, 165);
             this.contactPanel.TabIndex = 59;
             this.contactPanel.Visible = false;
             // 
@@ -616,7 +616,7 @@
             this.parentsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.parentsPanel.Location = new System.Drawing.Point(0, 708);
             this.parentsPanel.Name = "parentsPanel";
-            this.parentsPanel.Size = new System.Drawing.Size(603, 224);
+            this.parentsPanel.Size = new System.Drawing.Size(620, 224);
             this.parentsPanel.TabIndex = 60;
             this.parentsPanel.Visible = false;
             // 
@@ -629,7 +629,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 932);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(603, 129);
+            this.panel5.Size = new System.Drawing.Size(620, 129);
             this.panel5.TabIndex = 61;
             // 
             // studentsInfoButton
@@ -640,7 +640,7 @@
             this.studentsInfoButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsInfoButton.Location = new System.Drawing.Point(0, 129);
             this.studentsInfoButton.Name = "studentsInfoButton";
-            this.studentsInfoButton.Size = new System.Drawing.Size(603, 36);
+            this.studentsInfoButton.Size = new System.Drawing.Size(620, 36);
             this.studentsInfoButton.TabIndex = 51;
             this.studentsInfoButton.Text = "Student\'s Information";
             this.studentsInfoButton.UseVisualStyleBackColor = false;
@@ -654,7 +654,7 @@
             this.contactInfoButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactInfoButton.Location = new System.Drawing.Point(0, 471);
             this.contactInfoButton.Name = "contactInfoButton";
-            this.contactInfoButton.Size = new System.Drawing.Size(603, 36);
+            this.contactInfoButton.Size = new System.Drawing.Size(620, 36);
             this.contactInfoButton.TabIndex = 62;
             this.contactInfoButton.Text = "Contact Information";
             this.contactInfoButton.UseVisualStyleBackColor = false;
@@ -668,7 +668,7 @@
             this.parentsInfoButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parentsInfoButton.Location = new System.Drawing.Point(0, 672);
             this.parentsInfoButton.Name = "parentsInfoButton";
-            this.parentsInfoButton.Size = new System.Drawing.Size(603, 36);
+            this.parentsInfoButton.Size = new System.Drawing.Size(620, 36);
             this.parentsInfoButton.TabIndex = 63;
             this.parentsInfoButton.Text = "Parent\'s Information";
             this.parentsInfoButton.UseVisualStyleBackColor = false;
@@ -680,7 +680,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.ClientSize = new System.Drawing.Size(620, 597);
+            this.ClientSize = new System.Drawing.Size(637, 597);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.parentsPanel);
             this.Controls.Add(this.parentsInfoButton);
