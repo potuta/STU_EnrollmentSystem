@@ -34,19 +34,19 @@ namespace STUEnrollmentSystem
             this.AcceptButton = loginButton;
         }
 
-        private void confirmUserLogin(string userID, string username, string password)
+        private void confirmUserLogin(string userID, string password)
         {
             try
             {
-                bool isUserVerified = _usersRepository.VerifyUserLogin(userID, username, password);
+                bool isUserVerified = _usersRepository.VerifyUserLogin(userID, password);
                 if (isUserVerified == true)
                 {
-                    InitializeUserLoginInfo(userID, username, password);
+                    InitializeUserLoginInfo(userID, password);
                     frmSTU_Dashboard STU = new frmSTU_Dashboard();
                     STU.FormClosed += STU_FormClosed;
                     STU.Show();
                     this.Hide();
-                    LoggingService.LogInformation($"Successful login verification in VerifyUserLogin: UserID: {userID} Username: {username}");
+                    LoggingService.LogInformation($"Successful login verification in VerifyUserLogin: UserID: {userID}");
                 }
                 else
                 {
@@ -71,7 +71,6 @@ namespace STUEnrollmentSystem
         private void STU_FormClosed(object sender, FormClosedEventArgs e)
         {
             userIDTextBox.Clear();
-            usernameTextBox.Clear();
             passwordTextBox.Clear();
             confirmUserIDTextBox.Clear();
             codeTextBox.Clear();
@@ -80,9 +79,9 @@ namespace STUEnrollmentSystem
             this.Show();
         }
 
-        private void InitializeUserLoginInfo(string userID, string username, string password)
+        private void InitializeUserLoginInfo(string userID, string password)
         {
-            List<string> userLoginInfo = _usersRepository.GetUserLoginInfo(userID, username, password);
+            List<string> userLoginInfo = _usersRepository.GetUserLoginInfo(userID, password);
             UserID = userLoginInfo[0];
             Username = userLoginInfo[1];
             Password = userLoginInfo[2];
@@ -92,9 +91,9 @@ namespace STUEnrollmentSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (!userIDTextBox.Text.Equals(string.Empty) && !usernameTextBox.Text.Equals(string.Empty) && !passwordTextBox.Text.Equals(string.Empty))
+            if (!userIDTextBox.Text.Equals(string.Empty) && !passwordTextBox.Text.Equals(string.Empty))
             {
-                confirmUserLogin(userIDTextBox.Text, usernameTextBox.Text, passwordTextBox.Text);
+                confirmUserLogin(userIDTextBox.Text, passwordTextBox.Text);
             }
             else
             {
@@ -153,20 +152,34 @@ namespace STUEnrollmentSystem
 
         private void sendCodeButton_Click(object sender, EventArgs e)
         {
-            UserID = confirmUserIDTextBox.Text;
-            string email = _usersRepository.GetEmail(confirmUserIDTextBox.Text);
-            textBox1.Visible = true;
-            emailTextBox.Visible = true;
-            emailTextBox.Text = email;
+            try
+            {
+                UserID = confirmUserIDTextBox.Text;
+                string email = _usersRepository.GetEmail(confirmUserIDTextBox.Text);
 
-            Code = GenerateRandomNumericCode(5);
-            string subject = "STU Verification Code";
-            string body = $"Your code is: {Code}";
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    throw new NullReferenceException();
+                }
 
-            EmailSender emailSender = new EmailSender();
-            emailSender.SendEmail(email, subject, body);
+                textBox1.Visible = true;
+                emailTextBox.Visible = true;
+                emailTextBox.Text = email;
 
-            MessageBox.Show($"Code has been sent! Please check your email inbox.");
+                Code = GenerateRandomNumericCode(5);
+                string subject = "STU Verification Code";
+                string body = $"Your code is: {Code}";
+
+                EmailSender emailSender = new EmailSender();
+                emailSender.SendEmail(email, subject, body);
+
+                MessageBox.Show($"Code has been sent! Please check your email inbox.");
+            }
+            catch (NullReferenceException nre)
+            {
+                MessageBox.Show("User not found.");
+                return;
+            }
         }
 
         public string GenerateRandomNumericCode(int length)

@@ -42,12 +42,14 @@ namespace STUEnrollmentSystem
             if (!frmLogin.Role.Equals("Admin"))
             {
                 bindingNavigatorDeleteItem.Enabled = false;
+                bindingNavigatorAddNewItem.Enabled = false;
+                bindingNavigatorDeleteItem.Enabled = false;
+                paymentTypeBindingNavigatorSaveItem.Enabled = false;
             }
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.paymentTypeTableAdapter.Update(sTU_DBDataSet);
             this.paymentTypeTableAdapter.Fill(sTU_DBDataSet.PaymentType);
             InitializeSearchComboBoxes();
         }

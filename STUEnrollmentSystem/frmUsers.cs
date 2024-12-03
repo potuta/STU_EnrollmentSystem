@@ -46,7 +46,6 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.usersTableAdapter.Update(sTU_DBDataSet);
             this.usersTableAdapter.Fill(this.sTU_DBDataSet.Users);
             InitializeSearchComboBoxes();
         }

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -52,7 +53,6 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.studentsTableAdapter.Update(sTU_DBDataSet);
             this.studentsTableAdapter.Fill(sTU_DBDataSet.Students);
             InitializeSearchComboBoxes();
         }
@@ -191,6 +191,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
+
                 var requirements = _studentRepository.CheckStudentRequirements(studentNumberTextBox.Text);
 
                 SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
@@ -349,5 +350,34 @@ namespace STUEnrollmentSystem
             }
         }
 
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            Regex regex;
+            TextBox textBox = sender as TextBox;
+
+            if (textBox == null) return;
+
+            if (textBox == contactNumTextBox)
+            {
+                regex = new Regex(@"^[0-9]*$");
+            }
+            else
+            {
+                regex = new Regex(@"^[a-zA-Z]*$");
+            }
+
+            if (!regex.IsMatch(textBox.Text))
+            {
+                if (textBox == contactNumTextBox)
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsDigit).ToArray());
+                }
+                else
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsLetter).ToArray());
+                }
+                textBox.SelectionStart = textBox.Text.Length; // Maintain cursor position
+            }
+        }
     }
 }

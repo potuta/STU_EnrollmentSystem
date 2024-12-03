@@ -480,25 +480,25 @@
             // 
             // billingReportBindingNavigatorSaveItem
             // 
-            this.billingReportBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.billingReportBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("billingReportBindingNavigatorSaveItem.Image")));
             this.billingReportBindingNavigatorSaveItem.Name = "billingReportBindingNavigatorSaveItem";
-            this.billingReportBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.billingReportBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
             this.billingReportBindingNavigatorSaveItem.Text = "Save Data";
             this.billingReportBindingNavigatorSaveItem.Click += new System.EventHandler(this.billingReportBindingNavigatorSaveItem_Click);
             // 
             // bindingNavigatorRefreshItem
             // 
-            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
             this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
             // billingReportDataGridView
             // 
+            this.billingReportDataGridView.AllowUserToAddRows = false;
+            this.billingReportDataGridView.AllowUserToDeleteRows = false;
             this.billingReportDataGridView.AutoGenerateColumns = false;
             this.billingReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.billingReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -512,6 +512,7 @@
             this.billingReportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.billingReportDataGridView.Location = new System.Drawing.Point(301, 140);
             this.billingReportDataGridView.Name = "billingReportDataGridView";
+            this.billingReportDataGridView.ReadOnly = true;
             this.billingReportDataGridView.Size = new System.Drawing.Size(963, 619);
             this.billingReportDataGridView.TabIndex = 21;
             // 

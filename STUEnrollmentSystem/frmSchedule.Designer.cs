@@ -507,20 +507,18 @@
             // 
             // scheduleBindingNavigatorSaveItem
             // 
-            this.scheduleBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.scheduleBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("scheduleBindingNavigatorSaveItem.Image")));
             this.scheduleBindingNavigatorSaveItem.Name = "scheduleBindingNavigatorSaveItem";
-            this.scheduleBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.scheduleBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
             this.scheduleBindingNavigatorSaveItem.Text = "Save Data";
             this.scheduleBindingNavigatorSaveItem.Click += new System.EventHandler(this.scheduleBindingNavigatorSaveItem_Click);
             // 
             // bindingNavigatorRefreshItem
             // 
-            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
             this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 

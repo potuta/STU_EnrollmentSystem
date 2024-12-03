@@ -41,12 +41,14 @@ namespace STUEnrollmentSystem
             if (!frmLogin.Role.Equals("Admin"))
             {
                 bindingNavigatorDeleteItem.Enabled = false;
+                bindingNavigatorAddNewItem.Enabled = false;
+                bindingNavigatorDeleteItem.Enabled = false;
+                gradeLevelBindingNavigatorSaveItem.Enabled = false;
             }
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.gradeLevelTableAdapter.Update(sTU_DBDataSet);
             this.gradeLevelTableAdapter.Fill(this.sTU_DBDataSet.GradeLevel);
             InitializeSearchComboBoxes();
         }

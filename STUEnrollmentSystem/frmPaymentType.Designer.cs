@@ -530,20 +530,18 @@
             // 
             // paymentTypeBindingNavigatorSaveItem
             // 
-            this.paymentTypeBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.paymentTypeBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("paymentTypeBindingNavigatorSaveItem.Image")));
             this.paymentTypeBindingNavigatorSaveItem.Name = "paymentTypeBindingNavigatorSaveItem";
-            this.paymentTypeBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.paymentTypeBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
             this.paymentTypeBindingNavigatorSaveItem.Text = "Save Data";
             this.paymentTypeBindingNavigatorSaveItem.Click += new System.EventHandler(this.paymentTypeBindingNavigatorSaveItem_Click);
             // 
             // bindingNavigatorRefreshItem
             // 
-            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
             this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 

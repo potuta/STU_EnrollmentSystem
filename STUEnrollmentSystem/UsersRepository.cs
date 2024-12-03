@@ -14,18 +14,17 @@ namespace STUEnrollmentSystem
 
         // Additional methods specific to UsersRepository can be added here
 
-        public bool VerifyUserLogin(string userID, string username, string password)
+        public bool VerifyUserLogin(string userID, string password)
         {
-            string query = "SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password";
+            string query = "SELECT * FROM Users WHERE UserID COLLATE SQL_Latin1_General_CP1_CS_AS = @UserID AND Password COLLATE SQL_Latin1_General_CP1_CS_AS = @Password";
             bool isUserVerified = false;
 
             try
             {
-                LoggingService.LogInformation($"Verifying login attempt in VerifyUserLogin: UserID: {userID} Username: {username}");
+                LoggingService.LogInformation($"Verifying login attempt in VerifyUserLogin: UserID: {userID}");
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@UserID", userID);
-                    command.Parameters.AddWithValue("@Username", username);
                     command.Parameters.AddWithValue("@Password", password);
 
                     _connection.Open();
@@ -39,13 +38,13 @@ namespace STUEnrollmentSystem
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in VerifyUserLogin: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
-                LoggingService.LogError($"SQL Error in VerifyUserLogin. User not found or verified: UserID: {userID} Username: {username}");
+                LoggingService.LogError($"SQL Error in VerifyUserLogin. User not found or verified: UserID: {userID}");
                 return false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in VerifyUserLogin: {ex.Message}");
-                LoggingService.LogError($"Unexpected error in VerifyUserLogin: User not found or verified: UserID: {userID} Username: {username}, {ex.Message}");
+                LoggingService.LogError($"Unexpected error in VerifyUserLogin: User not found or verified: UserID: {userID}, {ex.Message}");
                 return false;
             }
             finally
@@ -57,17 +56,16 @@ namespace STUEnrollmentSystem
             return isUserVerified;
         }
 
-        public List<string> GetUserLoginInfo(string userID, string username, string password)
+        public List<string> GetUserLoginInfo(string userID, string password)
         {
             List<string> userLoginInfo = new List<string>();
-            string query = "SELECT * FROM Users WHERE UserID = @UserID AND Username = @Username AND Password = @Password";
+            string query = "SELECT * FROM Users WHERE UserID = @UserID AND Password = @Password";
 
             try
             {
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@UserID", userID);
-                    command.Parameters.AddWithValue("@Username", username);
                     command.Parameters.AddWithValue("@Password", password);
 
                     _connection.Open();
@@ -137,7 +135,7 @@ namespace STUEnrollmentSystem
 
         public string GetEmail(string userID)
         {
-            string query = $"SELECT Email FROM Users WHERE UserID = @UserID";
+            string query = $"SELECT Email FROM Users WHERE UserID COLLATE SQL_Latin1_General_CP1_CS_AS = @UserID";
             string email = string.Empty;
 
             try

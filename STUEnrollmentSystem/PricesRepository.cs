@@ -35,40 +35,6 @@ namespace STUEnrollmentSystem
 
             int total = 0;
 
-            //if (paymentType.Equals("Monthly"))
-            //{
-            //    List<int> amountList = new List<int>();
-            //    string query = $"SELECT TuitionFee, Books, LaboratoryFee, Uniform, MiscellanaousFee FROM Prices WHERE GradeCode = '{grade}'";
-            //    SqlCommand command = new SqlCommand(query, _connection);
-            //    _connection.Open();
-            //    using (SqlDataReader reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            for (int column = 0; column < reader.FieldCount; column++)
-            //            {
-            //                amountList.Add(reader.GetInt32(column));
-            //            }
-            //        }
-            //    }
-            //    _connection.Close();
-
-            //    foreach (int amount in amountList)
-            //    {
-            //        total += amount;
-            //    }
-
-            //    total = total / 10;
-            //}
-            //else if (paymentType.Equals("Full"))
-            //{
-            //    string query = $"SELECT TotalAmount FROM Prices WHERE GradeCode = '{grade}'";
-            //    SqlCommand command = new SqlCommand(query, _connection);
-            //    _connection.Open();
-            //    total = Convert.ToInt32(command.ExecuteScalar());
-            //    _connection.Close();
-            //}
-
             try
             {
                 using (SqlCommand command = new SqlCommand())
@@ -108,10 +74,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetPaymentAmountPerGrade: {ex.Message}");
+                return total;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetPaymentAmountPerGrade: {ex.Message}");
+                return total;
             }
             finally
             {
@@ -149,10 +117,12 @@ namespace STUEnrollmentSystem
             catch (SqlException ex)
             {
                 Console.WriteLine($"SQL Error in GetPaymentAmountList: {ex.Message}");
+                return paymentAmountList;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GetPaymentAmountList: {ex.Message}");
+                return paymentAmountList;
             }
             finally
             {

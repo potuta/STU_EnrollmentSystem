@@ -63,7 +63,6 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.studentsTableAdapter.Update(sTU_DBDataSet);
             this.studentsTableAdapter.FillBy(sTU_DBDataSet.Students);
             InitializeSearchComboBoxes();
         }
@@ -180,7 +179,7 @@ namespace STUEnrollmentSystem
                 SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
                 SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
 
-                if (!sectionTextBox.Text.Equals(string.Empty))
+                if (!sectionComboBox.Text.Equals(string.Empty))
                 {
                     viewRAFButton.Visible = true;
                 }
@@ -235,7 +234,8 @@ namespace STUEnrollmentSystem
             uploadTransferCertButton.Visible = false;
             viewRAFButton.Visible = false;
         }
-        private string getGradeCode(string enrollmentType)
+
+        public static string getGradeCode(string enrollmentType)
         {
             string gradeCode = string.Empty;
             switch (enrollmentType)

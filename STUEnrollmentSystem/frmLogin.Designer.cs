@@ -30,13 +30,11 @@
         {
             System.Windows.Forms.Label passwordLabel;
             System.Windows.Forms.Label userIDLabel;
-            System.Windows.Forms.Label usernameLabel;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.userIDTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.forgotPasswordButton = new System.Windows.Forms.Button();
@@ -52,11 +50,10 @@
             this.sendCodeButton = new System.Windows.Forms.Button();
             this.confirmUserIDTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.logoButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.logoButton = new System.Windows.Forms.Button();
             passwordLabel = new System.Windows.Forms.Label();
             userIDLabel = new System.Windows.Forms.Label();
-            usernameLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -69,7 +66,7 @@
             // 
             passwordLabel.AutoSize = true;
             passwordLabel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passwordLabel.Location = new System.Drawing.Point(64, 304);
+            passwordLabel.Location = new System.Drawing.Point(65, 277);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new System.Drawing.Size(101, 25);
             passwordLabel.TabIndex = 11;
@@ -79,21 +76,11 @@
             // 
             userIDLabel.AutoSize = true;
             userIDLabel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            userIDLabel.Location = new System.Drawing.Point(64, 209);
+            userIDLabel.Location = new System.Drawing.Point(65, 227);
             userIDLabel.Name = "userIDLabel";
             userIDLabel.Size = new System.Drawing.Size(79, 25);
             userIDLabel.TabIndex = 7;
             userIDLabel.Text = "User ID:";
-            // 
-            // usernameLabel
-            // 
-            usernameLabel.AutoSize = true;
-            usernameLabel.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            usernameLabel.Location = new System.Drawing.Point(64, 258);
-            usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new System.Drawing.Size(103, 25);
-            usernameLabel.TabIndex = 9;
-            usernameLabel.Text = "Username:";
             // 
             // label4
             // 
@@ -129,26 +116,17 @@
             // 
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(205, 298);
+            this.passwordTextBox.Location = new System.Drawing.Point(206, 271);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(179, 31);
             this.passwordTextBox.TabIndex = 12;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(205, 252);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(179, 31);
-            this.usernameTextBox.TabIndex = 10;
-            // 
             // userIDTextBox
             // 
             this.userIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userIDTextBox.Location = new System.Drawing.Point(205, 203);
+            this.userIDTextBox.Location = new System.Drawing.Point(206, 221);
             this.userIDTextBox.Name = "userIDTextBox";
             this.userIDTextBox.Size = new System.Drawing.Size(179, 31);
             this.userIDTextBox.TabIndex = 8;
@@ -343,14 +321,22 @@
             this.panel1.Controls.Add(this.passwordTextBox);
             this.panel1.Controls.Add(passwordLabel);
             this.panel1.Controls.Add(userIDLabel);
-            this.panel1.Controls.Add(this.usernameTextBox);
             this.panel1.Controls.Add(this.userIDTextBox);
-            this.panel1.Controls.Add(usernameLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(439, 451);
             this.panel1.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(192, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 23);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Login";
             // 
             // logoButton
             // 
@@ -367,16 +353,6 @@
             this.logoButton.Size = new System.Drawing.Size(140, 123);
             this.logoButton.TabIndex = 17;
             this.logoButton.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(192, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 23);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Login";
             // 
             // frmLogin
             // 
@@ -407,7 +383,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox userIDTextBox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button forgotPasswordButton;

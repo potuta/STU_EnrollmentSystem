@@ -17,8 +17,11 @@ namespace STUEnrollmentSystem
 
         public int GenerateTransactionNumber()
         {
+            int result = 0;
             int number = 0;
             string query = $"SELECT MAX(CAST(TransactionNumber AS INT)) FROM BillingReport";
+            List<string> transactionNumberList = GetColumnData("BillingReport", "TransactionNumber");
+            List<int> transactionNumberIntList = new List<int>();
 
             try
             {
@@ -35,22 +38,34 @@ namespace STUEnrollmentSystem
                     {
                         number = 1;
                     }
-                    //number = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
                 }
+
+                foreach (string num in transactionNumberList)
+                {
+                    if (num != null)
+                    {
+                        transactionNumberIntList.Add(int.Parse(num));
+                    }
+                }
+
+                if (transactionNumberList.Count < 1)
+                {
+                    transactionNumberIntList.Add(1);
+                }
+
+                result = Math.Max(transactionNumberIntList.Max(), number) + 1;
             }
             catch (SqlException ex)
             {
                 // Log SQL error (example: log to a file or monitoring system)
                 Console.WriteLine($"SQL Error in GenerateTransactionNumber: {ex.Message}");
                 // Optionally, handle specific SQL error codes here
-                number = 1;
-                return number;
+                return result;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error in GenerateTransactionNumber: {ex.Message}");
-                number = 1;
-                return number;
+                return result;
             }
             finally
             {
@@ -58,7 +73,7 @@ namespace STUEnrollmentSystem
                     _connection.Close();
             }
 
-            return number;
+            return result;
         }
 
         public bool CheckIfTransactionNumberExists(string transactionNumber)

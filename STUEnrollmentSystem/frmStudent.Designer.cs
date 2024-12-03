@@ -168,6 +168,7 @@
             this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
             this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
             this.totalEnrolledStudentsGridView = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -580,15 +581,18 @@
             // 
             // studentNumberTextBox
             // 
+            this.studentNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "StudentNumber", true));
             this.studentNumberTextBox.Location = new System.Drawing.Point(120, 64);
             this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.ReadOnly = true;
             this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.studentNumberTextBox.TabIndex = 64;
             // 
             // civilStatusComboBox
             // 
             this.civilStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "CivilStatus", true));
+            this.civilStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
             "Single",
@@ -654,6 +658,7 @@
             // installmentTypeComboBox
             // 
             this.installmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "PaymentType", true));
+            this.installmentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.installmentTypeComboBox.FormattingEnabled = true;
             this.installmentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
@@ -668,6 +673,7 @@
             this.enrollmentTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "EnrollmentType", true));
             this.enrollmentTypeComboBox.DataSource = this.gradeLevelBindingSource;
             this.enrollmentTypeComboBox.DisplayMember = "GradeLevel";
+            this.enrollmentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.enrollmentTypeComboBox.FormattingEnabled = true;
             this.enrollmentTypeComboBox.Location = new System.Drawing.Point(374, 194);
             this.enrollmentTypeComboBox.Name = "enrollmentTypeComboBox";
@@ -683,6 +689,7 @@
             // genderComboBox
             // 
             this.genderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "Gender", true));
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
@@ -695,6 +702,7 @@
             // enrollmentStatusComboBox
             // 
             this.enrollmentStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentsBindingSource, "EnrollmentStatus", true));
+            this.enrollmentStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.enrollmentStatusComboBox.FormattingEnabled = true;
             this.enrollmentStatusComboBox.Items.AddRange(new object[] {
             "OLD",
@@ -712,6 +720,7 @@
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studFirstNameTextBox.TabIndex = 6;
+            this.studFirstNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // studMidNameTextBox
             // 
@@ -720,6 +729,7 @@
             this.studMidNameTextBox.Name = "studMidNameTextBox";
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studMidNameTextBox.TabIndex = 8;
+            this.studMidNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // studLastNameTextBox
             // 
@@ -728,6 +738,7 @@
             this.studLastNameTextBox.Name = "studLastNameTextBox";
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studLastNameTextBox.TabIndex = 10;
+            this.studLastNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // addressTextBox
             // 
@@ -744,6 +755,7 @@
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
+            this.contactNumTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // motherFirstNameTextBox
             // 
@@ -752,6 +764,7 @@
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherFirstNameTextBox.TabIndex = 26;
+            this.motherFirstNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // motherLastNameTextBox
             // 
@@ -760,6 +773,7 @@
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherLastNameTextBox.TabIndex = 28;
+            this.motherLastNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // motherOccupationTextBox
             // 
@@ -768,6 +782,7 @@
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherOccupationTextBox.TabIndex = 30;
+            this.motherOccupationTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // fatherFirstNameTextBox
             // 
@@ -776,6 +791,7 @@
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherFirstNameTextBox.TabIndex = 32;
+            this.fatherFirstNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // fatherLastNameTextBox
             // 
@@ -784,6 +800,7 @@
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherLastNameTextBox.TabIndex = 34;
+            this.fatherLastNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // fatherOccupationTextBox
             // 
@@ -792,6 +809,7 @@
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherOccupationTextBox.TabIndex = 36;
+            this.fatherOccupationTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // lRNTextBox
             // 
@@ -1129,6 +1147,7 @@
             this.bindingNavigatorDeleteItem,
             this.studentsBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
+            this.toolStripSeparator1,
             this.bindingNavigatorTotalStudentsItem});
             this.studentsBindingNavigator.Location = new System.Drawing.Point(0, 417);
             this.studentsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -1229,20 +1248,18 @@
             // 
             // studentsBindingNavigatorSaveItem
             // 
-            this.studentsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.studentsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("studentsBindingNavigatorSaveItem.Image")));
             this.studentsBindingNavigatorSaveItem.Name = "studentsBindingNavigatorSaveItem";
-            this.studentsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.studentsBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
             this.studentsBindingNavigatorSaveItem.Text = "Save Data";
             this.studentsBindingNavigatorSaveItem.Click += new System.EventHandler(this.studentsBindingNavigatorSaveItem_Click);
             // 
             // bindingNavigatorRefreshItem
             // 
-            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
             this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
@@ -1259,6 +1276,8 @@
             // 
             // studentsDataGridView
             // 
+            this.studentsDataGridView.AllowUserToAddRows = false;
+            this.studentsDataGridView.AllowUserToDeleteRows = false;
             this.studentsDataGridView.AutoGenerateColumns = false;
             this.studentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1292,6 +1311,7 @@
             this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentsDataGridView.Location = new System.Drawing.Point(0, 652);
             this.studentsDataGridView.Name = "studentsDataGridView";
+            this.studentsDataGridView.ReadOnly = true;
             this.studentsDataGridView.Size = new System.Drawing.Size(1485, 409);
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
@@ -1301,24 +1321,28 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentNumber";
             this.dataGridViewTextBoxColumn2.HeaderText = "StudentNumber";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "StudFirstName";
             this.dataGridViewTextBoxColumn3.HeaderText = "StudFirstName";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "StudMidName";
             this.dataGridViewTextBoxColumn4.HeaderText = "StudMidName";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "StudLastName";
             this.dataGridViewTextBoxColumn5.HeaderText = "StudLastName";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1328,6 +1352,7 @@
             "Male",
             "Female"});
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -1336,14 +1361,14 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "BirthDate";
             this.dataGridViewTextBoxColumn7.HeaderText = "BirthDate";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // Section
             // 
             this.Section.DataPropertyName = "Section";
             this.Section.HeaderText = "Section";
             this.Section.Name = "Section";
-            this.Section.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Section.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Section.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -1356,6 +1381,7 @@
             "Divorced",
             "Widowed"});
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -1364,24 +1390,28 @@
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Address";
             this.dataGridViewTextBoxColumn9.HeaderText = "Address";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "ContactNum";
             this.dataGridViewTextBoxColumn10.HeaderText = "ContactNum";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // PersonalEmail
             // 
             this.PersonalEmail.DataPropertyName = "PersonalEmail";
             this.PersonalEmail.HeaderText = "PersonalEmail";
             this.PersonalEmail.Name = "PersonalEmail";
+            this.PersonalEmail.ReadOnly = true;
             // 
             // GuardianEmail
             // 
             this.GuardianEmail.DataPropertyName = "GuardianEmail";
             this.GuardianEmail.HeaderText = "GuardianEmail";
             this.GuardianEmail.Name = "GuardianEmail";
+            this.GuardianEmail.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -1392,6 +1422,7 @@
             "NEW",
             "TRANSFEREE"});
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -1405,6 +1436,7 @@
             "Grade 9",
             "Grade 10"});
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -1416,48 +1448,56 @@
             "Monthly",
             "Full"});
             this.PaymentType.Name = "PaymentType";
+            this.PaymentType.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "MotherFirstName";
             this.dataGridViewTextBoxColumn14.HeaderText = "MotherFirstName";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "MotherLastName";
             this.dataGridViewTextBoxColumn15.HeaderText = "MotherLastName";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "MotherOccupation";
             this.dataGridViewTextBoxColumn16.HeaderText = "MotherOccupation";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "FatherFirstName";
             this.dataGridViewTextBoxColumn17.HeaderText = "FatherFirstName";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.DataPropertyName = "FatherLastName";
             this.dataGridViewTextBoxColumn18.HeaderText = "FatherLastName";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "FatherOccupation";
             this.dataGridViewTextBoxColumn19.HeaderText = "FatherOccupation";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.DataPropertyName = "StudForm137";
             this.dataGridViewImageColumn1.HeaderText = "StudForm137";
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -1466,12 +1506,14 @@
             this.dataGridViewTextBoxColumn20.DataPropertyName = "LRN";
             this.dataGridViewTextBoxColumn20.HeaderText = "LRN";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
             // 
             // dataGridViewImageColumn2
             // 
             this.dataGridViewImageColumn2.DataPropertyName = "BirthCertificate";
             this.dataGridViewImageColumn2.HeaderText = "BirthCertificate";
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -1480,6 +1522,7 @@
             this.dataGridViewImageColumn3.DataPropertyName = "GoodMoral";
             this.dataGridViewImageColumn3.HeaderText = "GoodMoral";
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -1488,6 +1531,7 @@
             this.dataGridViewImageColumn4.DataPropertyName = "TransferCertificate";
             this.dataGridViewImageColumn4.HeaderText = "TransferCertificate";
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -1505,13 +1549,21 @@
             // 
             // totalEnrolledStudentsGridView
             // 
+            this.totalEnrolledStudentsGridView.AllowUserToAddRows = false;
+            this.totalEnrolledStudentsGridView.AllowUserToDeleteRows = false;
             this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 442);
             this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
+            this.totalEnrolledStudentsGridView.ReadOnly = true;
             this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1485, 210);
             this.totalEnrolledStudentsGridView.TabIndex = 12;
             this.totalEnrolledStudentsGridView.Visible = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // frmStudent
             // 
@@ -1636,6 +1688,7 @@
         private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
         private System.Windows.Forms.TextBox guardianEmailTextBox;
         private System.Windows.Forms.TextBox personalEmailTextBox;
+        private System.Windows.Forms.Button viewRAFButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -1662,6 +1715,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.Button viewRAFButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

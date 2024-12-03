@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class ConnectionFactory
+    public class ConnectionFactory
     {
         protected static SqlConnection _sourceConnectionString;
         protected static SqlConnection _destinationConnectionString;

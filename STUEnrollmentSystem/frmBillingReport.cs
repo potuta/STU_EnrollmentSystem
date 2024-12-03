@@ -46,7 +46,6 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.billingReportTableAdapter.Update(this.sTU_DBDataSet);
             this.billingReportTableAdapter.Fill(this.sTU_DBDataSet.BillingReport);
         }
 
