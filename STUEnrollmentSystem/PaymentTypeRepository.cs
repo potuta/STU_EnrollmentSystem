@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class PaymentTypeRepository : BaseRepository
+    public class PaymentTypeRepository : BaseRepository
     {
         public PaymentTypeRepository(string connectionString) : base(connectionString) { }
 

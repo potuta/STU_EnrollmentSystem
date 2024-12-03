@@ -11,6 +11,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using STUEnrollmentSystem;
 
 namespace Registration
 {
@@ -60,6 +62,12 @@ namespace Registration
             }
 
             insertIntoRegistration();
+            sendEmailNotification(guardianEmailTextBox.Text);
+
+            if (!string.IsNullOrWhiteSpace(personalEmailTextBox.Text))
+            {
+                sendEmailNotification(personalEmailTextBox.Text);
+            }
 
             string message = "Your registration has been successfully submitted! To stay updated with STU enrollment and payment dates, follow our official FB page at @STU_FB. " +
                 "We will also notify you through your specified email for the enrollment details. Thank you for choosing STU!";
@@ -134,6 +142,24 @@ namespace Registration
                 if (_connection.State == ConnectionState.Open)
                     _connection.Close();
             }
+        }
+
+        private void sendEmailNotification(string recipientEmail)
+        {
+            PaymentTypeRepository _paymentTypeRepository = new PaymentTypeRepository(_connection.ConnectionString);
+            Dictionary<string, int> paymentAmountData = _paymentTypeRepository.GetPaymentAmount(paymentTypeComboBox.Text, getPriceCode(enrollmentTypeComboBox.Text));
+
+            string subject = "STU Registration";
+            string body = $"Welcome {studFirstNameTextBox.Text} to STU! Your registration has been successfully submitted and received. " +
+                $"You have chosen a payment plan of {paymentTypeComboBox.Text}, please prepare the exact amount {paymentAmountData["August"]} on or before August 16. We will see you soon!";
+
+            EmailSender emailSender = new EmailSender();
+            emailSender.SendEmail(recipientEmail, subject, body);
+        }
+
+        private string getPriceCode(string enrollmentType)
+        {
+            return $"P{frmPendingRequirements.getGradeCode(enrollmentType)}";
         }
 
         private int generateRegisterID()
@@ -263,6 +289,36 @@ namespace Registration
             else
             {
                 subPanel.Visible = false;
+            }
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            Regex regex;
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+
+            if (textBox == null) return;
+
+            if (textBox == contactNumTextBox)
+            {
+                regex = new Regex(@"^[0-9]*$");
+            }
+            else
+            {
+                regex = new Regex(@"^[a-zA-Z]*$");
+            }
+
+            if (!regex.IsMatch(textBox.Text))
+            {
+                if (textBox == contactNumTextBox)
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsDigit).ToArray()); 
+                }
+                else
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsLetter).ToArray()); 
+                }
+                textBox.SelectionStart = textBox.Text.Length; // Maintain cursor position
             }
         }
 

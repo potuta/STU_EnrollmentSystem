@@ -73,6 +73,16 @@ namespace STUEnrollmentSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pngwing_com_1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngwing.com(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2024_10_17_213953 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2024-10-17 213953", resourceCulture);

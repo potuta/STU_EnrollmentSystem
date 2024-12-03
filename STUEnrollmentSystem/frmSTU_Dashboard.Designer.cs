@@ -107,7 +107,7 @@
             this.userInfoPanel.Controls.Add(this.logoutButton);
             this.userInfoPanel.Controls.Add(this.userLabel);
             this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.userInfoPanel.Location = new System.Drawing.Point(0, 927);
+            this.userInfoPanel.Location = new System.Drawing.Point(0, 926);
             this.userInfoPanel.Name = "userInfoPanel";
             this.userInfoPanel.Size = new System.Drawing.Size(261, 97);
             this.userInfoPanel.TabIndex = 1;
@@ -162,7 +162,7 @@
             this.facultySubPanel.Controls.Add(this.usersButton);
             this.facultySubPanel.Controls.Add(this.teacherButton);
             this.facultySubPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.facultySubPanel.Location = new System.Drawing.Point(0, 847);
+            this.facultySubPanel.Location = new System.Drawing.Point(0, 846);
             this.facultySubPanel.Name = "facultySubPanel";
             this.facultySubPanel.Size = new System.Drawing.Size(261, 80);
             this.facultySubPanel.TabIndex = 2;
@@ -212,7 +212,7 @@
             this.facultyButton.FlatAppearance.BorderSize = 2;
             this.facultyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.facultyButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facultyButton.Location = new System.Drawing.Point(0, 808);
+            this.facultyButton.Location = new System.Drawing.Point(0, 807);
             this.facultyButton.Name = "facultyButton";
             this.facultyButton.Size = new System.Drawing.Size(261, 39);
             this.facultyButton.TabIndex = 2;
@@ -232,7 +232,7 @@
             this.academicSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.academicSubPanel.Location = new System.Drawing.Point(0, 573);
             this.academicSubPanel.Name = "academicSubPanel";
-            this.academicSubPanel.Size = new System.Drawing.Size(261, 235);
+            this.academicSubPanel.Size = new System.Drawing.Size(261, 234);
             this.academicSubPanel.TabIndex = 6;
             this.academicSubPanel.Visible = false;
             // 

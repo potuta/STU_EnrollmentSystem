@@ -287,9 +287,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(76, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 18);
+            this.label1.Size = new System.Drawing.Size(139, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Prices Information";
+            this.label1.Text = "Fee\'s Information";
             // 
             // showSearchButton
             // 
@@ -519,20 +519,18 @@
             // 
             // pricesBindingNavigatorSaveItem
             // 
-            this.pricesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.pricesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("pricesBindingNavigatorSaveItem.Image")));
             this.pricesBindingNavigatorSaveItem.Name = "pricesBindingNavigatorSaveItem";
-            this.pricesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.pricesBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
             this.pricesBindingNavigatorSaveItem.Text = "Save Data";
             this.pricesBindingNavigatorSaveItem.Click += new System.EventHandler(this.pricesBindingNavigatorSaveItem_Click);
             // 
             // bindingNavigatorRefreshItem
             // 
-            this.bindingNavigatorRefreshItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bindingNavigatorRefreshItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorRefreshItem.Image")));
+            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
             this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(77, 22);
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 

@@ -160,8 +160,13 @@ namespace STUEnrollmentSystem
 
         public int GenerateStudentNumber()
         {
-            int studentCount = 0;
             string query = "SELECT MAX(CAST(RegisterID AS INT)) FROM Students";
+            List<string> studentNumList = GetColumnData("Students", "StudentNumber");
+            List<string> pendingStudentNumList = GetColumnData("PendingStudents", "StudentNumber");
+            List<int> numList1 = new List<int>();
+            List<int> numList2 = new List<int>();
+            int studentCount = 0;
+            int result = 0;
 
             try
             {
@@ -179,18 +184,46 @@ namespace STUEnrollmentSystem
                         studentCount = 1;
                     }
                 }
+
+                foreach (string studentNum in studentNumList)
+                {
+                    if (studentNum != null)
+                    {
+                        string numParts = studentNum.Substring(1);
+                        numList1.Add(int.Parse(numParts));
+                    }
+                }
+
+                if (studentNumList.Count < 1)
+                {
+                    numList1.Add(1);
+                }
+
+                foreach (string pendingStudentNum in pendingStudentNumList)
+                {
+                    if (pendingStudentNum != null)
+                    {
+                        string numParts = pendingStudentNum.Substring(1);
+                        numList2.Add(int.Parse(numParts));
+                    }
+                }
+
+                if (pendingStudentNumList.Count < 1)
+                {
+                    numList2.Add(1);
+                }
+
+                result = Math.Max(Math.Max(numList1.Max(), numList2.Max()), studentCount) + 1;
             }
             catch (SqlException ex)
             {
-                Console.WriteLine($"SQL Error in UpdateProofOfPayment: {ex.Message}");
-                studentCount = 1;
-                return studentCount;
+                Console.WriteLine($"SQL Error in GenerateStudentNumber: {ex.Message}");
+                return result;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Unexpected error in UpdateProofOfPayment: {ex.Message}");
-                studentCount = 1;
-                return studentCount;
+                Console.WriteLine($"Unexpected error in GenerateStudentNumber: {ex.Message}");
+                return result;
             }
             finally
             {
@@ -198,7 +231,7 @@ namespace STUEnrollmentSystem
                     _connection.Close();
             }
 
-            return studentCount;
+            return result;
         }
     }
 }

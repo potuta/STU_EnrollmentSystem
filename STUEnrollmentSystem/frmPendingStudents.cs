@@ -51,7 +51,6 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.pendingStudentsTableAdapter.Update(sTU_DBDataSet);
             this.pendingStudentsTableAdapter.Fill(sTU_DBDataSet.PendingStudents);
             InitializeSearchComboBoxes();
         }
@@ -486,10 +485,16 @@ namespace STUEnrollmentSystem
             if (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
             {
                 proofOfPaymentLabel.Visible = true;
+                viewProofOfPaymentButton.Visible = true;
+                deleteProofOfPaymentButton.Visible = true;
+                uploadProofOfPaymentButton.Visible = true;
             }
             else
             {
                 proofOfPaymentLabel.Visible = false;
+                viewProofOfPaymentButton.Visible = false;
+                deleteProofOfPaymentButton.Visible = false;
+                uploadProofOfPaymentButton.Visible = false;
             }
         }
 

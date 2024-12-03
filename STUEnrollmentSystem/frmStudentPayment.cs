@@ -112,7 +112,6 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.studentPaymentTableAdapter.Update(sTU_DBDataSet);
             this.studentPaymentTableAdapter.Fill(sTU_DBDataSet.StudentPayment);
             InitializeSearchComboBoxes();
         }
@@ -123,6 +122,7 @@ namespace STUEnrollmentSystem
             {
                 checkForRequirements();
                 checkBalance();
+                checkTransactionNumberExist();
             }
             catch (FormatException fe)
             {
@@ -138,13 +138,31 @@ namespace STUEnrollmentSystem
             }
         }
 
+        private void checkTransactionNumberExist()
+        {
+            bool isTransactionNumberExist = new BillingReportRepository(ConnectionFactory.GetConnectionString()).CheckIfTransactionNumberExists(transactionNumberTextBox.Text);
+            if (isTransactionNumberExist == true)
+            {
+                addBillingReportButton.Enabled = false;
+                paymentMethodComboBox.Enabled = false;
+                paymentStatusComboBox.Enabled = false;
+                paymentRNTextBox.Enabled = false;
+                deleteProofOfPaymentButton.Visible = false;
+            }
+            else
+            {
+                paymentMethodComboBox.Enabled = true;
+                paymentStatusComboBox.Enabled = true;
+                paymentRNTextBox.Enabled = true;
+            }
+        }
+
         private void checkForRequirements()
         {
             try
             {
                 _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
-                var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentComboBox.Text);
-
+                var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentTextBox.Text);
                 if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER")))
                 {
                     SetRequirementButtonState(viewProofOfPaymentButton, uploadProofOfPaymentButton, deleteProofOfPaymentButton, requirements["ProofOfPayment"]);
@@ -173,16 +191,16 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
+                Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text);
 
-                if (paymentCodeComboBox.Text.Contains("M"))
+                if (paymentCodeTextBox.Text.Contains("M"))
                 {
                     paymentTypeLabel.Text = "Monthly";
                     remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
                     paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
                     showNotifyButton();
                 }
-                else if (paymentCodeComboBox.Text.Contains("F"))
+                else if (paymentCodeTextBox.Text.Contains("F"))
                 {
                     paymentTypeLabel.Text = "Full";
                     remainingBalanceLabel.Text = "0";
@@ -209,8 +227,8 @@ namespace STUEnrollmentSystem
 
         private void showNotifyButton()
         {
-            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
-            int notificationCount = _studentPaymentRepository.GetStudentNotificationCount(studentNumberTextBox.Text, paymentCodeComboBox.Text, schoolYearTextBox.Text, monthOfPaymentComboBox.Text);
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text);
+            int notificationCount = _studentPaymentRepository.GetStudentNotificationCount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text, monthOfPaymentTextBox.Text);
 
             if (notificationCount == 0)
             {
@@ -302,7 +320,7 @@ namespace STUEnrollmentSystem
         private void HandleFileOperation(string fileType, string operation)
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
-            _studentPaymentRepository.MonthOfPayment = monthOfPaymentComboBox.Text;
+            _studentPaymentRepository.MonthOfPayment = monthOfPaymentTextBox.Text;
             _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             switch (operation)
             {
@@ -315,6 +333,7 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentPaymentRepository.UploadFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
+                    studentPaymentBindingNavigatorSaveItem.PerformClick();
                     bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
@@ -337,14 +356,12 @@ namespace STUEnrollmentSystem
         {
             if (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
             {
-                proofOfPaymentLabel.Visible = true;
                 viewProofOfPaymentButton.Visible = true;
                 deleteProofOfPaymentButton.Visible = true;
                 uploadProofOfPaymentButton.Visible = true;
             }
             else
             {
-                proofOfPaymentLabel.Visible = false;
                 viewProofOfPaymentButton.Visible = false;
                 deleteProofOfPaymentButton.Visible = false;
                 uploadProofOfPaymentButton.Visible = false;
@@ -374,7 +391,7 @@ namespace STUEnrollmentSystem
 
         private void notifyButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeComboBox.Text);
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text);
             Dictionary<string, string> emails = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentEmail(studentNumberTextBox.Text);
 
             foreach (string email in emails.Keys)
@@ -400,12 +417,12 @@ namespace STUEnrollmentSystem
                 }
             }
 
-            _studentPaymentRepository.UpdateStudentNotificationCount(studentNumberTextBox.Text, paymentCodeComboBox.Text, schoolYearTextBox.Text, monthOfPaymentComboBox.Text);
+            _studentPaymentRepository.UpdateStudentNotificationCount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text, monthOfPaymentTextBox.Text);
             foreach (string month in monthlyPendingList.Keys)
             {
                 if (assignIntValueToMonth(month) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
                 {
-                    _studentPaymentRepository.UpdateStudentNotificationCount(studentNumberTextBox.Text, paymentCodeComboBox.Text, schoolYearTextBox.Text, month);
+                    _studentPaymentRepository.UpdateStudentNotificationCount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text, month);
                 }
             }
 
@@ -414,7 +431,7 @@ namespace STUEnrollmentSystem
 
         private void viewPaymentReceiptButton_Click(object sender, EventArgs e)
         {
-            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeComboBox.Text, paymentMethodComboBox.Text, monthOfPaymentComboBox.Text, schoolYearTextBox.Text, transactionDateTextBox.Text, receiptRNTextBox.Text);
+            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeTextBox.Text, paymentMethodComboBox.Text, monthOfPaymentTextBox.Text, schoolYearTextBox.Text, transactionDateTextBox.Text, receiptRNTextBox.Text);
             frmPDFReceipt.Show();
         }
 
@@ -437,9 +454,9 @@ namespace STUEnrollmentSystem
             else
             {
                 viewPaymentReceiptButton.Visible = false;
-                transactionNumberTextBox.Clear();
-                transactionDateTextBox.Clear();
                 receiptRNTextBox.Clear();
+                transactionDateTextBox.Clear();
+                transactionNumberTextBox.Clear();
             }
         }
 
@@ -461,7 +478,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                if (paymentRNTextBox.Text.Equals(string.Empty)) 
+                if (string.IsNullOrWhiteSpace(paymentRNTextBox.Text)) 
                 {
                     if (addBillingReportButton.Enabled == true)
                     {
@@ -489,7 +506,7 @@ namespace STUEnrollmentSystem
 
         private void addBillingReportButton_Click(object sender, EventArgs e)
         {
-            int totalPaymentAmount = _studentPaymentRepository.GetTotalPaymentAmountFromMonth(paymentCodeComboBox.Text, monthOfPaymentComboBox.Text);
+            int totalPaymentAmount = _studentPaymentRepository.GetTotalPaymentAmountFromMonth(paymentCodeTextBox.Text, monthOfPaymentTextBox.Text);
 
             var billingReportData = new Dictionary<string, object>()
             {
@@ -503,6 +520,7 @@ namespace STUEnrollmentSystem
 
             _studentPaymentRepository.InsertBillingReport(billingReportData);
             studentPaymentBindingNavigatorSaveItem.PerformClick();
+            bindingNavigatorRefreshItem.PerformClick();
             MessageBox.Show("Successfully added to billing report!", "Success", MessageBoxButtons.OK);
             LoggingService.LogInformation($"Insert successful in InsertBillingReport to BillingReport table");
         }

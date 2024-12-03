@@ -41,12 +41,14 @@ namespace STUEnrollmentSystem
             if (!frmLogin.Role.Equals("Admin"))
             {
                 bindingNavigatorDeleteItem.Enabled = false;
+                bindingNavigatorAddNewItem.Enabled = false;
+                bindingNavigatorDeleteItem.Enabled = false;
+                pricesBindingNavigatorSaveItem.Enabled = false;
             }
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.pricesTableAdapter.Update(sTU_DBDataSet);
             this.pricesTableAdapter.Fill(sTU_DBDataSet.Prices);
             InitializeSearchComboBoxes();
         }

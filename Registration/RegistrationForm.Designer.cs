@@ -75,7 +75,6 @@
             this.register_Button = new System.Windows.Forms.Button();
             this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.studentsPanel = new System.Windows.Forms.Panel();
             this.contactPanel = new System.Windows.Forms.Panel();
@@ -84,6 +83,7 @@
             this.studentsInfoButton = new System.Windows.Forms.Button();
             this.contactInfoButton = new System.Windows.Forms.Button();
             this.parentsInfoButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             enrollmentStatusLabel = new System.Windows.Forms.Label();
             studFirstNameLabel = new System.Windows.Forms.Label();
             studMidNameLabel = new System.Windows.Forms.Label();
@@ -341,6 +341,7 @@
             this.studFirstNameTextBox.Name = "studFirstNameTextBox";
             this.studFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studFirstNameTextBox.TabIndex = 6;
+            this.studFirstNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // studMidNameTextBox
             // 
@@ -348,6 +349,7 @@
             this.studMidNameTextBox.Name = "studMidNameTextBox";
             this.studMidNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studMidNameTextBox.TabIndex = 8;
+            this.studMidNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // studLastNameTextBox
             // 
@@ -355,6 +357,7 @@
             this.studLastNameTextBox.Name = "studLastNameTextBox";
             this.studLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.studLastNameTextBox.TabIndex = 10;
+            this.studLastNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // birthDateTextBox
             // 
@@ -376,6 +379,7 @@
             this.contactNumTextBox.Name = "contactNumTextBox";
             this.contactNumTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumTextBox.TabIndex = 20;
+            this.contactNumTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // motherFirstNameTextBox
             // 
@@ -383,6 +387,7 @@
             this.motherFirstNameTextBox.Name = "motherFirstNameTextBox";
             this.motherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherFirstNameTextBox.TabIndex = 26;
+            this.motherFirstNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // motherLastNameTextBox
             // 
@@ -390,6 +395,7 @@
             this.motherLastNameTextBox.Name = "motherLastNameTextBox";
             this.motherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherLastNameTextBox.TabIndex = 28;
+            this.motherLastNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // motherOccupationTextBox
             // 
@@ -397,6 +403,7 @@
             this.motherOccupationTextBox.Name = "motherOccupationTextBox";
             this.motherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.motherOccupationTextBox.TabIndex = 30;
+            this.motherOccupationTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // fatherFirstNameTextBox
             // 
@@ -404,6 +411,7 @@
             this.fatherFirstNameTextBox.Name = "fatherFirstNameTextBox";
             this.fatherFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherFirstNameTextBox.TabIndex = 32;
+            this.fatherFirstNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // fatherLastNameTextBox
             // 
@@ -411,6 +419,7 @@
             this.fatherLastNameTextBox.Name = "fatherLastNameTextBox";
             this.fatherLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherLastNameTextBox.TabIndex = 34;
+            this.fatherLastNameTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // fatherOccupationTextBox
             // 
@@ -418,9 +427,11 @@
             this.fatherOccupationTextBox.Name = "fatherOccupationTextBox";
             this.fatherOccupationTextBox.Size = new System.Drawing.Size(100, 20);
             this.fatherOccupationTextBox.TabIndex = 36;
+            this.fatherOccupationTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // enrollmentStatusComboBox
             // 
+            this.enrollmentStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.enrollmentStatusComboBox.FormattingEnabled = true;
             this.enrollmentStatusComboBox.Items.AddRange(new object[] {
             "NEW",
@@ -433,6 +444,7 @@
             // 
             // genderComboBox
             // 
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
             "Male",
@@ -452,6 +464,7 @@
             // 
             // enrollmentTypeComboBox
             // 
+            this.enrollmentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.enrollmentTypeComboBox.FormattingEnabled = true;
             this.enrollmentTypeComboBox.Items.AddRange(new object[] {
             "Grade 7",
@@ -465,6 +478,7 @@
             // 
             // paymentTypeComboBox
             // 
+            this.paymentTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paymentTypeComboBox.FormattingEnabled = true;
             this.paymentTypeComboBox.Items.AddRange(new object[] {
             "Monthly",
@@ -476,6 +490,7 @@
             // 
             // civilStatusComboBox
             // 
+            this.civilStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
             "Single",
@@ -522,21 +537,6 @@
             this.guardianEmailTextBox.Name = "guardianEmailTextBox";
             this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.guardianEmailTextBox.TabIndex = 54;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::Registration.Properties.Resources.STU_LOGO;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 103);
-            this.button1.TabIndex = 55;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -673,6 +673,21 @@
             this.parentsInfoButton.Text = "Parent\'s Information";
             this.parentsInfoButton.UseVisualStyleBackColor = false;
             this.parentsInfoButton.Click += new System.EventHandler(this.parentsInfoButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Registration.Properties.Resources.STU_LOGO;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 103);
+            this.button1.TabIndex = 55;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // RegistrationForm
             // 

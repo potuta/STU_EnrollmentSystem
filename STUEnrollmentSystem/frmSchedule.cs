@@ -42,12 +42,14 @@ namespace STUEnrollmentSystem
             if (!frmLogin.Role.Equals("Admin"))
             {
                 bindingNavigatorDeleteItem.Enabled = false;
+                bindingNavigatorAddNewItem.Enabled = false;
+                bindingNavigatorDeleteItem.Enabled = false;
+                scheduleBindingNavigatorSaveItem.Enabled = false;
             }
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            this.scheduleTableAdapter.Update(sTU_DBDataSet);
             this.scheduleTableAdapter.Fill(sTU_DBDataSet.Schedule);
             InitializeSearchComboBoxes();
         }

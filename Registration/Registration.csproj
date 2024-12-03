@@ -83,5 +83,11 @@
   <ItemGroup>
     <None Include="Resources\STU-LOGO.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\STUEnrollmentSystem\STUEnrollmentSystem.csproj">
+      <Project>{7ca91e54-2c83-4d6e-95ff-d7590b29df07}</Project>
+      <Name>STUEnrollmentSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

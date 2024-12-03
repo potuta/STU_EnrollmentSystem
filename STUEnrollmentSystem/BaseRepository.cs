@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace STUEnrollmentSystem
 {
-    internal class BaseRepository : ConnectionFactory
+    public class BaseRepository : ConnectionFactory
     {
         protected SqlConnection _connection;
 
