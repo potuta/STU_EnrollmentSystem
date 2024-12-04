@@ -50,8 +50,8 @@
             this.sendCodeButton = new System.Windows.Forms.Button();
             this.confirmUserIDTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.logoButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
             userIDLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -328,16 +328,6 @@
             this.panel1.Size = new System.Drawing.Size(439, 451);
             this.panel1.TabIndex = 15;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(192, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 23);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Login";
-            // 
             // logoButton
             // 
             this.logoButton.BackColor = System.Drawing.Color.Transparent;
@@ -353,6 +343,16 @@
             this.logoButton.Size = new System.Drawing.Size(140, 123);
             this.logoButton.TabIndex = 17;
             this.logoButton.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(192, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 23);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Login";
             // 
             // frmLogin
             // 

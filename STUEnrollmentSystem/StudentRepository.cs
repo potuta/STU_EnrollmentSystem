@@ -250,6 +250,39 @@ namespace STUEnrollmentSystem
             return section;
         }
 
+        public string GetStudentGrade(string studentNumber)
+        {
+            string grade = string.Empty;
+            string query = $"SELECT EnrollmentType FROM Students WHERE StudentNumber = @StudentNumber";
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    grade = Convert.ToString(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetStudentGrade: {ex.Message}");
+                return grade;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetStudentGrade: {ex.Message}");
+                return grade;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return grade;
+        }
+
         public void InsertStudents(Dictionary<string, object> studentData)
         {
             string query = "INSERT INTO Students (RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, PaymentType, " +

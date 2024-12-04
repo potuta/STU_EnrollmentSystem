@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace STUEnrollmentSystem
     {
         public string MonthOfPayment {  get; set; }
         public string SchoolYear { get; set; }
+        public string PaymentCode {  get; set; }
 
         public StudentPaymentRepository(string connectionString) : base(connectionString) { }
 
@@ -29,12 +31,13 @@ namespace STUEnrollmentSystem
                 _connection.Open();
                 foreach (var column in columns)
                 {
-                    string query = $"SELECT {column} FROM StudentPayment WHERE StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
+                    string query = $"SELECT {column} FROM StudentPayment WHERE StudentNumber = @StudentNumber AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear AND PaymentCode = @PaymentCode";
                     using (SqlCommand command = new SqlCommand(query, _connection))
                     {
                         command.Parameters.AddWithValue("@StudentNumber", studentNumber);
                         command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
                         command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
+                        command.Parameters.AddWithValue("@PaymentCode", PaymentCode);
                         //bool hasRequirement = command.ExecuteScalar().Equals(DBNull.Value) ? false : true;
                         var result = command.ExecuteScalar();
                         bool hasRequirement = result != null && result != DBNull.Value;
@@ -63,16 +66,18 @@ namespace STUEnrollmentSystem
             return requirements;
         }
 
-        public List<string> CheckMonthlyPendingPaymentStatus(string studentNumber)
+        public List<string> CheckMonthlyPendingPaymentStatus(string studentNumber, string paymentCode, string schoolYear)
         {
             List<string> columnDataList = new List<string>();
-            string query = $"SELECT MonthOfPayment FROM StudentPayment WHERE StudentNumber = @StudentNumber AND PaymentStatus = 'Pending'";
+            string query = $"SELECT MonthOfPayment FROM StudentPayment WHERE StudentNumber = @StudentNumber AND PaymentCode = @PaymentCode AND PaymentStatus = 'Pending' AND SchoolYear = @SchoolYear";
 
             try
             {
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@SchoolYear", schoolYear);
                     _connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -105,10 +110,37 @@ namespace STUEnrollmentSystem
             return columnDataList;
         }
 
-        public Dictionary<string, int> GetTotalPendingPaymentAmount(string studentNumber, string paymentCode)
+        // WIP
+        public Dictionary<string, string> GetMonthlyAndSchoolYearPendingPaymentStatus(string studentNumber, string paymentCode)
+        {
+            string query = $"SELECT SchoolYear, MonthOfPayment FROM StudentPayment WHERE StudentNumber = @StudentNumber AND PaymentCode = @PaymentCode AND PaymentStatus = 'Pending'";
+            Dictionary<string, string> monthlyAndSY = new Dictionary<string, string>();
+            try
+            {
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetMonthlyAndSchoolYearPendingPaymentStatus: {ex.Message}");
+                return monthlyAndSY;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetMonthlyAndSchoolYearPendingPaymentStatus: {ex.Message}");
+                return monthlyAndSY;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+            return monthlyAndSY;
+        }
+
+        public Dictionary<string, int> GetTotalPendingPaymentAmount(string studentNumber, string paymentCode, string schoolYear)
         {
             Dictionary<string, int> totalPendingPaymentAmount = new Dictionary<string, int>();
-            List<string> monthlyPendingDataList = CheckMonthlyPendingPaymentStatus(studentNumber);
+            List<string> monthlyPendingDataList = CheckMonthlyPendingPaymentStatus(studentNumber, paymentCode, schoolYear);
 
             try
             {
@@ -177,9 +209,42 @@ namespace STUEnrollmentSystem
             return totalPaymentAmount;
         }
 
+        public string GetPaymentCode(string studentNumber, string schoolYear)
+        {
+            string paymentCode = string.Empty;
+            string query = $"SELECT PaymentCode FROM StudentPayment WHERE StudentNumber = @StudentNumber AND MonthOfPayment = 'August' AND SchoolYear = @SchoolYear";
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+                    paymentCode = Convert.ToString(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetPaymentCode: {ex.Message}");
+                return paymentCode;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetPaymentCode: {ex.Message}");
+                return paymentCode;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+            return paymentCode;
+        }
+
         public override void ViewImageFile(string table, string column, string condition, string ID)
         {
-            string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
+            string query = $"SELECT {column} FROM {table} WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear AND PaymentCode = @PaymentCode";
 
             try
             {
@@ -188,6 +253,7 @@ namespace STUEnrollmentSystem
                     command.Parameters.AddWithValue("@ID", ID);
                     command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
                     command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
+                    command.Parameters.AddWithValue("@PaymentCode", PaymentCode);
 
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataSet dataSet = new DataSet();
@@ -224,7 +290,7 @@ namespace STUEnrollmentSystem
 
         public override void UploadFile(string table, string column, string condition, string ID, byte[] fileData)
         {
-            string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
+            string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear AND PaymentCode = @PaymentCode";
 
             try
             {
@@ -235,6 +301,7 @@ namespace STUEnrollmentSystem
                     command.Parameters.AddWithValue("@ID", ID);
                     command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
                     command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
+                    command.Parameters.AddWithValue("@PaymentCode", PaymentCode);
                     _connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -262,7 +329,7 @@ namespace STUEnrollmentSystem
 
         public override void DeleteFile(string table, string column, string condition, string ID)
         {
-            string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
+            string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear AND PaymentCode = @PaymentCode";
 
             try
             {
@@ -272,6 +339,7 @@ namespace STUEnrollmentSystem
                     command.Parameters.AddWithValue("@ID", ID);
                     command.Parameters.AddWithValue("@MonthOfPayment", MonthOfPayment);
                     command.Parameters.AddWithValue("@SchoolYear", SchoolYear);
+                    command.Parameters.AddWithValue("@PaymentCode", PaymentCode);
                     _connection.Open();
                     command.ExecuteNonQuery();
                 }

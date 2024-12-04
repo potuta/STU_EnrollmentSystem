@@ -120,6 +120,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.logoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -130,6 +131,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.logoButton);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.label8);
@@ -141,7 +143,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 826);
+            this.panel1.Size = new System.Drawing.Size(800, 912);
             this.panel1.TabIndex = 0;
             // 
             // panel4
@@ -935,7 +937,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(379, 3);
+            this.label1.Location = new System.Drawing.Point(368, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 40);
             this.label1.TabIndex = 1;
@@ -1116,6 +1118,22 @@
             this.panel2.Size = new System.Drawing.Size(800, 43);
             this.panel2.TabIndex = 1;
             // 
+            // logoButton
+            // 
+            this.logoButton.BackColor = System.Drawing.Color.Transparent;
+            this.logoButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.STU_LOGO;
+            this.logoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoButton.FlatAppearance.BorderSize = 0;
+            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Window;
+            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Window;
+            this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
+            this.logoButton.Location = new System.Drawing.Point(12, 6);
+            this.logoButton.Name = "logoButton";
+            this.logoButton.Size = new System.Drawing.Size(91, 74);
+            this.logoButton.TabIndex = 18;
+            this.logoButton.UseVisualStyleBackColor = false;
+            // 
             // frmPDFRAF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1232,6 +1250,7 @@
         private System.Windows.Forms.Label labelDue6;
         private System.Windows.Forms.Label labelDue5;
         private System.Windows.Forms.Label labelDue4;
+        private System.Windows.Forms.Button logoButton;
     }
 }
 

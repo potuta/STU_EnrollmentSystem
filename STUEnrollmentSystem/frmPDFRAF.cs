@@ -195,6 +195,23 @@ namespace STUEnrollmentSystem
             labelMF.Text = Convert.ToString(miscellanaousFee + ".00");
             labelTO.Text = Convert.ToString(totalFee + ".00");
 
+
+            string schoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
+            string[] schoolYearParts = schoolYear.Split('-');
+            string previousYear = schoolYearParts[0];
+            string nextYear = schoolYearParts[1];
+            labelMonth1.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(0)) + $" 16, {previousYear}";
+            labelMonth2.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(1)) + $" 16, {previousYear}";
+            labelMonth3.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(2)) + $" 16, {previousYear}";
+            labelMonth4.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(3)) + $" 16, {previousYear}";
+            labelMonth5.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(4)) + $" 16, {previousYear}";
+            labelMonth6.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(5)) + $" 16, {nextYear}";
+            labelMonth7.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(6)) + $" 16, {nextYear}";
+            labelMonth8.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(7)) + $" 16, {nextYear}";
+            labelMonth9.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(8)) + $" 16, {nextYear}";
+            labelMonth10.Text = Convert.ToString(paymentAmountDictionary.Keys.ElementAt(9)) + $" 16, {nextYear}";
+
+
             if (PaymentType.Equals("Monthly"))
             {
                 labelDue1.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(0) + ".00");
