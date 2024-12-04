@@ -44,7 +44,7 @@ namespace STUEnrollmentSystem
                 {
                     if (num != null)
                     {
-                        transactionNumberIntList.Add(int.Parse(num));
+                        transactionNumberIntList.Add(int.Parse(num) + 1);
                     }
                 }
 
@@ -53,7 +53,7 @@ namespace STUEnrollmentSystem
                     transactionNumberIntList.Add(1);
                 }
 
-                result = Math.Max(transactionNumberIntList.Max(), number) + 1;
+                result = Math.Max(transactionNumberIntList.Max(), number);
             }
             catch (SqlException ex)
             {

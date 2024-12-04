@@ -325,7 +325,6 @@ namespace STUEnrollmentSystem
             _studentPaymentRepository.MonthOfPayment = monthOfPaymentTextBox.Text;
             _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             _studentPaymentRepository.PaymentCode = paymentCodeTextBox.Text;
-            Console.WriteLine(paymentCodeTextBox.Text);
             switch (operation)
             {
                 case "view":
