@@ -160,37 +160,37 @@ namespace STUEnrollmentSystem
 
         public int GenerateStudentNumber()
         {
-            string query = "SELECT MAX(CAST(RegisterID AS INT)) FROM Students";
+            //string query = "SELECT MAX(CAST(RegisterID AS INT)) FROM Students";
             List<string> studentNumList = GetColumnData("Students", "StudentNumber");
             List<string> pendingStudentNumList = GetColumnData("PendingStudents", "StudentNumber");
             List<int> numList1 = new List<int>();
             List<int> numList2 = new List<int>();
-            int studentCount = 0;
+            //int studentCount = 0;
             int result = 0;
 
             try
             {
-                using (SqlCommand command = new SqlCommand(query, _connection))
-                {
-                    _connection.Open();
-                    //studentCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
-                    var data = command.ExecuteScalar();
-                    if (data != null && data != DBNull.Value)
-                    {
-                        studentCount = Convert.ToInt32(data) + 1;
-                    }
-                    else
-                    {
-                        studentCount = 1;
-                    }
-                }
+                //using (SqlCommand command = new SqlCommand(query, _connection))
+                //{
+                //    _connection.Open();
+                //    //studentCount = command.ExecuteScalar().Equals(DBNull.Value) ? 1 : Convert.ToInt32(command.ExecuteScalar()) + 1;
+                //    var data = command.ExecuteScalar();
+                //    if (data != null && data != DBNull.Value)
+                //    {
+                //        studentCount = Convert.ToInt32(data) + 1;
+                //    }
+                //    else
+                //    {
+                //        studentCount = 1;
+                //    }
+                //}
 
                 foreach (string studentNum in studentNumList)
                 {
                     if (studentNum != null)
                     {
                         string numParts = studentNum.Substring(1);
-                        numList1.Add(int.Parse(numParts));
+                        numList1.Add(int.Parse(numParts) + 1);
                     }
                 }
 
@@ -204,7 +204,7 @@ namespace STUEnrollmentSystem
                     if (pendingStudentNum != null)
                     {
                         string numParts = pendingStudentNum.Substring(1);
-                        numList2.Add(int.Parse(numParts));
+                        numList2.Add(int.Parse(numParts) + 1);
                     }
                 }
 
@@ -213,7 +213,8 @@ namespace STUEnrollmentSystem
                     numList2.Add(1);
                 }
 
-                result = Math.Max(Math.Max(numList1.Max(), numList2.Max()), studentCount) + 1;
+                //result = Math.Max(Math.Max(numList1.Max(), numList2.Max()), studentCount);
+                result = Math.Max(numList1.Max(), numList2.Max());
             }
             catch (SqlException ex)
             {
