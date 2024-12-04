@@ -20,7 +20,7 @@ namespace STUEnrollmentSystem
             int result = 0;
             int number = 0;
             string query = $"SELECT MAX(CAST(TransactionNumber AS INT)) FROM BillingReport";
-            List<string> transactionNumberList = GetColumnData("BillingReport", "TransactionNumber");
+            List<string> transactionNumberList = GetColumnData("StudentPayment", "TransactionNumber");
             List<int> transactionNumberIntList = new List<int>();
 
             try

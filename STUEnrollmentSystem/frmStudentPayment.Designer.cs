@@ -59,10 +59,10 @@
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.addBillingReportButton = new System.Windows.Forms.Button();
             this.transactionNumberTextBox = new System.Windows.Forms.TextBox();
-            this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.monthOfPaymentTextBox = new System.Windows.Forms.TextBox();
+            this.paymentCodeTextBox = new System.Windows.Forms.TextBox();
+            this.addBillingReportButton = new System.Windows.Forms.Button();
             this.transactionDateTextBox = new System.Windows.Forms.TextBox();
             this.receiptRNTextBox = new System.Windows.Forms.TextBox();
             this.paymentRNTextBox = new System.Windows.Forms.TextBox();
@@ -82,41 +82,24 @@
             this.paymentStatusComboBox = new System.Windows.Forms.ComboBox();
             this.studentNumberTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
             this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
-            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.studentPaymentBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.studentPaymentDataGridView = new System.Windows.Forms.DataGridView();
-            this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PaymentRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransactionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NotificationCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.paymentCodeTextBox = new System.Windows.Forms.TextBox();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.studentPaymentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.addReturningStudentToolStripDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.addReturningStudentToolStripStudentNumberComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.addReturningStudentToolStripPaymentTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
@@ -124,7 +107,26 @@
             this.addReturningStudentToolStripEnrollmentTypeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.addReturningStudentToolStripInsertMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monthOfPaymentTextBox = new System.Windows.Forms.TextBox();
+            this.studentPaymentDataGridView = new System.Windows.Forms.DataGridView();
+            this.SchoolYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptRN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NotificationCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorNotifyAllButton = new System.Windows.Forms.ToolStripButton();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
@@ -139,11 +141,11 @@
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             this.detailsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingNavigator)).BeginInit();
             this.studentPaymentBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // paymentCodeLabel
@@ -443,17 +445,6 @@
             this.detailsPanel.Size = new System.Drawing.Size(359, 627);
             this.detailsPanel.TabIndex = 14;
             // 
-            // addBillingReportButton
-            // 
-            this.addBillingReportButton.Enabled = false;
-            this.addBillingReportButton.Location = new System.Drawing.Point(116, 421);
-            this.addBillingReportButton.Name = "addBillingReportButton";
-            this.addBillingReportButton.Size = new System.Drawing.Size(104, 23);
-            this.addBillingReportButton.TabIndex = 95;
-            this.addBillingReportButton.Text = "Add Billing Report";
-            this.addBillingReportButton.UseVisualStyleBackColor = true;
-            this.addBillingReportButton.Click += new System.EventHandler(this.addBillingReportButton_Click);
-            // 
             // transactionNumberTextBox
             // 
             this.transactionNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -464,15 +455,36 @@
             this.transactionNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.transactionNumberTextBox.TabIndex = 94;
             // 
-            // studentPaymentBindingSource
+            // monthOfPaymentTextBox
             // 
-            this.studentPaymentBindingSource.DataMember = "StudentPayment";
-            this.studentPaymentBindingSource.DataSource = this.sTU_DBDataSet;
+            this.monthOfPaymentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.monthOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "MonthOfPayment", true));
+            this.monthOfPaymentTextBox.Location = new System.Drawing.Point(169, 194);
+            this.monthOfPaymentTextBox.Name = "monthOfPaymentTextBox";
+            this.monthOfPaymentTextBox.ReadOnly = true;
+            this.monthOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
+            this.monthOfPaymentTextBox.TabIndex = 97;
             // 
-            // sTU_DBDataSet
+            // paymentCodeTextBox
             // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.paymentCodeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paymentCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "PaymentCode", true));
+            this.paymentCodeTextBox.Location = new System.Drawing.Point(169, 116);
+            this.paymentCodeTextBox.Name = "paymentCodeTextBox";
+            this.paymentCodeTextBox.ReadOnly = true;
+            this.paymentCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.paymentCodeTextBox.TabIndex = 96;
+            // 
+            // addBillingReportButton
+            // 
+            this.addBillingReportButton.Enabled = false;
+            this.addBillingReportButton.Location = new System.Drawing.Point(116, 421);
+            this.addBillingReportButton.Name = "addBillingReportButton";
+            this.addBillingReportButton.Size = new System.Drawing.Size(104, 23);
+            this.addBillingReportButton.TabIndex = 95;
+            this.addBillingReportButton.Text = "Add Billing Report";
+            this.addBillingReportButton.UseVisualStyleBackColor = true;
+            this.addBillingReportButton.Click += new System.EventHandler(this.addBillingReportButton_Click);
             // 
             // transactionDateTextBox
             // 
@@ -667,6 +679,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Student\'s Payment Information";
             // 
+            // uploadProofOfPaymentButton
+            // 
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(169, 247);
+            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
+            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadProofOfPaymentButton.TabIndex = 79;
+            this.uploadProofOfPaymentButton.Text = "Upload File";
+            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.uploadProofOfPaymentButton.Visible = false;
+            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
+            // 
             // viewProofOfPaymentButton
             // 
             this.viewProofOfPaymentButton.Location = new System.Drawing.Point(169, 247);
@@ -686,17 +709,6 @@
             this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
             this.proofOfPaymentTextBox.TabIndex = 63;
             this.proofOfPaymentTextBox.Visible = false;
-            // 
-            // uploadProofOfPaymentButton
-            // 
-            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(169, 247);
-            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
-            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadProofOfPaymentButton.TabIndex = 79;
-            this.uploadProofOfPaymentButton.Text = "Upload File";
-            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
-            this.uploadProofOfPaymentButton.Visible = false;
-            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
             // 
             // studentPaymentBindingNavigator
             // 
@@ -719,7 +731,9 @@
             this.studentPaymentBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem,
             this.toolStripSeparator1,
-            this.addReturningStudentToolStripDropDownButton});
+            this.addReturningStudentToolStripDropDownButton,
+            this.toolStripSeparator3,
+            this.bindingNavigatorNotifyAllButton});
             this.studentPaymentBindingNavigator.Location = new System.Drawing.Point(359, 132);
             this.studentPaymentBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.studentPaymentBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -731,206 +745,6 @@
             this.studentPaymentBindingNavigator.TabIndex = 15;
             this.studentPaymentBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // studentPaymentDataGridView
-            // 
-            this.studentPaymentDataGridView.AllowUserToAddRows = false;
-            this.studentPaymentDataGridView.AllowUserToDeleteRows = false;
-            this.studentPaymentDataGridView.AutoGenerateColumns = false;
-            this.studentPaymentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.studentPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.studentPaymentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SchoolYear,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewImageColumn1,
-            this.PaymentRN,
-            this.ReceiptRN,
-            this.TransactionDate,
-            this.TransactionNumber,
-            this.NotificationCount});
-            this.studentPaymentDataGridView.DataSource = this.studentPaymentBindingSource;
-            this.studentPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentPaymentDataGridView.Location = new System.Drawing.Point(359, 157);
-            this.studentPaymentDataGridView.Name = "studentPaymentDataGridView";
-            this.studentPaymentDataGridView.ReadOnly = true;
-            this.studentPaymentDataGridView.Size = new System.Drawing.Size(905, 602);
-            this.studentPaymentDataGridView.TabIndex = 15;
-            this.studentPaymentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentPaymentDataGridView_CellClick);
-            // 
-            // SchoolYear
-            // 
-            this.SchoolYear.DataPropertyName = "SchoolYear";
-            this.SchoolYear.HeaderText = "SchoolYear";
-            this.SchoolYear.Name = "SchoolYear";
-            this.SchoolYear.ReadOnly = true;
-            this.SchoolYear.Width = 87;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PaymentCode";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PaymentCode";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 98;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PaymentMethod";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PaymentMethod";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 109;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "StudentNumber";
-            this.dataGridViewTextBoxColumn3.HeaderText = "StudentNumber";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 106;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "MonthOfPayment";
-            this.dataGridViewTextBoxColumn4.HeaderText = "MonthOfPayment";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 114;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "PaymentStatus";
-            this.dataGridViewTextBoxColumn5.HeaderText = "PaymentStatus";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 103;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "ProofOfPayment";
-            this.dataGridViewImageColumn1.HeaderText = "ProofOfPayment";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 90;
-            // 
-            // PaymentRN
-            // 
-            this.PaymentRN.DataPropertyName = "PaymentRN";
-            this.PaymentRN.HeaderText = "PaymentRN";
-            this.PaymentRN.Name = "PaymentRN";
-            this.PaymentRN.ReadOnly = true;
-            this.PaymentRN.Width = 89;
-            // 
-            // ReceiptRN
-            // 
-            this.ReceiptRN.DataPropertyName = "ReceiptRN";
-            this.ReceiptRN.HeaderText = "ReceiptRN";
-            this.ReceiptRN.Name = "ReceiptRN";
-            this.ReceiptRN.ReadOnly = true;
-            this.ReceiptRN.Width = 85;
-            // 
-            // TransactionDate
-            // 
-            this.TransactionDate.DataPropertyName = "TransactionDate";
-            this.TransactionDate.HeaderText = "TransactionDate";
-            this.TransactionDate.Name = "TransactionDate";
-            this.TransactionDate.ReadOnly = true;
-            this.TransactionDate.Width = 111;
-            // 
-            // TransactionNumber
-            // 
-            this.TransactionNumber.DataPropertyName = "TransactionNumber";
-            this.TransactionNumber.HeaderText = "TransactionNumber";
-            this.TransactionNumber.Name = "TransactionNumber";
-            this.TransactionNumber.ReadOnly = true;
-            this.TransactionNumber.Width = 125;
-            // 
-            // NotificationCount
-            // 
-            this.NotificationCount.DataPropertyName = "NotificationCount";
-            this.NotificationCount.HeaderText = "NotificationCount";
-            this.NotificationCount.Name = "NotificationCount";
-            this.NotificationCount.ReadOnly = true;
-            this.NotificationCount.Width = 113;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // studentPaymentTableAdapter
-            // 
-            this.studentPaymentTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BillingReportTableAdapter = null;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.LogsTableAdapter = null;
-            this.tableAdapterManager.PaymentTypeTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = null;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = this.studentPaymentTableAdapter;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
-            // 
-            // paymentCodeTextBox
-            // 
-            this.paymentCodeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paymentCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "PaymentCode", true));
-            this.paymentCodeTextBox.Location = new System.Drawing.Point(169, 116);
-            this.paymentCodeTextBox.Name = "paymentCodeTextBox";
-            this.paymentCodeTextBox.ReadOnly = true;
-            this.paymentCodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.paymentCodeTextBox.TabIndex = 96;
-            // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -939,6 +753,13 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -967,6 +788,26 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -985,6 +826,11 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // studentPaymentBindingNavigatorSaveItem
             // 
             this.studentPaymentBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("studentPaymentBindingNavigatorSaveItem.Image")));
@@ -1001,6 +847,11 @@
             this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // addReturningStudentToolStripDropDownButton
             // 
@@ -1072,15 +923,183 @@
             this.addReturningStudentToolStripInsertMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.addReturningStudentToolStripInsertMenuItem.Click += new System.EventHandler(this.addReturningStudentToolStripInsertMenuItem_Click);
             // 
-            // monthOfPaymentTextBox
+            // studentPaymentDataGridView
             // 
-            this.monthOfPaymentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.monthOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentPaymentBindingSource, "MonthOfPayment", true));
-            this.monthOfPaymentTextBox.Location = new System.Drawing.Point(169, 194);
-            this.monthOfPaymentTextBox.Name = "monthOfPaymentTextBox";
-            this.monthOfPaymentTextBox.ReadOnly = true;
-            this.monthOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
-            this.monthOfPaymentTextBox.TabIndex = 97;
+            this.studentPaymentDataGridView.AllowUserToAddRows = false;
+            this.studentPaymentDataGridView.AllowUserToDeleteRows = false;
+            this.studentPaymentDataGridView.AutoGenerateColumns = false;
+            this.studentPaymentDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.studentPaymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentPaymentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SchoolYear,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewImageColumn1,
+            this.PaymentRN,
+            this.ReceiptRN,
+            this.TransactionDate,
+            this.TransactionNumber,
+            this.NotificationCount});
+            this.studentPaymentDataGridView.DataSource = this.studentPaymentBindingSource;
+            this.studentPaymentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentPaymentDataGridView.Location = new System.Drawing.Point(359, 157);
+            this.studentPaymentDataGridView.Name = "studentPaymentDataGridView";
+            this.studentPaymentDataGridView.ReadOnly = true;
+            this.studentPaymentDataGridView.Size = new System.Drawing.Size(905, 602);
+            this.studentPaymentDataGridView.TabIndex = 15;
+            this.studentPaymentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentPaymentDataGridView_CellClick);
+            // 
+            // SchoolYear
+            // 
+            this.SchoolYear.DataPropertyName = "SchoolYear";
+            this.SchoolYear.HeaderText = "SchoolYear";
+            this.SchoolYear.Name = "SchoolYear";
+            this.SchoolYear.ReadOnly = true;
+            this.SchoolYear.Width = 87;
+            // 
+            // PaymentRN
+            // 
+            this.PaymentRN.DataPropertyName = "PaymentRN";
+            this.PaymentRN.HeaderText = "PaymentRN";
+            this.PaymentRN.Name = "PaymentRN";
+            this.PaymentRN.ReadOnly = true;
+            this.PaymentRN.Width = 89;
+            // 
+            // ReceiptRN
+            // 
+            this.ReceiptRN.DataPropertyName = "ReceiptRN";
+            this.ReceiptRN.HeaderText = "ReceiptRN";
+            this.ReceiptRN.Name = "ReceiptRN";
+            this.ReceiptRN.ReadOnly = true;
+            this.ReceiptRN.Width = 85;
+            // 
+            // TransactionDate
+            // 
+            this.TransactionDate.DataPropertyName = "TransactionDate";
+            this.TransactionDate.HeaderText = "TransactionDate";
+            this.TransactionDate.Name = "TransactionDate";
+            this.TransactionDate.ReadOnly = true;
+            this.TransactionDate.Width = 111;
+            // 
+            // TransactionNumber
+            // 
+            this.TransactionNumber.DataPropertyName = "TransactionNumber";
+            this.TransactionNumber.HeaderText = "TransactionNumber";
+            this.TransactionNumber.Name = "TransactionNumber";
+            this.TransactionNumber.ReadOnly = true;
+            this.TransactionNumber.Width = 125;
+            // 
+            // NotificationCount
+            // 
+            this.NotificationCount.DataPropertyName = "NotificationCount";
+            this.NotificationCount.HeaderText = "NotificationCount";
+            this.NotificationCount.Name = "NotificationCount";
+            this.NotificationCount.ReadOnly = true;
+            this.NotificationCount.Width = 113;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PaymentCode";
+            this.dataGridViewTextBoxColumn1.HeaderText = "PaymentCode";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 98;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PaymentMethod";
+            this.dataGridViewTextBoxColumn2.HeaderText = "PaymentMethod";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 109;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "StudentNumber";
+            this.dataGridViewTextBoxColumn3.HeaderText = "StudentNumber";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 106;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "MonthOfPayment";
+            this.dataGridViewTextBoxColumn4.HeaderText = "MonthOfPayment";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 114;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "PaymentStatus";
+            this.dataGridViewTextBoxColumn5.HeaderText = "PaymentStatus";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 103;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "ProofOfPayment";
+            this.dataGridViewImageColumn1.HeaderText = "ProofOfPayment";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 90;
+            // 
+            // studentPaymentBindingSource
+            // 
+            this.studentPaymentBindingSource.DataMember = "StudentPayment";
+            this.studentPaymentBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentPaymentTableAdapter
+            // 
+            this.studentPaymentTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = null;
+            this.tableAdapterManager.PricesTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = this.studentPaymentTableAdapter;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorNotifyAllButton
+            // 
+            this.bindingNavigatorNotifyAllButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bindingNavigatorNotifyAllButton.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorNotifyAllButton.Image")));
+            this.bindingNavigatorNotifyAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorNotifyAllButton.Name = "bindingNavigatorNotifyAllButton";
+            this.bindingNavigatorNotifyAllButton.Size = new System.Drawing.Size(135, 22);
+            this.bindingNavigatorNotifyAllButton.Text = "Notify All Payment Due";
+            this.bindingNavigatorNotifyAllButton.Click += new System.EventHandler(this.bindingNavigatorNotifyAllButton_Click);
             // 
             // frmStudentPayment
             // 
@@ -1103,12 +1122,12 @@
             this.searchToolStrip.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingNavigator)).EndInit();
             this.studentPaymentBindingNavigator.ResumeLayout(false);
             this.studentPaymentBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPaymentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPaymentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1200,5 +1219,7 @@
         private System.Windows.Forms.ToolStripComboBox addReturningStudentToolStripPaymentMethodComboBox;
         private System.Windows.Forms.TextBox paymentCodeTextBox;
         private System.Windows.Forms.TextBox monthOfPaymentTextBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorNotifyAllButton;
     }
 }

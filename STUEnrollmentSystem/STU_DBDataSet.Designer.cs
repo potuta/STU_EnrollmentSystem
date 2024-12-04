@@ -18240,7 +18240,7 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             this._adapter.UpdateCommand.CommandText = @"UPDATE       StudentPayment
 SET                SchoolYear = @SchoolYear, PaymentCode = @PaymentCode, PaymentMethod = @PaymentMethod, StudentNumber = @StudentNumber, MonthOfPayment = @MonthOfPayment, PaymentStatus = @PaymentStatus, 
                          ProofOfPayment = @ProofOfPayment, PaymentRN = @PaymentRN, ReceiptRN = @ReceiptRN, TransactionDate = @TransactionDate, TransactionNumber = @TransactionNumber, NotificationCount = @NotificationCount
-WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPayment)";
+WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPayment) AND (PaymentCode = @PaymentCode) AND (PaymentMethod = @PaymentMethod)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentCode", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

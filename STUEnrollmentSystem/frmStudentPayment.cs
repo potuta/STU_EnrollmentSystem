@@ -162,6 +162,8 @@ namespace STUEnrollmentSystem
             try
             {
                 _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
+                _studentPaymentRepository.PaymentCode = paymentCodeTextBox.Text;
+
                 var requirements = _studentPaymentRepository.CheckStudentPaymentRequirements(studentNumberTextBox.Text, monthOfPaymentTextBox.Text);
                 if (!paymentMethodComboBox.Text.Equals(string.Empty) && (paymentMethodComboBox.Text.Equals("GCASH") || paymentMethodComboBox.Text.Equals("BANK TRANSFER")))
                 {
@@ -191,7 +193,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text);
+                Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
 
                 if (paymentCodeTextBox.Text.Contains("M"))
                 {
@@ -227,7 +229,7 @@ namespace STUEnrollmentSystem
 
         private void showNotifyButton()
         {
-            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text);
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
             int notificationCount = _studentPaymentRepository.GetStudentNotificationCount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text, monthOfPaymentTextBox.Text);
 
             if (notificationCount == 0)
@@ -322,6 +324,8 @@ namespace STUEnrollmentSystem
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png";
             _studentPaymentRepository.MonthOfPayment = monthOfPaymentTextBox.Text;
             _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
+            _studentPaymentRepository.PaymentCode = paymentCodeTextBox.Text;
+            Console.WriteLine(paymentCodeTextBox.Text);
             switch (operation)
             {
                 case "view":
@@ -391,7 +395,7 @@ namespace STUEnrollmentSystem
 
         private void notifyButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text);
+            Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
             Dictionary<string, string> emails = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentEmail(studentNumberTextBox.Text);
 
             foreach (string email in emails.Keys)
@@ -540,6 +544,13 @@ namespace STUEnrollmentSystem
 
         private void addReturningStudentToolStripInsertMenuItem_Click(object sender, EventArgs e)
         {
+            string studentGrade = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentGrade(addReturningStudentToolStripStudentNumberComboBox.Text);
+            if (studentGrade == addReturningStudentToolStripEnrollmentTypeComboBox.Text)
+            {
+                MessageBox.Show($"Student {addReturningStudentToolStripStudentNumberComboBox.Text}'s current grade is {addReturningStudentToolStripEnrollmentTypeComboBox.Text} and already contains a payment record for {addReturningStudentToolStripEnrollmentTypeComboBox.Text}. Please select a higher grade.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             string paymentCode = frmPendingStudents.getPaymentCode(addReturningStudentToolStripPaymentTypeComboBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text);
             var studentPaymentData = new Dictionary<string, object>
             {
@@ -569,6 +580,62 @@ namespace STUEnrollmentSystem
             new StudentRepository(ConnectionFactory.GetConnectionString()).UpdateStudentYearLevel(addReturningStudentToolStripStudentNumberComboBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text, addReturningStudentToolStripPaymentTypeComboBox.Text);
             bindingNavigatorRefreshItem.PerformClick();
             MessageBox.Show($"Successfully added returning student {addReturningStudentToolStripStudentNumberComboBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
+        }
+
+        // WIP
+        private void bindingNavigatorNotifyAllButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Notify all students?", "Notify Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            List<string> studentNumberList = _studentPaymentRepository.GetColumnData("StudentPayment", "StudentNumber");
+
+            int count = 0;
+            foreach (string studentNumber in studentNumberList)
+            {
+                string schoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
+                Dictionary<string, int> monthlyPendingList = _studentPaymentRepository.GetTotalPendingPaymentAmount(studentNumber, _studentPaymentRepository.GetPaymentCode(studentNumber, schoolYear), schoolYear);
+                Dictionary<string, string> emails = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentEmail(studentNumber);
+
+                foreach (string email in emails.Keys)
+                {
+                    if (!emails[email].Equals(string.Empty))
+                    {
+                        string studentName = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentName(studentNumber);
+
+                        string studentEmail = emails[email];
+                        string subject = $"STU Payment Due";
+                        string body = $"Good day student {studentName}. We are here to inform you that you have pending balances due for payment.";
+
+                        foreach (string month in monthlyPendingList.Keys)
+                        {
+                            if (assignIntValueToMonth(month) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
+                            {
+                                body += $"\n{month}: ₱{monthlyPendingList[month]}, {schoolYear}";
+                            }
+                        }
+
+                        EmailSender emailSender = new EmailSender();
+                        emailSender.SendEmail(studentEmail, subject, body);
+                    }
+
+                    //_studentPaymentRepository.UpdateStudentNotificationCount(studentNumber, _studentPaymentRepository.GetPaymentCode(studentNumber, schoolYear), schoolYear, monthOfPaymentTextBox.Text);
+                    foreach (string month in monthlyPendingList.Keys)
+                    {
+                        if (assignIntValueToMonth(month) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
+                        {
+                            _studentPaymentRepository.UpdateStudentNotificationCount(studentNumber, _studentPaymentRepository.GetPaymentCode(studentNumber, schoolYear), schoolYear, month);
+                        }
+                    }
+                }
+
+                count++;
+            }
+
+            MessageBox.Show($"Email has been sent to {count} students", "Notification Successful", MessageBoxButtons.OK);
         }
     }
 }

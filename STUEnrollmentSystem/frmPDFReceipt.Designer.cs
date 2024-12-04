@@ -70,6 +70,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.logoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -82,6 +83,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.logoButton);
             this.panel1.Controls.Add(this.receiptRNLabel);
             this.panel1.Controls.Add(this.issueDateLabel);
             this.panel1.Controls.Add(this.panel5);
@@ -596,6 +598,22 @@
             this.panel2.Size = new System.Drawing.Size(800, 47);
             this.panel2.TabIndex = 1;
             // 
+            // logoButton
+            // 
+            this.logoButton.BackColor = System.Drawing.Color.Transparent;
+            this.logoButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.STU_LOGO;
+            this.logoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoButton.FlatAppearance.BorderSize = 0;
+            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Window;
+            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Window;
+            this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
+            this.logoButton.Location = new System.Drawing.Point(697, 6);
+            this.logoButton.Name = "logoButton";
+            this.logoButton.Size = new System.Drawing.Size(91, 74);
+            this.logoButton.TabIndex = 35;
+            this.logoButton.UseVisualStyleBackColor = false;
+            // 
             // frmPDFReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -668,6 +686,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox issueDateLabel;
         private System.Windows.Forms.TextBox receiptRNLabel;
+        private System.Windows.Forms.Button logoButton;
     }
 }
 

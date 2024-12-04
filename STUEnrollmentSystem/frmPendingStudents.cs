@@ -272,6 +272,7 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _pendingStudentsRepository.UploadFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
+                    pendingStudentsBindingNavigatorSaveItem.PerformClick();
                     bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
