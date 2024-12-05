@@ -288,6 +288,7 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentRepository.UploadFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
+                    studentsBindingNavigatorSaveItem.PerformClick();
                     bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
