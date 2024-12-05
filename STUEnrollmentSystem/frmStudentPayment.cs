@@ -211,6 +211,25 @@ namespace STUEnrollmentSystem
             {
                 Dictionary<string, int> monthlyPendingList = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
 
+                if (monthlyPendingList.Count == 0)
+                {
+                    if (paymentCodeTextBox.Text.Contains("M"))
+                    {
+                        paymentTypeLabel.Text = "Monthly";
+                        remainingBalanceLabel.Text = "0";
+                        paymentDueLabel.Text = "None";
+                        notifyButton.Visible = false;
+                    }
+                    else if (paymentCodeTextBox.Text.Contains("F"))
+                    {
+                        paymentTypeLabel.Text = "Full";
+                        remainingBalanceLabel.Text = "0";
+                        paymentDueLabel.Text = "None";
+                        notifyButton.Visible = false;
+                    }
+                    return;
+                }
+
                 if (paymentCodeTextBox.Text.Contains("M"))
                 {
                     paymentTypeLabel.Text = "Monthly";
@@ -526,6 +545,24 @@ namespace STUEnrollmentSystem
 
         private bool checkCompleteDetails()
         {
+            if (!paymentStatusComboBox.Text.Equals("Paid") && !paymentStatusComboBox.Text.Equals("Pending"))
+            {
+                MessageBox.Show($"Invalid Payment Status '{paymentStatusComboBox.Text}'. Payment Status must only contain 'Paid' or 'Pending'", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (paymentStatusComboBox.Text.Equals("Pending"))
+            {
+                MessageBox.Show("Payment Status must be set to 'Paid' to add to Billing Report", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(receiptRNTextBox.Text) && string.IsNullOrWhiteSpace(transactionDateTextBox.Text) && string.IsNullOrWhiteSpace(transactionNumberTextBox.Text))
+            {
+                MessageBox.Show("Missing Payment Details.", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(paymentMethodComboBox.Text) || string.IsNullOrWhiteSpace(paymentStatusComboBox.Text) || string.IsNullOrWhiteSpace(paymentRNTextBox.Text))
             {
                 MessageBox.Show("Missing Payment Details.", "Error", MessageBoxButtons.OK);
@@ -535,12 +572,6 @@ namespace STUEnrollmentSystem
             if (!paymentMethodComboBox.Text.Equals("CASH") && !paymentMethodComboBox.Text.Equals("GCASH") && !paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
             {
                 MessageBox.Show("Accepted Payment Methods are only 'CASH', 'GCASH', and 'BANK TRANSFER'", "Error", MessageBoxButtons.OK);
-                return false;
-            }
-
-            if (!paymentStatusComboBox.Text.Equals("Paid") && !paymentStatusComboBox.Text.Equals("Pending"))
-            {
-                MessageBox.Show("Payment Status must only be 'Paid' or 'Pending'", "Error", MessageBoxButtons.OK);
                 return false;
             }
 
