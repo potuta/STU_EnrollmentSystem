@@ -22,6 +22,11 @@ namespace STUEnrollmentSystem
 
         private void frmUserProfile_Load(object sender, EventArgs e)
         {
+            InitializeUserInformation();
+        }
+
+        private void InitializeUserInformation()
+        {
             userIDTextBox.Text = frmLogin.UserID;
             usernameTextBox.Text = frmLogin.Username;
             passwordTextBox.Text = frmLogin.Password;
@@ -55,6 +60,8 @@ namespace STUEnrollmentSystem
 
             _usersRepository.UpdateUserPassword(userIDTextBox.Text, newPasswordTextBox.Text);
             MessageBox.Show($"Password has been successfully changed!", "Success", MessageBoxButtons.OK);
+            frmLogin.Password = newPasswordTextBox.Text;
+            InitializeUserInformation();
             changePasswordPanel.Visible = false;
         }
 

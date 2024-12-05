@@ -233,6 +233,7 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _registrationRepository.UploadFile("Registration", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
+                    registrationBindingNavigatorSaveItem.PerformClick();
                     registrationBindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
@@ -255,8 +256,10 @@ namespace STUEnrollmentSystem
         {
             try
             {
+                registrationBindingNavigatorSaveItem.PerformClick();
                 insertPendingStudents();
                 checkIsNullRequirements();
+                MessageBox.Show($"Registering student no. {registerIDTextBox.Text} has been approved.", "Success!", MessageBoxButtons.OK);
                 _registrationRepository.DeleteRegistration(registerIDTextBox.Text);
                 registrationBindingNavigatorRefreshItem_Click(sender, e);
                 LoggingService.LogInformation($"Insert successful in InsertPendingStudent to PendingNewStudents table.");

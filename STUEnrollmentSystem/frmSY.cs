@@ -222,7 +222,7 @@ namespace STUEnrollmentSystem
             //}
 
             _databaseManager.DuplicateDatabase(originalDbName, newDbName);
-            _databaseManager.UpdateDatabaseDataForSY(ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+            //_databaseManager.UpdateDatabaseDataForSY(ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             updateDatabaseListFromPanel();
             MessageBox.Show($"Successfully created database school year: '{newDbName}'");
         }

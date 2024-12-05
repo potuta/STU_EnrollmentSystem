@@ -60,21 +60,6 @@ namespace STUEnrollmentSystem
             InitializeSearchPaymentCodeCB();
             InitializeSearchPricesCodeCB();
             InitializeSearchMonthCB();
-            InitializeSearchSchoolYearCB();
-        }
-
-        private void InitializeSearchSchoolYearCB()
-        {
-            List<string> schoolYearList = _paymentTypeRepository.GetColumnData("PaymentType", "SchoolYear");
-            schoolYearList.Sort();
-            schoolYearToolStripComboBox.Items.Clear();
-            foreach (string items in schoolYearList)
-            {
-                if (!schoolYearToolStripComboBox.Items.Contains(items))
-                {
-                    schoolYearToolStripComboBox.Items.Add(items);
-                }
-            }
         }
 
         private void InitializeSearchMonthCB()
@@ -152,7 +137,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                this.paymentTypeTableAdapter.Search(this.sTU_DBDataSet.PaymentType, paymentTypeToolStripComboBox.Text, paymentCodeToolStripComboBox.Text, pricesCodeToolStripComboBox.Text,  monthToolStripComboBox.Text, schoolYearToolStripComboBox.Text);
+                this.paymentTypeTableAdapter.Search(this.sTU_DBDataSet.PaymentType, paymentTypeToolStripComboBox.Text, paymentCodeToolStripComboBox.Text, pricesCodeToolStripComboBox.Text, monthToolStripComboBox.Text);
             }
             catch (System.Exception ex)
             {

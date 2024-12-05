@@ -159,7 +159,7 @@ namespace STUEnrollmentSystem
 
                 if (string.IsNullOrWhiteSpace(email))
                 {
-                    throw new NullReferenceException();
+                    throw new ArgumentException("User not found");
                 }
 
                 textBox1.Visible = true;
@@ -175,9 +175,9 @@ namespace STUEnrollmentSystem
 
                 MessageBox.Show($"Code has been sent! Please check your email inbox.");
             }
-            catch (NullReferenceException nre)
+            catch (ArgumentException ae)
             {
-                MessageBox.Show("User not found.");
+                MessageBox.Show(ae.Message);
                 return;
             }
         }

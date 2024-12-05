@@ -147,5 +147,77 @@ namespace STUEnrollmentSystem
                     _connection.Close();
             }
         }
+
+        public Dictionary<string, int> GetTotalPendingPaymentAmount(string studentNumber, string paymentCode, string schoolYear)
+        {
+            Dictionary<string, int> totalPendingPaymentAmount = new Dictionary<string, int>();
+            List<string> monthlyPendingDataList = new StudentPaymentRepository(_connection.ConnectionString).CheckMonthlyPendingPaymentStatus(studentNumber, paymentCode, schoolYear);
+
+            try
+            {
+                _connection.Open();
+                foreach (string month in monthlyPendingDataList)
+                {
+                    string query = $"SELECT PaymentAmount FROM PaymentType WHERE PaymentCode = @PaymentCode AND Month = @Month";
+                    using (SqlCommand command = new SqlCommand(query, _connection))
+                    {
+                        command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                        command.Parameters.AddWithValue("@Month", month);
+                        totalPendingPaymentAmount[month] = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPendingPaymentAmount;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPendingPaymentAmount;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return totalPendingPaymentAmount;
+        }
+
+        public int GetTotalPaymentAmountFromMonth(string paymentCode, string month)
+        {
+            int totalPaymentAmount = 0;
+
+            try
+            {
+                _connection.Open();
+                string query = $"SELECT PaymentAmount FROM PaymentType WHERE PaymentCode = @PaymentCode AND Month = @Month";
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@Month", month);
+                    totalPaymentAmount = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPaymentAmount;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
+                return totalPaymentAmount;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return totalPaymentAmount;
+        }
     }
 }

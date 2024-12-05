@@ -143,5 +143,42 @@ namespace STUEnrollmentSystem
 
             return dataTable;
         }
+
+        public void InsertBillingReport(Dictionary<string, object> billingReportData)
+        {
+            string query = "INSERT INTO BillingReport(TransactionNumber, StudentNumber, PaymentAmount, TransactionDate, PaymentRN, ReceiptRN)" +
+                            "VALUES (@TransactionNumber, @StudentNumber, @PaymentAmount, @TransactionDate, @PaymentRN, @ReceiptRN)";
+
+            try
+            {
+                LoggingService.LogInformation($"Insert attempt in InsertBillingReport to BillingReport table");
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    foreach (var key in billingReportData.Keys)
+                    {
+                        command.Parameters.AddWithValue($"@{key}", billingReportData[key]);
+                    }
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in InsertBillingReport: {ex.Message}");
+                LoggingService.LogError($"SQL Error in InsertBillingReport: {ex.Message}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in InsertBillingReport: {ex.Message}");
+                LoggingService.LogError($"Unexpected error in InsertBillingReport: {ex.Message}");
+                return;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+        }
     }
 }

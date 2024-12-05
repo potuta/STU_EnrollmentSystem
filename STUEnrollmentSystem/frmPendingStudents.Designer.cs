@@ -59,6 +59,7 @@
             System.Windows.Forms.Label guardianEmailLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
@@ -104,7 +105,6 @@
             this.uploadTransferCertButton = new System.Windows.Forms.Button();
             this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
             this.viewTransferCertButton = new System.Windows.Forms.Button();
-            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.proofOfPaymentTextBox = new System.Windows.Forms.TextBox();
             this.viewProofOfPaymentButton = new System.Windows.Forms.Button();
             this.uploadGoodMoralButton = new System.Windows.Forms.Button();
@@ -550,6 +550,17 @@
             this.detailsPanel.Size = new System.Drawing.Size(1264, 292);
             this.detailsPanel.TabIndex = 6;
             // 
+            // uploadProofOfPaymentButton
+            // 
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
+            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
+            this.uploadProofOfPaymentButton.TabIndex = 75;
+            this.uploadProofOfPaymentButton.Text = "Upload File";
+            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
+            this.uploadProofOfPaymentButton.Visible = false;
+            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
+            // 
             // guardianEmailTextBox
             // 
             this.guardianEmailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "GuardianEmail", true));
@@ -991,17 +1002,6 @@
             this.viewTransferCertButton.UseVisualStyleBackColor = true;
             this.viewTransferCertButton.Click += new System.EventHandler(this.viewTransferCertButton_Click);
             // 
-            // uploadProofOfPaymentButton
-            // 
-            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
-            this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
-            this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
-            this.uploadProofOfPaymentButton.TabIndex = 75;
-            this.uploadProofOfPaymentButton.Text = "Upload File";
-            this.uploadProofOfPaymentButton.UseVisualStyleBackColor = true;
-            this.uploadProofOfPaymentButton.Visible = false;
-            this.uploadProofOfPaymentButton.Click += new System.EventHandler(this.uploadProofOfPaymentButton_Click);
-            // 
             // proofOfPaymentTextBox
             // 
             this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ProofOfPayment", true));
@@ -1053,9 +1053,11 @@
             // 
             // studentNumberTextBox
             // 
+            this.studentNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.studentNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "StudentNumber", true));
             this.studentNumberTextBox.Location = new System.Drawing.Point(122, 88);
             this.studentNumberTextBox.Name = "studentNumberTextBox";
+            this.studentNumberTextBox.ReadOnly = true;
             this.studentNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.studentNumberTextBox.TabIndex = 64;
             // 

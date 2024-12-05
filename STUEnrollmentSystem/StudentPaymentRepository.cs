@@ -137,78 +137,6 @@ namespace STUEnrollmentSystem
             return monthlyAndSY;
         }
 
-        public Dictionary<string, int> GetTotalPendingPaymentAmount(string studentNumber, string paymentCode, string schoolYear)
-        {
-            Dictionary<string, int> totalPendingPaymentAmount = new Dictionary<string, int>();
-            List<string> monthlyPendingDataList = CheckMonthlyPendingPaymentStatus(studentNumber, paymentCode, schoolYear);
-
-            try
-            {
-                _connection.Open();
-                foreach (string month in monthlyPendingDataList)
-                {
-                    string query = $"SELECT PaymentAmount FROM PaymentType WHERE PaymentCode = @PaymentCode AND Month = @Month";
-                    using (SqlCommand command = new SqlCommand(query, _connection))
-                    {
-                        command.Parameters.AddWithValue("@PaymentCode", paymentCode);
-                        command.Parameters.AddWithValue("@Month", month);
-                        totalPendingPaymentAmount[month] = Convert.ToInt32(command.ExecuteScalar());
-                    }
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
-                return totalPendingPaymentAmount;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
-                return totalPendingPaymentAmount;
-            }
-            finally
-            {
-                if (_connection.State == ConnectionState.Open)
-                    _connection.Close();
-            }
-
-            return totalPendingPaymentAmount;
-        }
-
-        public int GetTotalPaymentAmountFromMonth(string paymentCode, string month)
-        {
-            int totalPaymentAmount = 0;
-
-            try
-            {
-                _connection.Open();
-                string query = $"SELECT PaymentAmount FROM PaymentType WHERE PaymentCode = @PaymentCode AND Month = @Month";
-                using (SqlCommand command = new SqlCommand(query, _connection))
-                {
-                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
-                    command.Parameters.AddWithValue("@Month", month);
-                    totalPaymentAmount = Convert.ToInt32(command.ExecuteScalar());
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine($"SQL Error in GetTotalPendingPaymentAmount: {ex.Message}");
-                return totalPaymentAmount;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error in GetTotalPendingPaymentAmount: {ex.Message}");
-                return totalPaymentAmount;
-            }
-            finally
-            {
-                if (_connection.State == ConnectionState.Open)
-                    _connection.Close();
-            }
-
-            return totalPaymentAmount;
-        }
-
         public string GetPaymentCode(string studentNumber, string schoolYear)
         {
             string paymentCode = string.Empty;
@@ -490,43 +418,6 @@ namespace STUEnrollmentSystem
             }
         }
         
-        public void InsertBillingReport(Dictionary<string, object> billingReportData)
-        {
-            string query = "INSERT INTO BillingReport(TransactionNumber, StudentNumber, PaymentAmount, TransactionDate, PaymentRN, ReceiptRN)"+
-                            "VALUES (@TransactionNumber, @StudentNumber, @PaymentAmount, @TransactionDate, @PaymentRN, @ReceiptRN)";
-
-            try
-            {
-                LoggingService.LogInformation($"Insert attempt in InsertBillingReport to BillingReport table");
-                using (SqlCommand command = new SqlCommand(query, _connection))
-                {
-                    _connection.Open();
-                    foreach (var key in billingReportData.Keys)
-                    {
-                        command.Parameters.AddWithValue($"@{key}", billingReportData[key]);
-                    }
-                    command.ExecuteNonQuery();
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine($"SQL Error in InsertBillingReport: {ex.Message}");
-                LoggingService.LogError($"SQL Error in InsertBillingReport: {ex.Message}");
-                return;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error in InsertBillingReport: {ex.Message}");
-                LoggingService.LogError($"Unexpected error in InsertBillingReport: {ex.Message}");
-                return;
-            }
-            finally
-            {
-                if (_connection.State == ConnectionState.Open)
-                    _connection.Close();
-            }
-        }
-
         public void InsertStudentPayment(Dictionary<string, object> studentPaymentData, string monthOfPayment, string paymentStatus, string schoolYear)
         {
             string query = "INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, SchoolYear)" +

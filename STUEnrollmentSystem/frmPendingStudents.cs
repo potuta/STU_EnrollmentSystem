@@ -291,15 +291,58 @@ namespace STUEnrollmentSystem
             }
         }
 
+        private bool checkCompleteDetails()
+        {
+            if (string.IsNullOrWhiteSpace(studentNumberTextBox.Text))
+            {
+                MessageBox.Show("Student Number not assigned.", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(paymentTypeComboBox.Text) || string.IsNullOrWhiteSpace(paymentMethodComboBox.Text))
+            {
+                MessageBox.Show("Missing Payment Details.", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (!paymentTypeComboBox.Text.Equals("Monthly") && !paymentTypeComboBox.Text.Equals("Full"))
+            {
+                MessageBox.Show("Payment Type must only be 'Monthly' or 'Full'", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (!paymentMethodComboBox.Text.Equals("CASH") && !paymentMethodComboBox.Text.Equals("GCASH") && !paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
+            {
+                MessageBox.Show("Accepted Payment Methods are only 'CASH', 'GCASH', and 'BANK TRANSFER'", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
+            if (requirements["ProofOfPayment"] == false && !paymentMethodComboBox.Text.Equals("CASH"))
+            {
+                MessageBox.Show("Missing Proof Of Payment. It is required for Payment Methods of 'GCASH' and 'BANK TRANSFER'", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            return true;
+        }
+
         private void bindingNavigatorEnrollStudentItem_Click(object sender, EventArgs e)
         {
             try
             {
+                if (checkCompleteDetails() == false)
+                {
+                    return;
+                }
+
+                pendingStudentsBindingNavigatorSaveItem.PerformClick();
                 insertStudents();
                 insertStudentPayment();
                 checkIsNullRequirements();
+                MessageBox.Show($"Student {studentNumberTextBox.Text} has been successfully enrolled.", "Success!", MessageBoxButtons.OK);
                 _pendingStudentsRepository.DeletePendingStudents(registerIDTextBox.Text);
-                bindingNavigatorRefreshItem_Click(sender, e);
+                bindingNavigatorRefreshItem.PerformClick();
                 LoggingService.LogInformation($"Insert successful in InsertStudents to Students table");
                 LoggingService.LogInformation($"Insert successful in InsertStudentPayment to StudentPayment table");
                 LoggingService.LogInformation($"Deletion successful in  DeletePendingStudents from PendingNewStudents table");
