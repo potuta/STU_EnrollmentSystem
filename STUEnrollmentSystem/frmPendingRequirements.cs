@@ -313,6 +313,12 @@ namespace STUEnrollmentSystem
         {
             try
             {
+                if (!string.IsNullOrWhiteSpace(studFirstNameToolStripComboBox.Text) && !string.IsNullOrWhiteSpace(studMidNameToolStripComboBox.Text) && !string.IsNullOrWhiteSpace(studLastNameToolStripComboBox.Text))
+                {
+                    this.studentsTableAdapter.Search2(this.sTU_DBDataSet.Students, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+                    return;
+                }
+
                 this.studentsTableAdapter.FillBy1(this.sTU_DBDataSet.Students, studentNumberToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
             }
             catch (System.Exception ex)

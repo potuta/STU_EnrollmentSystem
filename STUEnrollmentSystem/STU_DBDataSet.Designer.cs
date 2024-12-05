@@ -11522,7 +11522,7 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, 
@@ -11545,6 +11545,14 @@ WHERE        (RegisterID = @RegisterID) OR
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT * FROM PendingStudents WHERE\r\n(StudFirstName = @StudFirstName) AND\r\n(StudM" +
+                "idName = @StudMidName) AND\r\n(StudLastName = @StudLastName)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11606,6 +11614,37 @@ WHERE        (RegisterID = @RegisterID) OR
             }
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = ((string)(StudLastName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Search2(STU_DBDataSet.PendingStudentsDataTable dataTable, string StudFirstName, string StudMidName, string StudLastName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((StudFirstName == null)) {
+                throw new global::System.ArgumentNullException("StudFirstName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(StudFirstName));
+            }
+            if ((StudMidName == null)) {
+                throw new global::System.ArgumentNullException("StudMidName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(StudMidName));
+            }
+            if ((StudLastName == null)) {
+                throw new global::System.ArgumentNullException("StudLastName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(StudLastName));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -13036,7 +13075,7 @@ SELECT RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, G
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        RegisterID, EnrollmentStatus, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, 
@@ -13057,6 +13096,14 @@ WHERE        (RegisterID = @RegisterID) OR
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT * FROM Registration WHERE\r\n(StudFirstName = @StudFirstName) AND\r\n(StudMidN" +
+                "ame = @StudMidName) AND\r\n(StudLastName = @StudLastName)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13112,6 +13159,37 @@ WHERE        (RegisterID = @RegisterID) OR
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(StudLastName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Search2(STU_DBDataSet.RegistrationDataTable dataTable, string StudFirstName, string StudMidName, string StudLastName) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((StudFirstName == null)) {
+                throw new global::System.ArgumentNullException("StudFirstName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(StudFirstName));
+            }
+            if ((StudMidName == null)) {
+                throw new global::System.ArgumentNullException("StudMidName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(StudMidName));
+            }
+            if ((StudLastName == null)) {
+                throw new global::System.ArgumentNullException("StudLastName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(StudLastName));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -15226,7 +15304,7 @@ SELECT RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gend
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, MotherFirstName, MotherLastName, MotherOccupation, 
@@ -15258,6 +15336,14 @@ WHERE        (StudentNumber = @StudentNumber) OR
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT * FROM Students WHERE\r\n(StudFirstName = @StudFirstName) AND\r\n(StudMidName " +
+                "= @StudMidName) AND\r\n(StudLastName = @StudLastName)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudFirstName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudFirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudMidName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudMidName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudLastName", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "StudLastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15337,6 +15423,37 @@ WHERE        (StudentNumber = @StudentNumber) OR
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(StudLastName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int Search2(STU_DBDataSet.StudentsDataTable dataTable, string StudFirstName, string StudMidName, string StudLastName) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((StudFirstName == null)) {
+                throw new global::System.ArgumentNullException("StudFirstName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(StudFirstName));
+            }
+            if ((StudMidName == null)) {
+                throw new global::System.ArgumentNullException("StudMidName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(StudMidName));
+            }
+            if ((StudLastName == null)) {
+                throw new global::System.ArgumentNullException("StudLastName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(StudLastName));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();

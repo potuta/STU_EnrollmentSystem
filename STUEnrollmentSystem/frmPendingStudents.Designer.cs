@@ -1104,7 +1104,7 @@
             this.searchToolStripButton});
             this.searchToolStrip.Location = new System.Drawing.Point(65, 43);
             this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.Size = new System.Drawing.Size(998, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(1029, 25);
             this.searchToolStrip.TabIndex = 8;
             this.searchToolStrip.Text = "searchToolStrip";
             // 

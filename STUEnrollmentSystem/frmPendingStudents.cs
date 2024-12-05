@@ -554,6 +554,12 @@ namespace STUEnrollmentSystem
         {
             try
             {
+                if (!string.IsNullOrWhiteSpace(studFirstNameToolStripComboBox.Text) && !string.IsNullOrWhiteSpace(studMidNameToolStripComboBox.Text) && !string.IsNullOrWhiteSpace(studLastNameToolStripComboBox.Text))
+                {
+                    this.pendingStudentsTableAdapter.Search2(this.sTU_DBDataSet.PendingStudents, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
+                    return;
+                }
+
                 this.pendingStudentsTableAdapter.Search(this.sTU_DBDataSet.PendingStudents, registerIDToolStripComboBox.Text, studentNumberToolStripComboBox.Text, studFirstNameToolStripComboBox.Text, studMidNameToolStripComboBox.Text, studLastNameToolStripComboBox.Text);
             }
             catch (System.Exception ex)
@@ -561,5 +567,6 @@ namespace STUEnrollmentSystem
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+        
     }
 }
