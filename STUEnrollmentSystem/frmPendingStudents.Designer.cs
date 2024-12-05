@@ -1104,7 +1104,7 @@
             this.searchToolStripButton});
             this.searchToolStrip.Location = new System.Drawing.Point(65, 43);
             this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.Size = new System.Drawing.Size(1029, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(998, 25);
             this.searchToolStrip.TabIndex = 8;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -1656,7 +1656,7 @@
             this.Controls.Add(this.searchPanel);
             this.Name = "frmPendingStudents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PendingStudents";
+            this.Text = "ApprovedStudents";
             this.Load += new System.EventHandler(this.PendingStudents_Load);
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();

@@ -136,5 +136,31 @@ namespace STUEnrollmentSystem
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
+        private void viewSectionButton_Click(object sender, EventArgs e)
+        {
+            if (sectionDataGridView.Visible == true)
+            {
+                sectionDataGridView.Visible = false;
+                return;
+            }
+
+            sectionDataGridView.Visible = true;
+            DataTable dataTable = new SectionRepository(ConnectionFactory.GetConnectionString()).GetSectionDataTableFromSectionCode(sectionCodeTextBox.Text);
+            sectionDataGridView.DataSource = dataTable;
+        }
+
+        private void viewTeacherButton_Click(object sender, EventArgs e)
+        {
+            if (teacherDataGridView.Visible == true)
+            {
+                teacherDataGridView.Visible = false;
+                return;
+            }
+
+            teacherDataGridView.Visible = true;
+            DataTable dataTable = new TeacherRepository(ConnectionFactory.GetConnectionString()).GetTeacherDataTableFromTeacherCode(teacherCodeTextBox.Text);
+            teacherDataGridView.DataSource = dataTable;
+        }
     }
 }

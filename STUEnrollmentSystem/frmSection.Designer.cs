@@ -52,6 +52,8 @@
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.viewStudentButton = new System.Windows.Forms.Button();
+            this.viewScheduleButton = new System.Windows.Forms.Button();
             this.teacherCodeComboBox = new System.Windows.Forms.ComboBox();
             this.sectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
@@ -90,6 +92,8 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scheduleDataGridView = new System.Windows.Forms.DataGridView();
+            this.studentsDataGridView = new System.Windows.Forms.DataGridView();
             sectionTitleLabel = new System.Windows.Forms.Label();
             sectionCodeLabel = new System.Windows.Forms.Label();
             roomLabel = new System.Windows.Forms.Label();
@@ -107,6 +111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sectionsBindingNavigator)).BeginInit();
             this.sectionsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // sectionTitleLabel
@@ -305,6 +311,8 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.viewStudentButton);
+            this.detailsPanel.Controls.Add(this.viewScheduleButton);
             this.detailsPanel.Controls.Add(this.teacherCodeComboBox);
             this.detailsPanel.Controls.Add(sectionTitleLabel);
             this.detailsPanel.Controls.Add(this.sectionTitleTextBox);
@@ -325,8 +333,28 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.detailsPanel.Location = new System.Drawing.Point(0, 144);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(316, 615);
+            this.detailsPanel.Size = new System.Drawing.Size(316, 664);
             this.detailsPanel.TabIndex = 15;
+            // 
+            // viewStudentButton
+            // 
+            this.viewStudentButton.Location = new System.Drawing.Point(248, 267);
+            this.viewStudentButton.Name = "viewStudentButton";
+            this.viewStudentButton.Size = new System.Drawing.Size(38, 23);
+            this.viewStudentButton.TabIndex = 80;
+            this.viewStudentButton.Text = "View";
+            this.viewStudentButton.UseVisualStyleBackColor = true;
+            this.viewStudentButton.Click += new System.EventHandler(this.viewStudentButton_Click);
+            // 
+            // viewScheduleButton
+            // 
+            this.viewScheduleButton.Location = new System.Drawing.Point(248, 217);
+            this.viewScheduleButton.Name = "viewScheduleButton";
+            this.viewScheduleButton.Size = new System.Drawing.Size(38, 23);
+            this.viewScheduleButton.TabIndex = 79;
+            this.viewScheduleButton.Text = "View";
+            this.viewScheduleButton.UseVisualStyleBackColor = true;
+            this.viewScheduleButton.Click += new System.EventHandler(this.viewScheduleButton_Click);
             // 
             // teacherCodeComboBox
             // 
@@ -599,9 +627,10 @@
             this.dataGridViewTextBoxColumn8});
             this.sectionsDataGridView.DataSource = this.sectionsBindingSource;
             this.sectionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sectionsDataGridView.Location = new System.Drawing.Point(316, 169);
+            this.sectionsDataGridView.Location = new System.Drawing.Point(316, 649);
             this.sectionsDataGridView.Name = "sectionsDataGridView";
-            this.sectionsDataGridView.Size = new System.Drawing.Size(948, 590);
+            this.sectionsDataGridView.ReadOnly = true;
+            this.sectionsDataGridView.Size = new System.Drawing.Size(948, 159);
             this.sectionsDataGridView.TabIndex = 16;
             // 
             // dataGridViewTextBoxColumn1
@@ -609,56 +638,88 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "SectionTitle";
             this.dataGridViewTextBoxColumn1.HeaderText = "SectionTitle";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "SectionCode";
             this.dataGridViewTextBoxColumn2.HeaderText = "SectionCode";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Room";
             this.dataGridViewTextBoxColumn3.HeaderText = "Room";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "TeacherCode";
             this.dataGridViewTextBoxColumn4.HeaderText = "TeacherCode";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "GradeCode";
             this.dataGridViewTextBoxColumn5.HeaderText = "GradeCode";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "ScheduleCode";
             this.dataGridViewTextBoxColumn6.HeaderText = "ScheduleCode";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Capacity";
             this.dataGridViewTextBoxColumn7.HeaderText = "Capacity";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "StudCount";
             this.dataGridViewTextBoxColumn8.HeaderText = "StudCount";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // scheduleDataGridView
+            // 
+            this.scheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scheduleDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scheduleDataGridView.Location = new System.Drawing.Point(316, 169);
+            this.scheduleDataGridView.Name = "scheduleDataGridView";
+            this.scheduleDataGridView.ReadOnly = true;
+            this.scheduleDataGridView.Size = new System.Drawing.Size(948, 215);
+            this.scheduleDataGridView.TabIndex = 17;
+            this.scheduleDataGridView.Visible = false;
+            // 
+            // studentsDataGridView
+            // 
+            this.studentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studentsDataGridView.Location = new System.Drawing.Point(316, 384);
+            this.studentsDataGridView.Name = "studentsDataGridView";
+            this.studentsDataGridView.ReadOnly = true;
+            this.studentsDataGridView.Size = new System.Drawing.Size(948, 265);
+            this.studentsDataGridView.TabIndex = 18;
+            this.studentsDataGridView.Visible = false;
             // 
             // frmSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1264, 759);
+            this.ClientSize = new System.Drawing.Size(1264, 808);
             this.Controls.Add(this.sectionsDataGridView);
+            this.Controls.Add(this.studentsDataGridView);
+            this.Controls.Add(this.scheduleDataGridView);
             this.Controls.Add(this.sectionsBindingNavigator);
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
@@ -679,6 +740,8 @@
             this.sectionsBindingNavigator.ResumeLayout(false);
             this.sectionsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sectionsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,5 +801,9 @@
         private System.Windows.Forms.ToolStripComboBox sectionCodeToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox roomToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox gradeCodeToolStripComboBox;
+        private System.Windows.Forms.Button viewScheduleButton;
+        private System.Windows.Forms.Button viewStudentButton;
+        private System.Windows.Forms.DataGridView scheduleDataGridView;
+        private System.Windows.Forms.DataGridView studentsDataGridView;
     }
 }

@@ -132,6 +132,40 @@ namespace STUEnrollmentSystem
             return dataTable;
         }
 
+        public DataTable GetSectionDataTableFromSectionTitle(string sectionTitle)
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT Section, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, PaymentType, " +
+                        "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation FROM Students WHERE Section = @Section";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@Section", sectionTitle);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetSectionDataTableFromSectionTitle: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetSectionDataTableFromSectionTitle: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
+
         public Dictionary<string, string> GetStudentEmail(string studentNumber)
         {
             Dictionary<string, string> emails = new Dictionary<string, string>();

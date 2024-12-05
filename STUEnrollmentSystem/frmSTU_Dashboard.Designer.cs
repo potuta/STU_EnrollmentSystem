@@ -40,10 +40,8 @@
             this.teacherButton = new System.Windows.Forms.Button();
             this.facultyButton = new System.Windows.Forms.Button();
             this.academicSubPanel = new System.Windows.Forms.Panel();
-            this.gradeLevelButton = new System.Windows.Forms.Button();
-            this.subjectButton = new System.Windows.Forms.Button();
-            this.scheduleButton = new System.Windows.Forms.Button();
-            this.sectionButton = new System.Windows.Forms.Button();
+            this.level_SubjectsButton = new System.Windows.Forms.Button();
+            this.section_ScheduleButton = new System.Windows.Forms.Button();
             this.paymentTypeButton = new System.Windows.Forms.Button();
             this.feesButton = new System.Windows.Forms.Button();
             this.academicButton = new System.Windows.Forms.Button();
@@ -56,16 +54,16 @@
             this.manageStudentButton = new System.Windows.Forms.Button();
             this.studentButton = new System.Windows.Forms.Button();
             this.enrollmentSubPanel = new System.Windows.Forms.Panel();
-            this.pendingButton = new System.Windows.Forms.Button();
+            this.approvedButton = new System.Windows.Forms.Button();
             this.registrationButton = new System.Windows.Forms.Button();
             this.enrollmentButton = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.logoButton = new System.Windows.Forms.Button();
-            this.homeButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
             this.schoolYearLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.logoButton = new System.Windows.Forms.Button();
+            this.homeButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.sidePanel.SuspendLayout();
             this.userInfoPanel.SuspendLayout();
             this.facultySubPanel.SuspendLayout();
@@ -107,7 +105,7 @@
             this.userInfoPanel.Controls.Add(this.logoutButton);
             this.userInfoPanel.Controls.Add(this.userLabel);
             this.userInfoPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.userInfoPanel.Location = new System.Drawing.Point(0, 926);
+            this.userInfoPanel.Location = new System.Drawing.Point(0, 848);
             this.userInfoPanel.Name = "userInfoPanel";
             this.userInfoPanel.Size = new System.Drawing.Size(261, 97);
             this.userInfoPanel.TabIndex = 1;
@@ -162,7 +160,7 @@
             this.facultySubPanel.Controls.Add(this.usersButton);
             this.facultySubPanel.Controls.Add(this.teacherButton);
             this.facultySubPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.facultySubPanel.Location = new System.Drawing.Point(0, 846);
+            this.facultySubPanel.Location = new System.Drawing.Point(0, 768);
             this.facultySubPanel.Name = "facultySubPanel";
             this.facultySubPanel.Size = new System.Drawing.Size(261, 80);
             this.facultySubPanel.TabIndex = 2;
@@ -181,7 +179,7 @@
             this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.usersButton.Size = new System.Drawing.Size(261, 40);
             this.usersButton.TabIndex = 6;
-            this.usersButton.Text = "↪ Users";
+            this.usersButton.Text = "↪ Users and Roles";
             this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usersButton.UseVisualStyleBackColor = false;
             this.usersButton.Click += new System.EventHandler(this.OnButtonClicked);
@@ -212,7 +210,7 @@
             this.facultyButton.FlatAppearance.BorderSize = 2;
             this.facultyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.facultyButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facultyButton.Location = new System.Drawing.Point(0, 807);
+            this.facultyButton.Location = new System.Drawing.Point(0, 729);
             this.facultyButton.Name = "facultyButton";
             this.facultyButton.Size = new System.Drawing.Size(261, 39);
             this.facultyButton.TabIndex = 2;
@@ -223,90 +221,52 @@
             // 
             // academicSubPanel
             // 
-            this.academicSubPanel.Controls.Add(this.gradeLevelButton);
-            this.academicSubPanel.Controls.Add(this.subjectButton);
-            this.academicSubPanel.Controls.Add(this.scheduleButton);
-            this.academicSubPanel.Controls.Add(this.sectionButton);
+            this.academicSubPanel.Controls.Add(this.level_SubjectsButton);
+            this.academicSubPanel.Controls.Add(this.section_ScheduleButton);
             this.academicSubPanel.Controls.Add(this.paymentTypeButton);
             this.academicSubPanel.Controls.Add(this.feesButton);
             this.academicSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.academicSubPanel.Location = new System.Drawing.Point(0, 573);
             this.academicSubPanel.Name = "academicSubPanel";
-            this.academicSubPanel.Size = new System.Drawing.Size(261, 234);
+            this.academicSubPanel.Size = new System.Drawing.Size(261, 156);
             this.academicSubPanel.TabIndex = 6;
             this.academicSubPanel.Visible = false;
             // 
-            // gradeLevelButton
+            // level_SubjectsButton
             // 
-            this.gradeLevelButton.BackColor = System.Drawing.Color.MintCream;
-            this.gradeLevelButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gradeLevelButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.gradeLevelButton.FlatAppearance.BorderSize = 2;
-            this.gradeLevelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gradeLevelButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradeLevelButton.Location = new System.Drawing.Point(0, 195);
-            this.gradeLevelButton.Name = "gradeLevelButton";
-            this.gradeLevelButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.gradeLevelButton.Size = new System.Drawing.Size(261, 39);
-            this.gradeLevelButton.TabIndex = 6;
-            this.gradeLevelButton.Text = "↪ Grade Level";
-            this.gradeLevelButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gradeLevelButton.UseVisualStyleBackColor = false;
-            this.gradeLevelButton.Click += new System.EventHandler(this.OnButtonClicked);
+            this.level_SubjectsButton.BackColor = System.Drawing.Color.MintCream;
+            this.level_SubjectsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.level_SubjectsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.level_SubjectsButton.FlatAppearance.BorderSize = 2;
+            this.level_SubjectsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.level_SubjectsButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.level_SubjectsButton.Location = new System.Drawing.Point(0, 117);
+            this.level_SubjectsButton.Name = "level_SubjectsButton";
+            this.level_SubjectsButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.level_SubjectsButton.Size = new System.Drawing.Size(261, 39);
+            this.level_SubjectsButton.TabIndex = 6;
+            this.level_SubjectsButton.Text = "↪ Level and Subjects";
+            this.level_SubjectsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.level_SubjectsButton.UseVisualStyleBackColor = false;
+            this.level_SubjectsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // subjectButton
+            // section_ScheduleButton
             // 
-            this.subjectButton.BackColor = System.Drawing.Color.MintCream;
-            this.subjectButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subjectButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.subjectButton.FlatAppearance.BorderSize = 2;
-            this.subjectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.subjectButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectButton.Location = new System.Drawing.Point(0, 156);
-            this.subjectButton.Name = "subjectButton";
-            this.subjectButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.subjectButton.Size = new System.Drawing.Size(261, 39);
-            this.subjectButton.TabIndex = 5;
-            this.subjectButton.Text = "↪ Subject";
-            this.subjectButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.subjectButton.UseVisualStyleBackColor = false;
-            this.subjectButton.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
-            // scheduleButton
-            // 
-            this.scheduleButton.BackColor = System.Drawing.Color.MintCream;
-            this.scheduleButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.scheduleButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.scheduleButton.FlatAppearance.BorderSize = 2;
-            this.scheduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.scheduleButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scheduleButton.Location = new System.Drawing.Point(0, 117);
-            this.scheduleButton.Name = "scheduleButton";
-            this.scheduleButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.scheduleButton.Size = new System.Drawing.Size(261, 39);
-            this.scheduleButton.TabIndex = 3;
-            this.scheduleButton.Text = "↪ Schedule";
-            this.scheduleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.scheduleButton.UseVisualStyleBackColor = false;
-            this.scheduleButton.Click += new System.EventHandler(this.OnButtonClicked);
-            // 
-            // sectionButton
-            // 
-            this.sectionButton.BackColor = System.Drawing.Color.MintCream;
-            this.sectionButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sectionButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.sectionButton.FlatAppearance.BorderSize = 2;
-            this.sectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sectionButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sectionButton.Location = new System.Drawing.Point(0, 78);
-            this.sectionButton.Name = "sectionButton";
-            this.sectionButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.sectionButton.Size = new System.Drawing.Size(261, 39);
-            this.sectionButton.TabIndex = 2;
-            this.sectionButton.Text = "↪ Section";
-            this.sectionButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sectionButton.UseVisualStyleBackColor = false;
-            this.sectionButton.Click += new System.EventHandler(this.OnButtonClicked);
+            this.section_ScheduleButton.BackColor = System.Drawing.Color.MintCream;
+            this.section_ScheduleButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.section_ScheduleButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.section_ScheduleButton.FlatAppearance.BorderSize = 2;
+            this.section_ScheduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.section_ScheduleButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.section_ScheduleButton.Location = new System.Drawing.Point(0, 78);
+            this.section_ScheduleButton.Name = "section_ScheduleButton";
+            this.section_ScheduleButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.section_ScheduleButton.Size = new System.Drawing.Size(261, 39);
+            this.section_ScheduleButton.TabIndex = 2;
+            this.section_ScheduleButton.Text = "↪ Section and Schedule";
+            this.section_ScheduleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.section_ScheduleButton.UseVisualStyleBackColor = false;
+            this.section_ScheduleButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // paymentTypeButton
             // 
@@ -491,7 +451,7 @@
             // 
             // enrollmentSubPanel
             // 
-            this.enrollmentSubPanel.Controls.Add(this.pendingButton);
+            this.enrollmentSubPanel.Controls.Add(this.approvedButton);
             this.enrollmentSubPanel.Controls.Add(this.registrationButton);
             this.enrollmentSubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.enrollmentSubPanel.Location = new System.Drawing.Point(0, 225);
@@ -500,23 +460,23 @@
             this.enrollmentSubPanel.TabIndex = 2;
             this.enrollmentSubPanel.Visible = false;
             // 
-            // pendingButton
+            // approvedButton
             // 
-            this.pendingButton.BackColor = System.Drawing.Color.MintCream;
-            this.pendingButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pendingButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.pendingButton.FlatAppearance.BorderSize = 2;
-            this.pendingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pendingButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingButton.Location = new System.Drawing.Point(0, 39);
-            this.pendingButton.Name = "pendingButton";
-            this.pendingButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.pendingButton.Size = new System.Drawing.Size(261, 39);
-            this.pendingButton.TabIndex = 2;
-            this.pendingButton.Text = "↪ Pending New Students";
-            this.pendingButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pendingButton.UseVisualStyleBackColor = false;
-            this.pendingButton.Click += new System.EventHandler(this.OnButtonClicked);
+            this.approvedButton.BackColor = System.Drawing.Color.MintCream;
+            this.approvedButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.approvedButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.approvedButton.FlatAppearance.BorderSize = 2;
+            this.approvedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.approvedButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.approvedButton.Location = new System.Drawing.Point(0, 39);
+            this.approvedButton.Name = "approvedButton";
+            this.approvedButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.approvedButton.Size = new System.Drawing.Size(261, 39);
+            this.approvedButton.TabIndex = 2;
+            this.approvedButton.Text = "↪ Approved Students";
+            this.approvedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.approvedButton.UseVisualStyleBackColor = false;
+            this.approvedButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // registrationButton
             // 
@@ -567,6 +527,34 @@
             this.logoPanel.Size = new System.Drawing.Size(261, 186);
             this.logoPanel.TabIndex = 0;
             // 
+            // schoolYearLabel
+            // 
+            this.schoolYearLabel.AutoSize = true;
+            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolYearLabel.Location = new System.Drawing.Point(3, 167);
+            this.schoolYearLabel.Name = "schoolYearLabel";
+            this.schoolYearLabel.Size = new System.Drawing.Size(27, 16);
+            this.schoolYearLabel.TabIndex = 2;
+            this.schoolYearLabel.Text = "S.Y.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(76, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Enrollment System";
+            // 
+            // panel_main
+            // 
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(280, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(1084, 681);
+            this.panel_main.TabIndex = 1;
+            // 
             // logoButton
             // 
             this.logoButton.BackColor = System.Drawing.Color.Transparent;
@@ -610,34 +598,6 @@
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
-            // schoolYearLabel
-            // 
-            this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(3, 167);
-            this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(27, 16);
-            this.schoolYearLabel.TabIndex = 2;
-            this.schoolYearLabel.Text = "S.Y.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Enrollment System";
-            // 
-            // panel_main
-            // 
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(280, 0);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1084, 681);
-            this.panel_main.TabIndex = 1;
-            // 
             // frmSTU_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,14 +637,12 @@
         private System.Windows.Forms.Button manageStudentButton;
         private System.Windows.Forms.Button billingButton;
         private System.Windows.Forms.Panel billingSubPanel;
-        private System.Windows.Forms.Button pendingButton;
+        private System.Windows.Forms.Button approvedButton;
         private System.Windows.Forms.Button managePaymentButton;
         private System.Windows.Forms.Button facultyButton;
         private System.Windows.Forms.Panel facultySubPanel;
-        private System.Windows.Forms.Button sectionButton;
+        private System.Windows.Forms.Button section_ScheduleButton;
         private System.Windows.Forms.Button teacherButton;
-        private System.Windows.Forms.Button subjectButton;
-        private System.Windows.Forms.Button scheduleButton;
         private System.Windows.Forms.Button feesButton;
         private System.Windows.Forms.Button paymentTypeButton;
         private System.Windows.Forms.Button pendingRequirementsButton;
@@ -702,7 +660,7 @@
         private System.Windows.Forms.Button billingReportButton;
         private System.Windows.Forms.Panel academicSubPanel;
         private System.Windows.Forms.Button academicButton;
-        private System.Windows.Forms.Button gradeLevelButton;
+        private System.Windows.Forms.Button level_SubjectsButton;
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button logoButton;
     }

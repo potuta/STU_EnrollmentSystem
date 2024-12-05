@@ -442,6 +442,7 @@
             this.subjectsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subjectsDataGridView.Location = new System.Drawing.Point(284, 143);
             this.subjectsDataGridView.Name = "subjectsDataGridView";
+            this.subjectsDataGridView.ReadOnly = true;
             this.subjectsDataGridView.Size = new System.Drawing.Size(980, 616);
             this.subjectsDataGridView.TabIndex = 25;
             // 
@@ -450,18 +451,21 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "SubjectTitle";
             this.dataGridViewTextBoxColumn1.HeaderText = "SubjectTitle";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "SubjectCode";
             this.dataGridViewTextBoxColumn2.HeaderText = "SubjectCode";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "SubjectGradeCode";
             this.dataGridViewTextBoxColumn3.HeaderText = "SubjectGradeCode";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // frmSubjects
             // 

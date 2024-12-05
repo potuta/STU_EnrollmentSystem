@@ -552,6 +552,7 @@
             this.pricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pricesDataGridView.Location = new System.Drawing.Point(322, 140);
             this.pricesDataGridView.Name = "pricesDataGridView";
+            this.pricesDataGridView.ReadOnly = true;
             this.pricesDataGridView.Size = new System.Drawing.Size(942, 619);
             this.pricesDataGridView.TabIndex = 18;
             this.pricesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pricesDataGridView_CellClick);
@@ -561,48 +562,56 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "PriceCode";
             this.dataGridViewTextBoxColumn1.HeaderText = "PriceCode";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "GradeCode";
             this.dataGridViewTextBoxColumn2.HeaderText = "GradeCode";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "TuitionFee";
             this.dataGridViewTextBoxColumn3.HeaderText = "TuitionFee";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Books";
             this.dataGridViewTextBoxColumn4.HeaderText = "Books";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "LaboratoryFee";
             this.dataGridViewTextBoxColumn5.HeaderText = "LaboratoryFee";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Uniform";
             this.dataGridViewTextBoxColumn6.HeaderText = "Uniform";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "MiscellanaousFee";
             this.dataGridViewTextBoxColumn7.HeaderText = "MiscellanaousFee";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "TotalAmount";
             this.dataGridViewTextBoxColumn8.HeaderText = "TotalAmount";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // frmPrices
             // 

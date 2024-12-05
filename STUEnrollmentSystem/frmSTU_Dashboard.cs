@@ -84,7 +84,7 @@ namespace STUEnrollmentSystem
 
                 enrollmentButton.Enabled = true;
                     registrationButton.Enabled = true;
-                    pendingButton.Enabled = false;
+                    approvedButton.Enabled = false;
 
                 studentButton.Enabled = true;
                     manageStudentButton.Enabled = false;
@@ -100,7 +100,7 @@ namespace STUEnrollmentSystem
 
                 enrollmentButton.Enabled = true;
                     registrationButton.Enabled = false;
-                    pendingButton.Enabled = true;
+                    approvedButton.Enabled = true;
 
                 studentButton.Enabled = false;
                 billingButton.Enabled = true;
@@ -169,7 +169,7 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmRegistration());
             }
-            else if (sender == pendingButton)
+            else if (sender == approvedButton)
             {
                 openChildForm(new frmPendingStudents());
             }
@@ -185,9 +185,9 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmStudentPayment());
             }
-            else if (sender == sectionButton)
+            else if (sender == section_ScheduleButton)
             {
-                openChildForm(new frmSection());
+                openChildForm(new frmSection_Schedule());
             }
             else if (sender == usersButton)
             {
@@ -205,21 +205,13 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmPaymentType());
             }
-            else if (sender == scheduleButton)
-            {
-                openChildForm(new frmSchedule());
-            }
-            else if (sender == subjectButton)
-            {
-                openChildForm(new frmSubjects());
-            }
             else if (sender == billingReportButton)
             {
                 openChildForm(new frmBillingReport());
             }
-            else if (sender == gradeLevelButton)
+            else if (sender == level_SubjectsButton)
             {
-                openChildForm(new frmGradeLevel());
+                openChildForm(new frmGradeLevel_Subjects());
             }
             else if (sender == logoButton)
             {

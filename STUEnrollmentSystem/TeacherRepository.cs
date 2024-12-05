@@ -124,5 +124,38 @@ namespace STUEnrollmentSystem
 
             return dataTable;
         }
+
+        public DataTable GetTeacherDataTableFromTeacherCode(string teacherCode)
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM Teachers WHERE TeacherCode = @TeacherCode";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@TeacherCode", teacherCode);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetTeacherDataTableFromTeacherCode: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetTeacherDataTableFromTeacherCode: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }

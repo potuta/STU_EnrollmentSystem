@@ -54,5 +54,38 @@ namespace STUEnrollmentSystem
 
             return columnDataList;
         }
+
+        public DataTable GetScheduleDataTableFromSectionCode(string sectionCode)
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM Schedule WHERE SectionCode = @SectionCode";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@SectionCode", sectionCode);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetScheduleDataTableFromSectionCode: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetScheduleDataTableFromSectionCode: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }

@@ -71,6 +71,8 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewSubjectButton = new System.Windows.Forms.Button();
+            this.subjectDataGridView = new System.Windows.Forms.DataGridView();
             gradeLevelLabel = new System.Windows.Forms.Label();
             gradeCodeLabel = new System.Windows.Forms.Label();
             subjectGradeCodeLabel = new System.Windows.Forms.Label();
@@ -82,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gradeLevelBindingNavigator)).BeginInit();
             this.gradeLevelBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradeLevelDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // gradeLevelLabel
@@ -114,6 +117,7 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.viewSubjectButton);
             this.detailsPanel.Controls.Add(gradeLevelLabel);
             this.detailsPanel.Controls.Add(this.gradeLevelTextBox);
             this.detailsPanel.Controls.Add(gradeCodeLabel);
@@ -124,7 +128,7 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.detailsPanel.Location = new System.Drawing.Point(0, 115);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(301, 644);
+            this.detailsPanel.Size = new System.Drawing.Size(310, 644);
             this.detailsPanel.TabIndex = 23;
             // 
             // gradeLevelTextBox
@@ -316,14 +320,14 @@
             this.bindingNavigatorDeleteItem,
             this.gradeLevelBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.gradeLevelBindingNavigator.Location = new System.Drawing.Point(301, 115);
+            this.gradeLevelBindingNavigator.Location = new System.Drawing.Point(310, 115);
             this.gradeLevelBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.gradeLevelBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.gradeLevelBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.gradeLevelBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.gradeLevelBindingNavigator.Name = "gradeLevelBindingNavigator";
             this.gradeLevelBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.gradeLevelBindingNavigator.Size = new System.Drawing.Size(963, 25);
+            this.gradeLevelBindingNavigator.Size = new System.Drawing.Size(954, 25);
             this.gradeLevelBindingNavigator.TabIndex = 24;
             this.gradeLevelBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -440,9 +444,10 @@
             this.dataGridViewTextBoxColumn3});
             this.gradeLevelDataGridView.DataSource = this.gradeLevelBindingSource;
             this.gradeLevelDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradeLevelDataGridView.Location = new System.Drawing.Point(301, 140);
+            this.gradeLevelDataGridView.Location = new System.Drawing.Point(310, 416);
             this.gradeLevelDataGridView.Name = "gradeLevelDataGridView";
-            this.gradeLevelDataGridView.Size = new System.Drawing.Size(963, 619);
+            this.gradeLevelDataGridView.ReadOnly = true;
+            this.gradeLevelDataGridView.Size = new System.Drawing.Size(954, 343);
             this.gradeLevelDataGridView.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn1
@@ -463,6 +468,27 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "SubjectGradeCode";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
+            // viewSubjectButton
+            // 
+            this.viewSubjectButton.Location = new System.Drawing.Point(259, 137);
+            this.viewSubjectButton.Name = "viewSubjectButton";
+            this.viewSubjectButton.Size = new System.Drawing.Size(38, 23);
+            this.viewSubjectButton.TabIndex = 80;
+            this.viewSubjectButton.Text = "View";
+            this.viewSubjectButton.UseVisualStyleBackColor = true;
+            this.viewSubjectButton.Click += new System.EventHandler(this.viewSubjectButton_Click);
+            // 
+            // subjectDataGridView
+            // 
+            this.subjectDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.subjectDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.subjectDataGridView.Location = new System.Drawing.Point(310, 140);
+            this.subjectDataGridView.Name = "subjectDataGridView";
+            this.subjectDataGridView.ReadOnly = true;
+            this.subjectDataGridView.Size = new System.Drawing.Size(954, 276);
+            this.subjectDataGridView.TabIndex = 25;
+            this.subjectDataGridView.Visible = false;
+            // 
             // frmGradeLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +496,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1264, 759);
             this.Controls.Add(this.gradeLevelDataGridView);
+            this.Controls.Add(this.subjectDataGridView);
             this.Controls.Add(this.gradeLevelBindingNavigator);
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
@@ -489,6 +516,7 @@
             this.gradeLevelBindingNavigator.ResumeLayout(false);
             this.gradeLevelBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradeLevelDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,5 +562,7 @@
         private System.Windows.Forms.ToolStripComboBox gradeLevelToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox gradeCodeToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox subjectGradeCodeToolStripComboBox;
+        private System.Windows.Forms.Button viewSubjectButton;
+        private System.Windows.Forms.DataGridView subjectDataGridView;
     }
 }
