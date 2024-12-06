@@ -367,12 +367,12 @@ namespace STUEnrollmentSystem
                     _studentPaymentRepository.ViewImageFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
                 case "upload":
+                    studentPaymentBindingNavigatorSaveItem.PerformClick();
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentPaymentRepository.UploadFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
-                    studentPaymentBindingNavigatorSaveItem.PerformClick();
                     bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":

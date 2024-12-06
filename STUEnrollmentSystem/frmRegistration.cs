@@ -228,12 +228,12 @@ namespace STUEnrollmentSystem
                     _registrationRepository.ViewPDFFile("Registration", fileType, "RegisterID", registerIDTextBox.Text);
                     break;
                 case "upload":
+                    registrationBindingNavigatorSaveItem.PerformClick();
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _registrationRepository.UploadFile("Registration", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
-                    registrationBindingNavigatorSaveItem.PerformClick();
                     registrationBindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":

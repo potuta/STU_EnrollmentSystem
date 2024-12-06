@@ -267,12 +267,12 @@ namespace STUEnrollmentSystem
                     }
                     break;
                 case "upload":
+                    pendingStudentsBindingNavigatorSaveItem.PerformClick();
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _pendingStudentsRepository.UploadFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
-                    pendingStudentsBindingNavigatorSaveItem.PerformClick();
                     bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":

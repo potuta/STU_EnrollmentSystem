@@ -283,12 +283,12 @@ namespace STUEnrollmentSystem
                     _studentRepository.ViewPDFFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
                 case "upload":
+                    studentsBindingNavigatorSaveItem.PerformClick();
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentRepository.UploadFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
-                    studentsBindingNavigatorSaveItem.PerformClick();
                     bindingNavigatorRefreshItem.PerformClick();
                     break;
                 case "delete":
