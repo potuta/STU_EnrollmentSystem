@@ -128,7 +128,7 @@ namespace STUEnrollmentSystem
         {
             if (role.Equals("Admin"))
             {
-                frmLogin.Role = "Admin";
+                frmLogin.Role = "Administrator";
 
                 enrollmentButton.Enabled = true;
                 studentButton.Enabled = true;

@@ -31,43 +31,43 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rolesComboBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.saveChangesButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.users_RolesCheckBox = new System.Windows.Forms.CheckBox();
+            this.UsersRoles_SubModule = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.teachersCheckBox = new System.Windows.Forms.CheckBox();
+            this.Teachers_SubModule = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.level_SubjectsCheckBox = new System.Windows.Forms.CheckBox();
+            this.GradeLevelSubjects_SubModule = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.section_ScheduleCheckBox = new System.Windows.Forms.CheckBox();
+            this.SectionsSchedule_SubModule = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.paymentTypeCheckBox = new System.Windows.Forms.CheckBox();
+            this.PaymentType_SubModule = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.feesCheckBox = new System.Windows.Forms.CheckBox();
+            this.Fees_SubModule = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.academicCheckBox = new System.Windows.Forms.CheckBox();
+            this.Academic_Module = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.billingReportCheckBox = new System.Windows.Forms.CheckBox();
+            this.BillingReport_SubModule = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.managePaymentsCheckBox = new System.Windows.Forms.CheckBox();
+            this.ManagePayments_SubModule = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.pendingRequirementsCheckBox = new System.Windows.Forms.CheckBox();
+            this.PendingRequirements_SubModule = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.manageStudentsCheckBox = new System.Windows.Forms.CheckBox();
+            this.ManageStudents_SubModule = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.approvedStudentsCheckBox = new System.Windows.Forms.CheckBox();
+            this.ApprovedStudents_SubModule = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.registrationCheckBox = new System.Windows.Forms.CheckBox();
+            this.Registration_SubModule = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.facultyCheckBox = new System.Windows.Forms.CheckBox();
+            this.Faculty_Module = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.billingCheckBox = new System.Windows.Forms.CheckBox();
+            this.Billing_Module = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.studentRecordsCheckBox = new System.Windows.Forms.CheckBox();
+            this.StudentRecords_Module = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.enrollmentCheckBox = new System.Windows.Forms.CheckBox();
+            this.Enrollment_Module = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(14, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 29);
             this.label1.TabIndex = 5;
@@ -98,32 +98,28 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 30);
+            this.label2.Location = new System.Drawing.Point(23, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(48, 20);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Role ID: ";
+            this.label2.Text = "Roles:";
             // 
-            // comboBox1
+            // rolesComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Admin",
-            "Admission",
-            "Cashier",
-            "Registrar"});
-            this.comboBox1.Location = new System.Drawing.Point(90, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 17;
+            this.rolesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rolesComboBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rolesComboBox.FormattingEnabled = true;
+            this.rolesComboBox.Location = new System.Drawing.Point(84, 26);
+            this.rolesComboBox.Name = "rolesComboBox";
+            this.rolesComboBox.Size = new System.Drawing.Size(121, 28);
+            this.rolesComboBox.TabIndex = 17;
+            this.rolesComboBox.TextChanged += new System.EventHandler(this.rolesComboBox_TextChanged);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.saveChangesButton);
-            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.rolesComboBox);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 62);
@@ -142,42 +138,44 @@
             this.saveChangesButton.TabIndex = 18;
             this.saveChangesButton.Text = "Save Changes";
             this.saveChangesButton.UseVisualStyleBackColor = false;
+            this.saveChangesButton.Click += new System.EventHandler(this.saveChangesButton_Click);
             // 
             // mainPanel
             // 
-            this.mainPanel.Controls.Add(this.users_RolesCheckBox);
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Controls.Add(this.UsersRoles_SubModule);
             this.mainPanel.Controls.Add(this.label18);
-            this.mainPanel.Controls.Add(this.teachersCheckBox);
+            this.mainPanel.Controls.Add(this.Teachers_SubModule);
             this.mainPanel.Controls.Add(this.label19);
-            this.mainPanel.Controls.Add(this.level_SubjectsCheckBox);
+            this.mainPanel.Controls.Add(this.GradeLevelSubjects_SubModule);
             this.mainPanel.Controls.Add(this.label17);
-            this.mainPanel.Controls.Add(this.section_ScheduleCheckBox);
+            this.mainPanel.Controls.Add(this.SectionsSchedule_SubModule);
             this.mainPanel.Controls.Add(this.label16);
-            this.mainPanel.Controls.Add(this.paymentTypeCheckBox);
+            this.mainPanel.Controls.Add(this.PaymentType_SubModule);
             this.mainPanel.Controls.Add(this.label14);
-            this.mainPanel.Controls.Add(this.feesCheckBox);
+            this.mainPanel.Controls.Add(this.Fees_SubModule);
             this.mainPanel.Controls.Add(this.label15);
-            this.mainPanel.Controls.Add(this.academicCheckBox);
+            this.mainPanel.Controls.Add(this.Academic_Module);
             this.mainPanel.Controls.Add(this.label13);
-            this.mainPanel.Controls.Add(this.billingReportCheckBox);
+            this.mainPanel.Controls.Add(this.BillingReport_SubModule);
             this.mainPanel.Controls.Add(this.label11);
-            this.mainPanel.Controls.Add(this.managePaymentsCheckBox);
+            this.mainPanel.Controls.Add(this.ManagePayments_SubModule);
             this.mainPanel.Controls.Add(this.label12);
-            this.mainPanel.Controls.Add(this.pendingRequirementsCheckBox);
+            this.mainPanel.Controls.Add(this.PendingRequirements_SubModule);
             this.mainPanel.Controls.Add(this.label10);
-            this.mainPanel.Controls.Add(this.manageStudentsCheckBox);
+            this.mainPanel.Controls.Add(this.ManageStudents_SubModule);
             this.mainPanel.Controls.Add(this.label9);
-            this.mainPanel.Controls.Add(this.approvedStudentsCheckBox);
+            this.mainPanel.Controls.Add(this.ApprovedStudents_SubModule);
             this.mainPanel.Controls.Add(this.label8);
-            this.mainPanel.Controls.Add(this.registrationCheckBox);
+            this.mainPanel.Controls.Add(this.Registration_SubModule);
             this.mainPanel.Controls.Add(this.label7);
-            this.mainPanel.Controls.Add(this.facultyCheckBox);
+            this.mainPanel.Controls.Add(this.Faculty_Module);
             this.mainPanel.Controls.Add(this.label6);
-            this.mainPanel.Controls.Add(this.billingCheckBox);
+            this.mainPanel.Controls.Add(this.Billing_Module);
             this.mainPanel.Controls.Add(this.label5);
-            this.mainPanel.Controls.Add(this.studentRecordsCheckBox);
+            this.mainPanel.Controls.Add(this.StudentRecords_Module);
             this.mainPanel.Controls.Add(this.label4);
-            this.mainPanel.Controls.Add(this.enrollmentCheckBox);
+            this.mainPanel.Controls.Add(this.Enrollment_Module);
             this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(237, 62);
@@ -185,17 +183,17 @@
             this.mainPanel.Size = new System.Drawing.Size(1027, 999);
             this.mainPanel.TabIndex = 20;
             // 
-            // users_RolesCheckBox
+            // UsersRoles_SubModule
             // 
-            this.users_RolesCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.users_RolesCheckBox.AutoSize = true;
-            this.users_RolesCheckBox.Location = new System.Drawing.Point(239, 745);
-            this.users_RolesCheckBox.Name = "users_RolesCheckBox";
-            this.users_RolesCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.users_RolesCheckBox.TabIndex = 39;
-            this.users_RolesCheckBox.Text = "ON";
-            this.users_RolesCheckBox.UseVisualStyleBackColor = true;
-            this.users_RolesCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.UsersRoles_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.UsersRoles_SubModule.AutoSize = true;
+            this.UsersRoles_SubModule.Location = new System.Drawing.Point(239, 745);
+            this.UsersRoles_SubModule.Name = "UsersRoles_SubModule";
+            this.UsersRoles_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.UsersRoles_SubModule.TabIndex = 39;
+            this.UsersRoles_SubModule.Text = "ON";
+            this.UsersRoles_SubModule.UseVisualStyleBackColor = true;
+            this.UsersRoles_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label18
             // 
@@ -207,17 +205,17 @@
             this.label18.TabIndex = 38;
             this.label18.Text = "↪ Users and Roles:";
             // 
-            // teachersCheckBox
+            // Teachers_SubModule
             // 
-            this.teachersCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.teachersCheckBox.AutoSize = true;
-            this.teachersCheckBox.Location = new System.Drawing.Point(190, 710);
-            this.teachersCheckBox.Name = "teachersCheckBox";
-            this.teachersCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.teachersCheckBox.TabIndex = 37;
-            this.teachersCheckBox.Text = "ON";
-            this.teachersCheckBox.UseVisualStyleBackColor = true;
-            this.teachersCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Teachers_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Teachers_SubModule.AutoSize = true;
+            this.Teachers_SubModule.Location = new System.Drawing.Point(190, 710);
+            this.Teachers_SubModule.Name = "Teachers_SubModule";
+            this.Teachers_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.Teachers_SubModule.TabIndex = 37;
+            this.Teachers_SubModule.Text = "ON";
+            this.Teachers_SubModule.UseVisualStyleBackColor = true;
+            this.Teachers_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label19
             // 
@@ -229,17 +227,17 @@
             this.label19.TabIndex = 36;
             this.label19.Text = "↪ Teachers:";
             // 
-            // level_SubjectsCheckBox
+            // GradeLevelSubjects_SubModule
             // 
-            this.level_SubjectsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.level_SubjectsCheckBox.AutoSize = true;
-            this.level_SubjectsCheckBox.Location = new System.Drawing.Point(309, 611);
-            this.level_SubjectsCheckBox.Name = "level_SubjectsCheckBox";
-            this.level_SubjectsCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.level_SubjectsCheckBox.TabIndex = 35;
-            this.level_SubjectsCheckBox.Text = "ON";
-            this.level_SubjectsCheckBox.UseVisualStyleBackColor = true;
-            this.level_SubjectsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.GradeLevelSubjects_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.GradeLevelSubjects_SubModule.AutoSize = true;
+            this.GradeLevelSubjects_SubModule.Location = new System.Drawing.Point(309, 611);
+            this.GradeLevelSubjects_SubModule.Name = "GradeLevelSubjects_SubModule";
+            this.GradeLevelSubjects_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.GradeLevelSubjects_SubModule.TabIndex = 35;
+            this.GradeLevelSubjects_SubModule.Text = "ON";
+            this.GradeLevelSubjects_SubModule.UseVisualStyleBackColor = true;
+            this.GradeLevelSubjects_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label17
             // 
@@ -251,17 +249,17 @@
             this.label17.TabIndex = 34;
             this.label17.Text = "↪ Grade Level and Subjects:";
             // 
-            // section_ScheduleCheckBox
+            // SectionsSchedule_SubModule
             // 
-            this.section_ScheduleCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.section_ScheduleCheckBox.AutoSize = true;
-            this.section_ScheduleCheckBox.Location = new System.Drawing.Point(289, 568);
-            this.section_ScheduleCheckBox.Name = "section_ScheduleCheckBox";
-            this.section_ScheduleCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.section_ScheduleCheckBox.TabIndex = 33;
-            this.section_ScheduleCheckBox.Text = "ON";
-            this.section_ScheduleCheckBox.UseVisualStyleBackColor = true;
-            this.section_ScheduleCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.SectionsSchedule_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.SectionsSchedule_SubModule.AutoSize = true;
+            this.SectionsSchedule_SubModule.Location = new System.Drawing.Point(289, 568);
+            this.SectionsSchedule_SubModule.Name = "SectionsSchedule_SubModule";
+            this.SectionsSchedule_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.SectionsSchedule_SubModule.TabIndex = 33;
+            this.SectionsSchedule_SubModule.Text = "ON";
+            this.SectionsSchedule_SubModule.UseVisualStyleBackColor = true;
+            this.SectionsSchedule_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label16
             // 
@@ -273,17 +271,17 @@
             this.label16.TabIndex = 32;
             this.label16.Text = "↪ Sections and Schedule:";
             // 
-            // paymentTypeCheckBox
+            // PaymentType_SubModule
             // 
-            this.paymentTypeCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.paymentTypeCheckBox.AutoSize = true;
-            this.paymentTypeCheckBox.Location = new System.Drawing.Point(223, 528);
-            this.paymentTypeCheckBox.Name = "paymentTypeCheckBox";
-            this.paymentTypeCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.paymentTypeCheckBox.TabIndex = 31;
-            this.paymentTypeCheckBox.Text = "ON";
-            this.paymentTypeCheckBox.UseVisualStyleBackColor = true;
-            this.paymentTypeCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.PaymentType_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.PaymentType_SubModule.AutoSize = true;
+            this.PaymentType_SubModule.Location = new System.Drawing.Point(223, 528);
+            this.PaymentType_SubModule.Name = "PaymentType_SubModule";
+            this.PaymentType_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.PaymentType_SubModule.TabIndex = 31;
+            this.PaymentType_SubModule.Text = "ON";
+            this.PaymentType_SubModule.UseVisualStyleBackColor = true;
+            this.PaymentType_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label14
             // 
@@ -295,17 +293,17 @@
             this.label14.TabIndex = 30;
             this.label14.Text = "↪ Payment Type:";
             // 
-            // feesCheckBox
+            // Fees_SubModule
             // 
-            this.feesCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.feesCheckBox.AutoSize = true;
-            this.feesCheckBox.Location = new System.Drawing.Point(152, 493);
-            this.feesCheckBox.Name = "feesCheckBox";
-            this.feesCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.feesCheckBox.TabIndex = 29;
-            this.feesCheckBox.Text = "ON";
-            this.feesCheckBox.UseVisualStyleBackColor = true;
-            this.feesCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Fees_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Fees_SubModule.AutoSize = true;
+            this.Fees_SubModule.Location = new System.Drawing.Point(152, 493);
+            this.Fees_SubModule.Name = "Fees_SubModule";
+            this.Fees_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.Fees_SubModule.TabIndex = 29;
+            this.Fees_SubModule.Text = "ON";
+            this.Fees_SubModule.UseVisualStyleBackColor = true;
+            this.Fees_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label15
             // 
@@ -317,17 +315,17 @@
             this.label15.TabIndex = 28;
             this.label15.Text = "↪ Fees:";
             // 
-            // academicCheckBox
+            // Academic_Module
             // 
-            this.academicCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.academicCheckBox.AutoSize = true;
-            this.academicCheckBox.Location = new System.Drawing.Point(129, 445);
-            this.academicCheckBox.Name = "academicCheckBox";
-            this.academicCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.academicCheckBox.TabIndex = 27;
-            this.academicCheckBox.Text = "ON";
-            this.academicCheckBox.UseVisualStyleBackColor = true;
-            this.academicCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Academic_Module.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Academic_Module.AutoSize = true;
+            this.Academic_Module.Location = new System.Drawing.Point(129, 445);
+            this.Academic_Module.Name = "Academic_Module";
+            this.Academic_Module.Size = new System.Drawing.Size(33, 23);
+            this.Academic_Module.TabIndex = 27;
+            this.Academic_Module.Text = "ON";
+            this.Academic_Module.UseVisualStyleBackColor = true;
+            this.Academic_Module.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label13
             // 
@@ -339,17 +337,17 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Academic:";
             // 
-            // billingReportCheckBox
+            // BillingReport_SubModule
             // 
-            this.billingReportCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.billingReportCheckBox.AutoSize = true;
-            this.billingReportCheckBox.Location = new System.Drawing.Point(217, 387);
-            this.billingReportCheckBox.Name = "billingReportCheckBox";
-            this.billingReportCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.billingReportCheckBox.TabIndex = 25;
-            this.billingReportCheckBox.Text = "ON";
-            this.billingReportCheckBox.UseVisualStyleBackColor = true;
-            this.billingReportCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.BillingReport_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BillingReport_SubModule.AutoSize = true;
+            this.BillingReport_SubModule.Location = new System.Drawing.Point(217, 387);
+            this.BillingReport_SubModule.Name = "BillingReport_SubModule";
+            this.BillingReport_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.BillingReport_SubModule.TabIndex = 25;
+            this.BillingReport_SubModule.Text = "ON";
+            this.BillingReport_SubModule.UseVisualStyleBackColor = true;
+            this.BillingReport_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label11
             // 
@@ -361,17 +359,17 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "↪ Billing Report:";
             // 
-            // managePaymentsCheckBox
+            // ManagePayments_SubModule
             // 
-            this.managePaymentsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.managePaymentsCheckBox.AutoSize = true;
-            this.managePaymentsCheckBox.Location = new System.Drawing.Point(254, 352);
-            this.managePaymentsCheckBox.Name = "managePaymentsCheckBox";
-            this.managePaymentsCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.managePaymentsCheckBox.TabIndex = 23;
-            this.managePaymentsCheckBox.Text = "ON";
-            this.managePaymentsCheckBox.UseVisualStyleBackColor = true;
-            this.managePaymentsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.ManagePayments_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ManagePayments_SubModule.AutoSize = true;
+            this.ManagePayments_SubModule.Location = new System.Drawing.Point(254, 352);
+            this.ManagePayments_SubModule.Name = "ManagePayments_SubModule";
+            this.ManagePayments_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.ManagePayments_SubModule.TabIndex = 23;
+            this.ManagePayments_SubModule.Text = "ON";
+            this.ManagePayments_SubModule.UseVisualStyleBackColor = true;
+            this.ManagePayments_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label12
             // 
@@ -383,17 +381,17 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "↪ Manage Payments:";
             // 
-            // pendingRequirementsCheckBox
+            // PendingRequirements_SubModule
             // 
-            this.pendingRequirementsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.pendingRequirementsCheckBox.AutoSize = true;
-            this.pendingRequirementsCheckBox.Location = new System.Drawing.Point(287, 247);
-            this.pendingRequirementsCheckBox.Name = "pendingRequirementsCheckBox";
-            this.pendingRequirementsCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.pendingRequirementsCheckBox.TabIndex = 21;
-            this.pendingRequirementsCheckBox.Text = "ON";
-            this.pendingRequirementsCheckBox.UseVisualStyleBackColor = true;
-            this.pendingRequirementsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.PendingRequirements_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.PendingRequirements_SubModule.AutoSize = true;
+            this.PendingRequirements_SubModule.Location = new System.Drawing.Point(287, 247);
+            this.PendingRequirements_SubModule.Name = "PendingRequirements_SubModule";
+            this.PendingRequirements_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.PendingRequirements_SubModule.TabIndex = 21;
+            this.PendingRequirements_SubModule.Text = "ON";
+            this.PendingRequirements_SubModule.UseVisualStyleBackColor = true;
+            this.PendingRequirements_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label10
             // 
@@ -405,17 +403,17 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "↪ Pending Requirements:";
             // 
-            // manageStudentsCheckBox
+            // ManageStudents_SubModule
             // 
-            this.manageStudentsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.manageStudentsCheckBox.AutoSize = true;
-            this.manageStudentsCheckBox.Location = new System.Drawing.Point(246, 212);
-            this.manageStudentsCheckBox.Name = "manageStudentsCheckBox";
-            this.manageStudentsCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.manageStudentsCheckBox.TabIndex = 19;
-            this.manageStudentsCheckBox.Text = "ON";
-            this.manageStudentsCheckBox.UseVisualStyleBackColor = true;
-            this.manageStudentsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.ManageStudents_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ManageStudents_SubModule.AutoSize = true;
+            this.ManageStudents_SubModule.Location = new System.Drawing.Point(246, 212);
+            this.ManageStudents_SubModule.Name = "ManageStudents_SubModule";
+            this.ManageStudents_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.ManageStudents_SubModule.TabIndex = 19;
+            this.ManageStudents_SubModule.Text = "ON";
+            this.ManageStudents_SubModule.UseVisualStyleBackColor = true;
+            this.ManageStudents_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label9
             // 
@@ -427,17 +425,17 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "↪ Manage Students:";
             // 
-            // approvedStudentsCheckBox
+            // ApprovedStudents_SubModule
             // 
-            this.approvedStudentsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.approvedStudentsCheckBox.AutoSize = true;
-            this.approvedStudentsCheckBox.Location = new System.Drawing.Point(262, 102);
-            this.approvedStudentsCheckBox.Name = "approvedStudentsCheckBox";
-            this.approvedStudentsCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.approvedStudentsCheckBox.TabIndex = 17;
-            this.approvedStudentsCheckBox.Text = "ON";
-            this.approvedStudentsCheckBox.UseVisualStyleBackColor = true;
-            this.approvedStudentsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.ApprovedStudents_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ApprovedStudents_SubModule.AutoSize = true;
+            this.ApprovedStudents_SubModule.Location = new System.Drawing.Point(262, 102);
+            this.ApprovedStudents_SubModule.Name = "ApprovedStudents_SubModule";
+            this.ApprovedStudents_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.ApprovedStudents_SubModule.TabIndex = 17;
+            this.ApprovedStudents_SubModule.Text = "ON";
+            this.ApprovedStudents_SubModule.UseVisualStyleBackColor = true;
+            this.ApprovedStudents_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label8
             // 
@@ -449,17 +447,17 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "↪ Approved Students:";
             // 
-            // registrationCheckBox
+            // Registration_SubModule
             // 
-            this.registrationCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.registrationCheckBox.AutoSize = true;
-            this.registrationCheckBox.Location = new System.Drawing.Point(207, 67);
-            this.registrationCheckBox.Name = "registrationCheckBox";
-            this.registrationCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.registrationCheckBox.TabIndex = 15;
-            this.registrationCheckBox.Text = "ON";
-            this.registrationCheckBox.UseVisualStyleBackColor = true;
-            this.registrationCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Registration_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Registration_SubModule.AutoSize = true;
+            this.Registration_SubModule.Location = new System.Drawing.Point(207, 67);
+            this.Registration_SubModule.Name = "Registration_SubModule";
+            this.Registration_SubModule.Size = new System.Drawing.Size(33, 23);
+            this.Registration_SubModule.TabIndex = 15;
+            this.Registration_SubModule.Text = "ON";
+            this.Registration_SubModule.UseVisualStyleBackColor = true;
+            this.Registration_SubModule.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label7
             // 
@@ -471,17 +469,17 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "↪ Registration:";
             // 
-            // facultyCheckBox
+            // Faculty_Module
             // 
-            this.facultyCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.facultyCheckBox.AutoSize = true;
-            this.facultyCheckBox.Location = new System.Drawing.Point(113, 665);
-            this.facultyCheckBox.Name = "facultyCheckBox";
-            this.facultyCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.facultyCheckBox.TabIndex = 13;
-            this.facultyCheckBox.Text = "ON";
-            this.facultyCheckBox.UseVisualStyleBackColor = true;
-            this.facultyCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Faculty_Module.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Faculty_Module.AutoSize = true;
+            this.Faculty_Module.Location = new System.Drawing.Point(113, 665);
+            this.Faculty_Module.Name = "Faculty_Module";
+            this.Faculty_Module.Size = new System.Drawing.Size(33, 23);
+            this.Faculty_Module.TabIndex = 13;
+            this.Faculty_Module.Text = "ON";
+            this.Faculty_Module.UseVisualStyleBackColor = true;
+            this.Faculty_Module.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label6
             // 
@@ -493,17 +491,17 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Faculty:";
             // 
-            // billingCheckBox
+            // Billing_Module
             // 
-            this.billingCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.billingCheckBox.AutoSize = true;
-            this.billingCheckBox.Location = new System.Drawing.Point(101, 309);
-            this.billingCheckBox.Name = "billingCheckBox";
-            this.billingCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.billingCheckBox.TabIndex = 11;
-            this.billingCheckBox.Text = "ON";
-            this.billingCheckBox.UseVisualStyleBackColor = true;
-            this.billingCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Billing_Module.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Billing_Module.AutoSize = true;
+            this.Billing_Module.Location = new System.Drawing.Point(101, 309);
+            this.Billing_Module.Name = "Billing_Module";
+            this.Billing_Module.Size = new System.Drawing.Size(33, 23);
+            this.Billing_Module.TabIndex = 11;
+            this.Billing_Module.Text = "ON";
+            this.Billing_Module.UseVisualStyleBackColor = true;
+            this.Billing_Module.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label5
             // 
@@ -515,17 +513,17 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Billing:";
             // 
-            // studentRecordsCheckBox
+            // StudentRecords_Module
             // 
-            this.studentRecordsCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.studentRecordsCheckBox.AutoSize = true;
-            this.studentRecordsCheckBox.Location = new System.Drawing.Point(189, 161);
-            this.studentRecordsCheckBox.Name = "studentRecordsCheckBox";
-            this.studentRecordsCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.studentRecordsCheckBox.TabIndex = 9;
-            this.studentRecordsCheckBox.Text = "ON";
-            this.studentRecordsCheckBox.UseVisualStyleBackColor = true;
-            this.studentRecordsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.StudentRecords_Module.Appearance = System.Windows.Forms.Appearance.Button;
+            this.StudentRecords_Module.AutoSize = true;
+            this.StudentRecords_Module.Location = new System.Drawing.Point(189, 161);
+            this.StudentRecords_Module.Name = "StudentRecords_Module";
+            this.StudentRecords_Module.Size = new System.Drawing.Size(33, 23);
+            this.StudentRecords_Module.TabIndex = 9;
+            this.StudentRecords_Module.Text = "ON";
+            this.StudentRecords_Module.UseVisualStyleBackColor = true;
+            this.StudentRecords_Module.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label4
             // 
@@ -537,17 +535,17 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Student Records:";
             // 
-            // enrollmentCheckBox
+            // Enrollment_Module
             // 
-            this.enrollmentCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.enrollmentCheckBox.AutoSize = true;
-            this.enrollmentCheckBox.Location = new System.Drawing.Point(140, 27);
-            this.enrollmentCheckBox.Name = "enrollmentCheckBox";
-            this.enrollmentCheckBox.Size = new System.Drawing.Size(33, 23);
-            this.enrollmentCheckBox.TabIndex = 7;
-            this.enrollmentCheckBox.Text = "ON";
-            this.enrollmentCheckBox.UseVisualStyleBackColor = true;
-            this.enrollmentCheckBox.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
+            this.Enrollment_Module.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Enrollment_Module.AutoSize = true;
+            this.Enrollment_Module.Location = new System.Drawing.Point(140, 27);
+            this.Enrollment_Module.Name = "Enrollment_Module";
+            this.Enrollment_Module.Size = new System.Drawing.Size(33, 23);
+            this.Enrollment_Module.TabIndex = 7;
+            this.Enrollment_Module.Text = "ON";
+            this.Enrollment_Module.UseVisualStyleBackColor = true;
+            this.Enrollment_Module.CheckedChanged += new System.EventHandler(this.checkBox_Toggle_CheckedChanged);
             // 
             // label3
             // 
@@ -586,43 +584,43 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox rolesComboBox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button saveChangesButton;
-        private System.Windows.Forms.CheckBox enrollmentCheckBox;
-        private System.Windows.Forms.CheckBox studentRecordsCheckBox;
+        private System.Windows.Forms.CheckBox Enrollment_Module;
+        private System.Windows.Forms.CheckBox StudentRecords_Module;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox billingCheckBox;
+        private System.Windows.Forms.CheckBox Billing_Module;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox facultyCheckBox;
+        private System.Windows.Forms.CheckBox Faculty_Module;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox registrationCheckBox;
+        private System.Windows.Forms.CheckBox Registration_SubModule;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox approvedStudentsCheckBox;
+        private System.Windows.Forms.CheckBox ApprovedStudents_SubModule;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox manageStudentsCheckBox;
+        private System.Windows.Forms.CheckBox ManageStudents_SubModule;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox pendingRequirementsCheckBox;
+        private System.Windows.Forms.CheckBox PendingRequirements_SubModule;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox billingReportCheckBox;
+        private System.Windows.Forms.CheckBox BillingReport_SubModule;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox managePaymentsCheckBox;
+        private System.Windows.Forms.CheckBox ManagePayments_SubModule;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.CheckBox academicCheckBox;
+        private System.Windows.Forms.CheckBox Academic_Module;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox paymentTypeCheckBox;
+        private System.Windows.Forms.CheckBox PaymentType_SubModule;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox feesCheckBox;
+        private System.Windows.Forms.CheckBox Fees_SubModule;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox section_ScheduleCheckBox;
+        private System.Windows.Forms.CheckBox SectionsSchedule_SubModule;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox level_SubjectsCheckBox;
+        private System.Windows.Forms.CheckBox GradeLevelSubjects_SubModule;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.CheckBox users_RolesCheckBox;
+        private System.Windows.Forms.CheckBox UsersRoles_SubModule;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.CheckBox teachersCheckBox;
+        private System.Windows.Forms.CheckBox Teachers_SubModule;
         private System.Windows.Forms.Label label19;
     }
 }

@@ -76,6 +76,7 @@
             this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.studentsPanel = new System.Windows.Forms.Panel();
             this.contactPanel = new System.Windows.Forms.Panel();
             this.parentsPanel = new System.Windows.Forms.Panel();
@@ -83,7 +84,6 @@
             this.studentsInfoButton = new System.Windows.Forms.Button();
             this.contactInfoButton = new System.Windows.Forms.Button();
             this.parentsInfoButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             enrollmentStatusLabel = new System.Windows.Forms.Label();
             studFirstNameLabel = new System.Windows.Forms.Label();
             studMidNameLabel = new System.Windows.Forms.Label();
@@ -548,6 +548,21 @@
             this.panel1.Size = new System.Drawing.Size(620, 129);
             this.panel1.TabIndex = 57;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Registration.Properties.Resources.STU_LOGO;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 103);
+            this.button1.TabIndex = 55;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // studentsPanel
             // 
             this.studentsPanel.BackColor = System.Drawing.Color.LightGoldenrodYellow;
@@ -673,21 +688,6 @@
             this.parentsInfoButton.Text = "Parent\'s Information";
             this.parentsInfoButton.UseVisualStyleBackColor = false;
             this.parentsInfoButton.Click += new System.EventHandler(this.parentsInfoButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::Registration.Properties.Resources.STU_LOGO;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 103);
-            this.button1.TabIndex = 55;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // RegistrationForm
             // 

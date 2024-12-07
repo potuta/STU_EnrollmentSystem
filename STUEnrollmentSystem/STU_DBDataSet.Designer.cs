@@ -4839,6 +4839,40 @@ namespace STUEnrollmentSystem {
             
             private global::System.Data.DataColumn columnRoleName;
             
+            private global::System.Data.DataColumn columnEnrollment_Module;
+            
+            private global::System.Data.DataColumn columnRegistration_SubModule;
+            
+            private global::System.Data.DataColumn columnApprovedStudents_SubModule;
+            
+            private global::System.Data.DataColumn columnStudentRecords_Module;
+            
+            private global::System.Data.DataColumn columnManageStudents_SubModule;
+            
+            private global::System.Data.DataColumn columnPendingRequirements_SubModule;
+            
+            private global::System.Data.DataColumn columnBilling_Module;
+            
+            private global::System.Data.DataColumn columnManagePayments_SubModule;
+            
+            private global::System.Data.DataColumn columnBillingReport_SubModule;
+            
+            private global::System.Data.DataColumn columnAcademic_Module;
+            
+            private global::System.Data.DataColumn columnFees_SubModule;
+            
+            private global::System.Data.DataColumn columnPaymentType_SubModule;
+            
+            private global::System.Data.DataColumn columnSectionsSchedule_SubModule;
+            
+            private global::System.Data.DataColumn columnGradeLevelSubjects_SubModule;
+            
+            private global::System.Data.DataColumn columnFaculty_Module;
+            
+            private global::System.Data.DataColumn columnTeachers_SubModule;
+            
+            private global::System.Data.DataColumn columnUsersRoles_SubModule;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public RolesDataTable() {
@@ -4890,6 +4924,142 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Enrollment_ModuleColumn {
+                get {
+                    return this.columnEnrollment_Module;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Registration_SubModuleColumn {
+                get {
+                    return this.columnRegistration_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ApprovedStudents_SubModuleColumn {
+                get {
+                    return this.columnApprovedStudents_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StudentRecords_ModuleColumn {
+                get {
+                    return this.columnStudentRecords_Module;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ManageStudents_SubModuleColumn {
+                get {
+                    return this.columnManageStudents_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PendingRequirements_SubModuleColumn {
+                get {
+                    return this.columnPendingRequirements_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Billing_ModuleColumn {
+                get {
+                    return this.columnBilling_Module;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ManagePayments_SubModuleColumn {
+                get {
+                    return this.columnManagePayments_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BillingReport_SubModuleColumn {
+                get {
+                    return this.columnBillingReport_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Academic_ModuleColumn {
+                get {
+                    return this.columnAcademic_Module;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Fees_SubModuleColumn {
+                get {
+                    return this.columnFees_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn PaymentType_SubModuleColumn {
+                get {
+                    return this.columnPaymentType_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn SectionsSchedule_SubModuleColumn {
+                get {
+                    return this.columnSectionsSchedule_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GradeLevelSubjects_SubModuleColumn {
+                get {
+                    return this.columnGradeLevelSubjects_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Faculty_ModuleColumn {
+                get {
+                    return this.columnFaculty_Module;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Teachers_SubModuleColumn {
+                get {
+                    return this.columnTeachers_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UsersRoles_SubModuleColumn {
+                get {
+                    return this.columnUsersRoles_SubModule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4925,11 +5095,47 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RolesRow AddRolesRow(string RoleID, string RoleName) {
+            public RolesRow AddRolesRow(
+                        string RoleID, 
+                        string RoleName, 
+                        bool Enrollment_Module, 
+                        bool Registration_SubModule, 
+                        bool ApprovedStudents_SubModule, 
+                        bool StudentRecords_Module, 
+                        bool ManageStudents_SubModule, 
+                        bool PendingRequirements_SubModule, 
+                        bool Billing_Module, 
+                        bool ManagePayments_SubModule, 
+                        bool BillingReport_SubModule, 
+                        bool Academic_Module, 
+                        bool Fees_SubModule, 
+                        bool PaymentType_SubModule, 
+                        bool SectionsSchedule_SubModule, 
+                        bool GradeLevelSubjects_SubModule, 
+                        bool Faculty_Module, 
+                        bool Teachers_SubModule, 
+                        bool UsersRoles_SubModule) {
                 RolesRow rowRolesRow = ((RolesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RoleID,
-                        RoleName};
+                        RoleName,
+                        Enrollment_Module,
+                        Registration_SubModule,
+                        ApprovedStudents_SubModule,
+                        StudentRecords_Module,
+                        ManageStudents_SubModule,
+                        PendingRequirements_SubModule,
+                        Billing_Module,
+                        ManagePayments_SubModule,
+                        BillingReport_SubModule,
+                        Academic_Module,
+                        Fees_SubModule,
+                        PaymentType_SubModule,
+                        SectionsSchedule_SubModule,
+                        GradeLevelSubjects_SubModule,
+                        Faculty_Module,
+                        Teachers_SubModule,
+                        UsersRoles_SubModule};
                 rowRolesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRolesRow);
                 return rowRolesRow;
@@ -4961,6 +5167,23 @@ namespace STUEnrollmentSystem {
             internal void InitVars() {
                 this.columnRoleID = base.Columns["RoleID"];
                 this.columnRoleName = base.Columns["RoleName"];
+                this.columnEnrollment_Module = base.Columns["Enrollment_Module"];
+                this.columnRegistration_SubModule = base.Columns["Registration_SubModule"];
+                this.columnApprovedStudents_SubModule = base.Columns["ApprovedStudents_SubModule"];
+                this.columnStudentRecords_Module = base.Columns["StudentRecords_Module"];
+                this.columnManageStudents_SubModule = base.Columns["ManageStudents_SubModule"];
+                this.columnPendingRequirements_SubModule = base.Columns["PendingRequirements_SubModule"];
+                this.columnBilling_Module = base.Columns["Billing_Module"];
+                this.columnManagePayments_SubModule = base.Columns["ManagePayments_SubModule"];
+                this.columnBillingReport_SubModule = base.Columns["BillingReport_SubModule"];
+                this.columnAcademic_Module = base.Columns["Academic_Module"];
+                this.columnFees_SubModule = base.Columns["Fees_SubModule"];
+                this.columnPaymentType_SubModule = base.Columns["PaymentType_SubModule"];
+                this.columnSectionsSchedule_SubModule = base.Columns["SectionsSchedule_SubModule"];
+                this.columnGradeLevelSubjects_SubModule = base.Columns["GradeLevelSubjects_SubModule"];
+                this.columnFaculty_Module = base.Columns["Faculty_Module"];
+                this.columnTeachers_SubModule = base.Columns["Teachers_SubModule"];
+                this.columnUsersRoles_SubModule = base.Columns["UsersRoles_SubModule"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4970,6 +5193,40 @@ namespace STUEnrollmentSystem {
                 base.Columns.Add(this.columnRoleID);
                 this.columnRoleName = new global::System.Data.DataColumn("RoleName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoleName);
+                this.columnEnrollment_Module = new global::System.Data.DataColumn("Enrollment_Module", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnrollment_Module);
+                this.columnRegistration_SubModule = new global::System.Data.DataColumn("Registration_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegistration_SubModule);
+                this.columnApprovedStudents_SubModule = new global::System.Data.DataColumn("ApprovedStudents_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApprovedStudents_SubModule);
+                this.columnStudentRecords_Module = new global::System.Data.DataColumn("StudentRecords_Module", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentRecords_Module);
+                this.columnManageStudents_SubModule = new global::System.Data.DataColumn("ManageStudents_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnManageStudents_SubModule);
+                this.columnPendingRequirements_SubModule = new global::System.Data.DataColumn("PendingRequirements_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPendingRequirements_SubModule);
+                this.columnBilling_Module = new global::System.Data.DataColumn("Billing_Module", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBilling_Module);
+                this.columnManagePayments_SubModule = new global::System.Data.DataColumn("ManagePayments_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnManagePayments_SubModule);
+                this.columnBillingReport_SubModule = new global::System.Data.DataColumn("BillingReport_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBillingReport_SubModule);
+                this.columnAcademic_Module = new global::System.Data.DataColumn("Academic_Module", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAcademic_Module);
+                this.columnFees_SubModule = new global::System.Data.DataColumn("Fees_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFees_SubModule);
+                this.columnPaymentType_SubModule = new global::System.Data.DataColumn("PaymentType_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentType_SubModule);
+                this.columnSectionsSchedule_SubModule = new global::System.Data.DataColumn("SectionsSchedule_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSectionsSchedule_SubModule);
+                this.columnGradeLevelSubjects_SubModule = new global::System.Data.DataColumn("GradeLevelSubjects_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGradeLevelSubjects_SubModule);
+                this.columnFaculty_Module = new global::System.Data.DataColumn("Faculty_Module", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFaculty_Module);
+                this.columnTeachers_SubModule = new global::System.Data.DataColumn("Teachers_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeachers_SubModule);
+                this.columnUsersRoles_SubModule = new global::System.Data.DataColumn("UsersRoles_SubModule", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsersRoles_SubModule);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRoleID}, true));
                 this.columnRoleID.AllowDBNull = false;
@@ -9189,6 +9446,278 @@ namespace STUEnrollmentSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Enrollment_Module {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Enrollment_ModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Enrollment_Module\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Enrollment_ModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Registration_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Registration_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Registration_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Registration_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ApprovedStudents_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.ApprovedStudents_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApprovedStudents_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.ApprovedStudents_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool StudentRecords_Module {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.StudentRecords_ModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StudentRecords_Module\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.StudentRecords_ModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ManageStudents_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.ManageStudents_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ManageStudents_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.ManageStudents_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool PendingRequirements_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.PendingRequirements_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PendingRequirements_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.PendingRequirements_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Billing_Module {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Billing_ModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Billing_Module\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Billing_ModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool ManagePayments_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.ManagePayments_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ManagePayments_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.ManagePayments_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool BillingReport_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.BillingReport_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BillingReport_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.BillingReport_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Academic_Module {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Academic_ModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Academic_Module\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Academic_ModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Fees_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Fees_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fees_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Fees_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool PaymentType_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.PaymentType_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentType_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.PaymentType_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool SectionsSchedule_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.SectionsSchedule_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SectionsSchedule_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.SectionsSchedule_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool GradeLevelSubjects_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.GradeLevelSubjects_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GradeLevelSubjects_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.GradeLevelSubjects_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Faculty_Module {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Faculty_ModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Faculty_Module\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Faculty_ModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Teachers_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.Teachers_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Teachers_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.Teachers_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool UsersRoles_SubModule {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRoles.UsersRoles_SubModuleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UsersRoles_SubModule\' in table \'Roles\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRoles.UsersRoles_SubModuleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRoleNameNull() {
                 return this.IsNull(this.tableRoles.RoleNameColumn);
             }
@@ -9197,6 +9726,210 @@ namespace STUEnrollmentSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRoleNameNull() {
                 this[this.tableRoles.RoleNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEnrollment_ModuleNull() {
+                return this.IsNull(this.tableRoles.Enrollment_ModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEnrollment_ModuleNull() {
+                this[this.tableRoles.Enrollment_ModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRegistration_SubModuleNull() {
+                return this.IsNull(this.tableRoles.Registration_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRegistration_SubModuleNull() {
+                this[this.tableRoles.Registration_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsApprovedStudents_SubModuleNull() {
+                return this.IsNull(this.tableRoles.ApprovedStudents_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetApprovedStudents_SubModuleNull() {
+                this[this.tableRoles.ApprovedStudents_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStudentRecords_ModuleNull() {
+                return this.IsNull(this.tableRoles.StudentRecords_ModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStudentRecords_ModuleNull() {
+                this[this.tableRoles.StudentRecords_ModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsManageStudents_SubModuleNull() {
+                return this.IsNull(this.tableRoles.ManageStudents_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetManageStudents_SubModuleNull() {
+                this[this.tableRoles.ManageStudents_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPendingRequirements_SubModuleNull() {
+                return this.IsNull(this.tableRoles.PendingRequirements_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPendingRequirements_SubModuleNull() {
+                this[this.tableRoles.PendingRequirements_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBilling_ModuleNull() {
+                return this.IsNull(this.tableRoles.Billing_ModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBilling_ModuleNull() {
+                this[this.tableRoles.Billing_ModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsManagePayments_SubModuleNull() {
+                return this.IsNull(this.tableRoles.ManagePayments_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetManagePayments_SubModuleNull() {
+                this[this.tableRoles.ManagePayments_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBillingReport_SubModuleNull() {
+                return this.IsNull(this.tableRoles.BillingReport_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBillingReport_SubModuleNull() {
+                this[this.tableRoles.BillingReport_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAcademic_ModuleNull() {
+                return this.IsNull(this.tableRoles.Academic_ModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAcademic_ModuleNull() {
+                this[this.tableRoles.Academic_ModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFees_SubModuleNull() {
+                return this.IsNull(this.tableRoles.Fees_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFees_SubModuleNull() {
+                this[this.tableRoles.Fees_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPaymentType_SubModuleNull() {
+                return this.IsNull(this.tableRoles.PaymentType_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPaymentType_SubModuleNull() {
+                this[this.tableRoles.PaymentType_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSectionsSchedule_SubModuleNull() {
+                return this.IsNull(this.tableRoles.SectionsSchedule_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSectionsSchedule_SubModuleNull() {
+                this[this.tableRoles.SectionsSchedule_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGradeLevelSubjects_SubModuleNull() {
+                return this.IsNull(this.tableRoles.GradeLevelSubjects_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGradeLevelSubjects_SubModuleNull() {
+                this[this.tableRoles.GradeLevelSubjects_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFaculty_ModuleNull() {
+                return this.IsNull(this.tableRoles.Faculty_ModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFaculty_ModuleNull() {
+                this[this.tableRoles.Faculty_ModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTeachers_SubModuleNull() {
+                return this.IsNull(this.tableRoles.Teachers_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTeachers_SubModuleNull() {
+                this[this.tableRoles.Teachers_SubModuleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUsersRoles_SubModuleNull() {
+                return this.IsNull(this.tableRoles.UsersRoles_SubModuleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUsersRoles_SubModuleNull() {
+                this[this.tableRoles.UsersRoles_SubModuleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17927,32 +18660,228 @@ SELECT PriceCode, GradeCode, TuitionFee, Books, LaboratoryFee, Uniform, Miscella
             tableMapping.DataSetTable = "Roles";
             tableMapping.ColumnMappings.Add("RoleID", "RoleID");
             tableMapping.ColumnMappings.Add("RoleName", "RoleName");
+            tableMapping.ColumnMappings.Add("Enrollment_Module", "Enrollment_Module");
+            tableMapping.ColumnMappings.Add("Registration_SubModule", "Registration_SubModule");
+            tableMapping.ColumnMappings.Add("ApprovedStudents_SubModule", "ApprovedStudents_SubModule");
+            tableMapping.ColumnMappings.Add("StudentRecords_Module", "StudentRecords_Module");
+            tableMapping.ColumnMappings.Add("ManageStudents_SubModule", "ManageStudents_SubModule");
+            tableMapping.ColumnMappings.Add("PendingRequirements_SubModule", "PendingRequirements_SubModule");
+            tableMapping.ColumnMappings.Add("Billing_Module", "Billing_Module");
+            tableMapping.ColumnMappings.Add("ManagePayments_SubModule", "ManagePayments_SubModule");
+            tableMapping.ColumnMappings.Add("BillingReport_SubModule", "BillingReport_SubModule");
+            tableMapping.ColumnMappings.Add("Academic_Module", "Academic_Module");
+            tableMapping.ColumnMappings.Add("Fees_SubModule", "Fees_SubModule");
+            tableMapping.ColumnMappings.Add("PaymentType_SubModule", "PaymentType_SubModule");
+            tableMapping.ColumnMappings.Add("SectionsSchedule_SubModule", "SectionsSchedule_SubModule");
+            tableMapping.ColumnMappings.Add("GradeLevelSubjects_SubModule", "GradeLevelSubjects_SubModule");
+            tableMapping.ColumnMappings.Add("Faculty_Module", "Faculty_Module");
+            tableMapping.ColumnMappings.Add("Teachers_SubModule", "Teachers_SubModule");
+            tableMapping.ColumnMappings.Add("UsersRoles_SubModule", "UsersRoles_SubModule");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Roles] WHERE (([RoleID] = @Original_RoleID) AND ((@IsNull_Role" +
-                "Name = 1 AND [RoleName] IS NULL) OR ([RoleName] = @Original_RoleName)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Roles] WHERE (([RoleID] = @Original_RoleID) AND ((@IsNull_RoleName =" +
+                " 1 AND [RoleName] IS NULL) OR ([RoleName] = @Original_RoleName)) AND ((@IsNull_A" +
+                "cademic_Module = 1 AND [Academic_Module] IS NULL) OR ([Academic_Module] = @Origi" +
+                "nal_Academic_Module)) AND ((@IsNull_ApprovedStudents_SubModule = 1 AND [Approved" +
+                "Students_SubModule] IS NULL) OR ([ApprovedStudents_SubModule] = @Original_Approv" +
+                "edStudents_SubModule)) AND ((@IsNull_BillingReport_SubModule = 1 AND [BillingRep" +
+                "ort_SubModule] IS NULL) OR ([BillingReport_SubModule] = @Original_BillingReport_" +
+                "SubModule)) AND ((@IsNull_Billing_Module = 1 AND [Billing_Module] IS NULL) OR ([" +
+                "Billing_Module] = @Original_Billing_Module)) AND ((@IsNull_Enrollment_Module = 1" +
+                " AND [Enrollment_Module] IS NULL) OR ([Enrollment_Module] = @Original_Enrollment" +
+                "_Module)) AND ((@IsNull_Faculty_Module = 1 AND [Faculty_Module] IS NULL) OR ([Fa" +
+                "culty_Module] = @Original_Faculty_Module)) AND ((@IsNull_Fees_SubModule = 1 AND " +
+                "[Fees_SubModule] IS NULL) OR ([Fees_SubModule] = @Original_Fees_SubModule)) AND " +
+                "((@IsNull_GradeLevelSubjects_SubModule = 1 AND [GradeLevelSubjects_SubModule] IS" +
+                " NULL) OR ([GradeLevelSubjects_SubModule] = @Original_GradeLevelSubjects_SubModu" +
+                "le)) AND ((@IsNull_ManagePayments_SubModule = 1 AND [ManagePayments_SubModule] I" +
+                "S NULL) OR ([ManagePayments_SubModule] = @Original_ManagePayments_SubModule)) AN" +
+                "D ((@IsNull_ManageStudents_SubModule = 1 AND [ManageStudents_SubModule] IS NULL)" +
+                " OR ([ManageStudents_SubModule] = @Original_ManageStudents_SubModule)) AND ((@Is" +
+                "Null_PaymentType_SubModule = 1 AND [PaymentType_SubModule] IS NULL) OR ([Payment" +
+                "Type_SubModule] = @Original_PaymentType_SubModule)) AND ((@IsNull_PendingRequire" +
+                "ments_SubModule = 1 AND [PendingRequirements_SubModule] IS NULL) OR ([PendingReq" +
+                "uirements_SubModule] = @Original_PendingRequirements_SubModule)) AND ((@IsNull_R" +
+                "egistration_SubModule = 1 AND [Registration_SubModule] IS NULL) OR ([Registratio" +
+                "n_SubModule] = @Original_Registration_SubModule)) AND ((@IsNull_SectionsSchedule" +
+                "_SubModule = 1 AND [SectionsSchedule_SubModule] IS NULL) OR ([SectionsSchedule_S" +
+                "ubModule] = @Original_SectionsSchedule_SubModule)) AND ((@IsNull_StudentRecords_" +
+                "Module = 1 AND [StudentRecords_Module] IS NULL) OR ([StudentRecords_Module] = @O" +
+                "riginal_StudentRecords_Module)) AND ((@IsNull_Teachers_SubModule = 1 AND [Teache" +
+                "rs_SubModule] IS NULL) OR ([Teachers_SubModule] = @Original_Teachers_SubModule))" +
+                " AND ((@IsNull_UsersRoles_SubModule = 1 AND [UsersRoles_SubModule] IS NULL) OR (" +
+                "[UsersRoles_SubModule] = @Original_UsersRoles_SubModule)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RoleID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RoleName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RoleName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Academic_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Academic_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Academic_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Academic_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ApprovedStudents_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedStudents_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApprovedStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedStudents_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BillingReport_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BillingReport_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BillingReport_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BillingReport_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Billing_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Billing_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Billing_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Billing_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enrollment_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enrollment_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enrollment_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enrollment_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Faculty_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Faculty_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Faculty_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Faculty_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fees_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fees_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fees_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fees_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GradeLevelSubjects_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevelSubjects_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GradeLevelSubjects_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevelSubjects_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ManagePayments_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagePayments_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManagePayments_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagePayments_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ManageStudents_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManageStudents_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManageStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManageStudents_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentType_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PendingRequirements_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PendingRequirements_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PendingRequirements_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PendingRequirements_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Registration_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Registration_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Registration_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Registration_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SectionsSchedule_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionsSchedule_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SectionsSchedule_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionsSchedule_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StudentRecords_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentRecords_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentRecords_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentRecords_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Teachers_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teachers_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Teachers_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teachers_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UsersRoles_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UsersRoles_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UsersRoles_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UsersRoles_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Roles] ([RoleID], [RoleName]) VALUES (@RoleID, @RoleName);\r\nSE" +
-                "LECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Roles] ([RoleID], [RoleName], [Academic_Module], [ApprovedStudents_SubModule], [BillingReport_SubModule], [Billing_Module], [Enrollment_Module], [Faculty_Module], [Fees_SubModule], [GradeLevelSubjects_SubModule], [ManagePayments_SubModule], [ManageStudents_SubModule], [PaymentType_SubModule], [PendingRequirements_SubModule], [Registration_SubModule], [SectionsSchedule_SubModule], [StudentRecords_Module], [Teachers_SubModule], [UsersRoles_SubModule]) VALUES (@RoleID, @RoleName, @Academic_Module, @ApprovedStudents_SubModule, @BillingReport_SubModule, @Billing_Module, @Enrollment_Module, @Faculty_Module, @Fees_SubModule, @GradeLevelSubjects_SubModule, @ManagePayments_SubModule, @ManageStudents_SubModule, @PaymentType_SubModule, @PendingRequirements_SubModule, @Registration_SubModule, @SectionsSchedule_SubModule, @StudentRecords_Module, @Teachers_SubModule, @UsersRoles_SubModule);
+SELECT RoleID, RoleName, Academic_Module, ApprovedStudents_SubModule, BillingReport_SubModule, Billing_Module, Enrollment_Module, Faculty_Module, Fees_SubModule, GradeLevelSubjects_SubModule, ManagePayments_SubModule, ManageStudents_SubModule, PaymentType_SubModule, PendingRequirements_SubModule, Registration_SubModule, SectionsSchedule_SubModule, StudentRecords_Module, Teachers_SubModule, UsersRoles_SubModule FROM Roles WHERE (RoleID = @RoleID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Academic_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Academic_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovedStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedStudents_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BillingReport_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BillingReport_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Billing_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Billing_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enrollment_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enrollment_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Faculty_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Faculty_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fees_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fees_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GradeLevelSubjects_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevelSubjects_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagePayments_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagePayments_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManageStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManageStudents_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PendingRequirements_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PendingRequirements_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Registration_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Registration_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SectionsSchedule_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionsSchedule_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentRecords_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentRecords_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teachers_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teachers_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UsersRoles_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UsersRoles_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Roles] SET [RoleID] = @RoleID, [RoleName] = @RoleName WHERE (([RoleID] = @Original_RoleID) AND ((@IsNull_RoleName = 1 AND [RoleName] IS NULL) OR ([RoleName] = @Original_RoleName)));
-SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Roles] SET [RoleID] = @RoleID, [RoleName] = @RoleName, [Academic_Module] " +
+                "= @Academic_Module, [ApprovedStudents_SubModule] = @ApprovedStudents_SubModule, " +
+                "[BillingReport_SubModule] = @BillingReport_SubModule, [Billing_Module] = @Billin" +
+                "g_Module, [Enrollment_Module] = @Enrollment_Module, [Faculty_Module] = @Faculty_" +
+                "Module, [Fees_SubModule] = @Fees_SubModule, [GradeLevelSubjects_SubModule] = @Gr" +
+                "adeLevelSubjects_SubModule, [ManagePayments_SubModule] = @ManagePayments_SubModu" +
+                "le, [ManageStudents_SubModule] = @ManageStudents_SubModule, [PaymentType_SubModu" +
+                "le] = @PaymentType_SubModule, [PendingRequirements_SubModule] = @PendingRequirem" +
+                "ents_SubModule, [Registration_SubModule] = @Registration_SubModule, [SectionsSch" +
+                "edule_SubModule] = @SectionsSchedule_SubModule, [StudentRecords_Module] = @Stude" +
+                "ntRecords_Module, [Teachers_SubModule] = @Teachers_SubModule, [UsersRoles_SubMod" +
+                "ule] = @UsersRoles_SubModule WHERE (([RoleID] = @Original_RoleID) AND ((@IsNull_" +
+                "RoleName = 1 AND [RoleName] IS NULL) OR ([RoleName] = @Original_RoleName)) AND (" +
+                "(@IsNull_Academic_Module = 1 AND [Academic_Module] IS NULL) OR ([Academic_Module" +
+                "] = @Original_Academic_Module)) AND ((@IsNull_ApprovedStudents_SubModule = 1 AND" +
+                " [ApprovedStudents_SubModule] IS NULL) OR ([ApprovedStudents_SubModule] = @Origi" +
+                "nal_ApprovedStudents_SubModule)) AND ((@IsNull_BillingReport_SubModule = 1 AND [" +
+                "BillingReport_SubModule] IS NULL) OR ([BillingReport_SubModule] = @Original_Bill" +
+                "ingReport_SubModule)) AND ((@IsNull_Billing_Module = 1 AND [Billing_Module] IS N" +
+                "ULL) OR ([Billing_Module] = @Original_Billing_Module)) AND ((@IsNull_Enrollment_" +
+                "Module = 1 AND [Enrollment_Module] IS NULL) OR ([Enrollment_Module] = @Original_" +
+                "Enrollment_Module)) AND ((@IsNull_Faculty_Module = 1 AND [Faculty_Module] IS NUL" +
+                "L) OR ([Faculty_Module] = @Original_Faculty_Module)) AND ((@IsNull_Fees_SubModul" +
+                "e = 1 AND [Fees_SubModule] IS NULL) OR ([Fees_SubModule] = @Original_Fees_SubMod" +
+                "ule)) AND ((@IsNull_GradeLevelSubjects_SubModule = 1 AND [GradeLevelSubjects_Sub" +
+                "Module] IS NULL) OR ([GradeLevelSubjects_SubModule] = @Original_GradeLevelSubjec" +
+                "ts_SubModule)) AND ((@IsNull_ManagePayments_SubModule = 1 AND [ManagePayments_Su" +
+                "bModule] IS NULL) OR ([ManagePayments_SubModule] = @Original_ManagePayments_SubM" +
+                "odule)) AND ((@IsNull_ManageStudents_SubModule = 1 AND [ManageStudents_SubModule" +
+                "] IS NULL) OR ([ManageStudents_SubModule] = @Original_ManageStudents_SubModule))" +
+                " AND ((@IsNull_PaymentType_SubModule = 1 AND [PaymentType_SubModule] IS NULL) OR" +
+                " ([PaymentType_SubModule] = @Original_PaymentType_SubModule)) AND ((@IsNull_Pend" +
+                "ingRequirements_SubModule = 1 AND [PendingRequirements_SubModule] IS NULL) OR ([" +
+                "PendingRequirements_SubModule] = @Original_PendingRequirements_SubModule)) AND (" +
+                "(@IsNull_Registration_SubModule = 1 AND [Registration_SubModule] IS NULL) OR ([R" +
+                "egistration_SubModule] = @Original_Registration_SubModule)) AND ((@IsNull_Sectio" +
+                "nsSchedule_SubModule = 1 AND [SectionsSchedule_SubModule] IS NULL) OR ([Sections" +
+                "Schedule_SubModule] = @Original_SectionsSchedule_SubModule)) AND ((@IsNull_Stude" +
+                "ntRecords_Module = 1 AND [StudentRecords_Module] IS NULL) OR ([StudentRecords_Mo" +
+                "dule] = @Original_StudentRecords_Module)) AND ((@IsNull_Teachers_SubModule = 1 A" +
+                "ND [Teachers_SubModule] IS NULL) OR ([Teachers_SubModule] = @Original_Teachers_S" +
+                "ubModule)) AND ((@IsNull_UsersRoles_SubModule = 1 AND [UsersRoles_SubModule] IS " +
+                "NULL) OR ([UsersRoles_SubModule] = @Original_UsersRoles_SubModule)));\r\nSELECT Ro" +
+                "leID, RoleName, Academic_Module, ApprovedStudents_SubModule, BillingReport_SubMo" +
+                "dule, Billing_Module, Enrollment_Module, Faculty_Module, Fees_SubModule, GradeLe" +
+                "velSubjects_SubModule, ManagePayments_SubModule, ManageStudents_SubModule, Payme" +
+                "ntType_SubModule, PendingRequirements_SubModule, Registration_SubModule, Section" +
+                "sSchedule_SubModule, StudentRecords_Module, Teachers_SubModule, UsersRoles_SubMo" +
+                "dule FROM Roles WHERE (RoleID = @RoleID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Academic_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Academic_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApprovedStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedStudents_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BillingReport_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BillingReport_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Billing_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Billing_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enrollment_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enrollment_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Faculty_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Faculty_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fees_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fees_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GradeLevelSubjects_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevelSubjects_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManagePayments_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagePayments_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ManageStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManageStudents_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PendingRequirements_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PendingRequirements_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Registration_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Registration_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SectionsSchedule_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionsSchedule_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentRecords_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentRecords_Module", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Teachers_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teachers_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UsersRoles_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UsersRoles_SubModule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RoleID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RoleName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RoleName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RoleName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Academic_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Academic_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Academic_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Academic_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ApprovedStudents_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedStudents_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ApprovedStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApprovedStudents_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BillingReport_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BillingReport_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BillingReport_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BillingReport_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Billing_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Billing_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Billing_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Billing_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enrollment_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enrollment_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enrollment_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enrollment_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Faculty_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Faculty_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Faculty_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Faculty_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fees_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fees_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fees_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fees_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GradeLevelSubjects_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevelSubjects_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GradeLevelSubjects_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GradeLevelSubjects_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ManagePayments_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagePayments_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManagePayments_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManagePayments_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ManageStudents_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManageStudents_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ManageStudents_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ManageStudents_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentType_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentType_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentType_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PendingRequirements_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PendingRequirements_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PendingRequirements_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PendingRequirements_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Registration_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Registration_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Registration_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Registration_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SectionsSchedule_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionsSchedule_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SectionsSchedule_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SectionsSchedule_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_StudentRecords_Module", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentRecords_Module", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentRecords_Module", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StudentRecords_Module", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Teachers_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teachers_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Teachers_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Teachers_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UsersRoles_SubModule", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UsersRoles_SubModule", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UsersRoles_SubModule", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UsersRoles_SubModule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17968,7 +18897,7 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RoleID, RoleName FROM dbo.Roles";
+            this._commandCollection[0].CommandText = @"SELECT RoleID, RoleName, Academic_Module, ApprovedStudents_SubModule, BillingReport_SubModule, Billing_Module, Enrollment_Module, Faculty_Module, Fees_SubModule, GradeLevelSubjects_SubModule, ManagePayments_SubModule, ManageStudents_SubModule, PaymentType_SubModule, PendingRequirements_SubModule, Registration_SubModule, SectionsSchedule_SubModule, StudentRecords_Module, Teachers_SubModule, UsersRoles_SubModule FROM Roles";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -18029,7 +18958,26 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_RoleID, string Original_RoleName) {
+        public virtual int Delete(
+                    string Original_RoleID, 
+                    string Original_RoleName, 
+                    global::System.Nullable<bool> Original_Academic_Module, 
+                    global::System.Nullable<bool> Original_ApprovedStudents_SubModule, 
+                    global::System.Nullable<bool> Original_BillingReport_SubModule, 
+                    global::System.Nullable<bool> Original_Billing_Module, 
+                    global::System.Nullable<bool> Original_Enrollment_Module, 
+                    global::System.Nullable<bool> Original_Faculty_Module, 
+                    global::System.Nullable<bool> Original_Fees_SubModule, 
+                    global::System.Nullable<bool> Original_GradeLevelSubjects_SubModule, 
+                    global::System.Nullable<bool> Original_ManagePayments_SubModule, 
+                    global::System.Nullable<bool> Original_ManageStudents_SubModule, 
+                    global::System.Nullable<bool> Original_PaymentType_SubModule, 
+                    global::System.Nullable<bool> Original_PendingRequirements_SubModule, 
+                    global::System.Nullable<bool> Original_Registration_SubModule, 
+                    global::System.Nullable<bool> Original_SectionsSchedule_SubModule, 
+                    global::System.Nullable<bool> Original_StudentRecords_Module, 
+                    global::System.Nullable<bool> Original_Teachers_SubModule, 
+                    global::System.Nullable<bool> Original_UsersRoles_SubModule) {
             if ((Original_RoleID == null)) {
                 throw new global::System.ArgumentNullException("Original_RoleID");
             }
@@ -18043,6 +18991,142 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_RoleName));
+            }
+            if ((Original_Academic_Module.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_Academic_Module.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ApprovedStudents_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_ApprovedStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BillingReport_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_BillingReport_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Billing_Module.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_Billing_Module.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Enrollment_Module.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_Enrollment_Module.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Faculty_Module.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_Faculty_Module.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fees_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_Fees_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_GradeLevelSubjects_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((bool)(Original_GradeLevelSubjects_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ManagePayments_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((bool)(Original_ManagePayments_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ManageStudents_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((bool)(Original_ManageStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PaymentType_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((bool)(Original_PaymentType_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PendingRequirements_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((bool)(Original_PendingRequirements_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Registration_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((bool)(Original_Registration_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SectionsSchedule_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((bool)(Original_SectionsSchedule_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_StudentRecords_Module.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((bool)(Original_StudentRecords_Module.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Teachers_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((bool)(Original_Teachers_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UsersRoles_SubModule.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((bool)(Original_UsersRoles_SubModule.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18064,7 +19148,26 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string RoleID, string RoleName) {
+        public virtual int Insert(
+                    string RoleID, 
+                    string RoleName, 
+                    global::System.Nullable<bool> Academic_Module, 
+                    global::System.Nullable<bool> ApprovedStudents_SubModule, 
+                    global::System.Nullable<bool> BillingReport_SubModule, 
+                    global::System.Nullable<bool> Billing_Module, 
+                    global::System.Nullable<bool> Enrollment_Module, 
+                    global::System.Nullable<bool> Faculty_Module, 
+                    global::System.Nullable<bool> Fees_SubModule, 
+                    global::System.Nullable<bool> GradeLevelSubjects_SubModule, 
+                    global::System.Nullable<bool> ManagePayments_SubModule, 
+                    global::System.Nullable<bool> ManageStudents_SubModule, 
+                    global::System.Nullable<bool> PaymentType_SubModule, 
+                    global::System.Nullable<bool> PendingRequirements_SubModule, 
+                    global::System.Nullable<bool> Registration_SubModule, 
+                    global::System.Nullable<bool> SectionsSchedule_SubModule, 
+                    global::System.Nullable<bool> StudentRecords_Module, 
+                    global::System.Nullable<bool> Teachers_SubModule, 
+                    global::System.Nullable<bool> UsersRoles_SubModule) {
             if ((RoleID == null)) {
                 throw new global::System.ArgumentNullException("RoleID");
             }
@@ -18076,6 +19179,108 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(RoleName));
+            }
+            if ((Academic_Module.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Academic_Module.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((ApprovedStudents_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(ApprovedStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((BillingReport_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(BillingReport_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Billing_Module.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Billing_Module.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Enrollment_Module.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Enrollment_Module.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Faculty_Module.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Faculty_Module.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Fees_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Fees_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((GradeLevelSubjects_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(GradeLevelSubjects_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((ManagePayments_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(ManagePayments_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((ManageStudents_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((bool)(ManageStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((PaymentType_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((bool)(PaymentType_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((PendingRequirements_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((bool)(PendingRequirements_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Registration_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((bool)(Registration_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((SectionsSchedule_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(SectionsSchedule_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((StudentRecords_Module.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((bool)(StudentRecords_Module.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Teachers_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((bool)(Teachers_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((UsersRoles_SubModule.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((bool)(UsersRoles_SubModule.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18097,7 +19302,45 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string RoleID, string RoleName, string Original_RoleID, string Original_RoleName) {
+        public virtual int Update(
+                    string RoleID, 
+                    string RoleName, 
+                    global::System.Nullable<bool> Academic_Module, 
+                    global::System.Nullable<bool> ApprovedStudents_SubModule, 
+                    global::System.Nullable<bool> BillingReport_SubModule, 
+                    global::System.Nullable<bool> Billing_Module, 
+                    global::System.Nullable<bool> Enrollment_Module, 
+                    global::System.Nullable<bool> Faculty_Module, 
+                    global::System.Nullable<bool> Fees_SubModule, 
+                    global::System.Nullable<bool> GradeLevelSubjects_SubModule, 
+                    global::System.Nullable<bool> ManagePayments_SubModule, 
+                    global::System.Nullable<bool> ManageStudents_SubModule, 
+                    global::System.Nullable<bool> PaymentType_SubModule, 
+                    global::System.Nullable<bool> PendingRequirements_SubModule, 
+                    global::System.Nullable<bool> Registration_SubModule, 
+                    global::System.Nullable<bool> SectionsSchedule_SubModule, 
+                    global::System.Nullable<bool> StudentRecords_Module, 
+                    global::System.Nullable<bool> Teachers_SubModule, 
+                    global::System.Nullable<bool> UsersRoles_SubModule, 
+                    string Original_RoleID, 
+                    string Original_RoleName, 
+                    global::System.Nullable<bool> Original_Academic_Module, 
+                    global::System.Nullable<bool> Original_ApprovedStudents_SubModule, 
+                    global::System.Nullable<bool> Original_BillingReport_SubModule, 
+                    global::System.Nullable<bool> Original_Billing_Module, 
+                    global::System.Nullable<bool> Original_Enrollment_Module, 
+                    global::System.Nullable<bool> Original_Faculty_Module, 
+                    global::System.Nullable<bool> Original_Fees_SubModule, 
+                    global::System.Nullable<bool> Original_GradeLevelSubjects_SubModule, 
+                    global::System.Nullable<bool> Original_ManagePayments_SubModule, 
+                    global::System.Nullable<bool> Original_ManageStudents_SubModule, 
+                    global::System.Nullable<bool> Original_PaymentType_SubModule, 
+                    global::System.Nullable<bool> Original_PendingRequirements_SubModule, 
+                    global::System.Nullable<bool> Original_Registration_SubModule, 
+                    global::System.Nullable<bool> Original_SectionsSchedule_SubModule, 
+                    global::System.Nullable<bool> Original_StudentRecords_Module, 
+                    global::System.Nullable<bool> Original_Teachers_SubModule, 
+                    global::System.Nullable<bool> Original_UsersRoles_SubModule) {
             if ((RoleID == null)) {
                 throw new global::System.ArgumentNullException("RoleID");
             }
@@ -18110,19 +19353,257 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(RoleName));
             }
+            if ((Academic_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Academic_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((ApprovedStudents_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(ApprovedStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((BillingReport_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(BillingReport_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Billing_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Billing_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Enrollment_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Enrollment_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Faculty_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Faculty_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Fees_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Fees_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((GradeLevelSubjects_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(GradeLevelSubjects_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((ManagePayments_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(ManagePayments_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((ManageStudents_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(ManageStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((PaymentType_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(PaymentType_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((PendingRequirements_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(PendingRequirements_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Registration_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(Registration_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((SectionsSchedule_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(SectionsSchedule_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((StudentRecords_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(StudentRecords_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Teachers_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Teachers_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((UsersRoles_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(UsersRoles_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
             if ((Original_RoleID == null)) {
                 throw new global::System.ArgumentNullException("Original_RoleID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_RoleID));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_RoleID));
             }
             if ((Original_RoleName == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_RoleName));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_RoleName));
+            }
+            if ((Original_Academic_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((bool)(Original_Academic_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ApprovedStudents_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(Original_ApprovedStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BillingReport_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((bool)(Original_BillingReport_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Billing_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((bool)(Original_Billing_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Enrollment_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((bool)(Original_Enrollment_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Faculty_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((bool)(Original_Faculty_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fees_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((bool)(Original_Fees_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_GradeLevelSubjects_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((bool)(Original_GradeLevelSubjects_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ManagePayments_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((bool)(Original_ManagePayments_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ManageStudents_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((bool)(Original_ManageStudents_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PaymentType_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((bool)(Original_PaymentType_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PendingRequirements_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((bool)(Original_PendingRequirements_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Registration_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((bool)(Original_Registration_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SectionsSchedule_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((bool)(Original_SectionsSchedule_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            if ((Original_StudentRecords_Module.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_StudentRecords_Module.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Teachers_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(Original_Teachers_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UsersRoles_SubModule.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((bool)(Original_UsersRoles_SubModule.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -18144,8 +19625,45 @@ SELECT RoleID, RoleName FROM Roles WHERE (RoleID = @RoleID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string RoleName, string Original_RoleID, string Original_RoleName) {
-            return this.Update(Original_RoleID, RoleName, Original_RoleID, Original_RoleName);
+        public virtual int Update(
+                    string RoleName, 
+                    global::System.Nullable<bool> Academic_Module, 
+                    global::System.Nullable<bool> ApprovedStudents_SubModule, 
+                    global::System.Nullable<bool> BillingReport_SubModule, 
+                    global::System.Nullable<bool> Billing_Module, 
+                    global::System.Nullable<bool> Enrollment_Module, 
+                    global::System.Nullable<bool> Faculty_Module, 
+                    global::System.Nullable<bool> Fees_SubModule, 
+                    global::System.Nullable<bool> GradeLevelSubjects_SubModule, 
+                    global::System.Nullable<bool> ManagePayments_SubModule, 
+                    global::System.Nullable<bool> ManageStudents_SubModule, 
+                    global::System.Nullable<bool> PaymentType_SubModule, 
+                    global::System.Nullable<bool> PendingRequirements_SubModule, 
+                    global::System.Nullable<bool> Registration_SubModule, 
+                    global::System.Nullable<bool> SectionsSchedule_SubModule, 
+                    global::System.Nullable<bool> StudentRecords_Module, 
+                    global::System.Nullable<bool> Teachers_SubModule, 
+                    global::System.Nullable<bool> UsersRoles_SubModule, 
+                    string Original_RoleID, 
+                    string Original_RoleName, 
+                    global::System.Nullable<bool> Original_Academic_Module, 
+                    global::System.Nullable<bool> Original_ApprovedStudents_SubModule, 
+                    global::System.Nullable<bool> Original_BillingReport_SubModule, 
+                    global::System.Nullable<bool> Original_Billing_Module, 
+                    global::System.Nullable<bool> Original_Enrollment_Module, 
+                    global::System.Nullable<bool> Original_Faculty_Module, 
+                    global::System.Nullable<bool> Original_Fees_SubModule, 
+                    global::System.Nullable<bool> Original_GradeLevelSubjects_SubModule, 
+                    global::System.Nullable<bool> Original_ManagePayments_SubModule, 
+                    global::System.Nullable<bool> Original_ManageStudents_SubModule, 
+                    global::System.Nullable<bool> Original_PaymentType_SubModule, 
+                    global::System.Nullable<bool> Original_PendingRequirements_SubModule, 
+                    global::System.Nullable<bool> Original_Registration_SubModule, 
+                    global::System.Nullable<bool> Original_SectionsSchedule_SubModule, 
+                    global::System.Nullable<bool> Original_StudentRecords_Module, 
+                    global::System.Nullable<bool> Original_Teachers_SubModule, 
+                    global::System.Nullable<bool> Original_UsersRoles_SubModule) {
+            return this.Update(Original_RoleID, RoleName, Academic_Module, ApprovedStudents_SubModule, BillingReport_SubModule, Billing_Module, Enrollment_Module, Faculty_Module, Fees_SubModule, GradeLevelSubjects_SubModule, ManagePayments_SubModule, ManageStudents_SubModule, PaymentType_SubModule, PendingRequirements_SubModule, Registration_SubModule, SectionsSchedule_SubModule, StudentRecords_Module, Teachers_SubModule, UsersRoles_SubModule, Original_RoleID, Original_RoleName, Original_Academic_Module, Original_ApprovedStudents_SubModule, Original_BillingReport_SubModule, Original_Billing_Module, Original_Enrollment_Module, Original_Faculty_Module, Original_Fees_SubModule, Original_GradeLevelSubjects_SubModule, Original_ManagePayments_SubModule, Original_ManageStudents_SubModule, Original_PaymentType_SubModule, Original_PendingRequirements_SubModule, Original_Registration_SubModule, Original_SectionsSchedule_SubModule, Original_StudentRecords_Module, Original_Teachers_SubModule, Original_UsersRoles_SubModule);
         }
     }
     

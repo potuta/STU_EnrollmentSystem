@@ -12,42 +12,81 @@ namespace STUEnrollmentSystem
 {
     public partial class frmRoles : Form
     {
+        private RolesRepository _rolesRepository;
+        private List<string> roleNameList;
+
         public frmRoles()
         {
             InitializeComponent();
+            _rolesRepository = new RolesRepository(ConnectionFactory.GetConnectionString());
+            roleNameList = _rolesRepository.GetRolesList();
         }
 
         private void frmRoles_Load(object sender, EventArgs e)
         {
-            InitializeUserRoles();
+            InitializeRolesComboBox();
+            rolesComboBox.Text = frmLogin.Role;
         }
 
-        private void InitializeUserRoles()
+        private void InitializeRolesComboBox()
         {
-            InitializeAdminRole();
-            InitializeAdmissionRole();
-            InitializeCashierRole();
-            InitializeRegistrarRole();
-        }
-
-        public static void InitializeRegistrarRole()
-        {
-
-        }
-
-        public static void InitializeCashierRole()
-        {
-
-        }
-
-        public static void InitializeAdmissionRole()
-        {
-
+            rolesComboBox.Items.Clear();
+            rolesComboBox.Items.AddRange(roleNameList.ToArray());
         }
 
         public static void InitializeAdminRole()
         {
 
+        }
+
+        public static void InitializeRegistrarRole()
+        {
+            return;
+        }
+
+        public static void InitializeCashierRole()
+        {
+            return;
+        }
+
+        public static void InitializeAdmissionRole()
+        {
+            return;
+        }
+
+        private void InitializeUserRolePrivilegesCheckBoxes(Dictionary<string, bool> userRolePrivilegesMap)
+        {
+            var checkBoxes = new CheckBox[]
+            {
+                Enrollment_Module,
+                Registration_SubModule,
+                ApprovedStudents_SubModule,
+                StudentRecords_Module,
+                ManageStudents_SubModule,
+                PendingRequirements_SubModule,
+                Billing_Module,
+                ManagePayments_SubModule,
+                BillingReport_SubModule,
+                Academic_Module,
+                Fees_SubModule,
+                PaymentType_SubModule,
+                SectionsSchedule_SubModule,
+                GradeLevelSubjects_SubModule,
+                Faculty_Module,
+                Teachers_SubModule,
+                UsersRoles_SubModule
+            };
+
+            foreach (string name in userRolePrivilegesMap.Keys)
+            {
+                foreach (CheckBox checkBox in checkBoxes)
+                {
+                    if (checkBox.Name == name)
+                    {
+                        checkBox.Checked = userRolePrivilegesMap[name];
+                    }
+                }
+            }
         }
 
         private void checkBox_Toggle_CheckedChanged(object sender, EventArgs e)
@@ -67,5 +106,46 @@ namespace STUEnrollmentSystem
             }
         }
 
+        private void saveChangesButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to save changes?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            Dictionary<string, bool> map = new Dictionary<string, bool>
+            {
+                {"Enrollment_Module", Enrollment_Module.Checked },
+                {"Registration_SubModule", Registration_SubModule.Checked },
+                {"ApprovedStudents_SubModule", ApprovedStudents_SubModule.Checked },
+                {"StudentRecords_Module", StudentRecords_Module.Checked },
+                {"ManageStudents_SubModule", ManageStudents_SubModule.Checked },
+                {"PendingRequirements_SubModule", PendingRequirements_SubModule.Checked },
+                {"Billing_Module", Billing_Module.Checked },
+                {"ManagePayments_SubModule", ManagePayments_SubModule.Checked },
+                {"BillingReport_SubModule", BillingReport_SubModule.Checked },
+                {"Academic_Module", Academic_Module.Checked },
+                {"Fees_SubModule", Fees_SubModule.Checked },
+                {"PaymentType_SubModule", PaymentType_SubModule.Checked },
+                {"SectionsSchedule_SubModule", SectionsSchedule_SubModule.Checked },
+                {"GradeLevelSubjects_SubModule", GradeLevelSubjects_SubModule.Checked },
+                {"Faculty_Module", Faculty_Module.Checked },
+                {"Teachers_SubModule", Teachers_SubModule.Checked },
+                {"UsersRoles_SubModule", UsersRoles_SubModule.Checked }
+            };
+        }
+
+        private void rolesComboBox_TextChanged(object sender, EventArgs e)
+        {
+            foreach (string roleName in roleNameList)
+            {
+                if (rolesComboBox.Text.Equals(roleName))
+                {
+                    Dictionary<string, bool> map = _rolesRepository.GetUserRolePriviligesDictionary(roleName);
+                    InitializeUserRolePrivilegesCheckBoxes(map);
+                }
+            }
+        }
     }
 }

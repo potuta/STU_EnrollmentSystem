@@ -372,6 +372,7 @@
     <Compile Include="frmSection.Designer.cs">
       <DependentUpon>frmSection.cs</DependentUpon>
     </Compile>
+    <Compile Include="RolesRepository.cs" />
     <Compile Include="ScheduleRepository.cs" />
     <Compile Include="SectionRepository.cs" />
     <Compile Include="frmStudent.cs">
