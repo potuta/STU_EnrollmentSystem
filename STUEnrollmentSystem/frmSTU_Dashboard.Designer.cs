@@ -36,7 +36,7 @@
             this.logoutButton = new System.Windows.Forms.Button();
             this.userLabel = new System.Windows.Forms.Label();
             this.facultySubPanel = new System.Windows.Forms.Panel();
-            this.usersButton = new System.Windows.Forms.Button();
+            this.users_RolesButton = new System.Windows.Forms.Button();
             this.teacherButton = new System.Windows.Forms.Button();
             this.facultyButton = new System.Windows.Forms.Button();
             this.academicSubPanel = new System.Windows.Forms.Panel();
@@ -58,12 +58,12 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.enrollmentButton = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
-            this.schoolYearLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel_main = new System.Windows.Forms.Panel();
             this.logoButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.schoolYearLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel_main = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
             this.userInfoPanel.SuspendLayout();
             this.facultySubPanel.SuspendLayout();
@@ -157,7 +157,7 @@
             // 
             // facultySubPanel
             // 
-            this.facultySubPanel.Controls.Add(this.usersButton);
+            this.facultySubPanel.Controls.Add(this.users_RolesButton);
             this.facultySubPanel.Controls.Add(this.teacherButton);
             this.facultySubPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.facultySubPanel.Location = new System.Drawing.Point(0, 768);
@@ -166,23 +166,23 @@
             this.facultySubPanel.TabIndex = 2;
             this.facultySubPanel.Visible = false;
             // 
-            // usersButton
+            // users_RolesButton
             // 
-            this.usersButton.BackColor = System.Drawing.Color.MintCream;
-            this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.usersButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.usersButton.FlatAppearance.BorderSize = 2;
-            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.Location = new System.Drawing.Point(0, 39);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.usersButton.Size = new System.Drawing.Size(261, 40);
-            this.usersButton.TabIndex = 6;
-            this.usersButton.Text = "↪ Users and Roles";
-            this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.OnButtonClicked);
+            this.users_RolesButton.BackColor = System.Drawing.Color.MintCream;
+            this.users_RolesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.users_RolesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.users_RolesButton.FlatAppearance.BorderSize = 2;
+            this.users_RolesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.users_RolesButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.users_RolesButton.Location = new System.Drawing.Point(0, 39);
+            this.users_RolesButton.Name = "users_RolesButton";
+            this.users_RolesButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.users_RolesButton.Size = new System.Drawing.Size(261, 40);
+            this.users_RolesButton.TabIndex = 6;
+            this.users_RolesButton.Text = "↪ Users and Roles";
+            this.users_RolesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.users_RolesButton.UseVisualStyleBackColor = false;
+            this.users_RolesButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // teacherButton
             // 
@@ -527,34 +527,6 @@
             this.logoPanel.Size = new System.Drawing.Size(261, 186);
             this.logoPanel.TabIndex = 0;
             // 
-            // schoolYearLabel
-            // 
-            this.schoolYearLabel.AutoSize = true;
-            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schoolYearLabel.Location = new System.Drawing.Point(3, 167);
-            this.schoolYearLabel.Name = "schoolYearLabel";
-            this.schoolYearLabel.Size = new System.Drawing.Size(27, 16);
-            this.schoolYearLabel.TabIndex = 2;
-            this.schoolYearLabel.Text = "S.Y.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 125);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Enrollment System";
-            // 
-            // panel_main
-            // 
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(280, 0);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1084, 681);
-            this.panel_main.TabIndex = 1;
-            // 
             // logoButton
             // 
             this.logoButton.BackColor = System.Drawing.Color.Transparent;
@@ -597,6 +569,34 @@
             this.settingsButton.TabIndex = 3;
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.OnButtonClicked);
+            // 
+            // schoolYearLabel
+            // 
+            this.schoolYearLabel.AutoSize = true;
+            this.schoolYearLabel.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolYearLabel.Location = new System.Drawing.Point(3, 167);
+            this.schoolYearLabel.Name = "schoolYearLabel";
+            this.schoolYearLabel.Size = new System.Drawing.Size(27, 16);
+            this.schoolYearLabel.TabIndex = 2;
+            this.schoolYearLabel.Text = "S.Y.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(76, 125);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Enrollment System";
+            // 
+            // panel_main
+            // 
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(280, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(1084, 681);
+            this.panel_main.TabIndex = 1;
             // 
             // frmSTU_Dashboard
             // 
@@ -646,7 +646,7 @@
         private System.Windows.Forms.Button feesButton;
         private System.Windows.Forms.Button paymentTypeButton;
         private System.Windows.Forms.Button pendingRequirementsButton;
-        private System.Windows.Forms.Button usersButton;
+        private System.Windows.Forms.Button users_RolesButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel userInfoPanel;
         private System.Windows.Forms.Label userLabel;

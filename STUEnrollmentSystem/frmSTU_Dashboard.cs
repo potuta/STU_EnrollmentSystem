@@ -15,12 +15,31 @@ namespace STUEnrollmentSystem
     public partial class frmSTU_Dashboard : Form
     {
         public static frmSTU_Dashboard Instance {  get; private set; }
+        private Dictionary<string, Button> _buttons;
         public Label SchoolYearLabel => schoolYearLabel;
+        //public Button EnrollmentButton => enrollmentButton;
+        //public Button StudentButton => studentButton;
+        //public Button BillingButton => billingButton;
+        //public Button AcademicButton => academicButton;
+        //public Button FacultyButton => facultyButton;
+        //public Button RegistrationButton => registrationButton;
+        //public Button ApprovedButton => approvedButton;
+        //public Button ManageStudentButton => manageStudentButton;
+        //public Button PendingRequirementsButton => pendingRequirementsButton;
+        //public Button ManagePaymentButton => managePaymentButton;
+        //public Button BillingReportButton => billingReportButton;
+        //public Button FeesButton => feesButton;
+        //public Button PaymentTypeButton => paymentTypeButton;
+        //public Button Section_ScheduleButton => section_ScheduleButton;
+        //public Button Level_SubjectButton => level_SubjectsButton;
+        //public Button TeacherButton => teacherButton;
+        //public Button Users_RolesButton => users_RolesButton;
 
         public frmSTU_Dashboard()
         {
             InitializeComponent();
             Instance = this;
+            InitializeButtons();
             InitializeSelectedSchoolYear();
             InitializeUserLoginRole(frmLogin.Role);
             MessageBox.Show("Welcome " + frmLogin.Role + ": " + frmLogin.Username);
@@ -43,6 +62,45 @@ namespace STUEnrollmentSystem
             {
                 subPanel.Visible = false;
             }
+        }
+
+        private void InitializeButtons()
+        {
+            _buttons = new Dictionary<string, Button>
+            {
+                { "EnrollmentButton", enrollmentButton },
+                { "StudentButton", studentButton },
+                { "BillingButton", billingButton },
+                { "AcademicButton", academicButton },
+                { "FacultyButton", facultyButton },
+                { "RegistrationButton", registrationButton },
+                { "ApprovedButton", approvedButton },
+                { "ManageStudentButton", manageStudentButton },
+                { "PendingRequirementsButton", pendingRequirementsButton },
+                { "ManagePaymentButton", managePaymentButton },
+                { "BillingReportButton", billingReportButton },
+                { "FeesButton", feesButton },
+                { "PaymentTypeButton", paymentTypeButton },
+                { "Section_ScheduleButton", section_ScheduleButton },
+                { "Level_SubjectButton", level_SubjectsButton },
+                { "TeacherButton", teacherButton },
+                { "Users_RolesButton", users_RolesButton }
+            };
+        }
+
+        public Button GetButton(string buttonName)
+        {
+            if (_buttons.TryGetValue(buttonName, out var button))
+            {
+                return button;
+            }
+            throw new KeyNotFoundException($"Button '{buttonName}' does not exist.");
+        }
+
+        public void SetButtonEnabled(string buttonName, bool isEnabled)
+        {
+            var button = GetButton(buttonName);
+            button.Enabled = isEnabled;
         }
 
         private Form activeForm = null;
@@ -162,7 +220,6 @@ namespace STUEnrollmentSystem
             showSubPanel(facultySubPanel);
         }
 
-
         private void OnButtonClicked(object sender, EventArgs e)
         {
             if (sender == registrationButton)
@@ -189,9 +246,9 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmSection_Schedule());
             }
-            else if (sender == usersButton)
+            else if (sender == users_RolesButton)
             {
-                openChildForm(new frmUsers());
+                openChildForm(new frmUsers_Roles());
             }
             else if (sender == teacherButton)
             {
