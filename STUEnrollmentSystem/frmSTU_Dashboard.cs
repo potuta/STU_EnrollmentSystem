@@ -126,59 +126,25 @@ namespace STUEnrollmentSystem
 
         private void InitializeUserLoginRole(string role)
         {
-            if (role.Equals("Admin"))
-            {
-                frmLogin.Role = "Administrator";
+            Dictionary<string, bool> map = new RolesRepository(ConnectionFactory.GetConnectionString()).GetRolePriviligesDictionary(frmLogin.Role);
 
-                enrollmentButton.Enabled = true;
-                studentButton.Enabled = true;
-                billingButton.Enabled = true;
-                academicButton.Enabled = true;
-                facultyButton.Enabled = true;
-            }
-            else if (role.Equals("A"))
-            {
-                frmLogin.Role = "Admission";
-
-                enrollmentButton.Enabled = true;
-                    registrationButton.Enabled = true;
-                    approvedButton.Enabled = false;
-
-                studentButton.Enabled = true;
-                    manageStudentButton.Enabled = false;
-                    pendingRequirementsButton.Enabled = true;
-
-                billingButton.Enabled = false;
-                academicButton.Enabled = true;
-                facultyButton.Enabled = false;
-            }
-            else if (role.Equals("C"))
-            {
-                frmLogin.Role = "Cashier";
-
-                enrollmentButton.Enabled = true;
-                    registrationButton.Enabled = false;
-                    approvedButton.Enabled = true;
-
-                studentButton.Enabled = false;
-                billingButton.Enabled = true;
-                academicButton.Enabled = true;
-                facultyButton.Enabled = false;
-            }
-            else if (role.Equals("R")) 
-            {
-                frmLogin.Role = "Registrar";
-
-                enrollmentButton.Enabled = false;
-
-                studentButton.Enabled = true;
-                    manageStudentButton.Enabled = true;
-                    pendingRequirementsButton.Enabled = true;
-
-                billingButton.Enabled = false;
-                academicButton.Enabled = true;
-                facultyButton.Enabled = false;
-            }
+            enrollmentButton.Enabled = map["Enrollment_Module"];
+            registrationButton.Enabled = map["Registration_SubModule"];
+            approvedButton.Enabled = map["ApprovedStudents_SubModule"];
+            studentButton.Enabled = map["StudentRecords_Module"];
+            manageStudentButton.Enabled = map["ManageStudents_SubModule"];
+            pendingRequirementsButton.Enabled = map["PendingRequirements_SubModule"];
+            billingButton.Enabled = map["Billing_Module"];
+            managePaymentButton.Enabled = map["ManagePayments_SubModule"];
+            billingReportButton.Enabled = map["BillingReport_SubModule"];
+            academicButton.Enabled = map["Academic_Module"];
+            feesButton.Enabled = map["Fees_SubModule"];
+            paymentTypeButton.Enabled = map["PaymentType_SubModule"];
+            section_ScheduleButton.Enabled = map["SectionsSchedule_SubModule"];
+            level_SubjectsButton.Enabled = map["GradeLevelSubjects_SubModule"];
+            facultyButton.Enabled = map["Faculty_Module"];
+            teacherButton.Enabled = map["Teachers_SubModule"];
+            users_RolesButton.Enabled = map["UsersRoles_SubModule"];
         }
 
         public void InitializeSelectedSchoolYear()

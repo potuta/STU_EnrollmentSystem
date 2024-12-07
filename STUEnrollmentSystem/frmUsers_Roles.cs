@@ -46,7 +46,6 @@ namespace STUEnrollmentSystem
             }
             else if (sender == rolesButton)
             {
-                MessageBox.Show("This feature is still a work in progress.", "Notice", MessageBoxButtons.OK);
                 openChildForm(new frmRoles());
             }
         }

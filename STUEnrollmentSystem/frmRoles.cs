@@ -19,39 +19,33 @@ namespace STUEnrollmentSystem
         {
             InitializeComponent();
             _rolesRepository = new RolesRepository(ConnectionFactory.GetConnectionString());
+            this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
             roleNameList = _rolesRepository.GetRolesList();
         }
 
         private void frmRoles_Load(object sender, EventArgs e)
         {
+            this.rolesTableAdapter.Fill(this.sTU_DBDataSet.Roles);
             InitializeRolesComboBox();
             rolesComboBox.Text = frmLogin.Role;
+        }
+
+        private void rolesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.rolesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+        }
+
+        private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
+        {
+            this.rolesTableAdapter.Fill(this.sTU_DBDataSet.Roles);
         }
 
         private void InitializeRolesComboBox()
         {
             rolesComboBox.Items.Clear();
             rolesComboBox.Items.AddRange(roleNameList.ToArray());
-        }
-
-        public static void InitializeAdminRole()
-        {
-
-        }
-
-        public static void InitializeRegistrarRole()
-        {
-            return;
-        }
-
-        public static void InitializeCashierRole()
-        {
-            return;
-        }
-
-        public static void InitializeAdmissionRole()
-        {
-            return;
         }
 
         private void InitializeUserRolePrivilegesCheckBoxes(Dictionary<string, bool> userRolePrivilegesMap)
@@ -96,13 +90,11 @@ namespace STUEnrollmentSystem
             {
                 checkBox.Text = "ON";
                 checkBox.BackColor = Color.MediumSeaGreen;
-                // Do something for ON state
             }
             else
             {
                 checkBox.Text = "OFF";
                 checkBox.BackColor = Color.Red;
-                // Do something for OFF state
             }
         }
 
@@ -134,6 +126,10 @@ namespace STUEnrollmentSystem
                 {"Teachers_SubModule", Teachers_SubModule.Checked },
                 {"UsersRoles_SubModule", UsersRoles_SubModule.Checked }
             };
+
+            _rolesRepository.UpdateRolePrivileges(rolesComboBox.Text, map);
+            bindingNavigatorRefreshItem.PerformClick();
+            MessageBox.Show($"Successfully updated role privileges/access for {rolesComboBox.Text}", "Success!", MessageBoxButtons.OK);
         }
 
         private void rolesComboBox_TextChanged(object sender, EventArgs e)
@@ -142,7 +138,7 @@ namespace STUEnrollmentSystem
             {
                 if (rolesComboBox.Text.Equals(roleName))
                 {
-                    Dictionary<string, bool> map = _rolesRepository.GetUserRolePriviligesDictionary(roleName);
+                    Dictionary<string, bool> map = _rolesRepository.GetRolePriviligesDictionary(roleName);
                     InitializeUserRolePrivilegesCheckBoxes(map);
                 }
             }
