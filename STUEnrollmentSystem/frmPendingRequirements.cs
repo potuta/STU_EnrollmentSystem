@@ -41,7 +41,7 @@ namespace STUEnrollmentSystem
 
         private void InitializeUserRolePrivileges()
         {
-            if (!frmLogin.Role.Equals("Admin"))
+            if (!frmLogin.Role.Equals("Administrator"))
             {
                 bindingNavigatorDeleteItem.Enabled = false;
             }
@@ -177,7 +177,17 @@ namespace STUEnrollmentSystem
                 SetRequirementButtonState(viewFrm137Button, uploadFrm137Button, deleteFrm137Button, requirements["StudForm137"]);
                 SetRequirementButtonState(viewGoodMoralButton, uploadGoodMoralButton, deleteGoodMoralButton, requirements["GoodMoral"]);
                 SetRequirementButtonState(viewBirthCertButton, uploadBirthCertButton, deleteBirthCertButton, requirements["BirthCertificate"]);
-                SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+
+                if (enrollmentStatusTextBox.Text.Equals("TRANSFEREE"))
+                {
+                    SetRequirementButtonState(viewTransferCertButton, uploadTransferCertButton, deleteTransferCertButton, requirements["TransferCertificate"]);
+                }
+                else
+                {
+                    viewTransferCertButton.Visible = false;
+                    deleteTransferCertButton.Visible = false;
+                    uploadTransferCertButton.Visible = false;
+                }
 
                 if (!sectionComboBox.Text.Equals(string.Empty))
                 {

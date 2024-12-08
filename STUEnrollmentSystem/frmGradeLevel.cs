@@ -38,9 +38,8 @@ namespace STUEnrollmentSystem
 
         private void InitializeUserRolePrivileges()
         {
-            if (!frmLogin.Role.Equals("Admin"))
+            if (!frmLogin.Role.Equals("Administrator"))
             {
-                bindingNavigatorDeleteItem.Enabled = false;
                 bindingNavigatorAddNewItem.Enabled = false;
                 bindingNavigatorDeleteItem.Enabled = false;
                 gradeLevelBindingNavigatorSaveItem.Enabled = false;

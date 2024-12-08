@@ -182,6 +182,7 @@
             this.users_RolesButton.Text = "↪ Users and Roles";
             this.users_RolesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.users_RolesButton.UseVisualStyleBackColor = false;
+            this.users_RolesButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.users_RolesButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // teacherButton
@@ -200,6 +201,7 @@
             this.teacherButton.Text = "↪ Teachers";
             this.teacherButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.teacherButton.UseVisualStyleBackColor = false;
+            this.teacherButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.teacherButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // facultyButton
@@ -217,6 +219,7 @@
             this.facultyButton.Text = "Faculty";
             this.facultyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.facultyButton.UseVisualStyleBackColor = false;
+            this.facultyButton.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
             this.facultyButton.Click += new System.EventHandler(this.facultyButton_Click);
             // 
             // academicSubPanel
@@ -248,6 +251,7 @@
             this.level_SubjectsButton.Text = "↪ Level and Subjects";
             this.level_SubjectsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.level_SubjectsButton.UseVisualStyleBackColor = false;
+            this.level_SubjectsButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.level_SubjectsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // section_ScheduleButton
@@ -266,6 +270,7 @@
             this.section_ScheduleButton.Text = "↪ Section and Schedule";
             this.section_ScheduleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.section_ScheduleButton.UseVisualStyleBackColor = false;
+            this.section_ScheduleButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.section_ScheduleButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // paymentTypeButton
@@ -284,6 +289,7 @@
             this.paymentTypeButton.Text = "↪ Payment Type";
             this.paymentTypeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.paymentTypeButton.UseVisualStyleBackColor = false;
+            this.paymentTypeButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.paymentTypeButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // feesButton
@@ -302,6 +308,7 @@
             this.feesButton.Text = "↪ Fees";
             this.feesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.feesButton.UseVisualStyleBackColor = false;
+            this.feesButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.feesButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // academicButton
@@ -319,6 +326,7 @@
             this.academicButton.Text = "Academic";
             this.academicButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.academicButton.UseVisualStyleBackColor = false;
+            this.academicButton.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
             this.academicButton.Click += new System.EventHandler(this.academicButton_Click);
             // 
             // billingSubPanel
@@ -348,6 +356,7 @@
             this.billingReportButton.Text = "↪ Billing Report";
             this.billingReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.billingReportButton.UseVisualStyleBackColor = false;
+            this.billingReportButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.billingReportButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // managePaymentButton
@@ -366,6 +375,7 @@
             this.managePaymentButton.Text = "↪ Manage Payments";
             this.managePaymentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.managePaymentButton.UseVisualStyleBackColor = false;
+            this.managePaymentButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.managePaymentButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // billingButton
@@ -383,6 +393,7 @@
             this.billingButton.Text = "Billing ";
             this.billingButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.billingButton.UseVisualStyleBackColor = false;
+            this.billingButton.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
             this.billingButton.Click += new System.EventHandler(this.billingButton_Click);
             // 
             // studentSubPanel
@@ -412,6 +423,7 @@
             this.pendingRequirementsButton.Text = "↪ Pending Requirements";
             this.pendingRequirementsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.pendingRequirementsButton.UseVisualStyleBackColor = false;
+            this.pendingRequirementsButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.pendingRequirementsButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // manageStudentButton
@@ -430,6 +442,7 @@
             this.manageStudentButton.Text = "↪ Manage Students";
             this.manageStudentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.manageStudentButton.UseVisualStyleBackColor = false;
+            this.manageStudentButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.manageStudentButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // studentButton
@@ -447,6 +460,7 @@
             this.studentButton.Text = "Student Records";
             this.studentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.studentButton.UseVisualStyleBackColor = false;
+            this.studentButton.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
             this.studentButton.Click += new System.EventHandler(this.studentButton_Click);
             // 
             // enrollmentSubPanel
@@ -468,6 +482,7 @@
             this.approvedButton.FlatAppearance.BorderSize = 2;
             this.approvedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.approvedButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.approvedButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.approvedButton.Location = new System.Drawing.Point(0, 39);
             this.approvedButton.Name = "approvedButton";
             this.approvedButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -476,6 +491,7 @@
             this.approvedButton.Text = "↪ Approved Students";
             this.approvedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.approvedButton.UseVisualStyleBackColor = false;
+            this.approvedButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.approvedButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // registrationButton
@@ -486,6 +502,7 @@
             this.registrationButton.FlatAppearance.BorderSize = 2;
             this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registrationButton.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrationButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.registrationButton.Location = new System.Drawing.Point(0, 0);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -494,6 +511,7 @@
             this.registrationButton.Text = "↪ Registration";
             this.registrationButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.registrationButton.UseVisualStyleBackColor = false;
+            this.registrationButton.EnabledChanged += new System.EventHandler(this.SubButton_EnabledChanged);
             this.registrationButton.Click += new System.EventHandler(this.OnButtonClicked);
             // 
             // enrollmentButton
@@ -511,6 +529,7 @@
             this.enrollmentButton.Text = "Enrollment";
             this.enrollmentButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.enrollmentButton.UseVisualStyleBackColor = false;
+            this.enrollmentButton.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
             this.enrollmentButton.Click += new System.EventHandler(this.enrollmentButton_Click);
             // 
             // logoPanel

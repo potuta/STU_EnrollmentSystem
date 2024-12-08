@@ -249,5 +249,33 @@ namespace STUEnrollmentSystem
                 openChildForm(new frmSettings());
             }
         }
+
+        private void Button_EnabledChanged(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+
+            if (button.Enabled == true)
+            {
+                button.BackColor = Color.MediumSeaGreen;
+            }
+            else
+            {
+                button.BackColor = Color.MediumAquamarine;
+            }
+        }
+
+        private void SubButton_EnabledChanged(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+
+            if (button.Enabled == true)
+            {
+                button.BackColor = Color.MintCream;
+            }
+            else
+            {
+                button.BackColor = SystemColors.ActiveBorder;
+            }
+        }
     }
 }

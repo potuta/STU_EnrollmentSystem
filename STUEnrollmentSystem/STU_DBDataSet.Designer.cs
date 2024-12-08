@@ -16049,11 +16049,12 @@ FROM            Students";
             this._commandCollection[1].CommandText = @"SELECT        RegisterID, StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, PaymentType, MotherFirstName, MotherLastName, 
                          MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation, StudForm137, LRN, BirthCertificate, GoodMoral, TransferCertificate, Section, PersonalEmail, GuardianEmail
 FROM            Students
-WHERE        (StudForm137 IS NULL) OR
+WHERE        (Section IS NULL) OR
+                         (StudForm137 IS NULL) OR
                          (LRN IS NULL) OR
                          (BirthCertificate IS NULL) OR
                          (GoodMoral IS NULL) OR
-                         (TransferCertificate IS NULL)";
+                         (TransferCertificate IS NULL) AND (EnrollmentStatus = 'TRANSFEREE')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
