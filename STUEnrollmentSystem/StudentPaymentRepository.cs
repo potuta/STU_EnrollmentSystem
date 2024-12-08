@@ -418,10 +418,10 @@ namespace STUEnrollmentSystem
             }
         }
         
-        public void InsertStudentPayment(Dictionary<string, object> studentPaymentData, string monthOfPayment, string paymentStatus, string schoolYear)
+        public void InsertStudentPayment(Dictionary<string, object> studentPaymentData, int? paidAmount, string monthOfPayment, string paymentStatus, string schoolYear)
         {
-            string query = "INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, SchoolYear)" +
-                        "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @SchoolYear)";
+            string query = "INSERT INTO StudentPayment(PaymentCode, PaymentMethod, StudentNumber, MonthOfPayment, PaymentStatus, SchoolYear, PaidAmount)" +
+                        "VALUES (@PaymentCode, @PaymentMethod, @StudentNumber, @MonthOfPayment, @PaymentStatus, @SchoolYear, @PaidAmount)";
 
             try
             {
@@ -435,6 +435,15 @@ namespace STUEnrollmentSystem
                     command.Parameters.AddWithValue("@MonthOfPayment", monthOfPayment);
                     command.Parameters.AddWithValue("@PaymentStatus", paymentStatus);
                     command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+
+                    if (paidAmount.HasValue)
+                    {
+                        command.Parameters.AddWithValue("@PaidAmount", paidAmount.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@PaidAmount", DBNull.Value);
+                    }
 
                     _connection.Open();
                     command.ExecuteNonQuery();

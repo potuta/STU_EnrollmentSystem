@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -148,12 +149,14 @@ namespace STUEnrollmentSystem
                 paymentStatusComboBox.Enabled = false;
                 paymentRNTextBox.Enabled = false;
                 deleteProofOfPaymentButton.Visible = false;
+                paidAmountTextBox.Enabled = false;
             }
             else
             {
                 paymentMethodComboBox.Enabled = true;
                 paymentStatusComboBox.Enabled = true;
                 paymentRNTextBox.Enabled = true;
+                paidAmountTextBox.Enabled = true;
             }
         }
 
@@ -398,12 +401,14 @@ namespace STUEnrollmentSystem
                 viewProofOfPaymentButton.Visible = true;
                 deleteProofOfPaymentButton.Visible = true;
                 uploadProofOfPaymentButton.Visible = true;
+                paymentRNTextBox.Enabled = true;
             }
             else
             {
                 viewProofOfPaymentButton.Visible = false;
                 deleteProofOfPaymentButton.Visible = false;
                 uploadProofOfPaymentButton.Visible = false;
+                paymentRNTextBox.Enabled = false;
             }
         }
 
@@ -517,7 +522,7 @@ namespace STUEnrollmentSystem
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(paymentRNTextBox.Text)) 
+                if (string.IsNullOrWhiteSpace(paidAmountTextBox.Text)) 
                 {
                     if (addBillingReportButton.Enabled == true)
                     {
@@ -557,13 +562,13 @@ namespace STUEnrollmentSystem
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(receiptRNTextBox.Text) && string.IsNullOrWhiteSpace(transactionDateTextBox.Text) && string.IsNullOrWhiteSpace(transactionNumberTextBox.Text))
+            if (string.IsNullOrWhiteSpace(receiptRNTextBox.Text) || string.IsNullOrWhiteSpace(transactionDateTextBox.Text) || string.IsNullOrWhiteSpace(transactionNumberTextBox.Text))
             {
                 MessageBox.Show("Missing Payment Details.", "Error", MessageBoxButtons.OK);
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(paymentMethodComboBox.Text) || string.IsNullOrWhiteSpace(paymentStatusComboBox.Text) || string.IsNullOrWhiteSpace(paymentRNTextBox.Text))
+            if (string.IsNullOrWhiteSpace(paymentMethodComboBox.Text) || string.IsNullOrWhiteSpace(paymentStatusComboBox.Text))
             {
                 MessageBox.Show("Missing Payment Details.", "Error", MessageBoxButtons.OK);
                 return false;
@@ -572,6 +577,18 @@ namespace STUEnrollmentSystem
             if (!paymentMethodComboBox.Text.Equals("CASH") && !paymentMethodComboBox.Text.Equals("GCASH") && !paymentMethodComboBox.Text.Equals("BANK TRANSFER"))
             {
                 MessageBox.Show("Accepted Payment Methods are only 'CASH', 'GCASH', and 'BANK TRANSFER'", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(paidAmountTextBox.Text))
+            {
+                MessageBox.Show("Missing Paid Amount. Paid Amount must be specified", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(paymentRNTextBox.Text) && !paymentMethodComboBox.Text.Equals("CASH"))
+            {
+                MessageBox.Show("Missing PaymentRN. It is required for Payment Methods of 'GCASH' and 'BANK TRANSFER'", "Error", MessageBoxButtons.OK);
                 return false;
             }
 
@@ -611,8 +628,35 @@ namespace STUEnrollmentSystem
             LoggingService.LogInformation($"Insert successful in InsertBillingReport to BillingReport table");
         }
 
-        private void paymentRNTextBox_TextChanged(object sender, EventArgs e)
+        private void paidAmountTextBox_TextChanged(object sender, EventArgs e)
         {
+            Regex regex;
+            TextBox textBox = sender as TextBox;
+
+            if (textBox == null) return;
+
+            if (textBox == paidAmountTextBox)
+            {
+                regex = new Regex(@"^[0-9]*$");
+            }
+            else
+            {
+                regex = new Regex(@"^[a-zA-Z]*$");
+            }
+
+            if (!regex.IsMatch(textBox.Text))
+            {
+                if (textBox == paidAmountTextBox)
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsDigit).ToArray());
+                }
+                else
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsLetter).ToArray());
+                }
+                textBox.SelectionStart = textBox.Text.Length; // Maintain cursor position
+            }
+
             updateBillingReportButton();
         }
 
@@ -626,6 +670,26 @@ namespace STUEnrollmentSystem
 
         private void addReturningStudentToolStripInsertMenuItem_Click(object sender, EventArgs e)
         {
+            var controlsToValidate = new ToolStripComboBox[]
+            {
+                addReturningStudentToolStripStudentNumberComboBox,
+                addReturningStudentToolStripPaymentTypeComboBox,
+                addReturningStudentToolStripPaymentMethodComboBox,
+                addReturningStudentToolStripEnrollmentTypeComboBox,
+            };
+
+            if (controlsToValidate.Any(control => string.IsNullOrWhiteSpace(control.Text)))
+            {
+                MessageBox.Show("Missing details, please make sure to enter complete details.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(addReturningStudentToolStripPaidAmountTextBox.Text))
+            {
+                MessageBox.Show("Missing Paid Amount. Paid amount must be specified.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             string studentGrade = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentGrade(addReturningStudentToolStripStudentNumberComboBox.Text);
             if (studentGrade == addReturningStudentToolStripEnrollmentTypeComboBox.Text)
             {
@@ -641,22 +705,24 @@ namespace STUEnrollmentSystem
                 {"StudentNumber", addReturningStudentToolStripStudentNumberComboBox.Text}
             };
 
+            int paidAmount = Convert.ToInt32(addReturningStudentToolStripPaidAmountTextBox.Text);
+            int? nullableInt = null;
             if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Monthly"))
             {
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, paidAmount, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
             else if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Full"))
             {
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, paidAmount, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
             }
 
             new StudentRepository(ConnectionFactory.GetConnectionString()).UpdateStudentYearLevel(addReturningStudentToolStripStudentNumberComboBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text, addReturningStudentToolStripPaymentTypeComboBox.Text);
@@ -664,7 +730,6 @@ namespace STUEnrollmentSystem
             MessageBox.Show($"Successfully added returning student {addReturningStudentToolStripStudentNumberComboBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
         }
 
-        // WIP
         private void bindingNavigatorNotifyAllButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show($"Notify all students?", "Notify Confirmation", MessageBoxButtons.YesNo);
@@ -731,6 +796,36 @@ namespace STUEnrollmentSystem
             transactionDateTextBox.Text = DateTime.Now.ToShortDateString();
             generateReceiptRN();
             updateBillingReportButton();
+        }
+
+        private void addReturningStudentToolStripPaidAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Regex regex;
+            TextBox textBox = sender as TextBox;
+
+            if (textBox == null) return;
+
+            if (textBox == paidAmountTextBox)
+            {
+                regex = new Regex(@"^[0-9]*$");
+            }
+            else
+            {
+                regex = new Regex(@"^[a-zA-Z]*$");
+            }
+
+            if (!regex.IsMatch(textBox.Text))
+            {
+                if (textBox == paidAmountTextBox)
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsDigit).ToArray());
+                }
+                else
+                {
+                    textBox.Text = new string(textBox.Text.Where(char.IsLetter).ToArray());
+                }
+                textBox.SelectionStart = textBox.Text.Length; // Maintain cursor position
+            }
         }
     }
 }

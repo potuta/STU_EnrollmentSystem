@@ -58,6 +58,7 @@
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
+            System.Windows.Forms.Label label7;
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
@@ -173,6 +174,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.paidAmountTextBox = new System.Windows.Forms.TextBox();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -201,6 +203,7 @@
             paymentMethodLabel1 = new System.Windows.Forms.Label();
             personalEmailLabel = new System.Windows.Forms.Label();
             guardianEmailLabel = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pendingStudentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
@@ -466,6 +469,8 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.paidAmountTextBox);
+            this.detailsPanel.Controls.Add(label7);
             this.detailsPanel.Controls.Add(this.uploadProofOfPaymentButton);
             this.detailsPanel.Controls.Add(guardianEmailLabel);
             this.detailsPanel.Controls.Add(this.guardianEmailTextBox);
@@ -552,7 +557,7 @@
             // 
             // uploadProofOfPaymentButton
             // 
-            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 171);
             this.uploadProofOfPaymentButton.Name = "uploadProofOfPaymentButton";
             this.uploadProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
             this.uploadProofOfPaymentButton.TabIndex = 75;
@@ -629,7 +634,7 @@
             // 
             // deleteProofOfPaymentButton
             // 
-            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(982, 137);
+            this.deleteProofOfPaymentButton.Location = new System.Drawing.Point(982, 171);
             this.deleteProofOfPaymentButton.Name = "deleteProofOfPaymentButton";
             this.deleteProofOfPaymentButton.Size = new System.Drawing.Size(33, 23);
             this.deleteProofOfPaymentButton.TabIndex = 74;
@@ -641,7 +646,7 @@
             // proofOfPaymentLabel
             // 
             this.proofOfPaymentLabel.AutoSize = true;
-            this.proofOfPaymentLabel.Location = new System.Drawing.Point(771, 141);
+            this.proofOfPaymentLabel.Location = new System.Drawing.Point(771, 175);
             this.proofOfPaymentLabel.Name = "proofOfPaymentLabel";
             this.proofOfPaymentLabel.Size = new System.Drawing.Size(93, 13);
             this.proofOfPaymentLabel.TabIndex = 72;
@@ -1005,7 +1010,7 @@
             // proofOfPaymentTextBox
             // 
             this.proofOfPaymentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "ProofOfPayment", true));
-            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(878, 137);
+            this.proofOfPaymentTextBox.Location = new System.Drawing.Point(878, 171);
             this.proofOfPaymentTextBox.Name = "proofOfPaymentTextBox";
             this.proofOfPaymentTextBox.Size = new System.Drawing.Size(100, 20);
             this.proofOfPaymentTextBox.TabIndex = 73;
@@ -1013,7 +1018,7 @@
             // 
             // viewProofOfPaymentButton
             // 
-            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(878, 137);
+            this.viewProofOfPaymentButton.Location = new System.Drawing.Point(878, 171);
             this.viewProofOfPaymentButton.Name = "viewProofOfPaymentButton";
             this.viewProofOfPaymentButton.Size = new System.Drawing.Size(100, 23);
             this.viewProofOfPaymentButton.TabIndex = 76;
@@ -1643,6 +1648,24 @@
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(771, 144);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(70, 13);
+            label7.TabIndex = 83;
+            label7.Text = "Paid Amount:";
+            // 
+            // paidAmountTextBox
+            // 
+            this.paidAmountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "LRN", true));
+            this.paidAmountTextBox.Location = new System.Drawing.Point(878, 143);
+            this.paidAmountTextBox.Name = "paidAmountTextBox";
+            this.paidAmountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.paidAmountTextBox.TabIndex = 84;
+            this.paidAmountTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            // 
             // frmPendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1793,5 +1816,6 @@
         private System.Windows.Forms.TextBox guardianEmailTextBox;
         private System.Windows.Forms.TextBox personalEmailTextBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.TextBox paidAmountTextBox;
     }
 }
