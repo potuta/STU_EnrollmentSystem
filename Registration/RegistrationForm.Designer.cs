@@ -493,11 +493,7 @@
             this.civilStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
+            "Single"});
             this.civilStatusComboBox.Location = new System.Drawing.Point(304, 213);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
