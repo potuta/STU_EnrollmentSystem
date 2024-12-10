@@ -114,7 +114,17 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
+            int selectedRowIndex = -1;
+            if (studentPaymentDataGridView.CurrentRow != null)
+            {
+                selectedRowIndex = studentPaymentDataGridView.CurrentRow.Index;
+            }
             this.studentPaymentTableAdapter.Fill(sTU_DBDataSet.StudentPayment);
+            if (selectedRowIndex >= 0 && selectedRowIndex < studentPaymentDataGridView.Rows.Count)
+            {
+                studentPaymentDataGridView.Rows[selectedRowIndex].Selected = true;
+                studentPaymentDataGridView.CurrentCell = studentPaymentDataGridView.Rows[selectedRowIndex].Cells[0];
+            }
             InitializeSearchComboBoxes();
         }
 
@@ -124,6 +134,7 @@ namespace STUEnrollmentSystem
             {
                 checkForRequirements();
                 checkBalance();
+                updateBillingReportButton();
                 checkTransactionNumberExist();
             }
             catch (FormatException fe)
@@ -365,6 +376,7 @@ namespace STUEnrollmentSystem
             _studentPaymentRepository.MonthOfPayment = monthOfPaymentTextBox.Text;
             _studentPaymentRepository.SchoolYear = schoolYearTextBox.Text;
             _studentPaymentRepository.PaymentCode = paymentCodeTextBox.Text;
+
             switch (operation)
             {
                 case "view":

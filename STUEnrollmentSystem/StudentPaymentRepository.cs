@@ -504,6 +504,52 @@ namespace STUEnrollmentSystem
             return total;
         }
 
+        public int GetPaidAmount(string studentNumber, string paymentCode, string month, string schoolYear)
+        {
+            int total = 0;
+            string query = $"SELECT PaidAmount FROM StudentPayment WHERE StudentNumber = @StudentNumber AND PaymentCode = @PaymentCode AND MonthOfPayment = @MonthOfPayment AND SchoolYear = @SchoolYear";
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@MonthOfPayment", month);
+                    command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+
+                    var result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        total = Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        total = 0;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetPaidAmount: {ex.Message}");
+                return total;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetPaidAmount: {ex.Message}");
+                return total;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return total;
+        }
+
         public DataTable GetReceiptRNDataTable(string receiptRN)
         {
             DataTable dataTable = new DataTable();

@@ -108,14 +108,6 @@ namespace STUEnrollmentSystem
             List<string> teacherCodeList = new ScheduleRepository(ConnectionFactory.GetConnectionString()).GetColumnDataFromSectionCode("TeacherCode", sectionCode);
             Dictionary<string, string> teacherNames = new TeacherRepository(ConnectionFactory.GetConnectionString()).GetTeacherNameAndTeacherCodeDictionary(teacherCodeList);
 
-            // Schedule Subject & Days
-            //labelDay1.Text = subjectDictionary.Values.ElementAt(0);
-            //labelDay2.Text = subjectDictionary.Values.ElementAt(1);
-            //labelDay3.Text = subjectDictionary.Values.ElementAt(2);
-            //labelDay4.Text = subjectDictionary.Values.ElementAt(3);
-            //labelDay5.Text = subjectDictionary.Values.ElementAt(4);
-            //labelDay6.Text = subjectDictionary.Values.ElementAt(5);
-
             labelSubject1.Text = subjectCodeList[0];
             labelSubject2.Text = subjectCodeList[1];
             labelSubject3.Text = subjectCodeList[2];
@@ -158,7 +150,6 @@ namespace STUEnrollmentSystem
                 labelTime7.Visible = false;
             }
 
-
             // Schedule Teacher
             labelInstructor1.Text = teacherNames.Values.ElementAt(0);
             labelInstructor2.Text = teacherNames.Values.ElementAt(1);
@@ -185,8 +176,6 @@ namespace STUEnrollmentSystem
             int miscellanaousFee = paymentAmountList[4];
             int totalFee = paymentAmountList[5];
 
-            string priceCode = $"P{GradeCode}";
-            Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(PaymentType, priceCode);
 
             labelGradeLevel.Text = GradeCode;
             labelPayment.Text = PaymentType;
@@ -194,7 +183,6 @@ namespace STUEnrollmentSystem
             labelOSF.Text = Convert.ToString(booksFee+laboratoryFee+ uniformFee + ".00");
             labelMF.Text = Convert.ToString(miscellanaousFee + ".00");
             labelTO.Text = Convert.ToString(totalFee + ".00");
-
 
             string schoolYear = ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString());
             string[] schoolYearParts = schoolYear.Split('-');
@@ -212,22 +200,50 @@ namespace STUEnrollmentSystem
             labelMonth9.Text = $"April 16, {nextYear}";
             labelMonth10.Text = $"May 16, {nextYear}";
 
+            string priceCode = $"P{GradeCode}";
+            string paymentCode = PaymentType.Equals("Monthly") ? $"M{GradeCode}" : $"F{GradeCode}";
+            Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(PaymentType, priceCode);
+            Dictionary<string, int> monthlyPendingList = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetTotalPendingPaymentAmount(StudentNumber, paymentCode, schoolYear);
+            int totalPaymentAmount = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetSumTotalPaymentAmountFromPaymentCode(paymentCode);
+            int totalPaidAmount = new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).GetSumTotalPaidAmount(StudentNumber, paymentCode, schoolYear);
+            int totalRemainingBalance = totalPaymentAmount - totalPaidAmount;
+
+            string paymentStatus = string.Empty;
+            List<string> paidAmountList = new List<string>();
+            for (int i = 0; i < paymentAmountDictionary.Count; i++)
+            {
+                int total = 0;
+                int getPaidAmount = new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).GetPaidAmount(StudentNumber, paymentCode, paymentAmountDictionary.Keys.ElementAt(i), schoolYear);
+                if (getPaidAmount == 0)
+                {
+                    total = totalRemainingBalance / monthlyPendingList.Count;
+                    paymentStatus = " ";
+                }
+                else
+                {
+                    total = getPaidAmount;
+                    paymentStatus = "(Paid)";
+                }
+
+                paidAmountList.Add($"{Convert.ToString(total)}.00 {paymentStatus}");
+            }
+
             if (PaymentType.Equals("Monthly"))
             {
-                labelDue1.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(0) + ".00");
-                labelDue2.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(1) + ".00");
-                labelDue3.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(2) + ".00");
-                labelDue4.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(3) + ".00");
-                labelDue5.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(4) + ".00");
-                labelDue6.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(5) + ".00");
-                labelDue7.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(6) + ".00");
-                labelDue8.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(7) + ".00");
-                labelDue9.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(8) + ".00");
-                labelDue10.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(9) + ".00");
+                labelDue1.Text = paidAmountList[0];
+                labelDue2.Text = paidAmountList[1];
+                labelDue3.Text = paidAmountList[2];
+                labelDue4.Text = paidAmountList[3];
+                labelDue5.Text = paidAmountList[4];
+                labelDue6.Text = paidAmountList[5];
+                labelDue7.Text = paidAmountList[6];
+                labelDue8.Text = paidAmountList[7];
+                labelDue9.Text = paidAmountList[8];
+                labelDue10.Text = paidAmountList[9];
             }
             else if (PaymentType.Equals("Full"))
             {
-                labelDue1.Text = Convert.ToString(paymentAmountDictionary.Values.ElementAt(0) + ".00");
+                labelDue1.Text = paidAmountList[0];
                 labelDue2.Text = "0.00";
                 labelDue3.Text = "0.00";
                 labelDue4.Text = "0.00";

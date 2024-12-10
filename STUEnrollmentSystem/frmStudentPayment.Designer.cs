@@ -60,6 +60,7 @@
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.viewStudentNumberButton = new System.Windows.Forms.Button();
             this.paidAmountTextBox = new System.Windows.Forms.TextBox();
             this.studentPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
@@ -132,7 +133,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.studentPaymentTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.StudentPaymentTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.viewStudentNumberButton = new System.Windows.Forms.Button();
             this.studentsDataGridView = new System.Windows.Forms.DataGridView();
             paymentCodeLabel = new System.Windows.Forms.Label();
             paymentMethodLabel = new System.Windows.Forms.Label();
@@ -458,14 +458,24 @@
             this.detailsPanel.Controls.Add(this.studentNumberTextBox);
             this.detailsPanel.Controls.Add(monthOfPaymentLabel);
             this.detailsPanel.Controls.Add(this.label1);
-            this.detailsPanel.Controls.Add(this.uploadProofOfPaymentButton);
             this.detailsPanel.Controls.Add(this.viewProofOfPaymentButton);
             this.detailsPanel.Controls.Add(this.proofOfPaymentTextBox);
+            this.detailsPanel.Controls.Add(this.uploadProofOfPaymentButton);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.detailsPanel.Location = new System.Drawing.Point(0, 132);
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(359, 692);
             this.detailsPanel.TabIndex = 14;
+            // 
+            // viewStudentNumberButton
+            // 
+            this.viewStudentNumberButton.Location = new System.Drawing.Point(275, 168);
+            this.viewStudentNumberButton.Name = "viewStudentNumberButton";
+            this.viewStudentNumberButton.Size = new System.Drawing.Size(38, 23);
+            this.viewStudentNumberButton.TabIndex = 100;
+            this.viewStudentNumberButton.Text = "View";
+            this.viewStudentNumberButton.UseVisualStyleBackColor = true;
+            this.viewStudentNumberButton.Click += new System.EventHandler(this.viewStudentNumberButton_Click);
             // 
             // paidAmountTextBox
             // 
@@ -1167,16 +1177,6 @@
             this.tableAdapterManager.TeachersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
-            // 
-            // viewStudentNumberButton
-            // 
-            this.viewStudentNumberButton.Location = new System.Drawing.Point(275, 168);
-            this.viewStudentNumberButton.Name = "viewStudentNumberButton";
-            this.viewStudentNumberButton.Size = new System.Drawing.Size(38, 23);
-            this.viewStudentNumberButton.TabIndex = 100;
-            this.viewStudentNumberButton.Text = "View";
-            this.viewStudentNumberButton.UseVisualStyleBackColor = true;
-            this.viewStudentNumberButton.Click += new System.EventHandler(this.viewStudentNumberButton_Click);
             // 
             // studentsDataGridView
             // 
