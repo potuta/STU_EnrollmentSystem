@@ -19876,7 +19876,8 @@ SELECT RoleID, RoleName, Academic_Module, ApprovedStudents_SubModule, BillingRep
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE       StudentPayment
 SET                SchoolYear = @SchoolYear, PaymentCode = @PaymentCode, PaymentMethod = @PaymentMethod, StudentNumber = @StudentNumber, MonthOfPayment = @MonthOfPayment, PaymentStatus = @PaymentStatus, 
-                         ProofOfPayment = @ProofOfPayment, PaymentRN = @PaymentRN, ReceiptRN = @ReceiptRN, TransactionDate = @TransactionDate, TransactionNumber = @TransactionNumber, NotificationCount = @NotificationCount
+                         ProofOfPayment = @ProofOfPayment, PaymentRN = @PaymentRN, ReceiptRN = @ReceiptRN, TransactionDate = @TransactionDate, TransactionNumber = @TransactionNumber, NotificationCount = @NotificationCount, 
+                         PaidAmount = @PaidAmount
 WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND (MonthOfPayment = @MonthOfPayment) AND (PaymentCode = @PaymentCode)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SchoolYear", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "SchoolYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -19891,6 +19892,7 @@ WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionDate", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionNumber", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NotificationCount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NotificationCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaidAmount", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PaidAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20210,7 +20212,7 @@ WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string SchoolYear, string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string PaymentRN, string ReceiptRN, string TransactionDate, string TransactionNumber, global::System.Nullable<int> NotificationCount) {
+        public virtual int Update(string SchoolYear, string PaymentCode, string PaymentMethod, string StudentNumber, string MonthOfPayment, string PaymentStatus, byte[] ProofOfPayment, string PaymentRN, string ReceiptRN, string TransactionDate, string TransactionNumber, global::System.Nullable<int> NotificationCount, global::System.Nullable<int> PaidAmount) {
             if ((SchoolYear == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -20282,6 +20284,12 @@ WHERE        (SchoolYear = @SchoolYear) AND (StudentNumber = @StudentNumber) AND
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((PaidAmount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(PaidAmount.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

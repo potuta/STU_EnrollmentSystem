@@ -467,5 +467,74 @@ namespace STUEnrollmentSystem
                     _connection.Close();
             }
         }
+
+        public int GetSumTotalPaidAmount(string studentNumber, string paymentCode, string schoolYear)
+        {
+            int total = 0;
+            string query = $"SELECT SUM(PaidAmount) FROM StudentPayment WHERE StudentNumber = @StudentNumber AND PaymentCode = @PaymentCode AND SchoolYear = @SchoolYear";
+
+            try
+            {
+                _connection.Open();
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    command.Parameters.AddWithValue("@SchoolYear", schoolYear);
+
+                    total = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetSumTotalPaidAmount: {ex.Message}");
+                return total;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetSumTotalPaidAmount: {ex.Message}");
+                return total;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return total;
+        }
+
+        public DataTable GetReceiptRNDataTable(string receiptRN)
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT * FROM StudentPayment WHERE ReceiptRN = @ReceiptRN";
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@ReceiptRN", receiptRN);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetReceiptRNDataTable: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetReceiptRNDataTable: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }

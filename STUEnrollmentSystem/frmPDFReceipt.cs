@@ -23,8 +23,9 @@ namespace STUEnrollmentSystem
         private string Year { get; set; }
         private string TransactionDate {  get; set; }
         private string ReceiptRN {  get; set; }
+        private string PaidAmount {  get; set; }
 
-        public frmPDFReceipt(string studentNumber, string paymentCode, string paymentMethod, string month, string year, string transactionDate, string receiptRN)
+        public frmPDFReceipt(string studentNumber, string paymentCode, string paymentMethod, string month, string year, string transactionDate, string receiptRN, string paidAmount)
         {
             InitializeComponent();
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
@@ -36,6 +37,7 @@ namespace STUEnrollmentSystem
             this.Year = year;
             this.TransactionDate = transactionDate;
             this.ReceiptRN = receiptRN;
+            this.PaidAmount = paidAmount;
         }
 
         public void GetPrintArea(Panel pnl)
@@ -98,7 +100,7 @@ namespace STUEnrollmentSystem
             }
 
             string pricesCode = $"P{PaymentCode.Substring(1)}";
-            Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(paymentType, pricesCode);
+            //Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(paymentType, pricesCode);
 
             schoolYearLabel.Text = Year;
             fullNameLabel.Text = fullName;
@@ -109,7 +111,7 @@ namespace STUEnrollmentSystem
             issueDateLabel.Text = $"Issue Date: {TransactionDate}";
             receiptRNLabel.Text = $"Receipt RN: {ReceiptRN}";
             paymentMethodLabel.Text = $"Paid by: {PaymentMethod}";
-            totalLabel.Text = Convert.ToString(paymentAmountDictionary[Month]);
+            totalLabel.Text = PaidAmount;
         }
     }
 }

@@ -78,6 +78,8 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.viewPaymentReceiptButton = new System.Windows.Forms.Button();
+            this.receiptRNDataGridView = new System.Windows.Forms.DataGridView();
             transactionNumberLabel = new System.Windows.Forms.Label();
             studentNumberLabel = new System.Windows.Forms.Label();
             paymentAmountLabel = new System.Windows.Forms.Label();
@@ -92,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.billingReportBindingNavigator)).BeginInit();
             this.billingReportBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billingReportDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptRNDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // transactionNumberLabel
@@ -151,6 +154,7 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.viewPaymentReceiptButton);
             this.detailsPanel.Controls.Add(transactionNumberLabel);
             this.detailsPanel.Controls.Add(this.transactionNumberTextBox);
             this.detailsPanel.Controls.Add(studentNumberLabel);
@@ -167,7 +171,7 @@
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.detailsPanel.Location = new System.Drawing.Point(0, 115);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(301, 644);
+            this.detailsPanel.Size = new System.Drawing.Size(319, 644);
             this.detailsPanel.TabIndex = 20;
             // 
             // transactionNumberTextBox
@@ -381,14 +385,14 @@
             this.bindingNavigatorDeleteItem,
             this.billingReportBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.billingReportBindingNavigator.Location = new System.Drawing.Point(301, 115);
+            this.billingReportBindingNavigator.Location = new System.Drawing.Point(319, 115);
             this.billingReportBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.billingReportBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.billingReportBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.billingReportBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.billingReportBindingNavigator.Name = "billingReportBindingNavigator";
             this.billingReportBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.billingReportBindingNavigator.Size = new System.Drawing.Size(963, 25);
+            this.billingReportBindingNavigator.Size = new System.Drawing.Size(945, 25);
             this.billingReportBindingNavigator.TabIndex = 21;
             this.billingReportBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -510,10 +514,10 @@
             this.dataGridViewTextBoxColumn6});
             this.billingReportDataGridView.DataSource = this.billingReportBindingSource;
             this.billingReportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.billingReportDataGridView.Location = new System.Drawing.Point(301, 140);
+            this.billingReportDataGridView.Location = new System.Drawing.Point(319, 249);
             this.billingReportDataGridView.Name = "billingReportDataGridView";
             this.billingReportDataGridView.ReadOnly = true;
-            this.billingReportDataGridView.Size = new System.Drawing.Size(963, 619);
+            this.billingReportDataGridView.Size = new System.Drawing.Size(945, 510);
             this.billingReportDataGridView.TabIndex = 21;
             // 
             // dataGridViewTextBoxColumn1
@@ -521,36 +525,63 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "TransactionNumber";
             this.dataGridViewTextBoxColumn1.HeaderText = "TransactionNumber";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentNumber";
             this.dataGridViewTextBoxColumn2.HeaderText = "StudentNumber";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "PaymentAmount";
             this.dataGridViewTextBoxColumn3.HeaderText = "PaymentAmount";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "TransactionDate";
             this.dataGridViewTextBoxColumn4.HeaderText = "TransactionDate";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "PaymentRN";
             this.dataGridViewTextBoxColumn5.HeaderText = "PaymentRN";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "ReceiptRN";
             this.dataGridViewTextBoxColumn6.HeaderText = "ReceiptRN";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // viewPaymentReceiptButton
+            // 
+            this.viewPaymentReceiptButton.Location = new System.Drawing.Point(263, 221);
+            this.viewPaymentReceiptButton.Name = "viewPaymentReceiptButton";
+            this.viewPaymentReceiptButton.Size = new System.Drawing.Size(38, 23);
+            this.viewPaymentReceiptButton.TabIndex = 81;
+            this.viewPaymentReceiptButton.Text = "View";
+            this.viewPaymentReceiptButton.UseVisualStyleBackColor = true;
+            this.viewPaymentReceiptButton.Click += new System.EventHandler(this.viewPaymentReceiptButton_Click);
+            // 
+            // receiptRNDataGridView
+            // 
+            this.receiptRNDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.receiptRNDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.receiptRNDataGridView.Location = new System.Drawing.Point(319, 140);
+            this.receiptRNDataGridView.Name = "receiptRNDataGridView";
+            this.receiptRNDataGridView.ReadOnly = true;
+            this.receiptRNDataGridView.Size = new System.Drawing.Size(945, 109);
+            this.receiptRNDataGridView.TabIndex = 22;
+            this.receiptRNDataGridView.Visible = false;
             // 
             // frmBillingReport
             // 
@@ -558,6 +589,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 759);
             this.Controls.Add(this.billingReportDataGridView);
+            this.Controls.Add(this.receiptRNDataGridView);
             this.Controls.Add(this.billingReportBindingNavigator);
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.showSearchButton);
@@ -577,6 +609,7 @@
             this.billingReportBindingNavigator.ResumeLayout(false);
             this.billingReportBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.billingReportDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiptRNDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,5 +659,7 @@
         private System.Windows.Forms.ToolStripLabel receiptRNToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox receiptRNToolStripTextBox;
         private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.Button viewPaymentReceiptButton;
+        private System.Windows.Forms.DataGridView receiptRNDataGridView;
     }
 }

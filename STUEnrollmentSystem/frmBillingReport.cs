@@ -77,5 +77,18 @@ namespace STUEnrollmentSystem
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
+
+        private void viewPaymentReceiptButton_Click(object sender, EventArgs e)
+        {
+            if (receiptRNDataGridView.Visible == true)
+            {
+                receiptRNDataGridView.Visible = false;
+                return;
+            }
+
+            receiptRNDataGridView.Visible = true;
+            DataTable dataTable = new StudentPaymentRepository(ConnectionFactory.GetConnectionString()).GetReceiptRNDataTable(receiptRNTextBox.Text);
+            receiptRNDataGridView.DataSource = dataTable;
+        }
     }
 }

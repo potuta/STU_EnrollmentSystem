@@ -57,13 +57,14 @@
             System.Windows.Forms.Label paymentMethodLabel1;
             System.Windows.Forms.Label personalEmailLabel;
             System.Windows.Forms.Label guardianEmailLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             System.Windows.Forms.Label label7;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
-            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
+            this.paidAmountTextBox = new System.Windows.Forms.TextBox();
             this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
+            this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
             this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.enrollmentTypeTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusTextBox = new System.Windows.Forms.TextBox();
@@ -174,7 +175,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
-            this.paidAmountTextBox = new System.Windows.Forms.TextBox();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -466,6 +466,15 @@
             guardianEmailLabel.TabIndex = 81;
             guardianEmailLabel.Text = "Guardian Email:";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(771, 144);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(70, 13);
+            label7.TabIndex = 83;
+            label7.Text = "Paid Amount:";
+            // 
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
@@ -555,6 +564,24 @@
             this.detailsPanel.Size = new System.Drawing.Size(1264, 292);
             this.detailsPanel.TabIndex = 6;
             // 
+            // paidAmountTextBox
+            // 
+            this.paidAmountTextBox.Location = new System.Drawing.Point(878, 143);
+            this.paidAmountTextBox.Name = "paidAmountTextBox";
+            this.paidAmountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.paidAmountTextBox.TabIndex = 84;
+            this.paidAmountTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            // 
+            // pendingStudentsBindingSource
+            // 
+            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
+            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // uploadProofOfPaymentButton
             // 
             this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 171);
@@ -573,16 +600,6 @@
             this.guardianEmailTextBox.Name = "guardianEmailTextBox";
             this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.guardianEmailTextBox.TabIndex = 82;
-            // 
-            // pendingStudentsBindingSource
-            // 
-            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
-            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // personalEmailTextBox
             // 
@@ -1647,24 +1664,6 @@
             this.tableAdapterManager.TeachersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(771, 144);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(70, 13);
-            label7.TabIndex = 83;
-            label7.Text = "Paid Amount:";
-            // 
-            // paidAmountTextBox
-            // 
-            this.paidAmountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pendingStudentsBindingSource, "LRN", true));
-            this.paidAmountTextBox.Location = new System.Drawing.Point(878, 143);
-            this.paidAmountTextBox.Name = "paidAmountTextBox";
-            this.paidAmountTextBox.Size = new System.Drawing.Size(100, 20);
-            this.paidAmountTextBox.TabIndex = 84;
-            this.paidAmountTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // frmPendingStudents
             // 

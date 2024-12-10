@@ -219,5 +219,38 @@ namespace STUEnrollmentSystem
 
             return totalPaymentAmount;
         }
+
+        public int GetSumTotalPaymentAmountFromPaymentCode(string paymentCode)
+        {
+            int totalPaymentAmount = 0;
+
+            try
+            {
+                _connection.Open();
+                string query = $"SELECT SUM(PaymentAmount) FROM PaymentType WHERE PaymentCode = @PaymentCode";
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@PaymentCode", paymentCode);
+                    totalPaymentAmount = Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetSumTotalPaymentAmountFromPaymentCode: {ex.Message}");
+                return totalPaymentAmount;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetSumTotalPaymentAmountFromPaymentCode: {ex.Message}");
+                return totalPaymentAmount;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return totalPaymentAmount;
+        }
     }
 }

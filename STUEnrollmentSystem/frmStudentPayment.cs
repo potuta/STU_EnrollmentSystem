@@ -213,32 +213,37 @@ namespace STUEnrollmentSystem
             try
             {
                 Dictionary<string, int> monthlyPendingList = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
+                int totalPaymentAmount = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetSumTotalPaymentAmountFromPaymentCode(paymentCodeTextBox.Text);
+                int totalPaidAmount = _studentPaymentRepository.GetSumTotalPaidAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
+                int totalRemainingBalance = totalPaymentAmount - totalPaidAmount;
 
+                string monthlyPending = string.Empty;
+                int monthlyRemainingBalance = 0;
                 if (monthlyPendingList.Count == 0)
                 {
-                    if (paymentCodeTextBox.Text.Contains("M"))
-                    {
-                        paymentTypeLabel.Text = "Monthly";
-                        remainingBalanceLabel.Text = "0";
-                        paymentDueLabel.Text = "None";
-                        notifyButton.Visible = false;
-                    }
-                    else if (paymentCodeTextBox.Text.Contains("F"))
-                    {
-                        paymentTypeLabel.Text = "Full";
-                        remainingBalanceLabel.Text = "0";
-                        paymentDueLabel.Text = "None";
-                        notifyButton.Visible = false;
-                    }
-                    return;
+                    monthlyPending = "None";
+                    monthlyRemainingBalance = totalRemainingBalance;
+                }
+                else
+                {
+                    monthlyPending = monthlyPendingList.Keys.ElementAt(0);
+                    monthlyRemainingBalance = totalRemainingBalance / monthlyPendingList.Count;
                 }
 
                 if (paymentCodeTextBox.Text.Contains("M"))
                 {
                     paymentTypeLabel.Text = "Monthly";
-                    remainingBalanceLabel.Text = "₱" + Convert.ToString(calculateTotalPendingAmount(monthlyPendingList));
-                    paymentDueLabel.Text = $"{monthlyPendingList.Keys.ElementAt(0)}, ₱{monthlyPendingList.Values.ElementAt(0)}";
-                    showNotifyButton();
+                    remainingBalanceLabel.Text = "₱" + Convert.ToString(totalRemainingBalance);
+                    paymentDueLabel.Text = $"{monthlyPending}, ₱{monthlyRemainingBalance}";
+
+                    if (monthlyPendingList.Count == 0)
+                    {
+                        notifyButton.Visible = false;
+                    }
+                    else
+                    {
+                        showNotifyButton();
+                    }
                 }
                 else if (paymentCodeTextBox.Text.Contains("F"))
                 {
@@ -475,7 +480,7 @@ namespace STUEnrollmentSystem
 
         private void viewPaymentReceiptButton_Click(object sender, EventArgs e)
         {
-            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeTextBox.Text, paymentMethodComboBox.Text, monthOfPaymentTextBox.Text, schoolYearTextBox.Text, transactionDateTextBox.Text, receiptRNTextBox.Text);
+            frmPDFReceipt frmPDFReceipt = new frmPDFReceipt(studentNumberTextBox.Text, paymentCodeTextBox.Text, paymentMethodComboBox.Text, monthOfPaymentTextBox.Text, schoolYearTextBox.Text, transactionDateTextBox.Text, receiptRNTextBox.Text, paidAmountTextBox.Text);
             frmPDFReceipt.Show();
         }
 
@@ -609,20 +614,18 @@ namespace STUEnrollmentSystem
                 return;
             }
 
-            int totalPaymentAmount = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetTotalPaymentAmountFromMonth(paymentCodeTextBox.Text, monthOfPaymentTextBox.Text);
-
             var billingReportData = new Dictionary<string, object>()
             {
                 {"TransactionNumber", transactionNumberTextBox.Text},
                 {"StudentNumber", studentNumberTextBox.Text},
-                {"PaymentAmount", totalPaymentAmount},
+                {"PaymentAmount", paidAmountTextBox.Text},
                 {"TransactionDate", transactionDateTextBox.Text},
                 {"PaymentRN", paymentRNTextBox.Text},
                 {"ReceiptRN", receiptRNTextBox.Text}
             };
 
-            new BillingReportRepository(ConnectionFactory.GetConnectionString()).InsertBillingReport(billingReportData);
             studentPaymentBindingNavigatorSaveItem.PerformClick();
+            new BillingReportRepository(ConnectionFactory.GetConnectionString()).InsertBillingReport(billingReportData);
             bindingNavigatorRefreshItem.PerformClick();
             MessageBox.Show("Successfully added to billing report!", "Success", MessageBoxButtons.OK);
             LoggingService.LogInformation($"Insert successful in InsertBillingReport to BillingReport table");

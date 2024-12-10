@@ -364,6 +364,12 @@ namespace STUEnrollmentSystem
                 return false;
             }
 
+            if (int.Parse(paidAmountTextBox.Text) != int.Parse(amountToPayLabel.Text))
+            {
+                MessageBox.Show("Paid Amount doesn't match the amount to pay.", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+
             var requirements = _pendingStudentsRepository.CheckPendingStudentsRequirements(registerIDTextBox.Text);
             if (requirements["ProofOfPayment"] == false && !paymentMethodComboBox.Text.Equals("CASH"))
             {
