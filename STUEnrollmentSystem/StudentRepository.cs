@@ -393,5 +393,38 @@ namespace STUEnrollmentSystem
 
             LoggingService.LogInformation($"Update successful in UpdateStudentYearLevel: StudentNumber: {studentNumber} EnrollmentType: {enrollmentType}");
         }
+
+        public DataTable GetStudentNumberDataTable(string studentNumber)
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT StudentNumber, StudFirstName, StudMidName, StudLastName, Gender, BirthDate, CivilStatus, Address, ContactNum, EnrollmentStatus, EnrollmentType, PaymentType, Section, " +
+                        "MotherFirstName, MotherLastName, MotherOccupation, FatherFirstName, FatherLastName, FatherOccupation FROM Students WHERE StudentNumber = @StudentNumber";
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    command.Parameters.AddWithValue("@StudentNumber", studentNumber);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"SQL Error in GetStudentNumberDataTable: {ex.Message}");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GetStudentNumberDataTable: {ex.Message}");
+                return dataTable;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }

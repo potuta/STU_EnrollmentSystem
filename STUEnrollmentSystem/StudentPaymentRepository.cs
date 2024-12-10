@@ -507,7 +507,7 @@ namespace STUEnrollmentSystem
         public DataTable GetReceiptRNDataTable(string receiptRN)
         {
             DataTable dataTable = new DataTable();
-            string query = "SELECT * FROM StudentPayment WHERE ReceiptRN = @ReceiptRN";
+            string query = "SELECT StudentNumber, ReceiptRN, PaymentRN, PaidAmount, PaymentMethod, PaymentCode, MonthOfPayment, PaymentStatus, TransactionDate, TransactionNumber, SchoolYear FROM StudentPayment WHERE ReceiptRN = @ReceiptRN";
 
             try
             {
@@ -536,5 +536,6 @@ namespace STUEnrollmentSystem
 
             return dataTable;
         }
+
     }
 }

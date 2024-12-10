@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace STUEnrollmentSystem
 {
@@ -730,7 +731,7 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorNotifyAllButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show($"Notify all students? (This feature is still a work in progress)", "Notify Confirmation", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show($"(This feature is still a work in progress) Notify all students?", "Notify Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
             {
                 return;
@@ -824,6 +825,19 @@ namespace STUEnrollmentSystem
                 }
                 textBox.SelectionStart = textBox.Text.Length; // Maintain cursor position
             }
+        }
+
+        private void viewStudentNumberButton_Click(object sender, EventArgs e)
+        {
+            if (studentsDataGridView.Visible == true)
+            {
+                studentsDataGridView.Visible = false;
+                return;
+            }
+
+            studentsDataGridView.Visible = true;
+            DataTable dataTable = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentNumberDataTable(studentNumberTextBox.Text);
+            studentsDataGridView.DataSource = dataTable;
         }
     }
 }
