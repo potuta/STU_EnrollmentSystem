@@ -213,9 +213,7 @@ namespace STUEnrollmentSystem
             try
             {
                 Dictionary<string, int> monthlyPendingList = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
-                int totalPaymentAmount = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetSumTotalPaymentAmountFromPaymentCode(paymentCodeTextBox.Text);
-                int totalPaidAmount = _studentPaymentRepository.GetSumTotalPaidAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
-                int totalRemainingBalance = totalPaymentAmount - totalPaidAmount;
+                int totalRemainingBalance = getTotalRemainingBalance();
 
                 string monthlyPending = string.Empty;
                 int monthlyRemainingBalance = 0;
@@ -270,6 +268,13 @@ namespace STUEnrollmentSystem
             }
         }
 
+        private int getTotalRemainingBalance()
+        {
+            int totalPaymentAmount = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetSumTotalPaymentAmountFromPaymentCode(paymentCodeTextBox.Text);
+            int totalPaidAmount = _studentPaymentRepository.GetSumTotalPaidAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
+            return totalPaymentAmount - totalPaidAmount;
+        }
+
         private void showNotifyButton()
         {
             Dictionary<string, int> monthlyPendingList = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetTotalPendingPaymentAmount(studentNumberTextBox.Text, paymentCodeTextBox.Text, schoolYearTextBox.Text);
@@ -290,16 +295,6 @@ namespace STUEnrollmentSystem
             {
                 notifyButton.Visible = false;
             }
-        }
-
-        private int calculateTotalPendingAmount(Dictionary<string, int> monthlyPendingList)
-        {
-            int totalPendingAmount = 0;
-            foreach (string month in monthlyPendingList.Keys)
-            {
-                totalPendingAmount += monthlyPendingList[month];
-            }
-            return totalPendingAmount;
         }
 
         private void SetRequirementButtonState(Button viewButton, Button uploadButton, Button deleteButton, bool hasRequirement)
@@ -457,7 +452,7 @@ namespace STUEnrollmentSystem
                     {
                         if (assignIntValueToMonth(month) <= assignIntValueToMonth(DateTime.Now.ToString("MMMM")))
                         {
-                            body += $"\n{month}: ₱{monthlyPendingList[month]}, {schoolYearTextBox.Text}";
+                            body += $"\n{month}: ₱{getTotalRemainingBalance() / monthlyPendingList.Count}, {schoolYearTextBox.Text}";
                         }
                     }
 
@@ -735,7 +730,7 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorNotifyAllButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show($"Notify all students?", "Notify Confirmation", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show($"Notify all students? (This feature is still a work in progress)", "Notify Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
             {
                 return;
