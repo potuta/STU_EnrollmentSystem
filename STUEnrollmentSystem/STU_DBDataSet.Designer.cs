@@ -1651,11 +1651,8 @@ namespace STUEnrollmentSystem {
                 this.columnRegisterID.MaxLength = 30;
                 this.columnStudentNumber.MaxLength = 30;
                 this.columnStudFirstName.AllowDBNull = false;
-                this.columnStudFirstName.MaxLength = 20;
                 this.columnStudMidName.AllowDBNull = false;
-                this.columnStudMidName.MaxLength = 20;
                 this.columnStudLastName.AllowDBNull = false;
-                this.columnStudLastName.MaxLength = 20;
                 this.columnGender.AllowDBNull = false;
                 this.columnGender.MaxLength = 20;
                 this.columnBirthDate.AllowDBNull = false;
@@ -1670,24 +1667,14 @@ namespace STUEnrollmentSystem {
                 this.columnEnrollmentType.AllowDBNull = false;
                 this.columnEnrollmentType.MaxLength = 20;
                 this.columnMotherFirstName.AllowDBNull = false;
-                this.columnMotherFirstName.MaxLength = 20;
                 this.columnMotherLastName.AllowDBNull = false;
-                this.columnMotherLastName.MaxLength = 20;
                 this.columnMotherOccupation.AllowDBNull = false;
-                this.columnMotherOccupation.MaxLength = 30;
                 this.columnFatherFirstName.AllowDBNull = false;
-                this.columnFatherFirstName.MaxLength = 30;
                 this.columnFatherLastName.AllowDBNull = false;
-                this.columnFatherLastName.MaxLength = 30;
                 this.columnFatherOccupation.AllowDBNull = false;
-                this.columnFatherOccupation.MaxLength = 30;
-                this.columnLRN.MaxLength = 50;
-                this.columnSection.MaxLength = 20;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 20;
                 this.columnPaymentMethod.MaxLength = 20;
-                this.columnPersonalEmail.MaxLength = 50;
-                this.columnGuardianEmail.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2311,11 +2298,8 @@ namespace STUEnrollmentSystem {
                 this.columnEnrollmentStatus.AllowDBNull = false;
                 this.columnEnrollmentStatus.MaxLength = 20;
                 this.columnStudFirstName.AllowDBNull = false;
-                this.columnStudFirstName.MaxLength = 20;
                 this.columnStudMidName.AllowDBNull = false;
-                this.columnStudMidName.MaxLength = 20;
                 this.columnStudLastName.AllowDBNull = false;
-                this.columnStudLastName.MaxLength = 20;
                 this.columnGender.AllowDBNull = false;
                 this.columnGender.MaxLength = 20;
                 this.columnBirthDate.AllowDBNull = false;
@@ -2328,22 +2312,13 @@ namespace STUEnrollmentSystem {
                 this.columnEnrollmentType.AllowDBNull = false;
                 this.columnEnrollmentType.MaxLength = 20;
                 this.columnMotherFirstName.AllowDBNull = false;
-                this.columnMotherFirstName.MaxLength = 20;
                 this.columnMotherLastName.AllowDBNull = false;
-                this.columnMotherLastName.MaxLength = 20;
                 this.columnMotherOccupation.AllowDBNull = false;
-                this.columnMotherOccupation.MaxLength = 30;
                 this.columnFatherFirstName.AllowDBNull = false;
-                this.columnFatherFirstName.MaxLength = 30;
                 this.columnFatherLastName.AllowDBNull = false;
-                this.columnFatherLastName.MaxLength = 30;
                 this.columnFatherOccupation.AllowDBNull = false;
-                this.columnFatherOccupation.MaxLength = 30;
-                this.columnLRN.MaxLength = 50;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 20;
-                this.columnPersonalEmail.MaxLength = 50;
-                this.columnGuardianEmail.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3713,11 +3688,8 @@ namespace STUEnrollmentSystem {
                 this.columnStudentNumber.Unique = true;
                 this.columnStudentNumber.MaxLength = 30;
                 this.columnStudFirstName.AllowDBNull = false;
-                this.columnStudFirstName.MaxLength = 20;
                 this.columnStudMidName.AllowDBNull = false;
-                this.columnStudMidName.MaxLength = 20;
                 this.columnStudLastName.AllowDBNull = false;
-                this.columnStudLastName.MaxLength = 20;
                 this.columnGender.AllowDBNull = false;
                 this.columnGender.MaxLength = 20;
                 this.columnBirthDate.AllowDBNull = false;
@@ -3732,23 +3704,13 @@ namespace STUEnrollmentSystem {
                 this.columnEnrollmentType.AllowDBNull = false;
                 this.columnEnrollmentType.MaxLength = 20;
                 this.columnMotherFirstName.AllowDBNull = false;
-                this.columnMotherFirstName.MaxLength = 20;
                 this.columnMotherLastName.AllowDBNull = false;
-                this.columnMotherLastName.MaxLength = 20;
                 this.columnMotherOccupation.AllowDBNull = false;
-                this.columnMotherOccupation.MaxLength = 30;
                 this.columnFatherFirstName.AllowDBNull = false;
-                this.columnFatherFirstName.MaxLength = 30;
                 this.columnFatherLastName.AllowDBNull = false;
-                this.columnFatherLastName.MaxLength = 30;
                 this.columnFatherOccupation.AllowDBNull = false;
-                this.columnFatherOccupation.MaxLength = 30;
-                this.columnLRN.MaxLength = 50;
-                this.columnSection.MaxLength = 20;
                 this.columnPaymentType.AllowDBNull = false;
                 this.columnPaymentType.MaxLength = 20;
-                this.columnPersonalEmail.MaxLength = 50;
-                this.columnGuardianEmail.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

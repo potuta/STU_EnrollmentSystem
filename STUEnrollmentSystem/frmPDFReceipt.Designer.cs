@@ -107,7 +107,7 @@
             this.panel1.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(783, 528);
+            this.panel1.Size = new System.Drawing.Size(798, 528);
             this.panel1.TabIndex = 0;
             // 
             // logoButton
@@ -611,7 +611,7 @@
             this.panel2.Font = new System.Drawing.Font("Century", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(783, 47);
+            this.panel2.Size = new System.Drawing.Size(798, 47);
             this.panel2.TabIndex = 1;
             // 
             // frmPDFReceipt
@@ -620,9 +620,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 574);
+            this.ClientSize = new System.Drawing.Size(815, 574);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmPDFReceipt";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmPDFReceipt_Load);

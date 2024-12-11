@@ -26,6 +26,7 @@ namespace STUEnrollmentSystem
             InitializeComponent();
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
             printDocument1.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+            this.MaximizeBox = false;
             this.StudentNumber = studentNumber;
             this.GradeCode = gradeCode;
             this.SectionTitle = sectionTitle;
