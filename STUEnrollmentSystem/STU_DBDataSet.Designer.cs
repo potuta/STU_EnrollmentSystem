@@ -5615,7 +5615,6 @@ namespace STUEnrollmentSystem {
                 this.columnMonthOfPayment.MaxLength = 20;
                 this.columnPaymentStatus.MaxLength = 20;
                 this.columnSchoolYear.MaxLength = 20;
-                this.columnPaymentRN.MaxLength = 50;
                 this.columnReceiptRN.MaxLength = 50;
                 this.columnTransactionDate.MaxLength = 50;
                 this.columnTransactionNumber.MaxLength = 50;
@@ -6568,7 +6567,6 @@ namespace STUEnrollmentSystem {
                 this.columnTransactionNumber.MaxLength = 50;
                 this.columnStudentNumber.MaxLength = 30;
                 this.columnTransactionDate.MaxLength = 50;
-                this.columnPaymentRN.MaxLength = 50;
                 this.columnReceiptRN.MaxLength = 50;
             }
             
