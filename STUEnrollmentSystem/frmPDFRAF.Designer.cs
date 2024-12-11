@@ -143,7 +143,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(793, 912);
+            this.panel1.Size = new System.Drawing.Size(810, 912);
             this.panel1.TabIndex = 0;
             // 
             // logoButton
@@ -1131,7 +1131,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(793, 43);
+            this.panel2.Size = new System.Drawing.Size(810, 43);
             this.panel2.TabIndex = 1;
             // 
             // frmPDFRAF
@@ -1140,7 +1140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(810, 862);
+            this.ClientSize = new System.Drawing.Size(827, 862);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

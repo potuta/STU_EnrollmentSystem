@@ -383,6 +383,7 @@ namespace STUEnrollmentSystem
                     _studentPaymentRepository.ViewImageFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
                     break;
                 case "upload":
+                    paidAmountTextBox.Clear();
                     studentPaymentBindingNavigatorSaveItem.PerformClick();
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
