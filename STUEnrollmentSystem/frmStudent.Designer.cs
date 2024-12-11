@@ -139,6 +139,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorTotalStudentsItem = new System.Windows.Forms.ToolStripButton();
             this.studentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
+            this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
+            this.totalEnrolledStudentsGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -165,10 +169,6 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.sectionsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.SectionsTableAdapter();
-            this.gradeLevelTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.GradeLevelTableAdapter();
-            this.totalEnrolledStudentsGridView = new System.Windows.Forms.DataGridView();
             studentNumberLabel = new System.Windows.Forms.Label();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
@@ -595,11 +595,7 @@
             this.civilStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
+            "Single"});
             this.civilStatusComboBox.Location = new System.Drawing.Point(374, 64);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
@@ -1321,6 +1317,31 @@
             this.studentsDataGridView.TabIndex = 10;
             this.studentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDataGridView_CellClick);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // sectionsTableAdapter
+            // 
+            this.sectionsTableAdapter.ClearBeforeFill = true;
+            // 
+            // gradeLevelTableAdapter
+            // 
+            this.gradeLevelTableAdapter.ClearBeforeFill = true;
+            // 
+            // totalEnrolledStudentsGridView
+            // 
+            this.totalEnrolledStudentsGridView.AllowUserToAddRows = false;
+            this.totalEnrolledStudentsGridView.AllowUserToDeleteRows = false;
+            this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 442);
+            this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
+            this.totalEnrolledStudentsGridView.ReadOnly = true;
+            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1485, 210);
+            this.totalEnrolledStudentsGridView.TabIndex = 12;
+            this.totalEnrolledStudentsGridView.Visible = false;
+            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "StudentNumber";
@@ -1380,11 +1401,7 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
             this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
             this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
+            "Single"});
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -1540,31 +1557,6 @@
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // sectionsTableAdapter
-            // 
-            this.sectionsTableAdapter.ClearBeforeFill = true;
-            // 
-            // gradeLevelTableAdapter
-            // 
-            this.gradeLevelTableAdapter.ClearBeforeFill = true;
-            // 
-            // totalEnrolledStudentsGridView
-            // 
-            this.totalEnrolledStudentsGridView.AllowUserToAddRows = false;
-            this.totalEnrolledStudentsGridView.AllowUserToDeleteRows = false;
-            this.totalEnrolledStudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.totalEnrolledStudentsGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.totalEnrolledStudentsGridView.Location = new System.Drawing.Point(0, 442);
-            this.totalEnrolledStudentsGridView.Name = "totalEnrolledStudentsGridView";
-            this.totalEnrolledStudentsGridView.ReadOnly = true;
-            this.totalEnrolledStudentsGridView.Size = new System.Drawing.Size(1485, 210);
-            this.totalEnrolledStudentsGridView.TabIndex = 12;
-            this.totalEnrolledStudentsGridView.Visible = false;
-            // 
             // frmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1689,6 +1681,7 @@
         private System.Windows.Forms.TextBox guardianEmailTextBox;
         private System.Windows.Forms.TextBox personalEmailTextBox;
         private System.Windows.Forms.Button viewRAFButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -1715,6 +1708,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

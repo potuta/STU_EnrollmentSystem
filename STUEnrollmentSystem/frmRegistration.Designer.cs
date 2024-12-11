@@ -57,6 +57,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistration));
             this.registrationBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -72,13 +74,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.registrationBindingNavigatorMoveToCashierItem = new System.Windows.Forms.ToolStripButton();
             this.registrationDataGridView = new System.Windows.Forms.DataGridView();
-            this.PersonalEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuardianEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.StudForm137 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GoodMoral = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransferCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchToolStrip = new System.Windows.Forms.ToolStrip();
             this.registerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -135,6 +130,8 @@
             this.uploadTransferCertButton = new System.Windows.Forms.Button();
             this.transferCertificateTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.registrationTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RegistrationTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,7 +142,10 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonalEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuardianEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.PaymentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,10 +153,10 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
-            this.registrationTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RegistrationTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
+            this.StudForm137 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GoodMoral = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransferCertificate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             registerIDLabel = new System.Windows.Forms.Label();
             enrollmentStatusLabel = new System.Windows.Forms.Label();
             studFirstNameLabel = new System.Windows.Forms.Label();
@@ -184,12 +184,12 @@
             guardianEmailLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingNavigator)).BeginInit();
             this.registrationBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrationDataGridView)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             this.detailsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // registerIDLabel
@@ -459,6 +459,16 @@
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
+            // registrationBindingSource
+            // 
+            this.registrationBindingSource.DataMember = "Registration";
+            this.registrationBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
@@ -609,60 +619,6 @@
             this.registrationDataGridView.TabIndex = 1;
             this.registrationDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.registrationDataGridView_CellClick);
             // 
-            // PersonalEmail
-            // 
-            this.PersonalEmail.DataPropertyName = "PersonalEmail";
-            this.PersonalEmail.HeaderText = "PersonalEmail";
-            this.PersonalEmail.Name = "PersonalEmail";
-            this.PersonalEmail.ReadOnly = true;
-            // 
-            // GuardianEmail
-            // 
-            this.GuardianEmail.DataPropertyName = "GuardianEmail";
-            this.GuardianEmail.HeaderText = "GuardianEmail";
-            this.GuardianEmail.Name = "GuardianEmail";
-            this.GuardianEmail.ReadOnly = true;
-            // 
-            // PaymentType
-            // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "PaymentType";
-            this.PaymentType.Items.AddRange(new object[] {
-            "Monthly",
-            "Full"});
-            this.PaymentType.Name = "PaymentType";
-            this.PaymentType.ReadOnly = true;
-            this.PaymentType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PaymentType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // StudForm137
-            // 
-            this.StudForm137.DataPropertyName = "StudForm137";
-            this.StudForm137.HeaderText = "StudForm137";
-            this.StudForm137.Name = "StudForm137";
-            this.StudForm137.ReadOnly = true;
-            // 
-            // BirthCertificate
-            // 
-            this.BirthCertificate.DataPropertyName = "BirthCertificate";
-            this.BirthCertificate.HeaderText = "BirthCertificate";
-            this.BirthCertificate.Name = "BirthCertificate";
-            this.BirthCertificate.ReadOnly = true;
-            // 
-            // GoodMoral
-            // 
-            this.GoodMoral.DataPropertyName = "GoodMoral";
-            this.GoodMoral.HeaderText = "GoodMoral";
-            this.GoodMoral.Name = "GoodMoral";
-            this.GoodMoral.ReadOnly = true;
-            // 
-            // TransferCertificate
-            // 
-            this.TransferCertificate.DataPropertyName = "TransferCertificate";
-            this.TransferCertificate.HeaderText = "TransferCertificate";
-            this.TransferCertificate.Name = "TransferCertificate";
-            this.TransferCertificate.ReadOnly = true;
-            // 
             // searchPanel
             // 
             this.searchPanel.AutoScroll = true;
@@ -690,7 +646,7 @@
             this.searchToolStripButton});
             this.searchToolStrip.Location = new System.Drawing.Point(83, 38);
             this.searchToolStrip.Name = "searchToolStrip";
-            this.searchToolStrip.Size = new System.Drawing.Size(814, 25);
+            this.searchToolStrip.Size = new System.Drawing.Size(783, 25);
             this.searchToolStrip.TabIndex = 4;
             this.searchToolStrip.Text = "searchToolStrip";
             // 
@@ -875,11 +831,7 @@
             this.civilStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.civilStatusComboBox.FormattingEnabled = true;
             this.civilStatusComboBox.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
+            "Single"});
             this.civilStatusComboBox.Location = new System.Drawing.Point(372, 64);
             this.civilStatusComboBox.Name = "civilStatusComboBox";
             this.civilStatusComboBox.Size = new System.Drawing.Size(100, 21);
@@ -1262,6 +1214,30 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // registrationTableAdapter
+            // 
+            this.registrationTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = null;
+            this.tableAdapterManager.PricesTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RegisterID";
@@ -1327,11 +1303,7 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
             this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
             this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
+            "Single"});
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -1351,6 +1323,20 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
+            // PersonalEmail
+            // 
+            this.PersonalEmail.DataPropertyName = "PersonalEmail";
+            this.PersonalEmail.HeaderText = "PersonalEmail";
+            this.PersonalEmail.Name = "PersonalEmail";
+            this.PersonalEmail.ReadOnly = true;
+            // 
+            // GuardianEmail
+            // 
+            this.GuardianEmail.DataPropertyName = "GuardianEmail";
+            this.GuardianEmail.HeaderText = "GuardianEmail";
+            this.GuardianEmail.Name = "GuardianEmail";
+            this.GuardianEmail.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "EnrollmentType";
@@ -1364,6 +1350,18 @@
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "PaymentType";
+            this.PaymentType.Items.AddRange(new object[] {
+            "Monthly",
+            "Full"});
+            this.PaymentType.Name = "PaymentType";
+            this.PaymentType.ReadOnly = true;
+            this.PaymentType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PaymentType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -1414,39 +1412,33 @@
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
-            // registrationBindingSource
+            // StudForm137
             // 
-            this.registrationBindingSource.DataMember = "Registration";
-            this.registrationBindingSource.DataSource = this.sTU_DBDataSet;
+            this.StudForm137.DataPropertyName = "StudForm137";
+            this.StudForm137.HeaderText = "StudForm137";
+            this.StudForm137.Name = "StudForm137";
+            this.StudForm137.ReadOnly = true;
             // 
-            // sTU_DBDataSet
+            // BirthCertificate
             // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.BirthCertificate.DataPropertyName = "BirthCertificate";
+            this.BirthCertificate.HeaderText = "BirthCertificate";
+            this.BirthCertificate.Name = "BirthCertificate";
+            this.BirthCertificate.ReadOnly = true;
             // 
-            // registrationTableAdapter
+            // GoodMoral
             // 
-            this.registrationTableAdapter.ClearBeforeFill = true;
+            this.GoodMoral.DataPropertyName = "GoodMoral";
+            this.GoodMoral.HeaderText = "GoodMoral";
+            this.GoodMoral.Name = "GoodMoral";
+            this.GoodMoral.ReadOnly = true;
             // 
-            // tableAdapterManager
+            // TransferCertificate
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BillingReportTableAdapter = null;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.LogsTableAdapter = null;
-            this.tableAdapterManager.PaymentTypeTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = null;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
+            this.TransferCertificate.DataPropertyName = "TransferCertificate";
+            this.TransferCertificate.HeaderText = "TransferCertificate";
+            this.TransferCertificate.Name = "TransferCertificate";
+            this.TransferCertificate.ReadOnly = true;
             // 
             // frmRegistration
             // 
@@ -1465,6 +1457,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.registrationBindingNavigator)).EndInit();
             this.registrationBindingNavigator.ResumeLayout(false);
             this.registrationBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registrationDataGridView)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
@@ -1472,8 +1466,6 @@
             this.searchToolStrip.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1556,6 +1548,9 @@
         private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
+        private System.Windows.Forms.TextBox guardianEmailTextBox;
+        private System.Windows.Forms.TextBox personalEmailTextBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1581,8 +1576,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthCertificate;
         private System.Windows.Forms.DataGridViewTextBoxColumn GoodMoral;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransferCertificate;
-        private System.Windows.Forms.TextBox guardianEmailTextBox;
-        private System.Windows.Forms.TextBox personalEmailTextBox;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

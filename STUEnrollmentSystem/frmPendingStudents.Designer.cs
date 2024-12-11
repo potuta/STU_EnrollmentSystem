@@ -61,10 +61,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPendingStudents));
             this.detailsPanel = new System.Windows.Forms.Panel();
             this.paidAmountTextBox = new System.Windows.Forms.TextBox();
-            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.uploadProofOfPaymentButton = new System.Windows.Forms.Button();
             this.guardianEmailTextBox = new System.Windows.Forms.TextBox();
+            this.pendingStudentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
             this.personalEmailTextBox = new System.Windows.Forms.TextBox();
             this.enrollmentTypeTextBox = new System.Windows.Forms.TextBox();
             this.civilStatusTextBox = new System.Windows.Forms.TextBox();
@@ -145,6 +145,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorEnrollStudentItem = new System.Windows.Forms.ToolStripButton();
             this.pendingStudentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
+            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -172,9 +175,6 @@
             this.PaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ProofOfPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pendingStudentsTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.PendingStudentsTableAdapter();
-            this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             transferCertificateLabel = new System.Windows.Forms.Label();
             goodMoralLabel = new System.Windows.Forms.Label();
             birthCertificateLabel = new System.Windows.Forms.Label();
@@ -572,16 +572,6 @@
             this.paidAmountTextBox.TabIndex = 84;
             this.paidAmountTextBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
-            // pendingStudentsBindingSource
-            // 
-            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
-            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // uploadProofOfPaymentButton
             // 
             this.uploadProofOfPaymentButton.Location = new System.Drawing.Point(878, 171);
@@ -600,6 +590,16 @@
             this.guardianEmailTextBox.Name = "guardianEmailTextBox";
             this.guardianEmailTextBox.Size = new System.Drawing.Size(100, 20);
             this.guardianEmailTextBox.TabIndex = 82;
+            // 
+            // pendingStudentsBindingSource
+            // 
+            this.pendingStudentsBindingSource.DataMember = "PendingStudents";
+            this.pendingStudentsBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // personalEmailTextBox
             // 
@@ -1407,6 +1407,34 @@
             this.pendingStudentsDataGridView.TabIndex = 7;
             this.pendingStudentsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.pendingStudentsDataGridView_CellClick);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pendingStudentsTableAdapter
+            // 
+            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BillingReportTableAdapter = null;
+            this.tableAdapterManager.GradeLevelTableAdapter = null;
+            this.tableAdapterManager.LogsTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
+            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
+            this.tableAdapterManager.PricesTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.ScheduleTableAdapter = null;
+            this.tableAdapterManager.SectionsTableAdapter = null;
+            this.tableAdapterManager.StudentPaymentTableAdapter = null;
+            this.tableAdapterManager.StudentsTableAdapter = null;
+            this.tableAdapterManager.SubjectsTableAdapter = null;
+            this.tableAdapterManager.TeachersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RegisterID";
@@ -1466,11 +1494,7 @@
             this.dataGridViewTextBoxColumn8.DataPropertyName = "CivilStatus";
             this.dataGridViewTextBoxColumn8.HeaderText = "CivilStatus";
             this.dataGridViewTextBoxColumn8.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Separated",
-            "Divorced",
-            "Widowed"});
+            "Single"});
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -1637,34 +1661,6 @@
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // pendingStudentsTableAdapter
-            // 
-            this.pendingStudentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BillingReportTableAdapter = null;
-            this.tableAdapterManager.GradeLevelTableAdapter = null;
-            this.tableAdapterManager.LogsTableAdapter = null;
-            this.tableAdapterManager.PaymentTypeTableAdapter = null;
-            this.tableAdapterManager.PendingStudentsTableAdapter = this.pendingStudentsTableAdapter;
-            this.tableAdapterManager.PricesTableAdapter = null;
-            this.tableAdapterManager.RegistrationTableAdapter = null;
-            this.tableAdapterManager.RolesTableAdapter = null;
-            this.tableAdapterManager.ScheduleTableAdapter = null;
-            this.tableAdapterManager.SectionsTableAdapter = null;
-            this.tableAdapterManager.StudentPaymentTableAdapter = null;
-            this.tableAdapterManager.StudentsTableAdapter = null;
-            this.tableAdapterManager.SubjectsTableAdapter = null;
-            this.tableAdapterManager.TeachersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsersTableAdapter = null;
-            // 
             // frmPendingStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1768,6 +1764,27 @@
         private System.Windows.Forms.Button viewProofOfPaymentButton;
         private System.Windows.Forms.Button deleteProofOfPaymentButton;
         private System.Windows.Forms.Button uploadProofOfPaymentButton;
+        private System.Windows.Forms.Label amountToPayLabel;
+        private System.Windows.Forms.ToolStrip searchToolStrip;
+        private System.Windows.Forms.ToolStripLabel registerIDToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
+        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
+        private System.Windows.Forms.ToolStripButton searchToolStripButton;
+        private System.Windows.Forms.ToolStripComboBox registerIDToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
+        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
+        private System.Windows.Forms.TextBox enrollmentStatusTextBox;
+        private System.Windows.Forms.TextBox genderTextBox;
+        private System.Windows.Forms.TextBox enrollmentTypeTextBox;
+        private System.Windows.Forms.TextBox civilStatusTextBox;
+        private System.Windows.Forms.TextBox guardianEmailTextBox;
+        private System.Windows.Forms.TextBox personalEmailTextBox;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.TextBox paidAmountTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1795,26 +1812,5 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn PaymentMethod;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProofOfPayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.Label amountToPayLabel;
-        private System.Windows.Forms.ToolStrip searchToolStrip;
-        private System.Windows.Forms.ToolStripLabel registerIDToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studentNumberToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studFirstNameToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studMidNameToolStripLabel;
-        private System.Windows.Forms.ToolStripLabel studLastNameToolStripLabel;
-        private System.Windows.Forms.ToolStripButton searchToolStripButton;
-        private System.Windows.Forms.ToolStripComboBox registerIDToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studentNumberToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studFirstNameToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studMidNameToolStripComboBox;
-        private System.Windows.Forms.ToolStripComboBox studLastNameToolStripComboBox;
-        private System.Windows.Forms.TextBox enrollmentStatusTextBox;
-        private System.Windows.Forms.TextBox genderTextBox;
-        private System.Windows.Forms.TextBox enrollmentTypeTextBox;
-        private System.Windows.Forms.TextBox civilStatusTextBox;
-        private System.Windows.Forms.TextBox guardianEmailTextBox;
-        private System.Windows.Forms.TextBox personalEmailTextBox;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.TextBox paidAmountTextBox;
     }
 }

@@ -76,31 +76,33 @@ namespace STUEnrollmentSystem
 
         private void frmPDFReceipt_Load(object sender, EventArgs e)
         {
+            string pricesCode = $"P{PaymentCode.Substring(1)}";
+            string gradeCode = PaymentCode.Substring(1);
+            string paymentType = string.Empty;
+
             string fullName = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentName(StudentNumber);
             string section = new StudentRepository(ConnectionFactory.GetConnectionString()).GetStudentSection(StudentNumber);
-            string paymentType = string.Empty;
+            List<int> pricesList = new PricesRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmountListFromGradeCode(gradeCode);
 
             if (PaymentCode.Contains("M"))
             {
                 paymentType = "Monthly";
-                tuitionFeeLabel.Text = "3100";
-                booksFeeLabel.Text = "900";
-                laboratoryFeeLabel.Text = "500";
-                uniformFeeLabel.Text = "500";
-                miscellanaousFeeLabel.Text = "700";
+                Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(paymentType, pricesCode);
+                tuitionFeeLabel.Text = Convert.ToString(pricesList[0] / paymentAmountDictionary.Count);
+                booksFeeLabel.Text = Convert.ToString(pricesList[1] / paymentAmountDictionary.Count);
+                laboratoryFeeLabel.Text = Convert.ToString(pricesList[2] / paymentAmountDictionary.Count);
+                uniformFeeLabel.Text = Convert.ToString(pricesList[3] / paymentAmountDictionary.Count);
+                miscellanaousFeeLabel.Text = Convert.ToString(pricesList[4] / paymentAmountDictionary.Count);
             }
             else
             {
                 paymentType = "Full";
-                tuitionFeeLabel.Text = "30000";
-                booksFeeLabel.Text = "10000";
-                laboratoryFeeLabel.Text = "500";
-                uniformFeeLabel.Text = "5000";
-                miscellanaousFeeLabel.Text = "7000";
+                tuitionFeeLabel.Text = Convert.ToString(pricesList[0]);
+                booksFeeLabel.Text = Convert.ToString(pricesList[1]);
+                laboratoryFeeLabel.Text = Convert.ToString(pricesList[2]);
+                uniformFeeLabel.Text = Convert.ToString(pricesList[3]);
+                miscellanaousFeeLabel.Text = Convert.ToString(pricesList[4]);
             }
-
-            string pricesCode = $"P{PaymentCode.Substring(1)}";
-            //Dictionary<string, int> paymentAmountDictionary = new PaymentTypeRepository(ConnectionFactory.GetConnectionString()).GetPaymentAmount(paymentType, pricesCode);
 
             schoolYearLabel.Text = Year;
             fullNameLabel.Text = fullName;

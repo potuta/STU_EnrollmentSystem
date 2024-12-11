@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,21 +39,31 @@ namespace STUEnrollmentSystem
         {
             try
             {
+                string hashedPassword = HashPassword(password);
                 bool isUserVerified = _usersRepository.VerifyUserLogin(userID, password);
-                if (isUserVerified == true)
-                {
-                    InitializeUserLoginInfo(userID, password);
-                    frmSTU_Dashboard STU = new frmSTU_Dashboard();
-                    STU.FormClosed += STU_FormClosed;
-                    STU.Show();
-                    this.Hide();
-                    LoggingService.LogInformation($"Successful login verification in VerifyUserLogin: UserID: {userID}");
-                }
-                else
+                bool isUserVerified2 = _usersRepository.VerifyUserLogin(userID, hashedPassword);
+
+                if (isUserVerified == false && isUserVerified2 == false)
                 {
                     MessageBox.Show("User account not found");
                     return;
                 }
+
+                if (isUserVerified == true)
+                {
+                    InitializeUserLoginInfo(userID, password);
+                }
+                else if (isUserVerified2 == true)
+                {
+
+                    InitializeUserLoginInfo(userID, hashedPassword);
+                }
+
+                frmSTU_Dashboard STU = new frmSTU_Dashboard();
+                STU.FormClosed += STU_FormClosed;
+                STU.Show();
+                this.Hide();
+                LoggingService.LogInformation($"Successful login verification in VerifyUserLogin: UserID: {userID}");
             }
             catch (FormatException fe)
             {
@@ -219,7 +230,7 @@ namespace STUEnrollmentSystem
                 return;
             }
             
-            _usersRepository.UpdateUserPassword(UserID, newPasswordTextBox.Text);
+            _usersRepository.UpdateUserPassword(UserID, HashPassword(newPasswordTextBox.Text));
             MessageBox.Show($"Password has been successfully changed!", "Success", MessageBoxButtons.OK);
 
             forgotPasswordButton.PerformClick();
@@ -230,5 +241,13 @@ namespace STUEnrollmentSystem
             emailTextBox.Visible = false;
         }
 
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(bytes);
+            }
+        }
     }
 }

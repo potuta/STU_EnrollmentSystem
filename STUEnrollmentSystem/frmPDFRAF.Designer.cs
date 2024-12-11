@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.logoButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelInstructor7 = new System.Windows.Forms.Label();
             this.labelInstructor6 = new System.Windows.Forms.Label();
@@ -120,7 +121,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.logoButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -143,8 +143,24 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 912);
+            this.panel1.Size = new System.Drawing.Size(783, 912);
             this.panel1.TabIndex = 0;
+            // 
+            // logoButton
+            // 
+            this.logoButton.BackColor = System.Drawing.Color.Transparent;
+            this.logoButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.STU_LOGO;
+            this.logoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoButton.FlatAppearance.BorderSize = 0;
+            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Window;
+            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Window;
+            this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
+            this.logoButton.Location = new System.Drawing.Point(12, 6);
+            this.logoButton.Name = "logoButton";
+            this.logoButton.Size = new System.Drawing.Size(91, 74);
+            this.logoButton.TabIndex = 18;
+            this.logoButton.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -1115,29 +1131,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 43);
+            this.panel2.Size = new System.Drawing.Size(783, 43);
             this.panel2.TabIndex = 1;
-            // 
-            // logoButton
-            // 
-            this.logoButton.BackColor = System.Drawing.Color.Transparent;
-            this.logoButton.BackgroundImage = global::STUEnrollmentSystem.Properties.Resources.STU_LOGO;
-            this.logoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logoButton.FlatAppearance.BorderSize = 0;
-            this.logoButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Window;
-            this.logoButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Window;
-            this.logoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoButton.Font = new System.Drawing.Font("Subway", 36F, System.Drawing.FontStyle.Bold);
-            this.logoButton.Location = new System.Drawing.Point(12, 6);
-            this.logoButton.Name = "logoButton";
-            this.logoButton.Size = new System.Drawing.Size(91, 74);
-            this.logoButton.TabIndex = 18;
-            this.logoButton.UseVisualStyleBackColor = false;
             // 
             // frmPDFRAF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 862);
             this.Controls.Add(this.panel1);

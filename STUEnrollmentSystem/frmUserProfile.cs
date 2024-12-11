@@ -51,16 +51,17 @@ namespace STUEnrollmentSystem
                 return;
             }
 
-            if (currentPasswordTextBox.Text != passwordTextBox.Text)
+            if (frmLogin.HashPassword(currentPasswordTextBox.Text) != passwordTextBox.Text && currentPasswordTextBox.Text != passwordTextBox.Text)
             {
                 MessageBox.Show("The current password you entered is wrong.");
                 currentPasswordTextBox.Clear();
                 return;
             }
 
-            _usersRepository.UpdateUserPassword(userIDTextBox.Text, newPasswordTextBox.Text);
+            string hashedPassword = frmLogin.HashPassword(newPasswordTextBox.Text);
+            _usersRepository.UpdateUserPassword(userIDTextBox.Text, hashedPassword);
             MessageBox.Show($"Password has been successfully changed!", "Success", MessageBoxButtons.OK);
-            frmLogin.Password = newPasswordTextBox.Text;
+            frmLogin.Password = hashedPassword;
             InitializeUserInformation();
             changePasswordPanel.Visible = false;
         }

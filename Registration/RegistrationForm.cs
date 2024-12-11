@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using STUEnrollmentSystem;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Registration
 {
@@ -50,7 +51,22 @@ namespace Registration
 
             if (controlsToValidate.Any(control => string.IsNullOrWhiteSpace(control.Text)))
             {
-                MessageBox.Show("Missing details, please make sure to enter complete details.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Missing details, please make sure to enter complete details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(personalEmailTextBox.Text))
+            {
+                if (!IsValidEmail(personalEmailTextBox.Text))
+                {
+                    MessageBox.Show("Invalid email format. Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            if (!IsValidEmail(guardianEmailTextBox.Text))
+            {
+                MessageBox.Show("Invalid email format. Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -135,6 +151,12 @@ namespace Registration
                 if (_connection.State == ConnectionState.Open)
                     _connection.Close();
             }
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
         }
 
         private void sendEmailNotification(string recipientEmail)
