@@ -31,6 +31,7 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.registrationBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            selectCurrentDataGridViewCell();
         }
 
         private void Registration_Load(object sender, EventArgs e)
@@ -39,6 +40,7 @@ namespace STUEnrollmentSystem
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
             InitializeUserRolePrivileges();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeUserRolePrivileges()
@@ -53,6 +55,7 @@ namespace STUEnrollmentSystem
         {
             this.registrationTableAdapter.Fill(sTU_DBDataSet.Registration);
             InitializeSearchComboBoxes();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeSearchComboBoxes()
@@ -213,6 +216,22 @@ namespace STUEnrollmentSystem
             uploadTransferCertButton.Visible = false;
         }
 
+        private void selectCurrentDataGridViewCell()
+        {
+            if (registrationDataGridView.Rows.Count > 0)
+            {
+                int rowIndex = registrationDataGridView.CurrentCell.RowIndex;
+                int columnIndex = registrationDataGridView.CurrentCell.ColumnIndex;
+
+                if (rowIndex >= 0 && rowIndex < registrationDataGridView.Rows.Count &&
+                    columnIndex >= 0 && columnIndex < registrationDataGridView.Columns.Count)
+                {
+                    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(columnIndex, rowIndex);
+                    registrationDataGridView_CellClick(registrationDataGridView, args);
+                }
+            }
+        }
+
         private void viewFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "view");
         private void uploadFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "upload");
         private void deleteFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "delete");
@@ -241,14 +260,14 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _registrationRepository.UploadFile("Registration", fileType, "RegisterID", registerIDTextBox.Text, fileData);
                     }
-                    registrationBindingNavigatorRefreshItem.PerformClick();
+                    selectCurrentDataGridViewCell();
                     break;
                 case "delete":
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         _registrationRepository.DeleteFile("Registration", fileType, "RegisterID", registerIDTextBox.Text);
-                        registrationBindingNavigatorRefreshItem.PerformClick();
+                        selectCurrentDataGridViewCell();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)

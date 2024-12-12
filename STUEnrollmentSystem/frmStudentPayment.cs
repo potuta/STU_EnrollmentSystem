@@ -31,6 +31,7 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.studentPaymentBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            selectCurrentDataGridViewCell();
         }
 
         private void StudentPayment_Load(object sender, EventArgs e)
@@ -39,6 +40,7 @@ namespace STUEnrollmentSystem
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
             InitializeUserRolePrivileges();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeUserRolePrivileges()
@@ -114,18 +116,9 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
         {
-            int selectedRowIndex = -1;
-            if (studentPaymentDataGridView.CurrentRow != null)
-            {
-                selectedRowIndex = studentPaymentDataGridView.CurrentRow.Index;
-            }
             this.studentPaymentTableAdapter.Fill(sTU_DBDataSet.StudentPayment);
-            if (selectedRowIndex >= 0 && selectedRowIndex < studentPaymentDataGridView.Rows.Count)
-            {
-                studentPaymentDataGridView.Rows[selectedRowIndex].Selected = true;
-                studentPaymentDataGridView.CurrentCell = studentPaymentDataGridView.Rows[selectedRowIndex].Cells[0];
-            }
             InitializeSearchComboBoxes();
+            selectCurrentDataGridViewCell();
         }
 
         private void studentPaymentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -333,6 +326,22 @@ namespace STUEnrollmentSystem
             refreshButton.Visible = false;
         }
 
+        private void selectCurrentDataGridViewCell()
+        {
+            if (studentPaymentDataGridView.Rows.Count > 0)
+            {
+                int rowIndex = studentPaymentDataGridView.CurrentCell.RowIndex;
+                int columnIndex = studentPaymentDataGridView.CurrentCell.ColumnIndex;
+
+                if (rowIndex >= 0 && rowIndex < studentPaymentDataGridView.Rows.Count &&
+                    columnIndex >= 0 && columnIndex < studentPaymentDataGridView.Columns.Count)
+                {
+                    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(columnIndex, rowIndex);
+                    studentPaymentDataGridView_CellClick(studentPaymentDataGridView, args);
+                }
+            }
+        }
+
         private int assignIntValueToMonth(string month)
         {
             Dictionary<string, int> months = new Dictionary<string, int>();
@@ -397,7 +406,7 @@ namespace STUEnrollmentSystem
                     if (dialogResult == DialogResult.Yes)
                     {
                         _studentPaymentRepository.DeleteFile("StudentPayment", fileType, "StudentNumber", studentNumberTextBox.Text);
-                        bindingNavigatorRefreshItem.PerformClick();
+                        selectCurrentDataGridViewCell();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)
@@ -635,7 +644,7 @@ namespace STUEnrollmentSystem
 
             studentPaymentBindingNavigatorSaveItem.PerformClick();
             new BillingReportRepository(ConnectionFactory.GetConnectionString()).InsertBillingReport(billingReportData);
-            bindingNavigatorRefreshItem.PerformClick();
+            selectCurrentDataGridViewCell();
             MessageBox.Show("Successfully added to billing report!", "Success", MessageBoxButtons.OK);
             LoggingService.LogInformation($"Insert successful in InsertBillingReport to BillingReport table");
         }

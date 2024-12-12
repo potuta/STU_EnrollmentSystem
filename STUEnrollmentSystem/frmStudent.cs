@@ -31,6 +31,7 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.studentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            selectCurrentDataGridViewCell();
         }
 
         private void Student_Load(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace STUEnrollmentSystem
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
             InitializeUserRolePrivileges();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeUserRolePrivileges()
@@ -55,6 +57,7 @@ namespace STUEnrollmentSystem
         {
             this.studentsTableAdapter.Fill(sTU_DBDataSet.Students);
             InitializeSearchComboBoxes();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeSearchComboBoxes()
@@ -266,6 +269,22 @@ namespace STUEnrollmentSystem
             viewRAFButton.Visible = false;
         }
 
+        private void selectCurrentDataGridViewCell()
+        {
+            if (studentsDataGridView.Rows.Count > 0)
+            {
+                int rowIndex = 0;
+                int columnIndex = 0;
+
+                if (rowIndex >= 0 && rowIndex < studentsDataGridView.Rows.Count &&
+                    columnIndex >= 0 && columnIndex < studentsDataGridView.Columns.Count)
+                {
+                    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(columnIndex, rowIndex);
+                    studentsDataGridView_CellClick(studentsDataGridView, args);
+                }
+            }
+        }
+
         private void viewFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "view");
         private void uploadFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "upload");
         private void deleteFrm137Button_Click(object sender, EventArgs e) => HandleFileOperation("StudForm137", "delete");
@@ -299,14 +318,14 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentRepository.UploadFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
-                    bindingNavigatorRefreshItem.PerformClick();
+                    selectCurrentDataGridViewCell();
                     break;
                 case "delete":
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         _studentRepository.DeleteFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
-                        bindingNavigatorRefreshItem.PerformClick();
+                        selectCurrentDataGridViewCell();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)

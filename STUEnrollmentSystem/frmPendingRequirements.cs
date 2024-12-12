@@ -28,6 +28,7 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.studentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            selectCurrentDataGridViewCell();
         }
 
         private void PendingRequirements_Load(object sender, EventArgs e)
@@ -37,6 +38,7 @@ namespace STUEnrollmentSystem
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
             InitializeUserRolePrivileges();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeUserRolePrivileges()
@@ -65,6 +67,7 @@ namespace STUEnrollmentSystem
         {
             this.studentsTableAdapter.FillBy(sTU_DBDataSet.Students);
             InitializeSearchComboBoxes();
+            selectCurrentDataGridViewCell();
         }
 
         private void bindingNavigatorUpdateRequirementsItem_Click(object sender, EventArgs e)
@@ -245,6 +248,22 @@ namespace STUEnrollmentSystem
             viewRAFButton.Visible = false;
         }
 
+        private void selectCurrentDataGridViewCell()
+        {
+            if (studentsDataGridView.Rows.Count > 0)
+            {
+                int rowIndex = 0;
+                int columnIndex = 0;
+
+                if (rowIndex >= 0 && rowIndex < studentsDataGridView.Rows.Count &&
+                    columnIndex >= 0 && columnIndex < studentsDataGridView.Columns.Count)
+                {
+                    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(columnIndex, rowIndex);
+                    studentsDataGridView_CellClick(studentsDataGridView, args);
+                }
+            }
+        }
+
         public static string getGradeCode(string enrollmentType)
         {
             string gradeCode = string.Empty;
@@ -299,14 +318,14 @@ namespace STUEnrollmentSystem
                         byte[] fileData = File.ReadAllBytes(openFileDialog1.FileName);
                         _studentRepository.UploadFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text, fileData);
                     }
-                    bindingNavigatorRefreshItem.PerformClick();
+                    selectCurrentDataGridViewCell();
                     break;
                 case "delete":
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this file?", "Delete file", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         _studentRepository.DeleteFile("Students", fileType, "StudentNumber", studentNumberTextBox.Text);
-                        bindingNavigatorRefreshItem.PerformClick();
+                        selectCurrentDataGridViewCell();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)

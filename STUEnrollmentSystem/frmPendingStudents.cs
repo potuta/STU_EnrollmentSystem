@@ -32,6 +32,7 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.pendingStudentsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            selectCurrentDataGridViewCell();
         }
 
         private void PendingStudents_Load(object sender, EventArgs e)
@@ -40,6 +41,7 @@ namespace STUEnrollmentSystem
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
             InitializeUserRolePrivileges();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeUserRolePrivileges()
@@ -54,6 +56,7 @@ namespace STUEnrollmentSystem
         {
             this.pendingStudentsTableAdapter.Fill(sTU_DBDataSet.PendingStudents);
             InitializeSearchComboBoxes();
+            selectCurrentDataGridViewCell();
         }
 
         private void InitializeSearchComboBoxes()
@@ -238,6 +241,22 @@ namespace STUEnrollmentSystem
             uploadProofOfPaymentButton.Visible = false;
         }
 
+        private void selectCurrentDataGridViewCell()
+        {
+            if (pendingStudentsDataGridView.Rows.Count > 0)
+            {
+                int rowIndex = pendingStudentsDataGridView.CurrentCell.RowIndex;
+                int columnIndex = pendingStudentsDataGridView.CurrentCell.ColumnIndex;
+
+                if (rowIndex >= 0 && rowIndex < pendingStudentsDataGridView.Rows.Count &&
+                    columnIndex >= 0 && columnIndex < pendingStudentsDataGridView.Columns.Count)
+                {
+                    DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(columnIndex, rowIndex);
+                    pendingStudentsDataGridView_CellClick(pendingStudentsDataGridView, args);
+                }
+            }
+        }
+
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             Regex regex;
@@ -321,7 +340,7 @@ namespace STUEnrollmentSystem
                     if (dialogResult == DialogResult.Yes)
                     {
                         _pendingStudentsRepository.DeleteFile("PendingStudents", fileType, "RegisterID", registerIDTextBox.Text);
-                        bindingNavigatorRefreshItem.PerformClick();
+                        selectCurrentDataGridViewCell();
                         break;
                     }
                     else if (dialogResult == DialogResult.No)
