@@ -27,7 +27,6 @@ namespace STUEnrollmentSystem
             this.usersBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
             bindingNavigatorCancelItem.PerformClick();
-            usersBindingNavigatorSaveItem.Enabled = false;
         }
 
         private void Users_Load(object sender, EventArgs e)
