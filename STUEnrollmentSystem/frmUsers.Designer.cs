@@ -70,16 +70,16 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorCancelItem = new System.Windows.Forms.ToolStripButton();
             this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
-            this.rolesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RolesTableAdapter();
-            this.bindingNavigatorCancelItem = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.rolesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RolesTableAdapter();
             userIDLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
@@ -166,7 +166,6 @@
             this.roleIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "RoleID", true));
             this.roleIDComboBox.DataSource = this.rolesBindingSource;
             this.roleIDComboBox.DisplayMember = "RoleID";
-            this.roleIDComboBox.Enabled = false;
             this.roleIDComboBox.FormattingEnabled = true;
             this.roleIDComboBox.Location = new System.Drawing.Point(122, 194);
             this.roleIDComboBox.Name = "roleIDComboBox";
@@ -483,9 +482,19 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorCancelItem
+            // 
+            this.bindingNavigatorCancelItem.BackColor = System.Drawing.SystemColors.Control;
+            this.bindingNavigatorCancelItem.Enabled = false;
+            this.bindingNavigatorCancelItem.Image = global::STUEnrollmentSystem.Properties.Resources.Cancel;
+            this.bindingNavigatorCancelItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorCancelItem.Name = "bindingNavigatorCancelItem";
+            this.bindingNavigatorCancelItem.Size = new System.Drawing.Size(63, 22);
+            this.bindingNavigatorCancelItem.Text = "Cancel";
+            this.bindingNavigatorCancelItem.Click += new System.EventHandler(this.bindingNavigatorCancelItem_Click);
+            // 
             // usersBindingNavigatorSaveItem
             // 
-            this.usersBindingNavigatorSaveItem.Enabled = false;
             this.usersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("usersBindingNavigatorSaveItem.Image")));
             this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
             this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
@@ -520,21 +529,6 @@
             this.usersDataGridView.Size = new System.Drawing.Size(965, 625);
             this.usersDataGridView.TabIndex = 19;
             this.usersDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.usersDataGridView_CellFormatting);
-            // 
-            // rolesTableAdapter
-            // 
-            this.rolesTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingNavigatorCancelItem
-            // 
-            this.bindingNavigatorCancelItem.BackColor = System.Drawing.SystemColors.Control;
-            this.bindingNavigatorCancelItem.Enabled = false;
-            this.bindingNavigatorCancelItem.Image = global::STUEnrollmentSystem.Properties.Resources.Cancel;
-            this.bindingNavigatorCancelItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bindingNavigatorCancelItem.Name = "bindingNavigatorCancelItem";
-            this.bindingNavigatorCancelItem.Size = new System.Drawing.Size(63, 22);
-            this.bindingNavigatorCancelItem.Text = "Cancel";
-            this.bindingNavigatorCancelItem.Click += new System.EventHandler(this.bindingNavigatorCancelItem_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -574,6 +568,10 @@
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
             // 
             // frmUsers
             // 

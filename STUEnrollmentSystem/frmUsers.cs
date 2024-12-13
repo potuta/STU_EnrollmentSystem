@@ -141,7 +141,6 @@ namespace STUEnrollmentSystem
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             usersDataGridView.Enabled = false;
-            usersBindingNavigatorSaveItem.Enabled = true;
             bindingNavigatorCancelItem.Enabled = true;
 
             string userID = generateUserID();
@@ -150,19 +149,16 @@ namespace STUEnrollmentSystem
             passwordTextBox.ReadOnly = false;
             passwordTextBox.UseSystemPasswordChar = false;
             emailTextBox.ReadOnly = false;
-            roleIDComboBox.Enabled = true;
         }
 
         private void bindingNavigatorCancelItem_Click(object sender, EventArgs e)
         {
             usersDataGridView.Enabled = true;
-            usersBindingNavigatorSaveItem.Enabled = false;
 
             usernameTextBox.ReadOnly = true;
             passwordTextBox.ReadOnly = true;
             passwordTextBox.UseSystemPasswordChar = true;
             emailTextBox.ReadOnly = true;
-            roleIDComboBox.Enabled = false;
 
             bindingNavigatorCancelItem.Enabled = false;
             bindingNavigatorRefreshItem.PerformClick();
@@ -195,16 +191,14 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show($"Are you sure you want to delete user {userIDTextBox.Text}?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.No)
             {
-                usersBindingNavigatorSaveItem.Enabled = false;
                 bindingNavigatorRefreshItem.PerformClick();
                 return;
             }
 
-            usersBindingNavigatorSaveItem.Enabled = true;
         }
     }
 }
