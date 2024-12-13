@@ -26,10 +26,14 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.usersBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            bindingNavigatorCancelItem.PerformClick();
+            usersBindingNavigatorSaveItem.Enabled = false;
         }
 
         private void Users_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'sTU_DBDataSet.Roles' table. You can move, or remove it, as needed.
+            this.rolesTableAdapter.Fill(this.sTU_DBDataSet.Roles);
             this.usersTableAdapter.Fill(this.sTU_DBDataSet.Users);
             searchPanel.Visible = false;
             InitializeSearchComboBoxes();
@@ -117,6 +121,90 @@ namespace STUEnrollmentSystem
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
+
+        private void usersDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            int columnToMaskIndex = 2; 
+            string columnToMaskName = "Password"; 
+
+            if (usersDataGridView.Columns[e.ColumnIndex].Index == columnToMaskIndex ||
+                usersDataGridView.Columns[e.ColumnIndex].Name == columnToMaskName)
+            {
+                if (e.Value != null)
+                {
+                    e.Value = new string('*', e.Value.ToString().Length);
+                }
+            }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            usersDataGridView.Enabled = false;
+            usersBindingNavigatorSaveItem.Enabled = true;
+            bindingNavigatorCancelItem.Enabled = true;
+
+            string userID = generateUserID();
+            userIDTextBox.Text = userID;
+            usernameTextBox.ReadOnly = false;
+            passwordTextBox.ReadOnly = false;
+            passwordTextBox.UseSystemPasswordChar = false;
+            emailTextBox.ReadOnly = false;
+            roleIDComboBox.Enabled = true;
+        }
+
+        private void bindingNavigatorCancelItem_Click(object sender, EventArgs e)
+        {
+            usersDataGridView.Enabled = true;
+            usersBindingNavigatorSaveItem.Enabled = false;
+
+            usernameTextBox.ReadOnly = true;
+            passwordTextBox.ReadOnly = true;
+            passwordTextBox.UseSystemPasswordChar = true;
+            emailTextBox.ReadOnly = true;
+            roleIDComboBox.Enabled = false;
+
+            bindingNavigatorCancelItem.Enabled = false;
+            bindingNavigatorRefreshItem.PerformClick();
+        }
+
+        private string generateUserID()
+        {
+            int userCount = _usersRepository.GenerateUserCode();
+            string userID = string.Empty;
+
+            if (userCount < 10)
+            {
+                userID = "T000" + userCount.ToString();
+            }
+            else if (userCount >= 10 && userCount < 100)
+            {
+                userID = "T00" + userCount.ToString();
+            }
+            else if (userCount >= 100 && userCount < 1000)
+            {
+                userID = "T0" + userCount.ToString();
+            }
+            else if (userCount >= 1000)
+            {
+                userID = "T" + userCount.ToString();
+            }
+
+            return userID;
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete user {userIDTextBox.Text}?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.No)
+            {
+                usersBindingNavigatorSaveItem.Enabled = false;
+                bindingNavigatorRefreshItem.PerformClick();
+                return;
+            }
+
+            usersBindingNavigatorSaveItem.Enabled = true;
         }
     }
 }

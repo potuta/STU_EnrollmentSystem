@@ -76,18 +76,11 @@
             this.rolesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RolesTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.rolesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.rolesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.rolesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,7 +101,15 @@
             this.dataGridViewCheckBoxColumn15 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn16 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn17 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.rolesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -143,7 +144,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 29);
+            this.label2.Location = new System.Drawing.Point(17, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 16;
@@ -154,7 +155,7 @@
             this.rolesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rolesComboBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rolesComboBox.FormattingEnabled = true;
-            this.rolesComboBox.Location = new System.Drawing.Point(107, 26);
+            this.rolesComboBox.Location = new System.Drawing.Point(101, 21);
             this.rolesComboBox.Name = "rolesComboBox";
             this.rolesComboBox.Size = new System.Drawing.Size(121, 28);
             this.rolesComboBox.TabIndex = 17;
@@ -169,7 +170,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 62);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(255, 999);
+            this.panel3.Size = new System.Drawing.Size(244, 999);
             this.panel3.TabIndex = 18;
             // 
             // saveChangesButton
@@ -177,7 +178,7 @@
             this.saveChangesButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.saveChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveChangesButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveChangesButton.Location = new System.Drawing.Point(77, 86);
+            this.saveChangesButton.Location = new System.Drawing.Point(71, 81);
             this.saveChangesButton.Name = "saveChangesButton";
             this.saveChangesButton.Size = new System.Drawing.Size(90, 27);
             this.saveChangesButton.TabIndex = 18;
@@ -223,16 +224,16 @@
             this.mainPanel.Controls.Add(this.Enrollment_Module);
             this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mainPanel.Location = new System.Drawing.Point(255, 62);
+            this.mainPanel.Location = new System.Drawing.Point(244, 62);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(427, 999);
+            this.mainPanel.Size = new System.Drawing.Size(345, 999);
             this.mainPanel.TabIndex = 20;
             // 
             // UsersRoles_SubModule
             // 
             this.UsersRoles_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.UsersRoles_SubModule.AutoSize = true;
-            this.UsersRoles_SubModule.Location = new System.Drawing.Point(239, 745);
+            this.UsersRoles_SubModule.Location = new System.Drawing.Point(198, 598);
             this.UsersRoles_SubModule.Name = "UsersRoles_SubModule";
             this.UsersRoles_SubModule.Size = new System.Drawing.Size(33, 23);
             this.UsersRoles_SubModule.TabIndex = 39;
@@ -243,10 +244,10 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(74, 745);
+            this.label18.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(63, 601);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(159, 23);
+            this.label18.Size = new System.Drawing.Size(129, 20);
             this.label18.TabIndex = 38;
             this.label18.Text = "↪ Users and Roles:";
             // 
@@ -254,7 +255,7 @@
             // 
             this.Teachers_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.Teachers_SubModule.AutoSize = true;
-            this.Teachers_SubModule.Location = new System.Drawing.Point(190, 710);
+            this.Teachers_SubModule.Location = new System.Drawing.Point(152, 566);
             this.Teachers_SubModule.Name = "Teachers_SubModule";
             this.Teachers_SubModule.Size = new System.Drawing.Size(33, 23);
             this.Teachers_SubModule.TabIndex = 37;
@@ -265,10 +266,10 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(74, 710);
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(63, 567);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(106, 23);
+            this.label19.Size = new System.Drawing.Size(84, 20);
             this.label19.TabIndex = 36;
             this.label19.Text = "↪ Teachers:";
             // 
@@ -276,7 +277,7 @@
             // 
             this.GradeLevelSubjects_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.GradeLevelSubjects_SubModule.AutoSize = true;
-            this.GradeLevelSubjects_SubModule.Location = new System.Drawing.Point(309, 611);
+            this.GradeLevelSubjects_SubModule.Location = new System.Drawing.Point(256, 481);
             this.GradeLevelSubjects_SubModule.Name = "GradeLevelSubjects_SubModule";
             this.GradeLevelSubjects_SubModule.Size = new System.Drawing.Size(33, 23);
             this.GradeLevelSubjects_SubModule.TabIndex = 35;
@@ -287,10 +288,10 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(74, 608);
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(63, 481);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(229, 23);
+            this.label17.Size = new System.Drawing.Size(187, 20);
             this.label17.TabIndex = 34;
             this.label17.Text = "↪ Grade Level and Subjects:";
             // 
@@ -298,7 +299,7 @@
             // 
             this.SectionsSchedule_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.SectionsSchedule_SubModule.AutoSize = true;
-            this.SectionsSchedule_SubModule.Location = new System.Drawing.Point(289, 568);
+            this.SectionsSchedule_SubModule.Location = new System.Drawing.Point(241, 442);
             this.SectionsSchedule_SubModule.Name = "SectionsSchedule_SubModule";
             this.SectionsSchedule_SubModule.Size = new System.Drawing.Size(33, 23);
             this.SectionsSchedule_SubModule.TabIndex = 33;
@@ -309,10 +310,10 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(74, 568);
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(64, 445);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(209, 23);
+            this.label16.Size = new System.Drawing.Size(171, 20);
             this.label16.TabIndex = 32;
             this.label16.Text = "↪ Sections and Schedule:";
             // 
@@ -320,7 +321,7 @@
             // 
             this.PaymentType_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.PaymentType_SubModule.AutoSize = true;
-            this.PaymentType_SubModule.Location = new System.Drawing.Point(223, 528);
+            this.PaymentType_SubModule.Location = new System.Drawing.Point(187, 410);
             this.PaymentType_SubModule.Name = "PaymentType_SubModule";
             this.PaymentType_SubModule.Size = new System.Drawing.Size(33, 23);
             this.PaymentType_SubModule.TabIndex = 31;
@@ -331,10 +332,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(74, 528);
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(64, 411);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(143, 23);
+            this.label14.Size = new System.Drawing.Size(116, 20);
             this.label14.TabIndex = 30;
             this.label14.Text = "↪ Payment Type:";
             // 
@@ -342,7 +343,7 @@
             // 
             this.Fees_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.Fees_SubModule.AutoSize = true;
-            this.Fees_SubModule.Location = new System.Drawing.Point(152, 493);
+            this.Fees_SubModule.Location = new System.Drawing.Point(127, 374);
             this.Fees_SubModule.Name = "Fees_SubModule";
             this.Fees_SubModule.Size = new System.Drawing.Size(33, 23);
             this.Fees_SubModule.TabIndex = 29;
@@ -353,10 +354,10 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(74, 493);
+            this.label15.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(64, 377);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 23);
+            this.label15.Size = new System.Drawing.Size(57, 20);
             this.label15.TabIndex = 28;
             this.label15.Text = "↪ Fees:";
             // 
@@ -364,7 +365,7 @@
             // 
             this.Academic_Module.Appearance = System.Windows.Forms.Appearance.Button;
             this.Academic_Module.AutoSize = true;
-            this.Academic_Module.Location = new System.Drawing.Point(129, 445);
+            this.Academic_Module.Location = new System.Drawing.Point(120, 339);
             this.Academic_Module.Name = "Academic_Module";
             this.Academic_Module.Size = new System.Drawing.Size(33, 23);
             this.Academic_Module.TabIndex = 27;
@@ -375,10 +376,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(24, 443);
+            this.label13.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(24, 339);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(101, 25);
+            this.label13.Size = new System.Drawing.Size(90, 23);
             this.label13.TabIndex = 26;
             this.label13.Text = "Academic:";
             // 
@@ -386,7 +387,7 @@
             // 
             this.BillingReport_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.BillingReport_SubModule.AutoSize = true;
-            this.BillingReport_SubModule.Location = new System.Drawing.Point(217, 387);
+            this.BillingReport_SubModule.Location = new System.Drawing.Point(184, 297);
             this.BillingReport_SubModule.Name = "BillingReport_SubModule";
             this.BillingReport_SubModule.Size = new System.Drawing.Size(33, 23);
             this.BillingReport_SubModule.TabIndex = 25;
@@ -397,10 +398,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(74, 387);
+            this.label11.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(64, 299);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 23);
+            this.label11.Size = new System.Drawing.Size(114, 20);
             this.label11.TabIndex = 24;
             this.label11.Text = "↪ Billing Report:";
             // 
@@ -408,7 +409,7 @@
             // 
             this.ManagePayments_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.ManagePayments_SubModule.AutoSize = true;
-            this.ManagePayments_SubModule.Location = new System.Drawing.Point(254, 352);
+            this.ManagePayments_SubModule.Location = new System.Drawing.Point(210, 263);
             this.ManagePayments_SubModule.Name = "ManagePayments_SubModule";
             this.ManagePayments_SubModule.Size = new System.Drawing.Size(33, 23);
             this.ManagePayments_SubModule.TabIndex = 23;
@@ -419,10 +420,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(74, 352);
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(63, 266);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(174, 23);
+            this.label12.Size = new System.Drawing.Size(141, 20);
             this.label12.TabIndex = 22;
             this.label12.Text = "↪ Manage Payments:";
             // 
@@ -430,7 +431,7 @@
             // 
             this.PendingRequirements_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.PendingRequirements_SubModule.AutoSize = true;
-            this.PendingRequirements_SubModule.Location = new System.Drawing.Point(287, 247);
+            this.PendingRequirements_SubModule.Location = new System.Drawing.Point(240, 192);
             this.PendingRequirements_SubModule.Name = "PendingRequirements_SubModule";
             this.PendingRequirements_SubModule.Size = new System.Drawing.Size(33, 23);
             this.PendingRequirements_SubModule.TabIndex = 21;
@@ -441,10 +442,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(73, 247);
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(64, 195);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(208, 23);
+            this.label10.Size = new System.Drawing.Size(170, 20);
             this.label10.TabIndex = 20;
             this.label10.Text = "↪ Pending Requirements:";
             // 
@@ -452,7 +453,7 @@
             // 
             this.ManageStudents_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.ManageStudents_SubModule.AutoSize = true;
-            this.ManageStudents_SubModule.Location = new System.Drawing.Point(246, 212);
+            this.ManageStudents_SubModule.Location = new System.Drawing.Point(201, 159);
             this.ManageStudents_SubModule.Name = "ManageStudents_SubModule";
             this.ManageStudents_SubModule.Size = new System.Drawing.Size(33, 23);
             this.ManageStudents_SubModule.TabIndex = 19;
@@ -463,10 +464,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(73, 212);
+            this.label9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(64, 162);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(167, 23);
+            this.label9.Size = new System.Drawing.Size(135, 20);
             this.label9.TabIndex = 18;
             this.label9.Text = "↪ Manage Students:";
             // 
@@ -474,7 +475,7 @@
             // 
             this.ApprovedStudents_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.ApprovedStudents_SubModule.AutoSize = true;
-            this.ApprovedStudents_SubModule.Location = new System.Drawing.Point(262, 102);
+            this.ApprovedStudents_SubModule.Location = new System.Drawing.Point(216, 85);
             this.ApprovedStudents_SubModule.Name = "ApprovedStudents_SubModule";
             this.ApprovedStudents_SubModule.Size = new System.Drawing.Size(33, 23);
             this.ApprovedStudents_SubModule.TabIndex = 17;
@@ -485,10 +486,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(74, 102);
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(63, 88);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(182, 23);
+            this.label8.Size = new System.Drawing.Size(147, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "↪ Approved Students:";
             // 
@@ -496,7 +497,7 @@
             // 
             this.Registration_SubModule.Appearance = System.Windows.Forms.Appearance.Button;
             this.Registration_SubModule.AutoSize = true;
-            this.Registration_SubModule.Location = new System.Drawing.Point(207, 67);
+            this.Registration_SubModule.Location = new System.Drawing.Point(173, 59);
             this.Registration_SubModule.Name = "Registration_SubModule";
             this.Registration_SubModule.Size = new System.Drawing.Size(33, 23);
             this.Registration_SubModule.TabIndex = 15;
@@ -507,10 +508,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(74, 67);
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(64, 61);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 23);
+            this.label7.Size = new System.Drawing.Size(103, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "↪ Registration:";
             // 
@@ -518,7 +519,7 @@
             // 
             this.Faculty_Module.Appearance = System.Windows.Forms.Appearance.Button;
             this.Faculty_Module.AutoSize = true;
-            this.Faculty_Module.Location = new System.Drawing.Point(113, 665);
+            this.Faculty_Module.Location = new System.Drawing.Point(100, 527);
             this.Faculty_Module.Name = "Faculty_Module";
             this.Faculty_Module.Size = new System.Drawing.Size(33, 23);
             this.Faculty_Module.TabIndex = 13;
@@ -529,10 +530,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 663);
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(23, 526);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 25);
+            this.label6.Size = new System.Drawing.Size(71, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Faculty:";
             // 
@@ -540,7 +541,7 @@
             // 
             this.Billing_Module.Appearance = System.Windows.Forms.Appearance.Button;
             this.Billing_Module.AutoSize = true;
-            this.Billing_Module.Location = new System.Drawing.Point(101, 309);
+            this.Billing_Module.Location = new System.Drawing.Point(91, 230);
             this.Billing_Module.Name = "Billing_Module";
             this.Billing_Module.Size = new System.Drawing.Size(33, 23);
             this.Billing_Module.TabIndex = 11;
@@ -551,10 +552,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 307);
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(23, 228);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 25);
+            this.label5.Size = new System.Drawing.Size(62, 23);
             this.label5.TabIndex = 10;
             this.label5.Text = "Billing:";
             // 
@@ -562,7 +563,7 @@
             // 
             this.StudentRecords_Module.Appearance = System.Windows.Forms.Appearance.Button;
             this.StudentRecords_Module.AutoSize = true;
-            this.StudentRecords_Module.Location = new System.Drawing.Point(189, 161);
+            this.StudentRecords_Module.Location = new System.Drawing.Point(171, 124);
             this.StudentRecords_Module.Name = "StudentRecords_Module";
             this.StudentRecords_Module.Size = new System.Drawing.Size(33, 23);
             this.StudentRecords_Module.TabIndex = 9;
@@ -573,10 +574,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 159);
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(23, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 25);
+            this.label4.Size = new System.Drawing.Size(142, 23);
             this.label4.TabIndex = 8;
             this.label4.Text = "Student Records:";
             // 
@@ -584,7 +585,7 @@
             // 
             this.Enrollment_Module.Appearance = System.Windows.Forms.Appearance.Button;
             this.Enrollment_Module.AutoSize = true;
-            this.Enrollment_Module.Location = new System.Drawing.Point(140, 27);
+            this.Enrollment_Module.Location = new System.Drawing.Point(127, 25);
             this.Enrollment_Module.Name = "Enrollment_Module";
             this.Enrollment_Module.Size = new System.Drawing.Size(33, 23);
             this.Enrollment_Module.TabIndex = 7;
@@ -595,10 +596,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(24, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.Size = new System.Drawing.Size(97, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Enrollment:";
             // 
@@ -652,38 +653,28 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.toolStripButton1,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.rolesBindingNavigatorSaveItem,
             this.bindingNavigatorRefreshItem});
-            this.rolesBindingNavigator.Location = new System.Drawing.Point(682, 62);
+            this.rolesBindingNavigator.Location = new System.Drawing.Point(589, 62);
             this.rolesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.rolesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.rolesBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.rolesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.rolesBindingNavigator.Name = "rolesBindingNavigator";
             this.rolesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.rolesBindingNavigator.Size = new System.Drawing.Size(582, 25);
+            this.rolesBindingNavigator.Size = new System.Drawing.Size(675, 25);
             this.rolesBindingNavigator.TabIndex = 21;
             this.rolesBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorMoveFirstItem
+            // bindingNavigatorCountItem
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorSeparator
             // 
@@ -694,71 +685,21 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // rolesBindingNavigatorSaveItem
-            // 
-            this.rolesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("rolesBindingNavigatorSaveItem.Image")));
-            this.rolesBindingNavigatorSaveItem.Name = "rolesBindingNavigatorSaveItem";
-            this.rolesBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
-            this.rolesBindingNavigatorSaveItem.Text = "Save Data";
-            this.rolesBindingNavigatorSaveItem.Click += new System.EventHandler(this.rolesBindingNavigatorSaveItem_Click);
             // 
             // rolesDataGridView
             // 
@@ -786,9 +727,9 @@
             this.dataGridViewCheckBoxColumn17});
             this.rolesDataGridView.DataSource = this.rolesBindingSource;
             this.rolesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rolesDataGridView.Location = new System.Drawing.Point(682, 87);
+            this.rolesDataGridView.Location = new System.Drawing.Point(589, 87);
             this.rolesDataGridView.Name = "rolesDataGridView";
-            this.rolesDataGridView.Size = new System.Drawing.Size(582, 974);
+            this.rolesDataGridView.Size = new System.Drawing.Size(675, 974);
             this.rolesDataGridView.TabIndex = 21;
             // 
             // dataGridViewTextBoxColumn1
@@ -905,6 +846,68 @@
             this.dataGridViewCheckBoxColumn17.HeaderText = "UsersRoles_SubModule";
             this.dataGridViewCheckBoxColumn17.Name = "dataGridViewCheckBoxColumn17";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.Enabled = false;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(74, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.Enabled = false;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(60, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // rolesBindingNavigatorSaveItem
+            // 
+            this.rolesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("rolesBindingNavigatorSaveItem.Image")));
+            this.rolesBindingNavigatorSaveItem.Name = "rolesBindingNavigatorSaveItem";
+            this.rolesBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
+            this.rolesBindingNavigatorSaveItem.Text = "Save Data";
+            this.rolesBindingNavigatorSaveItem.Click += new System.EventHandler(this.rolesBindingNavigatorSaveItem_Click);
+            // 
             // bindingNavigatorRefreshItem
             // 
             this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
@@ -913,6 +916,15 @@
             this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
             this.bindingNavigatorRefreshItem.Text = "Refresh Data";
             this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Enabled = false;
+            this.toolStripButton1.Image = global::STUEnrollmentSystem.Properties.Resources.Cancel;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(63, 22);
+            this.toolStripButton1.Text = "Cancel";
             // 
             // frmRoles
             // 
@@ -1026,5 +1038,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn15;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn16;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn17;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

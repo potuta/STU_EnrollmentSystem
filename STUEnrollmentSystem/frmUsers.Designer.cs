@@ -36,13 +36,14 @@
             System.Windows.Forms.Label roleIDLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             this.detailsPanel = new System.Windows.Forms.Panel();
-            this.userIDTextBox = new System.Windows.Forms.TextBox();
+            this.roleIDComboBox = new System.Windows.Forms.ComboBox();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userIDTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.roleIDTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -72,11 +73,13 @@
             this.usersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
+            this.rolesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RolesTableAdapter();
+            this.bindingNavigatorCancelItem = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             userIDLabel = new System.Windows.Forms.Label();
             usernameLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
@@ -85,6 +88,7 @@
             this.detailsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.searchToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).BeginInit();
@@ -140,6 +144,7 @@
             // detailsPanel
             // 
             this.detailsPanel.AutoScroll = true;
+            this.detailsPanel.Controls.Add(this.roleIDComboBox);
             this.detailsPanel.Controls.Add(userIDLabel);
             this.detailsPanel.Controls.Add(this.userIDTextBox);
             this.detailsPanel.Controls.Add(usernameLabel);
@@ -149,7 +154,6 @@
             this.detailsPanel.Controls.Add(emailLabel);
             this.detailsPanel.Controls.Add(this.emailTextBox);
             this.detailsPanel.Controls.Add(roleIDLabel);
-            this.detailsPanel.Controls.Add(this.roleIDTextBox);
             this.detailsPanel.Controls.Add(this.label1);
             this.detailsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.detailsPanel.Location = new System.Drawing.Point(0, 109);
@@ -157,13 +161,18 @@
             this.detailsPanel.Size = new System.Drawing.Size(299, 650);
             this.detailsPanel.TabIndex = 18;
             // 
-            // userIDTextBox
+            // roleIDComboBox
             // 
-            this.userIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "UserID", true));
-            this.userIDTextBox.Location = new System.Drawing.Point(122, 90);
-            this.userIDTextBox.Name = "userIDTextBox";
-            this.userIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.userIDTextBox.TabIndex = 2;
+            this.roleIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "RoleID", true));
+            this.roleIDComboBox.DataSource = this.rolesBindingSource;
+            this.roleIDComboBox.DisplayMember = "RoleID";
+            this.roleIDComboBox.Enabled = false;
+            this.roleIDComboBox.FormattingEnabled = true;
+            this.roleIDComboBox.Location = new System.Drawing.Point(122, 194);
+            this.roleIDComboBox.Name = "roleIDComboBox";
+            this.roleIDComboBox.Size = new System.Drawing.Size(100, 21);
+            this.roleIDComboBox.TabIndex = 12;
+            this.roleIDComboBox.ValueMember = "RoleID";
             // 
             // usersBindingSource
             // 
@@ -175,37 +184,51 @@
             this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
             this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // userIDTextBox
+            // 
+            this.userIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "UserID", true));
+            this.userIDTextBox.Location = new System.Drawing.Point(122, 90);
+            this.userIDTextBox.Name = "userIDTextBox";
+            this.userIDTextBox.ReadOnly = true;
+            this.userIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.userIDTextBox.TabIndex = 2;
+            // 
             // usernameTextBox
             // 
+            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "Username", true));
             this.usernameTextBox.Location = new System.Drawing.Point(122, 116);
             this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.ReadOnly = true;
             this.usernameTextBox.Size = new System.Drawing.Size(100, 20);
             this.usernameTextBox.TabIndex = 4;
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "Password", true));
             this.passwordTextBox.Location = new System.Drawing.Point(122, 142);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.ReadOnly = true;
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordTextBox.TabIndex = 6;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // emailTextBox
             // 
+            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "Email", true));
             this.emailTextBox.Location = new System.Drawing.Point(122, 168);
             this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.ReadOnly = true;
             this.emailTextBox.Size = new System.Drawing.Size(100, 20);
             this.emailTextBox.TabIndex = 8;
-            // 
-            // roleIDTextBox
-            // 
-            this.roleIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "RoleID", true));
-            this.roleIDTextBox.Location = new System.Drawing.Point(122, 194);
-            this.roleIDTextBox.Name = "roleIDTextBox";
-            this.roleIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.roleIDTextBox.TabIndex = 10;
             // 
             // label1
             // 
@@ -358,6 +381,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.bindingNavigatorCancelItem,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.usersBindingNavigatorSaveItem,
@@ -375,12 +399,12 @@
             // 
             // bindingNavigatorAddNewItem
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(74, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -391,12 +415,12 @@
             // 
             // bindingNavigatorDeleteItem
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(60, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -461,6 +485,7 @@
             // 
             // usersBindingNavigatorSaveItem
             // 
+            this.usersBindingNavigatorSaveItem.Enabled = false;
             this.usersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("usersBindingNavigatorSaveItem.Image")));
             this.usersBindingNavigatorSaveItem.Name = "usersBindingNavigatorSaveItem";
             this.usersBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
@@ -494,6 +519,22 @@
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.Size = new System.Drawing.Size(965, 625);
             this.usersDataGridView.TabIndex = 19;
+            this.usersDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.usersDataGridView_CellFormatting);
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
+            // bindingNavigatorCancelItem
+            // 
+            this.bindingNavigatorCancelItem.BackColor = System.Drawing.SystemColors.Control;
+            this.bindingNavigatorCancelItem.Enabled = false;
+            this.bindingNavigatorCancelItem.Image = global::STUEnrollmentSystem.Properties.Resources.Cancel;
+            this.bindingNavigatorCancelItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorCancelItem.Name = "bindingNavigatorCancelItem";
+            this.bindingNavigatorCancelItem.Size = new System.Drawing.Size(63, 22);
+            this.bindingNavigatorCancelItem.Text = "Cancel";
+            this.bindingNavigatorCancelItem.Click += new System.EventHandler(this.bindingNavigatorCancelItem_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -526,9 +567,13 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "RoleID";
+            this.dataGridViewTextBoxColumn5.DataSource = this.rolesBindingSource;
+            this.dataGridViewTextBoxColumn5.DisplayMember = "RoleID";
             this.dataGridViewTextBoxColumn5.HeaderText = "RoleID";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmUsers
             // 
@@ -548,6 +593,7 @@
             this.detailsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.searchToolStrip.ResumeLayout(false);
@@ -587,16 +633,10 @@
         private System.Windows.Forms.ToolStripButton usersBindingNavigatorSaveItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorRefreshItem;
         private System.Windows.Forms.DataGridView usersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.TextBox userIDTextBox;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox roleIDTextBox;
         private System.Windows.Forms.ToolStrip searchToolStrip;
         private System.Windows.Forms.ToolStripLabel userIDToolStripLabel;
         private System.Windows.Forms.ToolStripLabel usernameToolStripLabel;
@@ -605,5 +645,14 @@
         private System.Windows.Forms.ToolStripComboBox userIDToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox usernameToolStripComboBox;
         private System.Windows.Forms.ToolStripComboBox roleIDToolStripComboBox;
+        private System.Windows.Forms.ComboBox roleIDComboBox;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private STU_DBDataSetTableAdapters.RolesTableAdapter rolesTableAdapter;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorCancelItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn5;
     }
 }

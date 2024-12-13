@@ -136,12 +136,17 @@ namespace STUEnrollmentSystem
             try
             {
                 LoggingService.LogInformation($"Upload attempt in UploadFile: Table: {table} Column: {column} ID: {ID}");
-                using (SqlCommand command = new SqlCommand(query, _connection))
-                { 
-                    command.Parameters.AddWithValue("@FileData", fileData);
-                    command.Parameters.AddWithValue("@ID", ID);
-                    _connection.Open();
-                    command.ExecuteNonQuery();
+
+                _connection.Open();
+                using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.ReadCommitted))
+                {
+                    using (SqlCommand command = new SqlCommand(query, _connection, transaction))
+                    { 
+                        command.Parameters.AddWithValue("@FileData", fileData);
+                        command.Parameters.AddWithValue("@ID", ID);
+                        command.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
                 }
             }
             catch (SqlException ex)
@@ -172,11 +177,16 @@ namespace STUEnrollmentSystem
             try
             {
                 LoggingService.LogInformation($"Deletion attempt in DeleteFile: Table: {table} Column: {column} ID: {ID}");
-                using (SqlCommand command = new SqlCommand(query, _connection))
+
+                _connection.Open();
+                using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.ReadCommitted))
                 {
-                    command.Parameters.AddWithValue("@ID", ID);
-                    _connection.Open();
-                    command.ExecuteNonQuery();
+                    using (SqlCommand command = new SqlCommand(query, _connection, transaction))
+                    {
+                        command.Parameters.AddWithValue("@ID", ID);
+                        command.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
                 }
             }
             catch (SqlException ex)

@@ -165,5 +165,48 @@ namespace STUEnrollmentSystem
 
             return email;
         }
+
+        public int GenerateUserCode()
+        {
+            string query = "SELECT COUNT(*) FROM Users";
+            int count = 0;
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand(query, _connection))
+                {
+                    _connection.Open();
+                    var data = command.ExecuteScalar();
+
+                    if (data != null && data != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(data) + 1;
+                    }
+                    else
+                    {
+                        count = 1;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Log SQL error (example: log to a file or monitoring system)
+                Console.WriteLine($"SQL Error in GenerateUserCode: {ex.Message}");
+                // Optionally, handle specific SQL error codes here
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error in GenerateUserCode: {ex.Message}");
+                return 1;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+
+            return count;
+        }
     }
 }

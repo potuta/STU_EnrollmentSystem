@@ -17,24 +17,7 @@ namespace STUEnrollmentSystem
         public static frmSTU_Dashboard Instance {  get; private set; }
         private Dictionary<string, Button> _buttons;
         public Label SchoolYearLabel => schoolYearLabel;
-        //public Button EnrollmentButton => enrollmentButton;
-        //public Button StudentButton => studentButton;
-        //public Button BillingButton => billingButton;
-        //public Button AcademicButton => academicButton;
-        //public Button FacultyButton => facultyButton;
-        //public Button RegistrationButton => registrationButton;
-        //public Button ApprovedButton => approvedButton;
-        //public Button ManageStudentButton => manageStudentButton;
-        //public Button PendingRequirementsButton => pendingRequirementsButton;
-        //public Button ManagePaymentButton => managePaymentButton;
-        //public Button BillingReportButton => billingReportButton;
-        //public Button FeesButton => feesButton;
-        //public Button PaymentTypeButton => paymentTypeButton;
-        //public Button Section_ScheduleButton => section_ScheduleButton;
-        //public Button Level_SubjectButton => level_SubjectsButton;
-        //public Button TeacherButton => teacherButton;
-        //public Button Users_RolesButton => users_RolesButton;
-
+       
         public frmSTU_Dashboard()
         {
             InitializeComponent();
