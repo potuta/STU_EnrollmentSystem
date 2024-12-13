@@ -175,19 +175,19 @@ namespace STUEnrollmentSystem
 
             if (userCount < 10)
             {
-                userID = "T000" + userCount.ToString();
+                userID = "U000" + userCount.ToString();
             }
             else if (userCount >= 10 && userCount < 100)
             {
-                userID = "T00" + userCount.ToString();
+                userID = "U00" + userCount.ToString();
             }
             else if (userCount >= 100 && userCount < 1000)
             {
-                userID = "T0" + userCount.ToString();
+                userID = "U0" + userCount.ToString();
             }
             else if (userCount >= 1000)
             {
-                userID = "T" + userCount.ToString();
+                userID = "U" + userCount.ToString();
             }
 
             return userID;
