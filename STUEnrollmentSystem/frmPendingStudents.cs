@@ -401,13 +401,13 @@ namespace STUEnrollmentSystem
 
         private void bindingNavigatorEnrollStudentItem_Click(object sender, EventArgs e)
         {
+            if (checkCompleteDetails() == false)
+            {
+                return;
+            }
+
             try
             {
-                if (checkCompleteDetails() == false)
-                {
-                    return;
-                }
-
                 pendingStudentsBindingNavigatorSaveItem.PerformClick();
                 insertStudents();
                 insertStudentPayment();
@@ -419,9 +419,14 @@ namespace STUEnrollmentSystem
                 LoggingService.LogInformation($"Insert successful in InsertStudentPayment to StudentPayment table");
                 LoggingService.LogInformation($"Deletion successful in  DeletePendingStudents from PendingNewStudents table");
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"SQL Error in bindingNavigatorEnrollStudentItem_Click: {ex.Message}");
+                return;
+            }
             catch (Exception ex)
             {
-                LoggingService.LogError($"Unexpected error in bindingNavigatorEnrollStudentItem_Click: {ex.Message}");
+                MessageBox.Show($"Unexpected error in bindingNavigatorEnrollStudentItem_Click: {ex.Message}");
                 return;
             }
         }

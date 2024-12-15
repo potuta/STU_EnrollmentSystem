@@ -133,38 +133,40 @@ namespace STUEnrollmentSystem
         {
             string query = $"UPDATE {table} SET {column} = @FileData WHERE {condition} = @ID";
 
-            try
+            _connection.Open();
+            using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.ReadCommitted))
             {
-                LoggingService.LogInformation($"Upload attempt in UploadFile: Table: {table} Column: {column} ID: {ID}");
-
-                _connection.Open();
-                using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.ReadCommitted))
+                try
                 {
+                    LoggingService.LogInformation($"Upload attempt in UploadFile: Table: {table} Column: {column} ID: {ID}");
+
                     using (SqlCommand command = new SqlCommand(query, _connection, transaction))
                     { 
                         command.Parameters.AddWithValue("@FileData", fileData);
                         command.Parameters.AddWithValue("@ID", ID);
                         command.ExecuteNonQuery();
-                        transaction.Commit();
                     }
+                    transaction.Commit();
                 }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine($"SQL Error in UploadFile: {ex.Message}");
-                LoggingService.LogError($"SQL Error in UploadFile: {ex.Message}");
-                return;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error in UploadFile: {ex.Message}");
-                LoggingService.LogError($"Unexpected error in UploadFile: {ex.Message}");
-                return;
-            }
-            finally
-            {
-                if (_connection.State == ConnectionState.Open)
-                    _connection.Close();
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"SQL Error in UploadFile: {ex.Message}");
+                    LoggingService.LogError($"SQL Error in UploadFile: {ex.Message}");
+                    transaction.Rollback();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Unexpected error in UploadFile: {ex.Message}");
+                    LoggingService.LogError($"Unexpected error in UploadFile: {ex.Message}");
+                    transaction.Rollback();
+                    return;
+                }
+                finally
+                {
+                    if (_connection.State == ConnectionState.Open)
+                        _connection.Close();
+                }
             }
 
             LoggingService.LogInformation($"Upload successful in UploadFile: Table: {table} Column: {column} ID: {ID}");
@@ -174,37 +176,39 @@ namespace STUEnrollmentSystem
         {
             string query = $"UPDATE {table} SET {column} = NULL WHERE {condition} = @ID";
 
-            try
+            _connection.Open();
+            using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.ReadCommitted))
             {
-                LoggingService.LogInformation($"Deletion attempt in DeleteFile: Table: {table} Column: {column} ID: {ID}");
-
-                _connection.Open();
-                using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.ReadCommitted))
+                try
                 {
+                    LoggingService.LogInformation($"Deletion attempt in DeleteFile: Table: {table} Column: {column} ID: {ID}");
+
                     using (SqlCommand command = new SqlCommand(query, _connection, transaction))
                     {
                         command.Parameters.AddWithValue("@ID", ID);
                         command.ExecuteNonQuery();
-                        transaction.Commit();
                     }
+                    transaction.Commit();
                 }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine($"SQL Error in DeleteFile: {ex.Message}");
-                LoggingService.LogError($"SQL Error in DeleteFile: {ex.Message}");
-                return;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error in DeleteFile: {ex.Message}");
-                LoggingService.LogError($"Unexpected error in DeleteFile: {ex.Message}");
-                return;
-            }
-            finally
-            {
-                if (_connection.State == ConnectionState.Open)
-                    _connection.Close();
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"SQL Error in DeleteFile: {ex.Message}");
+                    LoggingService.LogError($"SQL Error in DeleteFile: {ex.Message}");
+                    transaction.Rollback();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Unexpected error in DeleteFile: {ex.Message}");
+                    LoggingService.LogError($"Unexpected error in DeleteFile: {ex.Message}");
+                    transaction.Rollback();
+                    return;
+                }
+                finally
+                {
+                    if (_connection.State == ConnectionState.Open)
+                        _connection.Close();
+                }
             }
 
             LoggingService.LogInformation($"Deletion successful in DeleteFile: Table: {table} Column: {column} ID: {ID}");

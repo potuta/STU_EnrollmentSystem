@@ -728,27 +728,40 @@ namespace STUEnrollmentSystem
 
             int paidAmount = Convert.ToInt32(addReturningStudentToolStripPaidAmountTextBox.Text);
             int? nullableInt = null;
-            if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Monthly"))
+            try
             {
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, paidAmount, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Monthly"))
+                {
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, paidAmount, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "September", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "October", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "November", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "December", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "January", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "February", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "March", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "April", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, nullableInt, "May", "Pending", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                }
+                else if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Full"))
+                {
+                    _studentPaymentRepository.InsertStudentPayment(studentPaymentData, paidAmount, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                }
             }
-            else if (addReturningStudentToolStripPaymentTypeComboBox.Text.Equals("Full"))
+            catch (SqlException ex)
             {
-                _studentPaymentRepository.InsertStudentPayment(studentPaymentData, paidAmount, "August", "Paid", ConnectionFactory.GetSelectedSchoolYearInConnectionString(ConnectionFactory.GetConnectionString()));
+                MessageBox.Show($"SQL Error in addReturningStudentToolStripInsertMenuItem_Click: {ex.Message}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error in addReturningStudentToolStripInsertMenuItem_Click: {ex.Message}");
+                return;
             }
 
             new StudentRepository(ConnectionFactory.GetConnectionString()).UpdateStudentYearLevel(addReturningStudentToolStripStudentNumberComboBox.Text, addReturningStudentToolStripEnrollmentTypeComboBox.Text, addReturningStudentToolStripPaymentTypeComboBox.Text);
             bindingNavigatorRefreshItem.PerformClick();
-            MessageBox.Show($"Successfully added returning student {addReturningStudentToolStripStudentNumberComboBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
+            MessageBox.Show($"Successfully added old student {addReturningStudentToolStripStudentNumberComboBox.Text} as {addReturningStudentToolStripEnrollmentTypeComboBox.Text}");
         }
 
         private void bindingNavigatorNotifyAllButton_Click(object sender, EventArgs e)
