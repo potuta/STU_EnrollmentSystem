@@ -35,6 +35,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.rolesComboBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.addRolePanel = new System.Windows.Forms.Panel();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.roleNameTextBox = new System.Windows.Forms.TextBox();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
+            this.label21 = new System.Windows.Forms.Label();
+            this.roleIDTextBox = new System.Windows.Forms.TextBox();
+            this.addRoleButton = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.roleNamePanel = new System.Windows.Forms.Panel();
             this.saveChangesButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.UsersRoles_SubModule = new System.Windows.Forms.CheckBox();
@@ -71,8 +82,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Enrollment_Module = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.sTU_DBDataSet = new STUEnrollmentSystem.STU_DBDataSet();
-            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rolesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RolesTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.rolesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -110,25 +119,16 @@
             this.dataGridViewCheckBoxColumn15 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn16 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn17 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.roleNamePanel = new System.Windows.Forms.Panel();
-            this.addRolePanel = new System.Windows.Forms.Panel();
-            this.addRoleButton = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.roleIDTextBox = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.roleNameTextBox = new System.Windows.Forms.TextBox();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
+            this.addRolePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).BeginInit();
+            this.roleNamePanel.SuspendLayout();
+            this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingNavigator)).BeginInit();
             this.rolesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolesDataGridView)).BeginInit();
-            this.roleNamePanel.SuspendLayout();
-            this.addRolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,6 +163,7 @@
             // 
             // rolesComboBox
             // 
+            this.rolesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rolesComboBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rolesComboBox.FormattingEnabled = true;
             this.rolesComboBox.Location = new System.Drawing.Point(100, 24);
@@ -181,6 +182,120 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(244, 999);
             this.panel3.TabIndex = 18;
+            // 
+            // addRolePanel
+            // 
+            this.addRolePanel.Controls.Add(this.cancelButton);
+            this.addRolePanel.Controls.Add(this.label22);
+            this.addRolePanel.Controls.Add(this.roleNameTextBox);
+            this.addRolePanel.Controls.Add(this.label21);
+            this.addRolePanel.Controls.Add(this.roleIDTextBox);
+            this.addRolePanel.Controls.Add(this.addRoleButton);
+            this.addRolePanel.Controls.Add(this.label20);
+            this.addRolePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addRolePanel.Location = new System.Drawing.Point(0, 146);
+            this.addRolePanel.Name = "addRolePanel";
+            this.addRolePanel.Size = new System.Drawing.Size(242, 215);
+            this.addRolePanel.TabIndex = 20;
+            this.addRolePanel.Visible = false;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.Red;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cancelButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(72, 164);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(90, 27);
+            this.cancelButton.TabIndex = 23;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.bindingNavigatorCancelItemButton_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(14, 86);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 20);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Role Name:";
+            // 
+            // roleNameTextBox
+            // 
+            this.roleNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roleNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "RoleName", true));
+            this.roleNameTextBox.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleNameTextBox.Location = new System.Drawing.Point(100, 84);
+            this.roleNameTextBox.Name = "roleNameTextBox";
+            this.roleNameTextBox.Size = new System.Drawing.Size(121, 25);
+            this.roleNameTextBox.TabIndex = 21;
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.sTU_DBDataSet;
+            // 
+            // sTU_DBDataSet
+            // 
+            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
+            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(35, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 20);
+            this.label21.TabIndex = 20;
+            this.label21.Text = "Role ID:";
+            // 
+            // roleIDTextBox
+            // 
+            this.roleIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roleIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "RoleID", true));
+            this.roleIDTextBox.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleIDTextBox.Location = new System.Drawing.Point(100, 49);
+            this.roleIDTextBox.Name = "roleIDTextBox";
+            this.roleIDTextBox.Size = new System.Drawing.Size(121, 25);
+            this.roleIDTextBox.TabIndex = 19;
+            // 
+            // addRoleButton
+            // 
+            this.addRoleButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.addRoleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addRoleButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addRoleButton.Location = new System.Drawing.Point(72, 131);
+            this.addRoleButton.Name = "addRoleButton";
+            this.addRoleButton.Size = new System.Drawing.Size(90, 27);
+            this.addRoleButton.TabIndex = 18;
+            this.addRoleButton.Text = "Add role";
+            this.addRoleButton.UseVisualStyleBackColor = false;
+            this.addRoleButton.Click += new System.EventHandler(this.addRoleButton_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(70, 15);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(92, 20);
+            this.label20.TabIndex = 16;
+            this.label20.Text = "Add new role:";
+            // 
+            // roleNamePanel
+            // 
+            this.roleNamePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roleNamePanel.Controls.Add(this.saveChangesButton);
+            this.roleNamePanel.Controls.Add(this.label2);
+            this.roleNamePanel.Controls.Add(this.rolesComboBox);
+            this.roleNamePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roleNamePanel.Location = new System.Drawing.Point(0, 0);
+            this.roleNamePanel.Name = "roleNamePanel";
+            this.roleNamePanel.Size = new System.Drawing.Size(242, 146);
+            this.roleNamePanel.TabIndex = 19;
             // 
             // saveChangesButton
             // 
@@ -612,16 +727,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Enrollment:";
             // 
-            // sTU_DBDataSet
-            // 
-            this.sTU_DBDataSet.DataSetName = "STU_DBDataSet";
-            this.sTU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rolesBindingSource
-            // 
-            this.rolesBindingSource.DataMember = "Roles";
-            this.rolesBindingSource.DataSource = this.sTU_DBDataSet;
-            // 
             // rolesTableAdapter
             // 
             this.rolesTableAdapter.ClearBeforeFill = true;
@@ -936,110 +1041,6 @@
             this.dataGridViewCheckBoxColumn17.HeaderText = "UsersRoles_SubModule";
             this.dataGridViewCheckBoxColumn17.Name = "dataGridViewCheckBoxColumn17";
             // 
-            // roleNamePanel
-            // 
-            this.roleNamePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roleNamePanel.Controls.Add(this.saveChangesButton);
-            this.roleNamePanel.Controls.Add(this.label2);
-            this.roleNamePanel.Controls.Add(this.rolesComboBox);
-            this.roleNamePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.roleNamePanel.Location = new System.Drawing.Point(0, 0);
-            this.roleNamePanel.Name = "roleNamePanel";
-            this.roleNamePanel.Size = new System.Drawing.Size(242, 146);
-            this.roleNamePanel.TabIndex = 19;
-            // 
-            // addRolePanel
-            // 
-            this.addRolePanel.Controls.Add(this.cancelButton);
-            this.addRolePanel.Controls.Add(this.label22);
-            this.addRolePanel.Controls.Add(this.roleNameTextBox);
-            this.addRolePanel.Controls.Add(this.label21);
-            this.addRolePanel.Controls.Add(this.roleIDTextBox);
-            this.addRolePanel.Controls.Add(this.addRoleButton);
-            this.addRolePanel.Controls.Add(this.label20);
-            this.addRolePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.addRolePanel.Location = new System.Drawing.Point(0, 146);
-            this.addRolePanel.Name = "addRolePanel";
-            this.addRolePanel.Size = new System.Drawing.Size(242, 215);
-            this.addRolePanel.TabIndex = 20;
-            this.addRolePanel.Visible = false;
-            // 
-            // addRoleButton
-            // 
-            this.addRoleButton.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.addRoleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addRoleButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addRoleButton.Location = new System.Drawing.Point(72, 131);
-            this.addRoleButton.Name = "addRoleButton";
-            this.addRoleButton.Size = new System.Drawing.Size(90, 27);
-            this.addRoleButton.TabIndex = 18;
-            this.addRoleButton.Text = "Add role";
-            this.addRoleButton.UseVisualStyleBackColor = false;
-            this.addRoleButton.Click += new System.EventHandler(this.addRoleButton_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(70, 15);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(92, 20);
-            this.label20.TabIndex = 16;
-            this.label20.Text = "Add new role:";
-            // 
-            // roleIDTextBox
-            // 
-            this.roleIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roleIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "RoleID", true));
-            this.roleIDTextBox.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleIDTextBox.Location = new System.Drawing.Point(100, 49);
-            this.roleIDTextBox.Name = "roleIDTextBox";
-            this.roleIDTextBox.Size = new System.Drawing.Size(121, 25);
-            this.roleIDTextBox.TabIndex = 19;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(35, 50);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 20);
-            this.label21.TabIndex = 20;
-            this.label21.Text = "Role ID:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(14, 86);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 20);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "Role Name:";
-            // 
-            // roleNameTextBox
-            // 
-            this.roleNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roleNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "RoleName", true));
-            this.roleNameTextBox.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleNameTextBox.Location = new System.Drawing.Point(100, 84);
-            this.roleNameTextBox.Name = "roleNameTextBox";
-            this.roleNameTextBox.Size = new System.Drawing.Size(121, 25);
-            this.roleNameTextBox.TabIndex = 21;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.BackColor = System.Drawing.Color.Red;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cancelButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(72, 164);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(90, 27);
-            this.cancelButton.TabIndex = 23;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.bindingNavigatorCancelItemButton_Click);
-            // 
             // frmRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1057,18 +1058,18 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.addRolePanel.ResumeLayout(false);
+            this.addRolePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
+            this.roleNamePanel.ResumeLayout(false);
+            this.roleNamePanel.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingNavigator)).EndInit();
             this.rolesBindingNavigator.ResumeLayout(false);
             this.rolesBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolesDataGridView)).EndInit();
-            this.roleNamePanel.ResumeLayout(false);
-            this.roleNamePanel.PerformLayout();
-            this.addRolePanel.ResumeLayout(false);
-            this.addRolePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

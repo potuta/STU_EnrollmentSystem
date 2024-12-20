@@ -151,6 +151,7 @@ namespace STUEnrollmentSystem
             bindingNavigatorDeleteItem.Enabled = false;
             bindingNavigatorCancelItem.Enabled = true;
             addRolePanel.Visible = true;
+            roleNamePanel.Visible = false;
         }
 
         private void bindingNavigatorCancelItemButton_Click(object sender, EventArgs e)
@@ -160,6 +161,7 @@ namespace STUEnrollmentSystem
             bindingNavigatorRefreshItem.PerformClick();
             bindingNavigatorCancelItem.Enabled = false;
             addRolePanel.Visible = false;
+            roleNamePanel.Visible = true;
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -176,6 +178,14 @@ namespace STUEnrollmentSystem
 
         private void addRoleButton_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show($"Are you sure you want to add '{roleNameTextBox.Text}' as a new role", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                bindingNavigatorRefreshItem.PerformClick();
+                return;
+            }
+
             rolesBindingNavigatorSaveItem.PerformClick();
             _rolesRepository.AddNewRole(roleNameTextBox.Text);
             bindingNavigatorCancelItem.PerformClick();
