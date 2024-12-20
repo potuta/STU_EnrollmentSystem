@@ -231,6 +231,9 @@ namespace STUEnrollmentSystem
             {
                 openChildForm(new frmSettings());
             }
+
+            Button_MouseClickColorChange(sender as Button);
+            ResetOtherButtons(sender as Button);
         }
 
         private void Button_EnabledChanged(object sender, EventArgs e)
@@ -258,6 +261,59 @@ namespace STUEnrollmentSystem
             else
             {
                 button.BackColor = SystemColors.ActiveBorder;
+            }
+        }
+
+        private void Button_MouseClickColorChange(Button selectedButton)
+        {
+            if (selectedButton != null)
+            {
+                selectedButton.BackColor = Color.LightBlue;
+            }
+        }
+
+        private void ResetOtherButtons(Button selectedButton)
+        {
+            List<Button> buttons = new List<Button>()
+            {
+                //enrollmentButton,
+                //studentButton,
+                //billingButton,
+                //academicButton,
+                //facultyButton,
+                registrationButton,
+                approvedButton,
+                manageStudentButton,
+                pendingRequirementsButton,
+                managePaymentButton,
+                billingReportButton,
+                feesButton,
+                paymentTypeButton,
+                section_ScheduleButton,
+                level_SubjectsButton,
+                teacherButton,
+                users_RolesButton,
+                settingsButton,
+                homeButton,
+                logoButton
+            };
+
+            foreach (Button button in buttons)
+            {
+                if (button != selectedButton)
+                {
+                    button.BackColor = Color.MintCream;
+                }
+
+                if (button == logoButton)
+                {
+                    button.BackColor = Color.Transparent;
+                }
+
+                if (button == settingsButton || button == homeButton)
+                {
+                    button.BackColor = Color.LightGoldenrodYellow;
+                }
             }
         }
     }
