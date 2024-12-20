@@ -76,11 +76,20 @@
             this.rolesTableAdapter = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.RolesTableAdapter();
             this.tableAdapterManager = new STUEnrollmentSystem.STU_DBDataSetTableAdapters.TableAdapterManager();
             this.rolesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorCancelItem = new System.Windows.Forms.ToolStripButton();
+            this.rolesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
             this.rolesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,15 +110,15 @@
             this.dataGridViewCheckBoxColumn15 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn16 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn17 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.rolesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorRefreshItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.roleNamePanel = new System.Windows.Forms.Panel();
+            this.addRolePanel = new System.Windows.Forms.Panel();
+            this.addRoleButton = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.roleIDTextBox = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.roleNameTextBox = new System.Windows.Forms.TextBox();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -118,6 +127,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rolesBindingNavigator)).BeginInit();
             this.rolesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolesDataGridView)).BeginInit();
+            this.roleNamePanel.SuspendLayout();
+            this.addRolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,7 +155,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 24);
+            this.label2.Location = new System.Drawing.Point(16, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 16;
@@ -152,10 +163,9 @@
             // 
             // rolesComboBox
             // 
-            this.rolesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rolesComboBox.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rolesComboBox.FormattingEnabled = true;
-            this.rolesComboBox.Location = new System.Drawing.Point(101, 21);
+            this.rolesComboBox.Location = new System.Drawing.Point(100, 24);
             this.rolesComboBox.Name = "rolesComboBox";
             this.rolesComboBox.Size = new System.Drawing.Size(121, 28);
             this.rolesComboBox.TabIndex = 17;
@@ -164,9 +174,8 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.saveChangesButton);
-            this.panel3.Controls.Add(this.rolesComboBox);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.addRolePanel);
+            this.panel3.Controls.Add(this.roleNamePanel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 62);
             this.panel3.Name = "panel3";
@@ -178,7 +187,7 @@
             this.saveChangesButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.saveChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveChangesButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveChangesButton.Location = new System.Drawing.Point(71, 81);
+            this.saveChangesButton.Location = new System.Drawing.Point(70, 84);
             this.saveChangesButton.Name = "saveChangesButton";
             this.saveChangesButton.Size = new System.Drawing.Size(90, 27);
             this.saveChangesButton.TabIndex = 18;
@@ -653,7 +662,7 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.toolStripButton1,
+            this.bindingNavigatorCancelItem,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.rolesBindingNavigatorSaveItem,
@@ -669,12 +678,48 @@
             this.rolesBindingNavigator.TabIndex = 21;
             this.rolesBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(74, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(60, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
@@ -696,10 +741,55 @@
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorCancelItem
+            // 
+            this.bindingNavigatorCancelItem.Enabled = false;
+            this.bindingNavigatorCancelItem.Image = global::STUEnrollmentSystem.Properties.Resources.Cancel;
+            this.bindingNavigatorCancelItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorCancelItem.Name = "bindingNavigatorCancelItem";
+            this.bindingNavigatorCancelItem.Size = new System.Drawing.Size(63, 22);
+            this.bindingNavigatorCancelItem.Text = "Cancel";
+            this.bindingNavigatorCancelItem.Click += new System.EventHandler(this.bindingNavigatorCancelItemButton_Click);
+            // 
+            // rolesBindingNavigatorSaveItem
+            // 
+            this.rolesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("rolesBindingNavigatorSaveItem.Image")));
+            this.rolesBindingNavigatorSaveItem.Name = "rolesBindingNavigatorSaveItem";
+            this.rolesBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
+            this.rolesBindingNavigatorSaveItem.Text = "Save Data";
+            this.rolesBindingNavigatorSaveItem.Click += new System.EventHandler(this.rolesBindingNavigatorSaveItem_Click);
+            // 
+            // bindingNavigatorRefreshItem
+            // 
+            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
+            this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
+            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
+            this.bindingNavigatorRefreshItem.Text = "Refresh Data";
+            this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
             // 
             // rolesDataGridView
             // 
@@ -846,85 +936,109 @@
             this.dataGridViewCheckBoxColumn17.HeaderText = "UsersRoles_SubModule";
             this.dataGridViewCheckBoxColumn17.Name = "dataGridViewCheckBoxColumn17";
             // 
-            // bindingNavigatorAddNewItem
+            // roleNamePanel
             // 
-            this.bindingNavigatorAddNewItem.Enabled = false;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(74, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.roleNamePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roleNamePanel.Controls.Add(this.saveChangesButton);
+            this.roleNamePanel.Controls.Add(this.label2);
+            this.roleNamePanel.Controls.Add(this.rolesComboBox);
+            this.roleNamePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.roleNamePanel.Location = new System.Drawing.Point(0, 0);
+            this.roleNamePanel.Name = "roleNamePanel";
+            this.roleNamePanel.Size = new System.Drawing.Size(242, 146);
+            this.roleNamePanel.TabIndex = 19;
             // 
-            // bindingNavigatorDeleteItem
+            // addRolePanel
             // 
-            this.bindingNavigatorDeleteItem.Enabled = false;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(60, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.addRolePanel.Controls.Add(this.cancelButton);
+            this.addRolePanel.Controls.Add(this.label22);
+            this.addRolePanel.Controls.Add(this.roleNameTextBox);
+            this.addRolePanel.Controls.Add(this.label21);
+            this.addRolePanel.Controls.Add(this.roleIDTextBox);
+            this.addRolePanel.Controls.Add(this.addRoleButton);
+            this.addRolePanel.Controls.Add(this.label20);
+            this.addRolePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addRolePanel.Location = new System.Drawing.Point(0, 146);
+            this.addRolePanel.Name = "addRolePanel";
+            this.addRolePanel.Size = new System.Drawing.Size(242, 215);
+            this.addRolePanel.TabIndex = 20;
+            this.addRolePanel.Visible = false;
             // 
-            // bindingNavigatorMoveFirstItem
+            // addRoleButton
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.addRoleButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.addRoleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addRoleButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addRoleButton.Location = new System.Drawing.Point(72, 131);
+            this.addRoleButton.Name = "addRoleButton";
+            this.addRoleButton.Size = new System.Drawing.Size(90, 27);
+            this.addRoleButton.TabIndex = 18;
+            this.addRoleButton.Text = "Add role";
+            this.addRoleButton.UseVisualStyleBackColor = false;
+            this.addRoleButton.Click += new System.EventHandler(this.addRoleButton_Click);
             // 
-            // bindingNavigatorMovePreviousItem
+            // label20
             // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(70, 15);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(92, 20);
+            this.label20.TabIndex = 16;
+            this.label20.Text = "Add new role:";
             // 
-            // bindingNavigatorMoveNextItem
+            // roleIDTextBox
             // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.roleIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roleIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "RoleID", true));
+            this.roleIDTextBox.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleIDTextBox.Location = new System.Drawing.Point(100, 49);
+            this.roleIDTextBox.Name = "roleIDTextBox";
+            this.roleIDTextBox.Size = new System.Drawing.Size(121, 25);
+            this.roleIDTextBox.TabIndex = 19;
             // 
-            // bindingNavigatorMoveLastItem
+            // label21
             // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(35, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 20);
+            this.label21.TabIndex = 20;
+            this.label21.Text = "Role ID:";
             // 
-            // rolesBindingNavigatorSaveItem
+            // label22
             // 
-            this.rolesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("rolesBindingNavigatorSaveItem.Image")));
-            this.rolesBindingNavigatorSaveItem.Name = "rolesBindingNavigatorSaveItem";
-            this.rolesBindingNavigatorSaveItem.Size = new System.Drawing.Size(78, 22);
-            this.rolesBindingNavigatorSaveItem.Text = "Save Data";
-            this.rolesBindingNavigatorSaveItem.Click += new System.EventHandler(this.rolesBindingNavigatorSaveItem_Click);
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(14, 86);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 20);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Role Name:";
             // 
-            // bindingNavigatorRefreshItem
+            // roleNameTextBox
             // 
-            this.bindingNavigatorRefreshItem.Image = global::STUEnrollmentSystem.Properties.Resources.pngwing_com_1_;
-            this.bindingNavigatorRefreshItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bindingNavigatorRefreshItem.Name = "bindingNavigatorRefreshItem";
-            this.bindingNavigatorRefreshItem.Size = new System.Drawing.Size(93, 22);
-            this.bindingNavigatorRefreshItem.Text = "Refresh Data";
-            this.bindingNavigatorRefreshItem.Click += new System.EventHandler(this.bindingNavigatorRefreshItem_Click);
+            this.roleNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roleNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.rolesBindingSource, "RoleName", true));
+            this.roleNameTextBox.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleNameTextBox.Location = new System.Drawing.Point(100, 84);
+            this.roleNameTextBox.Name = "roleNameTextBox";
+            this.roleNameTextBox.Size = new System.Drawing.Size(121, 25);
+            this.roleNameTextBox.TabIndex = 21;
             // 
-            // toolStripButton1
+            // cancelButton
             // 
-            this.toolStripButton1.Enabled = false;
-            this.toolStripButton1.Image = global::STUEnrollmentSystem.Properties.Resources.Cancel;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(63, 22);
-            this.toolStripButton1.Text = "Cancel";
+            this.cancelButton.BackColor = System.Drawing.Color.Red;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cancelButton.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(72, 164);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(90, 27);
+            this.cancelButton.TabIndex = 23;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.bindingNavigatorCancelItemButton_Click);
             // 
             // frmRoles
             // 
@@ -943,7 +1057,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sTU_DBDataSet)).EndInit();
@@ -952,6 +1065,10 @@
             this.rolesBindingNavigator.ResumeLayout(false);
             this.rolesBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rolesDataGridView)).EndInit();
+            this.roleNamePanel.ResumeLayout(false);
+            this.roleNamePanel.PerformLayout();
+            this.addRolePanel.ResumeLayout(false);
+            this.addRolePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1038,6 +1155,15 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn15;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn16;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn17;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorCancelItem;
+        private System.Windows.Forms.Panel roleNamePanel;
+        private System.Windows.Forms.Panel addRolePanel;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox roleIDTextBox;
+        private System.Windows.Forms.Button addRoleButton;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox roleNameTextBox;
     }
 }

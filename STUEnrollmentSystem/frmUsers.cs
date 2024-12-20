@@ -140,6 +140,7 @@ namespace STUEnrollmentSystem
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             usersDataGridView.Enabled = false;
+            bindingNavigatorDeleteItem.Enabled = false;
             bindingNavigatorCancelItem.Enabled = true;
 
             string userID = generateUserID();
@@ -153,6 +154,7 @@ namespace STUEnrollmentSystem
         private void bindingNavigatorCancelItem_Click(object sender, EventArgs e)
         {
             usersDataGridView.Enabled = true;
+            bindingNavigatorDeleteItem.Enabled = true;
 
             usernameTextBox.ReadOnly = true;
             passwordTextBox.ReadOnly = true;

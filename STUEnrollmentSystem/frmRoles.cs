@@ -20,7 +20,6 @@ namespace STUEnrollmentSystem
             InitializeComponent();
             _rolesRepository = new RolesRepository(ConnectionFactory.GetConnectionString());
             this.tableAdapterManager.Connection.ConnectionString = ConnectionFactory.GetConnectionString();
-            roleNameList = _rolesRepository.GetRolesList();
         }
 
         private void frmRoles_Load(object sender, EventArgs e)
@@ -35,6 +34,7 @@ namespace STUEnrollmentSystem
             this.Validate();
             this.rolesBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sTU_DBDataSet);
+            InitializeRolesComboBox();
         }
 
         private void bindingNavigatorRefreshItem_Click(object sender, EventArgs e)
@@ -45,6 +45,7 @@ namespace STUEnrollmentSystem
         private void InitializeRolesComboBox()
         {
             rolesComboBox.Items.Clear();
+            roleNameList = _rolesRepository.GetRolesList();
             rolesComboBox.Items.AddRange(roleNameList.ToArray());
         }
 
@@ -142,6 +143,42 @@ namespace STUEnrollmentSystem
                     InitializeUserRolePrivilegesCheckBoxes(map);
                 }
             }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            rolesDataGridView.Enabled = false;
+            bindingNavigatorDeleteItem.Enabled = false;
+            bindingNavigatorCancelItem.Enabled = true;
+            addRolePanel.Visible = true;
+        }
+
+        private void bindingNavigatorCancelItemButton_Click(object sender, EventArgs e)
+        {
+            rolesDataGridView.Enabled = true;
+            bindingNavigatorDeleteItem.Enabled = true;
+            bindingNavigatorRefreshItem.PerformClick();
+            bindingNavigatorCancelItem.Enabled = false;
+            addRolePanel.Visible = false;
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                bindingNavigatorRefreshItem.PerformClick();
+                return;
+            }
+
+        }
+
+        private void addRoleButton_Click(object sender, EventArgs e)
+        {
+            rolesBindingNavigatorSaveItem.PerformClick();
+            _rolesRepository.AddNewRole(roleNameTextBox.Text);
+            bindingNavigatorCancelItem.PerformClick();
         }
     }
 }

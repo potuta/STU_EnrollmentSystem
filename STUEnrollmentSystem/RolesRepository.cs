@@ -125,6 +125,51 @@ namespace STUEnrollmentSystem
             return map;
         }
 
+        public void AddNewRole(string roleName)
+        {
+            string[] columns = { "Enrollment_Module", "Registration_SubModule", "ApprovedStudents_SubModule",
+                                "StudentRecords_Module", "ManageStudents_SubModule", "PendingRequirements_SubModule",
+                                "Billing_Module", "ManagePayments_SubModule", "BillingReport_SubModule",
+                                "Academic_Module", "Fees_SubModule", "PaymentType_SubModule", "SectionsSchedule_SubModule", "GradeLevelSubjects_SubModule",
+                                "Faculty_Module", "Teachers_SubModule", "UsersRoles_SubModule"};
+
+            _connection.Open();
+            using (SqlTransaction transaction = _connection.BeginTransaction(IsolationLevel.Serializable))
+            {
+                try
+                {
+                    foreach (string column in columns)
+                    {
+                        string query = $"UPDATE Roles SET {column} = @Param WHERE RoleName = @RoleName";
+                        using (SqlCommand command = new SqlCommand(query, _connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@Param", 0);
+                            command.Parameters.AddWithValue("@RoleName", roleName);
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    transaction.Commit();
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"SQL Error in AddNewRole: {ex.Message}");
+                    transaction.Rollback();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Unexpected error in AddNewRole: {ex.Message}");
+                    transaction.Rollback();
+                    return;
+                }
+                finally
+                {
+                    if (_connection.State == ConnectionState.Open)
+                        _connection.Close();
+                }
+            }
+        }
+
         public void UpdateRolePrivileges(string roleName, Dictionary<string, bool> map)
         {
             try
