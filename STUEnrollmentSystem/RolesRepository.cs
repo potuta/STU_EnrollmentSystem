@@ -154,13 +154,13 @@ namespace STUEnrollmentSystem
                 {
                     Console.WriteLine($"SQL Error in AddNewRole: {ex.Message}");
                     transaction.Rollback();
-                    return;
+                    throw;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Unexpected error in AddNewRole: {ex.Message}");
                     transaction.Rollback();
-                    return;
+                    throw;
                 }
                 finally
                 {

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace STUEnrollmentSystem
@@ -182,12 +184,35 @@ namespace STUEnrollmentSystem
 
             if (result == DialogResult.No)
             {
-                bindingNavigatorRefreshItem.PerformClick();
+                return;
+            }
+
+            string checkIfRoleExists = _rolesRepository.GetRoleName(roleIDTextBox.Text);
+
+            if (!string.IsNullOrWhiteSpace(checkIfRoleExists))
+            {
+                MessageBox.Show($"Role '{roleIDTextBox.Text}, {roleNameTextBox.Text}' already exists.'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             rolesBindingNavigatorSaveItem.PerformClick();
-            _rolesRepository.AddNewRole(roleNameTextBox.Text);
+
+            try
+            {
+                _rolesRepository.AddNewRole(roleNameTextBox.Text);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"SQL Error in AddNewRole: {ex.Message}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error in AddNewRole: {ex.Message}");
+                return;
+            }
+
+            MessageBox.Show($"Role '{roleIDTextBox.Text}, {roleNameTextBox.Text}' successfully added.'", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             bindingNavigatorCancelItem.PerformClick();
         }
     }

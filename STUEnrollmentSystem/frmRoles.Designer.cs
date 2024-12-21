@@ -287,7 +287,6 @@
             // 
             // roleNamePanel
             // 
-            this.roleNamePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.roleNamePanel.Controls.Add(this.saveChangesButton);
             this.roleNamePanel.Controls.Add(this.label2);
             this.roleNamePanel.Controls.Add(this.rolesComboBox);
